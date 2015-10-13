@@ -1,6 +1,8 @@
 # OptimizationProblems
 
 [![Build Status](https://travis-ci.org/dpo/OptimizationProblems.jl.svg?branch=master)](https://travis-ci.org/dpo/OptimizationProblems.jl)
+[![Build status](https://ci.appveyor.com/api/projects/status/270y5330ihk30v41/branch/master?svg=true)](https://ci.appveyor.com/project/dpo/optimizationproblems-jl/branch/master)
+[![Coverage Status](https://coveralls.io/repos/dpo/OptimizationProblems.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/dpo/OptimizationProblems.jl?branch=master)
 
 A collection of optimization problems in
 [JuMP](https://github.com/JuliaOpt/JuMP.jl) syntax.
