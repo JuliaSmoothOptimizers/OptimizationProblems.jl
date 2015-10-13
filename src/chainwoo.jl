@@ -19,7 +19,7 @@
 #
 # D. Orban, Montreal, 08/2015.
 
-export chainwoo
+export chainwoo, woods
 
 "The chained Woods function in size `n`, a variant on the Woods function"
 function chainwoo(n :: Int=100)
