@@ -16,6 +16,7 @@
 #   classification SUR2-AN-V-0
 # J.-P. Dussault, Rennes 09/2015.
 
+export genhumps
 
 function genhumps(n :: Int = 100)
 

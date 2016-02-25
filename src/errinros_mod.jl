@@ -13,6 +13,8 @@
 #
 # J,-P, Dussault, Rennes 09/2015.
 
+export errinros_mod
+
 function errinros_mod(n :: Int=100)
 
   n < 2 && error("errinros_mod: number of variables must be ≥ 2")

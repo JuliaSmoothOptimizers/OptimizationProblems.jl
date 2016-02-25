@@ -1,4 +1,4 @@
-#   Source:  The first problem given by
+#   Source:  The second problem given by
 #   R. Fletcher,
 #   "An optimal positive definite update for sparse Hessian matrices"
 #   Numerical Analysis report NA/145, University of Dundee, 1992.
@@ -7,7 +7,7 @@
 
 #   SIF input: Nick Gould, Oct 1992.
 
-#   problem 31 in
+#   problem 32 in
 #   L. Luksan, C. Matonoha and J. Vlcek  
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
@@ -18,25 +18,22 @@
 #
 #   classification OUR2-AN-V-0
 #
-# J,-P, Dussault, Rennes 09/2015.
+# J.-P. Dussault, Rennes 09/2015.
 
-export fletcbv2
+export fletchcr
 
-function fletcbv2(n :: Int=100)
+function fletchcr(n :: Int=100)
 
-  n < 2 && error("fletcbv2: number of variables must be ≥ 2")
+  n < 2 && error("fletchcr: number of variables must be ≥ 2")
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=(i/(n+1.0))) 
-
-    h = 1.0 / (n+1)
+  @defVar(nlp, x[i=1:n], start=0.0) 
     
   @setNLObjective(
     nlp,
     Min,
-    (1/2.0) * (x[1]^2 + sum{ (x[i]-x[i+1])^2, i=1:(n-1)} + x[n]^2) - 
-        h^2 * sum{2.0*x[i]+cos(x[i]), i=1:n} - x[n]
+    100.0 * sum{ (x[i+1]-x[i]+1-x[i]^2)^2, i=1:(n-1)}
   )
 
   return nlp

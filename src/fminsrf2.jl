@@ -18,6 +18,8 @@
 #   http://www.cs.cas.cz/matonoha/download/V1081.pdf
 # J.-P. Dussault, Rennes 09/2015.
 
+export fminsrf2
+
 function fminsrf2(n :: Int = 100)
 
     (int(sqrt(n))*sqrt(n)) != n && error("fminsrf2: number of variables must be square")

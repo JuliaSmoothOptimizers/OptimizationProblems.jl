@@ -20,6 +20,8 @@
 #
 # J.-P. Dussault, Rennes 09/2015.
 
+export  fletcbv3_mod
+
 function fletcbv3_mod(n :: Int=100)
 
   n < 2 && error("fletchbv3_mod: number of variables must be ≥ 2")

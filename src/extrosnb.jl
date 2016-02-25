@@ -20,6 +20,8 @@
 #
 # J.-P. Dussault, Rennes 09/2015.
 
+export extrosnb
+
 function extrosnb(n :: Int=100)
 
   n < 2 && error("extrosnb: number of variables must be ≥ 2")
