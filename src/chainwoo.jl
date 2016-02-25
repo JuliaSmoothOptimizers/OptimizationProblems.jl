@@ -50,4 +50,4 @@ end
 
 
 "The Woods function."
-woods() = chainwoo(4)
+woods(n :: Int = 4) = chainwoo(4)
