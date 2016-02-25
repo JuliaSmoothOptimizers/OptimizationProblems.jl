@@ -20,6 +20,7 @@
 #   classification SUR2-AN-V-0
 # J.-P. Dussault, Rennes 09/2015.
 
+export freuroth
 
 function freuroth(n :: Int = 100)
     ngs = n-1
