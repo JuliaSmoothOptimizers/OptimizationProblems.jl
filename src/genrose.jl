@@ -58,4 +58,4 @@ end
 
 
 "Classic Rosenbrock problem"
-rosenbrock() = genrose(2)
+rosenbrock(n::Int) = genrose(2)
