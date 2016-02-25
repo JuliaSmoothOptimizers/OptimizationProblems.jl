@@ -33,7 +33,7 @@ function genhumps(n :: Int = 100)
     @setNLObjective(
                     nlp,
                     Min,
-	            sum {( sin (zeta*x[i])^2 * sin(zeta*x[i+1])^2 + 0.05*(x[i]^2+x[i+1]^2) ), i=1:n-1}
+	            sum{( sin(zeta*x[i])^2 * sin(zeta*x[i+1])^2 + 0.05*(x[i]^2+x[i+1]^2) ), i=1:n-1}
                     )
 
     return nlp
