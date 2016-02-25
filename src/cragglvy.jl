@@ -43,7 +43,7 @@ function cragglvy(n :: Int=100)
     sum{(exp(x[2*i-1]) - x[2*i])^4 + 100 * (x[2*i] - x[2*i+1])^6 +
         (tan(x[2*i+1] - x[2*i+2]) + x[2*i+1] - x[2*i+2])^4 +
         x[2*i-1]^8 + (x[2*i+2] - 1)^2,
-    i = 1:n/2-1}
+    i = 1:div(n,2)-1}
   )
 
   return nlp

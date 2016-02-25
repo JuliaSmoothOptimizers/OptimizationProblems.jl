@@ -45,7 +45,7 @@ export broydn7d
 function broydn7d(n :: Int=100, p :: Float64=7/3)
 
   mod(n, 2) > 0 && error("broydn7d: number of variables must be even")
-  n2 = n / 2
+  n2 = div(n, 2)
 
   nlp = Model()
 
