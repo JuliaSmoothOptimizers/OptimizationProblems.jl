@@ -35,8 +35,8 @@ function freuroth(n :: Int = 100)
     @setNLObjective(
                     nlp,
                     Min,
-	            sum { ((5.0-x[i+1])*x[i+1]^2+x[i]-2*x[i+1]-13.0)^2, i=1:ngs} +
-	            sum { ((1.0+x[i+1])*x[i+1]^2+x[i]-14*x[i+1]-29.0)^2, i=1:ngs}
+	            sum{ ((5.0-x[i+1])*x[i+1]^2+x[i]-2*x[i+1]-13.0)^2, i=1:ngs} +
+	            sum{ ((1.0+x[i+1])*x[i+1]^2+x[i]-14*x[i+1]-29.0)^2, i=1:ngs}
                     )
 
     return nlp

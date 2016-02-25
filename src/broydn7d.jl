@@ -42,7 +42,7 @@
 export broydn7d
 
 "Broyden 7-diagonal model in size `n`"
-function broydn7d(;n :: Int=100, p :: Float64=7/3)
+function broydn7d(n :: Int=100, p :: Float64=7/3)
 
   mod(n, 2) > 0 && error("broydn7d: number of variables must be even")
   n2 = n / 2
