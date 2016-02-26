@@ -24,7 +24,8 @@ export fletchcr
 
 function fletchcr(n :: Int=100)
 
-  n < 2 && error("fletchcr: number of variables must be ≥ 2")
+  n < 2 && warn("fletchcr: number of variables must be ≥ 2")
+  n = max(2,n)
 
   nlp = Model()
 

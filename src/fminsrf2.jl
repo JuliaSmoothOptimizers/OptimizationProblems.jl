@@ -22,9 +22,12 @@ export fminsrf2
 
 function fminsrf2(n :: Int = 100)
 
-    (round(Int,sqrt(n))*sqrt(n)) != n && error("fminsrf2: number of variables must be square")
+    n < 4 && warn("fminsrf2: number of variables must be ≥ 4")
+    n = max(4,n)
 
     p = round(Int,sqrt(n))
+    p*p != n && warn("fminsrf2: number of variables adjusted from $n to $p*$p be square")
+    n = p*p
 
     h00 = 1.0
     slopej = 4.0

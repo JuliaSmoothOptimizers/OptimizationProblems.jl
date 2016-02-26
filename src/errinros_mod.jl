@@ -17,7 +17,8 @@ export errinros_mod
 
 function errinros_mod(n :: Int=100)
 
-  n < 2 && error("errinros_mod: number of variables must be ≥ 2")
+  n < 2 && warn("errinros_mod: number of variables must be ≥ 2")
+  n = max(2,n)
 
   nlp = Model()
 

@@ -18,7 +18,8 @@ export cosine
 "The cosine function in size `n`"
 function cosine(n :: Int=100)
 
-  n < 2 && error("cosine: number of variables must be ≥ 2")
+  n < 2 && warn("cosine: number of variables must be ≥ 2")
+  n = max(2,n)
 
   nlp = Model()
 

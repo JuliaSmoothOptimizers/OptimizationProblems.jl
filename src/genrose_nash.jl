@@ -34,7 +34,8 @@ export genrose_nash
 "Nash's variant of `genrose()` in size `n`"
 function genrose_nash(n :: Int=100)
 
-  n < 2 && error("genrose_nash: number of variables must be ≥ 2")
+  n < 2 && warn("genrose_nash: number of variables must be ≥ 2")
+  n = max(2,n)
 
   nlp = Model()
 
