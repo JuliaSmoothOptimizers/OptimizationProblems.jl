@@ -59,4 +59,4 @@ end
 
 
 "Classic Rosenbrock problem"
-rosenbrock(n::Int=2) =  genrose(2)
+rosenbrock(n::Int=2) =  genrose(min(n,2))

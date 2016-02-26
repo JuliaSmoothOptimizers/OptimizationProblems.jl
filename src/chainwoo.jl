@@ -51,4 +51,4 @@ end
 
 
 "The Woods function."
-woods(n :: Int = 4) = chainwoo(4)
+woods(n :: Int = 4) = chainwoo(min(n,4))
