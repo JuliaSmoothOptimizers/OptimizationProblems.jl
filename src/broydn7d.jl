@@ -45,7 +45,7 @@ export broydn7d
 function broydn7d(n :: Int=100, p :: Float64=7/3)
 
   mod(n, 2) > 0 && warn("broydn7d: number of variables adjusted to be even")
-  n2 = div(n , 2) 
+  n2 = max(1 , div(n , 2)) 
   n  =  2*n2
 
 
