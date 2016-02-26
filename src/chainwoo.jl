@@ -25,7 +25,7 @@ export chainwoo, woods
 function chainwoo(n :: Int=100)
 
   (n % 4 == 0) || warn("chainwoo: number of variables adjusted to be a multiple of 4")
-  n = 4 * div(n,4)
+  n = 4 * max(1,div(n,4))
 
   nlp = Model()
 
