@@ -27,8 +27,9 @@ export dixmaani, dixmaanj, dixmaank, dixmaanl
 function dixmaani(n :: Int=99;
                   α :: Float64=1.0, β :: Float64=0.0, γ :: Float64=0.125, δ :: Float64=0.125)
 
-  (n % 3 == 0) || error("dixmaan: number of variables must be a multiple of 3")
+  (n % 3 == 0) || warn("dixmaan: number of variables adjusted to be a multiple of 3")
   m = div(n , 3)
+  n = 3*m
 
   nlp = Model()
 

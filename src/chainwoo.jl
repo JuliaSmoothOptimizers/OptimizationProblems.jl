@@ -24,7 +24,8 @@ export chainwoo, woods
 "The chained Woods function in size `n`, a variant on the Woods function"
 function chainwoo(n :: Int=100)
 
-  (n % 4 == 0) || error("chainwoo: number of variables must be a multiple of 4")
+  (n % 4 == 0) || warn("chainwoo: number of variables adjusted to be a multiple of 4")
+  n = 4 * div(n,4)
 
   nlp = Model()
 
