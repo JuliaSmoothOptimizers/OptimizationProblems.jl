@@ -24,7 +24,8 @@ export chainwoo, woods
 "The chained Woods function in size `n`, a variant on the Woods function"
 function chainwoo(n :: Int=100)
 
-  (n % 4 == 0) || error("chainwoo: number of variables must be a multiple of 4")
+  (n % 4 == 0) || warn("chainwoo: number of variables adjusted to be a multiple of 4")
+  n = 4 * max(1,div(n,4))
 
   nlp = Model()
 
@@ -42,7 +43,7 @@ function chainwoo(n :: Int=100)
     Min,
     1.0 + sum{100 * (x[2*i]   - x[2*i-1]^2)^2 + (1 - x[2*i-1])^2 +
                90 * (x[2*i+2] - x[2*i+1]^2)^2 + (1 - x[2*i+1])^2 +
-               10 * (x[2*i] + x[2*i+2] - 2)^2 + 0.1 * (x[2*i] - x[2*i+2])^2, i=1:n/2-1}
+               10 * (x[2*i] + x[2*i+2] - 2)^2 + 0.1 * (x[2*i] - x[2*i+2])^2, i=1:div(n,2)-1}
   )
 
   return nlp
@@ -50,4 +51,4 @@ end
 
 
 "The Woods function."
-woods() = chainwoo(4)
+woods(n :: Int = 4) = chainwoo(min(n,4))

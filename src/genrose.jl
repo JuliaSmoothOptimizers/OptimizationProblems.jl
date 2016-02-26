@@ -41,7 +41,8 @@ export genrose, rosenbrock
 "Generalized Rosenbrock model in size `n`"
 function genrose(n :: Int=100)
 
-  n < 2 && error("genrose: number of variables must be ≥ 2")
+  n < 2 && warn("genrose: number of variables must be ≥ 2")
+  n = max(2,n)
 
   nlp = Model()
 
@@ -58,4 +59,4 @@ end
 
 
 "Classic Rosenbrock problem"
-rosenbrock() = genrose(2)
+rosenbrock(n::Int=2) =  genrose(min(n,2))
