@@ -14,7 +14,7 @@ end
 
 using NLPModels
 
-# n=1 triggers all warnings for incompatible dimensions
+# n = 1 triggers all warnings for incompatible dimensions
 n = 1
 
 for prob in names(OptimizationProblems)
