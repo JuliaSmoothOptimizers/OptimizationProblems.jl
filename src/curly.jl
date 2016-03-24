@@ -1,10 +1,10 @@
-# A banded function with semi-bandwidth b and 
+# A banded function with semi-bandwidth b and
 # negative curvature near the starting point.
 #
 # See also
 #
 #   problems 8, 9, 10 in
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -28,7 +28,7 @@ function curly(n :: Int=100; b :: Int=10)
 
   @defVar(nlp, x[i=1:n], start=1.0e-4/(n+1))
 
-  @defNLExpr(f[i=1:n], sum{x[j], j=i:min(i+b,n)})
+  @defNLExpr(nlp, f[i=1:n], sum{x[j], j=i:min(i+b,n)})
 
   @setNLObjective(
     nlp,
