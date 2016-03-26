@@ -51,4 +51,4 @@ end
 
 
 "The Woods function."
-woods() = chainwoo(4)
+woods(args...) = chainwoo(4)

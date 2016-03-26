@@ -59,4 +59,4 @@ end
 
 
 "Classic Rosenbrock problem"
-rosenbrock() = genrose(2)
+rosenbrock(args...) = genrose(2)
