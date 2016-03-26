@@ -1,13 +1,13 @@
 #   Source:  problem 8 in
 #   A. R. Conn, N. I. M. Gould and Ph. L. Toint,
-#   Testing a class of methods for solving minimization 
-#   problems with simple bounds on their variables, 
+#   Testing a class of methods for solving minimization
+#   problems with simple bounds on their variables,
 #   Mathematics of Computation 50, p 399-430, 1988.
 #
 # See also
 #
 #   problem 5 in
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -25,7 +25,7 @@ export chainwoo, woods
 function chainwoo(n :: Int=100)
 
   (n % 4 == 0) || warn("chainwoo: number of variables adjusted to be a multiple of 4")
-  n = 4 * max(1,div(n,4))
+  n = 4 * max(1, div(n, 4))
 
   nlp = Model()
 

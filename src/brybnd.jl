@@ -22,7 +22,7 @@
 # See also
 #
 #   problem 4 in
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -32,7 +32,7 @@
 #
 # Moré, Garbow and Hillstrom leave ml and mu as parameters.
 # Luksan, Matonoha and Vlcek do not.
-# 
+#
 #   classification SUR2-AN-V-0
 #
 # D. Orban, Montreal, 08/2015.

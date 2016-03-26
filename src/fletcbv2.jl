@@ -8,7 +8,7 @@
 #   SIF input: Nick Gould, Oct 1992.
 
 #   problem 31 in
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -25,21 +25,20 @@ export fletcbv2
 function fletcbv2(n :: Int=100)
 
   n < 2 && warn("fletcbv2: number of variables must be ≥ 2")
-  n = max(2,n)
+  n = max(2, n)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=(i/(n+1.0))) 
+  @defVar(nlp, x[i=1:n], start=(i/(n+1.0)))
 
-    h = 1.0 / (n+1)
-    
+  h = 1.0 / (n + 1)
+
   @setNLObjective(
     nlp,
     Min,
-    (1/2.0) * (x[1]^2 + sum{ (x[i]-x[i+1])^2, i=1:(n-1)} + x[n]^2) - 
-        h^2 * sum{2.0*x[i]+cos(x[i]), i=1:n} - x[n]
+    0.5 * (x[1]^2 + sum{(x[i] - x[i+1])^2, i=1:n-1} + x[n]^2) -
+    h^2 * sum{2 * x[i] + cos(x[i]), i=1:n} - x[n]
   )
 
   return nlp
 end
-

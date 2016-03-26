@@ -9,7 +9,7 @@
 #   classification SUR2-AN-V-0
 #
 #   problem 36 in
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -24,24 +24,23 @@ export freuroth
 
 function freuroth(n :: Int = 100)
     n < 2 && warn("freuroth: number of variables must be ≥ 2")
-    n = max(2,n)
+    n = max(2, n)
 
-    ngs = n-1
+    ngs = n - 1
     x0 = zeros(n)
     x0[1] = 0.5
     x0[2] = -2.0
 
     nlp = Model()
 
-    @defVar(nlp,  x[i=1:n], start = x0[i])
+    @defVar(nlp, x[i=1:n], start=x0[i])
 
     @setNLObjective(
-                    nlp,
-                    Min,
-	            sum{ ((5.0-x[i+1])*x[i+1]^2+x[i]-2*x[i+1]-13.0)^2, i=1:ngs} +
-	            sum{ ((1.0+x[i+1])*x[i+1]^2+x[i]-14*x[i+1]-29.0)^2, i=1:ngs}
-                    )
+      nlp,
+      Min,
+	    sum{((5.0 - x[i+1]) * x[i+1]^2 + x[i] - 2 * x[i+1] - 13.0)^2, i=1:ngs} +
+	    sum{((1.0 + x[i+1]) * x[i+1]^2 + x[i] - 14 * x[i+1] - 29.0)^2, i=1:ngs}
+     )
 
     return nlp
 end
-

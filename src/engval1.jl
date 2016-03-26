@@ -27,7 +27,7 @@ export engval1
 function engval1(n :: Int=100)
 
   n < 2 && warn("engval1: number of variables must be ≥ 2")
-  n = max(2,n)
+  n = max(2, n)
 
   nlp = Model()
 
@@ -44,4 +44,3 @@ function engval1(n :: Int=100)
 
   return nlp
 end
-

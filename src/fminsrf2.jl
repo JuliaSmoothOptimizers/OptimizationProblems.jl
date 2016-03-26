@@ -1,4 +1,4 @@
-#   Source: setting the boundary free in 
+#   Source: setting the boundary free in
 #   A Griewank and Ph. Toint,
 #   "Partitioned variable metric updates for large structured
 #   optimization problems",
@@ -7,9 +7,9 @@
 #   SIF input: Ph. Toint, November 1991.
 
 #   classification OUR2-MY-V-0
- 
-#   Problem 33 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+
+#   Problem 33 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -23,11 +23,11 @@ export fminsrf2
 function fminsrf2(n :: Int = 100)
 
     n < 4 && warn("fminsrf2: number of variables must be ≥ 4")
-    n = max(4,n)
+    n = max(4, n)
 
-    p = round(Int,sqrt(n))
+    p = round(Int, sqrt(n))
     p*p != n && warn("fminsrf2: number of variables adjusted from $n to $p*$p be square")
-    n = p*p
+    n = p * p
 
     h00 = 1.0
     slopej = 4.0
@@ -35,33 +35,36 @@ function fminsrf2(n :: Int = 100)
 
     scale = (p-1)^2
 
-    ston = slopei/(p-1)
-    wtoe = slopej/(p-1)
-    h01 = h00+slopej
-    h10 = h00+slopei
+    ston = slopei / (p - 1)
+    wtoe = slopej / (p - 1)
+    h01 = h00 + slopej
+    h10 = h00 + slopei
     mid = div(p, 2)
-    
+
     nlp = Model()
 
-    x0 = zeros(p,p)
-    I=2:(p-1)
-    J=1:(p)
+    x0 = zeros(p, p)
+    I = 2 : (p - 1)
+    J = 1 : p
 
-    x0[I,1] = (I-1)*ston+h01
-    x0[I,p] = (I-1)*ston+h00
-    x0[1,J] = (J-1)*wtoe+h00
-    x0[p,J] = (J-1)*wtoe+h10
+    x0[I, 1] = (I - 1) * ston + h01
+    x0[I, p] = (I - 1) * ston + h00
+    x0[1, J] = (J - 1) * wtoe + h00
+    x0[p, J] = (J - 1) * wtoe + h10
 
-    @defVar(nlp, x[i=1:p,j=1:p], start = x0[i,j])
+    @defVar(nlp, x[i=1:p, j=1:p], start=x0[i,j])
 
     @setNLObjective(
-                    nlp,
-                    Min,
-	            sum{ sum{ 100.0 *
-                    sqrt(0.5*(p-1)^2*((x[i,j]-x[i+1,j+1])^2+(x[i+1,j]-x[i,j+1])^2)+1.0)/scale ,
-                    i=1:(p-1)} ,
-                    j = 1:(p-1)} + 100.0 * (x[mid,mid])^2/n
+      nlp,
+      Min,
+	    sum{
+        sum{
+          100.0 * sqrt(0.5 * (p - 1)^2 * ((x[i, j] - x[i+1, j+1])^2 + (x[i+1, j] - x[i, j+1])^2) + 1.0) / scale,
+          i=1:p-1
+        },
+        j=1:p-1
+      }
+      + 100.0 * (x[mid, mid])^2 / n
     )
     return nlp
 end
-

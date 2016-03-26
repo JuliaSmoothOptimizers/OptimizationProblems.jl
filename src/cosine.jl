@@ -1,7 +1,7 @@
 # The cosine function.
 #
 #   Source: problem 6 in
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -19,7 +19,7 @@ export cosine
 function cosine(n :: Int=100)
 
   n < 2 && warn("cosine: number of variables must be ≥ 2")
-  n = max(2,n)
+  n = max(2, n)
 
   nlp = Model()
 

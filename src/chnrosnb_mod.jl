@@ -1,7 +1,7 @@
 # Chaineded Rosenbrock - modified function.
 
 #   problem 27 in
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -18,7 +18,7 @@ export  chnrosnb_mod
 function chnrosnb_mod(n :: Int=100)
 
   n < 2 && warn("chnrosnb: number of variables must be ≥ 2")
-  n = max(2,n)
+  n = max(2, n)
 
   nlp = Model()
 
@@ -32,4 +32,3 @@ function chnrosnb_mod(n :: Int=100)
 
   return nlp
 end
-

@@ -27,7 +27,7 @@ export eg2
 function eg2(n :: Int=100)
 
   n < 2 && warn("eg2: number of variables must be ≥ 2")
-  n = max(2,n)
+  n = max(2, n)
 
   nlp = Model()
 
@@ -45,4 +45,3 @@ function eg2(n :: Int=100)
 
   return nlp
 end
-

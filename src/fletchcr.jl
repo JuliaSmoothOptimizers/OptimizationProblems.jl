@@ -8,7 +8,7 @@
 #   SIF input: Nick Gould, Oct 1992.
 
 #   problem 32 in
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -25,18 +25,17 @@ export fletchcr
 function fletchcr(n :: Int=100)
 
   n < 2 && warn("fletchcr: number of variables must be ≥ 2")
-  n = max(2,n)
+  n = max(2, n)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=0.0) 
-    
+  @defVar(nlp, x[i=1:n], start=0.0)
+
   @setNLObjective(
     nlp,
     Min,
-    100.0 * sum{ (x[i+1]-x[i]+1-x[i]^2)^2, i=1:(n-1)}
+    100.0 * sum{(x[i+1]-x[i]+1-x[i]^2)^2, i=1:n-1}
   )
 
   return nlp
 end
-

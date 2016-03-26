@@ -3,12 +3,12 @@
 #   "Test problems for partially separable optimization and results
 #   for the routine PSPMIN",
 #   Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
-	
+
 #   See also Buckley#116.  Note that MGH#21 is the separable version.
 #   SIF input: Ph. Toint, Dec 1989.
 
 #   problem 29 in
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -25,7 +25,7 @@ export extrosnb
 function extrosnb(n :: Int=100)
 
   n < 2 && warn("extrosnb: number of variables must be ≥ 2")
-  n = max(2,n)
+  n = max(2, n)
 
   nlp = Model()
 
@@ -39,4 +39,3 @@ function extrosnb(n :: Int=100)
 
   return nlp
 end
-

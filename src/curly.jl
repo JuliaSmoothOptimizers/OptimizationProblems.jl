@@ -22,7 +22,7 @@ export curly, curly10, curly20, curly30
 function curly(n :: Int=100; b :: Int=10)
 
   n < 2 && warn("curly: number of variables must be ≥ 2")
-  n = max(2,n)
+  n = max(2, n)
 
   nlp = Model()
 

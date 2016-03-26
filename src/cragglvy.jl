@@ -28,7 +28,7 @@ export cragglvy
 function cragglvy(n :: Int=100)
 
   n < 2 && warn("cragglvy: number of variables must be ≥ 2")
-  n = max(2,n)
+  n = max(2, n)
 
   nlp = Model()
 
