@@ -29,5 +29,9 @@ include("fminsrf2.jl")
 include("freuroth.jl")
 include("genhumps.jl")
 
+include("hs6.jl")
+include("hs7.jl")
+include("hs8.jl")
+
 
 end # module
