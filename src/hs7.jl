@@ -18,15 +18,15 @@ function hs7(args...)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:2], start=2)
+  @variable(nlp, x[i=1:2], start=2)
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     log(1 + x[1]^2) - x[2]
   )
 
-  @addNLConstraint(
+  @NLconstraint(
     nlp,
     constr,
     (1 + x[1]^2)^2 + x[2]^2 - 4 == 0

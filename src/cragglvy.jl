@@ -33,12 +33,12 @@ function cragglvy(n :: Int=100)
   nlp = Model()
 
   # https://github.com/JuliaOpt/JuMP.jl/issues/481
-  # @defVar(nlp, x[i=1:n], start=[1 ; 2 * ones(n-1)])
+  # @variable(nlp, x[i=1:n], start=[1 ; 2 * ones(n-1)])
 
-  @defVar(nlp, x[i=1:n], start=2)
-  setValue(x[1], 1)
+  @variable(nlp, x[i=1:n], start=2)
+  setvalue(x[1], 1)
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     sum{(exp(x[2*i-1]) - x[2*i])^4 + 100 * (x[2*i] - x[2*i+1])^6 +

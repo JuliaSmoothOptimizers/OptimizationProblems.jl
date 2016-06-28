@@ -26,11 +26,11 @@ function curly(n :: Int=100; b :: Int=10)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=1.0e-4/(n+1))
+  @variable(nlp, x[i=1:n], start=1.0e-4/(n+1))
 
-  @defNLExpr(nlp, f[i=1:n], sum{x[j], j=i:min(i+b,n)})
+  @NLexpression(nlp, f[i=1:n], sum{x[j], j=i:min(i+b,n)})
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     sum{f[i] * (f[i] * (f[i]^2 - 20) - 0.1), i = 1:n}

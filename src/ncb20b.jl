@@ -28,9 +28,9 @@ function ncb20b(n :: Int=100)
     x0 = zeros(n)
 
     nlp = Model()
-    @defVar(nlp, x[i=1:n], start=x0[i])
+    @variable(nlp, x[i=1:n], start=x0[i])
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
 	    sum{(10.0 / i) * (sum{x[i+j-1] / (1 + x[i+j-1]^2), j=1:20})^2 - 0.2 * sum{x[i+j-1], j=1:20}, i=1:n-19} +

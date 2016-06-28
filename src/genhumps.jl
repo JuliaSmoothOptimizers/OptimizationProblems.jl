@@ -26,9 +26,9 @@ function genhumps(n :: Int = 100)
     x0 = -506.2 * ones(n)
     x0[1] = -506.0
 
-    @defVar(nlp, x[i=1:n], start=x0[i])
+    @variable(nlp, x[i=1:n], start=x0[i])
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
 	    sum{( sin(ζ * x[i])^2 * sin(ζ * x[i+1])^2 + 0.05 * (x[i]^2 + x[i+1]^2)), i=1:n-1}

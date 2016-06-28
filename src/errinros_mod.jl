@@ -22,9 +22,9 @@ function errinros_mod(n :: Int=100)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=-1.0)
+  @variable(nlp, x[i=1:n], start=-1.0)
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     sum{(x[i-1] - 16.0 * x[i]^2 * (1.5 + sin(i))^2)^2, i=2:n} + sum{(1.0 - x[i])^2, i=2:n}

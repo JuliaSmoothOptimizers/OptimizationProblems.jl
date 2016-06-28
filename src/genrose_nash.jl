@@ -39,9 +39,9 @@ function genrose_nash(n :: Int=100)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=(i/(n+1)))
+  @variable(nlp, x[i=1:n], start=(i/(n+1)))
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     1.0 + 100 * sum{(x[i] - x[i-1]^2)^2, i=2:n} + sum{(1.0 - x[i])^2, i=2:n}

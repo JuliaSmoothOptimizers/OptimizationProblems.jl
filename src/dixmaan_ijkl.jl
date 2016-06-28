@@ -33,9 +33,9 @@ function dixmaani(n :: Int=99;
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=2)
+  @variable(nlp, x[i=1:n], start=2)
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     1 +

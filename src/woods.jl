@@ -48,9 +48,9 @@ function woods(n :: Int=100)
     x0 = -3 * ones(n)
     x0[2*(collect(1:div(n,2)))] = -1.0
     
-    @defVar(nlp, x[i=1:n], start=-2)
+    @variable(nlp, x[i=1:n], start=-2)
     
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
       1.0 + sum{

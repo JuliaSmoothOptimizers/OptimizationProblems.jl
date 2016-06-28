@@ -23,9 +23,9 @@ function cosine(n :: Int=100)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=1)
+  @variable(nlp, x[i=1:n], start=1)
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     sum{cos(x[i]^2 - 0.5 * x[i+1]), i = 1:n-1}

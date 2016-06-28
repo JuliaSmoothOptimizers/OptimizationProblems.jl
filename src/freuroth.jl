@@ -33,9 +33,9 @@ function freuroth(n :: Int = 100)
 
     nlp = Model()
 
-    @defVar(nlp, x[i=1:n], start=x0[i])
+    @variable(nlp, x[i=1:n], start=x0[i])
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
 	    sum{((5.0 - x[i+1]) * x[i+1]^2 + x[i] - 2 * x[i+1] - 13.0)^2, i=1:ngs} +

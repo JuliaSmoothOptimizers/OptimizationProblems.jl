@@ -22,9 +22,9 @@ function sparsine(n :: Int=100)
 
     nlp = Model()
 
-    @defVar(nlp, x[i=1:n], start=0.5)
+    @variable(nlp, x[i=1:n], start=0.5)
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
       0.5 * sum{

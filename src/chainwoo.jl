@@ -30,15 +30,15 @@ function chainwoo(n :: Int=100)
   nlp = Model()
 
   # https://github.com/JuliaOpt/JuMP.jl/issues/481
-  # @defVar(nlp, x[i=1:n], start=[-3 ; -1 ; -3 ; -1 ; -2 * ones(n-4)])
+  # @variable(nlp, x[i=1:n], start=[-3 ; -1 ; -3 ; -1 ; -2 * ones(n-4)])
 
-  @defVar(nlp, x[i=1:n], start=-2)
-  setValue(x[1], -3)
-  setValue(x[2], -1)
-  setValue(x[3], -3)
-  setValue(x[4], -1)
+  @variable(nlp, x[i=1:n], start=-2)
+  setvalue(x[1], -3)
+  setvalue(x[2], -1)
+  setvalue(x[3], -3)
+  setvalue(x[4], -1)
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     1.0 + sum{100 * (x[2*i]   - x[2*i-1]^2)^2 + (1 - x[2*i-1])^2 +

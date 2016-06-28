@@ -30,9 +30,9 @@ function ncb20(n :: Int=100)
     x0[1:n-10] = 0.0
 
     nlp = Model()
-    @defVar(nlp, x[i=1:n], start=x0[i])
+    @variable(nlp, x[i=1:n], start=x0[i])
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
 	    2.0 +

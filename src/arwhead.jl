@@ -34,9 +34,9 @@ function arwhead(n :: Int=100)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=1.0)
+  @variable(nlp, x[i=1:n], start=1.0)
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     sum{(x[i]^2 + x[n]^2)^2 - 4 * x[i] + 3, i=1:n-1}

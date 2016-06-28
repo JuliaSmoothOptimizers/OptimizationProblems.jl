@@ -35,9 +35,9 @@ function powellsg(n :: Int=100)
     x0[4*(collect(1:div(n,4)))] = 1.0
 
     nlp = Model()
-    @defVar(nlp, x[i=1:n], start=x0[i])
+    @variable(nlp, x[i=1:n], start=x0[i])
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
       sum{(x[j] + 10.0 * x[j+1])^2 + 5.0 * (x[j+2] - x[j+3])^2 + (x[j+1] - 2.0 * x[j+2])^4 + 10.0 * (x[j] - x[j+3])^4, j=1:div(n,4)}

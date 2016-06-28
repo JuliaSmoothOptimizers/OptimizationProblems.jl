@@ -26,9 +26,9 @@ function sinquad(n :: Int=100)
 
     nlp = Model()
 
-    @defVar(nlp, x[i=1:n], start=0.1)
+    @variable(nlp, x[i=1:n], start=0.1)
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
       (x[1] - 4.0)^4 + (x[n]^2 - x[1]^2)^2 + sum{(sin(x[i] - x[n]) - x[1]^2 + x[i]^2)^2, i=2:n-1} 

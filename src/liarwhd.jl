@@ -30,9 +30,9 @@ function liarwhd(n :: Int=100)
 
     nlp = Model()
 
-    @defVar(nlp, x[i=1:n], start=4.0)
+    @variable(nlp, x[i=1:n], start=4.0)
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
 	    sum{4.0*(x[i]^2 - x[1])^2 + (x[i] - 1)^2 , i=1:n}

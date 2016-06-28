@@ -52,9 +52,9 @@ function fminsrf2(n :: Int = 100)
     x0[1, J] = (J - 1) * wtoe + h00
     x0[p, J] = (J - 1) * wtoe + h10
 
-    @defVar(nlp, x[i=1:p, j=1:p], start=x0[i,j])
+    @variable(nlp, x[i=1:p, j=1:p], start=x0[i,j])
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
 	    sum{

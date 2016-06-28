@@ -44,9 +44,9 @@ function brybnd(n :: Int=100; ml :: Int=5, mu :: Int=1)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=(-1.0))
+  @variable(nlp, x[i=1:n], start=(-1.0))
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     sum{
