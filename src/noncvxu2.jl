@@ -20,9 +20,9 @@ function noncvxu2(n :: Int=100)
     n = max(2, n)
 
     nlp = Model()
-    @defVar(nlp, x[i=1:n], start=i)
+    @variable(nlp, x[i=1:n], start=i)
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
 	    sum{(x[i] + x[mod(3 * i - 2, n) + 1] + x[mod(7 * i - 3, n) + 1])^2 +

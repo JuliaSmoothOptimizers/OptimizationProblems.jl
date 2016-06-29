@@ -28,9 +28,9 @@ function penalty3(n :: Int=100)
     n = max(3, n)
 
     nlp = Model()
-    @defVar(nlp, x[i=1:n], start=i/(n+1))
+    @variable(nlp, x[i=1:n], start=i/(n+1))
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
       1.0 + sum{(x[i] - 1.0)^2, i=1:div(n,2)} +

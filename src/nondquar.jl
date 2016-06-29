@@ -33,9 +33,9 @@ function nondquar(n :: Int=100)
     x0[2 * collect(1:div(n, 2))] = -1.0
 
     nlp = Model()
-    @defVar(nlp, x[i=1:n], start=x0[i])
+    @variable(nlp, x[i=1:n], start=x0[i])
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
 	    (x[1] - x[2])^2 + (x[n-1] - x[n])^2 + sum{(x[i] + x[i+1] + x[n])^4, i=1:n-2}

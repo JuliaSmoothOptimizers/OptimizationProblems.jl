@@ -19,21 +19,21 @@ function hs8(args...)
   nlp = Model()
   x0 = [2.0, 1.0]
 
-  @defVar(nlp, x[i=1:2], start=x0[i])
+  @variable(nlp, x[i=1:2], start=x0[i])
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     -1
   )
 
-  @addNLConstraint(
+  @NLconstraint(
     nlp,
     constr1,
     x[1]^2 + x[2]^2 - 25 == 0
   )
 
-  @addNLConstraint(
+  @NLconstraint(
     nlp,
     constr2,
     x[1] * x[2] - 9 == 0

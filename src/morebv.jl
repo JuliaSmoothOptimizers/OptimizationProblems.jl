@@ -36,9 +36,9 @@ function morebv(n :: Int=100)
 
     nlp = Model()
 
-    @defVar(nlp, x[i=1:n], start=x0[i])
+    @variable(nlp, x[i=1:n], start=x0[i])
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
 	    sum{(2.0 * x[i] - x[i-1] - x[i+1] + (h^2 / 2.0) * (x[i] + (i - 1) * h + 1)^3)^2, i=2:n-1}

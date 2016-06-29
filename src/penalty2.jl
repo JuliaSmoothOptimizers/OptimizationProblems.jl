@@ -24,9 +24,9 @@ function penalty2(n :: Int=100)
     end
 
     nlp = Model()
-    @defVar(nlp, x[i=1:n], start=1/2)
+    @variable(nlp, x[i=1:n], start=1/2)
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
       (x[1] - 0.2)^2 +

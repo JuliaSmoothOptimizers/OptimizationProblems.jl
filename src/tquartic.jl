@@ -26,9 +26,9 @@ function tquartic(n :: Int=100)
 
     nlp = Model()
 
-    @defVar(nlp, x[i=1:n], start=0.1)
+    @variable(nlp, x[i=1:n], start=0.1)
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
       (x[1] - 1.0)^2 + sum{(x[1]^2 - x[i+1]^2)^2, i=1:n-2} 

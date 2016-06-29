@@ -39,9 +39,9 @@ function sbrybnd(n :: Int=100)
       J[i] = [max(1, i-5):i-1; i+1:min(n, i+1)]
     end
 
-    @defVar(nlp, x[i=1:n], start=1.0/p[i])
+    @variable(nlp, x[i=1:n], start=1.0/p[i])
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
       sum{((2.0 + 5.0 * p[i]^2 * x[i]^2) * p[i] * x[i] + 1.0 - sum{p[j] * x[j] * (1.0 + p[j] * x[j]), j=J[i]})^2, i=1:n}

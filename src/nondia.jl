@@ -28,9 +28,9 @@ function nondia(n :: Int=100)
     n = max(2, n)
 
     nlp = Model()
-    @defVar(nlp, x[i=1:n], start=-1.0)
+    @variable(nlp, x[i=1:n], start=-1.0)
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
 	    (x[1] - 1.0)^2 + sum{(100.0*x[1] - x[i-1]^2)^2, i=2:n}

@@ -31,9 +31,9 @@ function scosine(n :: Int=100)
       p[i] = exp(6.0 * (i-1) / (n-1)) 
     end
 
-    @defVar(nlp, x[i=1:n], start=1.0/p[i])
+    @variable(nlp, x[i=1:n], start=1.0/p[i])
 
-    @setNLObjective(
+    @NLobjective(
       nlp,
       Min,
       sum{cos(p[i]^2 * x[i]^2 - p[i+1] * x[i+1] / 2.0), i=1:n-1}

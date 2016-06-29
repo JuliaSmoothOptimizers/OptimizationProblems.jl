@@ -19,15 +19,15 @@ function hs6(args...)
   nlp = Model()
   x0 = [-1.2, 1]
 
-  @defVar(nlp, x[i=1:2], start=x0[i])
+  @variable(nlp, x[i=1:2], start=x0[i])
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     (1 - x[1])^2
   )
 
-  @addNLConstraint(
+  @NLconstraint(
     nlp,
     constr,
     10 * (x[2] - x[1]^2) == 0

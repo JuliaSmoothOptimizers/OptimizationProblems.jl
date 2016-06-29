@@ -29,9 +29,9 @@ function extrosnb(n :: Int=100)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=-1.0) # Strange to start at the solution?
+  @variable(nlp, x[i=1:n], start=-1.0) # Strange to start at the solution?
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     100.0 * sum{(x[i] - x[i - 1]^2)^2, i=2:n} + (1.0 - x[1])^2

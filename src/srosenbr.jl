@@ -29,9 +29,9 @@ function srosenbr(n :: Int=100)
   x0[2*(collect(1:div(n,2)))-1] = -1.2
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=x0[i])
+  @variable(nlp, x[i=1:n], start=x0[i])
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     sum{100.0 * (x[2*i] - x[2*i-1]^2)^2  + (x[2*i-1] - 1.0)^2, i=1:div(n, 2)} 

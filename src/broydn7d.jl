@@ -50,9 +50,9 @@ function broydn7d(n :: Int=100, p :: Float64=7/3)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=(-1.0))
+  @variable(nlp, x[i=1:n], start=(-1.0))
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     abs(1 - 2 * x[2] + (3 - x[1] / 2) * x[1])^p +

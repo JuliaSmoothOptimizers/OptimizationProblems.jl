@@ -46,9 +46,9 @@ function genrose(n :: Int=100)
 
   nlp = Model()
 
-  @defVar(nlp, x[i=1:n], start=(i/(n+1)))
+  @variable(nlp, x[i=1:n], start=(i/(n+1)))
 
-  @setNLObjective(
+  @NLobjective(
     nlp,
     Min,
     1.0 + 100 * sum{(x[i+1] - x[i]^2)^2, i=1:n-1} + sum{(x[i] - 1.0)^2, i=1:n-1}
