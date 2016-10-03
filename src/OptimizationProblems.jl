@@ -64,4 +64,7 @@ include("brownbs.jl")
 include("bt1.jl")
 include("zangwil3.jl")
 
+include("hs111.jl")
+include("hs112.jl")
+
 end # module
