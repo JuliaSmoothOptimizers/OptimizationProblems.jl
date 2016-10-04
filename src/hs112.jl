@@ -25,7 +25,7 @@ function hs112(args...)
   @NLobjective(
     nlp,
     Min,
-    sum {x[j]*(c[j]+ log(x[j]/(sum{x[k], k=1:10}))), j=1:10}
+    sum{x[j]*(c[j]+ log(x[j]/(sum{x[k], k=1:10}))), j=1:10}
   )
 
   @NLconstraint(
