@@ -55,4 +55,7 @@ include("hs6.jl")
 include("hs7.jl")
 include("hs8.jl")
 
+include("hs111.jl")
+include("hs112.jl")
+
 end # module
