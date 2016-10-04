@@ -18,13 +18,9 @@ function hs112(args...)
 
   nlp = Model()
 
-  for j=1:10
-    x0[j] = 0.1
-  end
-
   c = [-6.089, -17.164, -34.054, -5.914, -24.721, -14.986, -24.100, -10.708, -26.662, -22.179]
 
-  @variable(nlp, x[i=1:10], start=x0[i])
+  @variable(nlp, x[i=1:10], start=0.1)
 
   @NLobjective(
     nlp,
