@@ -55,5 +55,13 @@ include("hs6.jl")
 include("hs7.jl")
 include("hs8.jl")
 include("hs9.jl")
+include("hs26.jl")
+include("hs27.jl")
+include("hs39.jl")
+include("hs40.jl")
+include("beale.jl")
+include("brownbs.jl")
+include("bt1.jl")
+include("zangwil3.jl")
 
 end # module
