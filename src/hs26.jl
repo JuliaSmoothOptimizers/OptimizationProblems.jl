@@ -31,7 +31,7 @@ function hs26(args...)
     @NLconstraint(
       nlp,
       constr1,
-      (1 + x[2]^2) * x[1] + x[3]^4 == 3
+      (1 + x[2]^2) * x[1] + x[3]^4 - 3 == 0
     )
 
     return nlp
