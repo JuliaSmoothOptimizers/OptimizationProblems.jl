@@ -9,19 +9,16 @@
 #
 #   classification QR2-AN-3-1
 #
-#   A. Cebola, Paraná 10/2016.
+# A. Cebola, Curitiba 10/2016.
 
 export hs27
 
-'HS27 Model'
-
+"HS27 Model"
 function hs27(args...)
 
     nlp = Model()
-    x0 = [2.0, 2.0, 2.0]
 
-
-    @variable(nlp, x[i=1:3], start=x0[i])
+    @variable(nlp, x[i=1:3], start=2.0)
 
     @NLobjective(
       nlp,
