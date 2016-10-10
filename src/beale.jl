@@ -8,24 +8,21 @@
 #
 #   classification SUR2-AN-2-0
 #
-#   A. Cebola, Paraná 10/2016.
+# A. Cebola, Curitiba 10/2016.
 
 export beale
 
-'Beale Model'
-
+"Beale Model"
 function beale(args...)
 
     nlp = Model()
-    x0 = [1.0, 1.0]
 
-
-    @variable(nlp, x[i=1:2], start=x0[i])
+    @variable(nlp, x[i=1:2], start=1.0)
 
     @NLobjective(
       nlp,
       Min,
-      (-1.5+x[1]*(1.0-x[2]))^2 + (-2.25+x[1]*(1.0-x[2]^2))^2 + (-2.625+x[1]*(1.0-x[2]^3))^2
+      (-1.5 + x[1] * (1.0 - x[2]))^2 + (-2.25 + x[1] * (1.0 - x[2]^2))^2 + (-2.625 + x[1] * (1.0 - x[2]^3))^2
     )
 
     return nlp
