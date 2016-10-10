@@ -29,7 +29,7 @@ function hs27(args...)
     @NLconstraint(
       nlp,
       constr1,
-      x[1] + x[3]^2 == -1
+      x[1] + x[3]^2 + 1 == 0
     )
 
     return nlp
