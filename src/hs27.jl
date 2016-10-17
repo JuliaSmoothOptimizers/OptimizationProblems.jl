@@ -1,7 +1,7 @@
-# Hock and Schittkowski problem number 26.
+# Hock and Schittkowski problem number 27.
 #
 #   Source:
-#   Problem 26 in
+#   Problem 27 in
 #   W. Hock and K. Schittkowski,
 #   Test examples for nonlinear programming codes,
 #   Lectures Notes in Economics and Mathematical Systems 187,
