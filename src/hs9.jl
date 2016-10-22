@@ -18,9 +18,7 @@ function hs9(args...)
 
     nlp = Model()
 
-    x0 = [2.0, 1.0]
-
-    @variable(nlp, x[i=1:2], start=x0[i])
+    @variable(nlp, x[i=1:2], start=0.0)
 
     @NLobjective(
       nlp,
