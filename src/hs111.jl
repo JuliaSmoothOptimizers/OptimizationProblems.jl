@@ -7,7 +7,7 @@
 #   Lectures Notes in Economics and Mathematical Systems 187,
 #   Springer Verlag, Heidelberg, 1981.
 #
-#   classification QQR2-AN-2-1
+#   classification OOR2-AN-10-3
 #
 # N. Antunes, Curitiba, 10/2016.
 
