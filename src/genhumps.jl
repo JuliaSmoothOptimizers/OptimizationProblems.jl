@@ -31,7 +31,7 @@ function genhumps(n :: Int = 100)
     @NLobjective(
       nlp,
       Min,
-	    sum{( sin(ζ * x[i])^2 * sin(ζ * x[i+1])^2 + 0.05 * (x[i]^2 + x[i+1]^2)), i=1:n-1}
+	    sum(( sin(ζ * x[i])^2 * sin(ζ * x[i+1])^2 + 0.05 * (x[i]^2 + x[i+1]^2)) for i=1:n-1)
     )
 
     return nlp

@@ -4,10 +4,10 @@
 #   Source:
 #   Ph. Toint, private communication.
 
-#   classification SUR2-AN-V-0#   
+#   classification SUR2-AN-V-0#
 
-#   Problem 57 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 57 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -31,7 +31,7 @@ function tquartic(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-      (x[1] - 1.0)^2 + sum{(x[1]^2 - x[i+1]^2)^2, i=1:n-2} 
+      (x[1] - 1.0)^2 + sum((x[1]^2 - x[i+1]^2)^2 for i=1:n-2)
     )
 
     return nlp

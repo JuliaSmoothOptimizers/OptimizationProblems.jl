@@ -29,7 +29,6 @@ function hs6(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     10 * (x[2] - x[1]^2) == 0
   )
 

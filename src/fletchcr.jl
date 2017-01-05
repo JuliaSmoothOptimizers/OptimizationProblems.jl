@@ -34,7 +34,7 @@ function fletchcr(n :: Int=100)
   @NLobjective(
     nlp,
     Min,
-    100.0 * sum{(x[i+1]-x[i]+1-x[i]^2)^2, i=1:n-1}
+    100.0 * sum((x[i+1]-x[i]+1-x[i]^2)^2 for i=1:n-1)
   )
 
   return nlp

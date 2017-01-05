@@ -29,19 +29,16 @@ function hs15(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     x[1]*x[2] >= 1
   )
 
   @NLconstraint(
     nlp,
-    constr,
     x[1] + x[2]^2 >= 0
   )
 
   @NLconstraint(
     nlp,
-    constr,
     x[1] <= 1/2
   )
 

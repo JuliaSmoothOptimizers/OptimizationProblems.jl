@@ -6,8 +6,8 @@
 
 #   classification OUR2-AY-V-0
 
-#   Problem 51 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 51 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -31,7 +31,7 @@ function sinquad(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-      (x[1] - 4.0)^4 + (x[n]^2 - x[1]^2)^2 + sum{(sin(x[i] - x[n]) - x[1]^2 + x[i]^2)^2, i=2:n-1} 
+      (x[1] - 4.0)^4 + (x[n]^2 - x[1]^2)^2 + sum((sin(x[i] - x[n]) - x[1]^2 + x[i]^2)^2 for i=2:n-1)
     )
 
     return nlp

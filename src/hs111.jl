@@ -25,24 +25,21 @@ function hs111(args...)
   @NLobjective(
     nlp,
     Min,
-    sum{exp(x[j])*(c[j] + x[j] - log(sum{exp(x[k]), k=1:10})), j=1:10}
+    sum(exp(x[j])*(c[j] + x[j] - log(sum(exp(x[k]) for k=1:10))) for j=1:10)
   )
 
   @NLconstraint(
     nlp,
-    constr,
     exp(x[1]) + 2*exp(x[2]) + 2*exp(x[3]) + exp(x[6]) + exp(x[10]) - 2 == 0
   )
 
   @NLconstraint(
     nlp,
-    constr,
     exp(x[4]) + 2*exp(x[5]) + exp(x[6]) + exp(x[7]) - 1 == 0
   )
 
   @NLconstraint(
     nlp,
-    constr,
     exp(x[3]) + exp(x[7]) + exp(x[8]) + 2*exp(x[9]) + exp(x[10]) - 1 == 0
   )
 

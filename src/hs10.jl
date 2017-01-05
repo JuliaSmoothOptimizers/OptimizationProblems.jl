@@ -29,7 +29,6 @@ function hs10(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     -3*x[1]^2 + 2*x[1]*x[2] - x[2]^2 >= -1
   )
 

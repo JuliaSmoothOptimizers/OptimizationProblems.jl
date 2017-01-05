@@ -34,7 +34,7 @@ function extrosnb(n :: Int=100)
   @NLobjective(
     nlp,
     Min,
-    100.0 * sum{(x[i] - x[i - 1]^2)^2, i=2:n} + (1.0 - x[1])^2
+    100.0 * sum((x[i] - x[i - 1]^2)^2 for i=2:n) + (1.0 - x[1])^2
   )
 
   return nlp

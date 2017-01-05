@@ -2,8 +2,8 @@
 
 #   classification OUR2-AN-V-0
 
-#   Problem 42 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 42 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -26,8 +26,8 @@ function noncvxun(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-	    sum{(x[i] + x[mod(2*i-1, n) + 1] + x[mod(3*i-1, n) + 1])^2 +
-      4.0 * cos(x[i] + x[mod(2*i-1, n) + 1] + x[mod(3*i-1, n) + 1]), i=1:n}
+	    sum((x[i] + x[mod(2*i-1, n) + 1] + x[mod(3*i-1, n) + 1])^2 +
+      4.0 * cos(x[i] + x[mod(2*i-1, n) + 1] + x[mod(3*i-1, n) + 1]) for i=1:n)
     )
 
     return nlp

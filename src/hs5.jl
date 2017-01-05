@@ -29,13 +29,11 @@ function hs5(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     -1.5 <= x[1] <= 4
   )
 
   @NLconstraint(
     nlp,
-    constr,
     -3 <= x[2] <= 3
   )
 

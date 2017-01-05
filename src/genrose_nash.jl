@@ -8,7 +8,7 @@
 # and
 #
 #   problem 36 in
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -44,7 +44,7 @@ function genrose_nash(n :: Int=100)
   @NLobjective(
     nlp,
     Min,
-    1.0 + 100 * sum{(x[i] - x[i-1]^2)^2, i=2:n} + sum{(1.0 - x[i])^2, i=2:n}
+    1.0 + 100 * sum((x[i] - x[i-1]^2)^2 for i=2:n) + sum((1.0 - x[i])^2 for i=2:n)
   )
 
   return nlp

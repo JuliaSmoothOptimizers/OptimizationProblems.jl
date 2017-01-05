@@ -11,8 +11,8 @@
 
 #   classification OUR2-AN-V-0
 
-#   Problem 47 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 47 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -40,7 +40,7 @@ function powellsg(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-      sum{(x[j] + 10.0 * x[j+1])^2 + 5.0 * (x[j+2] - x[j+3])^2 + (x[j+1] - 2.0 * x[j+2])^4 + 10.0 * (x[j] - x[j+3])^4, j=1:div(n,4)}
+      sum((x[j] + 10.0 * x[j+1])^2 + 5.0 * (x[j+2] - x[j+3])^2 + (x[j+1] - 2.0 * x[j+2])^4 + 10.0 * (x[j] - x[j+3])^4 for j=1:div(n,4))
     )
 
     return nlp

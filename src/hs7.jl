@@ -28,7 +28,6 @@ function hs7(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     (1 + x[1]^2)^2 + x[2]^2 - 4 == 0
   )
 

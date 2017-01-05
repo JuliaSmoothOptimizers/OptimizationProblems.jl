@@ -29,25 +29,21 @@ function hs20(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     x[1] + x[2]^2 >= 0
   )
 
   @NLconstraint(
     nlp,
-    constr,
     x[1]^2 + x[2] >= 0
   )
 
   @NLconstraint(
     nlp,
-    constr,
     x[1]^2 + x[2]^2 >= 1
   )
 
   @NLconstraint(
     nlp,
-    constr,
     -1/2 <= x[1] <= 1/2
   )
 

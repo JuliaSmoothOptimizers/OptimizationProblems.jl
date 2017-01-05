@@ -28,12 +28,12 @@ function curly(n :: Int=100; b :: Int=10)
 
   @variable(nlp, x[i=1:n], start=1.0e-4/(n+1))
 
-  @NLexpression(nlp, f[i=1:n], sum{x[j], j=i:min(i+b,n)})
+  @NLexpression(nlp, f[i=1:n], sum(x[j] for j=i:min(i+b,n)))
 
   @NLobjective(
     nlp,
     Min,
-    sum{f[i] * (f[i] * (f[i]^2 - 20) - 0.1), i = 1:n}
+    sum(f[i] * (f[i] * (f[i]^2 - 20) - 0.1) for i = 1:n)
   )
 
   return nlp

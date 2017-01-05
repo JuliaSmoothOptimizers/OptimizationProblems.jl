@@ -7,8 +7,8 @@
 
 #   classification SUR2-AN-V-0
 
-#   Problem 55 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 55 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -34,7 +34,7 @@ function srosenbr(n :: Int=100)
   @NLobjective(
     nlp,
     Min,
-    sum{100.0 * (x[2*i] - x[2*i-1]^2)^2  + (x[2*i-1] - 1.0)^2, i=1:div(n, 2)} 
+    sum(100.0 * (x[2*i] - x[2*i-1]^2)^2  + (x[2*i-1] - 1.0)^2 for i=1:div(n, 2))
   )
 
   return nlp

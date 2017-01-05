@@ -11,8 +11,8 @@
 
 #   classification SUR2-AN-V-0
 
-#   Problem 48 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 48 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -34,8 +34,8 @@ function sbrybnd(n :: Int=100)
     nlp = Model()
     p = zeros(n)
     J = Array(Any, n)
-    for i=1:n 
-      p[i] = exp(6.0*(i-1)/(n-1)) 
+    for i=1:n
+      p[i] = exp(6.0*(i-1)/(n-1))
       J[i] = [max(1, i-5):i-1; i+1:min(n, i+1)]
     end
 
@@ -44,7 +44,7 @@ function sbrybnd(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-      sum{((2.0 + 5.0 * p[i]^2 * x[i]^2) * p[i] * x[i] + 1.0 - sum{p[j] * x[j] * (1.0 + p[j] * x[j]), j=J[i]})^2, i=1:n}
+      sum(((2.0 + 5.0 * p[i]^2 * x[i]^2) * p[i] * x[i] + 1.0 - sum(p[j] * x[j] * (1.0 + p[j] * x[j]) for j=J[i]))^2 for i=1:n)
     )
 
     return nlp

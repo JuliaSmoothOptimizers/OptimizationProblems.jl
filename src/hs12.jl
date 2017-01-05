@@ -28,7 +28,6 @@ function hs12(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     4*x[1]^2 + x[2]^2 <= 25
   )
 

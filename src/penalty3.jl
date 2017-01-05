@@ -9,8 +9,8 @@
 
 #   classification OUR2-AY-V-0
 
-#   Problem 46 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 46 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -33,11 +33,11 @@ function penalty3(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-      1.0 + sum{(x[i] - 1.0)^2, i=1:div(n,2)} +
-      exp(x[n]) * sum{(x[i] + 2.0 * x[i+1] + 10.0 * x[i+2] - 1.0)^2, i=1:n-2} +
-      sum{(x[i] + 2.0 * x[i+1] + 10.0 * x[i+2] - 1.0)^2, i=1:n-2} * sum{(2.0 * x[i] + x[i+1] - 3.0)^2, i=1:n-2} +
-      exp(x[n-1]) * sum{(2.0 * x[i] + x[i+1] - 3.0)^2, i=1:n-2} +
-      (sum{x[i]^2 - n, i=1:n})^2
+      1.0 + sum((x[i] - 1.0)^2 for i=1:div(n,2)) +
+      exp(x[n]) * sum((x[i] + 2.0 * x[i+1] + 10.0 * x[i+2] - 1.0)^2 for i=1:n-2) +
+      sum((x[i] + 2.0 * x[i+1] + 10.0 * x[i+2] - 1.0)^2 for i=1:n-2) * sum((2.0 * x[i] + x[i+1] - 3.0)^2 for i=1:n-2) +
+      exp(x[n-1]) * sum((2.0 * x[i] + x[i+1] - 3.0)^2 for i=1:n-2) +
+      (sum(x[i]^2 - n for i=1:n))^2
     )
 
     return nlp

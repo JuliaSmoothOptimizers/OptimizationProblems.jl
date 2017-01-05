@@ -29,7 +29,6 @@ function hs1(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     -1.5 <= x[2]
   )
 

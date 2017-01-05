@@ -28,13 +28,11 @@ function hs14(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     x[1]^2/4 + x[2]^2 <= 1
   )
 
   @NLconstraint(
     nlp,
-    constr,
     x[1] - 2*x[2] == -1
   )
 
