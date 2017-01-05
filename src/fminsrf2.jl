@@ -57,13 +57,11 @@ function fminsrf2(n :: Int = 100)
     @NLobjective(
       nlp,
       Min,
-	    sum{
-        sum{
-          100.0 * sqrt(0.5 * (p - 1)^2 * ((x[i, j] - x[i+1, j+1])^2 + (x[i+1, j] - x[i, j+1])^2) + 1.0) / scale,
-          i=1:p-1
-        },
-        j=1:p-1
-      }
+	    sum(
+        sum(
+          100.0 * sqrt(0.5 * (p - 1)^2 * ((x[i, j] - x[i+1, j+1])^2 + (x[i+1, j] - x[i, j+1])^2) + 1.0) / scale for i=1:p-1
+        ) for j=1:p-1
+      )
       + 100.0 * (x[mid, mid])^2 / n
     )
     return nlp

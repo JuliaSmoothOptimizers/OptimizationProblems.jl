@@ -28,7 +28,7 @@ function cosine(n :: Int=100)
   @NLobjective(
     nlp,
     Min,
-    sum{cos(x[i]^2 - 0.5 * x[i+1]), i = 1:n-1}
+    sum(cos(x[i]^2 - 0.5 * x[i+1]) for i = 1:n-1)
   )
 
   return nlp

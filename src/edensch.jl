@@ -37,10 +37,10 @@ function edensch(n :: Int=100)
     nlp,
     Min,
     16 +
-    sum{
-      (x[i] - 2)^4 + (x[i] * x[i+1] - 2 * x[i+1])^2 + (x[i+1] + 1)^2,
-      i=1:n-1
-    }
+    sum(
+      (x[i] - 2)^4 + (x[i] * x[i+1] - 2 * x[i+1])^2 + (x[i+1] + 1)^2
+      for i=1:n-1
+    )
   )
 
   return nlp

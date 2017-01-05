@@ -10,8 +10,8 @@
 
 #   classification SUR2-MN-V-0
 
-#   Problem 39 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 39 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -41,7 +41,7 @@ function morebv(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-	    sum{(2.0 * x[i] - x[i-1] - x[i+1] + (h^2 / 2.0) * (x[i] + (i - 1) * h + 1)^3)^2, i=2:n-1}
+	    sum((2.0 * x[i] - x[i-1] - x[i+1] + (h^2 / 2.0) * (x[i] + (i - 1) * h + 1)^3)^2 for i=2:n-1)
     )
 
     return nlp

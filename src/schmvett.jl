@@ -12,8 +12,8 @@
 
 #   classification OUR2-AY-V-0
 
-#   Problem 49 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 49 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -37,7 +37,7 @@ function schmvett(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-      sum{-(1.0 / (1.0 + (x[i] - x[i+1])^2)) - sin((pi * x[i+1] + x[i+2]) / 2.0) - exp(-((x[i] + x[i+2]) / x[i+1] - 2.0)^2), i=1:n-2} 
+      sum(-(1.0 / (1.0 + (x[i] - x[i+1])^2)) - sin((pi * x[i+1] + x[i+2]) / 2.0) - exp(-((x[i] + x[i+2]) / x[i+1] - 2.0)^2) for i=1:n-2)
     )
 
     return nlp

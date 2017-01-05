@@ -28,7 +28,6 @@ function hs13(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     (1-x[1])^3 >= x[2]
   )
 

@@ -36,8 +36,8 @@ function fletcbv2(n :: Int=100)
   @NLobjective(
     nlp,
     Min,
-    0.5 * (x[1]^2 + sum{(x[i] - x[i+1])^2, i=1:n-1} + x[n]^2) -
-    h^2 * sum{2 * x[i] + cos(x[i]), i=1:n} - x[n]
+    0.5 * (x[1]^2 + sum((x[i] - x[i+1])^2 for i=1:n-1) + x[n]^2) -
+    h^2 * sum(2 * x[i] + cos(x[i]) for i=1:n) - x[n]
   )
 
   return nlp

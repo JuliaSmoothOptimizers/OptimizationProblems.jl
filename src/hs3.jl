@@ -29,7 +29,6 @@ function hs3(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     0 <= x[2]
   )
 

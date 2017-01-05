@@ -7,8 +7,8 @@
 
 #   classification OUR2-AN-V-0
 
-#   Problem 41 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 41 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -33,8 +33,8 @@ function ncb20b(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-	    sum{(10.0 / i) * (sum{x[i+j-1] / (1 + x[i+j-1]^2), j=1:20})^2 - 0.2 * sum{x[i+j-1], j=1:20}, i=1:n-19} +
-      sum{100.0 * x[i]^4 + 2.0, i=1:n}
+	    sum((10.0 / i) * (sum(x[i+j-1] / (1 + x[i+j-1]^2) for j=1:20))^2 - 0.2 * sum(x[i+j-1] for j=1:20) for i=1:n-19) +
+      sum(100.0 * x[i]^4 + 2.0 for i=1:n)
     )
 
     return nlp

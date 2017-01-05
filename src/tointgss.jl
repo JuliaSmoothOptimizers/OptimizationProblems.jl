@@ -11,8 +11,8 @@
 
 #   classification OUR2-AY-V-0
 
-#   Problem 56 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 56 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -36,7 +36,7 @@ function tointgss(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-      sum{(10.0 / (n + 2) + x[i+2]^2) * (2.0 - exp(-(x[i] - x[i+1])^2 / (0.1 + x[i+2]^2))), i=1:n-2} 
+      sum((10.0 / (n + 2) + x[i+2]^2) * (2.0 - exp(-(x[i] - x[i+1])^2 / (0.1 + x[i+2]^2))) for i=1:n-2)
     )
 
     return nlp

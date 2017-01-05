@@ -7,8 +7,8 @@
 
 #   This is a simplified version of problem NONDIA.
 
-#   Problem 38 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 38 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -35,7 +35,7 @@ function liarwhd(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-	    sum{4.0*(x[i]^2 - x[1])^2 + (x[i] - 1)^2 , i=1:n}
+	    sum(4.0*(x[i]^2 - x[1])^2 + (x[i] - 1)^2  for i=1:n)
     )
 
     return nlp

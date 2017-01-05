@@ -29,13 +29,11 @@ function hs4(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     1 <= x[1]
   )
 
   @NLconstraint(
     nlp,
-    constr,
     0 <= x[2]
   )
 

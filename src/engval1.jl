@@ -36,10 +36,10 @@ function engval1(n :: Int=100)
   @NLobjective(
     nlp,
     Min,
-    sum{
-      (x[i]^2 + x[i+1]^2)^2 - 4 * x[i] + 3,
-      i=1:n-1
-    }
+    sum(
+      (x[i]^2 + x[i+1]^2)^2 - 4 * x[i] + 3
+      for i=1:n-1
+    )
   )
 
   return nlp

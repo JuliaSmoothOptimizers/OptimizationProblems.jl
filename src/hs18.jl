@@ -28,25 +28,21 @@ function hs18(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     x[1]*x[2] >= 25
   )
 
   @NLconstraint(
     nlp,
-    constr,
     x[1]^2 + x[2]^2 >= 25
   )
 
   @NLconstraint(
     nlp,
-    constr,
     2 <= x[1] <= 50
   )
 
   @NLconstraint(
     nlp,
-    constr,
     0 <= x[2] <= 50
   )
 

@@ -29,7 +29,6 @@ function hs11(args...)
 
   @NLconstraint(
     nlp,
-    constr,
     x[1]^2 <= x[2]
   )
 

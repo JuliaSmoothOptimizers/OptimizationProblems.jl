@@ -10,8 +10,8 @@
 
 #   classification SUR2-AN-V-0
 
-#   Problem 44 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 44 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -33,7 +33,7 @@ function nondia(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-	    (x[1] - 1.0)^2 + sum{(100.0*x[1] - x[i-1]^2)^2, i=2:n}
+	    (x[1] - 1.0)^2 + sum((100.0*x[1] - x[i-1]^2)^2 for i=2:n)
     )
 
     return nlp

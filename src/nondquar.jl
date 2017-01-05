@@ -12,8 +12,8 @@
 
 #   classification OUR2-AN-V-0
 
-#   Problem 45 in   
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   Problem 45 in
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -38,7 +38,7 @@ function nondquar(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-	    (x[1] - x[2])^2 + (x[n-1] - x[n])^2 + sum{(x[i] + x[i+1] + x[n])^4, i=1:n-2}
+	    (x[1] - x[2])^2 + (x[n-1] - x[n])^2 + sum((x[i] + x[i+1] + x[n])^4 for i=1:n-2)
     )
 
     return nlp

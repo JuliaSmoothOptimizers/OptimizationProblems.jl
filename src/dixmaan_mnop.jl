@@ -9,7 +9,7 @@
 # See also
 #
 #   problems 19, 20, 21, 22 in
-#   L. Luksan, C. Matonoha and J. Vlcek  
+#   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
 #   Institute of Computer Science,
@@ -37,10 +37,10 @@ function dixmaanm(n :: Int=99;
     nlp,
     Min,
     1 +
-    sum{(i / n)^2 * α * x[i]^2,                     i=1:n} +
-    sum{i / n * β * x[i]^2 * (x[i+1] + x[i+1]^2)^2, i=1:n-1} +
-    sum{i / n * γ * x[i]^2 * x[i+m]^4,              i=1:2*m} +
-    sum{(i / n)^2 * δ * x[i] * x[i+2*m],            i=1:m}
+    sum((i / n)^2 * α * x[i]^2 for                     i=1:n) +
+    sum(i / n * β * x[i]^2 * (x[i+1] + x[i+1]^2)^2 for i=1:n-1) +
+    sum(i / n * γ * x[i]^2 * x[i+m]^4 for              i=1:2*m) +
+    sum((i / n)^2 * δ * x[i] * x[i+2*m] for            i=1:m)
   )
 
   return nlp

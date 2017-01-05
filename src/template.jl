@@ -29,10 +29,9 @@ function (n :: Int=100)
   @NLobjective(
     nlp,
     Min,
-    sum{
-      ,
-      i=1:n-1
-    }
+    sum(
+       for i=1:n-1
+    )
   )
 
   return nlp

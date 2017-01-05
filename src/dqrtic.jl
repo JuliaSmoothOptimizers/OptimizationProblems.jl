@@ -33,7 +33,7 @@ function dqrtic(n :: Int=100)
   @NLobjective(
     nlp,
     Min,
-    sum{(x[i] - i)^4, i=1:n}
+    sum((x[i] - i)^4 for i=1:n)
   )
 
   return nlp

@@ -27,7 +27,7 @@ function chnrosnb_mod(n :: Int=100)
   @NLobjective(
     nlp,
     Min,
-    16 * sum{(x[i-1] - x[i]^2)^2*(1.5+sin(i))^2, i=2:n} + sum{(1.0 - x[i])^2, i=2:n}
+    16 * sum((x[i-1] - x[i]^2)^2*(1.5+sin(i))^2 for i=2:n) + sum((1.0 - x[i])^2 for i=2:n)
   )
 
   return nlp
