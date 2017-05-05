@@ -7,7 +7,7 @@
 #   Lectures Notes in Economics and Mathematical Systems 187,
 #   Springer Verlag, Heidelberg, 1981.
 #
-#   classification QR2-AN-3-1
+#   classification SQR2-AN-3-1
 #
 # A. Cebola, Curitiba 10/2016.
 
