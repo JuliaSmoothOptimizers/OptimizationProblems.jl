@@ -3,21 +3,21 @@
 #
 #   model: H-N=N=N TZVP+MP2
 #   fitting Y to A0 + A2 X**2 + A4 X**4 + A6 X**6 + A8 X**8 +
-#                A10 X**10 + A12 X**12 + A14 X**14
+#                A10 X**10 + A12 X**12
 #
 #   Source:
 #   M. Palmer, Edinburgh, private communication.
 #
-#   classification QUR2-RN-8-0
+#   classification QUR2-RN-7-0
 
-export palmer1c
+ export palmer1d
 
-"A linear least squares problem arising from chemical kinetics."
-function palmer1c()
+ "A linear least squares problem arising from chemical kinetics."
+function palmer1d()
 
   nlp = Model()
 
-  @variable(nlp, x[j=1:8], start=1.0)
+  @variable(nlp, x[j=1:7], start=1.0)
 
   X = [-1.788963, -1.745329, -1.658063, -1.570796,  -1.483530, -1.396263, -1.308997,
        -1.218612, -1.134464, -1.047198, -0.872665,  -0.698132, -0.523599, -0.349066,
@@ -34,7 +34,7 @@ function palmer1c()
   @NLobjective(
     nlp,
     Min,
-    sum((Y[i] - sum(x[j] * X[i]^(2*j-2) for j=1:8))^2 for i=1:35)
+    sum((Y[i] - sum(x[j] * X[i]^(2*j-2) for j=1:7))^2 for i=1:35)
   )
 
   return nlp
