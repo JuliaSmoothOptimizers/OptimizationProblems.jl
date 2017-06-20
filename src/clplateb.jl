@@ -31,11 +31,12 @@ function clplateb(p::Int=71, wght::Float64=-0.1)
   @variable(nlp, x[i=1:p,j=1:p], start=0.0)
 
   hp2 = 0.5 * p^2
+  disw = wght / (p - 1)
 
   @NLobjective(
     nlp,
     Min,
-    sum(wght * x[p,j] for j=1:p) + sum(sum(0.5 * (x[i,j] - x[i,j-1])^2 + hp2 * (x[i,j] - x[i,j-1])^4 for j=2:p) for i=2:p) + sum(0.5 * (x[2,j])^2 +	hp2 * (x[2,j])^4 for j=2:p) + sum(sum(0.5 * (x[i,j] - x[i-1,j])^2 +	hp2 * (x[i,j] - x[i-1,j])^4 for j=2:p) for i=3:p)
+    sum(disw * x[p,j] for j=1:p) + sum(sum(0.5 * (x[i,j] - x[i,j-1])^2 + hp2 * (x[i,j] - x[i,j-1])^4 for j=2:p) for i=2:p) + sum(0.5 * (x[2,j])^2 +	hp2 * (x[2,j])^4 for j=2:p) + sum(sum(0.5 * (x[i,j] - x[i-1,j])^2 +	hp2 * (x[i,j] - x[i-1,j])^4 for j=2:p) for i=3:p)
   )
 
   return nlp
