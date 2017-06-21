@@ -20,6 +20,8 @@
 #
 #   p is the number of points in one side of the unit square
 #   The number of variables is p*p, of which (p-1)*(p-1) are free.
+#
+#   Fixed variables have been eliminated from the objective function.
 
 export clplateb
 
