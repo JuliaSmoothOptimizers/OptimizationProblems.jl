@@ -12,7 +12,7 @@
 export meyer3
 
 "Meyer function"
-function meyer3()
+function meyer3(n::Int64=2)
 
   nlp = Model()
 

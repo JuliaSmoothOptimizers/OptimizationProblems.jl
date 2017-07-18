@@ -7,7 +7,7 @@
 export nasty
 
 "Nasty problem"
-function nasty()
+function nasty(n::Int64=2)
 
   nlp = Model()
 
