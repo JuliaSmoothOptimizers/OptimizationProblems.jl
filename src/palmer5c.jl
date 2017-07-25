@@ -14,7 +14,7 @@
 export palmer5c
 
 "A linear least squares problem arising from chemical kinetics."
-function palmer5c(n::Int64=12)
+function palmer5c()
 
   nlp = Model()
 

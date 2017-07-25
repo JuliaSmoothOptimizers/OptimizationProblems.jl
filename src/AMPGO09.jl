@@ -8,7 +8,7 @@
 
 export AMPGO09
 
-function AMPGO09(n::Int64=1)
+function AMPGO09()
    nlp = Model()
 
    @variable(nlp, x, start=3.1)
@@ -16,7 +16,7 @@ function AMPGO09(n::Int64=1)
    @NLobjective(
     nlp,
     Min,
-    sin(x)+sin(2/3*x)
+    sin(x) + sin(2/3 * x)
    )
 
    return nlp

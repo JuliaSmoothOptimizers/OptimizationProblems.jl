@@ -8,7 +8,7 @@
 
 export Dus2_1
 
-function Dus2_1(n::Int64=1)
+function Dus2_1()
    nlp = Model()
 
    @variable(nlp, x, start=-1.0)
@@ -16,7 +16,7 @@ function Dus2_1(n::Int64=1)
    @NLobjective(
     nlp,
     Min,
-    exp(x * (x-1))
+    exp(x * (x - 1))
    )
 
    return nlp

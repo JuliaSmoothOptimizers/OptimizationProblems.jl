@@ -7,7 +7,7 @@
 # S. Goyette, Sherbrooke 2016/2017
 export Duscube
 
-function Duscube(n::Int64=1)
+function Duscube()
    nlp = Model()
 
    @variable(nlp, x, start=1.0)
@@ -15,7 +15,7 @@ function Duscube(n::Int64=1)
    @NLobjective(
     nlp,
     Min,
-    x^3-(x-4)^2-100*x
+    x^3 - (x - 4)^2 - 100 * x
    )
 
    return nlp

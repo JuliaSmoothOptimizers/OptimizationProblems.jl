@@ -8,7 +8,7 @@
 
 export AMPGO11
 
-function AMPGO11(n::Int64=1)
+function AMPGO11()
    nlp = Model()
 
    @variable(nlp, x, start=-pi)
@@ -16,7 +16,7 @@ function AMPGO11(n::Int64=1)
    @NLobjective(
     nlp,
     Min,
-    2*cos(x)+cos(2*x)
+    2 * cos(x) + cos(2 * x)
    )
 
    return nlp

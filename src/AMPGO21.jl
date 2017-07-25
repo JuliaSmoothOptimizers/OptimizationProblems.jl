@@ -16,7 +16,7 @@ function AMPGO21(n::Int64=1)
    @NLobjective(
     nlp,
     Min,
-    (x*sin(x))+(x*cos(2*x))
+    (x * sin(x)) + (x * cos(2 * x))
    )
 
    return nlp

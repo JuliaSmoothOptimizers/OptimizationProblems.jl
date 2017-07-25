@@ -7,7 +7,7 @@
 # S. Goyette, Sherbrooke 2016/2017
 export Dus2_9
 
-function Dus2_9(n::Int64=1)
+function Dus2_9()
    nlp = Model()
 
    @variable(nlp, x, start=0.0)
@@ -15,7 +15,7 @@ function Dus2_9(n::Int64=1)
    @NLobjective(
     nlp,
     Min,
-    1-12*x+7.5*x^2-x^3
+    1 - 12 * x + 7.5 * x^2 - x^3
    )
 
    return nlp

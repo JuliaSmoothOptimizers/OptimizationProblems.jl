@@ -10,7 +10,7 @@
 
 export Shpak3
 
-function Shpak3(n::Int64=1)
+function Shpak3()
   nlp = Model()
 
   @variable(nlp, x, start=-10.0)
@@ -18,7 +18,7 @@ function Shpak3(n::Int64=1)
   @NLobjective(
     nlp,
     Min,
-    1*sin(2*x+1)+2*sin(3*x+2)+3*sin(4*x+3)+4*sin(5*x+4)+5*sin(6*x+5)
+    1 * sin(2 * x + 1) + 2 * sin(3 * x + 2) + 3 * sin(4 * x + 3) + 4 * sin(5 * x + 4) + 5 * sin(6 * x + 5)
     )
 
     return nlp

@@ -8,7 +8,7 @@
 
 export AMPGO04
 
-function AMPGO04(n::Int64=1)
+function AMPGO04()
    nlp = Model()
 
    @variable(nlp, x, start=1.9)
@@ -16,7 +16,7 @@ function AMPGO04(n::Int64=1)
    @NLobjective(
     nlp,
     Min,
-    -(16*x^2-24*x+5)*exp(-x)
+    -(16 * x^2 -24 * x + 5) * exp(-x)
    )
 
    return nlp

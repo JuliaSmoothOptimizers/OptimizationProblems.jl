@@ -8,7 +8,7 @@
 
 export AMPGO12
 
-function AMPGO12(n::Int64=1)
+function AMPGO12()
    nlp = Model()
 
    @variable(nlp, x, start=0.0)
@@ -16,7 +16,7 @@ function AMPGO12(n::Int64=1)
    @NLobjective(
     nlp,
     Min,
-    sin(x)^3+cos(x)^3
+    sin(x)^3 + cos(x)^3
    )
 
    return nlp

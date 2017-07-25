@@ -1,17 +1,20 @@
-#6th problem of
-#Global optimization in one-dimensional case
-#using analytically defined derivatives of
-#objective function
+# 6th problem of
+# Global optimization in one-dimensional case
+# using analytically defined derivatives of
+# objective function
 #
-#A.Shpak
+# A.Shpak
 #
 #Computer Science Journal of Moldova, vol.3, no.2(8), 1995
+#
 # S. Goyette, Sherbrooke 2016/2017
 
 export Shpak6
 
-function Shpak6(n::Int64=1)
+function Shpak6()
+
    nlp = Model()
+
    veca=[4.696 4.885 0.800 4.986 3.901 2.395 0.945 8.371 6.181 5.713]
    veck=[2.871 2.328 1.111 1.263 2.399 2.629 2.853 2.344 2.592 2.929]
    vecc=[0.149 0.166 0.175 0.183 0.128 0.117 0.115 0.148 0.188 0.198]

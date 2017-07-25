@@ -8,7 +8,7 @@
 
 export AMPGO13
 
-function AMPGO13(n::Int64=1)
+function AMPGO13()
    nlp = Model()
 
    @variable(nlp, x, start=0.001)
@@ -17,7 +17,7 @@ function AMPGO13(n::Int64=1)
   @NLobjective(
    nlp,
    Min,
-   ifelse(0.0<x<1.0,-(x^0.666666+(1-x^2)^0.333333),Inf)
+   ifelse(0.0 < x < 1.0, -(x^0.666666 + (1 - x^2) ^ 0.333333), Inf)
   )
 
 

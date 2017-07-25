@@ -12,7 +12,7 @@
 export palmer5d
 
 "A linear least squares problem arising from chemical kinetics."
-function palmer5d(n::Int64=12)
+function palmer5d()
 
   nlp = Model()
 

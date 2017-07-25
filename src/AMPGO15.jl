@@ -8,7 +8,7 @@
 
 export AMPGO15
 
-function AMPGO15(n::Int64=1)
+function AMPGO15()
    nlp = Model()
 
    @variable(nlp, x, start=-5.0)
@@ -16,7 +16,7 @@ function AMPGO15(n::Int64=1)
    @NLobjective(
     nlp,
     Min,
-    (x^2-5*x+6)/(x^2+1)
+    (x^2 - 5 * x + 6)/(x^2 + 1)
    )
 
    return nlp

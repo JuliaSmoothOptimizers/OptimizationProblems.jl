@@ -16,7 +16,7 @@ function AMPGO20(n::Int64=1)
    @NLobjective(
     nlp,
     Min,
-    -(x-sin(x))*exp(-x^2)
+    -(x - sin(x)) * exp(-x^2)
    )
 
    return nlp

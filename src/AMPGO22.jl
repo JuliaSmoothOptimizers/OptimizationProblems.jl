@@ -16,7 +16,7 @@ function AMPGO22(n::Int64=1)
    @NLobjective(
     nlp,
     Min,
-    exp(-3.0*x)-sin(x)^3
+    exp(-3.0 * x) - sin(x)^3
    )
 
    return nlp
