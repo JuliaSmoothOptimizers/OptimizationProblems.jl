@@ -7,6 +7,7 @@
 # S. Goyette, Sherbrooke 2016/2017
 export AMPGO05
 
+"Univariate multimodal minimization problem AMPGO05"
 function AMPGO05()
    nlp = Model()
 

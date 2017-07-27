@@ -7,6 +7,7 @@
 # S. Goyette, Sherbrooke 2016/2017
 export Dus2_9
 
+"Univariate multimodal minimization problem Dus2_9"
 function Dus2_9()
    nlp = Model()
 

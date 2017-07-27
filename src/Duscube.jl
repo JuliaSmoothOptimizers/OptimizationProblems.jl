@@ -7,6 +7,7 @@
 # S. Goyette, Sherbrooke 2016/2017
 export Duscube
 
+"Univariate multimodal minimization problem Duscube"
 function Duscube()
    nlp = Model()
 

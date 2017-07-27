@@ -8,6 +8,7 @@
 
 export AMPGO13
 
+"Univariate multimodal minimization problem AMPGO13"
 function AMPGO13()
    nlp = Model()
 
@@ -17,7 +18,7 @@ function AMPGO13()
   @NLobjective(
    nlp,
    Min,
-   ifelse(0.0 < x < 1.0, -(x^0.666666 + (1 - x^2) ^ 0.333333), Inf)
+   ifelse(0.0 < x < 1.0, -(x^0.666666 + (1 - x^2)^0.333333), Inf)
   )
 
 

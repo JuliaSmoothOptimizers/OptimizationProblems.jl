@@ -9,6 +9,7 @@
 
 export Shpak1
 
+"Univariate multimodal minimization problem Shpak1"
 function Shpak1()
    nlp = Model()
 

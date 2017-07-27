@@ -8,6 +8,7 @@
 
 export AMPGO18
 
+"Univariate multimodal minimization problem AMPGO18"
 function AMPGO18(n::Int64=1)
    nlp = Model()
 

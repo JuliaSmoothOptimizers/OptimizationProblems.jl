@@ -7,6 +7,7 @@
 # S. Goyette, Sherbrooke 2016/2017
 export Dus2_3
 
+"Univariate unimodal minimization problem Dus2_3"
 function Dus2_3()
    nlp = Model()
 
@@ -15,7 +16,7 @@ function Dus2_3()
    @NLobjective(
     nlp,
     Min,
-    1 - (1/(5 * (x^2) - 6 * x + 5))
+    1 - (1 / (5 * (x^2) - 6 * x + 5))
    )
 
    return nlp

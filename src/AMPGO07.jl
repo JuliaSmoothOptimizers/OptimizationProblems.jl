@@ -8,6 +8,7 @@
 
 export AMPGO07
 
+"Univariate multimodal minimization problem AMPGO07"
 function AMPGO07()
    nlp = Model()
 

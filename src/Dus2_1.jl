@@ -8,6 +8,7 @@
 
 export Dus2_1
 
+"Univariate unimodal minimization problem Dus2_1"
 function Dus2_1()
    nlp = Model()
 
