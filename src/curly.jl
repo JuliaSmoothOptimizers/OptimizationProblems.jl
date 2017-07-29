@@ -1,6 +1,10 @@
 # A banded function with semi-bandwidth b and
 # negative curvature near the starting point.
 #
+# Note that the initial point in the reference below is erroneous.
+# In this model, we use the starting point specified in the
+# original SIF model, part of the CUTE collection.
+#
 # See also
 #
 #   problems 8, 9, 10 in
@@ -26,7 +30,9 @@ function curly(n :: Int=100; b :: Int=10)
 
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=1.0e-4/(n+1))
+  x0 = [1.0e-4 * i /(n+1) for i = 1:n]
+
+  @variable(nlp, x[i=1:n], start=x0[i])
 
   @NLexpression(nlp, f[i=1:n], sum(x[j] for j=i:min(i+b,n)))
 
