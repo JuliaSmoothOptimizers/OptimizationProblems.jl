@@ -25,9 +25,14 @@
 export clplatea
 
 "The clamped plate problem (Strang, Nocedal, Dax)."
-function clplatea(p::Int=71, wght::Float64=-0.1)
+function clplatea(n::Int=5041, wght::Float64=-0.1)
 
-  nlp = Model()
+    p = floor(Int, sqrt(n))
+    p*p != n && warn("clplatea: number of variables adjusted from $n down to $(p*p) be square")
+    n = p * p
+
+
+    nlp = Model()
 
   @variable(nlp, x[i=1:p,j=1:p], start=0.0)
 

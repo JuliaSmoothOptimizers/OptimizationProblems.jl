@@ -7,7 +7,7 @@
 export nasty
 
 "Nasty problem"
-function nasty()
+function nasty(args...)
 
   nlp = Model()
 
