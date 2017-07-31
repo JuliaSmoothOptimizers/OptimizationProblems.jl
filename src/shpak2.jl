@@ -19,7 +19,7 @@ function Shpak2()
    @NLobjective(
     nlp,
     Min,
-    sin(x) + sin((10/3) * x)
+    sin(x) + sin((10.0 / 3.0) * x)
    )
 
    return nlp

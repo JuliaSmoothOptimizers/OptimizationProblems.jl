@@ -17,7 +17,7 @@ function AMPGO04()
    @NLobjective(
     nlp,
     Min,
-    -(16 * x^2 -24 * x + 5) * exp(-x)
+    -(16 * x^2 - 24 * x + 5) * exp(-x)
    )
 
    return nlp
