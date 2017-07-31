@@ -13,7 +13,7 @@
 export palmer1c
 
 "A linear least squares problem arising from chemical kinetics."
-function palmer1c()
+function palmer1c(args...)
 
   nlp = Model()
 

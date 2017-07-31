@@ -26,7 +26,11 @@
 export clplateb
 
 "The clamped plate problem (Strang, Nocedal, Dax)."
-function clplateb(p::Int=71, wght::Float64=-0.1)
+function clplateb(n::Int=5041, wght::Float64=-0.1)
+
+  p = floor(Int, sqrt(n))
+  p*p != n && warn("clplateb: number of variables adjusted from $n down to $(p*p)")
+  n = p * p
 
   nlp = Model()
 
