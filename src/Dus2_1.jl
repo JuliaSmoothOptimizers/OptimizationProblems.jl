@@ -9,16 +9,16 @@
 export Dus2_1
 
 "Univariate unimodal minimization problem Dus2_1"
-function Dus2_1()
-   nlp = Model()
+function Dus2_1(args...)
+  nlp = Model()
 
-   @variable(nlp, x, start=-1.0)
+  @variable(nlp, x, start=-1.0)
 
-   @NLobjective(
+  @NLobjective(
     nlp,
     Min,
     exp(x * (x - 1))
-   )
+  )
 
-   return nlp
+  return nlp
 end

@@ -9,16 +9,16 @@
 export AMPGO09
 
 "Univariate multimodal minimization problem AMPGO09"
-function AMPGO09()
-   nlp = Model()
+function AMPGO09(args...)
+  nlp = Model()
 
-   @variable(nlp, x, start=3.1)
+  @variable(nlp, x, start=3.1)
 
-   @NLobjective(
+  @NLobjective(
     nlp,
     Min,
     sin(x) + sin((2.0 / 3.0) * x)
-   )
+  )
 
-   return nlp
+  return nlp
 end

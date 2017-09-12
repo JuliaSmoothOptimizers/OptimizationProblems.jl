@@ -9,16 +9,16 @@
 export AMPGO15
 
 "Univariate multimodal minimization problem AMPGO15"
-function AMPGO15()
-   nlp = Model()
+function AMPGO15(args...)
+  nlp = Model()
 
-   @variable(nlp, x, start=-5.0)
+  @variable(nlp, x, start=-5.0)
 
-   @NLobjective(
+  @NLobjective(
     nlp,
     Min,
     (x^2 - 5 * x + 6) / (x^2 + 1)
-   )
+  )
 
-   return nlp
+  return nlp
 end
