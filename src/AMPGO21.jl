@@ -9,16 +9,16 @@
 export AMPGO21
 
 "Univariate multimodal minimization problem AMPGO21"
-function AMPGO21(n::Int64=1)
-   nlp = Model()
+function AMPGO21(args...)
+  nlp = Model()
 
-   @variable(nlp, x, start=0.0)
+  @variable(nlp, x, start=0.0)
 
-   @NLobjective(
+  @NLobjective(
     nlp,
     Min,
     (x * sin(x)) + (x * cos(2 * x))
-   )
+  )
 
-   return nlp
+  return nlp
 end

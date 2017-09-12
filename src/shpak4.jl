@@ -12,16 +12,16 @@
 export Shpak4
 
 "Univariate multimodal minimization problem Shpak4"
-function Shpak4()
-   nlp = Model()
+function Shpak4(args...)
+  nlp = Model()
 
-   @variable(nlp, x, start=-1.0)
+  @variable(nlp, x, start=-1.0)
 
-   @NLobjective(
+  @NLobjective(
     nlp,
     Min,
     (x + sin(x)) * exp(-(x)^2)
-   )
+  )
 
-   return nlp
+  return nlp
 end

@@ -8,16 +8,16 @@
 export Dus2_9
 
 "Univariate multimodal minimization problem Dus2_9"
-function Dus2_9()
-   nlp = Model()
+function Dus2_9(args...)
+  nlp = Model()
 
-   @variable(nlp, x, start=0.0)
+  @variable(nlp, x, start=0.0)
 
-   @NLobjective(
+  @NLobjective(
     nlp,
     Min,
     1 - 12 * x + 7.5 * x^2 - x^3
-   )
+  )
 
-   return nlp
+  return nlp
 end

@@ -11,16 +11,16 @@
 export Shpak2
 
 "Univariate multimodal minimization problem Shpak2"
-function Shpak2()
-   nlp = Model()
+function Shpak2(args...)
+  nlp = Model()
 
-   @variable(nlp, x, start=3.1)
+  @variable(nlp, x, start=3.1)
 
-   @NLobjective(
+  @NLobjective(
     nlp,
     Min,
     sin(x) + sin((10.0 / 3.0) * x)
-   )
+  )
 
-   return nlp
+  return nlp
 end
