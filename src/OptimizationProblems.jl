@@ -76,6 +76,7 @@ include("tquartic.jl")
 include("tridia.jl")
 include("vardim.jl")
 include("woods.jl")
+include("NZF1.jl")
 
 include("hs1.jl")
 include("hs3.jl")
