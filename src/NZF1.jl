@@ -1,10 +1,12 @@
+# "Philippe Toint (private communication)"
+
 # A. Montoison, Montreal, 04/2018.
 
 export NZF1
 
-function NZF1(n :: Int=26)
+function NZF1(n :: Int=13)
   
-  mod(n,13) != 0 && error(": number of variables must divisible by 13")
+  mod(n,13) != 0 && warn(": number of variables must divisible by 13")
   l = div(n,13)
 
   nlp = Model()
