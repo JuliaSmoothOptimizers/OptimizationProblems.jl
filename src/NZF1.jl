@@ -1,12 +1,17 @@
 # "Philippe Toint (private communication)"
 
-# A. Montoison, Montreal, 04/2018.
+# classification SUR2-AN-V-0
+
+# A. Montoison, Montreal, 05/2018.
 
 export NZF1
 
 function NZF1(n :: Int=13)
   
-  mod(n,13) != 0 && warn(": number of variables must divisible by 13")
+  mod(n,13) != 0 && warn("NZF1: number of variables adjusted to be divisible by 13")
+  nbis = max(1,div(n,13))
+  n = 13*nbis
+
   l = div(n,13)
 
   nlp = Model()
