@@ -11,7 +11,6 @@
 #
 # A. Montoison, Montreal, 05/2018.
 
-using QuadGK
 export hs68
 
 function ϕbis(t)

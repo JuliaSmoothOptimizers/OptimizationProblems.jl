@@ -11,7 +11,6 @@
 #
 # A. Montoison, Montreal, 05/2018.
 
-using QuadGK
 export hs69
 
 function ϕ(t)
