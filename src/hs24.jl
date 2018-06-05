@@ -15,16 +15,13 @@ export hs24
 
 "HS24 model"
 function hs24(args...)
-  nlp = Model()
 
-  x0 = [1,0.5]
-  @variable(nlp, x[i=1:2], start=x0[i])
+  nlp  = Model()
+  x0   = [  1, 0.5]
+  @variable(nlp, x[i=1:2] >= 0, start = x0[i])
 
   @constraint(nlp, x[1]/sqrt(3) - x[2] >= 0)
-  @constraint(nlp, x[1] + sqrt(3)*x[2] >= 0)
-  @constraint(nlp, -x[1] - sqrt(3)*x[2] + 6 >= 0)
-  @constraint(nlp, x[1] >= 0)
-  @constraint(nlp, x[2] >= 0)
+  @constraint(nlp, 0 <= x[1] + sqrt(3)*x[2] <= 6)
 
   @NLobjective(
     nlp,

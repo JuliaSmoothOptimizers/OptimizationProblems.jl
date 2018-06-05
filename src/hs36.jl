@@ -15,15 +15,12 @@ export hs36
 
 "HS36 model"
 function hs36(args...)
-  nlp = Model()
 
-  x0 = [10,10,10]
-  @variable(nlp, x[i=1:3], start=x0[i])
+  nlp  = Model()
+  uvar = [20, 11, 42]
+  @variable(nlp, 0 <= x[i=1:3] <= uvar[i], start = 10)
 
-  @constraint(nlp, 72 - x[1] - 2*x[2] - 2*x[3] >= 0)
-  @constraint(nlp, 0 <= x[1] <= 20)
-  @constraint(nlp, 0 <= x[2] <= 11)
-  @constraint(nlp, 0 <= x[3] <= 42)
+  @constraint(nlp, -72 + x[1] + 2*x[2] + 2*x[3] <= 0)
 
   @NLobjective(
     nlp,

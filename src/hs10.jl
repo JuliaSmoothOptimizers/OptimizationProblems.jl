@@ -16,12 +16,11 @@ export hs10
 "HS10 model"
 function hs10(args...)
 
-  nlp = Model()
-  x0 = [-10, 10]
+  nlp  = Model()
+  x0   = [-10,    10]
+  @variable(nlp, x[i=1:2], start = x0[i])
 
-  @variable(nlp, x[i=1:2], start=x0[i])
-
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     x[1] - x[2]
@@ -29,7 +28,7 @@ function hs10(args...)
 
   @NLconstraint(
     nlp,
-    -3*x[1]^2 + 2*x[1]*x[2] - x[2]^2 >= -1
+    -3*x[1]^2 + 2*x[1]*x[2] - x[2]^2 + 1 >= 0
   )
 
   return nlp

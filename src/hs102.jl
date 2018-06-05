@@ -15,11 +15,11 @@ export hs102
 
 "HS102 model"
 function hs102(args...)
-  nlp = Model()
-
-  a  = 0.125
-  x0 = [6,6,6,6,6,6,6]
-  @variable(nlp, x[i=1:7], start=x0[i])
+  
+  nlp  = Model()
+  a    = 0.125
+  lvar = [0.1*ones(6); 0.01]
+  @variable(nlp, lvar[i] <= x[i=1:7] <= 10, start = 6)
   
   exposant_f = Array{Float64}(4,7)
   exposant_f[1,:] = [ 1,-1, 0, 2, 0  ,-3,   a]
@@ -44,7 +44,7 @@ function hs102(args...)
   exposant_c2 = Array{Float64}(3,7)
   exposant_c2[1,:] = [-0.5, 1  , -1,  0, -1, 1 , 0]
   exposant_c2[2,:] = [0   , 0  ,  1, -1, -1,  2, 0] 
-  exposant_c2[3,:] = [-1  , 0.5,  1, -2, -1,1/3, 0] 
+  exposant_c2[3,:] = [-1  , 0.5,  0, -2, -1,1/3, 0] 
   @NLconstraint(nlp, 1 - 1.3*prod(x[i]^exposant_c2[1,i] for i=1:7)
                        - 0.8*prod(x[i]^exposant_c2[2,i] for i=1:7)
                        - 3.1*prod(x[i]^exposant_c2[3,i] for i=1:7) >= 0)
@@ -69,13 +69,7 @@ function hs102(args...)
                        - 0.4*prod(x[i]^exposant_c4[3,i] for i=1:7)
                        - 0.5*prod(x[i]^exposant_c4[4,i] for i=1:7) >= 0)
 
-  @NLconstraint(nlp, 100 <= f)
-  @NLconstraint(nlp, f <= 3000)
-
-  for i=1:6
-    @constraint(nlp, 0.1 <= x[i] <= 10)
-  end
-  @constraint(nlp, 0.01 <= x[7] <= 10)
+  @NLconstraint(nlp, 100 <= f <= 3000)
 
   @NLobjective(
     nlp,

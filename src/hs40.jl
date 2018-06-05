@@ -17,9 +17,8 @@ export hs40
 "HS40 model"
 function hs40(args...)
 
-  nlp = Model()
-
-  @variable(nlp, x[i=1:4], start=0.8)
+  nlp  = Model()
+  @variable(nlp, x[i=1:4], start = 0.8)
 
   @NLobjective(
     nlp,
@@ -29,19 +28,16 @@ function hs40(args...)
 
   @NLconstraint(
     nlp,
-    constr1,
     x[1]^3 + x[2]^2 - 1 == 0
   )
 
   @NLconstraint(
     nlp,
-    constr2,
-    x[1]^2*x[4] - x[3] == 0
+    x[4]*x[1]^2 - x[3] == 0
   )
 
   @NLconstraint(
     nlp,
-    constr3,
     x[4]^2 - x[2] == 0
   )
 

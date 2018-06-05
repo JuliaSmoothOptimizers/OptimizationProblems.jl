@@ -15,10 +15,10 @@ export hs48
 
 "HS48 model"
 function hs48(args...)
-  nlp = Model()
-
-  x0 = [3,5,-3,2,-2]
-  @variable(nlp, x[i=1:5], start=x0[i])
+  
+  nlp  = Model()
+  x0   = [3, 5, -3, 2, -2]
+  @variable(nlp, x[i=1:5], start = x0[i])
 
   @constraint(nlp, x[1] + x[2] + x[3] + x[4] + x[5] - 5 == 0)
   @constraint(nlp, x[3] - 2*(x[4] + x[5]) + 3 == 0)

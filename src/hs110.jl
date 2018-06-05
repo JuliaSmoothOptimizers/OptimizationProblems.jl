@@ -15,18 +15,15 @@ export hs110
 
 "HS110 model"
 function hs110(args...)
-  nlp = Model()
-
-  x0   = 9*ones(10)
-  lvar = 2.001*ones(10)
-  uvar = 9.999*ones(10)
-  @variable(nlp, lvar[i] <= x[i=1:10] <= uvar[i], start=x0[i])
+  
+  nlp  = Model()
+  @variable(nlp, 2.001 <= x[i=1:10] <= 9.999, start = 9)
   
   @NLobjective(
     nlp,
     Min,
-    sum(log(x[i] - 2)^2 + log(10 - x[i])^2 for i=1:10) - prod(x[i] for i=1:10)^2
-    )
+    sum(log(x[i] - 2)^2 + log(10 - x[i])^2 for i=1:10) - prod(x[i] for i=1:10)^0.2
+  )
 
   return nlp
 end

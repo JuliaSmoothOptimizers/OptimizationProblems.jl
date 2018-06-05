@@ -16,10 +16,10 @@ export hs15
 "HS15 model"
 function hs15(args...)
 
-  nlp = Model()
-  x0 = [-2, 1]
-
-  @variable(nlp, x[i=1:2], start=x0[i])
+  nlp  = Model()
+  x0   = [  -2,    1]
+  uvar = [ 0.5,  Inf]
+  @variable(nlp, x[i=1:2] <= uvar[i], start = x0[i])
 
   @NLobjective(
     nlp,
@@ -29,18 +29,13 @@ function hs15(args...)
 
   @NLconstraint(
     nlp,
-    x[1]*x[2] >= 1
+    x[1]*x[2] -1 >= 0
   )
 
   @NLconstraint(
     nlp,
     x[1] + x[2]^2 >= 0
   )
-
-  @NLconstraint(
-    nlp,
-    x[1] <= 1/2
-  )
-
+  
   return nlp
 end

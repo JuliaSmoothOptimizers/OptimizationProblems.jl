@@ -15,12 +15,9 @@ export hs119
 
 "HS119 model"
 function hs119(args...)
-  nlp = Model()
 
-  x0   = 10*ones(16)
-  lvar = zeros(16)
-  uvar = 5*ones(16)
-  @variable(nlp, lvar[i] <= x[i=1:16] <= uvar[i], start=x0[i])
+  nlp  = Model()
+  @variable(nlp, 0 <= x[i=1:16] <= 5, start = 10)
   
   c = Array{Float64}(8)
   c = [2.5, 1.1, -3.1, -3.5, 1.3, 2.1, 2.3, -1.5]
@@ -53,7 +50,7 @@ function hs119(args...)
   b[:,6]  = [0.11,     0, -0.96, -1.78,  0.59,  1.24,    0,     0]
   b[:,7]  = [0.12,  0.80,     0, -0.41, -0.33,  0.21, 1.12, -1.03]
   b[:,8]  = [0.13,     0, -0.49,     0, -0.43, -0.26,    0,  0.10]
-  b[:,9]  = [1   ,     0,     0,     0,     0,     0,    0,     0]
+  b[:,9]  = [1   ,     0,     0,     0,     0,     0,-0.36,     0]
   b[:,10] = [0   ,     1,     0,     0,     0,     0,    0,     0]
   b[:,11] = [0   ,     0,     1,     0,     0,     0,    0,     0]
   b[:,12] = [0   ,     0,     0,     1,     0,     0,    0,     0]
@@ -63,14 +60,14 @@ function hs119(args...)
   b[:,16] = [0   ,     0,     0,     0,     0,     0,    0,     1]
 
   for i=1:8
-    @NLconstraint(nlp, sum(b[i,j]*x[j] - c[i] for j=1:16) == 0)
+    @constraint(nlp, sum(b[i,j]*x[j] - c[i] for j=1:16) == 0)
   end
 
   @NLobjective(
     nlp,
     Min,
     sum(sum(a[i,j]*(x[i]^2 + x[i] + 1)*(x[j]^2 + x[j] + 1) for j=1:16) for i=1:16)
-    )
+  )
 
   return nlp
 end

@@ -15,10 +15,10 @@ export hs106
 
 "HS106 model"
 function hs106(args...)
-  nlp = Model()
-
-  x0 = [5000, 5000, 5000, 200, 350, 150, 225, 425]
-  lvar = [100, 1000, 1000, 10, 10, 10, 10, 10]
+  
+  nlp  = Model()
+  x0   = [ 5000,  5000,  5000,  200,  350,  150,  225,  425]
+  lvar = [  100,  1000,  1000,   10,   10,   10,   10,   10]
   uvar = [10000, 10000, 10000, 1000, 1000, 1000, 1000, 1000]
   @variable(nlp, lvar[i] <= x[i=1:8] <= uvar[i], start=x0[i])
   
@@ -29,11 +29,11 @@ function hs106(args...)
   @NLconstraint(nlp, x[2]*x[7] - 1250*x[5] - x[2]*x[4] + 1250*x[4] >= 0)
   @NLconstraint(nlp, x[3]*x[8] - 1250000 - x[3]*x[5] + 2500*x[5] >= 0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     x[1] + x[2] + x[3]
-    )
+  )
 
   return nlp
 end

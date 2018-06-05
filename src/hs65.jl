@@ -15,16 +15,14 @@ export hs65
 
 "HS65 model"
 function hs65(args...)
-  nlp = Model()
-
-  x0 = [-5,5,0]
-  @variable(nlp, x[i=1:3], start=x0[i])
-
-  @NLconstraint(nlp, 48 - x[1]^2 - x[2]^2 - x[3]^2 >= 0)
   
-  @constraint(nlp, -4.5 <= x[1] <= 4.5)
-  @constraint(nlp, -4.5 <= x[2] <= 4.5)
-  @constraint(nlp, -5   <= x[3] <= 5)
+  nlp  = Model()
+  x0   = [  -5,    5,  0]
+  lvar = [-4.5, -4.5, -5]
+  uvar = [ 4.5,  4.5,  5]
+  @variable(nlp, lvar[i] <= x[i=1:3] <= uvar[i], start=x0[i])
+
+  @NLconstraint(nlp, - 48 + x[1]^2 + x[2]^2 + x[3]^2 <= 0)
 
   @NLobjective(
     nlp,

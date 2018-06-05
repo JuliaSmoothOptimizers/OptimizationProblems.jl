@@ -16,10 +16,9 @@ export hs11
 "HS11 model"
 function hs11(args...)
 
-  nlp = Model()
-  x0 = [4.9, 0.1]
-
-  @variable(nlp, x[i=1:2], start=x0[i])
+  nlp  = Model()
+  x0   = [ 4.9,  0.1]
+  @variable(nlp, x[i=1:2], start = x0[i])
 
   @NLobjective(
     nlp,

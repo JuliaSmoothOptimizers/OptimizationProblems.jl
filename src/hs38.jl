@@ -15,15 +15,10 @@ export hs38
 
 "HS38 model"
 function hs38(args...)
-  nlp = Model()
-
-  x0 = [-3,-1,-3,-1]
-  @variable(nlp, x[i=1:4], start=x0[i])
-
-  @constraint(nlp, -10 <= x[1] <= 10)
-  @constraint(nlp, -10 <= x[2] <= 10)
-  @constraint(nlp, -10 <= x[3] <= 10)
-  @constraint(nlp, -10 <= x[4] <= 10)
+  
+  nlp  = Model()
+  x0   = [-3, -1, -3, -1]
+  @variable(nlp, -10 <= x[i=1:4] <= 10, start = x0[i])
 
   @NLobjective(
     nlp,

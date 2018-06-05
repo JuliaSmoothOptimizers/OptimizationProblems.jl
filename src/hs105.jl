@@ -15,11 +15,11 @@ export hs105
 
 "HS105 model"
 function hs105(args...)
-  nlp = Model()
-
-  x0 = [0.1,0.2,100,125,175,11.2,13.2,15.8]
-  lvar = [0.001, 0.001, 100, 130, 170, 5, 5, 5]
-  uvar = [0.499, 0.499, 180, 210, 240, 25, 25, 25]
+  
+  nlp  = Model()
+  x0   = [  0.1,   0.2, 100, 125, 175, 11.2, 13.2, 15.8]
+  lvar = [0.001, 0.001, 100, 130, 170,    5,    5,    5]
+  uvar = [0.499, 0.499, 180, 210, 240,   25,   25,   25]
   @variable(nlp, lvar[i] <= x[i=1:8] <= uvar[i], start=x0[i])
   
   y = Array{Float64}(235)
@@ -57,15 +57,14 @@ function hs105(args...)
   @NLexpression(nlp, a[i=1:235], x[1]/x[6]*exp(-(y[i] - x[3])^2/(2*x[6]^2)))
   @NLexpression(nlp, b[i=1:235], x[2]/x[7]*exp(-(y[i] - x[4])^2/(2*x[7]^2)))
   @NLexpression(nlp, c[i=1:235], (1 - x[2] - x[1])/x[8]*exp(-(y[i] - x[5])^2/(2*x[8]^2)))
-  @NLexpression(nlp, f, -sum(log(a[i] + b[i] + c[i])/sqrt(2) for i=1:235))
 
   @constraint(nlp, 1 - x[1] - x[2] >= 0)
 
   @NLobjective(
     nlp,
     Min,
-    f
-    )
+    - sum(log(a[i] + b[i] + c[i])/sqrt(2*pi) for i=1:235)
+  )
 
   return nlp
 end
