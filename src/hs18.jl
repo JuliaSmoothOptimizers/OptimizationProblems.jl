@@ -16,9 +16,9 @@ export hs18
 "HS18 model"
 function hs18(args...)
 
-  nlp = Model()
-
-  @variable(nlp, x[i=1:2], start=2.0)
+  nlp  = Model()
+  lvar = [2, 0]
+  @variable(nlp, lvar[i] <= x[i=1:2] <= 50, start = 2)
 
   @NLobjective(
     nlp,
@@ -34,16 +34,6 @@ function hs18(args...)
   @NLconstraint(
     nlp,
     x[1]^2 + x[2]^2 >= 25
-  )
-
-  @NLconstraint(
-    nlp,
-    2 <= x[1] <= 50
-  )
-
-  @NLconstraint(
-    nlp,
-    0 <= x[2] <= 50
   )
 
   return nlp

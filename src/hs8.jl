@@ -16,12 +16,11 @@ export hs8
 "HS8 model"
 function hs8(args...)
 
-  nlp = Model()
-  x0 = [2.0, 1.0]
+  nlp  = Model()
+  x0   = [2.0, 1.0]
+  @variable(nlp, x[i=1:2], start = x0[i])
 
-  @variable(nlp, x[i=1:2], start=x0[i])
-
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     -1

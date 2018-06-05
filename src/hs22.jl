@@ -15,12 +15,11 @@ export hs22
 
 "HS22 model"
 function hs22(args...)
-  nlp = Model()
+  
+  nlp  = Model()
+  @variable(nlp, x[i=1:2], start = 2)
 
-  x0 = [2,2]
-  @variable(nlp, x[i=1:2], start=x0[i])
-
-  @constraint(nlp, -x[1] - x[2] + 2 >= 0)
+  @constraint(nlp, x[1] + x[2] - 2 <= 0)
   @NLconstraint(nlp, -x[1]^2 + x[2] >= 0)
 
   @NLobjective(

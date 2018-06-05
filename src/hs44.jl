@@ -15,22 +15,16 @@ export hs44
 
 "HS44 model"
 function hs44(args...)
-  nlp = Model()
 
-  x0 = [0,0,0,0]
-  @variable(nlp, x[i=1:4], start=x0[i])
+  nlp  = Model()
+  @variable(nlp, x[i=1:4] >= 0, start = 0)
 
-  @constraint(nlp, 8  -   x[1] - 2*x[2] >= 0)
-  @constraint(nlp, 12 - 4*x[1] -   x[2] >= 0)
-  @constraint(nlp, 12 - 3*x[1] - 4*x[2] >= 0)
-  @constraint(nlp, 8  - 2*x[3] -   x[4] >= 0)
-  @constraint(nlp, 8  -   x[3] - 2*x[4] >= 0)
-  @constraint(nlp, 5  -   x[3] -   x[4] >= 0)
-
-  @constraint(nlp, 0 <= x[1])
-  @constraint(nlp, 0 <= x[2])
-  @constraint(nlp, 0 <= x[3])
-  @constraint(nlp, 0 <= x[4])
+  @constraint(nlp, - 8 +   x[1] + 2*x[2] <= 0)
+  @constraint(nlp, -12 + 4*x[1] +   x[2] <= 0)
+  @constraint(nlp, -12 + 3*x[1] + 4*x[2] <= 0)
+  @constraint(nlp, -8  + 2*x[3] +   x[4] <= 0)
+  @constraint(nlp, -8  +   x[3] + 2*x[4] <= 0)
+  @constraint(nlp, -5  +   x[3] +   x[4] <= 0)
 
   @NLobjective(
     nlp,

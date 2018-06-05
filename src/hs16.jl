@@ -16,10 +16,11 @@ export hs16
 "HS16 model"
 function hs16(args...)
 
-  nlp = Model()
-  x0 = [-2, 1]
-
-  @variable(nlp, x[i=1:2], start=x0[i])
+  nlp  = Model()
+  x0   = [  -2,   1]
+  lvar = [-0.5,-Inf]
+  uvar = [ 0.5,   1]
+  @variable(nlp, lvar[i] <= x[i=1:2] <= uvar[i], start = x0[i])
 
   @NLobjective(
     nlp,
@@ -36,16 +37,6 @@ function hs16(args...)
     nlp,
     x[1] + x[2]^2 >= 0
   )
-
-  @NLconstraint(
-    nlp,
-    -1/2 <= x[1] <= 1/2
-  )
-
-  @NLconstraint(
-    nlp,
-    x[2] <= 1
-  )
-
+  
   return nlp
 end

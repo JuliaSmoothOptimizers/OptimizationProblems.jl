@@ -15,16 +15,13 @@ export hs31
 
 "HS31 model"
 function hs31(args...)
-  nlp = Model()
 
-  x0 = [1,1,1]
-  @variable(nlp, x[i=1:3], start=x0[i])
+  nlp  = Model()
+  lvar = [-10,  1, -10]
+  uvar = [ 10, 10,   1]
+  @variable(nlp, lvar[i] <= x[i=1:3] <= uvar[i], start = 1)
 
   @NLconstraint(nlp, x[1]*x[2] - 1 >= 0)
-  
-  @constraint(nlp, -10 <= x[1] <= 10)
-  @constraint(nlp,   1 <= x[2] <= 10)
-  @constraint(nlp, -10 <= x[3] <= 1)
 
   @NLobjective(
     nlp,

@@ -15,9 +15,9 @@ export hs78
 
 "HS78 model"
 function hs78(args...)
-  nlp = Model()
 
-  x0 = [-2,1.5,2,-1,-1]
+  nlp  = Model()
+  x0   = [-2, 1.5, 2, -1, -1]
   @variable(nlp, x[i=1:5], start=x0[i])
 
   @NLconstraint(nlp, sum(x[i]^2 for i=1:5) - 10 == 0)
@@ -28,7 +28,7 @@ function hs78(args...)
     nlp,
     Min,
     prod(x[i] for i=1:5)
-    )
+  )
 
   return nlp
 end

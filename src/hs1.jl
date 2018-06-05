@@ -15,21 +15,16 @@ export hs1
 
 "HS1 model"
 function hs1(args...)
-
-  nlp = Model()
-  x0 = [-2, 1]
-
-  @variable(nlp, x[i=1:2], start=x0[i])
+  
+  nlp  = Model()
+  x0   = [  -2,    1]
+  lvar = [-Inf, -1.5]
+  @variable(nlp, x[i=1:2] >= lvar[i], start = x0[i])
 
   @NLobjective(
     nlp,
     Min,
-    100*(x[2] - x[1]^2)^2 + (1-x[1])^2
-  )
-
-  @NLconstraint(
-    nlp,
-    -1.5 <= x[2]
+    100*(x[2] - x[1]^2)^2 + (1 - x[1])^2
   )
 
   return nlp

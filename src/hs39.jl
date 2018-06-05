@@ -17,11 +17,10 @@ export hs39
 "HS39 model"
 function hs39(args...)
 
-  nlp = Model()
+  nlp  = Model()
+  @variable(nlp, x[i=1:4], start = 2)
 
-  @variable(nlp, x[i=1:4], start=2.0)
-
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     -x[1]
@@ -29,13 +28,11 @@ function hs39(args...)
 
   @NLconstraint(
     nlp,
-    constr1,
     x[2] - x[1]^3 - x[3]^2 == 0
   )
 
   @NLconstraint(
     nlp,
-    constr2,
     x[1]^2 - x[2] - x[4]^2 == 0
   )
 

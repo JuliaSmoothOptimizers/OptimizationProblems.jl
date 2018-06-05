@@ -15,19 +15,16 @@ export hs34
 
 "HS34 model"
 function hs34(args...)
-  nlp = Model()
-
-  x0 = [0,1.05,2.9]
-  @variable(nlp, x[i=1:3], start=x0[i])
+  
+  nlp  = Model()
+  x0   = [  0, 1.05, 2.9]
+  uvar = [100,  100,  10]
+  @variable(nlp, 0 <= x[i=1:3] <= uvar[i], start = x0[i])
 
   @NLconstraint(nlp, x[2] - exp(x[1]) >= 0)
   @NLconstraint(nlp, x[3] - exp(x[2]) >= 0)
 
-  @constraint(nlp, 0 <= x[1] <= 100)
-  @constraint(nlp, 0 <= x[2] <= 100)
-  @constraint(nlp, 0 <= x[3] <= 10)
-
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     -x[1]

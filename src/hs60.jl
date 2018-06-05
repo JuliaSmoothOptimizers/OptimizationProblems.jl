@@ -15,16 +15,11 @@ export hs60
 
 "HS60 model"
 function hs60(args...)
-  nlp = Model()
 
-  x0 = [2,2,2]
-  @variable(nlp, x[i=1:3], start=x0[i])
+  nlp  = Model()
+  @variable(nlp, -10 <= x[i=1:3] <= 10, start = 2)
 
   @NLconstraint(nlp, x[1]*(1+x[2]^2) + x[3]^4 - 4 -3*sqrt(2) == 0)
-
-  for i=1:3
-    @constraint(nlp, -10 <= x[i] <= 10)
-  end
 
   @NLobjective(
     nlp,

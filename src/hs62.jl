@@ -15,16 +15,12 @@ export hs62
 
 "HS62 model"
 function hs62(args...)
-  nlp = Model()
-
-  x0 = [0.7,0.2,0.1]
-  @variable(nlp, x[i=1:3], start=x0[i])
+  
+  nlp  = Model()
+  x0   = [0.7, 0.2, 0.1]
+  @variable(nlp, 0 <= x[i=1:3] <= 1, start = x0[i])
 
   @constraint(nlp, x[1] + x[2] + x[3] - 1 == 0)
-  
-  for i=1:3
-    @constraint(nlp, 0 <= x[i] <= 1)
-  end
 
   @NLobjective(
     nlp,

@@ -15,16 +15,12 @@ export hs41
 
 "HS41 model"
 function hs41(args...)
-  nlp = Model()
-
-  x0 = [2,2,2,2]
-  @variable(nlp, x[i=1:4], start=x0[i])
+  
+  nlp  = Model()
+  uvar = [1, 1, 1, 2]
+  @variable(nlp, 0 <= x[i=1:4] <= uvar[i], start = 2)
 
   @constraint(nlp, x[1] + 2*x[2] + 2*x[3] - x[4] == 0)
-  @constraint(nlp, 0 <= x[1] <= 1)
-  @constraint(nlp, 0 <= x[2] <= 1)
-  @constraint(nlp, 0 <= x[3] <= 1)
-  @constraint(nlp, 0 <= x[4] <= 2)
 
   @NLobjective(
     nlp,

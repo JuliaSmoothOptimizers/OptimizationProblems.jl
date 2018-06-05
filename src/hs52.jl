@@ -15,10 +15,9 @@ export hs52
 
 "HS52 model"
 function hs52(args...)
-  nlp = Model()
-
-  x0 = [2,2,2,2,2]
-  @variable(nlp, x[i=1:5], start=x0[i])
+  
+  nlp  = Model()
+  @variable(nlp, x[i=1:5], start = 2)
 
   @constraint(nlp, x[1] + 3*x[2] == 0)
   @constraint(nlp, x[3] + x[4] - 2*x[5] == 0)

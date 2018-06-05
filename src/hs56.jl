@@ -15,12 +15,12 @@ export hs56
 
 "HS56 model"
 function hs56(args...)
-  nlp = Model()
-
-  a = asin(sqrt(1/4.2))
-  b = asin(sqrt(5/7.2))
-  x0 = .1*[1,1,1,a,a,a,b]
-  @variable(nlp, x[i=1:7], start=x0[i])
+  
+  nlp  = Model()
+  a    = asin(sqrt(1/4.2))
+  b    = asin(sqrt(5/7.2))
+  x0   = [1, 1, 1, a, a, a, b]
+  @variable(nlp, x[i=1:7], start = x0[i])
 
   @NLconstraint(nlp, x[1] - 4.2*sin(x[4])^2 == 0)
   @NLconstraint(nlp, x[2] - 4.2*sin(x[5])^2 == 0)

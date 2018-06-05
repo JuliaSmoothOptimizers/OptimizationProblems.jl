@@ -15,9 +15,9 @@ export hs46
 
 "HS46 model"
 function hs46(args...)
-  nlp = Model()
-
-  x0 = [0.5*sqrt(2),1.75,0.5,2,2]
+  
+  nlp  = Model()
+  x0   = [sqrt(2)/2, 1.75, 0.5, 2, 2]
   @variable(nlp, x[i=1:5], start=x0[i])
 
   @NLconstraint(nlp, (x[1]^2)*x[4] + sin(x[4] - x[5]) - 1 == 0)

@@ -15,10 +15,11 @@ export hs70
 
 "HS70 model"
 function hs70(args...)
-  nlp = Model()
 
-  x0 = [2,4,0.04,2]
-  @variable(nlp, x[i=1:4], start=x0[i])
+  nlp  = Model()
+  x0   = [2, 4, 0.04, 2]
+  uvar = [100, 100, 1, 100]
+  @variable(nlp, 0.00001 <= x[i=1:4] <= uvar[i], start = x0[i])
 
   c = Array{Float64}(19)
   c[1] = 0.1
@@ -33,18 +34,11 @@ function hs70(args...)
   @NLexpression(nlp, b, x[3] + (1-x[3])*x[4])
   @NLexpression(nlp, ycal[i=1:19], (1 + 1/(12*x[2]))*(x[3]*b^x[2])*((x[2]/6.2832)^(0.5))
     *(c[i]/7.685)^(x[2] - 1)*exp(x[2] - b*c[i]*x[2]/7.658)
-    + (1 + (1/(12*x[1])))*(1 - x[3])*(b/x[4])^x[1] * (x[1]/6.2832)^0.5
+    + (1 + (1/(12*x[1])))*(1 - x[3])*(b/x[4])^x[1]*(x[1]/6.2832)^0.5
     * (c[i]/7.658)^(x[1]-1)*exp(x[1] - b*c[i]*x[1]/(7.658*x[4]))  
-
-
   )
 
   @NLconstraint(nlp, x[3] + (1-x[3])*x[4] >= 0)
-
-  @constraint(nlp, 0.00001 <= x[1] <= 100)
-  @constraint(nlp, 0.00001 <= x[2] <= 100)
-  @constraint(nlp, 0.00001 <= x[3] <= 1)
-  @constraint(nlp, 0.00001 <= x[4] <= 100)
 
   @NLobjective(
     nlp,

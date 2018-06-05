@@ -15,16 +15,11 @@ export hs37
 
 "HS37 model"
 function hs37(args...)
-  nlp = Model()
+  
+  nlp  = Model()
+  @variable(nlp, 0 <= x[i=1:3] <= 42, start = 10)
 
-  x0 = [10,10,10]
-  @variable(nlp, x[i=1:3], start=x0[i])
-
-  @constraint(nlp, 72 - x[1] - 2*x[2] - 2*x[3] >= 0)
-  @constraint(nlp, x[1] + 2*x[2] + 2*x[3] >= 0)
-  @constraint(nlp, 0 <= x[1] <= 42)
-  @constraint(nlp, 0 <= x[2] <= 42)
-  @constraint(nlp, 0 <= x[3] <= 42)
+  @constraint(nlp, 0 <= x[1] + 2*x[2] + 2*x[3] <= 72)
 
   @NLobjective(
     nlp,
