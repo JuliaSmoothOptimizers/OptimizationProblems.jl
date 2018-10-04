@@ -27,7 +27,7 @@ function ncb20(n :: Int=100)
     h = 1.0/ (n - 1)
 
     x0 = ones(n)
-    x0[1:n-10] = 0.0
+    x0[1:n-10] .= 0.0
 
     nlp = Model()
     @variable(nlp, x[i=1:n], start=x0[i])

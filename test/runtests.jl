@@ -1,5 +1,4 @@
-using OptimizationProblems
-using Base.Test
+using OptimizationProblems, Compat.Test
 
 # Test that every problem can be instantiated.
 for prob in names(OptimizationProblems)

@@ -21,7 +21,7 @@ function hs101(args...)
   lvar = [0.1*ones(6); 0.01]
   @variable(nlp, lvar[i] <= x[i=1:7] <= 10, start = 6)
   
-  exposant_f = Array{Float64}(4,7)
+  exposant_f = Array{Float64}(undef,4,7)
   exposant_f[1,:] = [ 1,-1, 0, 2, 0  ,-3,   a]
   exposant_f[2,:] = [-1,-2, 1, 1,-1  , 0,-0.5] 
   exposant_f[3,:] = [-2, 1, 0,-1,-2  , 1,   0] 
@@ -33,7 +33,7 @@ function hs101(args...)
                       + 25*prod(x[i]^exposant_f[4,i] for i=1:7)
   )
 
-  exposant_c1 = Array{Float64}(3,7)
+  exposant_c1 = Array{Float64}(undef,3,7)
   exposant_c1[1,:] = [0.5,0, -1,   0, 0,-2  ,  1]
   exposant_c1[2,:] = [3,  1, -2,   0, 0, 1  ,0.5] 
   exposant_c1[3,:] = [0, -1,  1,-0.5, 0, 2/3,1/4] 
@@ -41,7 +41,7 @@ function hs101(args...)
                        - 0.7*prod(x[i]^exposant_c1[2,i] for i=1:7)
                        - 0.2*prod(x[i]^exposant_c1[3,i] for i=1:7) >= 0)
 
-  exposant_c2 = Array{Float64}(3,7)
+  exposant_c2 = Array{Float64}(undef,3,7)
   exposant_c2[1,:] = [-0.5, 1  , -1,  0, -1, 1 , 0]
   exposant_c2[2,:] = [0   , 0  ,  1, -1, -1,  2, 0] 
   exposant_c2[3,:] = [-1  , 0.5,  0, -2, -1,1/3, 0] 
@@ -49,7 +49,7 @@ function hs101(args...)
                        - 0.8*prod(x[i]^exposant_c2[2,i] for i=1:7)
                        - 3.1*prod(x[i]^exposant_c2[3,i] for i=1:7) >= 0)
 
-  exposant_c3 = Array{Float64}(4,7)
+  exposant_c3 = Array{Float64}(undef,4,7)
   exposant_c3[1,:] = [1 , 0, -1.5, 0, 1, -1,  1/3]
   exposant_c3[2,:] = [0 , 1, -0.5, 0, 1, -1, -0.5]
   exposant_c3[3,:] = [-1, 1,  0.5, 0, 1,  0,    0]
@@ -59,7 +59,7 @@ function hs101(args...)
                        -   1*prod(x[i]^exposant_c3[3,i] for i=1:7)
                        -0.65*prod(x[i]^exposant_c3[4,i] for i=1:7) >= 0)
 
-  exposant_c4 = Array{Float64}(4,7)
+  exposant_c4 = Array{Float64}(undef,4,7)
   exposant_c4[1,:] = [-2 ,  1,  0, -1 , 0.5 , 0, 1/3]
   exposant_c4[1,:] = [0.5,  2,  1, 1/3, -2/3, 0, 1/4]
   exposant_c4[1,:] = [-3 , -2,  1, 0  , 1   , 0, 3/4]

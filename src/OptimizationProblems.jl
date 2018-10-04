@@ -1,6 +1,6 @@
 module OptimizationProblems
 
-using JuMP
+using JuMP, Compat
 
 path = dirname(@__FILE__)
 files = filter(x->x[end-2:end] == ".jl", readdir(path))

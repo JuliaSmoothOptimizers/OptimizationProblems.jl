@@ -46,7 +46,7 @@ function woods(n :: Int=100)
     nlp = Model()
 
     x0 = -3 * ones(n)
-    x0[2*(collect(1:div(n,2)))] = -1.0
+    x0[2*(collect(1:div(n,2)))] .= -1.0
 
     @variable(nlp, x[i=1:n], start=-2)
 

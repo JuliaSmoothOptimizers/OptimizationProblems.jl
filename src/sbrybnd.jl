@@ -33,7 +33,7 @@ function sbrybnd(n :: Int=100)
 
     nlp = Model()
     p = zeros(n)
-    J = Array{Any}(n)
+    J = Array{Any}(undef, n)
     for i=1:n
       p[i] = exp(6.0*(i-1)/(n-1))
       J[i] = [max(1, i-5):i-1; i+1:min(n, i+1)]

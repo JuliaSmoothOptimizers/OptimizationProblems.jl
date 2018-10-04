@@ -26,7 +26,7 @@ function srosenbr(n :: Int=100)
   n = 2 * max(1, div(n, 2))
 
   x0 = ones(n)
-  x0[2*(collect(1:div(n,2)))-1] = -1.2
+  x0[2*(collect(1:div(n,2))).-1] .= -1.2
   nlp = Model()
 
   @variable(nlp, x[i=1:n], start=x0[i])

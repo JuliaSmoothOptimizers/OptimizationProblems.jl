@@ -21,13 +21,13 @@ function hs70(args...)
   uvar = [100, 100, 1, 100]
   @variable(nlp, 0.00001 <= x[i=1:4] <= uvar[i], start = x0[i])
 
-  c = Array{Float64}(19)
+  c = Array{Float64}(undef,19)
   c[1] = 0.1
   for i=2:19
     c[i] = i-1
   end
 
-  yobs = Array{Float64}(19)
+  yobs = Array{Float64}(undef,19)
   yobs[1:10]  = [.00189,.1038,.268,.506,.577,.604,.725,.898,.947,.845]
   yobs[11:19] = [.702,.528,.385,.257,.159,.0869,.0453,.01509,.00189]
 
