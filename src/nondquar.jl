@@ -30,7 +30,7 @@ function nondquar(n :: Int=100)
     n = max(2, n)
 
     x0 = ones(n)
-    x0[2 * collect(1:div(n, 2))] = -1.0
+    x0[2 * collect(1:div(n, 2))] .= -1.0
 
     nlp = Model()
     @variable(nlp, x[i=1:n], start=x0[i])

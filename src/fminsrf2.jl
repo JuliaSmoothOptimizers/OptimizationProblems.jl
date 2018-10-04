@@ -47,10 +47,10 @@ function fminsrf2(n :: Int = 100)
   I = 2 : (p - 1)
   J = 1 : p
 
-  x0[I, 1] = (I - 1) * ston + h01
-  x0[I, p] = (I - 1) * ston + h00
-  x0[1, J] = (J - 1) * wtoe + h00
-  x0[p, J] = (J - 1) * wtoe + h10
+  x0[I, 1] .= (I .- 1) * ston .+ h01
+  x0[I, p] .= (I .- 1) * ston .+ h00
+  x0[1, J] .= (J .- 1) * wtoe .+ h00
+  x0[p, J] .= (J .- 1) * wtoe .+ h10
 
   @variable(nlp, x[i=1:p, j=1:p], start=x0[i,j])
 
