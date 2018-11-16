@@ -27,7 +27,7 @@ export schmvett
 "Another function with nontrivial groups and repetitious elements in size 'n' "
 function schmvett(n :: Int=100)
 
-    n < 3 && warn("schmvett: number of variables must be ≥ 3")
+    n < 3 && Compat.@warn("schmvett: number of variables must be ≥ 3")
     n = max(3, n)
 
     nlp = Model()

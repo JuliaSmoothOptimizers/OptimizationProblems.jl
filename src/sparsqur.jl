@@ -17,7 +17,7 @@ export sparsqur
 "A sparse quartic problem in size 'n' "
 function sparsqur(n :: Int=100)
 
-    n < 10 && warn("sparsqur: number of variables must be ≥ 10")
+    n < 10 && Compat.@warn("sparsqur: number of variables must be ≥ 10")
     n = max(10, n)
 
     nlp = Model()

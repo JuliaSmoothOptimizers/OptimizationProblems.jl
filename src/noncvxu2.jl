@@ -16,7 +16,7 @@ export noncvxu2
 
 function noncvxu2(n :: Int=100)
 
-    n < 2 && warn("noncvxu2: number of variables must be ≥ 2")
+    n < 2 && Compat.@warn("noncvxu2: number of variables must be ≥ 2")
     n = max(2, n)
 
     nlp = Model()

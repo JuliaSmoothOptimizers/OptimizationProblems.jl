@@ -44,7 +44,7 @@ export broydn7d
 "Broyden 7-diagonal model in size `n`"
 function broydn7d(n :: Int=100, p :: Float64=7/3)
 
-  mod(n, 2) > 0 && warn("broydn7d: number of variables adjusted to be even")
+  mod(n, 2) > 0 && Compat.@warn("broydn7d: number of variables adjusted to be even")
   n2 = max(1, div(n, 2))
   n  = 2 * n2
 

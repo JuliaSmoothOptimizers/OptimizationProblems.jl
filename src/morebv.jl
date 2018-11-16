@@ -25,7 +25,7 @@ export morebv
 function morebv(n :: Int=100)
 
     # indices in Luksan go from 0 to n+1
-    n < 2 && warn("morebv: number of variables must be ≥ 4")
+    n < 2 && Compat.@warn("morebv: number of variables must be ≥ 4")
     n = max(2, n)
 
     h = 1.0/(n-1)

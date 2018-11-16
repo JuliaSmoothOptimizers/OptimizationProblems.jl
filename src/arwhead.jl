@@ -29,7 +29,7 @@ export arwhead
 "Arrow head model in size `n`"
 function arwhead(n :: Int=100)
 
-  n < 2 && warn("arwhead: number of variables must be ≥ 2")
+  n < 2 && Compat.@warn("arwhead: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()

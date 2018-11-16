@@ -21,7 +21,7 @@ export sinquad
 "Another function with nontrivial groups and repetitious elements in size 'n' "
 function sinquad(n :: Int=100)
 
-    n < 3 && warn("sinquad: number of variables must be ≥ 3")
+    n < 3 && Compat.@warn("sinquad: number of variables must be ≥ 3")
     n = max(3, n)
 
     nlp = Model()

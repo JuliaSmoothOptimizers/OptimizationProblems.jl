@@ -14,7 +14,7 @@ export arglinc
 "Linear function with `n` parameters and `m` observations - rank 1, zero columns and rows"
 function arglinc(n::Int=10, m::Int=20)
 
-  m < n && warn("arglinc: must have m ≥ n")
+  m < n && Compat.@warn("arglinc: must have m ≥ n")
   m = max(m, n)
 
   nlp = Model()

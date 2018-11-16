@@ -26,7 +26,7 @@ export edensch
 "Extended Dennis-Schnabel model in size `n`"
 function edensch(n :: Int=100)
 
-  n < 2 && warn("edensch: number of variables must be ≥ 2")
+  n < 2 && Compat.@warn("edensch: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()

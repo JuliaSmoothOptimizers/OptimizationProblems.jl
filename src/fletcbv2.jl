@@ -24,7 +24,7 @@ export fletcbv2
 
 function fletcbv2(n :: Int=100)
 
-  n < 2 && warn("fletcbv2: number of variables must be ≥ 2")
+  n < 2 && Compat.@warn("fletcbv2: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()

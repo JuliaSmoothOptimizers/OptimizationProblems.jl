@@ -14,7 +14,7 @@ export brownden
 "Brown and Dennis function"
 function brownden(m::Int=20)
 
-  m < 4 && warn("brownden: must have m ≥ 4")
+  m < 4 && Compat.@warn("brownden: must have m ≥ 4")
   m = max(m, 4)
 
   nlp = Model()

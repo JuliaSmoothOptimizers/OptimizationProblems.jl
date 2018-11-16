@@ -26,7 +26,7 @@ export tointgss
 "Toint's Gaussian problem in size 'n' "
 function tointgss(n :: Int=100)
 
-    n < 3 && warn("tointgss: number of variables must be ≥ 3")
+    n < 3 && Compat.@warn("tointgss: number of variables must be ≥ 3")
     n = max(3, n)
 
     nlp = Model()

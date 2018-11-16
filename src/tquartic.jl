@@ -21,7 +21,7 @@ export tquartic
 "A quartic function with nontrivial groups and repetitious elements in size 'n' "
 function tquartic(n :: Int=100)
 
-    n < 2 && warn("tquartic: number of variables must be ≥ 2")
+    n < 2 && Compat.@warn("tquartic: number of variables must be ≥ 2")
     n = max(2, n)
 
     nlp = Model()

@@ -14,7 +14,7 @@ export arglina
 "Linear function with `n` parameters and `m` observations  - full rank"
 function arglina(n::Int=100, m::Int=200)
 
-  m < n && warn("arglina: must have m ≥ n")
+  m < n && Compat.@warn("arglina: must have m ≥ n")
   m = max(m, n)
 
   nlp = Model()

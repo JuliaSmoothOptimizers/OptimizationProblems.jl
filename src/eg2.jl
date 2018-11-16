@@ -26,7 +26,7 @@ export eg2
 "model in size `n`"
 function eg2(n :: Int=100)
 
-  n < 2 && warn("eg2: number of variables must be ≥ 2")
+  n < 2 && Compat.@warn("eg2: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()

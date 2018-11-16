@@ -16,7 +16,7 @@ export indef_mod
 
 function indef_mod(n :: Int=100)
 
-    n < 3 && warn("indef_mod: number of variables must be ≥ 4")
+    n < 3 && Compat.@warn("indef_mod: number of variables must be ≥ 4")
     n = max(3, n)
 
     nlp = Model()

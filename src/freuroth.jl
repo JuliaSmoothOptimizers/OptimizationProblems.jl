@@ -23,7 +23,7 @@
 export freuroth
 
 function freuroth(n :: Int = 100)
-    n < 2 && warn("freuroth: number of variables must be ≥ 2")
+    n < 2 && Compat.@warn("freuroth: number of variables must be ≥ 2")
     n = max(2, n)
 
     ngs = n - 1
