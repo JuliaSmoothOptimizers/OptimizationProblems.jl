@@ -25,7 +25,7 @@ export dixmaanm, dixmaann, dixmaano, dixmaanp
 function dixmaanm(n :: Int=99;
                   α :: Float64=1.0, β :: Float64=0.0, γ :: Float64=0.125, δ :: Float64=0.125)
 
-  (n % 3 == 0) || warn("dixmaan: number of variables adjusted to be a multiple of 3")
+  (n % 3 == 0) || Compat.@warn("dixmaan: number of variables adjusted to be a multiple of 3")
   m = max(1, div(n, 3))
   n = 3 * m
 

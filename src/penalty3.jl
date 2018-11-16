@@ -24,7 +24,7 @@ export penalty3
 "A penalty problem by Gill, Murray and Pitfield in size 'n' "
 function penalty3(n :: Int=100)
 
-    n < 3 && warn("penalty3: number of variables must be ≥ 3")
+    n < 3 && Compat.@warn("penalty3: number of variables must be ≥ 3")
     n = max(3, n)
 
     nlp = Model()

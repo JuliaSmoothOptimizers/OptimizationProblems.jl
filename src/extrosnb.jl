@@ -24,7 +24,7 @@ export extrosnb
 
 function extrosnb(n :: Int=100)
 
-  n < 2 && warn("extrosnb: number of variables must be ≥ 2")
+  n < 2 && Compat.@warn("extrosnb: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()

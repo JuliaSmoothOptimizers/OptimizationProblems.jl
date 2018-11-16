@@ -14,7 +14,7 @@ export arglinb
 "Linear function with `n` parameters and `m` observations - rank 1"
 function arglinb(n::Int=10, m::Int=20)
 
-  m < n && warn("arglinb: must have m ≥ n")
+  m < n && Compat.@warn("arglinb: must have m ≥ n")
   m = max(m, n)
 
   nlp = Model()
