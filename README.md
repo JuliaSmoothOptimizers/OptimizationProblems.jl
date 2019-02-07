@@ -29,7 +29,3 @@ objective, constraints and their derivatives.
 Please open pull requests to submit new problems! When submitting a problem,
 please pay particular attention to the documentation. We would like to gather
 as much information as possible on the provenance of problems.
-
-This content is released under the [MIT](http://opensource.org/licenses/MIT) License.
-<a rel="license" href="http://opensource.org/licenses/MIT">
-<img alt="MIT license" height="40" src="http://upload.wikimedia.org/wikipedia/commons/c/c3/License_icon-mit.svg" /></a>
