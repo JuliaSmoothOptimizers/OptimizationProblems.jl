@@ -5,11 +5,11 @@
   "publication_date": "2019-02-06",
   "creators": [
     {
-      "affiliation": "\u00c9cole Polytechnique/GERAD - Montr\u00e9al",
+      "affiliation": "École Polytechnique/GERAD - Montréal",
       "name": "Dominique Orban"
     },
     {
-      "affiliation": "Federal University of Paran\u00e1 - UFPR",
+      "affiliation": "Federal University of Paraná - UFPR",
       "name": "Abel Soares Siqueira"
     }
   ],
@@ -20,5 +20,32 @@
       "identifier": "https://github.com/JuliaSmoothOptimizers/NLSProblems.jl/releases/latest",
       "relation": "isSupplementTo"
     }
-  ]
+  ],
+  "contributors": [
+    {
+      "name": "Adrean Cebola",
+      "type": "Other"
+    },
+    {
+      "name": "Alexis Montoison",
+      "type": "Researcher"
+    },
+    {
+      "name": "Marie-Ange Dahito",
+      "type": "Researcher"
+    },
+    {
+      "name": "Samuel Goyette",
+      "type": "Researcher"
+    },
+    {
+      "name": "Jean-Pierre Dussault",
+      "type": "Researcher"
+    },
+    {
+      "name": "Nicole S Antunes",
+      "type": "Other"
+    }
+  ],
+  "license": "MPL-2.0"
 }
