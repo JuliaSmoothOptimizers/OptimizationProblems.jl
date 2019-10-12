@@ -8,7 +8,7 @@ export NZF1
 
 function NZF1(n :: Int=13)
   
-  mod(n,13) != 0 && Compat.@warn("NZF1: number of variables adjusted to be divisible by 13")
+  mod(n,13) != 0 && @warn("NZF1: number of variables adjusted to be divisible by 13")
   nbis = max(1,div(n,13))
   n = 13*nbis
 

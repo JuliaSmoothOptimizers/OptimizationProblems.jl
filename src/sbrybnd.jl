@@ -28,7 +28,7 @@ export sbrybnd
 "Broyden banded system of nonlinear equations in size 'n' "
 function sbrybnd(n :: Int=100)
 
-    n < 2 && Compat.@warn("sbrybnd: number of variables must be ≥ 2")
+    n < 2 && @warn("sbrybnd: number of variables must be ≥ 2")
     n = max(2, n)
 
     nlp = Model()
