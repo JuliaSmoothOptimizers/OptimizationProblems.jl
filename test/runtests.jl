@@ -1,4 +1,4 @@
-using OptimizationProblems, Compat.Test
+using OptimizationProblems, Test
 
 # Test that every problem can be instantiated.
 for prob in names(OptimizationProblems)

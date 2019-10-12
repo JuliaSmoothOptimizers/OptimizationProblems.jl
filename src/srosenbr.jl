@@ -22,7 +22,7 @@ export srosenbr
 "The separable extension of Rosenbrock's function 'n' "
 function srosenbr(n :: Int=100)
 
-  (n % 2 == 0) || Compat.@warn("srosenbr: number of variables adjusted to be even")
+  (n % 2 == 0) || @warn("srosenbr: number of variables adjusted to be even")
   n = 2 * max(1, div(n, 2))
 
   x0 = ones(n)

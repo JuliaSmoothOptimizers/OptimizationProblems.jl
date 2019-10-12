@@ -26,7 +26,7 @@ export nondquar
 
 function nondquar(n :: Int=100)
 
-    n < 2 && Compat.@warn("nondquar: number of variables must be ≥ 2")
+    n < 2 && @warn("nondquar: number of variables must be ≥ 2")
     n = max(2, n)
 
     x0 = ones(n)

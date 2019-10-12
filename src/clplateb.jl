@@ -29,7 +29,7 @@ export clplateb
 function clplateb(n::Int=5041, wght::Float64=-0.1)
 
   p = floor(Int, sqrt(n))
-  p*p != n && Compat.@warn("clplateb: number of variables adjusted from $n down to $(p*p)")
+  p*p != n && @warn("clplateb: number of variables adjusted from $n down to $(p*p)")
   n = p * p
 
   nlp = Model()

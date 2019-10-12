@@ -21,7 +21,7 @@ export ncb20
 function ncb20(n :: Int=100)
 
     # indices in Luksan go from 0 to n+1
-    n < 31 && Compat.@warn("ncb20: number of variables must be ≥ 31")
+    n < 31 && @warn("ncb20: number of variables must be ≥ 31")
     n = max(31, n)
 
     h = 1.0/ (n - 1)

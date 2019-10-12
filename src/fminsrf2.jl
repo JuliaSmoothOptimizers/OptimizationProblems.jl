@@ -22,11 +22,11 @@ export fminsrf2
 
 function fminsrf2(n :: Int = 100)
 
-  n < 4 && Compat.@warn("fminsrf2: number of variables must be ≥ 4")
+  n < 4 && @warn("fminsrf2: number of variables must be ≥ 4")
   n = max(4, n)
 
   p = floor(Int, sqrt(n))
-  p*p != n && Compat.@warn("fminsrf2: number of variables adjusted from $n down to $(p*p)")
+  p*p != n && @warn("fminsrf2: number of variables adjusted from $n down to $(p*p)")
   n = p * p
 
   h00 = 1.0
