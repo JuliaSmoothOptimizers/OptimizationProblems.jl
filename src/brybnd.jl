@@ -37,6 +37,9 @@
 #
 # D. Orban, Montreal, 08/2015.
 
+# Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the original paper
+# (See issue #36)
+
 export brybnd
 
 "Broyden banded model in size `n`"

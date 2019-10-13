@@ -39,6 +39,9 @@
 #
 # D. Orban, Montreal, 08/2015.
 
+# Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the original paper
+# (See issue #36)
+
 export broydn7d
 
 "Broyden 7-diagonal model in size `n`"

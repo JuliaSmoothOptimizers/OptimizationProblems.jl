@@ -36,6 +36,10 @@
 #
 # D. Orban, Montreal, 08/2015.
 
+# Note: difference from CUTEst is due to the constant 1.0,
+# which does not affect its utility as a test problem other than perhaps
+# for convergence-testing.
+
 export genrose, rosenbrock
 
 "Generalized Rosenbrock model in size `n`"
