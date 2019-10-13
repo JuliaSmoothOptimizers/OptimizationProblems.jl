@@ -21,6 +21,9 @@
 #
 # J.-P. Dussault, Clermont-Ferrand 05/2016.
 
+# Note: prob 13 in More' is defined only for n = 4 and the coefficients differ
+# (e.g., sqrt(5) vs 5)
+
 export powellsg
 
 "The extended Powell singular problem in size 'n' "
@@ -40,7 +43,7 @@ function powellsg(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-      sum((x[j] + 10.0 * x[j+1])^2 + 5.0 * (x[j+2] - x[j+3])^2 + (x[j+1] - 2.0 * x[j+2])^4 + 10.0 * (x[j] - x[j+3])^4 for j=1:div(n,4))
+      sum((x[j] + 10.0 * x[j+1])^2 + 5.0 * (x[j+2] - x[j+3])^2 + (x[j+1] - 2.0 * x[j+2])^4 + 10.0 * (x[j] - x[j+3])^4 for j=1:4:n)
     )
 
     return nlp
