@@ -31,7 +31,7 @@ function sinquad(n :: Int=100)
     @NLobjective(
       nlp,
       Min,
-      (x[1] - 4.0)^4 + (x[n]^2 - x[1]^2)^2 + sum((sin(x[i] - x[n]) - x[1]^2 + x[i]^2)^2 for i=2:n-1)
+      (x[1] - 1.0)^4 + (x[n]^2 - x[1]^2)^2 + sum((sin(x[i] - x[n]) - x[1]^2 + x[i]^2)^2 for i=2:n-1)
     )
 
     return nlp
