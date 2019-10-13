@@ -17,6 +17,9 @@
 #
 # J.-P. Dussault, Clermont-Ferrand 05/2016.
 
+# Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the original paper
+# (See issue #36)
+
 export scosine
 
 "Another function with nontrivial groups and repetitious elements in size 'n' "
