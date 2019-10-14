@@ -63,7 +63,7 @@ function hs105(args...)
   @NLobjective(
     nlp,
     Min,
-    - sum(log(a[i] + b[i] + c[i])/sqrt(2*pi) for i=1:235)
+    - sum(log((a[i] + b[i] + c[i])/sqrt(2*pi)) for i=1:235)
   )
 
   return nlp
