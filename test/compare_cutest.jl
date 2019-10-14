@@ -41,11 +41,11 @@ function compute_status(probname; showvals=false)
         x0 = optnlp.meta.x0
         if !(obj(cutenlp, x0) ≈ obj(optnlp, x0))
             sameobjval = false
-            showvals && @show obj(cutenlp, x0) obj(d, x0)
+            showvals && @show obj(cutenlp, x0) obj(optnlp, x0)
         end
         if !(grad(cutenlp, x0) ≈ grad(optnlp, x0))
             samegradval = false
-            showvals && @show [grad(cutenlp, x0) grad(d, x0)]
+            showvals && @show [grad(cutenlp, x0) grad(optnlp, x0)]
         end
         isok = true
     end
