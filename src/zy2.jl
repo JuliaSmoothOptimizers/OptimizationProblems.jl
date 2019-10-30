@@ -10,6 +10,7 @@
 # R. O. Domingues, Paraná 10/2019.
 
 export zy2
+
 "Zy2 Model"
 function zy2(args...)
 
@@ -23,7 +24,7 @@ function zy2(args...)
     @NLobjective(
       nlp,
       Min,
-      x[1]^3 - 6*x[1]^2 + 11*x[1] + x[2] + x[3]
+      x[1]^3 - 6*x[1]^2 + 11 * x[1] + x[2] + x[3]
     )
 
     @NLconstraint(

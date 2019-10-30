@@ -11,6 +11,7 @@
 # R. O. Domingues, Paraná 10/2019.
 
 export zecevic3
+
 "Zecevic3 Model"
 function zecevic3(args...)
 
@@ -23,13 +24,13 @@ function zecevic3(args...)
     @NLobjective(
       nlp,
       Min,
-      7*x[1]^2 + 3*x[2]^2 - 84*x[1] - 24*x[2] + 300
+      7 * x[1]^2 + 3 * x[2]^2 - 84 * x[1] - 24 * x[2] + 300
     )
 
     @NLconstraint(
       nlp,
       constr1,
-      -x[1]*x[2] <= -1.0
+      -x[1] * x[2] <= -1.0
     )
 
     @NLconstraint(
