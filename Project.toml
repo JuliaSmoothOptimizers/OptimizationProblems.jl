@@ -1,12 +1,12 @@
 name = "OptimizationProblems"
 uuid = "5049e819-d29b-5fba-b941-0eee7e64c1c6"
-version = "0.2.0"
+version = "0.3.0"
 
 [deps]
 JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
 
 [compat]
-JuMP = "~0.15, ~0.16, ~0.17, ~0.18"
+JuMP = "~0.19, ~0.20, ~0.21"
 julia = "~1"
 
 [extras]

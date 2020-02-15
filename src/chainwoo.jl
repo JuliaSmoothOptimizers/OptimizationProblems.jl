@@ -33,10 +33,10 @@ function chainwoo(n :: Int=100)
   # @variable(nlp, x[i=1:n], start=[-3 ; -1 ; -3 ; -1 ; -2 * ones(n-4)])
 
   @variable(nlp, x[i=1:n], start=-2)
-  setvalue(x[1], -3)
-  setvalue(x[2], -1)
-  setvalue(x[3], -3)
-  setvalue(x[4], -1)
+  set_start_value(x[1], -3)
+  set_start_value(x[2], -1)
+  set_start_value(x[3], -3)
+  set_start_value(x[4], -1)
 
   @NLobjective(
     nlp,
