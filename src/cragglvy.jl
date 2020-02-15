@@ -36,7 +36,7 @@ function cragglvy(n :: Int=100)
   # @variable(nlp, x[i=1:n], start=[1 ; 2 * ones(n-1)])
 
   @variable(nlp, x[i=1:n], start=2)
-  setvalue(x[1], 1)
+  set_start_value(x[1], 1)
 
   @NLobjective(
     nlp,
