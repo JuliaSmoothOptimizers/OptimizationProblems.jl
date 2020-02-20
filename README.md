@@ -10,8 +10,12 @@ A collection of optimization problems in
 
 ## Installing
 
-```JULIA
-julia> Pkg.clone("https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl.git")
+OptimizationProblems can be installed and tested through the Julia package manager:
+
+```julia
+julia> ]
+pkg> add OptimizationProblems
+pkg> test OptimizationProblems
 ```
 
 You can obtain the list of problems currently defined with
