@@ -19,7 +19,7 @@ function hs4(args...)
   nlp  = Model()
   x0   = [1.125, 0.125]
   lvar = [    1,     0]
-  @variable(nlp, x[i=1:2] >= lvar[i], start = x0[i])
+  @variable(nlp, x[i=1:2] ≥ lvar[i], start = x0[i])
 
   @NLobjective(
     nlp,

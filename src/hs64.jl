@@ -17,9 +17,9 @@ export hs64
 function hs64(args...)
   
   nlp  = Model()
-  @variable(nlp, x[i=1:3] >= 1e-5, start = 1)
+  @variable(nlp, x[i=1:3] ≥ 1e-5, start = 1)
 
-  @NLconstraint(nlp, - 1 + 4/x[1] + 32/x[2] + 120/x[3] <= 0)
+  @NLconstraint(nlp, - 1 + 4/x[1] + 32/x[2] + 120/x[3] ≤ 0)
   
   @NLobjective(
     nlp,

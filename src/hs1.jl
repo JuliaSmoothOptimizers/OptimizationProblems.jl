@@ -19,7 +19,7 @@ function hs1(args...)
   nlp  = Model()
   x0   = [  -2,    1]
   lvar = [-Inf, -1.5]
-  @variable(nlp, x[i=1:2] >= lvar[i], start = x0[i])
+  @variable(nlp, x[i=1:2] ≥ lvar[i], start = x0[i])
 
   @NLobjective(
     nlp,

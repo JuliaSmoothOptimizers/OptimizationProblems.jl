@@ -19,7 +19,7 @@ function hs57(args...)
   nlp  = Model()
   x0   = [0.42,  5]
   lvar = [0.4,  -4]
-  @variable(nlp, x[i=1:2] >= lvar[i], start = x0[i])
+  @variable(nlp, x[i=1:2] ≥ lvar[i], start = x0[i])
   
   a = Array{Int64}(undef,44)
   a[1:2]   .= 8
@@ -74,7 +74,7 @@ function hs57(args...)
   b[41:42] .= 0.40
   b[43:44] .= 0.39
 
-  @NLconstraint(nlp, 0.49*x[2] - x[1]*x[2] - 0.09 >= 0)
+  @NLconstraint(nlp, 0.49*x[2] - x[1]*x[2] - 0.09 ≥ 0)
 
   @NLexpression(nlp, f[i=1:44], b[i] - x[1] - (0.49 - x[1])*exp(-x[2]*(a[i] - 8))
   )  

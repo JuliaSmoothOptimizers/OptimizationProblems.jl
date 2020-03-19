@@ -18,7 +18,7 @@ function hs86(args...)
 
   nlp  = Model()
   x0   = [0, 0, 0, 0, 1]
-  @variable(nlp, x[i=1:5] >= 0, start = x0[i])
+  @variable(nlp, x[i=1:5] ≥ 0, start = x0[i])
 
   a = Array{Float64}(undef,10,5)
   a[1,:]  = [-16 , 2, 0, 1,    0]
@@ -46,7 +46,7 @@ function hs86(args...)
   e = [-15, -27, -36, -18, -12]
 
   for i = 1:10
-    @constraint(nlp, sum(a[i,j]*x[j] for j=1:5) - b[i] >= 0)
+    @constraint(nlp, sum(a[i,j]*x[j] for j=1:5) - b[i] ≥ 0)
   end
 
   @NLobjective(

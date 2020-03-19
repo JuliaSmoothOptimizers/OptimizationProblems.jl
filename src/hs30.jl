@@ -19,9 +19,9 @@ function hs30(args...)
   nlp  = Model()
   lvar = [ 1, -10, -10]
   uvar = [10,  10,  10]
-  @variable(nlp, lvar[i] <= x[i=1:3] <= uvar[i], start = 1)
+  @variable(nlp, lvar[i] ≤ x[i=1:3] ≤ uvar[i], start = 1)
 
-  @NLconstraint(nlp, x[1]^2 + x[2]^2 - 1 >= 0)
+  @NLconstraint(nlp, x[1]^2 + x[2]^2 - 1 ≥ 0)
   
   @NLobjective(
     nlp,

@@ -20,7 +20,7 @@ function hs54(args...)
   x0   = [6e3, 1.5, 4e6,  2, 3e-3, 5e7]
   lvar = [  0, -10,   0,  0,   -1,   0]
   uvar = [2e4,  10, 1e7, 20,    1, 2e8]
-  @variable(nlp, lvar[i] <= x[i=1:6] <= uvar[i], start = x0[i])
+  @variable(nlp, lvar[i] ≤ x[i=1:6] ≤ uvar[i], start = x0[i])
 
   @constraint(nlp, x[1] + 3*x[2] == 0)
 

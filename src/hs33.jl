@@ -19,10 +19,10 @@ function hs33(args...)
   nlp  = Model()
   x0   = [  0,   0, 3]
   uvar = [Inf, Inf, 5]
-  @variable(nlp, 0 <= x[i=1:3] <= uvar[i], start = x0[i])
+  @variable(nlp, 0 ≤ x[i=1:3] ≤ uvar[i], start = x0[i])
 
-  @NLconstraint(nlp, -x[3]^2 + x[2]^2 + x[1]^2 <= 0)
-  @NLconstraint(nlp,  x[1]^2 + x[2]^2 + x[3]^2 - 4 >= 0)
+  @NLconstraint(nlp, -x[3]^2 + x[2]^2 + x[1]^2 ≤ 0)
+  @NLconstraint(nlp,  x[1]^2 + x[2]^2 + x[3]^2 - 4 ≥ 0)
 
   @NLobjective(
     nlp,

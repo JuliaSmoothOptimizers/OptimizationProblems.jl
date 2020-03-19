@@ -19,7 +19,7 @@ function hs3(args...)
   nlp  = Model()
   x0   = [  10, 1]
   lvar = [-Inf, 0]
-  @variable(nlp, x[i=1:2] >= lvar[i], start = x0[i])
+  @variable(nlp, x[i=1:2] ≥ lvar[i], start = x0[i])
 
   @NLobjective(
     nlp,

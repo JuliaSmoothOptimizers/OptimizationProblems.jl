@@ -19,7 +19,7 @@ function hs70(args...)
   nlp  = Model()
   x0   = [2, 4, 0.04, 2]
   uvar = [100, 100, 1, 100]
-  @variable(nlp, 0.00001 <= x[i=1:4] <= uvar[i], start = x0[i])
+  @variable(nlp, 0.00001 ≤ x[i=1:4] ≤ uvar[i], start = x0[i])
 
   c = Array{Float64}(undef,19)
   c[1] = 0.1
@@ -40,7 +40,7 @@ function hs70(args...)
                 (c[i] / 7.658)^(x[1] - 1) * exp(x[1] - b * c[i] * x[1] / (7.658 * x[4]))
   )
 
-  @NLconstraint(nlp, x[3] + (1-x[3])*x[4] >= 0)
+  @NLconstraint(nlp, x[3] + (1-x[3])*x[4] ≥ 0)
 
   @NLobjective(
     nlp,
