@@ -27,7 +27,7 @@ function hs12(args...)
 
   @NLconstraint(
     nlp,
-    4*x[1]^2 + x[2]^2 <= 25
+    4*x[1]^2 + x[2]^2 ≤ 25
   )
 
   return nlp

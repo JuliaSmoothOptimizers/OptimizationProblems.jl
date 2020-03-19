@@ -17,7 +17,7 @@ export hs45
 function hs45(args...)
 
   nlp  = Model()
-  @variable(nlp, 0 <= x[i=1:5] <= i, start = 2)
+  @variable(nlp, 0 ≤ x[i=1:5] ≤ i, start = 2)
 
   @NLobjective(
     nlp,

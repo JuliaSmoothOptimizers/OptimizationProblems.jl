@@ -18,7 +18,7 @@ function hs38(args...)
   
   nlp  = Model()
   x0   = [-3, -1, -3, -1]
-  @variable(nlp, -10 <= x[i=1:4] <= 10, start = x0[i])
+  @variable(nlp, -10 ≤ x[i=1:4] ≤ 10, start = x0[i])
 
   @NLobjective(
     nlp,

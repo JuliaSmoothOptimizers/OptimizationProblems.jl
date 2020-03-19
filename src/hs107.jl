@@ -20,7 +20,7 @@ function hs107(args...)
   x0   = [0.8, 0.8,  0.2,  0.2,  1.0454,  1.0454,  1.0454,    0,    0]
   lvar = [  0,   0, -Inf, -Inf, 0.90909, 0.90909, 0.90909, -Inf, -Inf]
   uvar = [Inf, Inf,  Inf,  Inf,  1.0909,  1.0909,  1.0909,  Inf,  Inf]
-  @variable(nlp, lvar[i] <= x[i=1:9] <= uvar[i], start=x0[i])
+  @variable(nlp, lvar[i] ≤ x[i=1:9] ≤ uvar[i], start=x0[i])
   
   c = (48.4/50.176)*sin(0.25)
   d = (48.4/50.176)*cos(0.25)

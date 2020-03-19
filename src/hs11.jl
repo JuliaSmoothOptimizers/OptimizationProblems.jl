@@ -28,7 +28,7 @@ function hs11(args...)
 
   @NLconstraint(
     nlp,
-    x[1]^2 <= x[2]
+    x[1]^2 ≤ x[2]
   )
 
   return nlp

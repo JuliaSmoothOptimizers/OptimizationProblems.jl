@@ -18,7 +18,7 @@ function hs117(args...)
 
   nlp  = Model()
   x0   = 0.001*[1, 1, 1, 1, 1, 1, 60000, 1, 1, 1, 1, 1, 1, 1, 1]
-  @variable(nlp, x[i=1:15] >= 0, start=x0[i])
+  @variable(nlp, x[i=1:15] ≥ 0, start=x0[i])
 
   a = Array{Float64}(undef,10,5)
   a[1,:]  = [-16 , 2, 0, 1,    0]
@@ -46,7 +46,7 @@ function hs117(args...)
   e = [-15, -27, -36, -18, -12]
 
   for j = 1:5
-    @NLconstraint(nlp, 2*sum(c[k,j]*x[10+k] + 3*d[j]*x[10+j]^2 for k=1:5) + e[j] - sum(a[k,j]*x[k] for k=1:10) >= 0)
+    @NLconstraint(nlp, 2*sum(c[k,j]*x[10+k] + 3*d[j]*x[10+j]^2 for k=1:5) + e[j] - sum(a[k,j]*x[k] for k=1:10) ≥ 0)
   end
 
   @NLobjective(

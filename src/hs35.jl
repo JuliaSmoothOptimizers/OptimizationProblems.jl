@@ -17,9 +17,9 @@ export hs35
 function hs35(args...)
   
   nlp  = Model()
-  @variable(nlp, x[i=1:3] >= 0, start = 0.5)
+  @variable(nlp, x[i=1:3] ≥ 0, start = 0.5)
 
-  @constraint(nlp, - 3 + x[1] + x[2] + 2*x[3] <= 0)
+  @constraint(nlp, - 3 + x[1] + x[2] + 2*x[3] ≤ 0)
 
   @NLobjective(
     nlp,

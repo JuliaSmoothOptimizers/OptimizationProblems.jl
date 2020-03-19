@@ -17,7 +17,7 @@ export hs119
 function hs119(args...)
 
   nlp  = Model()
-  @variable(nlp, 0 <= x[i=1:16] <= 5, start = 10)
+  @variable(nlp, 0 ≤ x[i=1:16] ≤ 5, start = 10)
   
   c = Array{Float64}(undef,8)
   c = [2.5, 1.1, -3.1, -3.5, 1.3, 2.1, 2.3, -1.5]

@@ -17,7 +17,7 @@ export hs60
 function hs60(args...)
 
   nlp  = Model()
-  @variable(nlp, -10 <= x[i=1:3] <= 10, start = 2)
+  @variable(nlp, -10 ≤ x[i=1:3] ≤ 10, start = 2)
 
   @NLconstraint(nlp, x[1]*(1+x[2]^2) + x[3]^4 - 4 -3*sqrt(2) == 0)
 

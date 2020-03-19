@@ -20,9 +20,9 @@ function hs65(args...)
   x0   = [  -5,    5,  0]
   lvar = [-4.5, -4.5, -5]
   uvar = [ 4.5,  4.5,  5]
-  @variable(nlp, lvar[i] <= x[i=1:3] <= uvar[i], start=x0[i])
+  @variable(nlp, lvar[i] ≤ x[i=1:3] ≤ uvar[i], start=x0[i])
 
-  @NLconstraint(nlp, - 48 + x[1]^2 + x[2]^2 + x[3]^2 <= 0)
+  @NLconstraint(nlp, - 48 + x[1]^2 + x[2]^2 + x[3]^2 ≤ 0)
 
   @NLobjective(
     nlp,

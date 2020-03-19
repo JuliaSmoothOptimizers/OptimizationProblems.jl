@@ -18,7 +18,7 @@ function hs112(args...)
 
   nlp = Model()
   c   = [-6.089, -17.164, -34.054, -5.914, -24.721, -14.986, -24.100, -10.708, -26.662, -22.179]
-  @variable(nlp, x[i=1:10] >= 1.0e-6, start=0.1)
+  @variable(nlp, x[i=1:10] ≥ 1.0e-6, start=0.1)
 
   @NLobjective(
     nlp,

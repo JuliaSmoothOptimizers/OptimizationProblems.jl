@@ -19,7 +19,7 @@ function hs5(args...)
   nlp  = Model()
   lvar = [ -1.5, -3]
   uvar = [    4,  3]
-  @variable(nlp, lvar[i] <= x[i=1:2] <= uvar[i], start = 0)
+  @variable(nlp, lvar[i] ≤ x[i=1:2] ≤ uvar[i], start = 0)
 
   @NLobjective(
     nlp,

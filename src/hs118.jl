@@ -20,22 +20,22 @@ function hs118(args...)
   x0   = [20, 55, 15, 20,  60, 20, 20,  60, 20, 20,  60, 20, 20,  60, 20]
   lvar = [ 8, 43,  3,  0,   0,  0,  0,   0,  0,  0,   0,  0,  0,   0,  0]
   uvar = [21, 57, 16, 90, 120, 60, 90, 120, 60, 90, 120, 60, 90, 120, 60]
-  @variable(nlp, lvar[i] <= x[i=1:15] <= uvar[i], start=x0[i])
+  @variable(nlp, lvar[i] ≤ x[i=1:15] ≤ uvar[i], start=x0[i])
   
   a = 50.176
   b = sin(0.25)
   c = cos(0.25)
 
   for j = 1:4
-    @constraint(nlp, 0 <= x[3*j+1] - x[3*j-2] + 7 <= 13)
-    @constraint(nlp, 0 <= x[3*j+2] - x[3*j-1] + 7 <= 13)
-    @constraint(nlp, 0 <= x[3*j+3] - x[3*j]   + 7 <= 14)
+    @constraint(nlp, 0 ≤ x[3*j+1] - x[3*j-2] + 7 ≤ 13)
+    @constraint(nlp, 0 ≤ x[3*j+2] - x[3*j-1] + 7 ≤ 13)
+    @constraint(nlp, 0 ≤ x[3*j+3] - x[3*j]   + 7 ≤ 14)
   end
-  @constraint(nlp, x[1]  + x[2]  + x[3]  - 60  >= 0)
-  @constraint(nlp, x[4]  + x[5]  + x[6]  - 70  >= 0)
-  @constraint(nlp, x[7]  + x[8]  + x[9]  - 100 >= 0)
-  @constraint(nlp, x[10] + x[11] + x[12] - 50  >= 0)
-  @constraint(nlp, x[13] + x[14] + x[15] - 85  >= 0)
+  @constraint(nlp, x[1]  + x[2]  + x[3]  - 60  ≥ 0)
+  @constraint(nlp, x[4]  + x[5]  + x[6]  - 70  ≥ 0)
+  @constraint(nlp, x[7]  + x[8]  + x[9]  - 100 ≥ 0)
+  @constraint(nlp, x[10] + x[11] + x[12] - 50  ≥ 0)
+  @constraint(nlp, x[13] + x[14] + x[15] - 85  ≥ 0)
 
   @NLobjective(
     nlp,

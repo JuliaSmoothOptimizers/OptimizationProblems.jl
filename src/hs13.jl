@@ -17,7 +17,7 @@ export hs13
 function hs13(args...)
 
   nlp  = Model()
-  @variable(nlp, x[i=1:2] >= 0, start = -2)
+  @variable(nlp, x[i=1:2] ≥ 0, start = -2)
 
   @NLobjective(
     nlp,
@@ -27,7 +27,7 @@ function hs13(args...)
 
   @NLconstraint(
     nlp,
-    (1-x[1])^3 >= x[2]
+    (1-x[1])^3 ≥ x[2]
   )
 
   return nlp

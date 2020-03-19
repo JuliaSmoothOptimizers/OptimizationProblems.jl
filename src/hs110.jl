@@ -17,7 +17,7 @@ export hs110
 function hs110(args...)
   
   nlp  = Model()
-  @variable(nlp, 2.001 <= x[i=1:10] <= 9.999, start = 9)
+  @variable(nlp, 2.001 ≤ x[i=1:10] ≤ 9.999, start = 9)
   
   @NLobjective(
     nlp,

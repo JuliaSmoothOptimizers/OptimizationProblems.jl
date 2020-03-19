@@ -19,7 +19,7 @@ function hs55(args...)
   nlp  = Model()
   x0   = [1, 2, 0, 0, 0, 2]
   uvar = [1, Inf, Inf, 1, Inf, Inf]
-  @variable(nlp, 0 <= x[i=1:6] <= uvar[i], start = x0[i])
+  @variable(nlp, 0 ≤ x[i=1:6] ≤ uvar[i], start = x0[i])
 
   @constraint(nlp, x[1] + 2*x[2] + 5*x[5] - 6 == 0)
   @constraint(nlp, x[1] + x[2] + x[3] - 3 == 0)

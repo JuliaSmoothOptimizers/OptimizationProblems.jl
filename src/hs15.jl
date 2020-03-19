@@ -19,7 +19,7 @@ function hs15(args...)
   nlp  = Model()
   x0   = [  -2,    1]
   uvar = [ 0.5,  Inf]
-  @variable(nlp, x[i=1:2] <= uvar[i], start = x0[i])
+  @variable(nlp, x[i=1:2] ≤ uvar[i], start = x0[i])
 
   @NLobjective(
     nlp,
@@ -29,12 +29,12 @@ function hs15(args...)
 
   @NLconstraint(
     nlp,
-    x[1]*x[2] -1 >= 0
+    x[1]*x[2] -1 ≥ 0
   )
 
   @NLconstraint(
     nlp,
-    x[1] + x[2]^2 >= 0
+    x[1] + x[2]^2 ≥ 0
   )
   
   return nlp
