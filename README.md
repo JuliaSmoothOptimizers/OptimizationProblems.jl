@@ -1,9 +1,8 @@
 # OptimizationProblems
 
-[![Build Status](https://travis-ci.org/JuliaSmoothOptimizers/OptimizationProblems.jl.svg?branch=master)](https://travis-ci.org/JuliaSmoothOptimizers/OptimizationProblems.jl)
-[![Build status](https://ci.appveyor.com/api/projects/status/270y5330ihk30v41?svg=true)](https://ci.appveyor.com/project/dpo/optimizationproblems-jl)
+[![CI](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/workflows/CI/badge.svg?branch=master)](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/actions)
 [![Build Status](https://api.cirrus-ci.com/github/JuliaSmoothOptimizers/OptimizationProblems.jl.svg)](https://cirrus-ci.com/github/JuliaSmoothOptimizers/OptimizationProblems.jl)
-[![Coverage Status](https://coveralls.io/repos/JuliaSmoothOptimizers/OptimizationProblems.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/JuliaSmoothOptimizers/OptimizationProblems.jl?branch=master)
+[![codecov](https://codecov.io/gh/JuliaSmoothOptimizers/OptimizationProblems.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/JuliaSmoothOptimizers/OptimizationProblems.jl)
 
 A collection of optimization problems in
 [JuMP](https://github.com/JuliaOpt/JuMP.jl) syntax.
