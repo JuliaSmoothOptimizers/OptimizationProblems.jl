@@ -1,5 +1,6 @@
 # OptimizationProblems
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3672094.svg)](https://doi.org/10.5281/zenodo.3672094)
 [![CI](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/workflows/CI/badge.svg?branch=master)](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/actions)
 [![Build Status](https://api.cirrus-ci.com/github/JuliaSmoothOptimizers/OptimizationProblems.jl.svg)](https://cirrus-ci.com/github/JuliaSmoothOptimizers/OptimizationProblems.jl)
 [![codecov](https://codecov.io/gh/JuliaSmoothOptimizers/OptimizationProblems.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/JuliaSmoothOptimizers/OptimizationProblems.jl)
@@ -33,3 +34,7 @@ objective, constraints and their derivatives.
 Please open pull requests to submit new problems! When submitting a problem,
 please pay particular attention to the documentation. We would like to gather
 as much information as possible on the provenance of problems.
+
+## How to cite
+
+If you use OptimizationProblems.jl in your work, please cite using the format given in [CITATION.bib](CITATION.bib).
