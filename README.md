@@ -4,6 +4,8 @@
 [![CI](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/workflows/CI/badge.svg?branch=master)](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/actions)
 [![Build Status](https://api.cirrus-ci.com/github/JuliaSmoothOptimizers/OptimizationProblems.jl.svg)](https://cirrus-ci.com/github/JuliaSmoothOptimizers/OptimizationProblems.jl)
 [![codecov](https://codecov.io/gh/JuliaSmoothOptimizers/OptimizationProblems.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/JuliaSmoothOptimizers/OptimizationProblems.jl)
+[![Documentation/stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://JuliaSmoothOptimizers.github.io/OptimizationProblems.jl/stable)
+[![Documentation/dev](https://img.shields.io/badge/docs-latest-blue.svg)](https://JuliaSmoothOptimizers.github.io/OptimizationProblems.jl/latest)
 
 A collection of optimization problems in
 [JuMP](https://github.com/JuliaOpt/JuMP.jl) syntax.
