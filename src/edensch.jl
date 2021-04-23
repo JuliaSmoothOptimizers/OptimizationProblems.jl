@@ -24,23 +24,19 @@
 export edensch
 
 "Extended Dennis-Schnabel model in size `n`"
-function edensch(n :: Int=100)
-
+function edensch(n::Int = 100)
   n < 2 && @warn("edensch: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=0)
+  @variable(nlp, x[i = 1:n], start = 0)
 
   @NLobjective(
     nlp,
     Min,
     16 +
-    sum(
-      (x[i] - 2)^4 + (x[i] * x[i+1] - 2 * x[i+1])^2 + (x[i+1] + 1)^2
-      for i=1:n-1
-    )
+    sum((x[i] - 2)^4 + (x[i] * x[i + 1] - 2 * x[i + 1])^2 + (x[i + 1] + 1)^2 for i = 1:(n - 1))
   )
 
   return nlp

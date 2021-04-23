@@ -14,20 +14,20 @@
 
 export indef_mod
 
-function indef_mod(n :: Int=100)
+function indef_mod(n::Int = 100)
+  n < 3 && @warn("indef_mod: number of variables must be ≥ 4")
+  n = max(3, n)
 
-    n < 3 && @warn("indef_mod: number of variables must be ≥ 4")
-    n = max(3, n)
+  nlp = Model()
 
-    nlp = Model()
+  @variable(nlp, x[i = 1:n], start = i / (n + 1))
 
-    @variable(nlp, x[i=1:n], start=i/(n+1))
+  @NLobjective(
+    nlp,
+    Min,
+    100.0 * sum(sin(x[i] / 100.0) for i = 1:n) +
+    0.5 * sum(cos(2.0 * x[i] - x[n] - x[1]) for i = 2:(n - 1))
+  )
 
-    @NLobjective(
-      nlp,
-      Min,
-	    100.0 * sum(sin(x[i] / 100.0) for i=1:n) + 0.5 * sum(cos(2.0 * x[i] - x[n] - x[1]) for i=2:n-1)
-    )
-
-    return nlp
+  return nlp
 end

@@ -12,13 +12,9 @@ export AMPGO21
 function AMPGO21(args...)
   nlp = Model()
 
-  @variable(nlp, x, start=0.0)
+  @variable(nlp, x, start = 0.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    (x * sin(x)) + (x * cos(2 * x))
-  )
+  @NLobjective(nlp, Min, (x * sin(x)) + (x * cos(2 * x)))
 
   return nlp
 end

@@ -15,11 +15,10 @@ export hs77
 
 "HS77 model"
 function hs77(args...)
-  
-  nlp  = Model()
-  @variable(nlp, x[i=1:5], start = 2)
+  nlp = Model()
+  @variable(nlp, x[i = 1:5], start = 2)
 
-  @NLconstraint(nlp, x[1]^2 * x[4] + sin(x[4] - x[5]) - 2*sqrt(2) == 0)
+  @NLconstraint(nlp, x[1]^2 * x[4] + sin(x[4] - x[5]) - 2 * sqrt(2) == 0)
   @NLconstraint(nlp, x[2] + x[3]^4 * x[4]^2 - 8 - sqrt(2) == 0)
 
   @NLobjective(

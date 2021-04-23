@@ -11,18 +11,16 @@
 export dixon3dq
 
 "Dixon's tridiagonal quadratic."
-function dixon3dq(n::Int=10)
-
+function dixon3dq(n::Int = 10)
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=-1.0)
+  @variable(nlp, x[i = 1:n], start = -1.0)
 
   @NLobjective(
     nlp,
     Min,
-    (x[1] - 1.0)^2 + (x[n] - 1.0)^2 + sum((x[i] - x[i+1])^2 for i=2:n-1)
+    (x[1] - 1.0)^2 + (x[n] - 1.0)^2 + sum((x[i] - x[i + 1])^2 for i = 2:(n - 1))
   )
 
   return nlp
-
 end

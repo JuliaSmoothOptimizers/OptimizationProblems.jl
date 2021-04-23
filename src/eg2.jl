@@ -24,24 +24,15 @@
 export eg2
 
 "model in size `n`"
-function eg2(n :: Int=100)
-
+function eg2(n::Int = 100)
   n < 2 && @warn("eg2: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=0)
+  @variable(nlp, x[i = 1:n], start = 0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    sum(
-      sin(x[1] + x[i]^2 - 1)
-      for i=1:n-1
-    ) +
-    0.5 * sin(x[n]^2)
-  )
+  @NLobjective(nlp, Min, sum(sin(x[1] + x[i]^2 - 1) for i = 1:(n - 1)) + 0.5 * sin(x[n]^2))
 
   return nlp
 end

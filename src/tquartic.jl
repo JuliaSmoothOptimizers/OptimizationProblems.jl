@@ -19,20 +19,15 @@
 export tquartic
 
 "A quartic function with nontrivial groups and repetitious elements in size 'n' "
-function tquartic(n :: Int=100)
+function tquartic(n::Int = 100)
+  n < 2 && @warn("tquartic: number of variables must be ≥ 2")
+  n = max(2, n)
 
-    n < 2 && @warn("tquartic: number of variables must be ≥ 2")
-    n = max(2, n)
+  nlp = Model()
 
-    nlp = Model()
+  @variable(nlp, x[i = 1:n], start = 0.1)
 
-    @variable(nlp, x[i=1:n], start=0.1)
+  @NLobjective(nlp, Min, (x[1] - 1.0)^2 + sum((x[1]^2 - x[i + 1]^2)^2 for i = 1:(n - 2)))
 
-    @NLobjective(
-      nlp,
-      Min,
-      (x[1] - 1.0)^2 + sum((x[1]^2 - x[i+1]^2)^2 for i=1:n-2)
-    )
-
-    return nlp
+  return nlp
 end

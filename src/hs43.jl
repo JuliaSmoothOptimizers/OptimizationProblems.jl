@@ -15,18 +15,17 @@ export hs43
 
 "HS43 model"
 function hs43(args...)
+  nlp = Model()
+  @variable(nlp, x[i = 1:4], start = 0)
 
-  nlp  = Model()
-  @variable(nlp, x[i=1:4], start = 0)
-
-  @NLconstraint(nlp, - 8  + x[1]^2 +   x[2]^2 + x[3]^2 +   x[4]^2 + x[1] - x[2] + x[3] - x[4] ≤ 0)
-  @NLconstraint(nlp, - 10 + x[1]^2 + 2*x[2]^2 + x[3]^2 + 2*x[4]^2 - x[1] - x[4] ≤ 0)
-  @NLconstraint(nlp, -5 + 2*x[1]^2 +   x[2]^2 + x[3]^2 + 2*x[1]   - x[2] - x[4] ≤ 0)
+  @NLconstraint(nlp, -8 + x[1]^2 + x[2]^2 + x[3]^2 + x[4]^2 + x[1] - x[2] + x[3] - x[4] ≤ 0)
+  @NLconstraint(nlp, -10 + x[1]^2 + 2 * x[2]^2 + x[3]^2 + 2 * x[4]^2 - x[1] - x[4] ≤ 0)
+  @NLconstraint(nlp, -5 + 2 * x[1]^2 + x[2]^2 + x[3]^2 + 2 * x[1] - x[2] - x[4] ≤ 0)
 
   @NLobjective(
     nlp,
     Min,
-    x[1]^2 + x[2]^2 + 2*x[3]^2 + x[4]^2 - 5*x[1] - 5*x[2] - 21*x[3] + 7*x[4]
+    x[1]^2 + x[2]^2 + 2 * x[3]^2 + x[4]^2 - 5 * x[1] - 5 * x[2] - 21 * x[3] + 7 * x[4]
   )
 
   return nlp

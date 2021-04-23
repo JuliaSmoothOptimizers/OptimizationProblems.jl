@@ -15,18 +15,13 @@ export hs28
 
 "HS28 model"
 function hs28(args...)
-  
-  nlp  = Model()
-  x0   = [-4, 1, 1]
-  @variable(nlp, x[i=1:3], start = x0[i])
+  nlp = Model()
+  x0 = [-4, 1, 1]
+  @variable(nlp, x[i = 1:3], start = x0[i])
 
-  @constraint(nlp, x[1] + 2*x[2] + 3*x[3] - 1 == 0)
+  @constraint(nlp, x[1] + 2 * x[2] + 3 * x[3] - 1 == 0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    (x[1] + x[2])^2 + (x[2]+x[3])^2
-  )
+  @NLobjective(nlp, Min, (x[1] + x[2])^2 + (x[2] + x[3])^2)
 
   return nlp
 end

@@ -12,17 +12,12 @@
 export power
 
 "The Power problem by Oren."
-function power(n::Int=1000)
-
+function power(n::Int = 1000)
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=1.0)
+  @variable(nlp, x[i = 1:n], start = 1.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    (sum((i * x[i]^2) for i=1:n))^2
-  )
+  @NLobjective(nlp, Min, (sum((i * x[i]^2) for i = 1:n))^2)
 
   return nlp
 end

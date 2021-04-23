@@ -15,16 +15,17 @@
 export vardim
 
 "Variable dimension problem."
-function vardim(n::Int=100)
-
+function vardim(n::Int = 100)
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=(1 - i/n))
+  @variable(nlp, x[i = 1:n], start = (1 - i / n))
 
   @NLobjective(
     nlp,
     Min,
-    sum((x[i] - 1)^2 for i=1:n) + (sum(i * (x[i] - 1) for i=1:n))^2 + (sum(i * (x[i] - 1) for i=1:n))^4
+    sum((x[i] - 1)^2 for i = 1:n) +
+    (sum(i * (x[i] - 1) for i = 1:n))^2 +
+    (sum(i * (x[i] - 1) for i = 1:n))^4
   )
 
   return nlp

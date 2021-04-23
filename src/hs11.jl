@@ -15,21 +15,13 @@ export hs11
 
 "HS11 model"
 function hs11(args...)
+  nlp = Model()
+  x0 = [4.9, 0.1]
+  @variable(nlp, x[i = 1:2], start = x0[i])
 
-  nlp  = Model()
-  x0   = [ 4.9,  0.1]
-  @variable(nlp, x[i=1:2], start = x0[i])
+  @NLobjective(nlp, Min, (x[1] - 5)^2 + x[2]^2 - 25)
 
-  @NLobjective(
-    nlp,
-    Min,
-    (x[1] - 5)^2 + x[2]^2 -25
-  )
-
-  @NLconstraint(
-    nlp,
-    x[1]^2 ≤ x[2]
-  )
+  @NLconstraint(nlp, x[1]^2 ≤ x[2])
 
   return nlp
 end

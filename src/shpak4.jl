@@ -15,13 +15,9 @@ export Shpak4
 function Shpak4(args...)
   nlp = Model()
 
-  @variable(nlp, x, start=-1.0)
+  @variable(nlp, x, start = -1.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    (x + sin(x)) * exp(-(x)^2)
-  )
+  @NLobjective(nlp, Min, (x + sin(x)) * exp(-(x)^2))
 
   return nlp
 end

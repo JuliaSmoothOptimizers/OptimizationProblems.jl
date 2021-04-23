@@ -15,19 +15,14 @@ export hs14
 
 "HS14 model"
 function hs14(args...)
+  nlp = Model()
+  @variable(nlp, x[i = 1:2], start = 2)
 
-  nlp  = Model()
-  @variable(nlp, x[i=1:2], start = 2)
+  @NLconstraint(nlp, 0.25 * x[1]^2 + x[2]^2 - 1 ≤ 0)
 
-  @NLconstraint(nlp, 0.25*x[1]^2 + x[2]^2 - 1 ≤ 0)
+  @constraint(nlp, x[1] - 2 * x[2] + 1 == 0)
 
-  @constraint(nlp, x[1] - 2*x[2] + 1 == 0)
-
-  @NLobjective(
-    nlp,
-    Min,
-    (x[1] - 2)^2 + (x[2] - 1)^2
-  )
+  @NLobjective(nlp, Min, (x[1] - 2)^2 + (x[2] - 1)^2)
 
   return nlp
 end

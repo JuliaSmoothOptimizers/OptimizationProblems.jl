@@ -11,13 +11,9 @@ export Dus2_3
 function Dus2_3(args...)
   nlp = Model()
 
-  @variable(nlp, x, start=-2.0)
+  @variable(nlp, x, start = -2.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    1 - (1 / (5 * (x^2) - 6 * x + 5))
-  )
+  @NLobjective(nlp, Min, 1 - (1 / (5 * (x^2) - 6 * x + 5)))
 
   return nlp
 end

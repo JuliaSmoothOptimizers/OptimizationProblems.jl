@@ -14,20 +14,21 @@
 
 export noncvxu2
 
-function noncvxu2(n :: Int=100)
+function noncvxu2(n::Int = 100)
+  n < 2 && @warn("noncvxu2: number of variables must be ≥ 2")
+  n = max(2, n)
 
-    n < 2 && @warn("noncvxu2: number of variables must be ≥ 2")
-    n = max(2, n)
+  nlp = Model()
+  @variable(nlp, x[i = 1:n], start = i)
 
-    nlp = Model()
-    @variable(nlp, x[i=1:n], start=i)
-
-    @NLobjective(
-      nlp,
-      Min,
-	    sum((x[i] + x[mod(3 * i - 2, n) + 1] + x[mod(7 * i - 3, n) + 1])^2 +
-      4.0 * cos(x[i] + x[mod(3 * i - 2, n) + 1] + x[mod(7 * i - 3, n) + 1]) for i=1:n)
+  @NLobjective(
+    nlp,
+    Min,
+    sum(
+      (x[i] + x[mod(3 * i - 2, n) + 1] + x[mod(7 * i - 3, n) + 1])^2 +
+      4.0 * cos(x[i] + x[mod(3 * i - 2, n) + 1] + x[mod(7 * i - 3, n) + 1]) for i = 1:n
     )
+  )
 
-    return nlp
+  return nlp
 end

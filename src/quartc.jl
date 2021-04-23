@@ -11,17 +11,12 @@
 export quartc
 
 "A simple quartic function."
-function quartc(n::Int=10000)
-
+function quartc(n::Int = 10000)
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=2.0)
+  @variable(nlp, x[i = 1:n], start = 2.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    sum((x[i] - i)^4 for i=1:n)
-  )
+  @NLobjective(nlp, Min, sum((x[i] - i)^4 for i = 1:n))
 
   return nlp
 end

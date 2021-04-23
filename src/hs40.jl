@@ -11,35 +11,20 @@
 #
 # D. Cabral, Curitiba, 10/2016.
 
-
 export hs40
 
 "HS40 model"
 function hs40(args...)
+  nlp = Model()
+  @variable(nlp, x[i = 1:4], start = 0.8)
 
-  nlp  = Model()
-  @variable(nlp, x[i=1:4], start = 0.8)
+  @NLobjective(nlp, Min, -x[1] * x[2] * x[3] * x[4])
 
-  @NLobjective(
-    nlp,
-    Min,
-    -x[1] * x[2] * x[3] * x[4]
-  )
+  @NLconstraint(nlp, x[1]^3 + x[2]^2 - 1 == 0)
 
-  @NLconstraint(
-    nlp,
-    x[1]^3 + x[2]^2 - 1 == 0
-  )
+  @NLconstraint(nlp, x[4] * x[1]^2 - x[3] == 0)
 
-  @NLconstraint(
-    nlp,
-    x[4]*x[1]^2 - x[3] == 0
-  )
-
-  @NLconstraint(
-    nlp,
-    x[4]^2 - x[2] == 0
-  )
+  @NLconstraint(nlp, x[4]^2 - x[2] == 0)
 
   return nlp
 end
