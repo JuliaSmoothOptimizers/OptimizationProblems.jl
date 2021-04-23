@@ -23,24 +23,19 @@
 export scosine
 
 "Another function with nontrivial groups and repetitious elements in size 'n' "
-function scosine(n :: Int=100)
+function scosine(n::Int = 100)
+  n < 2 && @warn("scosine: number of variables must be ≥ 2")
+  n = max(2, n)
 
-    n < 2 && @warn("scosine: number of variables must be ≥ 2")
-    n = max(2, n)
+  nlp = Model()
+  p = zeros(n)
+  for i = 1:n
+    p[i] = exp(6.0 * (i - 1) / (n - 1))
+  end
 
-    nlp = Model()
-    p = zeros(n)
-    for i=1:n
-      p[i] = exp(6.0 * (i-1) / (n-1))
-    end
+  @variable(nlp, x[i = 1:n], start = 1.0 / p[i])
 
-    @variable(nlp, x[i=1:n], start=1.0/p[i])
+  @NLobjective(nlp, Min, sum(cos(p[i]^2 * x[i]^2 - p[i + 1] * x[i + 1] / 2.0) for i = 1:(n - 1)))
 
-    @NLobjective(
-      nlp,
-      Min,
-      sum(cos(p[i]^2 * x[i]^2 - p[i+1] * x[i+1] / 2.0) for i=1:n-1)
-    )
-
-    return nlp
+  return nlp
 end

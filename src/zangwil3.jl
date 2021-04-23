@@ -14,35 +14,18 @@ export zangwil3
 
 "Zangwil3 Model"
 function zangwil3(args...)
+  nlp = Model()
 
-    nlp = Model()
+  x0 = [100.0, -1.0, 2.5]
 
-    x0 = [100.0, -1.0, 2.5]
+  @variable(nlp, x[i = 1:3], start = x0[i])
 
-    @variable(nlp, x[i=1:3], start=x0[i])
+  @NLobjective(nlp, Min, 0)
 
-    @NLobjective(
-      nlp,
-      Min,
-      0
-    )
+  @NLconstraint(nlp, constr1, x[1] - x[2] + x[3] == 0)
 
-    @NLconstraint(
-      nlp,
-      constr1,
-      x[1] - x[2] + x[3] == 0
-    )
+  @NLconstraint(nlp, constr2, -x[1] + x[2] + x[3] == 0)
 
-    @NLconstraint(
-      nlp,
-      constr2,
-      -x[1] + x[2] + x[3] == 0
-    )
-
-    @NLconstraint(
-      nlp,
-      constr3,
-      x[1] + x[2] - x[3] == 0
-    )
-    return nlp
+  @NLconstraint(nlp, constr3, x[1] + x[2] - x[3] == 0)
+  return nlp
 end

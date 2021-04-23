@@ -12,13 +12,9 @@ export AMPGO13
 function AMPGO13(args...)
   nlp = Model()
 
-  @variable(nlp, x, start=0.001)
+  @variable(nlp, x, start = 0.001)
 
-  @NLobjective(
-    nlp,
-    Min,
-    ifelse(0.0 < x < 1.0, -(x^0.666666 + (1 - x^2)^0.333333), Inf)
-  )
+  @NLobjective(nlp, Min, ifelse(0.0 < x < 1.0, -(x^0.666666 + (1 - x^2)^0.333333), Inf))
 
   return nlp
 end

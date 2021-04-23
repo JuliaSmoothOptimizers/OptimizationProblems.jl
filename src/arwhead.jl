@@ -27,20 +27,15 @@
 export arwhead
 
 "Arrow head model in size `n`"
-function arwhead(n :: Int=100)
-
+function arwhead(n::Int = 100)
   n < 2 && @warn("arwhead: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=1.0)
+  @variable(nlp, x[i = 1:n], start = 1.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    sum((x[i]^2 + x[n]^2)^2 - 4 * x[i] + 3 for i=1:n-1)
-  )
+  @NLobjective(nlp, Min, sum((x[i]^2 + x[n]^2)^2 - 4 * x[i] + 3 for i = 1:(n - 1)))
 
   return nlp
 end

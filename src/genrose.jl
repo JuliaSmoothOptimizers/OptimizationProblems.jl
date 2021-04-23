@@ -43,24 +43,24 @@
 export genrose, rosenbrock
 
 "Generalized Rosenbrock model in size `n`"
-function genrose(n :: Int=100)
-
+function genrose(n::Int = 100)
   n < 2 && @warn("genrose: number of variables must be ≥ 2")
-  n = max(2,n)
+  n = max(2, n)
 
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=(i/(n+1)))
+  @variable(nlp, x[i = 1:n], start = (i / (n + 1)))
 
   @NLobjective(
     nlp,
     Min,
-    1.0 + 100 * sum((x[i+1] - x[i]^2)^2 for i=1:n-1) + sum((x[i] - 1.0)^2 for i=1:n-1)
+    1.0 +
+    100 * sum((x[i + 1] - x[i]^2)^2 for i = 1:(n - 1)) +
+    sum((x[i] - 1.0)^2 for i = 1:(n - 1))
   )
 
   return nlp
 end
-
 
 "Classic Rosenbrock problem"
 rosenbrock(args...) = genrose(2)

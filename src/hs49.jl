@@ -15,19 +15,14 @@ export hs49
 
 "HS49 model"
 function hs49(args...)
-  
-  nlp  = Model()
-  x0   = [10, 7, 2, -3, 0.8]
-  @variable(nlp, x[i=1:5], start = x0[i])
+  nlp = Model()
+  x0 = [10, 7, 2, -3, 0.8]
+  @variable(nlp, x[i = 1:5], start = x0[i])
 
-  @constraint(nlp, x[1] + x[2] + x[3] + 4*x[4] - 7 == 0)
-  @constraint(nlp, x[3] + 5*x[5] - 6 == 0)
+  @constraint(nlp, x[1] + x[2] + x[3] + 4 * x[4] - 7 == 0)
+  @constraint(nlp, x[3] + 5 * x[5] - 6 == 0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    (x[1] - x[2])^2 + (x[3] - 1)^2 + (x[4] - 1)^4 + (x[5] - 1)^6
-  )
+  @NLobjective(nlp, Min, (x[1] - x[2])^2 + (x[3] - 1)^2 + (x[4] - 1)^4 + (x[5] - 1)^6)
 
   return nlp
 end

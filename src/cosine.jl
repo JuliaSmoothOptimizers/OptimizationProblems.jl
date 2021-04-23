@@ -16,20 +16,15 @@
 export cosine
 
 "The cosine function in size `n`"
-function cosine(n :: Int=100)
-
+function cosine(n::Int = 100)
   n < 2 && @warn("cosine: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=1)
+  @variable(nlp, x[i = 1:n], start = 1)
 
-  @NLobjective(
-    nlp,
-    Min,
-    sum(cos(x[i]^2 - 0.5 * x[i+1]) for i = 1:n-1)
-  )
+  @NLobjective(nlp, Min, sum(cos(x[i]^2 - 0.5 * x[i + 1]) for i = 1:(n - 1)))
 
   return nlp
 end

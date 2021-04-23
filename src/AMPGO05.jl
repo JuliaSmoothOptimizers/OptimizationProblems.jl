@@ -11,13 +11,9 @@ export AMPGO05
 function AMPGO05(args...)
   nlp = Model()
 
-  @variable(nlp, x, start=0.0)
+  @variable(nlp, x, start = 0.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    - (1.4 - 3.0 * x) * sin(18.0 * x)
-  )
+  @NLobjective(nlp, Min, -(1.4 - 3.0 * x) * sin(18.0 * x))
 
   return nlp
 end

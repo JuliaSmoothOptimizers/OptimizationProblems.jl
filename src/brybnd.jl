@@ -43,11 +43,10 @@
 export brybnd
 
 "Broyden banded model in size `n`"
-function brybnd(n :: Int=100; ml :: Int=5, mu :: Int=1)
-
+function brybnd(n::Int = 100; ml::Int = 5, mu::Int = 1)
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=(-1.0))
+  @variable(nlp, x[i = 1:n], start = (-1.0))
 
   @NLobjective(
     nlp,
@@ -55,11 +54,8 @@ function brybnd(n :: Int=100; ml :: Int=5, mu :: Int=1)
     sum(
       (
         x[i] * (2 + 5 * x[i]^2) + 1 -
-        sum(
-          x[j] * (1 + x[j])
-          for j = max(1, i-ml) : min(n, i+mu) if j != i
-        )
-      )^2 for i=1:n
+        sum(x[j] * (1 + x[j]) for j = max(1, i - ml):min(n, i + mu) if j != i)
+      )^2 for i = 1:n
     )
   )
 

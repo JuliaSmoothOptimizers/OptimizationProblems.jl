@@ -14,16 +14,17 @@ export beale
 
 "Beale Model"
 function beale(args...)
+  nlp = Model()
 
-    nlp = Model()
+  @variable(nlp, x[i = 1:2], start = 1.0)
 
-    @variable(nlp, x[i=1:2], start=1.0)
+  @NLobjective(
+    nlp,
+    Min,
+    (1.5 - x[1] * (1.0 - x[2]))^2 +
+    (2.25 - x[1] * (1.0 - x[2]^2))^2 +
+    (2.625 - x[1] * (1.0 - x[2]^3))^2,
+  )
 
-    @NLobjective(
-      nlp,
-      Min,
-      (1.5 - x[1] * (1.0 - x[2]))^2 + (2.25 - x[1] * (1.0 - x[2]^2))^2 + (2.625 - x[1] * (1.0 - x[2]^3))^2,
-      )
-
-    return nlp
+  return nlp
 end

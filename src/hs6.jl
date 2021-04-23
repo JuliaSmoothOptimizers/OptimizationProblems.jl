@@ -15,21 +15,13 @@ export hs6
 
 "HS6 model"
 function hs6(args...)
+  nlp = Model()
+  x0 = [-1.2, 1]
+  @variable(nlp, x[i = 1:2], start = x0[i])
 
-  nlp  = Model()
-  x0   = [-1.2,    1]
-  @variable(nlp, x[i=1:2], start = x0[i])
+  @NLobjective(nlp, Min, (1 - x[1])^2)
 
-  @NLobjective(
-    nlp,
-    Min,
-    (1 - x[1])^2
-  )
-
-  @NLconstraint(
-    nlp,
-    10 * (x[2] - x[1]^2) == 0
-  )
+  @NLconstraint(nlp, 10 * (x[2] - x[1]^2) == 0)
 
   return nlp
 end

@@ -11,17 +11,12 @@
 export dqdrtic
 
 "Diagonal quadratic problem"
-function dqdrtic(n::Int=5000)
-
+function dqdrtic(n::Int = 5000)
   nlp = Model()
 
-  @variable(nlp, x[j=1:n], start=3.0)
+  @variable(nlp, x[j = 1:n], start = 3.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    sum(x[i]^2 + 100 * (x[i+1]^2 + x[i+2]^2) for i=1:n-2)
-  )
+  @NLobjective(nlp, Min, sum(x[i]^2 + 100 * (x[i + 1]^2 + x[i + 2]^2) for i = 1:(n - 2)))
 
   return nlp
 end

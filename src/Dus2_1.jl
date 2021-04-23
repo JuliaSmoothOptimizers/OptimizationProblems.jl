@@ -12,13 +12,9 @@ export Dus2_1
 function Dus2_1(args...)
   nlp = Model()
 
-  @variable(nlp, x, start=-1.0)
+  @variable(nlp, x, start = -1.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    exp(x * (x - 1))
-  )
+  @NLobjective(nlp, Min, exp(x * (x - 1)))
 
   return nlp
 end

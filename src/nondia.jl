@@ -25,19 +25,14 @@
 
 export nondia
 
-function nondia(n :: Int=100)
+function nondia(n::Int = 100)
+  n < 2 && @warn("nondia: number of variables must be ≥ 2")
+  n = max(2, n)
 
-    n < 2 && @warn("nondia: number of variables must be ≥ 2")
-    n = max(2, n)
+  nlp = Model()
+  @variable(nlp, x[i = 1:n], start = -1.0)
 
-    nlp = Model()
-    @variable(nlp, x[i=1:n], start=-1.0)
+  @NLobjective(nlp, Min, (x[1] - 1.0)^2 + 100 * sum((x[1] - x[i]^2)^2 for i = 2:n))
 
-    @NLobjective(
-      nlp,
-      Min,
-      (x[1] - 1.0)^2 + 100*sum((x[1] - x[i]^2)^2 for i=2:n)
-    )
-
-    return nlp
+  return nlp
 end

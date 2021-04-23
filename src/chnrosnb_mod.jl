@@ -13,21 +13,21 @@
 #
 # J,-P, Dussault, Rennes 09/2015.
 
-export  chnrosnb_mod
+export chnrosnb_mod
 
-function chnrosnb_mod(n :: Int=100)
-
+function chnrosnb_mod(n::Int = 100)
   n < 2 && @warn("chnrosnb: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=-1.0)
+  @variable(nlp, x[i = 1:n], start = -1.0)
 
   @NLobjective(
     nlp,
     Min,
-    16 * sum((x[i-1] - x[i]^2)^2*(1.5+sin(i))^2 for i=2:n) + sum((1.0 - x[i])^2 for i=2:n)
+    16 * sum((x[i - 1] - x[i]^2)^2 * (1.5 + sin(i))^2 for i = 2:n) +
+    sum((1.0 - x[i])^2 for i = 2:n)
   )
 
   return nlp

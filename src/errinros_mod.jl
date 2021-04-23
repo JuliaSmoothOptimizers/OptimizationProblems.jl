@@ -15,19 +15,19 @@
 
 export errinros_mod
 
-function errinros_mod(n :: Int=100)
-
+function errinros_mod(n::Int = 100)
   n < 2 && @warn("errinros_mod: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=-1.0)
+  @variable(nlp, x[i = 1:n], start = -1.0)
 
   @NLobjective(
     nlp,
     Min,
-    sum((x[i-1] - 16.0 * x[i]^2 * (1.5 + sin(i))^2)^2 for i=2:n) + sum((1.0 - x[i])^2 for i=2:n)
+    sum((x[i - 1] - 16.0 * x[i]^2 * (1.5 + sin(i))^2)^2 for i = 2:n) +
+    sum((1.0 - x[i])^2 for i = 2:n)
   )
 
   return nlp

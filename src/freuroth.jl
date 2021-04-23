@@ -22,25 +22,25 @@
 
 export freuroth
 
-function freuroth(n :: Int = 100)
-    n < 2 && @warn("freuroth: number of variables must be ≥ 2")
-    n = max(2, n)
+function freuroth(n::Int = 100)
+  n < 2 && @warn("freuroth: number of variables must be ≥ 2")
+  n = max(2, n)
 
-    ngs = n - 1
-    x0 = zeros(n)
-    x0[1] = 0.5
-    x0[2] = -2.0
+  ngs = n - 1
+  x0 = zeros(n)
+  x0[1] = 0.5
+  x0[2] = -2.0
 
-    nlp = Model()
+  nlp = Model()
 
-    @variable(nlp, x[i=1:n], start=x0[i])
+  @variable(nlp, x[i = 1:n], start = x0[i])
 
-    @NLobjective(
-      nlp,
-      Min,
-	    sum(((5.0 - x[i+1]) * x[i+1]^2 + x[i] - 2 * x[i+1] - 13.0)^2 for i=1:ngs) +
-	    sum(((1.0 + x[i+1]) * x[i+1]^2 + x[i] - 14 * x[i+1] - 29.0)^2 for i=1:ngs)
-     )
+  @NLobjective(
+    nlp,
+    Min,
+    sum(((5.0 - x[i + 1]) * x[i + 1]^2 + x[i] - 2 * x[i + 1] - 13.0)^2 for i = 1:ngs) +
+    sum(((1.0 + x[i + 1]) * x[i + 1]^2 + x[i] - 14 * x[i + 1] - 29.0)^2 for i = 1:ngs)
+  )
 
-    return nlp
+  return nlp
 end

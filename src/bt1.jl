@@ -14,24 +14,15 @@ export bt1
 
 "BT1 Model"
 function bt1(args...)
+  nlp = Model()
 
-    nlp = Model()
+  x0 = [0.08, 0.06]
 
-    x0 = [0.08, 0.06]
+  @variable(nlp, x[i = 1:2], start = x0[i])
 
-    @variable(nlp, x[i=1:2], start=x0[i])
+  @NLobjective(nlp, Min, 100 * x[1]^2 + 100 * x[2]^2 - x[1] - 100)
 
-    @NLobjective(
-      nlp,
-      Min,
-      100 * x[1]^2 + 100 * x[2]^2 - x[1] - 100
-    )
+  @NLconstraint(nlp, constr1, x[1]^2 + x[2]^2 - 1.0 == 0)
 
-    @NLconstraint(
-      nlp,
-      constr1,
-      x[1]^2 + x[2]^2 - 1.0 == 0
-    )
-
-    return nlp
+  return nlp
 end

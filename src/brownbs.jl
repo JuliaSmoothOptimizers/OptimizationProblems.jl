@@ -14,16 +14,11 @@ export brownbs
 
 "Brownbs Model"
 function brownbs(args...)
+  nlp = Model()
 
-    nlp = Model()
+  @variable(nlp, x[i = 1:2], start = 1.0)
 
-    @variable(nlp, x[i=1:2], start=1.0)
+  @NLobjective(nlp, Min, (x[1] - 1e6)^2 + (x[2] - 2 * 1e-6)^2 + (x[1] * x[2] - 2)^2)
 
-    @NLobjective(
-      nlp,
-      Min,
-      (x[1] - 1e6)^2 + (x[2] - 2 * 1e-6)^2 + (x[1] * x[2] - 2)^2
-    )
-
-    return nlp
+  return nlp
 end

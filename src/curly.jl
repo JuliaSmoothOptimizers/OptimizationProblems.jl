@@ -23,33 +23,28 @@
 export curly, curly10, curly20, curly30
 
 "Curly function in size `n` with semi-bandwidth `b`"
-function curly(n :: Int=100; b :: Int=10)
-
+function curly(n::Int = 100; b::Int = 10)
   n < 2 && @warn("curly: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()
 
-  x0 = [1.0e-4 * i /(n+1) for i = 1:n]
+  x0 = [1.0e-4 * i / (n + 1) for i = 1:n]
 
-  @variable(nlp, x[i=1:n], start=x0[i])
+  @variable(nlp, x[i = 1:n], start = x0[i])
 
-  @NLexpression(nlp, f[i=1:n], sum(x[j] for j=i:min(i+b,n)))
+  @NLexpression(nlp, f[i = 1:n], sum(x[j] for j = i:min(i + b, n)))
 
-  @NLobjective(
-    nlp,
-    Min,
-    sum(f[i] * (f[i] * (f[i]^2 - 20) - 0.1) for i = 1:n)
-  )
+  @NLobjective(nlp, Min, sum(f[i] * (f[i] * (f[i]^2 - 20) - 0.1) for i = 1:n))
 
   return nlp
 end
 
 "Curly function in size `n` with semi-bandwidth 10"
-curly10(n :: Int=100) = curly(n, b=10)
+curly10(n::Int = 100) = curly(n, b = 10)
 
 "Curly function in size `n` with semi-bandwidth 20"
-curly20(n :: Int=100) = curly(n, b=20)
+curly20(n::Int = 100) = curly(n, b = 20)
 
 "Curly function in size `n` with semi-bandwidth 30"
-curly30(n :: Int=100) = curly(n, b=30)
+curly30(n::Int = 100) = curly(n, b = 30)

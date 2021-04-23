@@ -18,21 +18,20 @@
 
 export genhumps
 
-function genhumps(n :: Int = 100)
+function genhumps(n::Int = 100)
+  nlp = Model()
 
-    nlp = Model()
+  ζ = 20.0
+  x0 = -506.2 * ones(n)
+  x0[1] = -506.0
 
-    ζ = 20.0
-    x0 = -506.2 * ones(n)
-    x0[1] = -506.0
+  @variable(nlp, x[i = 1:n], start = x0[i])
 
-    @variable(nlp, x[i=1:n], start=x0[i])
+  @NLobjective(
+    nlp,
+    Min,
+    sum((sin(ζ * x[i])^2 * sin(ζ * x[i + 1])^2 + 0.05 * (x[i]^2 + x[i + 1]^2)) for i = 1:(n - 1))
+  )
 
-    @NLobjective(
-      nlp,
-      Min,
-	    sum(( sin(ζ * x[i])^2 * sin(ζ * x[i+1])^2 + 0.05 * (x[i]^2 + x[i+1]^2)) for i=1:n-1)
-    )
-
-    return nlp
+  return nlp
 end

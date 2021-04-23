@@ -12,13 +12,9 @@ export AMPGO18
 function AMPGO18(args...)
   nlp = Model()
 
-  @variable(nlp, x, start=0.0)
+  @variable(nlp, x, start = 0.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    ifelse(x <= 3.0, (x - 2.0)^2, log(x - 2.0) + log(x - 2.0) + 1.0)
-  )
+  @NLobjective(nlp, Min, ifelse(x <= 3.0, (x - 2.0)^2, log(x - 2.0) + log(x - 2.0) + 1.0))
 
   return nlp
 end

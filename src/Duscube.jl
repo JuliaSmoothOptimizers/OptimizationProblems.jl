@@ -11,13 +11,9 @@ export Duscube
 function Duscube(args...)
   nlp = Model()
 
-  @variable(nlp, x, start=1.0)
+  @variable(nlp, x, start = 1.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    x^3 - (x - 4)^2 - 100 * x
-  )
+  @NLobjective(nlp, Min, x^3 - (x - 4)^2 - 100 * x)
 
   return nlp
 end

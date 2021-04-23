@@ -32,20 +32,15 @@
 
 export fletchcr
 
-function fletchcr(n :: Int=100)
-
+function fletchcr(n::Int = 100)
   n < 2 && @warn("fletchcr: number of variables must be ≥ 2")
   n = max(2, n)
 
   nlp = Model()
 
-  @variable(nlp, x[i=1:n], start=0.0)
+  @variable(nlp, x[i = 1:n], start = 0.0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    100.0 * sum((x[i+1]-x[i]+1-x[i]^2)^2 for i=1:n-1)
-  )
+  @NLobjective(nlp, Min, 100.0 * sum((x[i + 1] - x[i] + 1 - x[i]^2)^2 for i = 1:(n - 1)))
 
   return nlp
 end

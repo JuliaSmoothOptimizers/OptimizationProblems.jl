@@ -25,20 +25,22 @@
 export schmvett
 
 "Another function with nontrivial groups and repetitious elements in size 'n' "
-function schmvett(n :: Int=100)
+function schmvett(n::Int = 100)
+  n < 3 && @warn("schmvett: number of variables must be ≥ 3")
+  n = max(3, n)
 
-    n < 3 && @warn("schmvett: number of variables must be ≥ 3")
-    n = max(3, n)
+  nlp = Model()
 
-    nlp = Model()
+  @variable(nlp, x[i = 1:n], start = 3.0)
 
-    @variable(nlp, x[i=1:n], start=3.0)
-
-    @NLobjective(
-      nlp,
-      Min,
-      sum(-(1.0 / (1.0 + (x[i] - x[i+1])^2)) - sin((pi * x[i+1] + x[i+2]) / 2.0) - exp(-((x[i] + x[i+2]) / x[i+1] - 2.0)^2) for i=1:n-2)
+  @NLobjective(
+    nlp,
+    Min,
+    sum(
+      -(1.0 / (1.0 + (x[i] - x[i + 1])^2)) - sin((pi * x[i + 1] + x[i + 2]) / 2.0) -
+      exp(-((x[i] + x[i + 2]) / x[i + 1] - 2.0)^2) for i = 1:(n - 2)
     )
+  )
 
-    return nlp
+  return nlp
 end
