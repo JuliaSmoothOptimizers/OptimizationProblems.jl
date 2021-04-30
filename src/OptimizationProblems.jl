@@ -12,7 +12,8 @@ end
 
 const objtypes = [:none, :constant, :linear, :quadratic, :sum_of_squares, :other]
 const contypes = [:unconstrained, :linear, :quadratic, :general]
-const origins = [:academic, :modelling, :real]
+const origins = [:academic, :modelling, :real, :unknown]
+const cqs = Dict(4 => "LICQ", 3 => "MFCQ", 2 => "GCQ", 1 => "none", 0 => "unknown")
 
 const names = [
   :nvar
@@ -39,8 +40,10 @@ const names = [
   :has_cvx_obj
   :has_cvx_con
   :has_equalities_only
+  :has_inequalities_only
   :has_bounds
   :has_fixed_variables
+  :cqs
 ]
 
 const types = [
@@ -58,18 +61,20 @@ const types = [
   Vector
   Tuple
   Real
-  Bool
-  Bool
+  Union{Bool, Missing}
+  Union{Bool, Missing}
   Symbol
   Symbol
   Symbol
   UInt8
+  Union{Bool, Missing}
   Bool
   Bool
   Bool
   Bool
   Bool
   Bool
+  UInt8
 ]
 
 const number_of_problems = length(files)
@@ -113,8 +118,10 @@ Classification
 - `has_cvx_obj`: true if the problem has a convex objective
 - `has_cvx_con`: true if the problem has convex constraints
 - `has_equalities_only`: true if the problem constraints are equality constraints (doesn't include bounds)
+- `has_inequalities_only`: true if the problem constraints are inequality constraints (doesn't include bounds)
 - `has_bounds`: true if the problem has bound constraints
 - `has_fixed_variables`: true if it has fixed variables
+- `cqs`: Between 0 and 4 indicates the constraint qualification of the problem, see `cqs(i)` for the correspondance.
 """
 const meta = DataFrame(
   types, 
@@ -122,9 +129,80 @@ const meta = DataFrame(
   number_of_problems
 )
 
-for i=1:number_of_problems
-  # first(split(files[i], "."))*"_meta" (instead of "AMPGO02_meta")
-  OptimizationProblems.meta[i,:] = eval(Meta.parse("AMPGO02_meta"))
+for i=1:6 # number_of_problems
+  OptimizationProblems.meta[i,:] = eval(Meta.parse(first(split(files[i], "."))*"_meta"))
+end
+
+using Requires
+
+@init begin
+  @require NLPModelsJuMP = "792afdf1-32c1-5681-94e0-d7bf7a5df49e" begin
+    """
+        `generate_meta(jmodel, name, variable_size, variable_con_size, cvx_obj, cvx_con, quad_cons)`   
+        `generate_meta(name, variable_size, variable_con_size, cvx_obj, cvx_con, quad_cons)`   
+
+    is used to generate the meta of a given JuMP model.
+    """
+    function generate_meta(name::String, args...;kwargs...)
+      return generate_meta(eval(Meta.parse(name))(), name, args...; kwargs...)
+    end
+
+    function generate_meta(
+      jmodel::JuMP.Model, 
+      name::String, 
+      variable_size::Bool=false, 
+      variable_con_size::Bool=false,
+      cvx_obj::Bool=false,
+      cvx_con::Bool=false,
+      origin::Symbol=:unknown,
+      quad_cons::Bool=false,
+      cq::UInt8=UInt8(0),
+    )
+      nlp = NLPModelsJuMP.MathOptNLPModel(jmodel)
+      contype = if quad_cons
+        :quadratic
+      elseif nlp.meta.ncon == 0 && !(length(nlp.meta.ifree) < nlp.meta.nvar)
+        :unconstrained
+      elseif nlp.meta.nlin == nlp.meta.ncon > 0
+        :linear
+      else
+        :general
+      end
+      objtype = :other
+
+      str = "$(name)_meta = Dict(
+        :nvar => $(nlp.meta.nvar),
+        :variable_size => $(variable_size),
+        :x0 => $(nlp.meta.x0),
+        :ncon => $(nlp.meta.ncon),
+        :variable_con_size => $(variable_con_size),
+        :y0 => $(nlp.meta.y0),
+        :nnzo => $(nlp.meta.nnzo),
+        :nnzh => $(nlp.meta.nnzh),
+        :nnzj => $(nlp.meta.nnzj),
+        :minimize => $(nlp.meta.minimize),
+        :name => $(name),
+        :global_solution => $(NaN * ones(nlp.meta.nvar)),
+        :local_solution => (),
+        :optimal_value => $(NaN),
+        :has_multiple_solution => $(missing),
+        :is_infeasible => $(nlp.meta.ncon == 0 ? false : missing),
+        :objtype => :$(objtype),  
+        :contype => :$(contype),
+        :origin => :$(origin),
+        :deriv => typemax(UInt8),
+        :not_everywhere_defined => $(missing),
+        :has_cvx_obj => $(cvx_obj),
+        :has_cvx_con => $(cvx_con),
+        :has_equalities_only => $(length(nlp.meta.jfix) == nlp.meta.ncon > 0),
+        :has_inequalities_only => $(nlp.meta.ncon > 0 && length(nlp.meta.jfix) == 0),
+        :has_bounds => $(length(nlp.meta.ifree) < nlp.meta.nvar),
+        :has_fixed_variables => $(nlp.meta.ifix != []),
+        :cqs => $(cq),
+      )"
+      return str
+    end
+  end
 end
 
 end # module
