@@ -6,7 +6,7 @@ using OptimizationProblems, NLPModels, JuMP, NLPModelsJuMP
 
 path = joinpath(dirname(@__DIR__), "src")
 files = filter(readdir(path)) do filename
-  endswith(filename, ".jl") && filename ∉ ("OptimizationProblems.jl", "template.jl")
+  endswith(filename, ".jl") && filename ∉ ("OptimizationProblems.jl", "PureJuMP.jl", "template.jl")
 end
 
 struct Status
