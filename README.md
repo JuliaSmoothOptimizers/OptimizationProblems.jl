@@ -21,8 +21,8 @@ pkg> test OptimizationProblems
 ```
 
 You can obtain the list of problems currently defined with
-`names(OptimizationProblems)`. The first symbol in the list is
-`:OptimizationProblems` itself&ndash;the name of the module.
+`names(OptimizationProblems.PureJuMP)`. The first symbol in the list is
+`:PureJuMP` itself&ndash;the name of the module.
 
 Currently, only a few unconstrained problems are implemented. Some are
 available in variable size.
