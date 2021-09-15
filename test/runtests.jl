@@ -6,4 +6,7 @@ for prob in names(OptimizationProblems.PureJuMP)
   println(prob)
   prob_fn = eval(Meta.parse("OptimizationProblems.PureJuMP.$(prob)"))
   prob_fn()
+
+  prob_nlp = eval(Meta.parse("OptimizationProblems.JuMP.$(prob)"))
+  prob_nlp()
 end
