@@ -5,7 +5,7 @@ function nondia(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
     return (x[1] - 1)^2 + sum((100 * x[1] - x[i - 1]^2)^2 for i = 2:n)
   end
   x0 = -ones(T, n)
-  return ADNLPModel(f, x0, name = "nondia_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "nondia_autodiff"; kwargs...)
 end
 
 nondia_meta = Dict(

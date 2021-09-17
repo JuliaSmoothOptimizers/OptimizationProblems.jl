@@ -11,7 +11,7 @@ function brybnd(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
     )
   end
   x0 = -ones(T, n)
-  return ADNLPModel(f, x0, name = "brybnd_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "brybnd_autodiff"; kwargs...)
 end
 
 brybnd_meta = Dict(

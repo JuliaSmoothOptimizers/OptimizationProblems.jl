@@ -12,7 +12,7 @@ function fletcbv3_mod(;
            p * sum(100 * (1 + (2 / h^2)) * sin(x[i] / 100) + (1 / h^2) * cos(x[i]) for i = 1:n)
   end
   x0 = T.([(i / (n + 1)) for i = 1:n])
-  return ADNLPModel(f, x0, name = "fletcbv3_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "fletcbv3_autodiff"; kwargs...)
 end
 
 fletcbv3_mod_meta = Dict(

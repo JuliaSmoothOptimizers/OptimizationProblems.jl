@@ -12,7 +12,7 @@ function noncvxun(;
     )
   end
   x0 = T.([i for i = 1:n])
-  return ADNLPModel(f, x0, name = "noncvxun_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "noncvxun_autodiff"; kwargs...)
 end
 
 noncvxun_meta = Dict(

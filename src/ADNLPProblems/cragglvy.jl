@@ -15,7 +15,7 @@ function cragglvy(;
     )
   end
   x0 = 2 * ones(T, n)
-  return ADNLPModel(f, x0, name = "cragglvy_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "cragglvy_autodiff"; kwargs...)
 end
 
 cragglvy_meta = Dict(

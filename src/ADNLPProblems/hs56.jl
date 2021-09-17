@@ -1,5 +1,5 @@
 function hs56(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  return ADNLPModel(
+  return ADNLPModels.ADNLPModel(
     x -> -x[1] * x[2] * x[3],
     T[
       1.0,

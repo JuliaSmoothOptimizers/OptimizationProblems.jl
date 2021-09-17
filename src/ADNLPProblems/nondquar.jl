@@ -10,7 +10,7 @@ function nondquar(;
 
   x0 = ones(T, n)
   x0[2 * collect(1:div(n, 2))] .= -one(T)
-  return ADNLPModel(f, x0, name = "nondquar_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "nondquar_autodiff"; kwargs...)
 end
 
 nondquar_meta = Dict(

@@ -14,7 +14,7 @@ function broydn7d(;
            sum(abs(x[i] + x[i + n2])^p for i = 1:n2)
   end
   x0 = -ones(T, n)
-  return ADNLPModel(f, x0, name = "broydn7d_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "broydn7d_autodiff"; kwargs...)
 end
 
 broydn7d_meta = Dict(

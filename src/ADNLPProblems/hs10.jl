@@ -5,7 +5,7 @@ function hs10(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   lcon = T[0.0]
   ucon = T[Inf]
 
-  return ADNLPModel(f, x0, c, lcon, ucon, name = "hs10_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "hs10_autodiff"; kwargs...)
 end
 
 hs10_meta = Dict(

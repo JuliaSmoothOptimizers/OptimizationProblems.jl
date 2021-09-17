@@ -9,7 +9,7 @@ function tquartic(;
     return (x[1] - 1)^2 + sum((x[1]^2 - x[i + 1]^2)^2 for i = 1:(n - 2))
   end
   x0 = ones(T, n)
-  return ADNLPModel(f, x0, name = "tquartic_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "tquartic_autodiff"; kwargs...)
 end
 
 tquartic_meta = Dict(

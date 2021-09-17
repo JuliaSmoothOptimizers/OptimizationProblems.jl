@@ -8,7 +8,7 @@ function fletchcr(;
     return 100 * sum((x[i + 1] - x[i] + 1 - x[i]^2)^2 for i = 1:(n - 1))
   end
   x0 = zeros(T, n)
-  return ADNLPModel(f, x0, name = "fletchcr_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "fletchcr_autodiff"; kwargs...)
 end
 
 fletchcr_meta = Dict(

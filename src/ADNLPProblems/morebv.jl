@@ -12,7 +12,7 @@ function morebv(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
   x0[1] = zero(T)
   x0[n] = zero(T)
 
-  return ADNLPModel(f, x0, name = "morebv_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "morebv_autodiff"; kwargs...)
 end
 
 morebv_meta = Dict(

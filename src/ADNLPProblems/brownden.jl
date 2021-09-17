@@ -16,7 +16,7 @@ function brownden(;
     return s
   end
 
-  return ADNLPModel(f, x0, name = "brownden_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "brownden_autodiff"; kwargs...)
 end
 
 brownden_meta = Dict(

@@ -15,7 +15,7 @@ function penalty3(;
            (sum(x[i]^2 - n for i = 1:n))^2
   end
   x0 = T.([i / (n + 1) for i = 1:n])
-  return ADNLPModel(f, x0, name = "penalty3_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "penalty3_autodiff"; kwargs...)
 end
 
 penalty3_meta = Dict(

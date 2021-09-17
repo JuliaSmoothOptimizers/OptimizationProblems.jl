@@ -12,7 +12,7 @@ function srosenbr(;
   x0 = ones(T, n)
   x0[2 * (collect(1:div(n, 2))) .- 1] .= -1.2
 
-  return ADNLPModel(f, x0, name = "srosenbr_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "srosenbr_autodiff"; kwargs...)
 end
 
 srosenbr_meta = Dict(

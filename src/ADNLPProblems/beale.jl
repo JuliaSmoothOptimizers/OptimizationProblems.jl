@@ -6,7 +6,7 @@ function beale(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
            (T(2.625) + x[1] * (1 - x[2]^3))^2
   end
   x0 = ones(T, n)
-  return ADNLPModel(f, x0, name = "beale_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "beale_autodiff"; kwargs...)
 end
 
 beale_meta = Dict(

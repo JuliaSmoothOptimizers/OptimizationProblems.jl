@@ -10,7 +10,7 @@ function chnrosnb_mod(;
            sum((1 - x[i])^2 for i = 2:n)
   end
   x0 = -ones(T, n)
-  return ADNLPModel(f, x0, name = "chnrosnb_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "chnrosnb_autodiff"; kwargs...)
 end
 
 chnrosnb_mod_meta = Dict(

@@ -4,7 +4,7 @@ function quartc(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
     return sum((x[i] - i)^4 for i = 1:n)
   end
   x0 = 2 * ones(T, n)
-  return ADNLPModel(f, x0, name = "quartc_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "quartc_autodiff"; kwargs...)
 end
 
 quartc_meta = Dict(

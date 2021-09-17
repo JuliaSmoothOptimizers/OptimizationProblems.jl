@@ -8,7 +8,7 @@ function dixon3dq(;
     return (x[1] - 1)^2 + (x[n] - 1)^2 + sum((x[i] - x[i + 1])^2 for i = 2:(n - 1))
   end
   x0 = -ones(T, n)
-  return ADNLPModel(f, x0, name = "dixon3dq_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "dixon3dq_autodiff"; kwargs...)
 end
 
 dixon3dq_meta = Dict(

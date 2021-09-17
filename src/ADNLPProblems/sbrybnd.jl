@@ -17,7 +17,7 @@ function sbrybnd(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
     )
   end
   x0 = T.([1 / p[i] for i = 1:n])
-  return ADNLPModel(f, x0, name = "sbrybnd_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "sbrybnd_autodiff"; kwargs...)
 end
 
 sbrybnd_meta = Dict(

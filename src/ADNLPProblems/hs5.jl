@@ -4,7 +4,7 @@ function hs5(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) wh
   l = T[-1.5; -3.0]
   u = T[4.0; 3.0]
 
-  return ADNLPModel(f, x0, l, u, name = "hs5_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, l, u, name = "hs5_autodiff"; kwargs...)
 end
 
 hs5_meta = Dict(

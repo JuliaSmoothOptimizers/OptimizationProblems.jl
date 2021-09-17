@@ -6,7 +6,7 @@ function edensch(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
     )
   end
   x0 = zeros(T, n)
-  return ADNLPModel(f, x0, name = "edensch_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "edensch_autodiff"; kwargs...)
 end
 
 edensch_meta = Dict(
