@@ -8,9 +8,14 @@ for prob in names(OptimizationProblems.PureJuMP)
   prob_fn()
 end
 
+@test OptimizationProblems.ADNLPProblems.problems == []
+
+import ADNLPModels
+
 ndef = OptimizationProblems.ADNLPProblems.default_nvar
-for prob in names(OptimizationProblems.ADNLPProblems)
+for prob in OptimizationProblems.ADNLPProblems.problems
   prob == :ADNLPProblems && continue
+  println(prob)
   n, m = eval(Meta.parse("OptimizationProblems.ADNLPProblems.get_$(prob)_meta(n=$(2 * ndef))"))
   meta_pb = eval(Meta.parse("OptimizationProblems.ADNLPProblems.$(prob)_meta"))
   if meta_pb[:variable_size]

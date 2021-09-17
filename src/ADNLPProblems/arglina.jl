@@ -6,7 +6,7 @@ function arglina(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
            sum((-T(2 / m) * sum(x[j] for j = 1:n) - 1)^2 for i = (n + 1):m)
   end
   x0 = ones(T, n)
-  return ADNLPModel(f, x0, name = "arglina"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "arglina"; kwargs...)
 end
 
 arglina_meta = Dict(

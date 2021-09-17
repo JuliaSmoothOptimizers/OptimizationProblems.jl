@@ -12,7 +12,7 @@ function freuroth(;
   x0 = zeros(T, n)
   x0[1] = one(T) / 2
   x0[2] = -2 * one(T)
-  return ADNLPModel(f, x0, name = "freuroth_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "freuroth_autodiff"; kwargs...)
 end
 
 freuroth_meta = Dict(

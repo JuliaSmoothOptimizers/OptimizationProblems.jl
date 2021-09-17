@@ -12,7 +12,7 @@ function powellsg(;
     )
   end
   x0 = 3 * ones(T, n)
-  return ADNLPModel(f, x0, name = "powellsg_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "powellsg_autodiff"; kwargs...)
 end
 
 powellsg_meta = Dict(

@@ -18,7 +18,7 @@ function penalty2(;
            (sum((n - j + 1) * x[j]^2 for j = 1:n) - 1)^2
   end
   x0 = ones(T, n) / 2
-  return ADNLPModel(f, x0, name = "penalty2_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "penalty2_autodiff"; kwargs...)
 end
 
 penalty2_meta = Dict(

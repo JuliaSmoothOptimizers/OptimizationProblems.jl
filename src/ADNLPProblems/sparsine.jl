@@ -19,7 +19,7 @@ function sparsine(;
     )
   end
   x0 = ones(T, n) / 2
-  return ADNLPModel(f, x0, name = "sparsine_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "sparsine_autodiff"; kwargs...)
 end
 
 sparsine_meta = Dict(

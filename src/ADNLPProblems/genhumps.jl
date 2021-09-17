@@ -13,7 +13,7 @@ function genhumps(;
 
   x0 = -T(506.2) * ones(T, n)
   x0[1] = -506
-  return ADNLPModel(f, x0, name = "genhumps_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "genhumps_autodiff"; kwargs...)
 end
 
 genhumps_meta = Dict(

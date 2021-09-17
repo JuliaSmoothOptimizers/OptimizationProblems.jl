@@ -9,7 +9,7 @@ function scosine(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
     return sum(cos(p[i]^2 * x[i]^2 - p[i + 1] * x[i + 1] / 2) for i = 1:(n - 1))
   end
   x0 = T.([1 / p[i] for i = 1:n])
-  return ADNLPModel(f, x0, name = "scosine_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "scosine_autodiff"; kwargs...)
 end
 
 scosine_meta = Dict(

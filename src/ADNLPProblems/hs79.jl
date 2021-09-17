@@ -1,5 +1,5 @@
 function hs79(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  return ADNLPModel(
+  return ADNLPModels.ADNLPModel(
     x -> (x[1] - 1)^2 + (x[1] - x[2])^2 + (x[2] - x[3])^2 + (x[3] - x[4])^4 + (x[4] - x[5])^4,
     2 * ones(T, 5),
     x -> [

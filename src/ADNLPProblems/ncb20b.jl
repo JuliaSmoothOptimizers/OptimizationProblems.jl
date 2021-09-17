@@ -9,7 +9,7 @@ function ncb20b(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
     ) + sum(100 * x[i]^4 + 2 for i = 1:n)
   end
   x0 = zeros(T, n)
-  return ADNLPModel(f, x0, name = "ncb20b_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "ncb20b_autodiff"; kwargs...)
 end
 
 ncb20b_meta = Dict(

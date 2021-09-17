@@ -3,18 +3,18 @@ uuid = "5049e819-d29b-5fba-b941-0eee7e64c1c6"
 version = "0.3.0"
 
 [deps]
-ADNLPModels = "54578032-b7ea-4c30-94aa-7cbd1cce6c9a"
 JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Requires = "ae029012-a4dd-5104-9daa-d747884805df"
 
 [compat]
-ADNLPModels = "0.3"
 JuMP = "~0.19, ~0.20, ~0.21"
 julia = "~1"
 
 [extras]
+ADNLPModels = "54578032-b7ea-4c30-94aa-7cbd1cce6c9a"
 NLPModels = "a4795742-8479-5a88-8948-cc11e1c8c1a6"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["NLPModels", "Test"]
+test = ["ADNLPModels", "NLPModels", "Test"]

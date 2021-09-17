@@ -12,7 +12,7 @@ function tointgss(;
     )
   end
   x0 = ones(T, n)
-  return ADNLPModel(f, x0, name = "tointgss_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "tointgss_autodiff"; kwargs...)
 end
 
 tointgss_meta = Dict(

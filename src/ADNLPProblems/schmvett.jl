@@ -11,7 +11,7 @@ function schmvett(;
     )
   end
   x0 = 3 * ones(T, n)
-  return ADNLPModel(f, x0, name = "schmvett_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "schmvett_autodiff"; kwargs...)
 end
 
 schmvett_meta = Dict(

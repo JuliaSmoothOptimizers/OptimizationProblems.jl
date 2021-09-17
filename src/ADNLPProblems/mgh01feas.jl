@@ -9,7 +9,7 @@ function mgh01feas(;
   lcon = zeros(T, 2)
   ucon = zeros(T, 2)
 
-  return ADNLPModel(f, x0, c, lcon, ucon, name = "mgh01feas_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "mgh01feas_autodiff"; kwargs...)
 end
 
 mgh01feas_meta = Dict(

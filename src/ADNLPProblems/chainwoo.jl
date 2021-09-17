@@ -16,7 +16,7 @@ function chainwoo(;
     )
   end
   x0 = -2 * ones(T, n)
-  return ADNLPModel(f, x0, name = "chainwoo_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "chainwoo_autodiff"; kwargs...)
 end
 
 chainwoo_meta = Dict(

@@ -19,7 +19,7 @@ function sparsqur(;
     )
   end
   x0 = ones(T, n) / 2
-  return ADNLPModel(f, x0, name = "sparsqur_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "sparsqur_autodiff"; kwargs...)
 end
 
 sparsqur_meta = Dict(

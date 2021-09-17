@@ -8,7 +8,7 @@ function extrosnb(;
     return 100 * sum((x[i] - x[i - 1]^2)^2 for i = 2:n) + (1 - x[1])^2
   end
   x0 = -ones(T, n)
-  return ADNLPModel(f, x0, name = "extrosnb_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "extrosnb_autodiff"; kwargs...)
 end
 
 extrosnb_meta = Dict(

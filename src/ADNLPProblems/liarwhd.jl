@@ -5,7 +5,7 @@ function liarwhd(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
     return sum(4 * (x[i]^2 - x[1])^2 + (x[i] - 1)^2 for i = 1:n)
   end
   x0 = ones(T, n)
-  return ADNLPModel(f, x0, name = "liarwhd_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "liarwhd_autodiff"; kwargs...)
 end
 
 liarwhd_meta = Dict(

@@ -15,7 +15,7 @@ function ncb20(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   x0 = ones(T, n)
   x0[1:(n - 10)] .= zero(T)
 
-  return ADNLPModel(f, x0, name = "ncb20_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "ncb20_autodiff"; kwargs...)
 end
 
 ncb20_meta = Dict(
