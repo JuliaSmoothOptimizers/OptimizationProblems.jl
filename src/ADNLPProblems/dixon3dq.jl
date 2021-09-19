@@ -1,8 +1,4 @@
-function dixon3dq(;
-  n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
-  kwargs...,
-) where {T}
+function dixon3dq(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
     return (x[1] - 1)^2 + (x[n] - 1)^2 + sum((x[i] - x[i + 1])^2 for i = 2:(n - 1))

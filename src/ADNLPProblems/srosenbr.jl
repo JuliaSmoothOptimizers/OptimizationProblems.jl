@@ -1,8 +1,4 @@
-function srosenbr(;
-  n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
-  kwargs...,
-) where {T}
+function srosenbr(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n = 2 * max(1, div(n, 2))  # number of variables adjusted to be even
   function f(x)
     n = length(x)

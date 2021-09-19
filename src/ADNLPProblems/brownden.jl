@@ -1,8 +1,4 @@
-function brownden(;
-  n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
-  kwargs...,
-) where {T}
+function brownden(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   x0 = T[25.0; 5.0; -5.0; -1.0]
   f(x) = begin
     s = zero(T)

@@ -1,8 +1,4 @@
-function indef_mod(;
-  n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
-  kwargs...,
-) where {T}
+function indef_mod(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n ≥ 3 || error("indef : n ≥ 3")
   function f(x)
     n = length(x)

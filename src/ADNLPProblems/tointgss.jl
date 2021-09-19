@@ -1,8 +1,4 @@
-function tointgss(;
-  n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
-  kwargs...,
-) where {T}
+function tointgss(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n ≥ 3 || error("tointgss : n ≥ 3")
   function f(x)
     n = length(x)
