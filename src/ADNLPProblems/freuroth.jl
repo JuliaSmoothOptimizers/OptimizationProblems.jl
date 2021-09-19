@@ -1,8 +1,4 @@
-function freuroth(;
-  n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
-  kwargs...,
-) where {T}
+function freuroth(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
     return sum(((5 - x[i + 1]) * x[i + 1]^2 + x[i] - 2 * x[i + 1] - 13)^2 for i = 1:(n - 1)) +

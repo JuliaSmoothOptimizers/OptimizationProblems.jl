@@ -1,8 +1,4 @@
-function tquartic(;
-  n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
-  kwargs...,
-) where {T}
+function tquartic(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n ≥ 2 || error("tquartic : n ≥ 2")
   function f(x)
     n = length(x)

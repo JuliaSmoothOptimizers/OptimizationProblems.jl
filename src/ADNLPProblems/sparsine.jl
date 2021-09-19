@@ -1,8 +1,4 @@
-function sparsine(;
-  n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
-  kwargs...,
-) where {T}
+function sparsine(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n ≥ 10 || error("sparsine : n ≥ 10")
   function f(x)
     n = length(x)

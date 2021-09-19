@@ -1,8 +1,4 @@
-function chainwoo(;
-  n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
-  kwargs...,
-) where {T}
+function chainwoo(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n = 4 * max(1, div(n, 4))  # number of variables adjusted to be a multiple of 4
   function f(x)
     n = length(x)
