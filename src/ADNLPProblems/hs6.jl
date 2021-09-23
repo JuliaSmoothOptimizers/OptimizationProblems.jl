@@ -1,3 +1,5 @@
+export hs6 
+ 
 function hs6(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   return ADNLPModels.ADNLPModel(
     x -> (x[1] - 1)^2,

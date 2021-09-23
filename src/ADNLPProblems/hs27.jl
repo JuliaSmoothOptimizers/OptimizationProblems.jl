@@ -1,3 +1,5 @@
+export hs27 
+ 
 function hs27(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   return ADNLPModels.ADNLPModel(
     x -> T(0.01) * (x[1] - 1)^2 + (x[2] - x[1]^2)^2,

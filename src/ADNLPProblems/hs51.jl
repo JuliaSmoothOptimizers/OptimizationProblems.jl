@@ -1,3 +1,5 @@
+export hs51 
+ 
 function hs51(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   return ADNLPModels.ADNLPModel(
     x -> (x[1] - x[2])^2 + (x[2] + x[3] - 2)^2 + (x[4] - 1)^2 + (x[5] - 1)^2,

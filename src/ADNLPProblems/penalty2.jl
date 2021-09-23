@@ -1,3 +1,5 @@
+export penalty2 
+ 
 function penalty2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n ≥ 3 || error("penalty2 : n ≥ 3")
   function f(x)
