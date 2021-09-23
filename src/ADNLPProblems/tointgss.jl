@@ -1,3 +1,5 @@
+export tointgss 
+ 
 function tointgss(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n ≥ 3 || error("tointgss : n ≥ 3")
   function f(x)
@@ -7,7 +9,7 @@ function tointgss(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
       i = 1:(n - 2)
     )
   end
-  x0 = ones(T, n)
+  x0 = 3 * ones(T, n)
   return ADNLPModels.ADNLPModel(f, x0, name = "tointgss_autodiff"; kwargs...)
 end
 

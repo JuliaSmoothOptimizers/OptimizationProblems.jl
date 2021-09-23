@@ -1,3 +1,5 @@
+export broydn7d 
+ 
 function broydn7d(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n2 = max(1, div(n, 2))
   n = 2 * n2  # number of variables adjusted to be even

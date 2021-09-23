@@ -1,3 +1,5 @@
+export hs7 
+ 
 function hs7(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   return ADNLPModels.ADNLPModel(
     x -> log(1 + x[1]^2) - x[2],

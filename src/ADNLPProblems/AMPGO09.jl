@@ -1,0 +1,10 @@
+export AMPGO09 
+ 
+function AMPGO09(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+  function f(x)
+    n = length(x)
+    return sin(x[1]) + sin(T(2 / 3) * x[1])
+  end
+  x0 = T[3.1]
+  return ADNLPModels.ADNLPModel(f, x0, name = "AMPGO09"; kwargs...)
+end

@@ -1,3 +1,5 @@
+export chainwoo 
+ 
 function chainwoo(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n = 4 * max(1, div(n, 4))  # number of variables adjusted to be a multiple of 4
   function f(x)
@@ -11,7 +13,7 @@ function chainwoo(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
       T(0.1) * (x[2 * i] - x[2 * i + 2])^2 for i = 1:(div(n, 2) - 1)
     )
   end
-  x0 = -2 * ones(T, n)
+  x0 = vcat([-3, -1, -3, -1], -2 * ones(T, n-4))
   return ADNLPModels.ADNLPModel(f, x0, name = "chainwoo_autodiff"; kwargs...)
 end
 

@@ -17,16 +17,17 @@ for prob in names(OptimizationProblems.PureJuMP)
   prob_fn = eval(Meta.parse("OptimizationProblems.PureJuMP.$(prob)"))
   model = prob_fn(ndef)
 
-  prob == :fminsrf2 && continue # issue because variable is a matrix!
   prob == :hs61 && continue #because nlpmodelsjump is not working here https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl/issues/84
-  prob in [:clplatea, :clplateb, :clplatec] && continue # issue because variable is a matrix!
+  prob in [:clplatea, :clplateb, :clplatec, :fminsrf2] && continue # issue because variable is a matrix
 
   nlp_jump = MathOptNLPModel(model)
   nlp_ad = eval(Meta.parse("OptimizationProblems.ADNLPProblems.$(prob)()"))
 
-  @test (nlp_jump.meta.nvar == nlp_ad.meta.nvar) && (nlp_jump.meta.x0 == nlp_ad.meta.x0)
+  @test nlp_jump.meta.nvar == nlp_ad.meta.nvar
+  @test nlp_jump.meta.x0 == nlp_ad.meta.x0
   @test nlp_jump.meta.ncon == nlp_ad.meta.ncon
-  @test (nlp_jump.meta.lvar == nlp_ad.meta.lvar) && (nlp_jump.meta.uvar == nlp_ad.meta.uvar)
+  @test nlp_jump.meta.lvar == nlp_ad.meta.lvar
+  @test nlp_jump.meta.uvar == nlp_ad.meta.uvar
 
   x1 = nlp_ad.meta.x0 + rand(nlp_ad.meta.nvar)/10
   x2 = nlp_ad.meta.x0 + rand(nlp_ad.meta.nvar)/10
@@ -35,7 +36,7 @@ for prob in names(OptimizationProblems.PureJuMP)
   @test isapprox(obj(nlp_ad, x2), obj(nlp_jump, x2), atol=1e-14 * n0)
 
   for xj in [x1, x2]
-    vioad = vio(cons(nlp_ad, xj) , nlp_ad.meta.lcon, nlp_ad.meta.ucon)
+    vioad = vio(cons(nlp_ad, xj), nlp_ad.meta.lcon, nlp_ad.meta.ucon)
     vioju = vio(cons(nlp_jump, xj), nlp_jump.meta.lcon, nlp_jump.meta.ucon)
     @test isapprox(vioad, vioju)
   end
@@ -43,8 +44,7 @@ end
 
 for prob in names(OptimizationProblems.ADNLPProblems)
   prob == :ADNLPProblems && continue
-  prob == :fminsrf2 && continue # issue because variable is a matrix
-  prob in [:clplatea, :clplateb, :clplatec] && continue # issue because variable is a matrix
+  prob in [:clplatea, :clplateb, :clplatec, :fminsrf2] && continue # issue because variable is a matrix
 
   println(prob)
   try

@@ -1,3 +1,5 @@
+export hs5 
+ 
 function hs5(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   x0 = zeros(T, 2)
   f(x) = sin(x[1] + x[2]) + (x[1] - x[2])^2 - 3x[1] / 2 + 5x[2] / 2 + 1
