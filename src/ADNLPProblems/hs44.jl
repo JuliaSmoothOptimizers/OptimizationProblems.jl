@@ -11,15 +11,15 @@ function hs44(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   function c(x)
     n = length(x)
     return [
-      -8 + x[1] + 2 * x[2],
-      -12 + 4 * x[1] + x[2],
-      -12 + 3 * x[1] + 4 * x[2],
-      -8 + 2 * x[3] + x[4],
-      -8 + x[3] + 2 * x[4],
-      -5 + x[3] + x[4]
+      x[1] + 2 * x[2],
+      4 * x[1] + x[2],
+      3 * x[1] + 4 * x[2],
+      2 * x[3] + x[4],
+      x[3] + 2 * x[4],
+      x[3] + x[4]
     ]
   end
   lcon = -T(Inf) * ones(T, 6)
-  ucon = zeros(T, 6)
+  ucon = T[8, 12, 12, 8, 8, 5]
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs44"; kwargs...)
 end

@@ -10,9 +10,9 @@ function hs36(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   uvar = T[20, 11, 42]
   function c(x)
     n = length(x)
-    return [-72 + x[1] + 2 * x[2] + 2 * x[3]]
+    return [x[1] + 2 * x[2] + 2 * x[3]]
   end
   lcon = [-T(Inf)]
-  ucon = zeros(T, 1)
+  ucon = T[72]
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs36"; kwargs...)
 end

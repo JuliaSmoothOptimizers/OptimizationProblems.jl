@@ -11,13 +11,13 @@ function hs73(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   function c(x)
     n = length(x)
     return [
-      x[1] + x[2] + x[3] + x[4] - 1,
+      x[1] + x[2] + x[3] + x[4],
+      2.3 * x[1] + 5.6 * x[2] + 11.1 * x[3] + 1.3 * x[4],
       12 * x[1] + 11.9 * x[2] + 41.8 * x[3] + 52.1 * x[4] - 21 -
       1.645 * sqrt(0.28x[1]^2 + 0.19 * x[2]^2 + 20.5 * x[3]^2 + 0.62x[4]^2),
-      2.3 * x[1] + 5.6 * x[2] + 11.1 * x[3] + 1.3 * x[4] - 5,
     ]
   end
-  lcon = zeros(T, 3)
-  ucon = vcat(zero(T), T(Inf), T(Inf))
+  lcon = T[1, 5, 0]
+  ucon = vcat(one(T), T(Inf), T(Inf))
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs73"; kwargs...)
 end

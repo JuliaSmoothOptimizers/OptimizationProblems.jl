@@ -37,10 +37,10 @@ function hs86(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   function c(x)
     n = length(x)
     return [
-      sum(a[i, j] * x[j] for j = 1:5) - b[i] for i=1:10
+      sum(a[i, j] * x[j] for j = 1:5) for i=1:10
     ]
   end
-  lcon = zeros(T, 10)
+  lcon = T[-40, -2, -0.25, -4, -4, -1, -40, -60, 5, 1]
   ucon = T(Inf) * ones(T, 10)
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs86"; kwargs...)
 end
