@@ -11,15 +11,15 @@ function hs55(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   function c(x)
     n = length(x)
     return [
-      x[1] + 2 * x[2] + 5 * x[5] - 6,
-      x[1] + x[2] + x[3] - 3,
-      x[4] + x[5] + x[6] - 2,
-      x[1] + x[4] - 1,
-      x[2] + x[5] - 2,
-      x[3] + x[6] - 2
+      x[1] + 2 * x[2] + 5 * x[5],
+      x[1] + x[2] + x[3],
+      x[4] + x[5] + x[6],
+      x[1] + x[4],
+      x[2] + x[5],
+      x[3] + x[6]
     ]
   end
-  lcon = zeros(T, 6)
-  ucon = zeros(T, 6)
+  lcon = T[6, 3, 2, 1, 2, 2]
+  ucon = T[6, 3, 2, 1, 2, 2]
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs55"; kwargs...)
 end

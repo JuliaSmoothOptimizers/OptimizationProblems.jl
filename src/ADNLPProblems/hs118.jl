@@ -22,19 +22,15 @@ function hs118(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   function c(x)
     n = length(x)
     return vcat(
-      vcat(
-        [x[3 * j + 1] - x[3 * j - 2] + 7 for j=1:4],
-        [x[3 * j + 2] - x[3 * j - 1] + 7 for j=1:4],
-        [x[3 * j + 3] - x[3 * j] + 7 for j=1:4],
-      ),
-      x[1] + x[2] + x[3] - 60,
-      x[4] + x[5] + x[6] - 70,
-      x[7] + x[8] + x[9] - 100,
-      x[10] + x[11] + x[12] - 50,
-      x[13] + x[14] + x[15] - 85
+      x[1] + x[2] + x[3],
+      x[4] + x[5] + x[6],
+      x[7] + x[8] + x[9],
+      x[10] + x[11] + x[12],
+      x[13] + x[14] + x[15],
+      reduce(vcat, [[x[3 * j + 1] - x[3 * j - 2], x[3 * j + 2] - x[3 * j - 1], x[3 * j + 3] - x[3 * j]] for j=1:4]),
     )
   end
-  lcon = zeros(T, 17)
-  ucon = vcat(T[13, 13, 14, 13, 13, 14, 13, 13, 14, 13, 13, 14], T(Inf) * ones(T, 5))
+  lcon = T[60, 70, 100, 50, 85, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7]
+  ucon = vcat(T(Inf) * ones(T, 5), T[6, 6, 7, 6, 6, 7, 6, 6, 7, 6, 6, 7])
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs118"; kwargs...)
 end

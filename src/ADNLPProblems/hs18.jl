@@ -10,9 +10,9 @@ function hs18(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   uvar = 50 * ones(T, 2)
   function c(x)
     n = length(x)
-    return [x[1] * x[2], x[1]^2 + x[2]^2]
+    return [x[1] * x[2] - 25, x[1]^2 + x[2]^2 - 25]
   end
-  lcon = 25 * ones(T, 2)
+  lcon = zeros(T, 2)
   ucon = T(Inf) * ones(T, 2)
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs18"; kwargs...)
 end

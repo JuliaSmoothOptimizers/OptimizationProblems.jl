@@ -12,8 +12,8 @@ function hs114(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   uvar = T[2000, 16000, 120, 5000, 2000, 93, 95, 12, 4, 162]
   function c(x)
     n = length(x)
-    g1 = 35.82 - 0.222 * x[10] - b * x[9]
-    g2 = -133 + 3 * x[7] - a * x[10]
+    g1 = - 0.222 * x[10] - b * x[9]
+    g2 = 3 * x[7] - a * x[10]
     g5 = 1.12 * x[1] + 0.13167 * x[1] * x[8] - 0.00667 * x[1] * x[8]^2 - a * x[4]
     g6 = 57.425 + 1.098 * x[8] - 0.038 * x[8]^2 + 0.325 * x[6] - a * x[7]
     return [
@@ -30,7 +30,7 @@ function hs114(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
       (x[2] + x[5]) / x[1] - x[8],
     ]
   end
-  lcon = zeros(T, 11)
+  lcon = vcat(0, -T(35.82), 133, T(35.82), -133, zeros(T, 6))
   ucon = vcat(zero(T), T(Inf) * ones(T, 8), zeros(T, 2))
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs114"; kwargs...)
 end

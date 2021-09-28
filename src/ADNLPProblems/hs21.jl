@@ -10,9 +10,9 @@ function hs21(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   uvar = T[50, 50]
   function c(x)
     n = length(x)
-    return [10 * x[1] - x[2] - 10]
+    return [10 * x[1] - x[2]]
   end
-  lcon = zeros(T, 1)
+  lcon = 10 * ones(T, 1)
   ucon = T(Inf) * ones(T, 1)
 return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs21"; kwargs...)
 end

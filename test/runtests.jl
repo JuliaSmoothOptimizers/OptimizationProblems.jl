@@ -1,9 +1,5 @@
 using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
 
-function vio(c, l, u)
-  return max.(max.(c - u, 0), max.(-c + l, 0))
-end
-
 @test names(OptimizationProblems.ADNLPProblems) == [:ADNLPProblems]
 
 import ADNLPModels
@@ -35,10 +31,14 @@ for prob in names(OptimizationProblems.PureJuMP)
   @test isapprox(obj(nlp_ad, x1), obj(nlp_jump, x1), atol=1e-14 * n0) 
   @test isapprox(obj(nlp_ad, x2), obj(nlp_jump, x2), atol=1e-14 * n0)
 
-  for xj in [x1, x2]
-    vioad = vio(cons(nlp_ad, xj), nlp_ad.meta.lcon, nlp_ad.meta.ucon)
-    vioju = vio(cons(nlp_jump, xj), nlp_jump.meta.lcon, nlp_jump.meta.ucon)
-    @test isapprox(vioad, vioju)
+  if nlp_ad.meta.ncon > 0
+    for xj in [x1, x2]
+      vioad = cons(nlp_ad, xj)
+      vioju = cons(nlp_jump, xj)
+      @test nlp_ad.meta.lcon == nlp_jump.meta.lcon
+      @test nlp_ad.meta.ucon == nlp_jump.meta.ucon
+      @test isapprox(vioad, vioju)
+    end
   end
 end
 
