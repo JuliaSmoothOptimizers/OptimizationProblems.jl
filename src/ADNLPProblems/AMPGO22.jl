@@ -1,5 +1,5 @@
-export AMPGO22 
- 
+export AMPGO22
+
 function AMPGO22(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)

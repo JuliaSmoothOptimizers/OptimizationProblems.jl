@@ -1,5 +1,5 @@
-export palmer8c 
- 
+export palmer8c
+
 function palmer8c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   X = T[
     0.000000,

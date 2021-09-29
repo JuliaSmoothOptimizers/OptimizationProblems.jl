@@ -1,5 +1,5 @@
-export hs9 
- 
+export hs9
+
 function hs9(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   return ADNLPModels.ADNLPModel(
     x -> sin(π * x[1] / 12) * cos(π * x[2] / 16),

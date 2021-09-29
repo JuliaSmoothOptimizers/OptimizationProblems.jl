@@ -1,5 +1,5 @@
-export hs30 
- 
+export hs30
+
 function hs30(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)

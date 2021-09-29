@@ -1,5 +1,5 @@
-export hs74 
- 
+export hs74
+
 function hs74(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   a = T(0.55)
   function f(x)
@@ -15,7 +15,7 @@ function hs74(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
       x[4] - x[3],
       1000 * sin(-x[3] - 0.25) + 1000 * sin(-x[4] - 0.25) + 894.8 - x[1],
       1000 * sin(x[3] - 0.25) + 1000 * sin(x[3] - x[4] - 0.25) + 894.8 - x[2],
-      1000 * sin(x[4] - 0.25) + 1000 * sin(x[4] - x[3] - 0.25) + 1294.8
+      1000 * sin(x[4] - 0.25) + 1000 * sin(x[4] - x[3] - 0.25) + 1294.8,
     ]
   end
   lcon = vcat(-a, zeros(T, 3))

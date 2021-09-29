@@ -1,5 +1,5 @@
-export hs44 
- 
+export hs44
+
 function hs44(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
@@ -16,7 +16,7 @@ function hs44(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
       3 * x[1] + 4 * x[2],
       2 * x[3] + x[4],
       x[3] + 2 * x[4],
-      x[3] + x[4]
+      x[3] + x[4],
     ]
   end
   lcon = -T(Inf) * ones(T, 6)

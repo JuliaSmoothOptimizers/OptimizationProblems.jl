@@ -1,5 +1,5 @@
-export hs117 
- 
+export hs117
+
 function hs117(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   a = Array{T}(undef, 10, 5)
   a[1, :] = [-16, 2, 0, 1, 0]
@@ -28,21 +28,20 @@ function hs117(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   function f(x)
     n = length(x)
     return -sum(b[j] * x[j] for j = 1:10) +
-    sum(sum(ci[k, j] * x[10 + k] * x[10 + j] for k = 1:5) for j = 1:5) +
-    2 * sum(d[j] * x[10 + j]^3 for j = 1:5)
+           sum(sum(ci[k, j] * x[10 + k] * x[10 + j] for k = 1:5) for j = 1:5) +
+           2 * sum(d[j] * x[10 + j]^3 for j = 1:5)
   end
   x0 = T(0.001) * [1, 1, 1, 1, 1, 1, 60000, 1, 1, 1, 1, 1, 1, 1, 1]
   lvar = zeros(T, 15)
   uvar = T(Inf) * ones(T, 15)
   function c(x)
-  n = length(x)
-  return [
-    2 * sum(ci[k, j] * x[10 + k] + 3 * d[j] * x[10 + j]^2 for k = 1:5) + e[j] -
-        sum(a[k, j] * x[k] for k = 1:10)
-        for j = 1:5
-  ]
-end
-lcon = zeros(T, 5)
-ucon = T(Inf) * ones(T, 5)
-return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs117"; kwargs...)
+    n = length(x)
+    return [
+      2 * sum(ci[k, j] * x[10 + k] + 3 * d[j] * x[10 + j]^2 for k = 1:5) + e[j] -
+      sum(a[k, j] * x[k] for k = 1:10) for j = 1:5
+    ]
+  end
+  lcon = zeros(T, 5)
+  ucon = T(Inf) * ones(T, 5)
+  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs117"; kwargs...)
 end

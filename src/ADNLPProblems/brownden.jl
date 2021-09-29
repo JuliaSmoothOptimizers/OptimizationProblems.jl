@@ -1,5 +1,5 @@
-export brownden 
- 
+export brownden
+
 function brownden(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n < 4 && @warn("brownden: must have n ≥ 4")
   n = max(n, 4)

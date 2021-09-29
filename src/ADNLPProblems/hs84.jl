@@ -1,5 +1,5 @@
-export hs84 
- 
+export hs84
+
 function hs84(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   a = Array{T}(undef, 21)
   a[1:7] = T[-24345, -8720288.849, 150512.5253, -156.6950325, 476470.3222, 729482.8271, -145421.402]
@@ -8,7 +8,7 @@ function hs84(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   function f(x)
     n = length(x)
     return -a[1] - a[2] * x[1] - a[3] * x[1] * x[2] - a[4] * x[1] * x[3] - a[5] * x[1] * x[4] -
-    a[6] * x[1] * x[5]
+           a[6] * x[1] * x[5]
   end
   x0 = T[2.52, 2, 37.5, 9.25, 6.8]
   lvar = T[0, 1.2, 20, 9, 6.5]
@@ -30,7 +30,7 @@ function hs84(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
       a[18] * x[1] * x[2] +
       a[19] * x[1] * x[3] +
       a[20] * x[1] * x[4] +
-      a[21] * x[1] * x[5]
+      a[21] * x[1] * x[5],
     ]
   end
   lcon = zeros(T, 3)

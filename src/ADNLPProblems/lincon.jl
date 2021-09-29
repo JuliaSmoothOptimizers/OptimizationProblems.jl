@@ -1,5 +1,5 @@
-export lincon 
- 
+export lincon
+
 function lincon(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   A = [1 2; 3 4]
   b = [5; 6]

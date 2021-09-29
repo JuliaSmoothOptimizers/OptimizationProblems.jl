@@ -1,5 +1,5 @@
-export Dus2_9 
- 
+export Dus2_9
+
 function Dus2_9(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)

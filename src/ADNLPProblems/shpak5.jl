@@ -1,5 +1,5 @@
-export Shpak5 
- 
+export Shpak5
+
 function Shpak5(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   veca = T[3.040 1.098 0.674 3.537 6.173 8.679 4.503 3.328 6.937 0.700]
   veck = T[2.983 2.378 2.439 1.168 2.406 1.236 2.868 1.378 2.348 2.268]

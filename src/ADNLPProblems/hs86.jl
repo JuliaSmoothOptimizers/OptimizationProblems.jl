@@ -1,5 +1,5 @@
-export hs86 
- 
+export hs86
+
 function hs86(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   a = Array{T}(undef, 10, 5)
   a[1, :] = [-16, 2, 0, 1, 0]
@@ -28,17 +28,15 @@ function hs86(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   function f(x)
     n = length(x)
     return sum(e[j] * x[j] for j = 1:5) +
-    sum(sum(ci[i, j] * x[i] * x[j] for j = 1:5) for i = 1:5) +
-    sum(d[j] * x[j]^3 for j = 1:5)
+           sum(sum(ci[i, j] * x[i] * x[j] for j = 1:5) for i = 1:5) +
+           sum(d[j] * x[j]^3 for j = 1:5)
   end
   x0 = T[0, 0, 0, 0, 1]
   lvar = zeros(T, 5)
   uvar = T(Inf) * ones(T, 5)
   function c(x)
     n = length(x)
-    return [
-      sum(a[i, j] * x[j] for j = 1:5) for i=1:10
-    ]
+    return [sum(a[i, j] * x[j] for j = 1:5) for i = 1:10]
   end
   lcon = T[-40, -2, -0.25, -4, -4, -1, -40, -60, 5, 1]
   ucon = T(Inf) * ones(T, 10)

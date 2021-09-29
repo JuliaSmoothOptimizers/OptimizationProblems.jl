@@ -1,5 +1,5 @@
-export hs118 
- 
+export hs118
+
 function hs118(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   x0 = T[20, 55, 15, 20, 60, 20, 20, 60, 20, 20, 60, 20, 20, 60, 20]
   lvar = T[8, 43, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -27,7 +27,13 @@ function hs118(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
       x[7] + x[8] + x[9],
       x[10] + x[11] + x[12],
       x[13] + x[14] + x[15],
-      reduce(vcat, [[x[3 * j + 1] - x[3 * j - 2], x[3 * j + 2] - x[3 * j - 1], x[3 * j + 3] - x[3 * j]] for j=1:4]),
+      reduce(
+        vcat,
+        [
+          [x[3 * j + 1] - x[3 * j - 2], x[3 * j + 2] - x[3 * j - 1], x[3 * j + 3] - x[3 * j]] for
+          j = 1:4
+        ],
+      ),
     )
   end
   lcon = T[60, 70, 100, 50, 85, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7]

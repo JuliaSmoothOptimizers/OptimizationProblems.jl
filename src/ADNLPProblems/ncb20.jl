@@ -1,5 +1,5 @@
-export ncb20 
- 
+export ncb20
+
 function ncb20(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n ≥ 31 || error("ncb20 : n ≥ 31")
   function f(x)

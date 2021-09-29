@@ -1,5 +1,5 @@
-export hs14 
- 
+export hs14
+
 function hs14(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   x0 = T[2; 2]
   f(x) = (x[1] - 2)^2 + (x[2] - 1)^2

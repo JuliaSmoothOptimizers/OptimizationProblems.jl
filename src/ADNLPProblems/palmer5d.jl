@@ -1,5 +1,5 @@
-export palmer5d 
- 
+export palmer5d
+
 function palmer5d(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   X = T[
     0.000000,

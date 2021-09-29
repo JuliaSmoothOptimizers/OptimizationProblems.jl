@@ -1,5 +1,5 @@
-export noncvxu2 
- 
+export noncvxu2
+
 function noncvxu2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n ≥ 2 || error("noncvxu2 : n ≥ 2")
   function f(x)

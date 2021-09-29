@@ -1,5 +1,5 @@
-export hs107 
- 
+export hs107
+
 function hs107(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   ci = T((48.4 / 50.176) * sin(0.25))
   d = T((48.4 / 50.176) * cos(0.25))
@@ -32,7 +32,7 @@ function hs107(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
       x[5] * x[7] * (ci * y3 - d * y4),
       0.2 - x[4] + 2 * d * x[6]^2 - x[5] * x[6] * (ci * y1 + d * y2) -
       x[6] * x[7] * (ci * y5 + d * y6),
-      -0.337 + 2 * d * x[7]^2 - x[5] * x[7] * (ci * y3 + d * y4) + x[6] * x[7] * (ci * y5 - d * y6)
+      -0.337 + 2 * d * x[7]^2 - x[5] * x[7] * (ci * y3 + d * y4) + x[6] * x[7] * (ci * y5 - d * y6),
     ]
   end
   lcon = zeros(T, 6)

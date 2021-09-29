@@ -1,5 +1,5 @@
-export hs105 
- 
+export hs105
+
 function hs105(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   y = Array{T}(undef, 235)
   y[1] = 95
@@ -43,10 +43,10 @@ function hs105(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   lvar = T[0.001, 0.001, 100, 130, 170, 5, 5, 5]
   uvar = T[0.499, 0.499, 180, 210, 240, 25, 25, 25]
   function c(x)
-  n = length(x)
-  return [- x[1] - x[2]]
-end
-lcon = -ones(T, 1)
-ucon = T(Inf) * ones(T, 1)
-return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs105"; kwargs...)
+    n = length(x)
+    return [-x[1] - x[2]]
+  end
+  lcon = -ones(T, 1)
+  ucon = T(Inf) * ones(T, 1)
+  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs105"; kwargs...)
 end

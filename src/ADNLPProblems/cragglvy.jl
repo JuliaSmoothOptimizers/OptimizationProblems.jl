@@ -1,5 +1,5 @@
-export cragglvy 
- 
+export cragglvy
+
 function cragglvy(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n ≥ 2 || error("cragglvy : n ≥ 2")
   function f(x)
@@ -12,7 +12,7 @@ function cragglvy(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
       (x[2 * i + 2] - 1)^2 for i = 1:(div(n, 2) - 1)
     )
   end
-  x0 = vcat(1, 2 * ones(T, n-1))
+  x0 = vcat(1, 2 * ones(T, n - 1))
   return ADNLPModels.ADNLPModel(f, x0, name = "cragglvy_autodiff"; kwargs...)
 end
 

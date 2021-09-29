@@ -1,5 +1,5 @@
-export AMPGO13 
- 
+export AMPGO13
+
 function AMPGO13(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
