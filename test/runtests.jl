@@ -1,23 +1,23 @@
 using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
 
-@test names(OptimizationProblems.ADNLPProblems) == [:ADNLPProblems]
+@test names(ADNLPProblems) == [:ADNLPProblems]
 
 import ADNLPModels
 
-ndef = OptimizationProblems.ADNLPProblems.default_nvar
+ndef = ADNLPProblems.default_nvar
 
 # Test that every problem can be instantiated.
-for prob in names(OptimizationProblems.PureJuMP)
+for prob in names(PureJuMP)
   prob == :PureJuMP && continue
   println(prob)
-  prob_fn = eval(Meta.parse("OptimizationProblems.PureJuMP.$(prob)"))
+  prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
   model = prob_fn(ndef)
 
   prob == :hs61 && continue #because nlpmodelsjump is not working here https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl/issues/84
   prob in [:clplatea, :clplateb, :clplatec, :fminsrf2] && continue # issue because variable is a matrix
 
   nlp_jump = MathOptNLPModel(model)
-  nlp_ad = eval(Meta.parse("OptimizationProblems.ADNLPProblems.$(prob)()"))
+  nlp_ad = eval(Meta.parse("ADNLPProblems.$(prob)()"))
 
   @test nlp_jump.meta.nvar == nlp_ad.meta.nvar
   @test nlp_jump.meta.x0 == nlp_ad.meta.x0
@@ -39,14 +39,14 @@ for prob in names(OptimizationProblems.PureJuMP)
   end
 end
 
-for prob in names(OptimizationProblems.ADNLPProblems)
+for prob in names(ADNLPProblems)
   prob == :ADNLPProblems && continue
   prob in [:clplatea, :clplateb, :clplatec, :fminsrf2] && continue # issue because variable is a matrix
 
   println(prob)
   try
-    n, m = eval(Meta.parse("OptimizationProblems.ADNLPProblems.get_$(prob)_meta(n=$(2 * ndef))"))
-    meta_pb = eval(Meta.parse("OptimizationProblems.ADNLPProblems.$(prob)_meta"))
+    n, m = eval(Meta.parse("ADNLPProblems.get_$(prob)_meta(n=$(2 * ndef))"))
+    meta_pb = eval(Meta.parse("ADNLPProblems.$(prob)_meta"))
     if meta_pb[:variable_size]
       @test n != meta_pb[:nvar]
     else
@@ -62,7 +62,7 @@ for prob in names(OptimizationProblems.ADNLPProblems)
   end
 
   for T in [Float32, Float64]
-    nlp = eval(Meta.parse("OptimizationProblems.ADNLPProblems.$(prob)(type=$(Val(T)))"))
+    nlp = eval(Meta.parse("ADNLPProblems.$(prob)(type=$(Val(T)))"))
     x0 = nlp.meta.x0
     @test eltype(x0) == T
     @test typeof(obj(nlp, x0)) == T
