@@ -1,5 +1,5 @@
-export hs81 
- 
+export hs81
+
 function hs81(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
@@ -10,11 +10,7 @@ function hs81(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   uvar = T[2.3, 2.3, 3.2, 3.2, 3.2]
   function c(x)
     n = length(x)
-    return [
-      sum(x[i]^2 for i = 1:5) - 10,
-      x[2] * x[3] - 5 * x[4] * x[5],
-      x[1]^3 + x[2]^3 + 1
-    ]
+    return [sum(x[i]^2 for i = 1:5) - 10, x[2] * x[3] - 5 * x[4] * x[5], x[1]^3 + x[2]^3 + 1]
   end
   lcon = zeros(T, 3)
   ucon = zeros(T, 3)

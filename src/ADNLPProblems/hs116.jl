@@ -1,5 +1,5 @@
-export hs116 
- 
+export hs116
+
 function hs116(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   a = 0.002
   b = 1.262626
@@ -19,7 +19,7 @@ function hs116(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     return [
       x[3] - x[2],
       x[2] - x[1],
-      - a * x[7] + a * x[8],
+      -a * x[7] + a * x[8],
       x[11] + x[12] + x[13],
       x[11] + x[12] + x[13],
       x[13] - b * x[10] + ci * x[3] * x[10],

@@ -1,5 +1,5 @@
-export hs43 
- 
+export hs43
+
 function hs43(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
@@ -11,7 +11,7 @@ function hs43(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     return [
       -8 + x[1]^2 + x[2]^2 + x[3]^2 + x[4]^2 + x[1] - x[2] + x[3] - x[4],
       -10 + x[1]^2 + 2 * x[2]^2 + x[3]^2 + 2 * x[4]^2 - x[1] - x[4],
-      -5 + 2 * x[1]^2 + x[2]^2 + x[3]^2 + 2 * x[1] - x[2] - x[4]
+      -5 + 2 * x[1]^2 + x[2]^2 + x[3]^2 + 2 * x[1] - x[2] - x[4],
     ]
   end
   lcon = -T(Inf) * ones(T, 3)

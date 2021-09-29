@@ -1,5 +1,5 @@
-export hs70 
- 
+export hs70
+
 function hs70(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   ci = Array{T}(undef, 19)
   ci[1] = 0.1
@@ -26,7 +26,7 @@ function hs70(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
       (b / x[4])^x[1] *
       (x[1] / T(6.2832))^T(0.5) *
       (ci[i] / T(7.658))^(x[1] - 1) *
-      exp(x[1] - b * ci[i] * x[1] / (T(7.658) * x[4])) for i=1:19
+      exp(x[1] - b * ci[i] * x[1] / (T(7.658) * x[4])) for i = 1:19
     ]
     return sum((ycal[i] - yobs[i])^2 for i = 1:19)
   end

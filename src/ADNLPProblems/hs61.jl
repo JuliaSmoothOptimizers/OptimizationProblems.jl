@@ -1,5 +1,5 @@
-export hs61 
- 
+export hs61
+
 function hs61(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
@@ -8,10 +8,7 @@ function hs61(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   x0 = zeros(T, 3)
   function c(x)
     n = length(x)
-    return [
-      3 * x[1] - 2 * x[2]^2 - 7,
-      4 * x[1] - x[3]^2 - 11
-    ]
+    return [3 * x[1] - 2 * x[2]^2 - 7, 4 * x[1] - x[3]^2 - 11]
   end
   lcon = zeros(T, 2)
   ucon = zeros(T, 2)

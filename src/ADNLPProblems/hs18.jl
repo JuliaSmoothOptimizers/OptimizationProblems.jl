@@ -1,5 +1,5 @@
-export hs18 
- 
+export hs18
+
 function hs18(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)

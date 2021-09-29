@@ -1,5 +1,5 @@
-export sbrybnd 
- 
+export sbrybnd
+
 function sbrybnd(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n ≥ 2 || error("sbrybnd : n ≥ 2")
   p = zeros(T, n)

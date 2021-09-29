@@ -1,5 +1,5 @@
-export hs4 
- 
+export hs4
+
 function hs4(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)

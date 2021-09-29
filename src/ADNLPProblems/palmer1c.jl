@@ -1,5 +1,5 @@
-export palmer1c 
- 
+export palmer1c
+
 function palmer1c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   X = T[
     -1.788963,

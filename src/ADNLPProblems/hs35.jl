@@ -1,14 +1,14 @@
-export hs35 
- 
+export hs35
+
 function hs35(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
     return 9 - 8 * x[1] - 6 * x[2] - 4 * x[3] +
-    2 * x[1]^2 +
-    2 * x[2]^2 +
-    x[3]^2 +
-    2 * x[1] * x[2] +
-    2 * x[1] * x[3]
+           2 * x[1]^2 +
+           2 * x[2]^2 +
+           x[3]^2 +
+           2 * x[1] * x[2] +
+           2 * x[1] * x[3]
   end
   x0 = T(0.5) * ones(T, 3)
   lvar = zeros(T, 3)

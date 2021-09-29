@@ -1,5 +1,5 @@
-export meyer3 
- 
+export meyer3
+
 function meyer3(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   t = 45 .+ 5 * (1:16)
   x0 = T[0.02, 4000, 250]

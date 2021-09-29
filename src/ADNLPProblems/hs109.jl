@@ -1,5 +1,5 @@
-export hs109 
- 
+export hs109
+
 function hs109(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   a = T(50.176)
   b = T(sin(0.25))
@@ -27,10 +27,10 @@ function hs109(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
       881.779 * a,
       a * x[8] + x[5] * x[6] * cos(-x[3] - 1 / 4) + x[5] * x[7] * cos(-x[4] - 1 / 4) - 200 * a -
       2 * ci * x[5]^2 + 0.7533e-3 * a * x[5]^2,
-      a * x[9] + x[5] * x[6] * cos(x[3] - 1 / 4) + x[6] * x[7] * cos(x[3] - x[4] - 1 / 4) - 200 * a -
-      2 * ci * x[6]^2 + 0.7533e-3 * a * x[6]^2,
+      a * x[9] + x[5] * x[6] * cos(x[3] - 1 / 4) + x[6] * x[7] * cos(x[3] - x[4] - 1 / 4) -
+      200 * a - 2 * ci * x[6]^2 + 0.7533e-3 * a * x[6]^2,
       x[5] * x[7] * cos(x[4] - 1 / 4) + x[6] * x[7] * cos(x[4] - x[3] - 1 / 4) + 22.938 * a -
-      2 * ci * x[7]^2 + 0.7533e-3 * a * x[7]^2
+      2 * ci * x[7]^2 + 0.7533e-3 * a * x[7]^2,
     ]
   end
   lcon = vcat(-T(0.55), zeros(T, 8))

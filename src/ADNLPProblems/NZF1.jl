@@ -1,5 +1,5 @@
-export NZF1 
- 
+export NZF1
+
 function NZF1(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   nbis = max(1, div(n, 13))
   n = 13 * nbis

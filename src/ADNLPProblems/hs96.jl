@@ -1,9 +1,14 @@
-export hs96 
- 
+export hs96
+
 function hs96(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
-    return T(4.3) * x[1] + T(31.8) * x[2] + T(63.3) * x[3] + T(15.8) * x[4] + T(68.5) * x[5] + T(4.7) * x[6]
+    return T(4.3) * x[1] +
+           T(31.8) * x[2] +
+           T(63.3) * x[3] +
+           T(15.8) * x[4] +
+           T(68.5) * x[5] +
+           T(4.7) * x[6]
   end
   x0 = zeros(T, 6)
   lvar = zeros(T, 6)
@@ -17,7 +22,8 @@ function hs96(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
       17.9 * x[1] + 36.8 * x[2] + 113.9 * x[3] + 169.7 * x[4] + 337.8 * x[5] + 1385.2 * x[6] -
       139 * x[1] * x[3] - 2450 * x[4] * x[5] - 16600 * x[4] * x[6] - 17200 * x[5] * x[6] + 1.88,
       -273 * x[2] - 70 * x[4] - 819 * x[5] + 26000 * x[4] * x[5] + 69.08,
-      159.9 * x[1] - 311 * x[2] + 587 * x[4] + 391 * x[5] + 2198 * x[6] - 14000 * x[1] * x[6] + 118.02
+      159.9 * x[1] - 311 * x[2] + 587 * x[4] + 391 * x[5] + 2198 * x[6] - 14000 * x[1] * x[6] +
+      118.02,
     ]
   end
   lcon = zeros(T, 4)

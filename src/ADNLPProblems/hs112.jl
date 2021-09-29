@@ -1,5 +1,5 @@
-export hs112 
- 
+export hs112
+
 function hs112(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   ci = T[-6.089, -17.164, -34.054, -5.914, -24.721, -14.986, -24.100, -10.708, -26.662, -22.179]
   function f(x)
@@ -13,8 +13,8 @@ function hs112(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     n = length(x)
     return [
       x[1] + 2 * x[2] + 2 * x[3] + x[6] + x[10],
-      x[4] + 2 * x[5] + x[6] + x[7] ,
-      x[3] + x[7] + x[8] + 2 * x[9] + x[10]
+      x[4] + 2 * x[5] + x[6] + x[7],
+      x[3] + x[7] + x[8] + 2 * x[9] + x[10],
     ]
   end
   lcon = T[2, 1, 1]

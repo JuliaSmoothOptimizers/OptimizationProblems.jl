@@ -1,5 +1,5 @@
-export hs10 
- 
+export hs10
+
 function hs10(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   x0 = T[-10; 10]
   f(x) = x[1] - x[2]

@@ -1,5 +1,5 @@
-export hs45 
- 
+export hs45
+
 function hs45(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)

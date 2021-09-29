@@ -1,5 +1,5 @@
-export hs102 
- 
+export hs102
+
 function hs102(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   a = 0.125
   exposant_f = Array{T}(undef, 4, 7)
@@ -28,19 +28,20 @@ function hs102(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   function f(x)
     n = length(x)
     return 10 * prod(x[i]^exposant_f[1, i] for i = 1:7) +
-    15 * prod(x[i]^exposant_f[2, i] for i = 1:7) +
-    20 * prod(x[i]^exposant_f[3, i] for i = 1:7) +
-    25 * prod(x[i]^exposant_f[4, i] for i = 1:7)
+           15 * prod(x[i]^exposant_f[2, i] for i = 1:7) +
+           20 * prod(x[i]^exposant_f[3, i] for i = 1:7) +
+           25 * prod(x[i]^exposant_f[4, i] for i = 1:7)
   end
   x0 = 6 * ones(T, 7)
   lvar = T[0.1 * ones(6); 0.01]
   uvar = 10 * ones(T, 7)
   function c(x)
     n = length(x)
-    f = 10 * prod(x[i]^exposant_f[1, i] for i = 1:7) +
-    15 * prod(x[i]^exposant_f[2, i] for i = 1:7) +
-    20 * prod(x[i]^exposant_f[3, i] for i = 1:7) +
-    25 * prod(x[i]^exposant_f[4, i] for i = 1:7)
+    f =
+      10 * prod(x[i]^exposant_f[1, i] for i = 1:7) +
+      15 * prod(x[i]^exposant_f[2, i] for i = 1:7) +
+      20 * prod(x[i]^exposant_f[3, i] for i = 1:7) +
+      25 * prod(x[i]^exposant_f[4, i] for i = 1:7)
     return [
       1 - 0.5 * prod(x[i]^exposant_c1[1, i] for i = 1:7) -
       0.7 * prod(x[i]^exposant_c1[2, i] for i = 1:7) -
@@ -49,13 +50,14 @@ function hs102(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
       0.8 * prod(x[i]^exposant_c2[2, i] for i = 1:7) -
       3.1 * prod(x[i]^exposant_c2[3, i] for i = 1:7),
       1 - 2 * prod(x[i]^exposant_c3[1, i] for i = 1:7) -
-      0.1 * prod(x[i]^exposant_c3[2, i] for i = 1:7) - 1 * prod(x[i]^exposant_c3[3, i] for i = 1:7) -
+      0.1 * prod(x[i]^exposant_c3[2, i] for i = 1:7) -
+      1 * prod(x[i]^exposant_c3[3, i] for i = 1:7) -
       0.65 * prod(x[i]^exposant_c3[4, i] for i = 1:7),
       1 - 0.2 * prod(x[i]^exposant_c4[1, i] for i = 1:7) -
       0.3 * prod(x[i]^exposant_c4[2, i] for i = 1:7) -
       0.4 * prod(x[i]^exposant_c4[3, i] for i = 1:7) -
       0.5 * prod(x[i]^exposant_c4[4, i] for i = 1:7),
-      f
+      f,
     ]
   end
   lcon = vcat(zeros(T, 4), 100)

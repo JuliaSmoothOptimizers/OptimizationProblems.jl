@@ -1,5 +1,5 @@
-export hs119 
- 
+export hs119
+
 function hs119(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   ci = T[2.5, 1.1, -3.1, -3.5, 1.3, 2.1, 2.3, -1.5]
 
@@ -46,9 +46,27 @@ function hs119(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   lvar = zeros(T, 16)
   uvar = 5 * ones(T, 16)
   function c(x)
-    return [sum(b[i, j] * x[j] for j = 1:16) for i=1:8]
+    return [sum(b[i, j] * x[j] for j = 1:16) for i = 1:8]
   end
-  lcon = T[40, 17.599999999999998, -49.600000000000016, -56, 20.800000000000004, 33.60000000000001, 36.8, -24]
-  ucon = T[40, 17.599999999999998, -49.600000000000016, -56, 20.800000000000004, 33.60000000000001, 36.8, -24]
+  lcon = T[
+    40,
+    17.599999999999998,
+    -49.600000000000016,
+    -56,
+    20.800000000000004,
+    33.60000000000001,
+    36.8,
+    -24,
+  ]
+  ucon = T[
+    40,
+    17.599999999999998,
+    -49.600000000000016,
+    -56,
+    20.800000000000004,
+    33.60000000000001,
+    36.8,
+    -24,
+  ]
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs119"; kwargs...)
 end

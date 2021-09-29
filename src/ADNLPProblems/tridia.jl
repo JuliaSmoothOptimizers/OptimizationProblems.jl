@@ -1,5 +1,5 @@
-export tridia 
- 
+export tridia
+
 function tridia(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)

@@ -1,5 +1,5 @@
-export hs3 
- 
+export hs3
+
 function hs3(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)

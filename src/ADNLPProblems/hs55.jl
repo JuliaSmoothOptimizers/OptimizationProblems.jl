@@ -1,5 +1,5 @@
-export hs55 
- 
+export hs55
+
 function hs55(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
@@ -16,7 +16,7 @@ function hs55(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
       x[4] + x[5] + x[6],
       x[1] + x[4],
       x[2] + x[5],
-      x[3] + x[6]
+      x[3] + x[6],
     ]
   end
   lcon = T[6, 3, 2, 1, 2, 2]

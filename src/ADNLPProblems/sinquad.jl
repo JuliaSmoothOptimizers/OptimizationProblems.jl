@@ -1,5 +1,5 @@
-export sinquad 
- 
+export sinquad
+
 function sinquad(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n < 3 && @warn("sinquad: number of variables must be ≥ 3")
   n = max(3, n)

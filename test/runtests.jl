@@ -25,11 +25,11 @@ for prob in names(OptimizationProblems.PureJuMP)
   @test nlp_jump.meta.lvar == nlp_ad.meta.lvar
   @test nlp_jump.meta.uvar == nlp_ad.meta.uvar
 
-  x1 = nlp_ad.meta.x0 + rand(nlp_ad.meta.nvar)/10
-  x2 = nlp_ad.meta.x0 + rand(nlp_ad.meta.nvar)/10
+  x1 = nlp_ad.meta.x0 + rand(nlp_ad.meta.nvar) / 10
+  x2 = nlp_ad.meta.x0 + rand(nlp_ad.meta.nvar) / 10
   n0 = max(abs(obj(nlp_ad, nlp_ad.meta.x0)), 1)
-  @test isapprox(obj(nlp_ad, x1), obj(nlp_jump, x1), atol=1e-14 * n0) 
-  @test isapprox(obj(nlp_ad, x2), obj(nlp_jump, x2), atol=1e-14 * n0)
+  @test isapprox(obj(nlp_ad, x1), obj(nlp_jump, x1), atol = 1e-14 * n0)
+  @test isapprox(obj(nlp_ad, x2), obj(nlp_jump, x2), atol = 1e-14 * n0)
 
   if nlp_ad.meta.ncon > 0
     for xj in [x1, x2]

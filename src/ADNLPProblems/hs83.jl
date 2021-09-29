@@ -1,5 +1,5 @@
-export hs83 
- 
+export hs83
+
 function hs83(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   a = Array{T}(undef, 12)
   a[1:6] = T[85.334407, 0.0056858, 0.0006262, 0.0022053, 80.51249, 0.0071317]

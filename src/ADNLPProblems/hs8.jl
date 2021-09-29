@@ -1,5 +1,5 @@
-export hs8 
- 
+export hs8
+
 function hs8(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   return ADNLPModels.ADNLPModel(
     x -> -T(1),

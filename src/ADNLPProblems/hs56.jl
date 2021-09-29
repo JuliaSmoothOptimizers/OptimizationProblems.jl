@@ -1,5 +1,5 @@
-export hs56 
- 
+export hs56
+
 function hs56(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   return ADNLPModels.ADNLPModel(
     x -> -x[1] * x[2] * x[3],

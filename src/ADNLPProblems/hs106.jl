@@ -1,5 +1,5 @@
-export hs106 
- 
+export hs106
+
 function hs106(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
@@ -11,12 +11,12 @@ function hs106(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   function c(x)
     n = length(x)
     return [
-      - 0.0025 * (x[4] + x[6]),
-      - 0.0025 * (x[5] + x[7] - x[4]),
-      - 0.01 * (x[8] - x[5]),
+      -0.0025 * (x[4] + x[6]),
+      -0.0025 * (x[5] + x[7] - x[4]),
+      -0.01 * (x[8] - x[5]),
       x[1] * x[6] - 833.33252 * x[4] - 100 * x[1] + 83333.333,
       x[2] * x[7] - 1250 * x[5] - x[2] * x[4] + 1250 * x[4],
-      x[3] * x[8] - 1250000 - x[3] * x[5] + 2500 * x[5]
+      x[3] * x[8] - 1250000 - x[3] * x[5] + 2500 * x[5],
     ]
   end
   lcon = vcat(-ones(T, 3), zeros(T, 3))

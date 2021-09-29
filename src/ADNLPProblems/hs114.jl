@@ -1,5 +1,5 @@
-export hs114 
- 
+export hs114
+
 function hs114(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   a = T(0.99)
   b = T(0.9)
@@ -12,7 +12,7 @@ function hs114(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   uvar = T[2000, 16000, 120, 5000, 2000, 93, 95, 12, 4, 162]
   function c(x)
     n = length(x)
-    g1 = - 0.222 * x[10] - b * x[9]
+    g1 = -0.222 * x[10] - b * x[9]
     g2 = 3 * x[7] - a * x[10]
     g5 = 1.12 * x[1] + 0.13167 * x[1] * x[8] - 0.00667 * x[1] * x[8]^2 - a * x[4]
     g6 = 57.425 + 1.098 * x[8] - 0.038 * x[8]^2 + 0.325 * x[6] - a * x[7]
