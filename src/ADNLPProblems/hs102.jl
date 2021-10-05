@@ -22,9 +22,9 @@ function hs102(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   exposant_c3[4, :] = [0, -2, 1, 0, 1, -1, 1]
   exposant_c4 = Array{T}(undef, 4, 7)
   exposant_c4[1, :] = [-2, 1, 0, -1, 0.5, 0, 1 / 3]
-  exposant_c4[1, :] = [0.5, 2, 1, 1 / 3, -2 / 3, 0, 1 / 4]
-  exposant_c4[1, :] = [-3, -2, 1, 0, 1, 0, 3 / 4]
-  exposant_c4[1, :] = [0, 0, -2, 1, 0, 0, 0.5]
+  exposant_c4[2, :] = [0.5, 2, 1, 1 / 3, -2 / 3, 0, 1 / 4]
+  exposant_c4[3, :] = [-3, -2, 1, 0, 1, 0, 3 / 4]
+  exposant_c4[4, :] = [0, 0, -2, 1, 0, 0, 0.5]
   function f(x)
     n = length(x)
     return 10 * prod(x[i]^exposant_f[1, i] for i = 1:7) +
