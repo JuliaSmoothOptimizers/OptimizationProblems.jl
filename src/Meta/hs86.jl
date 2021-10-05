@@ -1,0 +1,25 @@
+hs86_meta = Dict(
+  :nvar => 5,
+  :variable_size => false,
+  :ncon => 10,
+  :variable_con_size => false,
+  :minimize => true,
+  :name => "hs86",
+  :has_equalities_only => false,
+  :has_inequalities_only => true,
+  :has_bounds => true,
+  :has_fixed_variables => false,
+  :objtype => :other,
+  :contype => :linear,
+  :has_cvx_obj => missing,
+  :has_cvx_con => missing,
+  :cqs => 0,
+  :optimal_value => NaN,
+  :has_multiple_solution => missing,
+  :is_infeasible => false,
+  :not_everywhere_defined => missing,
+  :origin => :unknown,
+  :deriv => UInt8(0),
+)
+
+get_hs86_meta(; n::Integer = default_nvar) = (5, 10)

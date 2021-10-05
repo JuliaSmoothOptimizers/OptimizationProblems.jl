@@ -41,7 +41,6 @@ end
 
 for prob in names(ADNLPProblems)
   prob == :ADNLPProblems && continue
-  prob in [:clplatea, :clplateb, :clplatec, :fminsrf2] && continue # issue because variable is a matrix
 
   println(prob)
 
