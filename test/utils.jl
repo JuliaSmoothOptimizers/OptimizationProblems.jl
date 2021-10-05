@@ -77,7 +77,8 @@ function generate_meta(nlp::AbstractNLPModel, name::String)
     nineq_formula = var_size(name, nlp -> get_ncon(nlp) - length(get_jfix(nlp)), default_nvar)[2]
   end
 
-  x0_is_feasible = is_feasible(nlp)
+  feasible = is_feasible(nlp)
+  x0_is_feasible = ismissing(feasible) ? false : feasible
   if get_minimize(nlp)
     bnlb = -Inf
     bnub = x0_is_feasible ? obj(nlp, nlp.meta.x0) : Inf
@@ -101,7 +102,7 @@ function generate_meta(nlp::AbstractNLPModel, name::String)
   :contype => :$(contype),
   :best_known_lower_bound => $(bnlb),
   :best_known_upper_bound => $(bnub),
-  :is_feasible => $(x0_is_feasible),
+  :is_feasible => $(feasible),
   :defined_everywhere => $(missing),
   :origin => :$(origin),
 )
