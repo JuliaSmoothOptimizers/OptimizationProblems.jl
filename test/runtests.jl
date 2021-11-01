@@ -44,22 +44,6 @@ for prob in names(ADNLPProblems)
   prob in [:clplatea, :clplateb, :clplatec, :fminsrf2] && continue # issue because variable is a matrix
 
   println(prob)
-  try
-    n, m = eval(Meta.parse("ADNLPProblems.get_$(prob)_meta(n=$(2 * ndef))"))
-    meta_pb = eval(Meta.parse("ADNLPProblems.$(prob)_meta"))
-    if meta_pb[:variable_size]
-      @test n != meta_pb[:nvar]
-    else
-      @test n == meta_pb[:nvar]
-    end
-    if meta_pb[:variable_con_size]
-      @test m != meta_pb[:ncon]
-    else
-      @test m == meta_pb[:ncon]
-    end
-  catch
-    # prob_meta and get_prob_meta not defined for all problems yet.
-  end
 
   for T in [Float32, Float64]
     nlp = eval(Meta.parse("ADNLPProblems.$(prob)(type=$(Val(T)))"))
