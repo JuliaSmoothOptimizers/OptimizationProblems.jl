@@ -1,8 +1,8 @@
 AMPGO02_meta = Dict(
   :nvar => 1,
-  :variable_size => false,
+  :variable_nvar => false,
   :ncon => 0,
-  :variable_con_size => false,
+  :variable_ncon => false,
   :minimize => true,
   :name => "AMPGO02",
   :has_equalities_only => false,
@@ -11,14 +11,15 @@ AMPGO02_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :unconstrained,
-  :cvx_obj => missing,
-  :cvx_feasible_set => true,
-  :cqs => 0,
-  :optimal_value => NaN,
-  :has_multiple_solutions => missing,
-  :is_infeasible => false,
+  :best_known_lower_bound => -Inf,
+  :best_known_upper_bound => 0.8394983654755863,
+  :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :deriv => UInt8(0),
 )
-get_AMPGO02_meta(; n::Integer = default_nvar) = (1, 0)
+get_AMPGO02_nvar(; n::Integer = default_nvar, kwargs...) = 1
+get_AMPGO02_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_AMPGO02_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_AMPGO02_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_AMPGO02_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_AMPGO02_nineq(; n::Integer = default_nvar, kwargs...) = 0
