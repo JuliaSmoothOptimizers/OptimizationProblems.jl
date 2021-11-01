@@ -30,7 +30,7 @@ Default values for undetermined entries:
 - `objtype`: `:other`
 - `cvx_obj`: `false`
 - `cvx_feasible_set`: `false` (`true` if unconstrained)
-- `cq`: `UInt8(0)`
+- `cq`: `missing`
 - `optimal_value`: `NaN`
 - `has_multiple_solutions`: `missing`
 - `everywhere_defined`: `missing`
@@ -50,8 +50,6 @@ function generate_meta(nlp::AbstractNLPModel, name::String)
 
   cvx_obj = missing
   cvx_feasible_set = nlp.meta.ncon == 0 ? true : missing
-
-  cq = UInt8(0)
 
   origin = :unknown
 
@@ -78,15 +76,17 @@ function generate_meta(nlp::AbstractNLPModel, name::String)
   :contype => :$(contype),
   :cvx_obj => $(cvx_obj),
   :cvx_feasible_set => $(cvx_feasible_set),
-  :cqs => $(cq),
-  :optimal_value => $(NaN),
+  :cqs => $(missing),
+  :best_known_value => $(NaN),
+  :optimal_lower_bound => -Inf,
   :has_multiple_solutions => $(missing),
   :is_infeasible => $(is_infeasible(nlp)),
   :defined_everywhere => $(missing),
   :origin => :$(origin),
   :deriv => UInt8(0),
 )
-get_$(name)_meta(; n::Integer = default_nvar) = ($nvar_formula, $ncon_formula)
+get_$(name)_nvar(; n::Integer = default_nvar, kwargs...) = $nvar_formula
+get_$(name)_ncon(; n::Integer = default_nvar, kwargs...) = $ncon_formula
 "
   return str
 end
@@ -111,9 +111,11 @@ function is_infeasible(nlp::AbstractNLPModel; x = nlp.meta.x0)
     infeasible = false
   else
     c = cons(nlp, x)
-    vio = max(maximum(c - nlp.meta.ucon), maximum(nlp.meta.lcon - c))
-    if vio <= 0
+    if all(nlp.meta.lcon .<= c .<= nlp.meta.ucon) && all(nlp.meta.lvar .<= x .<= nlp.meta.uvar)
       infeasible = false
+    end
+    if any(nlp.meta.lvar .> nlp.meta.uvar) || any(nlp.meta.lcon .> nlp.meta.ucon)
+      infeasible = true
     end
   end
   return infeasible
