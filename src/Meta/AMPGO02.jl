@@ -17,7 +17,7 @@ AMPGO02_meta = Dict(
   :optimal_value => NaN,
   :has_multiple_solutions => missing,
   :is_infeasible => false,
-  :everywhere_defined => missing,
+  :defined_everywhere => missing,
   :origin => :unknown,
   :deriv => UInt8(0),
 )

@@ -8,6 +8,17 @@ function set_meta(all::AbstractVector{T}) where T <: Union{Symbol, String}
   end
 end
 
+function replace_entry_meta(all::AbstractVector{T}, old_entry, new_entry) where T <: Union{Symbol, String}
+  for name in string.(all)
+    lines = readlines("src/Meta/" * name * ".jl")
+    open("src/Meta/" * name * ".jl", "w") do io
+      for line in lines
+        write(io, replace(line, "$(old_entry)" => "$(new_entry)") * "\n")
+      end
+    end
+  end
+end
+
 """
   `generate_meta(model, name)`
   `generate_meta(name)`
@@ -28,7 +39,7 @@ Default values for undetermined entries:
 `is_infeasible` is `missing` unless the problem is unconstrained or `nlp.meta.x0` is feasible.
 """
 function generate_meta(nlp::AbstractNLPModel, name::String)
-  contype = if nlp.meta.ncon == 0 && !(length(nlp.meta.ifree) < nlp.meta.nvar)
+  contype = if nlp.meta.ncon == 0 && length(nlp.meta.ifree) >= nlp.meta.nvar
     :unconstrained
   elseif nlp.meta.nlin == nlp.meta.ncon > 0
     :linear
@@ -71,7 +82,7 @@ function generate_meta(nlp::AbstractNLPModel, name::String)
   :optimal_value => $(NaN),
   :has_multiple_solutions => $(missing),
   :is_infeasible => $(is_infeasible(nlp)),
-  :everywhere_defined => $(missing),
+  :defined_everywhere => $(missing),
   :origin => :$(origin),
   :deriv => UInt8(0),
 )
@@ -110,7 +121,7 @@ end
 
 function var_size(name::String, default_nvar)
   n1 = default_nvar
-  n2 = Int(default_nvar/2)
+  n2 = div(default_nvar, 2)
 
   nlp1 = eval(Meta.parse("ADNLPProblems." * name))(n=n1)
   nvar1, ncon1 = nlp1.meta.nvar, nlp1.meta.ncon
