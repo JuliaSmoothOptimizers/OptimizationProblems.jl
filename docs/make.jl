@@ -1,3 +1,4 @@
+ENV["GKSwstype"] = "100"
 using Documenter, OptimizationProblems
 
 makedocs(
@@ -10,10 +11,16 @@ makedocs(
     prettyurls = get(ENV, "CI", nothing) == "true",
   ),
   sitename = "OptimizationProblems.jl",
-  pages = Any["Home" => "index.md", "Tutorial" => "tutorial.md", "Reference" => "reference.md"],
+  pages = Any[
+    "Home" => "index.md",
+    "Tutorial" => "tutorial.md",
+    "Benchmark" => "benchmark.md",
+    "Reference" => "reference.md",
+  ],
 )
 
 deploydocs(
   repo = "github.com/JuliaSmoothOptimizers/OptimizationProblems.jl.git",
+  push_preview = true,
   devbranch = "main",
 )
