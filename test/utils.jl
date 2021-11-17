@@ -1,6 +1,6 @@
 using ADNLPModels, NLPModels, NLPModelsJuMP, OptimizationProblems
 
-function set_meta(all::AbstractVector{T}) where T <: Union{Symbol, String}
+function set_meta(all::AbstractVector{T}) where {T <: Union{Symbol, String}}
   for name in string.(all)
     io = open("src/Meta/" * name * ".jl", "w")
     write(io, generate_meta(name))
@@ -8,7 +8,11 @@ function set_meta(all::AbstractVector{T}) where T <: Union{Symbol, String}
   end
 end
 
-function replace_entry_meta(all::AbstractVector{T}, old_entry, new_entry) where T <: Union{Symbol, String}
+function replace_entry_meta(
+  all::AbstractVector{T},
+  old_entry,
+  new_entry,
+) where {T <: Union{Symbol, String}}
   for name in string.(all)
     lines = readlines("src/Meta/" * name * ".jl")
     open("src/Meta/" * name * ".jl", "w") do io
@@ -117,12 +121,7 @@ function generate_meta(name::String, args...; kwargs...)
   else
     eval(Meta.parse("ADNLPProblems." * name * "()"))
   end
-  return generate_meta(
-    nlp,
-    name,
-    args...;
-    kwargs...,
-  )
+  return generate_meta(nlp, name, args...; kwargs...)
 end
 
 function is_feasible(nlp::AbstractNLPModel; x = nlp.meta.x0)
@@ -145,9 +144,9 @@ function var_size(name::String, get_field::Function, default_nvar)
   n1 = default_nvar
   n2 = div(default_nvar, 2)
 
-  nlp1 = eval(Meta.parse("ADNLPProblems." * name))(n=n1)
+  nlp1 = eval(Meta.parse("ADNLPProblems." * name))(n = n1)
   nvar1 = get_field(nlp1)
-  nlp2 = eval(Meta.parse("ADNLPProblems." * name))(n=n2)
+  nlp2 = eval(Meta.parse("ADNLPProblems." * name))(n = n2)
   nvar2 = get_field(nlp2)
   variable_nvar = nvar1 != nvar2
   #Assuming the scale is linear in n
