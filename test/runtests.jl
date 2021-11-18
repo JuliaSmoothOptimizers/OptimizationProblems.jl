@@ -4,7 +4,30 @@ using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
 
 import ADNLPModels
 
-ndef = ADNLPProblems.default_nvar
+ndef = OptimizationProblems.default_nvar
+test_nvar = Int(round(ndef / 2))
+
+function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
+  meta = OptimizationProblems.eval(Symbol(prob, :_meta))
+  getnvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))(n=test_nvar)
+  @test getnvar == meta[:nvar] || meta[:variable_nvar]
+  getncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))(n=test_nvar)
+  @test getncon == meta[:ncon] || meta[:variable_ncon]
+  getnlin = OptimizationProblems.eval(Symbol(:get_, prob, :_nlin))(n=test_nvar)
+  @test getnlin == nlp.meta.nlin || meta[:variable_ncon]
+  getnnln = OptimizationProblems.eval(Symbol(:get_, prob, :_nnln))(n=test_nvar)
+  @test getnnln == nlp.meta.nnln || meta[:variable_ncon]
+  getnequ = OptimizationProblems.eval(Symbol(:get_, prob, :_nequ))(n=test_nvar)
+  @test getnequ == length(get_jfix(nlp)) || meta[:variable_ncon]
+  getnineq = OptimizationProblems.eval(Symbol(:get_, prob, :_nineq))(n=test_nvar)
+  @test getnineq == (get_ncon(nlp) - length(get_jfix(nlp))) || meta[:variable_ncon]
+  @test meta[:best_known_lower_bound] <= meta[:best_known_upper_bound]
+  @test meta[:minimize] == get_minimize(nlp)
+  @test meta[:has_equalities_only] == (length(get_jfix(nlp)) == get_ncon(nlp) > 0)
+  @test meta[:has_inequalities_only] == (get_ncon(nlp) > 0 && length(get_jfix(nlp)) == 0)
+  @test meta[:has_bounds] == (length(get_ifree(nlp)) < get_nvar(nlp))
+  @test meta[:has_fixed_variables] == (get_ifix(nlp) != [])
+end
 
 # Test that every problem can be instantiated.
 for prob in names(PureJuMP)
@@ -37,10 +60,13 @@ for prob in names(PureJuMP)
     @test isapprox(cons(nlp_ad, x1), cons(nlp_jump, x1))
     @test isapprox(cons(nlp_ad, x2), cons(nlp_jump, x2))
   end
+
+  meta_sanity_check(prob, nlp_ad)
 end
 
 for prob in names(ADNLPProblems)
   prob == :ADNLPProblems && continue
+  prob in [:clplatea, :clplateb, :clplatec, :fminsrf2] && continue # issue because variable is a matrix
 
   println(prob)
 
