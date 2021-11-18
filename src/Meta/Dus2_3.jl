@@ -1,8 +1,8 @@
 Dus2_3_meta = Dict(
   :nvar => 1,
-  :variable_size => false,
+  :variable_nvar => false,
   :ncon => 0,
-  :variable_con_size => false,
+  :variable_ncon => false,
   :minimize => true,
   :name => "Dus2_3",
   :has_equalities_only => false,
@@ -11,15 +11,15 @@ Dus2_3_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :unconstrained,
-  :has_cvx_obj => missing,
-  :has_cvx_con => true,
-  :cqs => 0,
-  :optimal_value => NaN,
-  :has_multiple_solution => missing,
-  :is_infeasible => false,
-  :not_everywhere_defined => missing,
+  :best_known_lower_bound => -Inf,
+  :best_known_upper_bound => 0.972972972972973,
+  :is_feasible => true,
+  :defined_everywhere => missing,
   :origin => :unknown,
-  :deriv => UInt8(0),
 )
-
-get_Dus2_3_meta(; n::Integer = default_nvar) = (1, 0)
+get_Dus2_3_nvar(; n::Integer = default_nvar, kwargs...) = 1
+get_Dus2_3_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_Dus2_3_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_Dus2_3_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_Dus2_3_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_Dus2_3_nineq(; n::Integer = default_nvar, kwargs...) = 0

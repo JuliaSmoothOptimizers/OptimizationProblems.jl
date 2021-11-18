@@ -1,8 +1,8 @@
 hs93_meta = Dict(
   :nvar => 6,
-  :variable_size => false,
+  :variable_nvar => false,
   :ncon => 2,
-  :variable_con_size => false,
+  :variable_ncon => false,
   :minimize => true,
   :name => "hs93",
   :has_equalities_only => false,
@@ -11,15 +11,15 @@ hs93_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :general,
-  :has_cvx_obj => missing,
-  :has_cvx_con => missing,
-  :cqs => 0,
-  :optimal_value => NaN,
-  :has_multiple_solution => missing,
-  :is_infeasible => false,
-  :not_everywhere_defined => missing,
+  :best_known_lower_bound => -Inf,
+  :best_known_upper_bound => 137.06643718898874,
+  :is_feasible => true,
+  :defined_everywhere => missing,
   :origin => :unknown,
-  :deriv => UInt8(0),
 )
-
-get_hs93_meta(; n::Integer = default_nvar) = (6, 2)
+get_hs93_nvar(; n::Integer = default_nvar, kwargs...) = 6
+get_hs93_ncon(; n::Integer = default_nvar, kwargs...) = 2
+get_hs93_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_hs93_nnln(; n::Integer = default_nvar, kwargs...) = 2
+get_hs93_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_hs93_nineq(; n::Integer = default_nvar, kwargs...) = 2

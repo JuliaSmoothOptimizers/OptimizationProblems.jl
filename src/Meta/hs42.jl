@@ -1,8 +1,8 @@
 hs42_meta = Dict(
   :nvar => 4,
-  :variable_size => false,
+  :variable_nvar => false,
   :ncon => 2,
-  :variable_con_size => false,
+  :variable_ncon => false,
   :minimize => true,
   :name => "hs42",
   :has_equalities_only => true,
@@ -11,15 +11,15 @@ hs42_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :general,
-  :has_cvx_obj => missing,
-  :has_cvx_con => missing,
-  :cqs => 0,
-  :optimal_value => NaN,
-  :has_multiple_solution => missing,
-  :is_infeasible => missing,
-  :not_everywhere_defined => missing,
+  :best_known_lower_bound => -Inf,
+  :best_known_upper_bound => Inf,
+  :is_feasible => missing,
+  :defined_everywhere => missing,
   :origin => :unknown,
-  :deriv => UInt8(0),
 )
-
-get_hs42_meta(; n::Integer = default_nvar) = (4, 2)
+get_hs42_nvar(; n::Integer = default_nvar, kwargs...) = 4
+get_hs42_ncon(; n::Integer = default_nvar, kwargs...) = 2
+get_hs42_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_hs42_nnln(; n::Integer = default_nvar, kwargs...) = 2
+get_hs42_nequ(; n::Integer = default_nvar, kwargs...) = 2
+get_hs42_nineq(; n::Integer = default_nvar, kwargs...) = 0

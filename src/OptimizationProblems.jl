@@ -3,6 +3,8 @@ module OptimizationProblems
 include("ADNLPProblems/ADNLPProblems.jl")
 include("PureJuMP/PureJuMP.jl")
 
+default_nvar = ADNLPProblems.default_nvar
+
 export PureJuMP, ADNLPProblems
 
 path = dirname(@__FILE__)

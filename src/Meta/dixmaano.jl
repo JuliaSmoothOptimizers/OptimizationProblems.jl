@@ -1,8 +1,8 @@
 dixmaano_meta = Dict(
   :nvar => 99,
-  :variable_size => true,
+  :variable_nvar => true,
   :ncon => 0,
-  :variable_con_size => false,
+  :variable_ncon => false,
   :minimize => true,
   :name => "dixmaano",
   :has_equalities_only => false,
@@ -11,15 +11,15 @@ dixmaano_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :unconstrained,
-  :has_cvx_obj => missing,
-  :has_cvx_con => true,
-  :cqs => 0,
-  :optimal_value => NaN,
-  :has_multiple_solution => missing,
-  :is_infeasible => false,
-  :not_everywhere_defined => missing,
+  :best_known_lower_bound => -Inf,
+  :best_known_upper_bound => 1196.3125701459037,
+  :is_feasible => true,
+  :defined_everywhere => missing,
   :origin => :unknown,
-  :deriv => UInt8(0),
 )
-
-get_dixmaano_meta(; n::Integer = default_nvar) = (1.02 * n + -3.0, 0.0 * n + 0.0)
+get_dixmaano_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + -2
+get_dixmaano_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_dixmaano_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_dixmaano_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_dixmaano_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_dixmaano_nineq(; n::Integer = default_nvar, kwargs...) = 0

@@ -1,8 +1,8 @@
 palmer3c_meta = Dict(
   :nvar => 8,
-  :variable_size => false,
+  :variable_nvar => false,
   :ncon => 0,
-  :variable_con_size => false,
+  :variable_ncon => false,
   :minimize => true,
   :name => "palmer3c",
   :has_equalities_only => false,
@@ -11,15 +11,15 @@ palmer3c_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :unconstrained,
-  :has_cvx_obj => missing,
-  :has_cvx_con => true,
-  :cqs => 0,
-  :optimal_value => NaN,
-  :has_multiple_solution => missing,
-  :is_infeasible => false,
-  :not_everywhere_defined => missing,
+  :best_known_lower_bound => -Inf,
+  :best_known_upper_bound => 8.121974242549511e6,
+  :is_feasible => true,
+  :defined_everywhere => missing,
   :origin => :unknown,
-  :deriv => UInt8(0),
 )
-
-get_palmer3c_meta(; n::Integer = default_nvar) = (8, 0)
+get_palmer3c_nvar(; n::Integer = default_nvar, kwargs...) = 8
+get_palmer3c_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_palmer3c_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_palmer3c_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_palmer3c_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_palmer3c_nineq(; n::Integer = default_nvar, kwargs...) = 0

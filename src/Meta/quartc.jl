@@ -1,8 +1,8 @@
 quartc_meta = Dict(
   :nvar => 10000,
-  :variable_size => true,
+  :variable_nvar => true,
   :ncon => 0,
-  :variable_con_size => false,
+  :variable_ncon => false,
   :minimize => true,
   :name => "quartc",
   :has_equalities_only => false,
@@ -11,15 +11,15 @@ quartc_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :unconstrained,
-  :has_cvx_obj => missing,
-  :has_cvx_con => true,
-  :cqs => 0,
-  :optimal_value => NaN,
-  :has_multiple_solution => missing,
-  :is_infeasible => false,
-  :not_everywhere_defined => missing,
+  :best_known_lower_bound => -Inf,
+  :best_known_upper_bound => 1.9985004332733415e19,
+  :is_feasible => true,
+  :defined_everywhere => missing,
   :origin => :unknown,
-  :deriv => UInt8(0),
 )
-
-get_quartc_meta(; n::Integer = default_nvar) = (1.0 * n + 0.0, 0.0 * n + 0.0)
+get_quartc_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_quartc_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_quartc_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_quartc_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_quartc_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_quartc_nineq(; n::Integer = default_nvar, kwargs...) = 0

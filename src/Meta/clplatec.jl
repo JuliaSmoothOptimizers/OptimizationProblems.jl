@@ -1,8 +1,8 @@
 clplatec_meta = Dict(
   :nvar => 5041,
-  :variable_size => false,
+  :variable_nvar => false,
   :ncon => 0,
-  :variable_con_size => false,
+  :variable_ncon => false,
   :minimize => true,
   :name => "clplatec",
   :has_equalities_only => false,
@@ -11,15 +11,15 @@ clplatec_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :unconstrained,
-  :has_cvx_obj => missing,
-  :has_cvx_con => true,
-  :cqs => 0,
-  :optimal_value => NaN,
-  :has_multiple_solution => missing,
-  :is_infeasible => false,
-  :not_everywhere_defined => missing,
+  :best_known_lower_bound => -Inf,
+  :best_known_upper_bound => 0.0,
+  :is_feasible => true,
+  :defined_everywhere => missing,
   :origin => :unknown,
-  :deriv => UInt8(0),
 )
-
-get_clplatec_meta(; n::Integer = default_nvar) = (5041, 0)
+get_clplatec_nvar(; n::Integer = default_nvar, kwargs...) = 5041
+get_clplatec_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_clplatec_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_clplatec_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_clplatec_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_clplatec_nineq(; n::Integer = default_nvar, kwargs...) = 0
