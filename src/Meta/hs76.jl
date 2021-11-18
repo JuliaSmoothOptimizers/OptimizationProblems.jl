@@ -1,8 +1,8 @@
 hs76_meta = Dict(
   :nvar => 4,
-  :variable_size => false,
+  :variable_nvar => false,
   :ncon => 3,
-  :variable_con_size => false,
+  :variable_ncon => false,
   :minimize => true,
   :name => "hs76",
   :has_equalities_only => false,
@@ -11,15 +11,15 @@ hs76_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :linear,
-  :has_cvx_obj => missing,
-  :has_cvx_con => missing,
-  :cqs => 0,
-  :optimal_value => NaN,
-  :has_multiple_solution => missing,
-  :is_infeasible => false,
-  :not_everywhere_defined => missing,
+  :best_known_lower_bound => -Inf,
+  :best_known_upper_bound => -1.25,
+  :is_feasible => true,
+  :defined_everywhere => missing,
   :origin => :unknown,
-  :deriv => UInt8(0),
 )
-
-get_hs76_meta(; n::Integer = default_nvar) = (4, 3)
+get_hs76_nvar(; n::Integer = default_nvar, kwargs...) = 4
+get_hs76_ncon(; n::Integer = default_nvar, kwargs...) = 3
+get_hs76_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_hs76_nnln(; n::Integer = default_nvar, kwargs...) = 3
+get_hs76_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_hs76_nineq(; n::Integer = default_nvar, kwargs...) = 3

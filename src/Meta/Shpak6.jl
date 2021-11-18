@@ -1,8 +1,8 @@
 Shpak6_meta = Dict(
   :nvar => 1,
-  :variable_size => false,
+  :variable_nvar => false,
   :ncon => 0,
-  :variable_con_size => false,
+  :variable_ncon => false,
   :minimize => true,
   :name => "Shpak6",
   :has_equalities_only => false,
@@ -11,15 +11,15 @@ Shpak6_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :unconstrained,
-  :has_cvx_obj => missing,
-  :has_cvx_con => true,
-  :cqs => 0,
-  :optimal_value => NaN,
-  :has_multiple_solution => missing,
-  :is_infeasible => false,
-  :not_everywhere_defined => missing,
+  :best_known_lower_bound => -Inf,
+  :best_known_upper_bound => -1.2566659310721418,
+  :is_feasible => true,
+  :defined_everywhere => missing,
   :origin => :unknown,
-  :deriv => UInt8(0),
 )
-
-get_Shpak6_meta(; n::Integer = default_nvar) = (1, 0)
+get_Shpak6_nvar(; n::Integer = default_nvar, kwargs...) = 1
+get_Shpak6_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_Shpak6_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_Shpak6_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_Shpak6_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_Shpak6_nineq(; n::Integer = default_nvar, kwargs...) = 0
