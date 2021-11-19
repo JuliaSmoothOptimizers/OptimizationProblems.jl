@@ -7,6 +7,8 @@ import ADNLPModels
 ndef = OptimizationProblems.default_nvar
 test_nvar = Int(round(ndef / 2))
 
+meta = OptimizationProblems.meta
+
 function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
   meta = OptimizationProblems.eval(Symbol(prob, :_meta))
   getnvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))(n = test_nvar)
