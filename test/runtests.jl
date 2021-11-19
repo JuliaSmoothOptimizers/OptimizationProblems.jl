@@ -9,17 +9,17 @@ test_nvar = Int(round(ndef / 2))
 
 function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
   meta = OptimizationProblems.eval(Symbol(prob, :_meta))
-  getnvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))(n=test_nvar)
+  getnvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))(n = test_nvar)
   @test getnvar == meta[:nvar] || meta[:variable_nvar]
-  getncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))(n=test_nvar)
+  getncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))(n = test_nvar)
   @test getncon == meta[:ncon] || meta[:variable_ncon]
-  getnlin = OptimizationProblems.eval(Symbol(:get_, prob, :_nlin))(n=test_nvar)
+  getnlin = OptimizationProblems.eval(Symbol(:get_, prob, :_nlin))(n = test_nvar)
   @test getnlin == nlp.meta.nlin || meta[:variable_ncon]
-  getnnln = OptimizationProblems.eval(Symbol(:get_, prob, :_nnln))(n=test_nvar)
+  getnnln = OptimizationProblems.eval(Symbol(:get_, prob, :_nnln))(n = test_nvar)
   @test getnnln == nlp.meta.nnln || meta[:variable_ncon]
-  getnequ = OptimizationProblems.eval(Symbol(:get_, prob, :_nequ))(n=test_nvar)
+  getnequ = OptimizationProblems.eval(Symbol(:get_, prob, :_nequ))(n = test_nvar)
   @test getnequ == length(get_jfix(nlp)) || meta[:variable_ncon]
-  getnineq = OptimizationProblems.eval(Symbol(:get_, prob, :_nineq))(n=test_nvar)
+  getnineq = OptimizationProblems.eval(Symbol(:get_, prob, :_nineq))(n = test_nvar)
   @test getnineq == (get_ncon(nlp) - length(get_jfix(nlp))) || meta[:variable_ncon]
   @test meta[:best_known_lower_bound] <= meta[:best_known_upper_bound]
   @test meta[:minimize] == get_minimize(nlp)

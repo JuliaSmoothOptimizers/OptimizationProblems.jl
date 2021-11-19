@@ -9,7 +9,7 @@ export PureJuMP, ADNLPProblems
 
 path = dirname(@__FILE__)
 files = filter(x -> x[(end - 2):end] == ".jl", readdir(path * "/Meta"))
-for file in  files
+for file in files
   include("Meta/" * file)
 end
 
