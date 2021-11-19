@@ -9,6 +9,7 @@ Requires = "ae029012-a4dd-5104-9daa-d747884805df"
 
 [compat]
 JuMP = "~0.19, ~0.20, ~0.21, ~0.22"
+Requires = "1"
 julia = "~1"
 
 [extras]
