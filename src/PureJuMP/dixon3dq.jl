@@ -11,7 +11,7 @@
 export dixon3dq
 
 "Dixon's tridiagonal quadratic."
-function dixon3dq(n::Int = 10)
+function dixon3dq(n::Int = default_nvar)
   nlp = Model()
 
   @variable(nlp, x[i = 1:n], start = -1.0)

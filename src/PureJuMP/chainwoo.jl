@@ -22,7 +22,7 @@
 export chainwoo, woods
 
 "The chained Woods function in size `n`, a variant on the Woods function"
-function chainwoo(n::Int = 100)
+function chainwoo(n::Int = default_nvar)
   (n % 4 == 0) || @warn("chainwoo: number of variables adjusted to be a multiple of 4")
   n = 4 * max(1, div(n, 4))
 

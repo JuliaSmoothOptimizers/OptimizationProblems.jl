@@ -22,7 +22,7 @@
 
 export fletcbv3_mod
 
-function fletcbv3_mod(n::Int = 100)
+function fletcbv3_mod(n::Int = default_nvar)
   n < 2 && @warn("fletchbv3_mod: number of variables must be ≥ 2")
   n = max(2, n)
 

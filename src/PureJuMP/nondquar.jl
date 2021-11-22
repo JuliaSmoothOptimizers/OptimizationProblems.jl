@@ -24,7 +24,7 @@
 
 export nondquar
 
-function nondquar(n::Int = 100)
+function nondquar(n::Int = default_nvar)
   n < 2 && @warn("nondquar: number of variables must be ≥ 2")
   n = max(2, n)
 

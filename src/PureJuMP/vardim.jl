@@ -15,7 +15,7 @@
 export vardim
 
 "Variable dimension problem."
-function vardim(n::Int = 100)
+function vardim(n::Int = default_nvar)
   nlp = Model()
 
   @variable(nlp, x[i = 1:n], start = (1 - i / n))

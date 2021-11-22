@@ -25,7 +25,7 @@
 
 export nondia
 
-function nondia(n::Int = 100)
+function nondia(n::Int = default_nvar)
   n < 2 && @warn("nondia: number of variables must be ≥ 2")
   n = max(2, n)
 

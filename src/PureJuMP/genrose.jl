@@ -43,7 +43,7 @@
 export genrose, rosenbrock
 
 "Generalized Rosenbrock model in size `n`"
-function genrose(n::Int = 100)
+function genrose(n::Int = default_nvar)
   n < 2 && @warn("genrose: number of variables must be ≥ 2")
   n = max(2, n)
 

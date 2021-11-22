@@ -15,7 +15,7 @@
 export sparsqur
 
 "A sparse quartic problem in size 'n' "
-function sparsqur(n::Int = 100)
+function sparsqur(n::Int = default_nvar)
   n < 10 && @warn("sparsqur: number of variables must be ≥ 10")
   n = max(10, n)
 

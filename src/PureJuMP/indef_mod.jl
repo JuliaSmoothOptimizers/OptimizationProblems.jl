@@ -14,7 +14,7 @@
 
 export indef_mod
 
-function indef_mod(n::Int = 100)
+function indef_mod(n::Int = default_nvar)
   n < 3 && @warn("indef_mod: number of variables must be ≥ 4")
   n = max(3, n)
 
