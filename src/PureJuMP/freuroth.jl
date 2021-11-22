@@ -22,7 +22,7 @@
 
 export freuroth
 
-function freuroth(n::Int = 100)
+function freuroth(n::Int = default_nvar)
   n < 2 && @warn("freuroth: number of variables must be ≥ 2")
   n = max(2, n)
 

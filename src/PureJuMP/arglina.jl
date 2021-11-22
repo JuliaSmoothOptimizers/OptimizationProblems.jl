@@ -12,7 +12,7 @@
 export arglina
 
 "Linear function with `n` parameters and `m` observations  - full rank"
-function arglina(n::Int = 100, m::Int = 2n)
+function arglina(n::Int = default_nvar, m::Int = 2n)
   m < n && @warn("arglina: must have m ≥ n")
   m = max(m, n)
 

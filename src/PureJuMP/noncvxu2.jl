@@ -14,7 +14,7 @@
 
 export noncvxu2
 
-function noncvxu2(n::Int = 100)
+function noncvxu2(n::Int = default_nvar)
   n < 2 && @warn("noncvxu2: number of variables must be ≥ 2")
   n = max(2, n)
 

@@ -15,7 +15,7 @@
 
 export errinros_mod
 
-function errinros_mod(n::Int = 100)
+function errinros_mod(n::Int = default_nvar)
   n < 2 && @warn("errinros_mod: number of variables must be ≥ 2")
   n = max(2, n)
 

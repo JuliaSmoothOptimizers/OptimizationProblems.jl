@@ -23,7 +23,7 @@
 
 export liarwhd
 
-function liarwhd(n::Int = 100)
+function liarwhd(n::Int = default_nvar)
   n < 2 && @warn("liarwhd: number of variables must be ≥ 4")
   n = max(2, n)
 

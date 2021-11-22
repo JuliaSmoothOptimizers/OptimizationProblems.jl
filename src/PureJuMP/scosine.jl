@@ -23,7 +23,7 @@
 export scosine
 
 "Another function with nontrivial groups and repetitious elements in size 'n' "
-function scosine(n::Int = 100)
+function scosine(n::Int = default_nvar)
   n < 2 && @warn("scosine: number of variables must be ≥ 2")
   n = max(2, n)
 

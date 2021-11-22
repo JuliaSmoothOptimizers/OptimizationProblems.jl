@@ -27,7 +27,7 @@
 export sbrybnd
 
 "Broyden banded system of nonlinear equations in size 'n' "
-function sbrybnd(n::Int = 100)
+function sbrybnd(n::Int = default_nvar)
   n < 2 && @warn("sbrybnd: number of variables must be ≥ 2")
   n = max(2, n)
 

@@ -15,7 +15,7 @@
 export sparsine
 
 "A sparse problem involving sine functions in size 'n' "
-function sparsine(n::Int = 100)
+function sparsine(n::Int = default_nvar)
   n < 10 && @warn("sparsine: number of variables must be ≥ 10")
   n = max(10, n)
 

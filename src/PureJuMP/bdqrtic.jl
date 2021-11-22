@@ -25,7 +25,7 @@
 export bdqrtic
 
 "Banded quartic model in size `n`"
-function bdqrtic(n::Int = 100)
+function bdqrtic(n::Int = default_nvar)
   n < 5 && @warn("bdqrtic: number of variables must be ≥ 5")
   n = max(5, n)
 

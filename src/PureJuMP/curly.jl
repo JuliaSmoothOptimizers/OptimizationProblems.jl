@@ -23,7 +23,7 @@
 export curly, curly10, curly20, curly30
 
 "Curly function in size `n` with semi-bandwidth `b`"
-function curly(n::Int = 100; b::Int = 10)
+function curly(n::Int = default_nvar; b::Int = 10)
   n < 2 && @warn("curly: number of variables must be ≥ 2")
   n = max(2, n)
 
@@ -41,10 +41,10 @@ function curly(n::Int = 100; b::Int = 10)
 end
 
 "Curly function in size `n` with semi-bandwidth 10"
-curly10(n::Int = 100) = curly(n, b = 10)
+curly10(n::Int = default_nvar) = curly(n, b = 10)
 
 "Curly function in size `n` with semi-bandwidth 20"
-curly20(n::Int = 100) = curly(n, b = 20)
+curly20(n::Int = default_nvar) = curly(n, b = 20)
 
 "Curly function in size `n` with semi-bandwidth 30"
-curly30(n::Int = 100) = curly(n, b = 30)
+curly30(n::Int = default_nvar) = curly(n, b = 30)

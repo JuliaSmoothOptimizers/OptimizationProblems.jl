@@ -24,7 +24,7 @@
 export dqrtic
 
 "Diagonal quartic model in size `n`"
-function dqrtic(n::Int = 100)
+function dqrtic(n::Int = default_nvar)
   nlp = Model()
 
   @variable(nlp, x[i = 1:n], start = 2)

@@ -17,7 +17,7 @@ export tridia
 
 "Shanno's TRIDIA quadratic tridiagonal problem."
 function tridia(
-  n::Int = 10000,
+  n::Int = default_nvar,
   α::Float64 = 2.0,
   β::Float64 = 1.0,
   γ::Float64 = 1.0,

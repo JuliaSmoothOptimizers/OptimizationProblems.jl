@@ -19,7 +19,7 @@
 
 export ncb20b
 
-function ncb20b(n::Int = 100)
+function ncb20b(n::Int = default_nvar)
 
   # indices in Luksan go from 0 to n+1
   n < 20 && @warn("ncb20b: number of variables must be ≥ 20")

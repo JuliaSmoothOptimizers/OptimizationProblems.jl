@@ -43,7 +43,7 @@
 export brybnd
 
 "Broyden banded model in size `n`"
-function brybnd(n::Int = 100; ml::Int = 5, mu::Int = 1)
+function brybnd(n::Int = default_nvar; ml::Int = 5, mu::Int = 1)
   nlp = Model()
 
   @variable(nlp, x[i = 1:n], start = (-1.0))

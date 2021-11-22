@@ -19,7 +19,7 @@
 export tquartic
 
 "A quartic function with nontrivial groups and repetitious elements in size 'n' "
-function tquartic(n::Int = 100)
+function tquartic(n::Int = default_nvar)
   n < 2 && @warn("tquartic: number of variables must be ≥ 2")
   n = max(2, n)
 

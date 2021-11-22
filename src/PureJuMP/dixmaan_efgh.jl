@@ -25,7 +25,7 @@ export dixmaane, dixmaanf, dixmaang, dixmaanh
 
 "Dixon-Maany function in size `n` (version E by default)"
 function dixmaane(
-  n::Int = 99;
+  n::Int = default_nvar;
   α::Float64 = 1.0,
   β::Float64 = 0.0,
   γ::Float64 = 0.125,
@@ -53,10 +53,10 @@ function dixmaane(
 end
 
 "Dixon-Maany function in size `n` (version F)"
-dixmaanf(n::Int = 99) = dixmaane(n, α = 1.0, β = 0.0625, γ = 0.0625, δ = 0.0625)
+dixmaanf(n::Int = default_nvar) = dixmaane(n, α = 1.0, β = 0.0625, γ = 0.0625, δ = 0.0625)
 
 "Dixon-Maany function in size `n` (version G)"
-dixmaang(n::Int = 99) = dixmaane(n, α = 1.0, β = 0.125, γ = 0.125, δ = 0.125)
+dixmaang(n::Int = default_nvar) = dixmaane(n, α = 1.0, β = 0.125, γ = 0.125, δ = 0.125)
 
 "Dixon-Maany function in size `n` (version H)"
-dixmaanh(n::Int = 99) = dixmaane(n, α = 1.0, β = 0.26, γ = 0.26, δ = 0.26)
+dixmaanh(n::Int = default_nvar) = dixmaane(n, α = 1.0, β = 0.26, γ = 0.26, δ = 0.26)
