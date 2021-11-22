@@ -5,7 +5,7 @@ using DataFrames
 include("ADNLPProblems/ADNLPProblems.jl")
 include("PureJuMP/PureJuMP.jl")
 
-default_nvar = ADNLPProblems.default_nvar
+const default_nvar = ADNLPProblems.default_nvar
 
 export PureJuMP, ADNLPProblems
 
@@ -81,7 +81,7 @@ The following keys are valid:
   - `is_feasible::Union{Bool, Missing}`: true if problem is feasible
   - `origin::Symbol`: origin of the problem, in [:academic, :modelling, :real, :unknown]
 """
-meta = DataFrame(names .=> [Array{T}(undef, number_of_problems) for T in types])
+const meta = DataFrame(names .=> [Array{T}(undef, number_of_problems) for T in types])
 
 for name in names, i = 1:number_of_problems
   meta[!, name][i] = eval(Meta.parse("$(split(files[i], ".")[1])_meta"))[name]
