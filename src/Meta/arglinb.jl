@@ -1,5 +1,5 @@
 arglinb_meta = Dict(
-  :nvar => 10,
+  :nvar => 100,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
@@ -12,7 +12,7 @@ arglinb_meta = Dict(
   :objtype => :other,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 8.65867e6,
+  :best_known_upper_bound => 6.85173637402e13,
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,

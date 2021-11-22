@@ -1,5 +1,5 @@
 quartc_meta = Dict(
-  :nvar => 10000,
+  :nvar => 100,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
@@ -12,7 +12,7 @@ quartc_meta = Dict(
   :objtype => :other,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 1.9985004332733415e19,
+  :best_known_upper_bound => 1.85427373e9,
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,

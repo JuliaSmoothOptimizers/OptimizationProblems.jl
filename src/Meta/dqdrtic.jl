@@ -1,5 +1,5 @@
 dqdrtic_meta = Dict(
-  :nvar => 5000,
+  :nvar => 100,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
@@ -12,7 +12,7 @@ dqdrtic_meta = Dict(
   :objtype => :other,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 9.041382e6,
+  :best_known_upper_bound => 177282.0,
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,

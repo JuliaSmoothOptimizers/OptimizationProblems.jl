@@ -1,5 +1,5 @@
 power_meta = Dict(
-  :nvar => 1000,
+  :nvar => 100,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
@@ -12,7 +12,7 @@ power_meta = Dict(
   :objtype => :other,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 2.5050025e11,
+  :best_known_upper_bound => 2.55025e7,
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
