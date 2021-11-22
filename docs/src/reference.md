@@ -13,5 +13,5 @@ Pages = ["reference.md"]
 ```
 ​
 ```@autodocs
-Modules = [OptimizationProblems.PureJuMP]
+Modules = [OptimizationProblems, OptimizationProblems.PureJuMP]
 ```
