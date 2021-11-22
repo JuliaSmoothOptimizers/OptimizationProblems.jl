@@ -1,5 +1,5 @@
 dixon3dq_meta = Dict(
-  :nvar => 10,
+  :nvar => 100,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,

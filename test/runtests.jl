@@ -82,3 +82,9 @@ for prob in names(ADNLPProblems)
     end
   end
 end
+
+names_pb_vars = meta[meta.variable_nvar .== true, [:nvar, :name, :best_known_upper_bound, :best_known_lower_bound]]
+adproblems = (eval(Meta.parse("ADNLPProblems.$(pb[:name])()")) for pb in eachrow(names_pb_vars))
+for (pb, nlp) in zip(eachrow(names_pb_vars), adproblems)
+  @test pb[:nvar] == nlp.meta.nvar
+end

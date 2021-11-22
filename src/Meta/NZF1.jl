@@ -1,5 +1,5 @@
 NZF1_meta = Dict(
-  :nvar => 13,
+  :nvar => 91,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
@@ -12,7 +12,7 @@ NZF1_meta = Dict(
   :objtype => :other,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 4956.907414728961,
+  :best_known_upper_bound => 34698.351903102724,
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,

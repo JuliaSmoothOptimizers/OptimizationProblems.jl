@@ -1,5 +1,5 @@
 tridia_meta = Dict(
-  :nvar => 10000,
+  :nvar => 100,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
@@ -12,7 +12,7 @@ tridia_meta = Dict(
   :objtype => :other,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 5.0004999e7,
+  :best_known_upper_bound => 5049.0,
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
