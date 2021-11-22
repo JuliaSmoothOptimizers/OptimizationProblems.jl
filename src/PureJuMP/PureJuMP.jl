@@ -1,5 +1,7 @@
 module PureJuMP
 
+const default_nvar = 100
+
 using JuMP
 
 path = dirname(@__FILE__)

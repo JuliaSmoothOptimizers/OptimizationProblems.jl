@@ -5,6 +5,10 @@ using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
 import ADNLPModels
 
 ndef = OptimizationProblems.default_nvar
+
+@test ndef == OptimizationProblems.PureJuMP.default_nvar 
+@test ndef == OptimizationProblems.ADNLPProblems.default_nvar
+
 test_nvar = Int(round(ndef / 2))
 
 meta = OptimizationProblems.meta
