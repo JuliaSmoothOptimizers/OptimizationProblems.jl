@@ -14,6 +14,7 @@ makedocs(
   pages = Any[
     "Home" => "index.md",
     "Tutorial" => "tutorial.md",
+    "Problem classification" => "meta.md",
     "Benchmark" => "benchmark.md",
     "Reference" => "reference.md",
   ],
