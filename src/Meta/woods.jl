@@ -17,7 +17,7 @@ woods_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_woods_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + -2
+get_woods_nvar(; n::Integer = default_nvar, kwargs...) = 4 * max(1, div(n, 4))  # number of variables adjusted to be a multiple of 4
 get_woods_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_woods_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_woods_nnln(; n::Integer = default_nvar, kwargs...) = 0

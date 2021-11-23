@@ -17,7 +17,7 @@ chainwoo_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_chainwoo_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + -2
+get_chainwoo_nvar(; n::Integer = default_nvar, kwargs...) = 4 * max(1, div(n, 4))
 get_chainwoo_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_chainwoo_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_chainwoo_nnln(; n::Integer = default_nvar, kwargs...) = 0
