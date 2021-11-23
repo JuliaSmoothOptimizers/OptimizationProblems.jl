@@ -17,7 +17,7 @@ dixmaanf_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_dixmaanf_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + -2
+get_dixmaanf_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))
 get_dixmaanf_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_dixmaanf_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_dixmaanf_nnln(; n::Integer = default_nvar, kwargs...) = 0

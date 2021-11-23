@@ -17,7 +17,7 @@ powellsg_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_powellsg_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + -2
+get_powellsg_nvar(; n::Integer = default_nvar, kwargs...) = 4 * max(1, div(n, 4))  # number of variables adjusted to be a multiple of 4
 get_powellsg_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_powellsg_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_powellsg_nnln(; n::Integer = default_nvar, kwargs...) = 0

@@ -17,7 +17,7 @@ dixmaanm_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_dixmaanm_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + -2
+get_dixmaanm_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))
 get_dixmaanm_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_dixmaanm_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_dixmaanm_nnln(; n::Integer = default_nvar, kwargs...) = 0
