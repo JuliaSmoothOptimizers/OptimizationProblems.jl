@@ -92,9 +92,8 @@ names_pb_vars = meta[
   [:nvar, :name, :best_known_upper_bound, :best_known_lower_bound],
 ]
 adproblems = (eval(Meta.parse("ADNLPProblems.$(pb[:name])()")) for pb in eachrow(names_pb_vars))
-adproblems11 = (
-  eval(Meta.parse("ADNLPProblems.$(pb[:name])(n=$(13 * ndef))")) for pb in eachrow(names_pb_vars)
-)
+adproblems11 =
+  (eval(Meta.parse("ADNLPProblems.$(pb[:name])(n=$(13 * ndef))")) for pb in eachrow(names_pb_vars))
 for (pb, nlp, nlp11) in zip(eachrow(names_pb_vars), adproblems, adproblems11)
   @test pb[:nvar] == nlp.meta.nvar
   n11 = OptimizationProblems.eval(Symbol(:get_, pb[:name], :_nvar))(n = 13 * ndef)
