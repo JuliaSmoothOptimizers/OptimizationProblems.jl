@@ -17,6 +17,7 @@ makedocs(
     "Problem classification" => "meta.md",
     "Benchmark" => "benchmark.md",
     "Reference" => "reference.md",
+    "Contributing" => "contributing.md",
   ],
 )
 

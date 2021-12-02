@@ -7,8 +7,8 @@
 [![Documentation/stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://JuliaSmoothOptimizers.github.io/OptimizationProblems.jl/stable)
 [![Documentation/dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://JuliaSmoothOptimizers.github.io/OptimizationProblems.jl/dev)
 
-A collection of optimization problems in
-[JuMP](https://github.com/JuliaOpt/JuMP.jl) syntax.
+This package provides a collection of optimization problems in
+[JuMP](https://github.com/JuliaOpt/JuMP.jl) and [ADNLPModels](https://github.com/JuliaSmoothOptimizers/ADNLPModels.jl) syntax.
 
 ## Installing
 
@@ -35,7 +35,7 @@ objective, constraints and their derivatives.
 
 Please open pull requests to submit new problems! When submitting a problem,
 please pay particular attention to the documentation. We would like to gather
-as much information as possible on the provenance of problems.
+as much information as possible on the provenance of problems. The documentation [Contributing](https://juliasmoothoptimizers.github.io/OptimizationProblems.jl/dev/contributing/) provides general guidelines on how to suggest new problems.
 
 ## How to cite
 
