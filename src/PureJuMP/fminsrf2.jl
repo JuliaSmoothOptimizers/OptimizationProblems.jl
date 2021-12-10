@@ -20,7 +20,7 @@
 
 export fminsrf2
 
-function fminsrf2(n::Int = default_nvar)
+function fminsrf2(args...; n::Int = default_nvar, kwargs...)
   n < 4 && @warn("fminsrf2: number of variables must be ≥ 4")
   n = max(4, n)
 

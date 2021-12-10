@@ -17,11 +17,13 @@ export tridia
 
 "Shanno's TRIDIA quadratic tridiagonal problem."
 function tridia(
+  args...;
   n::Int = default_nvar,
   α::Float64 = 2.0,
   β::Float64 = 1.0,
   γ::Float64 = 1.0,
   δ::Float64 = 1.0,
+  kwargs...,
 )
   nlp = Model()
 

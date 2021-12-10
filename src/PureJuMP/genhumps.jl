@@ -18,7 +18,7 @@
 
 export genhumps
 
-function genhumps(n::Int = default_nvar)
+function genhumps(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
 
   ζ = 20.0

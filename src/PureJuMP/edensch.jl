@@ -24,7 +24,7 @@
 export edensch
 
 "Extended Dennis-Schnabel model in size `n`"
-function edensch(n::Int = default_nvar)
+function edensch(args...; n::Int = default_nvar, kwargs...)
   n < 2 && @warn("edensch: number of variables must be ≥ 2")
   n = max(2, n)
 

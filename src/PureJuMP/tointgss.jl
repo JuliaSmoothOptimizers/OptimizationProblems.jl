@@ -24,7 +24,7 @@
 export tointgss
 
 "Toint's Gaussian problem in size 'n' "
-function tointgss(n::Int = default_nvar)
+function tointgss(args...; n::Int = default_nvar, kwargs...)
   n < 3 && @warn("tointgss: number of variables must be ≥ 3")
   n = max(3, n)
 

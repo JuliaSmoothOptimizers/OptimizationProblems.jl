@@ -12,7 +12,7 @@
 export arglinb
 
 "Linear function with `n` parameters and `m` observations - rank 1"
-function arglinb(n::Int = default_nvar, m::Int = 2n)
+function arglinb(args...; n::Int = default_nvar, m::Int = 2n, kwargs...)
   m < n && @warn("arglinb: must have m ≥ n")
   m = max(m, n)
 

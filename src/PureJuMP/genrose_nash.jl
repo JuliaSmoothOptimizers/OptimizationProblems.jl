@@ -32,7 +32,7 @@
 export genrose_nash
 
 "Nash's variant of `genrose()` in size `n`"
-function genrose_nash(n::Int = default_nvar)
+function genrose_nash(args...; n::Int = default_nvar, kwargs...)
   n < 2 && @warn("genrose_nash: number of variables must be ≥ 2")
   n = max(2, n)
 

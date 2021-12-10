@@ -15,7 +15,7 @@
 
 export chnrosnb_mod
 
-function chnrosnb_mod(n::Int = default_nvar)
+function chnrosnb_mod(args...; n::Int = default_nvar, kwargs...)
   n < 2 && @warn("chnrosnb: number of variables must be ≥ 2")
   n = max(2, n)
 

@@ -32,7 +32,7 @@
 
 export fletchcr
 
-function fletchcr(n::Int = default_nvar)
+function fletchcr(args...; n::Int = default_nvar, kwargs...)
   n < 2 && @warn("fletchcr: number of variables must be ≥ 2")
   n = max(2, n)
 
