@@ -40,7 +40,7 @@ for prob in names(PureJuMP)
   prob == :PureJuMP && continue
   println(prob)
   prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
-  model = prob_fn(ndef)
+  model = prob_fn(n = ndef)
 
   prob == :hs61 && continue #because nlpmodelsjump is not working here https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl/issues/84
   prob in [:clplatea, :clplateb, :clplatec, :fminsrf2] && continue # issue because variable is a matrix

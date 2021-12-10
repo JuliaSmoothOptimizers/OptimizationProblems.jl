@@ -29,7 +29,7 @@ OptimizationProblems.arglina_meta
 OptimizationProblems.get_arglina_nvar(n = 10)
 ```
 ```@example 1
-OptimizationProblems.PureJuMP.arglina(10)
+OptimizationProblems.PureJuMP.arglina(n = 10)
 ```
 
 ## Global meta
