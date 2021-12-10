@@ -14,7 +14,7 @@
 export hs97
 
 "HS97 model"
-function hs97(args...)
+function hs97(args...; kwargs...)
   nlp = Model()
   uvar = [0.31, 0.046, 0.068, 0.042, 0.028, 0.0134]
   @variable(nlp, 0 ≤ x[i = 1:6] ≤ uvar[i], start = 0)

@@ -14,7 +14,7 @@
 export hs78
 
 "HS78 model"
-function hs78(args...)
+function hs78(args...; kwargs...)
   nlp = Model()
   x0 = [-2, 1.5, 2, -1, -1]
   @variable(nlp, x[i = 1:5], start = x0[i])

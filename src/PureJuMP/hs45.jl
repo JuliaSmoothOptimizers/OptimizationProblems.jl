@@ -14,7 +14,7 @@
 export hs45
 
 "HS45 model"
-function hs45(args...)
+function hs45(args...; kwargs...)
   nlp = Model()
   @variable(nlp, 0 ≤ x[i = 1:5] ≤ i, start = 2)
 

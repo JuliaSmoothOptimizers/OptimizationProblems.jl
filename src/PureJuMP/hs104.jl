@@ -14,7 +14,7 @@
 export hs104
 
 "HS104 model"
-function hs104(args...)
+function hs104(args...; kwargs...)
   nlp = Model()
   x0 = [6, 3, 0.4, 0.2, 6, 6, 1, 0.5]
   @variable(nlp, 0.1 ≤ x[i = 1:8] ≤ 10, start = x0[i])

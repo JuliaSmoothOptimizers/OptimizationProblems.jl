@@ -14,7 +14,7 @@
 export hs2
 
 "HS2 model"
-function hs2(args...)
+function hs2(args...; kwargs...)
   nlp = Model()
   x0 = [-2, 1]
   lvar = [-Inf, 1.5]

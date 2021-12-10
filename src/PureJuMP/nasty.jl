@@ -7,7 +7,7 @@
 export nasty
 
 "Nasty problem"
-function nasty(args...)
+function nasty(args...; kwargs...)
   nlp = Model()
 
   x0 = [1.0e-30, 1.0]

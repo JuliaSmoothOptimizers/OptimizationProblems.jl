@@ -14,7 +14,7 @@
 export hs9
 
 "HS9 Model"
-function hs9(args...)
+function hs9(args...; kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:2], start = 0)
 

@@ -14,7 +14,7 @@
 export hs18
 
 "HS18 model"
-function hs18(args...)
+function hs18(args...; kwargs...)
   nlp = Model()
   lvar = [2, 0]
   @variable(nlp, lvar[i] ≤ x[i = 1:2] ≤ 50, start = 2)

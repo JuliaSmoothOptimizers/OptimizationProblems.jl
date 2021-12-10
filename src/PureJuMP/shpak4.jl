@@ -12,7 +12,7 @@
 export Shpak4
 
 "Univariate multimodal minimization problem Shpak4"
-function Shpak4(args...)
+function Shpak4(args...; kwargs...)
   nlp = Model()
 
   @variable(nlp, x, start = -1.0)

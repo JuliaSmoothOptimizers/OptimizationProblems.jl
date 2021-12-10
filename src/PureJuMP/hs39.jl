@@ -14,7 +14,7 @@
 export hs39
 
 "HS39 model"
-function hs39(args...)
+function hs39(args...; kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:4], start = 2)
 

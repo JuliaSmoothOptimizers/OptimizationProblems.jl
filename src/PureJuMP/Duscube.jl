@@ -8,7 +8,7 @@
 export Duscube
 
 "Univariate multimodal minimization problem Duscube"
-function Duscube(args...)
+function Duscube(args...; kwargs...)
   nlp = Model()
 
   @variable(nlp, x, start = 1.0)

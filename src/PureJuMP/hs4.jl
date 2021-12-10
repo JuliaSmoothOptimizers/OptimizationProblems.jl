@@ -14,7 +14,7 @@
 export hs4
 
 "HS4 model"
-function hs4(args...)
+function hs4(args...; kwargs...)
   nlp = Model()
   x0 = [1.125, 0.125]
   lvar = [1, 0]

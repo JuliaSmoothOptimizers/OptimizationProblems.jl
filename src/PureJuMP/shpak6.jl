@@ -12,7 +12,7 @@
 export Shpak6
 
 "Univariate multimodal minimization problem Shpak6"
-function Shpak6(args...)
+function Shpak6(args...; kwargs...)
   nlp = Model()
 
   veca = [4.696 4.885 0.800 4.986 3.901 2.395 0.945 8.371 6.181 5.713]

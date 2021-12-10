@@ -13,7 +13,7 @@
 export bt1
 
 "BT1 Model"
-function bt1(args...)
+function bt1(args...; kwargs...)
   nlp = Model()
 
   x0 = [0.08, 0.06]

@@ -14,7 +14,7 @@
 export hs108
 
 "HS108 model"
-function hs108(args...)
+function hs108(args...; kwargs...)
   nlp = Model()
   lvar = [-Inf, -Inf, -Inf, -Inf, -Inf, -Inf, -Inf, -Inf, 0]
   @variable(nlp, x[i = 1:9] ≥ lvar[i], start = 1)

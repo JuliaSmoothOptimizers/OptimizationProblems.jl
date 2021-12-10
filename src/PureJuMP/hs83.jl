@@ -14,7 +14,7 @@
 export hs83
 
 "HS83 model"
-function hs83(args...)
+function hs83(args...; kwargs...)
   nlp = Model()
   x0 = [78, 33, 27, 27, 27]
   lvar = [78, 33, 27, 27, 27]

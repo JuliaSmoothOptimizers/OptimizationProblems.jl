@@ -13,7 +13,7 @@
 export brownbs
 
 "Brownbs Model"
-function brownbs(args...)
+function brownbs(args...; kwargs...)
   nlp = Model()
 
   @variable(nlp, x[i = 1:2], start = 1.0)

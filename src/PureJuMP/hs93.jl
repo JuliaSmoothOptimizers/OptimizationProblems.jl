@@ -14,7 +14,7 @@
 export hs93
 
 "HS93 model"
-function hs93(args...)
+function hs93(args...; kwargs...)
   nlp = Model()
   x0 = [5.54, 4.4, 12.02, 11.82, 0.702, 0.852]
   @variable(nlp, x[i = 1:6] ≥ 0, start = x0[i])

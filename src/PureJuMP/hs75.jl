@@ -14,7 +14,7 @@
 export hs75
 
 "HS75 model"
-function hs75(args...)
+function hs75(args...; kwargs...)
   a = 0.48
   nlp = Model()
   lvar = [0, 0, -a, -a]

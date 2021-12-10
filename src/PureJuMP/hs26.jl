@@ -14,7 +14,7 @@
 export hs26
 
 "HS26 Model"
-function hs26(args...)
+function hs26(args...; kwargs...)
   nlp = Model()
   x0 = [-2.6, 2.0, 2.0]
   @variable(nlp, x[i = 1:3], start = x0[i])

@@ -9,7 +9,7 @@
 export AMPGO09
 
 "Univariate multimodal minimization problem AMPGO09"
-function AMPGO09(args...)
+function AMPGO09(args...; kwargs...)
   nlp = Model()
 
   @variable(nlp, x, start = 3.1)

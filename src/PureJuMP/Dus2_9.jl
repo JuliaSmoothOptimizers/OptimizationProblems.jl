@@ -8,7 +8,7 @@
 export Dus2_9
 
 "Univariate multimodal minimization problem Dus2_9"
-function Dus2_9(args...)
+function Dus2_9(args...; kwargs...)
   nlp = Model()
 
   @variable(nlp, x, start = 0.0)

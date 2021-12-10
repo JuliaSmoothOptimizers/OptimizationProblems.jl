@@ -14,7 +14,7 @@
 export hs66
 
 "HS66 model"
-function hs66(args...)
+function hs66(args...; kwargs...)
   nlp = Model()
   x0 = [0, 1.05, 2.9]
   uvar = [100, 100, 10]

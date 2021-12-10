@@ -14,7 +14,7 @@
 export hs32
 
 "HS32 model"
-function hs32(args...)
+function hs32(args...; kwargs...)
   nlp = Model()
   x0 = [0.1, 0.7, 0.2]
   @variable(nlp, x[i = 1:3] ≥ 0, start = x0[i])

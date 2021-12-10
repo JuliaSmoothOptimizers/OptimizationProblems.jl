@@ -13,7 +13,7 @@
 export zangwil3
 
 "Zangwil3 Model"
-function zangwil3(args...)
+function zangwil3(args...; kwargs...)
   nlp = Model()
 
   x0 = [100.0, -1.0, 2.5]

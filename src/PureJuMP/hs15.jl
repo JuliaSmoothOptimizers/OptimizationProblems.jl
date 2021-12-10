@@ -14,7 +14,7 @@
 export hs15
 
 "HS15 model"
-function hs15(args...)
+function hs15(args...; kwargs...)
   nlp = Model()
   x0 = [-2, 1]
   uvar = [0.5, Inf]

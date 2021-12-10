@@ -14,7 +14,7 @@
 export hs19
 
 "HS19 model"
-function hs19(args...)
+function hs19(args...; kwargs...)
   nlp = Model()
   x0 = [20.1, 5.84]
   lvar = [13, 0]

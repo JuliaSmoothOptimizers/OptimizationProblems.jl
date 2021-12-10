@@ -14,7 +14,7 @@
 export hs101
 
 "HS101 model"
-function hs101(args...)
+function hs101(args...; kwargs...)
   nlp = Model()
   a = -0.25
   lvar = [0.1 * ones(6); 0.01]
