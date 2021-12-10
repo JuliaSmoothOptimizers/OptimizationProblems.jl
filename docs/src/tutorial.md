@@ -17,10 +17,10 @@ jump_model = zangwil3()
 ```
 Note that some of these problems are scalable, i.e., their size depends on some parameters that can be modified.
 ``` @example ex1
-jump_model_12 = woods(12)
+jump_model_12 = woods(n=12)
 ```
 ``` @example ex1
-jump_model_120 = woods(120)
+jump_model_120 = woods(n=120)
 ```
 These problems can be converted as [NLPModels](https://github.com/JuliaSmoothOptimizers/NLPModels.jl) via [NLPModelsJuMP](https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl) to facilitate evaluating
 objective, constraints and their derivatives as we will see in the benchmark section.
