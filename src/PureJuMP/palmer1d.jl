@@ -13,7 +13,7 @@
 export palmer1d
 
 "A linear least squares problem arising from chemical kinetics."
-function palmer1d(args...)
+function palmer1d(args...; kwargs...)
   nlp = Model()
 
   @variable(nlp, x[j = 1:7], start = 1.0)

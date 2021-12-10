@@ -14,7 +14,7 @@
 export hs47
 
 "HS47 model"
-function hs47(args...)
+function hs47(args...; kwargs...)
   nlp = Model()
   x0 = [2, sqrt(2), -1, 2 - sqrt(2), 0.5]
   @variable(nlp, x[i = 1:5], start = x0[i])

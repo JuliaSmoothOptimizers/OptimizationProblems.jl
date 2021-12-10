@@ -14,7 +14,7 @@
 export hs52
 
 "HS52 model"
-function hs52(args...)
+function hs52(args...; kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:5], start = 2)
 

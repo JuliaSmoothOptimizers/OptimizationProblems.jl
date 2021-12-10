@@ -14,7 +14,7 @@
 export hs81
 
 "HS81 model"
-function hs81(args...)
+function hs81(args...; kwargs...)
   nlp = Model()
   x0 = [-2, 2, 2, -1, -1]
   lvar = [-2.3, -2.3, -3.2, -3.2, -3.2]

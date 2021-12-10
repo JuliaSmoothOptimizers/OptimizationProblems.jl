@@ -14,7 +14,7 @@
 export hs8
 
 "HS8 model"
-function hs8(args...)
+function hs8(args...; kwargs...)
   nlp = Model()
   x0 = [2.0, 1.0]
   @variable(nlp, x[i = 1:2], start = x0[i])

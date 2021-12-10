@@ -8,7 +8,7 @@
 export Dus2_3
 
 "Univariate unimodal minimization problem Dus2_3"
-function Dus2_3(args...)
+function Dus2_3(args...; kwargs...)
   nlp = Model()
 
   @variable(nlp, x, start = -2.0)

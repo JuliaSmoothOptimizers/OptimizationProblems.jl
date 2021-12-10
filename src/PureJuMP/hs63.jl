@@ -14,7 +14,7 @@
 export hs63
 
 "HS63 model"
-function hs63(args...)
+function hs63(args...; kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:3] ≥ 0, start = 2)
 

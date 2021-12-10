@@ -12,7 +12,7 @@
 export meyer3
 
 "Meyer function"
-function meyer3(args...)
+function meyer3(args...; kwargs...)
   nlp = Model()
 
   x0 = [0.02, 4000, 250]

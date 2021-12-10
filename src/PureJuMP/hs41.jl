@@ -14,7 +14,7 @@
 export hs41
 
 "HS41 model"
-function hs41(args...)
+function hs41(args...; kwargs...)
   nlp = Model()
   uvar = [1, 1, 1, 2]
   @variable(nlp, 0 ≤ x[i = 1:4] ≤ uvar[i], start = 2)

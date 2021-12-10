@@ -14,7 +14,7 @@
 export hs105
 
 "HS105 model"
-function hs105(args...)
+function hs105(args...; kwargs...)
   nlp = Model()
   x0 = [0.1, 0.2, 100, 125, 175, 11.2, 13.2, 15.8]
   lvar = [0.001, 0.001, 100, 130, 170, 5, 5, 5]

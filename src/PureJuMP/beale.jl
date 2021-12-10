@@ -13,7 +13,7 @@
 export beale
 
 "Beale Model"
-function beale(args...)
+function beale(args...; kwargs...)
   nlp = Model()
 
   @variable(nlp, x[i = 1:2], start = 1.0)

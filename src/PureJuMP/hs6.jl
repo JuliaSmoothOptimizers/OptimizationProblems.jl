@@ -14,7 +14,7 @@
 export hs6
 
 "HS6 model"
-function hs6(args...)
+function hs6(args...; kwargs...)
   nlp = Model()
   x0 = [-1.2, 1]
   @variable(nlp, x[i = 1:2], start = x0[i])

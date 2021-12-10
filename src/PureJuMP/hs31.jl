@@ -14,7 +14,7 @@
 export hs31
 
 "HS31 model"
-function hs31(args...)
+function hs31(args...; kwargs...)
   nlp = Model()
   lvar = [-10, 1, -10]
   uvar = [10, 10, 1]

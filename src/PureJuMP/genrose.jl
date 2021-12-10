@@ -63,4 +63,4 @@ function genrose(n::Int = default_nvar)
 end
 
 "Classic Rosenbrock problem"
-rosenbrock(args...) = genrose(2)
+rosenbrock(args...; kwargs...) = genrose(2)

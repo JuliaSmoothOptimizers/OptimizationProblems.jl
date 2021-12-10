@@ -14,7 +14,7 @@
 export hs56
 
 "HS56 model"
-function hs56(args...)
+function hs56(args...; kwargs...)
   nlp = Model()
   a = asin(sqrt(1 / 4.2))
   b = asin(sqrt(5 / 7.2))

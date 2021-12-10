@@ -14,7 +14,7 @@
 export hs13
 
 "HS13 model"
-function hs13(args...)
+function hs13(args...; kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:2] ≥ 0, start = -2)
 

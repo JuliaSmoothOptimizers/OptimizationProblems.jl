@@ -14,7 +14,7 @@
 export hs3
 
 "HS3 model"
-function hs3(args...)
+function hs3(args...; kwargs...)
   nlp = Model()
   x0 = [10, 1]
   lvar = [-Inf, 0]

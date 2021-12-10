@@ -14,7 +14,7 @@
 export hs23
 
 "HS23 model"
-function hs23(args...)
+function hs23(args...; kwargs...)
   nlp = Model()
   x0 = [3, 1]
   @variable(nlp, -50 ≤ x[i = 1:2] ≤ 50, start = x0[i])

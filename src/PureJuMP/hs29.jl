@@ -14,7 +14,7 @@
 export hs29
 
 "HS29 model"
-function hs29(args...)
+function hs29(args...; kwargs...)
   nlp = Model()
   lvar = [-Inf, -Inf, -Inf]
   uvar = [Inf, Inf, Inf]

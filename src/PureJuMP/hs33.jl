@@ -14,7 +14,7 @@
 export hs33
 
 "HS33 model"
-function hs33(args...)
+function hs33(args...; kwargs...)
   nlp = Model()
   x0 = [0, 0, 3]
   uvar = [Inf, Inf, 5]

@@ -14,7 +14,7 @@
 export hs54
 
 "HS54 model"
-function hs54(args...)
+function hs54(args...; kwargs...)
   nlp = Model()
   x0 = [6e3, 1.5, 4e6, 2, 3e-3, 5e7]
   lvar = [0, -10, 0, 0, -1, 0]

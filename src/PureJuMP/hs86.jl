@@ -14,7 +14,7 @@
 export hs86
 
 "HS86 model"
-function hs86(args...)
+function hs86(args...; kwargs...)
   nlp = Model()
   x0 = [0, 0, 0, 0, 1]
   @variable(nlp, x[i = 1:5] ≥ 0, start = x0[i])

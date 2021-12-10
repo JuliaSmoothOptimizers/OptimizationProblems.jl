@@ -11,7 +11,7 @@
 export cliff
 
 "The 'cliff problem' in 2 variables"
-function cliff(args...)
+function cliff(args...; kwargs...)
   nlp = Model()
 
   x0 = [0.0, -1]

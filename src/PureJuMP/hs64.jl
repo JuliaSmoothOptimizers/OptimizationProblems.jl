@@ -14,7 +14,7 @@
 export hs64
 
 "HS64 model"
-function hs64(args...)
+function hs64(args...; kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:3] ≥ 1e-5, start = 1)
 

@@ -14,7 +14,7 @@
 export hs72
 
 "HS72 model"
-function hs72(args...)
+function hs72(args...; kwargs...)
   nlp = Model()
   uvar = [(5 - i) * 1e5 for i = 1:4]
   @variable(nlp, 0.001 ≤ x[i = 1:4] ≤ uvar[i], start = 1)
