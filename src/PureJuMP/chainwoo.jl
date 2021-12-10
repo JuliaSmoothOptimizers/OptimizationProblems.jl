@@ -22,7 +22,7 @@
 export chainwoo, woods
 
 "The chained Woods function in size `n`, a variant on the Woods function"
-function chainwoo(n::Int = default_nvar)
+function chainwoo(args...; n::Int = default_nvar, kwargs...)
   (n % 4 == 0) || @warn("chainwoo: number of variables adjusted to be a multiple of 4")
   n = 4 * max(1, div(n, 4))
 
@@ -54,4 +54,4 @@ function chainwoo(n::Int = default_nvar)
 end
 
 "The Woods function."
-woods(args...) = chainwoo(4)
+woods(args...; kwargs...) = chainwoo(4)

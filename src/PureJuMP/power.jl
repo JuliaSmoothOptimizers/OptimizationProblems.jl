@@ -12,7 +12,7 @@
 export power
 
 "The Power problem by Oren."
-function power(n::Int = default_nvar)
+function power(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
 
   @variable(nlp, x[i = 1:n], start = 1.0)

@@ -22,7 +22,7 @@
 
 export morebv
 
-function morebv(n::Int = default_nvar)
+function morebv(args...; n::Int = default_nvar, kwargs...)
 
   # indices in Luksan go from 0 to n+1
   n < 2 && @warn("morebv: number of variables must be ≥ 4")

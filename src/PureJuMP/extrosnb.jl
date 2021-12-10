@@ -22,7 +22,7 @@
 
 export extrosnb
 
-function extrosnb(n::Int = default_nvar)
+function extrosnb(args...; n::Int = default_nvar, kwargs...)
   n < 2 && @warn("extrosnb: number of variables must be ≥ 2")
   n = max(2, n)
 

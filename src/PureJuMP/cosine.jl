@@ -16,7 +16,7 @@
 export cosine
 
 "The cosine function in size `n`"
-function cosine(n::Int = default_nvar)
+function cosine(args...; n::Int = default_nvar, kwargs...)
   n < 2 && @warn("cosine: number of variables must be ≥ 2")
   n = max(2, n)
 

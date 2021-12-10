@@ -24,7 +24,7 @@
 export engval1
 
 "The Engval1 model in size `n`"
-function engval1(n::Int = default_nvar)
+function engval1(args...; n::Int = default_nvar, kwargs...)
   n < 2 && @warn("engval1: number of variables must be ≥ 2")
   n = max(2, n)
 

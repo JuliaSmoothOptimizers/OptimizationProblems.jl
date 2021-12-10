@@ -19,7 +19,7 @@
 export sinquad
 
 "Another function with nontrivial groups and repetitious elements in size 'n' "
-function sinquad(n::Int = default_nvar)
+function sinquad(args...; n::Int = default_nvar, kwargs...)
   n < 3 && @warn("sinquad: number of variables must be ≥ 3")
   n = max(3, n)
 

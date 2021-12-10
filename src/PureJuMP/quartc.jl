@@ -11,7 +11,7 @@
 export quartc
 
 "A simple quartic function."
-function quartc(n::Int = default_nvar)
+function quartc(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
 
   @variable(nlp, x[i = 1:n], start = 2.0)

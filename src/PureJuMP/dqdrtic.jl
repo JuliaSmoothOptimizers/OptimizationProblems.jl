@@ -11,7 +11,7 @@
 export dqdrtic
 
 "Diagonal quadratic problem"
-function dqdrtic(n::Int = default_nvar)
+function dqdrtic(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
 
   @variable(nlp, x[j = 1:n], start = 3.0)

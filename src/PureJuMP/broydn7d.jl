@@ -45,7 +45,7 @@
 export broydn7d
 
 "Broyden 7-diagonal model in size `n`"
-function broydn7d(n::Int = default_nvar, p::Float64 = 7 / 3)
+function broydn7d(args...; n::Int = default_nvar, p::Float64 = 7 / 3, kwargs...)
   mod(n, 2) > 0 && @warn("broydn7d: number of variables adjusted to be even")
   n2 = max(1, div(n, 2))
   n = 2 * n2

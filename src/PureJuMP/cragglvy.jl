@@ -25,7 +25,7 @@
 export cragglvy
 
 "The extented Cragg and Levy function in size `n`"
-function cragglvy(n::Int = default_nvar)
+function cragglvy(args...; n::Int = default_nvar, kwargs...)
   n < 2 && @warn("cragglvy: number of variables must be ≥ 2")
   n = max(2, n)
 

@@ -27,7 +27,7 @@
 export powellsg
 
 "The extended Powell singular problem in size 'n' "
-function powellsg(n::Int = default_nvar)
+function powellsg(args...; n::Int = default_nvar, kwargs...)
   (n % 4 == 0) || @warn("powellsg: number of variables adjusted to be a multiple of 4")
   n = 4 * max(1, div(n, 4))
 

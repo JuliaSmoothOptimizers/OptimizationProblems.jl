@@ -23,11 +23,13 @@ export dixmaanm, dixmaann, dixmaano, dixmaanp
 
 "Dixon-Maany function in size `n` (version M by default)"
 function dixmaanm(
-  n::Int = default_nvar;
+  args...;
+  n::Int = default_nvar,
   α::Float64 = 1.0,
   β::Float64 = 0.0,
   γ::Float64 = 0.125,
   δ::Float64 = 0.125,
+  kwargs...,
 )
   (n % 3 == 0) || @warn("dixmaan: number of variables adjusted to be a multiple of 3")
   m = max(1, div(n, 3))
@@ -51,10 +53,10 @@ function dixmaanm(
 end
 
 "Dixon-Maany function in size `n` (version N)"
-dixmaann(n::Int = default_nvar) = dixmaanm(n, α = 1.0, β = 0.0625, γ = 0.0625, δ = 0.0625)
+dixmaann(args...; n::Int = default_nvar, kwargs...) = dixmaanm(n = n, α = 1.0, β = 0.0625, γ = 0.0625, δ = 0.0625)
 
 "Dixon-Maany function in size `n` (version O)"
-dixmaano(n::Int = default_nvar) = dixmaanm(n, α = 1.0, β = 0.125, γ = 0.125, δ = 0.125)
+dixmaano(args...; n::Int = default_nvar, kwargs...) = dixmaanm(n = n, α = 1.0, β = 0.125, γ = 0.125, δ = 0.125)
 
 "Dixon-Maany function in size `n` (version P)"
-dixmaanp(n::Int = default_nvar) = dixmaanm(n, α = 1.0, β = 0.26, γ = 0.26, δ = 0.26)
+dixmaanp(args...; n::Int = default_nvar, kwargs...) = dixmaanm(n = n, α = 1.0, β = 0.26, γ = 0.26, δ = 0.26)
