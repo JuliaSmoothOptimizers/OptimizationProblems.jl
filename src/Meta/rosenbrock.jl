@@ -1,6 +1,6 @@
 rosenbrock_meta = Dict(
   :nvar => 2,
-  :variable_nvar => true,
+  :variable_nvar => false,
   :ncon => 0,
   :variable_ncon => false,
   :minimize => true,
@@ -17,7 +17,7 @@ rosenbrock_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_rosenbrock_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_rosenbrock_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_rosenbrock_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_rosenbrock_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_rosenbrock_nnln(; n::Integer = default_nvar, kwargs...) = 0
