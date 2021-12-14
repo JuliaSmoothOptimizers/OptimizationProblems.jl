@@ -11,8 +11,8 @@ AMPGO13_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :unconstrained,
-  :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => -1.0099997127186968,
+  :best_known_lower_bound => -1.5874010519681994, # attained at x=1/sqrt(2)
+  :best_known_upper_bound => -1.5874010519681994,
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
