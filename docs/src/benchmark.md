@@ -13,7 +13,11 @@ We select the problems from `PureJuMP` submodule of `OptimizationProblems` conve
 ``` @example ex1
 problems = (MathOptNLPModel(eval(problem)(), name=string(problem)) for problem ∈ filter(x -> x != :PureJuMP, names(OptimizationProblems.PureJuMP)))
 ```
-Obviously, the same could be achieved using `OptimizationProblems.ADNLPProblems`.
+
+Obviously, the same could be achieved using `OptimizationProblems.ADNLPProblems`. For example, you can write the following if you want probelms from `OptimizationProblems.ADNLPProblems`:
+``` @example ex1
+problems = (eval(problem)() for problem ∈ setdiff(names(OptimizationProblems.ADNLPProblems), [:ADNLPProblems, :clplatea, :clplateb, :clplatec, :fminsrf2]))
+```
 
 We also define a dictionary of solvers that will be used for our benchmark. We consider here `JSOSolvers.lbfgs` and `JSOSolvers.trunk`.
 ``` @example ex1
