@@ -16,7 +16,8 @@ problems = (MathOptNLPModel(eval(problem)(), name=string(problem)) for problem �
 
 The same can be achieved using `OptimizationProblems.ADNLPProblems` as follows:
 ``` @example ex1
-problems = (eval(problem)() for problem ∈ setdiff(names(OptimizationProblems.ADNLPProblems), [:ADNLPProblems, :clplatea, :clplateb, :clplatec, :fminsrf2]))
+using ADNLPModels
+ad_problems = (eval(problem)() for problem ∈ setdiff(names(OptimizationProblems.ADNLPProblems), [:ADNLPProblems, :clplatea, :clplateb, :clplatec, :fminsrf2]))
 ```
 
 We also define a dictionary of solvers that will be used for our benchmark. We consider here `JSOSolvers.lbfgs` and `JSOSolvers.trunk`.
