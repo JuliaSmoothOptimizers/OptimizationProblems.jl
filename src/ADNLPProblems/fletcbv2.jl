@@ -9,5 +9,5 @@ function fletcbv2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
            h^2 * sum(2 * x[i] + cos(x[i]) for i = 1:n) - x[n]
   end
   x0 = T.([(i / (n + 1)) for i = 1:n])
-  return ADNLPModels.ADNLPModel(f, x0, name = "fletcbv2_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "fletcbv2"; kwargs...)
 end

@@ -7,5 +7,5 @@ function mgh01feas(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs.
   lcon = zeros(T, 2)
   ucon = zeros(T, 2)
 
-  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "mgh01feas_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "mgh01feas"; kwargs...)
 end

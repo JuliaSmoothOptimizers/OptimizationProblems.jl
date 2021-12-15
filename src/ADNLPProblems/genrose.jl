@@ -8,7 +8,7 @@ function genrose(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
            sum((x[i] - 1)^2 for i = 1:(n - 1))
   end
   x0 = T.([i / (n + 1) for i = 1:n])
-  return ADNLPModels.ADNLPModel(f, x0, name = "genrose_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "genrose"; kwargs...)
 end
 
 rosenbrock(args...; kwargs...) = genrose(args..., n = 2; kwargs...)

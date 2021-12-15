@@ -8,5 +8,5 @@ function nondquar(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
 
   x0 = ones(T, n)
   x0[2 * collect(1:div(n, 2))] .= -one(T)
-  return ADNLPModels.ADNLPModel(f, x0, name = "nondquar_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "nondquar"; kwargs...)
 end

@@ -10,5 +10,5 @@ function freuroth(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   x0 = zeros(T, n)
   x0[1] = one(T) / 2
   x0[2] = -2 * one(T)
-  return ADNLPModels.ADNLPModel(f, x0, name = "freuroth_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "freuroth"; kwargs...)
 end

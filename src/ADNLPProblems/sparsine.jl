@@ -17,5 +17,5 @@ function sparsine(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
     )
   end
   x0 = ones(T, n) / 2
-  return ADNLPModels.ADNLPModel(f, x0, name = "sparsine_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "sparsine"; kwargs...)
 end

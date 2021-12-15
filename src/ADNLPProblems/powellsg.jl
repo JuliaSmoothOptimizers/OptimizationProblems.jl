@@ -16,5 +16,5 @@ function powellsg(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   x0[4 * (collect(1:div(n, 4))) .- 3] .= 3
   x0[4 * (collect(1:div(n, 4))) .- 2] .= -1
   x0[4 * (collect(1:div(n, 4)))] .= 1
-  return ADNLPModels.ADNLPModel(f, x0, name = "powellsg_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "powellsg"; kwargs...)
 end

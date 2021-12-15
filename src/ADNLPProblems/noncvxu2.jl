@@ -10,5 +10,5 @@ function noncvxu2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
     )
   end
   x0 = T.([i for i = 1:n])
-  return ADNLPModels.ADNLPModel(f, x0, name = "noncvxu2_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "noncvxu2"; kwargs...)
 end

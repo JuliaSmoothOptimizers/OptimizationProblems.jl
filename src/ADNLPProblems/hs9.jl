@@ -7,7 +7,7 @@ function hs9(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) wh
     x -> [4 * x[1] - 3 * x[2]],
     zeros(T, 1),
     zeros(T, 1),
-    name = "hs9_autodiff";
+    name = "hs9";
     kwargs...,
   )
 end

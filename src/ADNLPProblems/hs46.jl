@@ -7,7 +7,7 @@ function hs46(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x -> [(x[1]^2) * x[4] + sin(x[4] - x[5]) - 1; x[2] + (x[3]^4) * (x[4]^2) - 2],
     zeros(T, 2),
     zeros(T, 2),
-    name = "hs46_autodiff";
+    name = "hs46";
     kwargs...,
   )
 end

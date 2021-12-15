@@ -7,5 +7,5 @@ function genrose_nash(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwar
     return 1 + 100 * sum((x[i] - x[i - 1]^2)^2 for i = 2:n) + sum((1 - x[i])^2 for i = 2:n)
   end
   x0 = T.([(i / (n + 1)) for i = 1:n])
-  return ADNLPModels.ADNLPModel(f, x0, name = "genrose_nash_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "genrose_nash"; kwargs...)
 end

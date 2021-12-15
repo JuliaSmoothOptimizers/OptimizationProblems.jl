@@ -7,5 +7,5 @@ function linsv(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   lcon = T[3; 1]
   ucon = T[Inf; Inf]
 
-  return ADNLPModels.ADNLPModel(f, x0, con, lcon, ucon, name = "linsv_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, con, lcon, ucon, name = "linsv"; kwargs...)
 end

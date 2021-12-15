@@ -7,7 +7,7 @@ function hs51(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x -> [x[1] + 3 * x[2]; x[3] + x[4] - 2 * x[5]; x[2] - x[5]],
     T[4, 0, 0],
     T[4, 0, 0],
-    name = "hs51_autodiff";
+    name = "hs51";
     kwargs...,
   )
 end

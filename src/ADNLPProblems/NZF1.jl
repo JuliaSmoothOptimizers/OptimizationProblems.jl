@@ -22,5 +22,5 @@ function NZF1(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     ) + sum((x[i + 6] - x[i + 19])^2 for i = 1:(l - 1))
   end
   x0 = ones(T, n)
-  return ADNLPModels.ADNLPModel(f, x0, name = "NZF1_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "NZF1"; kwargs...)
 end
