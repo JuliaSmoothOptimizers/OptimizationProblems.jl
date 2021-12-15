@@ -11,5 +11,5 @@ function genhumps(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
 
   x0 = -T(506.2) * ones(T, n)
   x0[1] = -506
-  return ADNLPModels.ADNLPModel(f, x0, name = "genhumps_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "genhumps"; kwargs...)
 end

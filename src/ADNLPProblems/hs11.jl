@@ -7,5 +7,5 @@ function hs11(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   lcon = -T[Inf]
   ucon = T[0.0]
 
-  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "hs11_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "hs11"; kwargs...)
 end

@@ -13,5 +13,5 @@ function cragglvy(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
     )
   end
   x0 = vcat(1, 2 * ones(T, n - 1))
-  return ADNLPModels.ADNLPModel(f, x0, name = "cragglvy_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "cragglvy"; kwargs...)
 end

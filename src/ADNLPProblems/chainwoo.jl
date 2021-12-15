@@ -14,5 +14,5 @@ function chainwoo(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
     )
   end
   x0 = vcat([-3, -1, -3, -1], -2 * ones(T, n - 4))
-  return ADNLPModels.ADNLPModel(f, x0, name = "chainwoo_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "chainwoo"; kwargs...)
 end

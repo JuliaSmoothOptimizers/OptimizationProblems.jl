@@ -7,7 +7,7 @@ function hs28(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x -> [x[1] + 2 * x[2] + 3 * x[3]],
     ones(T, 1),
     ones(T, 1),
-    name = "hs28_autodiff";
+    name = "hs28";
     kwargs...,
   )
 end

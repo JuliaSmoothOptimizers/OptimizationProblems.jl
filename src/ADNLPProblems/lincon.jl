@@ -23,5 +23,5 @@ function lincon(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
   lcon = T[22; 1; -Inf; -11; -d; -b; -Inf * ones(3)]
   ucon = T[22; Inf; 16; 9; -d; Inf * ones(2); c]
 
-  return ADNLPModels.ADNLPModel(f, x0, con, lcon, ucon, name = "lincon_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, con, lcon, ucon, name = "lincon"; kwargs...)
 end

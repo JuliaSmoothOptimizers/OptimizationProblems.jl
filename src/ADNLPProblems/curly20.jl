@@ -13,5 +13,5 @@ function curly20(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
     )
   end
   x0 = T[1.0e-4 * i / (n + 1) for i = 1:n]
-  return ADNLPModels.ADNLPModel(f, x0, name = "curly20_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "curly20"; kwargs...)
 end

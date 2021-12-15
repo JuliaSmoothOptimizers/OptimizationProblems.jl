@@ -7,7 +7,7 @@ function hs27(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x -> [x[1] + x[3]^2 + 1],
     zeros(T, 1),
     zeros(T, 1),
-    name = "hs27_autodiff";
+    name = "hs27";
     kwargs...,
   )
 end

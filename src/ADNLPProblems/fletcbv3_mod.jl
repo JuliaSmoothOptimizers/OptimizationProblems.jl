@@ -10,5 +10,5 @@ function fletcbv3_mod(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwar
            p * sum(100 * (1 + (2 / h^2)) * sin(x[i] / 100) + (1 / h^2) * cos(x[i]) for i = 1:n)
   end
   x0 = T.([(i / (n + 1)) for i = 1:n])
-  return ADNLPModels.ADNLPModel(f, x0, name = "fletcbv3_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "fletcbv3"; kwargs...)
 end

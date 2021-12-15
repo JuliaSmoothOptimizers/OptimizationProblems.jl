@@ -10,5 +10,5 @@ function bdqrtic(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
     )
   end
   x0 = ones(T, n)
-  return ADNLPModels.ADNLPModel(f, x0, name = "bdqrtic_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "bdqrtic"; kwargs...)
 end

@@ -7,7 +7,7 @@ function hs77(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x -> [x[1]^2 * x[4] + sin(x[4] - x[5]) - 2 * sqrt(2), x[2] + x[3]^4 * x[4]^2 - 8 - sqrt(2)],
     zeros(T, 2),
     zeros(T, 2),
-    name = "hs77_autodiff";
+    name = "hs77";
     kwargs...,
   )
 end

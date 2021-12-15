@@ -11,5 +11,5 @@ function brownden(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
     )
   end
 
-  return ADNLPModels.ADNLPModel(f, x0, name = "brownden_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "brownden"; kwargs...)
 end

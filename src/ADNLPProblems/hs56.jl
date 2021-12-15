@@ -20,7 +20,7 @@ function hs56(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     ],
     zeros(T, 4),
     zeros(T, 4),
-    name = "hs56_autodiff";
+    name = "hs56";
     kwargs...,
   )
 end

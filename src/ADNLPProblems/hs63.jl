@@ -9,7 +9,7 @@ function hs63(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x -> [8 * x[1] + 14 * x[2] + 7 * x[3]; x[1]^2 + x[2]^2 + x[3]^2 - 25],
     T[56, 0],
     T[56, 0],
-    name = "hs63_autodiff";
+    name = "hs63";
     kwargs...,
   )
 end

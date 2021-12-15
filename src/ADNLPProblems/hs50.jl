@@ -11,7 +11,7 @@ function hs50(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     ],
     6 * ones(T, 3),
     6 * ones(T, 3),
-    name = "hs50_autodiff";
+    name = "hs50";
     kwargs...,
   )
 end

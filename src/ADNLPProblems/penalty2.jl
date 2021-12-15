@@ -16,5 +16,5 @@ function penalty2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
            (sum((n - j + 1) * x[j]^2 for j = 1:n) - 1)^2
   end
   x0 = ones(T, n) / 2
-  return ADNLPModels.ADNLPModel(f, x0, name = "penalty2_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "penalty2"; kwargs...)
 end

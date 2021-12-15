@@ -10,5 +10,5 @@ function tointgss(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
     )
   end
   x0 = 3 * ones(T, n)
-  return ADNLPModels.ADNLPModel(f, x0, name = "tointgss_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "tointgss"; kwargs...)
 end

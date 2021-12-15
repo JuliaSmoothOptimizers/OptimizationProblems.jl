@@ -7,7 +7,7 @@ function hs42(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x -> [x[1]; x[3]^2 + x[4]^2 - 2],
     T[2, 0],
     T[2, 0],
-    name = "hs42_autodiff";
+    name = "hs42";
     kwargs...,
   )
 end

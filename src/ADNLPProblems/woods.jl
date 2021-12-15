@@ -18,5 +18,5 @@ function woods(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   #x0[2 * (collect(1:div(n, 2)))] .= -one(T)
   x0 = -2 * ones(T, n)
 
-  return ADNLPModels.ADNLPModel(f, x0, name = "woods_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "woods"; kwargs...)
 end

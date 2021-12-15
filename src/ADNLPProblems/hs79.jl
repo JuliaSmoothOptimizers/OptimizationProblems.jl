@@ -11,7 +11,7 @@ function hs79(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     ],
     zeros(T, 3),
     zeros(T, 3),
-    name = "hs79_autodiff";
+    name = "hs79";
     kwargs...,
   )
 end

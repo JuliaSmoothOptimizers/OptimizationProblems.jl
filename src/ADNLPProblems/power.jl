@@ -6,5 +6,5 @@ function power(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     return (sum((i * x[i]^2) for i = 1:n))^2
   end
   x0 = ones(T, n)
-  return ADNLPModels.ADNLPModel(f, x0, name = "power_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "power"; kwargs...)
 end

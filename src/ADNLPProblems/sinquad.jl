@@ -10,5 +10,5 @@ function sinquad(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
            sum((sin(x[i] - x[n]) - x[1]^2 + x[i]^2)^2 for i = 2:(n - 1))
   end
   x0 = ones(T, n) / 10
-  return ADNLPModels.ADNLPModel(f, x0, name = "sinquad_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "sinquad"; kwargs...)
 end

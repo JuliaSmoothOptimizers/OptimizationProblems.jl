@@ -13,5 +13,5 @@ function penalty3(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
            (sum(x[i]^2 - n for i = 1:n))^2
   end
   x0 = T.([i / (n + 1) for i = 1:n])
-  return ADNLPModels.ADNLPModel(f, x0, name = "penalty3_autodiff"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "penalty3"; kwargs...)
 end
