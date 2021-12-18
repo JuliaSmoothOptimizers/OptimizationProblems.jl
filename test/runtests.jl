@@ -43,7 +43,6 @@ for prob in names(PureJuMP)
   model = prob_fn(n = ndef)
 
   prob == :hs61 && continue #because nlpmodelsjump is not working here https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl/issues/84
-  prob in [:clplatea, :clplateb, :clplatec, :fminsrf2] && continue # issue because variable is a matrix
 
   nlp_jump = MathOptNLPModel(model)
   nlp_ad = eval(Meta.parse("ADNLPProblems.$(prob)()"))
@@ -72,7 +71,6 @@ end
 
 for prob in names(ADNLPProblems)
   prob == :ADNLPProblems && continue
-  prob in [:clplatea, :clplateb, :clplatec, :fminsrf2] && continue # issue because variable is a matrix
 
   println(prob)
 
