@@ -55,10 +55,13 @@ function dixmaani(
 end
 
 "Dixon-Maany function in size `n` (version J)"
-dixmaanj(args...; n::Int = default_nvar, kwargs...) = dixmaani(n = n, α = 1.0, β = 0.0625, γ = 0.0625, δ = 0.0625)
+dixmaanj(args...; n::Int = default_nvar, kwargs...) =
+  dixmaani(n = n, α = 1.0, β = 0.0625, γ = 0.0625, δ = 0.0625)
 
 "Dixon-Maany function in size `n` (version K)"
-dixmaank(args...; n::Int = default_nvar, kwargs...) = dixmaani(n = n, α = 1.0, β = 0.125, γ = 0.125, δ = 0.125)
+dixmaank(args...; n::Int = default_nvar, kwargs...) =
+  dixmaani(n = n, α = 1.0, β = 0.125, γ = 0.125, δ = 0.125)
 
 "Dixon-Maany function in size `n` (version L)"
-dixmaanl(args...; n::Int = default_nvar, kwargs...) = dixmaani(n = n, α = 1.0, β = 0.26, γ = 0.26, δ = 0.26)
+dixmaanl(args...; n::Int = default_nvar, kwargs...) =
+  dixmaani(n = n, α = 1.0, β = 0.26, γ = 0.26, δ = 0.26)
