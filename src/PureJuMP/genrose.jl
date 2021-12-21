@@ -34,6 +34,17 @@
 #
 #   classification SUR2-AN-V-0
 #
+#   problem 36 in
+#   L. Luksan, C. Matonoha and J. Vlcek
+#   Modified CUTE problems for sparse unconstrained optimization,
+#   Technical Report 1081,
+#   Institute of Computer Science,
+#   Academy of Science of the Czech Republic
+#
+#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
+#
+#   classification SUR2-AN-V-0
+#
 # D. Orban, Montreal, 08/2015.
 
 # Note: difference from CUTEst is due to the constant 1.0,

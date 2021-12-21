@@ -1,6 +1,6 @@
 # Errin Rosenbrock - modified function.
 
-#   problem 27 in
+#   problem 28 in
 #   L. Luksan, C. Matonoha and J. Vlcek
 #   Modified CUTE problems for sparse unconstrained optimization,
 #   Technical Report 1081,
