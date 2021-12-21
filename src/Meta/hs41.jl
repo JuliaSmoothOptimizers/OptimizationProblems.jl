@@ -19,7 +19,7 @@ hs41_meta = Dict(
 )
 get_hs41_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs41_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs41_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs41_nnln(; n::Integer = default_nvar, kwargs...) = 1
+get_hs41_nlin(; n::Integer = default_nvar, kwargs...) = 1
+get_hs41_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_hs41_nequ(; n::Integer = default_nvar, kwargs...) = 1
 get_hs41_nineq(; n::Integer = default_nvar, kwargs...) = 0

@@ -19,5 +19,5 @@ function hs73(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   end
   lcon = T[1, 5, 0]
   ucon = vcat(one(T), T(Inf), T(Inf))
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs73"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs73", lin = [1, 2]; kwargs...)
 end

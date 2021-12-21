@@ -19,7 +19,7 @@ hs21_meta = Dict(
 )
 get_hs21_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs21_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs21_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs21_nnln(; n::Integer = default_nvar, kwargs...) = 1
+get_hs21_nlin(; n::Integer = default_nvar, kwargs...) = 1
+get_hs21_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_hs21_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_hs21_nineq(; n::Integer = default_nvar, kwargs...) = 1

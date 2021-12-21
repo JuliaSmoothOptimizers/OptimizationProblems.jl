@@ -40,5 +40,5 @@ function hs86(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   end
   lcon = T[-40, -2, -0.25, -4, -4, -1, -40, -60, 5, 1]
   ucon = T(Inf) * ones(T, 10)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs86"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs86", lin = 1:10; kwargs...)
 end

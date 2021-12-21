@@ -19,7 +19,7 @@ hs114_meta = Dict(
 )
 get_hs114_nvar(; n::Integer = default_nvar, kwargs...) = 10
 get_hs114_ncon(; n::Integer = default_nvar, kwargs...) = 11
-get_hs114_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs114_nnln(; n::Integer = default_nvar, kwargs...) = 11
+get_hs114_nlin(; n::Integer = default_nvar, kwargs...) = 5
+get_hs114_nnln(; n::Integer = default_nvar, kwargs...) = 6
 get_hs114_nequ(; n::Integer = default_nvar, kwargs...) = 3
 get_hs114_nineq(; n::Integer = default_nvar, kwargs...) = 8

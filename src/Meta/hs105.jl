@@ -19,7 +19,7 @@ hs105_meta = Dict(
 )
 get_hs105_nvar(; n::Integer = default_nvar, kwargs...) = 8
 get_hs105_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs105_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs105_nnln(; n::Integer = default_nvar, kwargs...) = 1
+get_hs105_nlin(; n::Integer = default_nvar, kwargs...) = 1
+get_hs105_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_hs105_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_hs105_nineq(; n::Integer = default_nvar, kwargs...) = 1

@@ -18,5 +18,5 @@ function hs62(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   end
   lcon = ones(T, 1)
   ucon = ones(T, 1)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs62"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs62", lin = [1]; kwargs...)
 end

@@ -14,5 +14,5 @@ function hs21(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   end
   lcon = 10 * ones(T, 1)
   ucon = T(Inf) * ones(T, 1)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs21"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs21", lin = [1]; kwargs...)
 end

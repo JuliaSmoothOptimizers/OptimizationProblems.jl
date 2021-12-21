@@ -19,7 +19,7 @@ hs42_meta = Dict(
 )
 get_hs42_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs42_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs42_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs42_nnln(; n::Integer = default_nvar, kwargs...) = 2
+get_hs42_nlin(; n::Integer = default_nvar, kwargs...) = 1
+get_hs42_nnln(; n::Integer = default_nvar, kwargs...) = 1
 get_hs42_nequ(; n::Integer = default_nvar, kwargs...) = 2
 get_hs42_nineq(; n::Integer = default_nvar, kwargs...) = 0

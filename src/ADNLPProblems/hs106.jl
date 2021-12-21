@@ -21,5 +21,5 @@ function hs106(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   end
   lcon = vcat(-ones(T, 3), zeros(T, 3))
   ucon = T(Inf) * ones(T, 6)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs106"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs106", lin = [1, 2, 3]; kwargs...)
 end

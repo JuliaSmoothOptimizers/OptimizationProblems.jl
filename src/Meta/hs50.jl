@@ -19,7 +19,7 @@ hs50_meta = Dict(
 )
 get_hs50_nvar(; n::Integer = default_nvar, kwargs...) = 5
 get_hs50_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs50_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs50_nnln(; n::Integer = default_nvar, kwargs...) = 3
+get_hs50_nlin(; n::Integer = default_nvar, kwargs...) = 3
+get_hs50_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_hs50_nequ(; n::Integer = default_nvar, kwargs...) = 3
 get_hs50_nineq(; n::Integer = default_nvar, kwargs...) = 0
