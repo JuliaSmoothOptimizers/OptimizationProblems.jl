@@ -19,7 +19,7 @@
 #
 # D. Orban, Montreal, 08/2015.
 
-export chainwoo, woods
+export chainwoo
 
 "The chained Woods function in size `n`, a variant on the Woods function"
 function chainwoo(args...; n::Int = default_nvar, kwargs...)
@@ -52,6 +52,3 @@ function chainwoo(args...; n::Int = default_nvar, kwargs...)
 
   return nlp
 end
-
-"The Woods function."
-woods(args...; kwargs...) = chainwoo(4)
