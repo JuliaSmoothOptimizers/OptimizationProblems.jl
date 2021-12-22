@@ -19,7 +19,7 @@ hs23_meta = Dict(
 )
 get_hs23_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs23_ncon(; n::Integer = default_nvar, kwargs...) = 5
-get_hs23_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs23_nnln(; n::Integer = default_nvar, kwargs...) = 5
+get_hs23_nlin(; n::Integer = default_nvar, kwargs...) = 1
+get_hs23_nnln(; n::Integer = default_nvar, kwargs...) = 4
 get_hs23_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_hs23_nineq(; n::Integer = default_nvar, kwargs...) = 5

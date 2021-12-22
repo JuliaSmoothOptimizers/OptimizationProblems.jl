@@ -64,6 +64,7 @@ for prob in names(PureJuMP)
     @test nlp_ad.meta.ucon == nlp_jump.meta.ucon
     @test isapprox(cons(nlp_ad, x1), cons(nlp_jump, x1))
     @test isapprox(cons(nlp_ad, x2), cons(nlp_jump, x2))
+    @test nlp_jump.meta.lin == nlp_ad.meta.lin
   end
 
   meta_sanity_check(prob, nlp_ad)

@@ -21,5 +21,5 @@ function hs55(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   end
   lcon = T[6, 3, 2, 1, 2, 2]
   ucon = T[6, 3, 2, 1, 2, 2]
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs55"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs55", lin = 1:6; kwargs...)
 end

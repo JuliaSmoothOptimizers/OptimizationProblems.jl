@@ -7,5 +7,5 @@ function hs14(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   lcon = T[-1; -Inf]
   ucon = T[-1; 0]
 
-  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "hs14"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "hs14", lin = [1]; kwargs...)
 end

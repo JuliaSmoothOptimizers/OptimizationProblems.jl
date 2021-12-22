@@ -11,7 +11,8 @@ function hs50(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     ],
     6 * ones(T, 3),
     6 * ones(T, 3),
-    name = "hs50";
+    name = "hs50",
+    lin = 1:3;
     kwargs...,
   )
 end

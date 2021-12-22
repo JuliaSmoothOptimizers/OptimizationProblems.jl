@@ -19,7 +19,7 @@ hs75_meta = Dict(
 )
 get_hs75_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs75_ncon(; n::Integer = default_nvar, kwargs...) = 4
-get_hs75_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs75_nnln(; n::Integer = default_nvar, kwargs...) = 4
+get_hs75_nlin(; n::Integer = default_nvar, kwargs...) = 1
+get_hs75_nnln(; n::Integer = default_nvar, kwargs...) = 3
 get_hs75_nequ(; n::Integer = default_nvar, kwargs...) = 3
 get_hs75_nineq(; n::Integer = default_nvar, kwargs...) = 1

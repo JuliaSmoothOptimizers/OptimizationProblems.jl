@@ -14,5 +14,5 @@ function hs24(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   end
   lcon = zeros(T, 2)
   ucon = T[Inf, 6]
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs24"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs24", lin = [1, 2]; kwargs...)
 end

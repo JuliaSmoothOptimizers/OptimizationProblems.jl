@@ -19,7 +19,7 @@ hs24_meta = Dict(
 )
 get_hs24_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs24_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs24_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs24_nnln(; n::Integer = default_nvar, kwargs...) = 2
+get_hs24_nlin(; n::Integer = default_nvar, kwargs...) = 2
+get_hs24_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_hs24_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_hs24_nineq(; n::Integer = default_nvar, kwargs...) = 2

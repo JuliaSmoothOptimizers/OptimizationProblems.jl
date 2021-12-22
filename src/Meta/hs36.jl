@@ -19,7 +19,7 @@ hs36_meta = Dict(
 )
 get_hs36_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs36_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs36_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs36_nnln(; n::Integer = default_nvar, kwargs...) = 1
+get_hs36_nlin(; n::Integer = default_nvar, kwargs...) = 1
+get_hs36_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_hs36_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_hs36_nineq(; n::Integer = default_nvar, kwargs...) = 1

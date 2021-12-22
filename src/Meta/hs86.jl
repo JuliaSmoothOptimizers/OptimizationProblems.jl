@@ -19,7 +19,7 @@ hs86_meta = Dict(
 )
 get_hs86_nvar(; n::Integer = default_nvar, kwargs...) = 5
 get_hs86_ncon(; n::Integer = default_nvar, kwargs...) = 10
-get_hs86_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs86_nnln(; n::Integer = default_nvar, kwargs...) = 10
+get_hs86_nlin(; n::Integer = default_nvar, kwargs...) = 10
+get_hs86_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_hs86_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_hs86_nineq(; n::Integer = default_nvar, kwargs...) = 10
