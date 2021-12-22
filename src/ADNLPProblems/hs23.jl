@@ -14,5 +14,16 @@ function hs23(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   end
   lcon = vcat(one(T), zeros(T, 4))
   ucon = T(Inf) * ones(T, 5)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs23", lin = [1]; kwargs...)
+  return ADNLPModels.ADNLPModel(
+    f,
+    x0,
+    lvar,
+    uvar,
+    c,
+    lcon,
+    ucon,
+    name = "hs23",
+    lin = [1];
+    kwargs...,
+  )
 end

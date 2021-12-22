@@ -14,5 +14,16 @@ function hs37(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   end
   lcon = zeros(T, 1)
   ucon = T[72]
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs37", lin = [1]; kwargs...)
+  return ADNLPModels.ADNLPModel(
+    f,
+    x0,
+    lvar,
+    uvar,
+    c,
+    lcon,
+    ucon,
+    name = "hs37",
+    lin = [1];
+    kwargs...,
+  )
 end

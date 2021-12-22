@@ -68,5 +68,16 @@ function hs119(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     36.8,
     -24,
   ]
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs119", lin = 1:8; kwargs...)
+  return ADNLPModels.ADNLPModel(
+    f,
+    x0,
+    lvar,
+    uvar,
+    c,
+    lcon,
+    ucon,
+    name = "hs119",
+    lin = 1:8;
+    kwargs...,
+  )
 end

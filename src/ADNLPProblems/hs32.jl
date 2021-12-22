@@ -14,5 +14,16 @@ function hs32(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   end
   lcon = T[1, 0]
   ucon = T[1, Inf]
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs32", lin = [1]; kwargs...)
+  return ADNLPModels.ADNLPModel(
+    f,
+    x0,
+    lvar,
+    uvar,
+    c,
+    lcon,
+    ucon,
+    name = "hs32",
+    lin = [1];
+    kwargs...,
+  )
 end

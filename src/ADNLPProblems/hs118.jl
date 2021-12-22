@@ -38,5 +38,16 @@ function hs118(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   end
   lcon = T[60, 70, 100, 50, 85, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7]
   ucon = vcat(T(Inf) * ones(T, 5), T[6, 6, 7, 6, 6, 7, 6, 6, 7, 6, 6, 7])
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs118", lin = 1:17; kwargs...)
+  return ADNLPModels.ADNLPModel(
+    f,
+    x0,
+    lvar,
+    uvar,
+    c,
+    lcon,
+    ucon,
+    name = "hs118",
+    lin = 1:17;
+    kwargs...,
+  )
 end
