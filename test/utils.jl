@@ -29,7 +29,11 @@ end
   
   is used to generate the meta of a given NLPModel.
 """
-function generate_meta(nlp::AbstractNLPModel, name::String; default_nvar = OptimizationProblems.ADNLPProblems.default_nvar)
+function generate_meta(
+  nlp::AbstractNLPModel,
+  name::String;
+  default_nvar = OptimizationProblems.ADNLPProblems.default_nvar,
+)
   contype = if get_ncon(nlp) == 0 && length(get_ifree(nlp)) >= get_nvar(nlp)
     :unconstrained
   elseif get_nlin(nlp) == get_ncon(nlp) > 0
