@@ -29,7 +29,7 @@ end
   
   is used to generate the meta of a given NLPModel.
 """
-function generate_meta(nlp::AbstractNLPModel, name::String)
+function generate_meta(nlp::AbstractNLPModel, name::String; default_nvar = OptimizationProblems.ADNLPProblems.default_nvar)
   contype = if get_ncon(nlp) == 0 && length(get_ifree(nlp)) >= get_nvar(nlp)
     :unconstrained
   elseif get_nlin(nlp) == get_ncon(nlp) > 0
@@ -41,7 +41,6 @@ function generate_meta(nlp::AbstractNLPModel, name::String)
 
   origin = :unknown
 
-  default_nvar = ADNLPProblems.default_nvar
   if name in ["clplatea", "clplateb", "clplatec", "fminsrf2"] # issue because variable is a matrix
     variable_nvar, variable_ncon = false, false
     nvar_formula = "$(get_nvar(nlp))"
@@ -101,8 +100,10 @@ end
 function generate_meta(name::String, args...; kwargs...)
   nlp = if name != "hs61" && name in string.(names(PureJuMP))
     eval(Meta.parse("MathOptNLPModel(PureJuMP." * name * "())"))
-  else
+  elseif name in string.(names(ADNLPProblems))
     eval(Meta.parse("ADNLPProblems." * name * "()"))
+  else
+    eval(Meta.parse(name * "( n = ADNLPProblems.default_nvar)"))
   end
   return generate_meta(nlp, name, args...; kwargs...)
 end
@@ -127,9 +128,10 @@ function var_size(name::String, get_field::Function, default_nvar)
   n1 = default_nvar
   n2 = div(default_nvar, 2)
 
-  nlp1 = eval(Meta.parse("ADNLPProblems." * name))(n = n1)
+  prefix = name in string.(names(ADNLPProblems)) ? "ADNLPProblems." : ""
+  nlp1 = eval(Meta.parse(prefix * name))(n = n1)
   nvar1 = get_field(nlp1)
-  nlp2 = eval(Meta.parse("ADNLPProblems." * name))(n = n2)
+  nlp2 = eval(Meta.parse(prefix * name))(n = n2)
   nvar2 = get_field(nlp2)
   variable_nvar = nvar1 != nvar2
   #Assuming the scale is linear in n
