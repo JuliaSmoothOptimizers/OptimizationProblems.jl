@@ -2,7 +2,7 @@ export ncb20
 
 function ncb20(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n < 31 && @warn("ncb20: number of variables must be ≥ 31")
-  nbis = max(n, 31)
+  n = max(31, n)
   function f(x)
     n = length(x)
     h = T(1 / (n - 1))
@@ -15,8 +15,8 @@ function ncb20(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
            T(1.0e-4) * sum(x[i] * x[i + 10] * x[i + n - 10] + 2 * x[i + n - 10]^2 for i = 1:10)
   end
 
-  x0 = ones(T, nbis)
-  x0[1:(nbis - 10)] .= zero(T)
+  x0 = ones(T, n)
+  x0[1:(n - 10)] .= zero(T)
 
   return ADNLPModels.ADNLPModel(f, x0, name = "ncb20"; kwargs...)
 end
