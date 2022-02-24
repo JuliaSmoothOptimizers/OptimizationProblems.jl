@@ -1,7 +1,8 @@
 export fletcbv3_mod
 
 function fletcbv3_mod(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  n ≥ 2 || error("fletcbv3 : n ≥ 2")
+  n < 2 && @warn("fletchbv3_mod: number of variables must be ≥ 2")
+  n = max(2, n)
   function f(x)
     n = length(x)
     p = T(10.0^(-8))

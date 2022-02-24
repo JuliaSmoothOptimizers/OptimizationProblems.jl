@@ -1,7 +1,8 @@
 export fletcbv2
 
 function fletcbv2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  n ≥ 2 || error("fletcbv2 : n ≥ 2")
+  n < 2 && @warn("fletchbv2: number of variables must be ≥ 2")
+  n = max(2, n)
   function f(x)
     n = length(x)
     h = T(1 / (n + 1))

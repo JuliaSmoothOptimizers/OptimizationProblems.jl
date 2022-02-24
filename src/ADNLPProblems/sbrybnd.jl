@@ -1,7 +1,8 @@
 export sbrybnd
 
 function sbrybnd(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  n ≥ 2 || error("sbrybnd : n ≥ 2")
+  n < 2 && @warn("sbrybnd: number of variables must be ≥ 2")
+  n = max(2, n)
   p = zeros(T, n)
   J = Array{Any}(undef, n)
   for i = 1:n
