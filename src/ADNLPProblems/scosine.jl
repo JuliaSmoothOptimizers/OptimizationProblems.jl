@@ -1,7 +1,8 @@
 export scosine
 
 function scosine(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  n ≥ 2 || error("scosine : n ≥ 2")
+  n < 2 && @warn("scosine: number of variables must be ≥ 2")
+  n = max(2, n)
   p = zeros(T, n)
   for i = 1:n
     p[i] = exp(6 * (i - 1) / (n - 1))

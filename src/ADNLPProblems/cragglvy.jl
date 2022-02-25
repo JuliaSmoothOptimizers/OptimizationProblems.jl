@@ -1,7 +1,8 @@
 export cragglvy
 
 function cragglvy(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  n ≥ 2 || error("cragglvy : n ≥ 2")
+  n < 2 && @warn("cragglvy: number of variables must be ≥ 2")
+  n = max(2, n)
   function f(x)
     n = length(x)
     return sum(

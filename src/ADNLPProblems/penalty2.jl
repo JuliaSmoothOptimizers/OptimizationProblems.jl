@@ -1,7 +1,8 @@
 export penalty2
 
 function penalty2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  n ≥ 3 || error("penalty2 : n ≥ 3")
+  n < 3 && @warn("penalty2: number of variables must be ≥ 3")
+  n = max(3, n)
   function f(x)
     n = length(x)
     a = T(1.0e-5)

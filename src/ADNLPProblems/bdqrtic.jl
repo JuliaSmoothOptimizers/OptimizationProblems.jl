@@ -1,7 +1,8 @@
 export bdqrtic
 
 function bdqrtic(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  n ≥ 5 || error("bdqrtic : n ≥ 5")
+  n < 5 && @warn("bdqrtic: number of variables must be ≥ 5")
+  n = max(5, n)
   function f(x)
     n = length(x)
     return sum(

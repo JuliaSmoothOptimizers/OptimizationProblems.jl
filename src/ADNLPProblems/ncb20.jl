@@ -1,7 +1,8 @@
 export ncb20
 
 function ncb20(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  n ≥ 31 || error("ncb20 : n ≥ 31")
+  n < 31 && @warn("ncb20: number of variables must be ≥ 31")
+  n = max(31, n)
   function f(x)
     n = length(x)
     h = T(1 / (n - 1))
