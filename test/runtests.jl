@@ -58,6 +58,7 @@ for prob in names(PureJuMP)
   n0 = max(abs(obj(nlp_ad, nlp_ad.meta.x0)), 1)
   @test isapprox(obj(nlp_ad, x1), obj(nlp_jump, x1), atol = 1e-14 * n0)
   @test isapprox(obj(nlp_ad, x2), obj(nlp_jump, x2), atol = 1e-14 * n0)
+  grad(nlp_ad, x1) # just test that it runs
 
   if nlp_ad.meta.ncon > 0
     @test nlp_ad.meta.lcon == nlp_jump.meta.lcon
@@ -65,6 +66,7 @@ for prob in names(PureJuMP)
     @test isapprox(cons(nlp_ad, x1), cons(nlp_jump, x1))
     @test isapprox(cons(nlp_ad, x2), cons(nlp_jump, x2))
     @test nlp_jump.meta.lin == nlp_ad.meta.lin
+    jac(nlp_ad, x1) # just test that it runs
   end
 
   meta_sanity_check(prob, nlp_ad)
