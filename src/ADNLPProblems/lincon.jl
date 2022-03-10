@@ -10,7 +10,7 @@ function lincon(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
 
   x0 = zeros(T, 15)
   f(x) = sum(i + x[i]^4 for i = 1:15)
-  con(x) = T[
+  con(x) = [
     15 * x[15]
     c' * x[10:12]
     d' * x[13:14]
