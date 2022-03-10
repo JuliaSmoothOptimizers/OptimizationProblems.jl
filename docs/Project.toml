@@ -11,8 +11,8 @@ SolverBenchmark = "581a75fa-a23a-52d0-a590-d6201de2218a"
 
 [compat]
 ADNLPModels = "0.3"
-Documenter = "~0.25"
+Documenter = "0.27"
 JSOSolvers = "0.7"
-NLPModels = "0.17"
-NLPModelsJuMP = "0.8"
-SolverBenchmark = "0.4"
+NLPModels = "0.18"
+NLPModelsJuMP = "0.10"
+SolverBenchmark = "0.5"
