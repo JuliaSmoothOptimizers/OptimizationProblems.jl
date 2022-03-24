@@ -24,11 +24,35 @@ function dixmaani(;
   return ADNLPModels.ADNLPModel(f, x0, name = "dixmaani"; kwargs...)
 end
 
-dixmaanj(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} =
-  dixmaani(n = n, type = type, α = one(T), β = T(0.0625), γ = T(0.0625), δ = T(0.0625), name = "dixmaanj"; kwargs...)
+dixmaanj(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} = dixmaani(
+  n = n,
+  type = type,
+  α = one(T),
+  β = T(0.0625),
+  γ = T(0.0625),
+  δ = T(0.0625),
+  name = "dixmaanj";
+  kwargs...,
+)
 
-dixmaank(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} =
-  dixmaani(n = n, type = type, α = one(T), β = T(0.125), γ = T(0.125), δ = T(0.125), name = "dixmaank"; kwargs...)
+dixmaank(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} = dixmaani(
+  n = n,
+  type = type,
+  α = one(T),
+  β = T(0.125),
+  γ = T(0.125),
+  δ = T(0.125),
+  name = "dixmaank";
+  kwargs...,
+)
 
-dixmaanl(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} =
-  dixmaani(n = n, type = type, α = one(T), β = T(0.26), γ = T(0.26), δ = T(0.26), name = "dixmaanl"; kwargs...)
+dixmaanl(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} = dixmaani(
+  n = n,
+  type = type,
+  α = one(T),
+  β = T(0.26),
+  γ = T(0.26),
+  δ = T(0.26),
+  name = "dixmaanl";
+  kwargs...,
+)
