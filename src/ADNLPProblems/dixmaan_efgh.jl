@@ -21,14 +21,14 @@ function dixmaane(;
            sum(T(i / n) * T(δ) * x[i] * x[i + 2 * m] for i = 1:m)
   end
   x0 = 2 * ones(T, n)
-  return ADNLPModels.ADNLPModel(f, x0, name = "dixmaan_efgh"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "dixmaane"; kwargs...)
 end
 
 dixmaanf(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} =
-  dixmaane(n = n, type = type, α = one(T), β = T(0.0625), γ = T(0.0625), δ = T(0.0625); kwargs...)
+  dixmaane(n = n, type = type, α = one(T), β = T(0.0625), γ = T(0.0625), δ = T(0.0625), name = "dixmaanf"; kwargs...)
 
 dixmaang(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} =
-  dixmaane(n = n, type = type, α = one(T), β = T(0.125), γ = T(0.125), δ = T(0.125); kwargs...)
+  dixmaane(n = n, type = type, α = one(T), β = T(0.125), γ = T(0.125), δ = T(0.125), name = "dixmaang"; kwargs...)
 
 dixmaanh(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} =
-  dixmaane(n = n, type = type, α = one(T), β = T(0.26), γ = T(0.26), δ = T(0.26); kwargs...)
+  dixmaane(n = n, type = type, α = one(T), β = T(0.26), γ = T(0.26), δ = T(0.26), name = "dixmaanh"; kwargs...)
