@@ -3,9 +3,9 @@
 #   "Testing Unconstrained Optimization Software",
 #   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 
-export jennrich_sampson
+export jennrichsampson
 
-function jennrich_sampson(args...; n::Int = default_nvar, m::Int = 10, kwargs...)
+function jennrichsampson(args...; n::Int = default_nvar, m::Int = 10, kwargs...)
 
     nlp = Model()
     @variable(nlp, x1)
