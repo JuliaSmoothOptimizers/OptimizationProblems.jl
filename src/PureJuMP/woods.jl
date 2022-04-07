@@ -47,12 +47,13 @@ function woods(args...; n::Int = default_nvar, kwargs...)
   x0 = -3 * ones(n)
   x0[2 * (collect(1:div(n, 2)))] .= -1.0
 
-  @variable(nlp, x[i = 1:n], start = -2)
+  @variable(nlp, x[i = 1:n])
+  set_start_value.(x, x0)
 
   @NLobjective(
     nlp,
     Min,
-    1.0 + sum(
+    sum(
       100 * (x[4 * i - 2] - x[4 * i - 3]^2)^2 +
       (1 - x[4 * i - 3])^2 +
       90 * (x[4 * i] - x[4 * i - 1]^2)^2 +
