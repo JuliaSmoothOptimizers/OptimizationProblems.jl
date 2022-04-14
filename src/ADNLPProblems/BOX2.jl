@@ -9,5 +9,5 @@ function BOX2(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), m::In
   c(x) = [x[3]]
   l = ones(T, 1)
   
-  return ADNLPModels.ADNLPModel(f, x0, c, l, l, name = "BOX2"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, c, l, l, name = "BOX2", lin = [1]; kwargs...)
 end
