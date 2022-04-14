@@ -19,7 +19,7 @@ BOX2_meta = Dict(
 )
 get_BOX2_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_BOX2_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_BOX2_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_BOX2_nnln(; n::Integer = default_nvar, kwargs...) = 1
+get_BOX2_nlin(; n::Integer = default_nvar, kwargs...) = 1
+get_BOX2_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_BOX2_nequ(; n::Integer = default_nvar, kwargs...) = 1
 get_BOX2_nineq(; n::Integer = default_nvar, kwargs...) = 0
