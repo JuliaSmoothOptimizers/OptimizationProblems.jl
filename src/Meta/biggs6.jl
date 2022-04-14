@@ -1,10 +1,10 @@
-BiggsEXP6_meta = Dict(
+biggs6_meta = Dict(
   :nvar => 6,
   :variable_nvar => false,
   :ncon => 0,
   :variable_ncon => false,
   :minimize => true,
-  :name => "BiggsEXP6",
+  :name => "biggs6",
   :has_equalities_only => false,
   :has_inequalities_only => false,
   :has_bounds => false,
@@ -17,9 +17,9 @@ BiggsEXP6_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_BiggsEXP6_nvar(; n::Integer = default_nvar, kwargs...) = 6
-get_BiggsEXP6_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_BiggsEXP6_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_BiggsEXP6_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_BiggsEXP6_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_BiggsEXP6_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_biggs6_nvar(; n::Integer = default_nvar, kwargs...) = 6
+get_biggs6_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_biggs6_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_biggs6_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_biggs6_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_biggs6_nineq(; n::Integer = default_nvar, kwargs...) = 0
