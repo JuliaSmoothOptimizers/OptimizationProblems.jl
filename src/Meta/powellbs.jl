@@ -15,7 +15,7 @@ powellbs_meta = Dict(
   :best_known_upper_bound => 0.5676308586741892,
   :is_feasible => true,
   :defined_everywhere => missing,
-  :origin => :unknown
+  :origin => :unknown,
 )
 get_powellbs_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_powellbs_ncon(; n::Integer = default_nvar, kwargs...) = 0
