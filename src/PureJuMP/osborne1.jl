@@ -1,4 +1,4 @@
-export osborn1
+
 export osborne1
 
 function osborne1(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
