@@ -23,7 +23,7 @@ export spmsrtls
 function spmsrtls(args...; n::Int = default_nvar, kwargs...)
   m = max(Int(round((n + 2) / 3)), 34)
   n = m * 3 - 2
-  p = [sin(i) for i=1:n]
+  p = [sin(i^2) for i=1:n]
   x0 = [p[i]/5 for i=1:n]
 
   nlp = Model()
