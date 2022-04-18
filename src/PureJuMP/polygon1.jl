@@ -3,8 +3,6 @@
 
 # JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
 # Introduction to Optimization class.
-
-# Hovercraft 1D example
 # https://laurentlessard.com/teaching/524-intro-to-optimization/
 
 # This implementation is similar to
@@ -16,22 +14,22 @@
 export polygon1
 
 function polygon1(args...; n::Int = default_nvar, kwargs...)
-  m = Model()
+  nlp = Model()
   N = div(n, 2)
-  @variable(m, 0 <= r[1:N] <= 1)
-  @variable(m, 0 <= θ[1:N] <= 2π)
+  @variable(nlp, 0 <= r[1:N] <= 1)
+  @variable(nlp, 0 <= θ[1:N] <= 2π)
 
   # impose an order to the angles
-  @constraint(m, θ[1] == 0)
+  @constraint(nlp, θ[1] == 0)
   for i = 1:(N - 1)
-    @constraint(m, θ[i + 1] >= θ[i])
+    @constraint(nlp, θ[i + 1] >= θ[i])
   end
 
   @NLobjective(
-    m,
+    nlp,
     Min,
     -0.5 * sum(r[i] * r[i + 1] * sin(θ[i + 1] - θ[i]) for i = 1:(N - 1)) -
     0.5 * r[1] * r[N] * sin(θ[1] - θ[N])
   )
-  return m
+  return nlp
 end
