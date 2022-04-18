@@ -24,7 +24,7 @@ function hovercraft1d(args...; n::Int = default_nvar, type::Val{T} = Val(Float64
     c,
     zeros(T, 2 * N + 2),
     zeros(T, 2 * N + 2),
-    name = "hovercraft1d_autodiff";
+    name = "hovercraft1d";
     lin = collect(1:2 * N + 2),
     kwargs...,
   )
