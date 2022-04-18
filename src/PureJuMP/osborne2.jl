@@ -76,14 +76,24 @@ function osborne2(args...; n::Int = default_nvar, kwargs...)
     0.098,
     0.054,
   ]
-    m = 65
+  m = 65
 
-    nlp = Model()
-    x0 = [1.3, 0.65, 0.65, 0.7, 0.6, 3, 5, 7, 2, 4.5, 5.5]
-    @variable(nlp, x[i=1:11], start=x0[i])
-    @NLobjective(
+  nlp = Model()
+  x0 = [1.3, 0.65, 0.65, 0.7, 0.6, 3, 5, 7, 2, 4.5, 5.5]
+  @variable(nlp, x[i = 1:11], start = x0[i])
+  @NLobjective(
     nlp,
     Min,
-    sum((y[i] - (x[1] * exp(-(i - 1)/10 * x[5])+ x[2] * exp(-((i-1)/10 - x[9])^2 * x[6]) + x[3]*exp(-((i-1)/10 - x[10])^2*x[7]) + x[4] * exp(-((i-1)/10 - x[11])^2 * x[8]) ))^2 for i = 1:m))
-    return nlp
-end 
+    sum(
+      (
+        y[i] - (
+          x[1] * exp(-(i - 1) / 10 * x[5]) +
+          x[2] * exp(-((i - 1) / 10 - x[9])^2 * x[6]) +
+          x[3] * exp(-((i - 1) / 10 - x[10])^2 * x[7]) +
+          x[4] * exp(-((i - 1) / 10 - x[11])^2 * x[8])
+        )
+      )^2 for i = 1:m
+    )
+  )
+  return nlp
+end

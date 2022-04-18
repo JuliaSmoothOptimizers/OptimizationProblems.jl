@@ -68,11 +68,20 @@ function osborne2(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     0.098,
     0.054,
   ]
-    m = 65
+  m = 65
 
-    function f(x)
-      return  sum((y[i] - (x[1] * exp(-T(i - 1)/10 * x[5])+ x[2] * exp(-(T(i-1)/10 - x[9])^2 * x[6]) + x[3]*exp(-(T(i-1)/10 - x[10])^2*x[7]) + x[4] * exp(-(T(i-1)/10 - x[11])^2 * x[8]) ))^2 for i = 1:m)
-    end
-    x0 = T[1.3, 0.65, 0.65, 0.7, 0.6, 3, 5, 7, 2, 4.5, 5.5]
-    return ADNLPModels.ADNLPModel(f, x0, name = "osborne2"; kwargs...)
-  end 
+  function f(x)
+    return sum(
+      (
+        y[i] - (
+          x[1] * exp(-T(i - 1) / 10 * x[5]) +
+          x[2] * exp(-(T(i - 1) / 10 - x[9])^2 * x[6]) +
+          x[3] * exp(-(T(i - 1) / 10 - x[10])^2 * x[7]) +
+          x[4] * exp(-(T(i - 1) / 10 - x[11])^2 * x[8])
+        )
+      )^2 for i = 1:m
+    )
+  end
+  x0 = T[1.3, 0.65, 0.65, 0.7, 0.6, 3, 5, 7, 2, 4.5, 5.5]
+  return ADNLPModels.ADNLPModel(f, x0, name = "osborne2"; kwargs...)
+end
