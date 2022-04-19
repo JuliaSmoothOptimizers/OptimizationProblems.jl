@@ -5,7 +5,7 @@
 
 export helical
 
-function helical()
+function helical(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   x0 = [-1.0; 0.0;0.0]
   @variable(nlp,x[i=1:3], start=x0[i])
