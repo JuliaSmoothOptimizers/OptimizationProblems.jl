@@ -9,7 +9,7 @@ function polygon2(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   end
   function c(y)
     r, α = y[1:N], y[(N + 1):end]
-    return [sum(α) - 2π]
+    return [sum(α)]
   end
   lvar = vcat(zeros(T, N), zeros(T, N))
   uvar = vcat(ones(T, N), T(Inf) * ones(T, N))
@@ -20,8 +20,8 @@ function polygon2(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     lvar,
     uvar,
     c,
-    zeros(T, 1),
-    zeros(T, 1),
+    T[2π],
+    T[2π],
     name = "polygon2",
     lin = collect(1:1);
     kwargs...,

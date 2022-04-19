@@ -17,7 +17,7 @@ polygon2_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_polygon2_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(default_nvar, 2)
+get_polygon2_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
 get_polygon2_ncon(; n::Integer = default_nvar, kwargs...) = 1
 get_polygon2_nlin(; n::Integer = default_nvar, kwargs...) = 1
 get_polygon2_nnln(; n::Integer = default_nvar, kwargs...) = 0
