@@ -9,7 +9,7 @@ function polygon1(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   end
   function c(y)
     r, θ = y[1:N], y[(N + 1):end]
-    return vcat([θ[i + 1] - θ[i] for i = 1:(N - 1)], θ[1])
+    return vcat(θ[1], [θ[i + 1] - θ[i] for i = 1:(N - 1)])
   end
   lvar = vcat(zeros(T, N), zeros(T, N))
   uvar = vcat(ones(T, N), T(2π) * ones(T, N))
@@ -20,8 +20,8 @@ function polygon1(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     lvar,
     uvar,
     c,
-    vcat(T(Inf) * ones(T, N - 1), zero(T)),
     zeros(T, N),
+    vcat(zero(T), T(Inf) * ones(T, N - 1)),
     name = "polygon1",
     lin = collect(1:N);
     kwargs...,

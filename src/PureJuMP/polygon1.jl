@@ -22,7 +22,7 @@ function polygon1(args...; n::Int = default_nvar, kwargs...)
   # impose an order to the angles
   @constraint(nlp, θ[1] == 0)
   for i = 1:(N - 1)
-    @constraint(nlp, θ[i + 1] >= θ[i])
+    @constraint(nlp, θ[i + 1] - θ[i] >= 0.0)
   end
 
   @NLobjective(
