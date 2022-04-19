@@ -15,7 +15,7 @@ function polygon3(args...; n::Int = default_nvar, kwargs...)
   @variable(nlp, y[1:N])
 
   for i = 1:N
-    @NLconstraint(nlp, x[i]^2 + y[i]^2 <= 1)
+    @NLconstraint(nlp, x[i]^2 + y[i]^2 - 1 <= 0)
   end
 
   # add ordering constraint to the vertices

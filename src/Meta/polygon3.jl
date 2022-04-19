@@ -17,9 +17,9 @@ polygon3_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_polygon3_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(default_nvar, 2)
-get_polygon3_ncon(; n::Integer = default_nvar, kwargs...) = 2 * div(default_nvar, 2)
+get_polygon3_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
+get_polygon3_ncon(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
 get_polygon3_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_polygon3_nnln(; n::Integer = default_nvar, kwargs...) = 2 * div(default_nvar, 2)
+get_polygon3_nnln(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
 get_polygon3_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_polygon3_nineq(; n::Integer = default_nvar, kwargs...) = 2 * div(default_nvar, 2)
+get_polygon3_nineq(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
