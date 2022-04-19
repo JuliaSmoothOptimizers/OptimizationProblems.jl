@@ -17,8 +17,8 @@ function controlinvestment(args...; n::Int = default_nvar, type::Val{T} = Val(Fl
       x[1] - one(T),
     )
   end
-  lvar = vcat(x0, -T(Inf) * ones(T, N - 1), zeros(T, N))
-  uvar = vcat(x0, T(Inf) * ones(T, N - 1), ones(T, N))
+  lvar = vcat(-T(Inf) * ones(T, N), zeros(T, N))
+  uvar = vcat(T(Inf) * ones(T, N), ones(T, N))
   xi = vcat(ones(T, N), zeros(T, N))
   return ADNLPModels.ADNLPModel(
     f,
