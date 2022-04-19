@@ -11,10 +11,11 @@ function controlinvestment(args...; n::Int = default_nvar, type::Val{T} = Val(Fl
   end
   function c(y)
     x, u = y[1:N], y[(N + 1):end]
-    return vcat([
+    return vcat(
+      x[1],
+      [
         x[k + 1] - x[k] - T(0.5) * h * gamma * (u[k] * x[k] + u[k + 1] * x[k + 1]) for k = 1:(N - 1)
       ],
-      x[1],
     )
   end
   lvar = vcat(-T(Inf) * ones(T, N), zeros(T, N))
@@ -29,7 +30,7 @@ function controlinvestment(args...; n::Int = default_nvar, type::Val{T} = Val(Fl
     vcat(one(T), zeros(T, N - 1)),
     vcat(one(T), zeros(T, N - 1)),
     name = "controlinvestment",
-    lin = [N],
+    lin = [1],
     ;
     kwargs...,
   )
