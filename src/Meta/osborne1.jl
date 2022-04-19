@@ -18,9 +18,9 @@ osborne1_meta = Dict(
     :defined_everywhere => missing,
     :origin => :unknown,
   )
-  get_orborne1_nvar(; n::Integer = default_nvar, kwargs...) = 5
-  get_orborne1_ncon(; n::Integer = default_nvar, kwargs...) = 0
-  get_orborne1_nlin(; n::Integer = default_nvar, kwargs...) = 0
-  get_orborne1_nnln(; n::Integer = default_nvar, kwargs...) = 0
-  get_orborne1_nequ(; n::Integer = default_nvar, kwargs...) = 0
-  get_orborne1_nineq(; n::Integer = default_nvar, kwargs...) = 0
+  get_osborne1_nvar(; n::Integer = default_nvar, kwargs...) = 5
+  get_osborne1_ncon(; n::Integer = default_nvar, kwargs...) = 0
+  get_osborne1_nlin(; n::Integer = default_nvar, kwargs...) = 0
+  get_osborne1_nnln(; n::Integer = default_nvar, kwargs...) = 0
+  get_osborne1_nequ(; n::Integer = default_nvar, kwargs...) = 0
+  get_osborne1_nineq(; n::Integer = default_nvar, kwargs...) = 0
