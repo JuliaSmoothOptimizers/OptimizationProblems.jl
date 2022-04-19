@@ -67,7 +67,7 @@ function structural(args...; n::Int = default_nvar, type::Val{T} = Val(Float64),
   end
   lcon = zeros(T, 2 * (N - length(fixed)))
   ucon = zeros(T, 2 * (N - length(fixed)))
-  x0 = ones(T, 2 * M)
+  x0 = zeros(T, 2 * M)
   lvar = vcat(zeros(T, M), -T(Inf) * ones(T, M))
   uvar = T(Inf) * ones(T, 2 * M)
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "structural"; kwargs...)
