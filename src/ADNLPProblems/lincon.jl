@@ -12,16 +12,16 @@ function lincon(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
   f(x) = sum(i + x[i]^4 for i = 1:15)
   con(x) = [
     15 * x[15]
-    c' * x[10:12]
-    d' * x[13:14]
-    b' * x[8:9]
     C * x[6:7]
+    c' * x[10:12]
     A * x[1:2]
+    d' * x[13:14]
     B * x[3:5]
+    b' * x[8:9]
   ]
 
-  lcon = T[22; 1; -Inf; -11; -d; -b; -Inf * ones(3)]
-  ucon = T[22; Inf; 16; 9; -d; Inf * ones(2); c]
+  lcon = T[22; -d; 1; -b; -Inf; -Inf * ones(3); -11]
+  ucon = T[22; -d; Inf; Inf * ones(2); 16; c; 9]
 
-  return ADNLPModels.ADNLPModel(f, x0, con, lcon, ucon, name = "lincon"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, con, lcon, ucon, name = "lincon", lin = collect(1:11); kwargs...)
 end
