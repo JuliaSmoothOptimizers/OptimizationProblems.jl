@@ -19,7 +19,7 @@ lincon_meta = Dict(
 )
 get_lincon_nvar(; n::Integer = default_nvar, kwargs...) = 15
 get_lincon_ncon(; n::Integer = default_nvar, kwargs...) = 11
-get_lincon_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_lincon_nnln(; n::Integer = default_nvar, kwargs...) = 11
+get_lincon_nlin(; n::Integer = default_nvar, kwargs...) = 11
+get_lincon_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_lincon_nequ(; n::Integer = default_nvar, kwargs...) = 3
 get_lincon_nineq(; n::Integer = default_nvar, kwargs...) = 8
