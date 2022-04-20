@@ -70,13 +70,20 @@ function structural(args...; n::Int = default_nvar, kwargs...)
     if i in fixed
       continue
     else
-      @constraint(nlp, sum(u[j] * nx[i, j] for j = 1:M) + fx[i] == 0)
-      @constraint(nlp, sum(u[j] * ny[i, j] for j = 1:M) + fy[i] == 0)
+      @constraint(nlp, sum(u[j] * nx[i, j] for j = 1:M) == -fx[i])
     end
   end
 
-  @constraint(nlp, -x .<= u)
-  @constraint(nlp, u .<= x)
+  for i = 1:N
+    if i in fixed
+      continue
+    else
+      @constraint(nlp, sum(u[j] * ny[i, j] for j = 1:M) == -fy[i])
+    end
+  end
+
+  @constraint(nlp, -x + u .<= 0)
+  @constraint(nlp, u - x .<= 0)
 
   @objective(nlp, Min, sum(ℓ[j] * x[j] for j = 1:M))
 

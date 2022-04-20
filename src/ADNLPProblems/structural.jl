@@ -61,14 +61,16 @@ function structural(args...; n::Int = default_nvar, type::Val{T} = Val(Float64),
   function c(y)
     x, u = y[1:M], y[(M + 1):(2 * M)]
     return vcat(
-      [sum(u[j] * nx[i, j] for j = 1:M) + fx[i] for i in setdiff(1:N, fixed)],
-      [sum(u[j] * ny[i, j] for j = 1:M) + fy[i] for i in setdiff(1:N, fixed)],
+      [sum(u[j] * nx[i, j] for j = 1:M) for i in setdiff(1:N, fixed)],
+      [sum(u[j] * ny[i, j] for j = 1:M) for i in setdiff(1:N, fixed)],
+      -x + u,
+      u - x,
     )
   end
-  lcon = zeros(T, 2 * (N - length(fixed)))
-  ucon = zeros(T, 2 * (N - length(fixed)))
+  lcon = vcat(-fx[setdiff(1:N, fixed)], -fy[setdiff(1:N, fixed)], -T(Inf) * ones(T, 2 * M))
+  ucon = vcat(-fx[setdiff(1:N, fixed)], -fy[setdiff(1:N, fixed)], zeros(T, 2 * M))
   x0 = zeros(T, 2 * M)
   lvar = vcat(zeros(T, M), -T(Inf) * ones(T, M))
   uvar = T(Inf) * ones(T, 2 * M)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "structural"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "structural", lin = collect(1:length(lcon)); kwargs...)
 end 
