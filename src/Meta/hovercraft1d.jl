@@ -17,9 +17,9 @@ hovercraft1d_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_hovercraft1d_nvar(; n::Integer = default_nvar, kwargs...) = 3 * div(default_nvar, 3) - 1
-get_hovercraft1d_ncon(; n::Integer = default_nvar, kwargs...) = 2 * div(default_nvar, 3) + 2
-get_hovercraft1d_nlin(; n::Integer = default_nvar, kwargs...) = 2 * div(default_nvar, 3) + 2
+get_hovercraft1d_nvar(; n::Integer = default_nvar, kwargs...) = 3 * div(n, 3) - 1
+get_hovercraft1d_ncon(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 3) + 2
+get_hovercraft1d_nlin(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 3) + 2
 get_hovercraft1d_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hovercraft1d_nequ(; n::Integer = default_nvar, kwargs...) = 2 * div(default_nvar, 3) + 2
+get_hovercraft1d_nequ(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 3) + 2
 get_hovercraft1d_nineq(; n::Integer = default_nvar, kwargs...) = 0

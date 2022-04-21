@@ -1,5 +1,5 @@
 spmsrtls_meta = Dict(
-  :nvar => 100,
+  :nvar => max(Int(round((default_nvar + 2) / 3)), 34) * 3 - 2,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
@@ -17,7 +17,7 @@ spmsrtls_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_spmsrtls_nvar(; n::Integer = default_nvar, kwargs...) = 100
+get_spmsrtls_nvar(; n::Integer = default_nvar, kwargs...) = max(Int(round((n + 2) / 3)), 34) * 3 - 2
 get_spmsrtls_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_spmsrtls_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_spmsrtls_nnln(; n::Integer = default_nvar, kwargs...) = 0
