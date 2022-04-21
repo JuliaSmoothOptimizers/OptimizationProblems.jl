@@ -1,6 +1,11 @@
 export controlinvestment
 
-function controlinvestment(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function controlinvestment(
+  args...;
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   N = div(n, 2)
   h = T(1 / N)
   x0 = 1
@@ -34,4 +39,4 @@ function controlinvestment(args...; n::Int = default_nvar, type::Val{T} = Val(Fl
     ;
     kwargs...,
   )
-end 
+end

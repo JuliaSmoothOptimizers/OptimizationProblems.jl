@@ -26,4 +26,4 @@ function polygon1(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     lin = collect(1:N);
     kwargs...,
   )
-end 
+end

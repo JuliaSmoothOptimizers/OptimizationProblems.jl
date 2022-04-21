@@ -23,5 +23,14 @@ function lincon(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
   lcon = T[22; -d; 1; -b; -Inf; -Inf * ones(3); -11]
   ucon = T[22; -d; Inf; Inf * ones(2); 16; c; 9]
 
-  return ADNLPModels.ADNLPModel(f, x0, con, lcon, ucon, name = "lincon", lin = collect(1:11); kwargs...)
+  return ADNLPModels.ADNLPModel(
+    f,
+    x0,
+    con,
+    lcon,
+    ucon,
+    name = "lincon",
+    lin = collect(1:11);
+    kwargs...,
+  )
 end

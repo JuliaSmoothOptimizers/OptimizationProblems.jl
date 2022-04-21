@@ -25,4 +25,4 @@ function polygon3(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     name = "polygon3";
     kwargs...,
   )
-end 
+end
