@@ -1,6 +1,11 @@
 export structural
 
-function structural(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function structural(
+  args...;
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   n = max(n, 100)
 
   sub2ind(shape, a, b) = LinearIndices(shape)[CartesianIndex.(a, b)]
@@ -72,5 +77,16 @@ function structural(args...; n::Int = default_nvar, type::Val{T} = Val(Float64),
   x0 = zeros(T, 2 * M)
   lvar = vcat(zeros(T, M), -T(Inf) * ones(T, M))
   uvar = T(Inf) * ones(T, 2 * M)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "structural", lin = collect(1:length(lcon)); kwargs...)
-end 
+  return ADNLPModels.ADNLPModel(
+    f,
+    x0,
+    lvar,
+    uvar,
+    c,
+    lcon,
+    ucon,
+    name = "structural",
+    lin = collect(1:length(lcon));
+    kwargs...,
+  )
+end

@@ -1,7 +1,6 @@
 export linsv
 
 function linsv(args...; n::Int = default_nvar, kwargs...) where {T}
-
   nlp = Model()
 
   @variable(nlp, x[1:2], start = 0)

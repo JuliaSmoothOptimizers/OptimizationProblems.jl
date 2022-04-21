@@ -1,6 +1,11 @@
 export hovercraft1d
 
-function hovercraft1d(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hovercraft1d(
+  args...;
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   N = div(n, 3)
   function f(y)
     x, v, u = y[1:N], y[(N + 1):(2 * N)], y[(2 * N + 1):end]
@@ -25,7 +30,7 @@ function hovercraft1d(args...; n::Int = default_nvar, type::Val{T} = Val(Float64
     zeros(T, 2 * N + 2),
     zeros(T, 2 * N + 2),
     name = "hovercraft1d";
-    lin = collect(1:2 * N + 2),
+    lin = collect(1:(2 * N + 2)),
     kwargs...,
   )
 end
