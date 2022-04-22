@@ -19,10 +19,13 @@ function polygon(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kw
 
   lvar = vcat(zeros(T, N), zeros(T, N))
   uvar = vcat(ones(T, N), T(π) * ones(T, N))
-  xi = zeros(T, 2 * N)
+  x0 = vcat(
+    ones(T, N),
+    T[ i * π / (N - 1) - π / (N - 1) for i=1:N ]
+  )
   return ADNLPModels.ADNLPModel(
     f,
-    xi,
+    x0,
     lvar,
     uvar,
     c,

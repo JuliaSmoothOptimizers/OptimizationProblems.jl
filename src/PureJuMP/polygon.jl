@@ -8,6 +8,8 @@
 
 #   classification OOR2-AN-V-V
 
+# The initial guess is inspired from https://vanderbei.princeton.edu/ampl/nlmodels/polygon/polygon2.mod
+
 # See `polygon1`, `polygon2` and `polygon3` for similar variants.
 
 export polygon
@@ -15,8 +17,8 @@ export polygon
 function polygon(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   N = div(n, 2)
-  @variable(nlp, 0 <= r[1:N] <= 1)
-  @variable(nlp, 0 <= θ[1:N] <= π)
+  @variable(nlp, 0 <= r[1:N] <= 1, start = 1)
+  @variable(nlp, 0 <= θ[i=1:N] <= π, start = i * π / (N - 1) - π / (N - 1))
 
   # impose an order to the angles
   @constraint(nlp, θ[N] == π)
