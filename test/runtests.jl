@@ -98,7 +98,5 @@ adproblems11 =
 for (pb, nlp, nlp11) in zip(eachrow(names_pb_vars), adproblems, adproblems11)
   @test pb[:nvar] == nlp.meta.nvar
   n11 = OptimizationProblems.eval(Symbol(:get_, pb[:name], :_nvar))(n = 13 * ndef)
-  if n11 != nlp11.meta.nvar
-    @show pb[:name], n11, nlp11.meta.nvar
-  end
+  @test n11 == nlp11.meta.nvar
 end
