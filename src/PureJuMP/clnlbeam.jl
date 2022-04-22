@@ -13,7 +13,7 @@ Source: H. Maurer and H.D. Mittelman, "The non-linear beam via optimal control w
 export clnlbeam
 
 "The clnlbeam problem in size `n`"
-function clnlbeam(n::Int = default_nvar, args...; kwargs...)
+function clnlbeam(args...; n::Int = default_nvar, kwargs...)
   N = div(n - 3, 3)
   h = 1 / N
   alpha = 350
