@@ -2,7 +2,7 @@
 import CUTEst
 const problems_cutest = CUTEst.select()
 
-using OptimizationProblems, NLPModels, JuMP, NLPModelsJuMP ,LinearAlgebra
+using OptimizationProblems, NLPModels, JuMP, NLPModelsJuMP, LinearAlgebra
 
 path = joinpath(dirname(@__DIR__), "src", "PureJuMP")
 files = filter(readdir(path)) do filename
@@ -46,7 +46,7 @@ function compute_status(probname; showvals = false)
     end
     if !(grad(cutenlp, x0) ≈ grad(optnlp, x0))
       samegradval = false
-      showvals && @show norm(grad(cutenlp, x0)- grad(optnlp, x0), Inf)
+      showvals && @show norm(grad(cutenlp, x0) - grad(optnlp, x0), Inf)
     end
     isok = true
   end
