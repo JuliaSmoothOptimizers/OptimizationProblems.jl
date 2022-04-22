@@ -2,9 +2,9 @@
 import CUTEst
 const problems_cutest = CUTEst.select()
 
-using OptimizationProblems, NLPModels, JuMP, NLPModelsJuMP
+using OptimizationProblems, NLPModels, JuMP, NLPModelsJuMP ,LinearAlgebra
 
-path = joinpath(dirname(@__DIR__), "src")
+path = joinpath(dirname(@__DIR__), "src", "PureJuMP")
 files = filter(readdir(path)) do filename
   endswith(filename, ".jl") && filename ∉ ("OptimizationProblems.jl", "PureJuMP.jl", "template.jl")
 end
@@ -18,25 +18,26 @@ end
 
 cutest_problem(name) = CUTEst.CUTEstModel(name)
 
-function optpr_problem(name, args...)
-  fmodel = getfield(OptimizationProblems, Symbol(name))
-  model = fmodel(args...)
-  return MathProgNLPModel(model)
+function optpr_problem(name, args...; kwargs...)
+  fmodel = getfield(OptimizationProblems.PureJuMP, Symbol(name))
+  model = fmodel(args...; kwargs...)
+  return MathOptNLPModel(model)
 end
 
 function compute_status(probname; showvals = false)
   cutenlp = cutest_problem(uppercase(probname))
-  optnlp = optpr_problem(probname)
+  n = cutenlp.meta.nvar
+  optnlp = optpr_problem(probname, n = n)
   samenvars, samexval, sameobjval, samegradval = true, true, true, true
   isok = false
   if isa(optnlp.meta.x0, AbstractVector)
-    n = cutenlp.meta.nvar
     if optnlp.meta.nvar != n
       samenvars = false
-      optnlp = optpr_problem(probname, n)
+      showvals && @show optnlp.meta.nvar cutenlp.meta.nvar n
     end
     if !(optnlp.meta.x0 ≈ cutenlp.meta.x0)
       samexval = false
+      showvals && @show norm(optnlp.meta.x0 - cutenlp.meta.x0, Inf)
     end
     x0 = optnlp.meta.x0
     if !(obj(cutenlp, x0) ≈ obj(optnlp, x0))
@@ -45,7 +46,7 @@ function compute_status(probname; showvals = false)
     end
     if !(grad(cutenlp, x0) ≈ grad(optnlp, x0))
       samegradval = false
-      showvals && @show [grad(cutenlp, x0) grad(optnlp, x0)]
+      showvals && @show norm(grad(cutenlp, x0)- grad(optnlp, x0), Inf)
     end
     isok = true
   end
@@ -61,7 +62,7 @@ for file in files
   uprobname = uppercase(probname)
   if uprobname ∈ problems_cutest
     println("Testing ", probname)
-    status = compute_status(probname)
+    status = compute_status(probname, showvals = true)
     if isa(status, Status)
       problem_status[probname] = status
     else
@@ -78,6 +79,6 @@ else
   println(
     "There are discrepancies, in # of dimensions, starting point, and/or objective/gradient, in the following problems:",
   )
-  discrepancies = filter(status -> status != Status(true, true, true, true), problem_status)
-  println(sort(collect(keys(discrepancies))))
+  discrepancies = findall(status -> status != Status(true, true, true, true), problem_status)
+  println(sort(collect(discrepancies)))
 end
