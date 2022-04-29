@@ -1,6 +1,6 @@
 clplatea_meta = Dict(
-  :nvar => 5041,
-  :variable_nvar => false,
+  :nvar => default_nvar,
+  :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
   :minimize => true,
@@ -17,7 +17,7 @@ clplatea_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_clplatea_nvar(; n::Integer = default_nvar, kwargs...) = 5041
+get_clplatea_nvar(; n::Integer = default_nvar, kwargs...) = n
 get_clplatea_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_clplatea_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_clplatea_nnln(; n::Integer = default_nvar, kwargs...) = 0

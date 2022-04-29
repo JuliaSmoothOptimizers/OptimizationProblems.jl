@@ -1,5 +1,5 @@
 clplatec_meta = Dict(
-  :nvar => 5041,
+  :nvar => default_nvar,
   :variable_nvar => false,
   :ncon => 0,
   :variable_ncon => false,
@@ -17,7 +17,7 @@ clplatec_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_clplatec_nvar(; n::Integer = default_nvar, kwargs...) = 5041
+get_clplatec_nvar(; n::Integer = default_nvar, kwargs...) = n
 get_clplatec_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_clplatec_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_clplatec_nnln(; n::Integer = default_nvar, kwargs...) = 0
