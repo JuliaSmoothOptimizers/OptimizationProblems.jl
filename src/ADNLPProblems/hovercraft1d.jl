@@ -16,7 +16,7 @@ function hovercraft1d(
     return vcat(
       x[1],
       v[1],
-      x[N] - 100,
+      x[N],
       v[N],
       [x[i + 1] - x[i] - v[i] for i = 1:(N - 1)],
       [v[i + 1] - v[i] - u[i] for i = 1:(N - 1)],
@@ -27,8 +27,8 @@ function hovercraft1d(
     f,
     xi,
     c,
-    zeros(T, 2 * N + 2),
-    zeros(T, 2 * N + 2),
+    vcat(zeros(T, 2), T(100), zeros(T, 2 * N - 1)),
+    vcat(zeros(T, 2), T(100), zeros(T, 2 * N - 1)),
     name = "hovercraft1d";
     lin = collect(1:(2 * N + 2)),
     kwargs...,

@@ -17,7 +17,7 @@ clplatea_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_clplatea_nvar(; n::Integer = default_nvar, kwargs...) = n
+get_clplatea_nvar(; n::Integer = default_nvar, kwargs...) = floor(Int, sqrt(n))^2
 get_clplatea_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_clplatea_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_clplatea_nnln(; n::Integer = default_nvar, kwargs...) = 0
