@@ -5,17 +5,22 @@ This package is subdivided in two submodules: `PureJuMP` for the JuMP problems, 
 
 ## Problems in JuMP syntax: PureJuMP
 
-You can obtain the list of problems currently defined with `names(OptimizationProblems.PureJuMP)` that returns the list of exported names of the submodule. The symbol `:PureJuMP` is itself in this list.
+You can obtain the list of problems currently defined with `OptimizationProblems.meta[!, :name]` that returns the list of exported names of the submodule.
 ``` @example ex1
 using OptimizationProblems, OptimizationProblems.PureJuMP
-problems = setdiff(names(OptimizationProblems.PureJuMP), [:PureJuMP])
+problems = OptimizationProblems.meta[!, :name]
 length(problems)
 ```
 Then, it suffices to select any of this problem to get the JuMP model.
 ``` @example ex1
 jump_model = zangwil3()
 ```
-Note that some of these problems are scalable, i.e., their size depends on some parameters that can be modified.
+Note that some of these problems are scalable, i.e., their size depends on some parameters that can be modified. The list is available once again using the `meta`.
+``` @example ex1
+var_problems = OptimizationProblems.meta[OptimizationProblems.meta.variable_nvar, :name]
+length(var_problems)
+```
+Then, using the keyword `n`, it is possible to specify the targeted number of variables.
 ``` @example ex1
 jump_model_12 = woods(n=12)
 ```
@@ -31,10 +36,10 @@ This package also offers [ADNLPModel](https://github.com/JuliaSmoothOptimizers/A
 ``` @example ex2
 using ADNLPModels
 ```
-You can obtain the list of problems currently defined with `names(OptimizationProblems.ADNLPProblems)` that returns the list of exported names of the submodule. The symbol `:ADNLPProblems` is itself in this list.
+You can obtain the list of problems currently defined with `OptimizationProblems.meta[!, :name]` that returns the list of exported names of the submodule.
 ``` @example ex2
 using OptimizationProblems, OptimizationProblems.ADNLPProblems
-problems = setdiff(names(OptimizationProblems.ADNLPProblems), [:ADNLPProblems])
+problems = OptimizationProblems.meta[!, :name]
 length(problems)
 ```
 Similarly, to the PureJuMP models, it suffices to select any of this problem to get the model.
