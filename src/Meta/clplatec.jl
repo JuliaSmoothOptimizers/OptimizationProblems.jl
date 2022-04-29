@@ -1,6 +1,6 @@
 clplatec_meta = Dict(
   :nvar => default_nvar,
-  :variable_nvar => false,
+  :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
   :minimize => true,
