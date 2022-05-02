@@ -15,7 +15,7 @@ Then, it suffices to select any of this problem to get the JuMP model.
 ``` @example ex1
 jump_model = zangwil3()
 ```
-Note that certain problems are scalable, i.e., their size depends on parameters that can be modified. The list of those problems is available once again using `meta`.
+Note that certain problems are scalable, i.e., their size depends on parameters that can be modified. The list of those problems is available once again using `meta`:
 ``` @example ex1
 var_problems = OptimizationProblems.meta[OptimizationProblems.meta.variable_nvar, :name]
 length(var_problems)
