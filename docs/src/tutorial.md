@@ -36,7 +36,7 @@ This package also offers [ADNLPModel](https://github.com/JuliaSmoothOptimizers/A
 ``` @example ex2
 using ADNLPModels
 ```
-You can obtain the list of problems currently defined with `OptimizationProblems.meta[!, :name]` that returns the list of exported names of the submodule.
+You can obtain the list of problems currently defined with `OptimizationProblems.meta[!, :name]`.
 ``` @example ex2
 using OptimizationProblems, OptimizationProblems.ADNLPProblems
 problems = OptimizationProblems.meta[!, :name]
