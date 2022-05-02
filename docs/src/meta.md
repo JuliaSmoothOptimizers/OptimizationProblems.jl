@@ -3,7 +3,7 @@
 It is possible to access information on the problems implemented in `OptimizationProblems.jl` without loading the problems using the package's own classification.
 ​
 ```@example 1
-using ADNLPModels, OptimizationProblems
+using OptimizationProblems
 ```
 
 Each problem has its own metadata structure, and there is a global metadata structure regrouping all the information.
@@ -45,6 +45,7 @@ names_pb_vars = meta[(meta.variable_nvar .== true) .& (meta.ncon .== 0), [:nvar,
 ```
 Then, one can prepare a list of problems using the selected ones.
 ```@example 1
+using ADNLPModels
 adproblems = (
   eval(Meta.parse("ADNLPProblems.$(pb[:name])()")) for pb in eachrow(names_pb_vars)
 )

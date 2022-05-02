@@ -1,6 +1,6 @@
 clplateb_meta = Dict(
-  :nvar => 5041,
-  :variable_nvar => false,
+  :nvar => default_nvar,
+  :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
   :minimize => true,
@@ -17,7 +17,7 @@ clplateb_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_clplateb_nvar(; n::Integer = default_nvar, kwargs...) = 5041
+get_clplateb_nvar(; n::Integer = default_nvar, kwargs...) = floor(Int, sqrt(n))^2
 get_clplateb_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_clplateb_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_clplateb_nnln(; n::Integer = default_nvar, kwargs...) = 0

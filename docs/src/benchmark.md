@@ -11,12 +11,12 @@ using JSOSolvers, NLPModels, NLPModelsJuMP, OptimizationProblems, OptimizationPr
 ```
 We select the problems from `PureJuMP` submodule of `OptimizationProblems` converted in [NLPModels](https://github.com/JuliaSmoothOptimizers/NLPModels.jl) using [NLPModelsJuMP](https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl).
 ``` @example ex1
-problems = (MathOptNLPModel(eval(problem)(), name=string(problem)) for problem ∈ filter(x -> x != :PureJuMP, names(OptimizationProblems.PureJuMP)))
+problems = (MathOptNLPModel(eval(Meta.parse(problem))(), name=problem) for problem ∈ OptimizationProblems.meta[!, :name])
 ```
 The same can be achieved using `OptimizationProblems.ADNLPProblems` as follows:
 ``` @example ex1
 using ADNLPModels
-ad_problems = (eval(problem)() for problem ∈ setdiff(names(OptimizationProblems.ADNLPProblems), [:ADNLPProblems]))
+ad_problems = (eval(Meta.parse(problem))() for problem ∈ OptimizationProblems.meta[!, :name])
 ```
 
 We also define a dictionary of solvers that will be used for our benchmark. We consider here `JSOSolvers.lbfgs` and `JSOSolvers.trunk`.
@@ -66,4 +66,11 @@ using Plots
 gr()
 
 profile_solvers(stats, costs, costnames)
+```
+
+It is also possible to select problems when initializing the problem list by filtering `OptimizationProblems.meta`:
+```
+meta = OptimizationProblems.meta
+problem_list = meta[(meta.ncon .== 0) .& .!meta.has_bounds .& (5 .<= meta.nvar .<= 100), :name]
+problems = (MathOptNLPModel(eval(Meta.parse(problem))(), name=problem) for problem ∈ problem_list)
 ```

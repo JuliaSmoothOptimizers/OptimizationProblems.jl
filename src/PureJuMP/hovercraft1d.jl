@@ -3,6 +3,7 @@
 
 # Hovercraft 1D example
 # https://laurentlessard.com/teaching/524-intro-to-optimization/
+export hovercraft1d
 
 function hovercraft1d(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
