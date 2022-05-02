@@ -5,7 +5,7 @@ This package is subdivided in two submodules: `PureJuMP` for the JuMP problems, 
 
 ## Problems in JuMP syntax: PureJuMP
 
-You can obtain the list of problems currently defined with `OptimizationProblems.meta[!, :name]` that returns the list of exported names of the submodule.
+You can obtain the list of problems currently defined with `OptimizationProblems.meta[!, :name]`.
 ``` @example ex1
 using OptimizationProblems, OptimizationProblems.PureJuMP
 problems = OptimizationProblems.meta[!, :name]
