@@ -68,7 +68,7 @@ gr()
 profile_solvers(stats, costs, costnames)
 ```
 
-It is also possible to select problems when initializing the problem list by filtering `OptimizationProblems.meta`.
+It is also possible to select problems when initializing the problem list by filtering `OptimizationProblems.meta`:
 ```
 meta = OptimizationProblems.meta
 problem_list = meta[(meta.ncon .== 0) .& .!meta.has_bounds .& (5 .<= meta.nvar .<= 100), :name]
