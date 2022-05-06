@@ -148,3 +148,41 @@ function var_size(name::String, get_field::Function, default_nvar)
   end
   return variable_nvar, nvar_formula
 end
+
+"""
+    test_linear_constraints(sample_size = 100)
+
+Return the list of problems where the linear indices where not correctly identified.
+"""
+function test_linear_constraints(sample_size = 100)
+  meta = OptimizationProblems.meta[!, :]
+  con_pb = meta[meta.ncon .> 0, :name]
+  sample_size = max(sample_size, 2)
+
+  list = []
+  for pb in con_pb
+    nlp = OptimizationProblems.ADNLPProblems.eval(Symbol(pb))()
+    std = similar(nlp.meta.x0)
+    blvar = similar(nlp.meta.lvar)
+    buvar = similar(nlp.meta.uvar)
+    for j=1:nlp.meta.nvar
+      blvar[j] = nlp.meta.lvar[j] == -Inf ? -10. : nlp.meta.lvar[j]
+      buvar[j] = nlp.meta.uvar[j] == Inf ? 10. : nlp.meta.uvar[j]
+      std[j] = max(abs(blvar[j]), abs(buvar[j]))
+    end
+    ref = jac(nlp, nlp.meta.x0)
+    Iref = collect(1:nlp.meta.ncon)
+    for i=1:sample_size
+      x = min.(max.((2 * rand(nlp.meta.nvar) .- 1) .* std, blvar), buvar)
+      cx = jac(nlp, x)
+      setdiff!(Iref, findall(j -> cx[j, :] != ref[j, :], 1:nlp.meta.ncon))
+      if Iref == []
+        break
+      end
+    end
+    if Iref != nlp.meta.lin
+      push!(list, (nlp.meta.name, Iref))
+    end
+  end
+  return list
+end
