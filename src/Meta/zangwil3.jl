@@ -10,7 +10,7 @@ zangwil3_meta = Dict(
   :has_bounds => false,
   :has_fixed_variables => false,
   :objtype => :other,
-  :contype => :general,
+  :contype => :linear,
   :best_known_lower_bound => -Inf,
   :best_known_upper_bound => Inf,
   :is_feasible => missing,
@@ -19,7 +19,7 @@ zangwil3_meta = Dict(
 )
 get_zangwil3_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_zangwil3_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_zangwil3_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_zangwil3_nnln(; n::Integer = default_nvar, kwargs...) = 3
+get_zangwil3_nlin(; n::Integer = default_nvar, kwargs...) = 3
+get_zangwil3_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_zangwil3_nequ(; n::Integer = default_nvar, kwargs...) = 3
 get_zangwil3_nineq(; n::Integer = default_nvar, kwargs...) = 0
