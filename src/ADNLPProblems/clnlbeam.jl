@@ -29,7 +29,7 @@ function clnlbeam(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     c,
     zeros(T, 2 * N),
     zeros(T, 2 * N),
-    lin = 1:N,
+    lin = (N + 1):(2 * N),
     name = "clnlbeam";
     kwargs...,
   )
