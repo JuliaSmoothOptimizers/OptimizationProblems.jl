@@ -165,17 +165,17 @@ function test_linear_constraints(sample_size = 100)
     std = similar(nlp.meta.x0)
     blvar = similar(nlp.meta.lvar)
     buvar = similar(nlp.meta.uvar)
-    for j=1:nlp.meta.nvar
-      blvar[j] = nlp.meta.lvar[j] == -Inf ? -10. : nlp.meta.lvar[j]
-      buvar[j] = nlp.meta.uvar[j] == Inf ? 10. : nlp.meta.uvar[j]
+    for j = 1:(nlp.meta.nvar)
+      blvar[j] = nlp.meta.lvar[j] == -Inf ? -10.0 : nlp.meta.lvar[j]
+      buvar[j] = nlp.meta.uvar[j] == Inf ? 10.0 : nlp.meta.uvar[j]
       std[j] = max(abs(blvar[j]), abs(buvar[j]))
     end
     ref = jac(nlp, nlp.meta.x0)
-    Iref = collect(1:nlp.meta.ncon)
-    for i=1:sample_size
+    Iref = collect(1:(nlp.meta.ncon))
+    for i = 1:sample_size
       x = min.(max.((2 * rand(nlp.meta.nvar) .- 1) .* std, blvar), buvar)
       cx = jac(nlp, x)
-      setdiff!(Iref, findall(j -> cx[j, :] != ref[j, :], 1:nlp.meta.ncon))
+      setdiff!(Iref, findall(j -> cx[j, :] != ref[j, :], 1:(nlp.meta.ncon)))
       if Iref == []
         break
       end
