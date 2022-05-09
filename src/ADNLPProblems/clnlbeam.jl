@@ -14,8 +14,8 @@ function clnlbeam(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   function c(y)
     t, x, u = y[1:(N + 1)], y[(N + 2):(2 * N + 2)], y[(2 * N + 3):end]
     return vcat(
-      [x[i + 1] - x[i] - T(0.5) * h * (sin(t[i + 1]) + sin(t[i])) for i = 1:N],
       [t[i + 1] - t[i] - T(0.5) * h * u[i + 1] - T(0.5) * h * u[i] for i = 1:N],
+      [x[i + 1] - x[i] - T(0.5) * h * (sin(t[i + 1]) + sin(t[i])) for i = 1:N],
     )
   end
   lvar = vcat(-ones(T, N + 1), -T(0.05) * ones(T, N + 1), -T(Inf) * ones(T, N + 1))

@@ -12,5 +12,5 @@ function zangwil3(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   end
   lcon = zeros(T, 3)
   ucon = zeros(T, 3)
-  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "zangwil3"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "zangwil3", lin = [1, 2, 3]; kwargs...)
 end

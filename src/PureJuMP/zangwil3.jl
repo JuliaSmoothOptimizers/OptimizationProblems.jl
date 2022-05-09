@@ -22,10 +22,10 @@ function zangwil3(args...; kwargs...)
 
   @NLobjective(nlp, Min, 0)
 
-  @NLconstraint(nlp, constr1, x[1] - x[2] + x[3] == 0)
+  @constraint(nlp, constr1, x[1] - x[2] + x[3] == 0)
 
-  @NLconstraint(nlp, constr2, -x[1] + x[2] + x[3] == 0)
+  @constraint(nlp, constr2, -x[1] + x[2] + x[3] == 0)
 
-  @NLconstraint(nlp, constr3, x[1] + x[2] - x[3] == 0)
+  @constraint(nlp, constr3, x[1] + x[2] - x[3] == 0)
   return nlp
 end
