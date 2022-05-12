@@ -24,7 +24,7 @@ function hs40(args...; kwargs...)
 
   @NLconstraint(nlp, x[4] * x[1]^2 - x[3] == 0)
 
-  @NLconstraint(nlp, x[4]^2 - x[2] == 0)
+  @constraint(nlp, x[4]^2 - x[2] == 0)
 
   return nlp
 end

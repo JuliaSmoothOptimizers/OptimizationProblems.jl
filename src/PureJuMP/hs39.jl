@@ -22,7 +22,7 @@ function hs39(args...; kwargs...)
 
   @NLconstraint(nlp, x[2] - x[1]^3 - x[3]^2 == 0)
 
-  @NLconstraint(nlp, x[1]^2 - x[2] - x[4]^2 == 0)
+  @constraint(nlp, x[1]^2 - x[2] - x[4]^2 == 0)
 
   return nlp
 end

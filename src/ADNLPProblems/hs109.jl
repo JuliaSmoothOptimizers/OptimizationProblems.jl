@@ -15,8 +15,8 @@ function hs109(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     n = length(x)
     return [
       x[4] - x[3],
-      2250000 - x[1]^2 - x[8]^2,
-      2250000 - x[2]^2 - x[9]^2,
+      - x[1]^2 - x[8]^2,
+      - x[2]^2 - x[9]^2,
       x[5] * x[6] * sin(-x[3] - 1 / 4) + x[5] * x[7] * sin(-x[4] - 1 / 4) + 2 * b * x[5]^2 -
       a * x[1] + 400 * a,
       x[5] * x[6] * sin(x[3] - 1 / 4) + x[6] * x[7] * sin(x[3] - x[4] - 1 / 4) + 2 * b * x[6]^2 -
@@ -33,7 +33,7 @@ function hs109(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
       2 * ci * x[7]^2 + 0.7533e-3 * a * x[7]^2,
     ]
   end
-  lcon = vcat(-T(0.55), zeros(T, 8))
+  lcon = vcat(-T(0.55), -T(2250000), -T(2250000), zeros(T, 6))
   ucon = vcat(T(0.55), T(Inf), T(Inf), zeros(T, 6))
   return ADNLPModels.ADNLPModel(
     f,

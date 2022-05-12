@@ -26,7 +26,7 @@ function hs84(args...; kwargs...)
   a[8:14] = [2931.1506, -40.427932, 5106.192, 15711.36, -155011.1084, 4360.53352, 12.9492344]
   a[15:21] = [10236.884, 13176.786, -326669.5104, 7390.68412, -27.8986976, 16643.076, 30988.146]
 
-  @NLconstraint(
+  @constraint(
     nlp,
     0 ≤
     a[7] * x[1] +
@@ -36,7 +36,7 @@ function hs84(args...; kwargs...)
     a[11] * x[1] * x[5] ≤
     294000
   )
-  @NLconstraint(
+  @constraint(
     nlp,
     0 ≤
     a[12] * x[1] +
@@ -46,7 +46,7 @@ function hs84(args...; kwargs...)
     a[16] * x[1] * x[5] ≤
     294000
   )
-  @NLconstraint(
+  @constraint(
     nlp,
     0 ≤
     a[17] * x[1] +

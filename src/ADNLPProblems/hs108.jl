@@ -12,21 +12,21 @@ function hs108(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   function c(x)
     n = length(x)
     return [
-      1 - x[3]^2 - x[4]^2,
-      1 - x[5]^2 - x[6]^2,
-      1 - (x[1] - x[5])^2 - (x[2] - x[6])^2,
-      1 - (x[1] - x[7])^2 - (x[2] - x[8])^2,
-      1 - (x[3] - x[5])^2 - (x[4] - x[6])^2,
-      1 - (x[3] - x[7])^2 - (x[4] - x[8])^2,
+      - x[3]^2 - x[4]^2,
+      - x[5]^2 - x[6]^2,
+      - (x[1] - x[5])^2 - (x[2] - x[6])^2,
+      - (x[1] - x[7])^2 - (x[2] - x[8])^2,
+      - (x[3] - x[5])^2 - (x[4] - x[6])^2,
+      - (x[3] - x[7])^2 - (x[4] - x[8])^2,
       x[3] * x[9],
       x[5] * x[8] - x[6] * x[7],
-      1 - x[9]^2,
-      1 - x[1]^2 - (x[2] - x[9])^2,
+      - x[9]^2,
+      - x[1]^2 - (x[2] - x[9])^2,
       x[1] * x[4] - x[2] * x[3],
       -x[5] * x[9],
     ]
   end
-  lcon = zeros(T, 12)
+  lcon = T[-1, -1, -1, -1, -1, -1, 0, 0, -1, -1, 0, 0]
   ucon = T(Inf) * ones(T, 12)
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs108"; kwargs...)
 end

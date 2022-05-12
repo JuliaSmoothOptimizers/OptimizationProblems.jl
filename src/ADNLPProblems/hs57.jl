@@ -62,9 +62,9 @@ function hs57(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   uvar = T(Inf) * ones(T, 2)
   function c(x)
     n = length(x)
-    return [T(0.49) * x[2] - x[1] * x[2] - T(0.09)]
+    return [T(0.49) * x[2] - x[1] * x[2]]
   end
-  lcon = zeros(T, 1)
+  lcon = T[0.09]
   ucon = T(Inf) * ones(T, 1)
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs57"; kwargs...)
 end

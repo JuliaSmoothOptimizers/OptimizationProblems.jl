@@ -8,7 +8,7 @@ function mgh01feas(args...; n::Int = default_nvar, kwargs...) where {T}
 
   @objective(nlp, Min, 0)
   @constraint(nlp, 1 - x1 == 0)
-  @NLconstraint(nlp, 10 * (x2 - x1^2) == 0)
+  @constraint(nlp, 10 * (x2 - x1^2) == 0)
 
   return nlp
 end

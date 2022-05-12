@@ -18,9 +18,9 @@ function hs43(args...; kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:4], start = 0)
 
-  @NLconstraint(nlp, -8 + x[1]^2 + x[2]^2 + x[3]^2 + x[4]^2 + x[1] - x[2] + x[3] - x[4] ≤ 0)
-  @NLconstraint(nlp, -10 + x[1]^2 + 2 * x[2]^2 + x[3]^2 + 2 * x[4]^2 - x[1] - x[4] ≤ 0)
-  @NLconstraint(nlp, -5 + 2 * x[1]^2 + x[2]^2 + x[3]^2 + 2 * x[1] - x[2] - x[4] ≤ 0)
+  @constraint(nlp, -8 + x[1]^2 + x[2]^2 + x[3]^2 + x[4]^2 + x[1] - x[2] + x[3] - x[4] ≤ 0)
+  @constraint(nlp, -10 + x[1]^2 + 2 * x[2]^2 + x[3]^2 + 2 * x[4]^2 - x[1] - x[4] ≤ 0)
+  @constraint(nlp, -5 + 2 * x[1]^2 + x[2]^2 + x[3]^2 + 2 * x[1] - x[2] - x[4] ≤ 0)
 
   @NLobjective(
     nlp,

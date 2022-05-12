@@ -14,12 +14,12 @@ function hs83(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   function c(x)
     n = length(x)
     return [
-      a[1] + a[2] * x[2] * x[5] + a[3] * x[1] * x[4] - a[4] * x[3] * x[5],
-      a[5] + a[6] * x[2] * x[5] + a[7] * x[1] * x[2] - a[8] * x[3] * x[3] - 90,
-      a[9] + a[10] * x[3] * x[5] + a[11] * x[1] * x[3] - a[12] * x[3] * x[4] - 20,
+      a[2] * x[2] * x[5] + a[3] * x[1] * x[4] - a[4] * x[3] * x[5],
+      a[6] * x[2] * x[5] + a[7] * x[1] * x[2] - a[8] * x[3] * x[3],
+      a[10] * x[3] * x[5] + a[11] * x[1] * x[3] - a[12] * x[3] * x[4],
     ]
   end
-  lcon = zeros(T, 3)
-  ucon = T[92, 20, 5]
+  lcon = T[-a[1], 90 - a[5], 20 - a[9]]
+  ucon = T[92 - a[1], 110 - a[5], 25 - a[9]]
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs83"; kwargs...)
 end

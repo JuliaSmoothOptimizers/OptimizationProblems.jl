@@ -21,9 +21,9 @@ function hs8(args...; kwargs...)
 
   @objective(nlp, Min, -1)
 
-  @NLconstraint(nlp, constr1, x[1]^2 + x[2]^2 - 25 == 0)
+  @constraint(nlp, constr1, x[1]^2 + x[2]^2 - 25 == 0)
 
-  @NLconstraint(nlp, constr2, x[1] * x[2] - 9 == 0)
+  @constraint(nlp, constr2, x[1] * x[2] - 9 == 0)
 
   return nlp
 end

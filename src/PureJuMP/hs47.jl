@@ -20,8 +20,8 @@ function hs47(args...; kwargs...)
   @variable(nlp, x[i = 1:5], start = x0[i])
 
   @NLconstraint(nlp, x[1] + x[2]^2 + x[3]^3 - 3 == 0)
-  @NLconstraint(nlp, x[2] - x[3]^2 + x[4] - 1 == 0)
-  @NLconstraint(nlp, x[1] * x[5] - 1 == 0)
+  @constraint(nlp, x[2] - x[3]^2 + x[4] - 1 == 0)
+  @constraint(nlp, x[1] * x[5] - 1 == 0)
 
   @NLobjective(nlp, Min, (x[1] - x[2])^2 + (x[2] - x[3])^3 + (x[3] - x[4])^4 + (x[4] - x[5])^4)
 

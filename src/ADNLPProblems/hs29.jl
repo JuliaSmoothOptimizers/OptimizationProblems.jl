@@ -8,9 +8,9 @@ function hs29(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   x0 = ones(T, 3)
   function c(x)
     n = length(x)
-    return [x[1]^2 + 2 * x[2]^2 + 4 * x[3]^2 - 48]
+    return [x[1]^2 + 2 * x[2]^2 + 4 * x[3]^2]
   end
-  lcon = [-T(Inf)]
-  ucon = zeros(T, 1)
+  lcon = T[-Inf]
+  ucon = T[48]
   return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "hs29"; kwargs...)
 end

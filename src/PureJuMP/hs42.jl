@@ -18,7 +18,7 @@ function hs42(args...; kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:4], start = 1)
 
-  @NLconstraint(nlp, x[3]^2 + x[4]^2 - 2 == 0)
+  @constraint(nlp, x[3]^2 + x[4]^2 - 2 == 0)
 
   @constraint(nlp, x[1] - 2 == 0)
 

@@ -22,7 +22,7 @@ function bt1(args...; kwargs...)
 
   @NLobjective(nlp, Min, 100 * x[1]^2 + 100 * x[2]^2 - x[1] - 100)
 
-  @NLconstraint(nlp, constr1, x[1]^2 + x[2]^2 - 1.0 == 0)
+  @constraint(nlp, constr1, x[1]^2 + x[2]^2 == 1.0)
 
   return nlp
 end

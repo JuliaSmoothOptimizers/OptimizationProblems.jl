@@ -23,11 +23,11 @@ function hs20(args...; kwargs...)
 
   @NLobjective(nlp, Min, 100 * (x[2] - x[1]^2)^2 + (1 - x[1])^2)
 
-  @NLconstraint(nlp, x[1] + x[2]^2 ≥ 0)
+  @constraint(nlp, x[1] + x[2]^2 ≥ 0)
 
-  @NLconstraint(nlp, x[1]^2 + x[2] ≥ 0)
+  @constraint(nlp, x[1]^2 + x[2] ≥ 0)
 
-  @NLconstraint(nlp, x[1]^2 + x[2]^2 ≥ 1)
+  @constraint(nlp, x[1]^2 + x[2]^2 ≥ 1)
 
   return nlp
 end

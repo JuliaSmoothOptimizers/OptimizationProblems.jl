@@ -21,7 +21,7 @@ function hs6(args...; kwargs...)
 
   @NLobjective(nlp, Min, (1 - x[1])^2)
 
-  @NLconstraint(nlp, 10 * (x[2] - x[1]^2) == 0)
+  @constraint(nlp, 10 * (x[2] - x[1]^2) == 0)
 
   return nlp
 end

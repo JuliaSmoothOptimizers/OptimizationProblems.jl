@@ -20,7 +20,7 @@ function hs30(args...; kwargs...)
   uvar = [10, 10, 10]
   @variable(nlp, lvar[i] ≤ x[i = 1:3] ≤ uvar[i], start = 1)
 
-  @NLconstraint(nlp, x[1]^2 + x[2]^2 - 1 ≥ 0)
+  @constraint(nlp, x[1]^2 + x[2]^2 - 1 ≥ 0)
 
   @NLobjective(nlp, Min, sum(x[i]^2 for i = 1:3))
 
