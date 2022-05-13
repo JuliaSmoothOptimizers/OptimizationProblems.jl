@@ -29,7 +29,10 @@ The documentation should be added to the file in the `PureJuMP` folder.
     using ADNLPModels, NLPModels, NLPModelsJuMP, OptimizationProblems
     include("test/utils.jl")
     # there must exists a function `problem_name` which loads the model in the environment
-    generate_meta("problem_name")
+    name = "problem_name"
+    open("$name.jl", "w") do io
+      print(io, generate_meta(name))
+    end
 ```
 
 * Problems modeled with `ADNLPModels` should be type-stable, i.e. they should all have keyword argument `type::Val{T} = Val(Float64)` where `T` is the type of the initial guess and the type used by the `NLPModel` API.
