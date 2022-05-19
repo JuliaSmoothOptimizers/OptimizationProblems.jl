@@ -1,12 +1,21 @@
-using ADNLPModels, NLPModelsIpopt, Plots, Statistics
+function marine(;n::Int = default_nvar, tf=10000, ϵ = 1e-4, type::Val{T} = Val(Float64), kwargs...) where {T}
 
-function marine_population_dynamics(;n::Int = default_nvar, tf=10000, ϵ = 1e-4, type::Val{T} = Val(Float64), kwargs...) where {T}
+# Given observations of ns stages of a marine species over n timesteps, 
+# minimize the loss between the observation and the computed law of paraneters : growth, mortality and number of specimens (g,m,x) 
 
-    n > 21 && @warn("arwhead: number of timesteps must be lower than 21. Solving the problem for n=21:")
+    #   This is problem 6 in the COPS (Version 3) collection of 
+    #   E. Dolan and J. More'
+    #   see "Benchmarking Optimization Software with COPS"
+        #   Argonne National Labs Technical Report ANL/MCS-246 (2004)
+
+    #   classification OOR2-AN-V-V
+
+    n > 21 && @warn("marine: number of timesteps must be lower than 21. Solving the problem for n=21:")
     n = min(21, n)
     # parameters of the problem
     dt=tf/n # timestep
     ns = 8 # number of stages
+    
     # element i,j gives the number of individuals in stage j at time i
     data=[
     20000.0 17000.0 10000.0 15000.0 12000.0  9000.0  7000.0  3000.0;
@@ -36,63 +45,51 @@ function marine_population_dynamics(;n::Int = default_nvar, tf=10000, ϵ = 1e-4,
     data_r=reshape(cut_data,ns*n,1)
 
     # definition of the objective function
-    function objective(y::AbstractVector{T}) where T
-        s=0
-        for i=1:ns*n
-            s+=(y[i+2ns]-data_r[i])^2
-        end
-        return s
+    function f(x::AbstractVector{T}) where T
+        return sum((x[i+2ns]-data_r[i])^2 for i = 1:ns*n)
     end
 
     # definition of constraint function
-    function c(y::AbstractVector{T}) where T
+    function c(x::AbstractVector{T}) where T
 
-        c_1 = y[1:ns] # growth rates < 0
-        c_2 = y[1:ns] .+ y[ns+1:2ns] # growth rates + mortality rates < 0
+        c_1 = x[1:ns] # growth rates < 0
+        c_2 = x[1:ns] .+ x[ns+1:2ns] # growth rates + mortality rates < 0
 
-        c_3 = similar(y, n * ns -1)
-        for i = 2:ns*n
-            c_3[i-1] = y[2ns+i] - y[2ns+i-1] - y[2ns+ns*n+i-1]*dt #constraint of Euler
-        end
+        c_3 = [x[2ns+i+1] - x[2ns+i] - x[2ns+ns*n+i]*dt for i=1:(ns*n-1)]
 
-        c_4 = similar(y, n*(ns-1))
-        for k=2:ns
-            for j=1:n
-                c_4[(k-2)n+j] = y[(ns+n*ns) + (k-1)*n+j] - y[k-1]*y[2ns+(k-2)n+j] + (y[4]+y[ns+k])*y[2ns + (k-1)n+j]
-            end
-        end
-
-        C=[c_1;
-        c_2;
-        c_3;
-        c_4]
+        c_4 = [x[(ns+n*ns) + (k-1)*n+j] - x[k-1]*x[2ns+(k-2)n+j] + (x[4]+x[ns+k])*x[2ns + (k-1)n+j] for j = 1:n, k= 2:ns]
+        C_4 = reshape(c_4, n*(ns-1), 1)
+        C= [c_1;
+            c_2;
+            c_3;
+            C_4]
 
         return C
     end
 
     # Declaring the bounds on the constraints
-    lcon_c1 = -ones(ns) .- ϵ
-    lcon_c2 = -Inf*ones(ns)
-    lcon_euler = zeros(ns*n-1) .- ϵ
-    lcon_rates = zeros(n*(ns-1)) .- ϵ
+    lcon_c1 = -ones(T, ns) .- ϵ
+    lcon_c2 = -Inf*ones(T, ns)
+    lcon_euler = zeros(T, ns*n-1) .- ϵ
+    lcon_rates = zeros(T, n*(ns-1)) .- ϵ
     lcon = [lcon_c1;
             lcon_c2;
             lcon_euler;
             lcon_rates]
 
-    ucon_c1 = zeros(ns) .+ ϵ
-    ucon_c2 = zeros(ns) .+ ϵ
-    ucon_euler = zeros(ns*n-1) .+ ϵ
-    ucon_rates = zeros(n*(ns-1)) .+ ϵ
+    ucon_c1 = zeros(T, ns) .+ ϵ
+    ucon_c2 = zeros(T, ns) .+ ϵ
+    ucon_euler = zeros(T, ns*n-1) .+ ϵ
+    ucon_rates = zeros(T, n*(ns-1)) .+ ϵ
     ucon = [ucon_c1;
             ucon_c2;
             ucon_euler;
             ucon_rates]
 
-    # Initializing y0
-    y0=rand(2*ns*n+2ns)*10
-    y0[1:ns]=-rand(ns)
-    y0[ns+1:2ns]= y0[1:ns]/2
+    # Initializing x0
+    x0=rand(T, 2*ns*n+2ns)*10
+    x0[1:ns]=-rand(T, ns)
+    x0[ns+1:2ns]= x0[1:ns]/2
 
-    return ADNLPModel(objective, y0, c, lcon, ucon, name="marine_population_dynamics")
+    return ADNLPModel(f, x0, c, lcon, ucon, name="marine")
 end
