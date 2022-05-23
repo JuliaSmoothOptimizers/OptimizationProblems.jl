@@ -1,13 +1,13 @@
 marine_meta = Dict(
   :nvar => 352,
   :variable_nvar => false,
-  :ncon => 330,
+  :ncon => 322,
   :variable_ncon => false,
   :minimize => true,
   :name => "marine",
   :has_equalities_only => false,
-  :has_inequalities_only => true,
-  :has_bounds => false,
+  :has_inequalities_only => false,
+  :has_bounds => true,
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :general,
@@ -18,8 +18,8 @@ marine_meta = Dict(
   :origin => :unknown,
 )
 get_marine_nvar(; n::Integer = default_nvar, kwargs...) = 352
-get_marine_ncon(; n::Integer = default_nvar, kwargs...) = 330
+get_marine_ncon(; n::Integer = default_nvar, kwargs...) = 322
 get_marine_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_marine_nnln(; n::Integer = default_nvar, kwargs...) = 330
-get_marine_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_marine_nineq(; n::Integer = default_nvar, kwargs...) = 330
+get_marine_nnln(; n::Integer = default_nvar, kwargs...) = 322
+get_marine_nequ(; n::Integer = default_nvar, kwargs...) = 314
+get_marine_nineq(; n::Integer = default_nvar, kwargs...) = 8

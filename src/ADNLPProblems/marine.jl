@@ -1,5 +1,3 @@
-function marine(;n::Int = default_nvar, tf=10000, ϵ = 1e-4, type::Val{T} = Val(Float64), kwargs...) where {T}
-
 # Given observations of ns stages of a marine species over n timesteps, 
 # minimize the loss between the observation and the computed law of paraneters : growth, mortality and number of specimens (g,m,x) 
 
@@ -9,6 +7,8 @@ function marine(;n::Int = default_nvar, tf=10000, ϵ = 1e-4, type::Val{T} = Val(
         #   Argonne National Labs Technical Report ANL/MCS-246 (2004)
 
     #   classification OOR2-AN-V-V
+
+function marine(;n::Int = default_nvar, tf=10000, type::Val{T} = Val(Float64), kwargs...) where {T}
 
     n > 21 && @warn("marine: number of timesteps must be lower than 21. Solving the problem for n=21:")
     n = min(21, n)
@@ -52,37 +52,30 @@ function marine(;n::Int = default_nvar, tf=10000, ϵ = 1e-4, type::Val{T} = Val(
     # definition of constraint function
     function c(x::AbstractVector{T}) where T
 
-        c_1 = x[1:ns] # growth rates < 0
-        c_2 = x[1:ns] .+ x[ns+1:2ns] # growth rates + mortality rates < 0
-
-        c_3 = [x[2ns+i+1] - x[2ns+i] - x[2ns+ns*n+i]*dt for i=1:(ns*n-1)]
-
-        c_4 = [x[(ns+n*ns) + (k-1)*n+j] - x[k-1]*x[2ns+(k-2)n+j] + (x[4]+x[ns+k])*x[2ns + (k-1)n+j] for j = 1:n, k= 2:ns]
-        C_4 = reshape(c_4, n*(ns-1), 1)
+        c_1 = x[1:ns] .+ x[ns+1:2ns] # growth rates + mortality rates < 0
+        c_euler = [x[2ns+i+1] - x[2ns+i] - x[2ns+ns*n+i]*dt for i=1:(ns*n-1)]
+        c_rates = [x[(ns+n*ns) + (k-1)*n+j] - x[k-1]*x[2ns+(k-2)n+j] + (x[4]+x[ns+k])*x[2ns + (k-1)n+j] for j = 1:n, k= 2:ns]
+        C_rates = reshape(c_rates, n*(ns-1), 1)
+        
         C= [c_1;
-            c_2;
-            c_3;
-            C_4]
+            c_euler;
+            C_rates]
 
         return C
     end
 
     # Declaring the bounds on the constraints
-    lcon_c1 = -ones(T, ns) .- ϵ
-    lcon_c2 = -Inf*ones(T, ns)
-    lcon_euler = zeros(T, ns*n-1) .- ϵ
-    lcon_rates = zeros(T, n*(ns-1)) .- ϵ
+    lcon_c1 = -Inf*ones(T, ns)
+    lcon_euler = zeros(T, ns*n-1)
+    lcon_rates = zeros(T, n*(ns-1))
     lcon = [lcon_c1;
-            lcon_c2;
             lcon_euler;
             lcon_rates]
 
-    ucon_c1 = zeros(T, ns) .+ ϵ
-    ucon_c2 = zeros(T, ns) .+ ϵ
-    ucon_euler = zeros(T, ns*n-1) .+ ϵ
-    ucon_rates = zeros(T, n*(ns-1)) .+ ϵ
+    ucon_c1 = zeros(T, ns)
+    ucon_euler = zeros(T, ns*n-1)
+    ucon_rates = zeros(T, n*(ns-1))
     ucon = [ucon_c1;
-            ucon_c2;
             ucon_euler;
             ucon_rates]
 
@@ -91,5 +84,9 @@ function marine(;n::Int = default_nvar, tf=10000, ϵ = 1e-4, type::Val{T} = Val(
     x0[1:ns]=-rand(T, ns)
     x0[ns+1:2ns]= x0[1:ns]/2
 
-    return ADNLPModel(f, x0, c, lcon, ucon, name="marine")
+    # defining the bounds on the variables
+    lvar = [-ones(T, ns); -ones(T, ns); zeros(T, ns*n); -Inf*ones(T,ns*n)]
+    uvar = [zeros(T,ns); ones(T, ns); Inf*ones(T, ns*n); Inf*ones(T,ns*n)]
+
+    return ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name="marine")
 end
