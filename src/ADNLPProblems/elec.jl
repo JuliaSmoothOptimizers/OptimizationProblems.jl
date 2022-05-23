@@ -1,5 +1,3 @@
-function elec(;n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-
 # Given np electrons, find the equilibrium state distribution of minimal
 # Columb potential of the electrons positioned on a conducting sphere
 
@@ -10,8 +8,10 @@ function elec(;n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) wh
 
 #   classification OOR2-AN-V-V
 
-    # Define the objective function to minimize
+function elec(;n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
 
+    n=max(2, div(n,3))
+    # Define the objective function to minimize
     function f(x)
         v=reshape(x,3,n)'
         elts=pairwise(Euclidean(),v,dims=1)
@@ -38,10 +38,10 @@ function elec(;n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) wh
 
     θ0 = 2π.*range0
     ϕ0 = π.*range0
-    xini = [sin(θ0[i])*cos(ϕ0[i]) for i = 1:n] # x coordinate
-    yini = [sin(θ0[i])*sin(ϕ0[i]) for i = 1:n] # y coordinate 
-    zini = [cos(θ0[i]) for i = 1:n]            # z coordinate
-    x0 = zeros(3n)
+    xini = T[sin(θ0[i])*cos(ϕ0[i]) for i = 1:n] # x coordinate
+    yini = T[sin(θ0[i])*sin(ϕ0[i]) for i = 1:n] # y coordinate 
+    zini = T[cos(θ0[i]) for i = 1:n]            # z coordinate
+    x0 = zeros(T,3n)
 
     for i=0:n-1
         x0[3i+1] += xini[i+1]
@@ -49,5 +49,9 @@ function elec(;n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) wh
         x0[3i+3] += zini[i+1]
     end
 
-    return ADNLPModel(f, x0, c, lcon, ucon, name="elec")
+    # defining the bounds on the variables
+    lvar = -ones(T, 3n)
+    uvar = ones(T, 3n)
+
+    return ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name="elec")
 end
