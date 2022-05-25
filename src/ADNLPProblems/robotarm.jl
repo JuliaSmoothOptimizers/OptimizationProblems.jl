@@ -1,3 +1,5 @@
+export robotarm
+
 # Minimize the time taken for a robot arm to travel between two points.
 
     #  This is problem 8 in the COPS (Version 3) collection of 
@@ -7,10 +9,11 @@
     
     #  classification OOR2-AN-V-V
 
-function robotarm(;n::Int = default_nvar,L::T = 4.5, type::Val{T} = Val(Float64), kwargs...) where {T}
+function robotarm(;n::Int = default_nvar,L = 4.5, type::Val{T} = Val(Float64), kwargs...) where {T}
 
     N = max(2, div(n, 9))
     n = N + 1
+    L=T(L)
 
     # x : vector of variables, of the form : [ρ(t=t1); ρ(t=t2); ... ρ(t=tf), θ(t=t1), ..., then ρ_dot, ..., then ρ_acc, .. ϕ_acc, tf]
     # There are N+1 values of each 9 variables 
@@ -38,32 +41,36 @@ function robotarm(;n::Int = default_nvar,L::T = 4.5, type::Val{T} = Val(Float64)
         c_euler6 = x[5n+2:6n] - x[5n+1:6n-1] - x[8n+1:9n-1]*x[end]/n
         c_euler = [c_euler1; c_euler2; c_euler3; c_euler4; c_euler5; c_euler6]
 
-        # constraints on initial and final values 
-        c_0_f = [x[1]; x[n]; x[n+1]; x[2n]; x[2n+1]; x[3n]; x[3n+1]; x[4n]; x[4n+1]; x[5n]; x[5n+1]; x[6n]; x[6n+1]; x[7n]; x[7n+1]; x[8n]; x[8n+1]; x[9n]]
-
-        return [c_ρ_acc; c_θ_acc; c_ϕ_acc; c_euler; c_0_f]
+        return [c_ρ_acc; c_θ_acc; c_ϕ_acc; c_euler]
     end
 
     lcon = T[-ones(n);
             -ones(n);
             -ones(n);
-            zeros(6N);
-            L; L; 0; 2π/3; π/4; π/4; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0]
+            zeros(6N)]
 
     ucon = T[ones(n);
             ones(n);
             ones(n);
-            zeros(6N);
-            L; L; 0; 2π/3; π/4; π/4; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0]
+            zeros(6N)]
 
     # Building a feasible x0
     tf0=T(1)
     θ0 = T[2π/3*(t/n)^2 for t in 1:n]
+    θ0[1]=T(0)
     x0 = [L*ones(T, n); θ0; π*ones(T, n)/4; zeros(T, 6n); tf0]
+
 
     # defining the bounds on the variables
     lvar = T[zeros(n); -π*ones(n); zeros(n) ; -Inf*ones(6n); 0]
     uvar = T[L*ones(n); π*ones(n); 2π*ones(n) ; Inf*ones(6n); Inf]
+    lvar[1] = uvar[1] = lvar[n] = uvar[n] = T(L)
+    lvar[n+1] = uvar[n+1] = T(0)
+    lvar[2n] = uvar[2n] = T(2*π/3)
+    lvar[2n+1] = uvar[2n+1] = lvar[3n] = uvar[3n] = T(π/4)
+    lvar[3n+1] = uvar[3n+1] = lvar[4n] = uvar[4n] = lvar[4n+1] = uvar[4n+1] = lvar[5n] = uvar[5n] = lvar[5n+1] = uvar[5n+1] = lvar[6n] = uvar[6n] = lvar[6n+1] = uvar[6n+1] = lvar[7n] = uvar[7n] = lvar[7n+1] = uvar[7n+1] = lvar[8n] = uvar[8n] = lvar[8n+1] = uvar[8n+1] = lvar[9n] = uvar[9n] = T(0)
 
-    return ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name="robotarm")
+
+
+    return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name="robotarm"; kwargs...)
 end
