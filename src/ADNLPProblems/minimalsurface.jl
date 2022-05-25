@@ -10,12 +10,12 @@ function minimalsurface(; n::Int = default_nvar, type::Val{T} = Val(Float64), kw
     ymax = T(1.)
 
     # Definition of the mesh
-    nx = T(20) # number of points according to the direction x
-    ny = T(20) # number of points according to the direction y
+    nx = 20 # number of points according to the direction x
+    ny = 20 # number of points according to the direction y
 
 
-    x_mesh = T(LinRange(xmin, xmax, nx)) # coordinates of the mesh points x
-    y_mesh = T(LinRange(ymin, ymax, ny)) # coordinates of the mesh points y
+    x_mesh = LinRange(xmin, xmax, nx) # coordinates of the mesh points x
+    y_mesh = LinRange(ymin, ymax, ny) # coordinates of the mesh points y
 
     v_D = zeros(nx,ny) # Surface matrix initialization
     for i in 1:nx
