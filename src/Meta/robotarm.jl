@@ -17,9 +17,9 @@ robotarm_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_robotarm_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 5
-get_robotarm_ncon(; n::Integer = default_nvar, kwargs...) = 1 * n + -2
+get_robotarm_nvar(; n::Integer = default_nvar, kwargs...) = 9 * (max(2, div(n, 9)) + 1) + 1
+get_robotarm_ncon(; n::Integer = default_nvar, kwargs...) = 3 * (max(2, div(n, 9)) + 1) + 6 * max(2, div(n, 9))
 get_robotarm_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_robotarm_nnln(; n::Integer = default_nvar, kwargs...) = 1 * n + -2
-get_robotarm_nequ(; n::Integer = default_nvar, kwargs...) = 0 * n + 30
-get_robotarm_nineq(; n::Integer = default_nvar, kwargs...) = 0 * n + 18
+get_robotarm_nnln(; n::Integer = default_nvar, kwargs...) = 3 * (max(2, div(n, 9)) + 1) + 6 * max(2, div(n, 9))
+get_robotarm_nequ(; n::Integer = default_nvar, kwargs...) = 6 * max(2, div(n, 9))
+get_robotarm_nineq(; n::Integer = default_nvar, kwargs...) = 3 * (max(2, div(n, 9)) + 1)
