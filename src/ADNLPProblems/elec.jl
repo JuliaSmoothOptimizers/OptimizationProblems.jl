@@ -1,3 +1,5 @@
+export elec
+
 # Given np electrons, find the equilibrium state distribution of minimal
 # Columb potential of the electrons positioned on a conducting sphere
 
@@ -13,45 +15,32 @@ function elec(;n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) wh
     n=max(2, div(n,3))
     # Define the objective function to minimize
     function f(x)
-        v=reshape(x,3,n)'
-        elts=pairwise(Euclidean(),v,dims=1)
-        return sum(1 ./ elts[tril!(trues(size(elts)), -1)])
+        return sum( sum( ((x[j]-x[i])^2 + (x[n+j]-x[n+i])^2 + (x[2n+j]-x[2n+i])^2)^(-1/2) for j=i+1:n) for i=1:n-1)
     end
+
 
     # Define the constraints on these points (sum of the square of the coordinates = 1)
     function c(x)
-        C=[]
-        for k=0:n-1
-            push!(C, x[3k+1]^2 + x[3k+2]^2 + x[3k+3]^2)
-        end
-        return C
+        return [x[k]^2 + x[n+k]^2 + x[2n+k]^2 for k=1:n]
     end
 
     # bounds on the constraints
-    lcon=ucon=(ones(T,n))
+    lcon=ucon=ones(T,n)
 
     # building a feasible x0
-    range0 = zeros(T, n)
-    for i=1:n
-        range0[i] += i/n
-    end
+    range0 = T[i/n for i=1:n]
 
     θ0 = 2π.*range0
     ϕ0 = π.*range0
     xini = T[sin(θ0[i])*cos(ϕ0[i]) for i = 1:n] # x coordinate
     yini = T[sin(θ0[i])*sin(ϕ0[i]) for i = 1:n] # y coordinate 
     zini = T[cos(θ0[i]) for i = 1:n]            # z coordinate
-    x0 = zeros(T,3n)
-
-    for i=0:n-1
-        x0[3i+1] += xini[i+1]
-        x0[3i+2] += yini[i+1]
-        x0[3i+3] += zini[i+1]
-    end
+    x0 = [xini; yini; zini]
 
     # defining the bounds on the variables
     lvar = -ones(T, 3n)
     uvar = ones(T, 3n)
 
-    return ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name="elec")
+    return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name="elec")
 end
+ 
