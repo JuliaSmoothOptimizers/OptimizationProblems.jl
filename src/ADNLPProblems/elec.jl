@@ -1,31 +1,21 @@
 export elec
 
-# Given np electrons, find the equilibrium state distribution of minimal
-# Columb potential of the electrons positioned on a conducting sphere
-
-#   This is problem 2 in the COPS (Version 3) collection of 
-#   E. Dolan and J. More'
-#   see "Benchmarking Optimization Software with COPS"
-#   Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
-#   classification OOR2-AN-V-V
-
 function elec(;n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
 
     n=max(2, div(n,3))
     # Define the objective function to minimize
     function f(x)
-        return sum( sum( ((x[j]-x[i])^2 + (x[n+j]-x[n+i])^2 + (x[2n+j]-x[2n+i])^2)^(-1/2) for j=i+1:n) for i=1:n-1)
+        return sum( sum( 1/sqrt((x[j]-x[i])^2 + (x[n+j]-x[n+i])^2 + (x[2n+j]-x[2n+i])^2) for j=i+1:n) for i=1:n-1)
     end
 
 
     # Define the constraints on these points (sum of the square of the coordinates = 1)
     function c(x)
-        return [x[k]^2 + x[n+k]^2 + x[2n+k]^2 for k=1:n]
+        return [x[k]^2 + x[n+k]^2 + x[2n+k]^2 - 1 for k=1:n]
     end
 
     # bounds on the constraints
-    lcon=ucon=ones(T,n)
+    lcon=ucon=zeros(T,n)
 
     # building a feasible x0
     range0 = T[i/n for i=1:n]
