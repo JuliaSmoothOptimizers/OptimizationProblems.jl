@@ -6,7 +6,7 @@ function schmvett(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   function f(x)
     n = length(x)
     return sum(
-      -(1 / (1 + (x[i] - x[i + 1])^2)) - sin((π * x[i + 1] + x[i + 2]) / 2) -
+      -(1 / (1 + (x[i] - x[i + 1])^2)) - sin((T(π) * x[i + 1] + x[i + 2]) / 2) -
       exp(-((x[i] + x[i + 2]) / x[i + 1] - 2)^2) for i = 1:(n - 2)
     )
   end
