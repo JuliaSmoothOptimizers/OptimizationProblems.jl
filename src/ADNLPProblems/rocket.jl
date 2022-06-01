@@ -1,6 +1,13 @@
-using ADNLPModels, NLPModels, NLPModelsIpopt, DataFrames, LinearAlgebra, Distances, SolverCore, Plots
+#  Find the surface with minimal area, given boundary conditions, 
+#  and above an obstacle.
 
-function goddardrocket(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+#  This is problem 10 in the COPS (Version 3) collection of 
+#  E. Dolan and J. More'
+#  see "Benchmarking Optimization Software with COPS"
+#  Argonne National Labs Technical Report ANL/MCS-246 (2004)
+#  classification OBR2-AN-V-V
+
+function rocket(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
 
     # Initialisation
     # Constants
@@ -20,7 +27,8 @@ function goddardrocket(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwa
     T_max = T(3.5 * g_0 * m_0)      # maximal rocket thrust
     D_c = T(1/2 * v_c * (m_0/g_0))  # Drag scaling
 
-    function Objective(X :: Vector{S}) where {S}
+    function f(X)        #Objective function
+        S = eltype(X)
 
         v = zeros(S, n)  # velocity vector
         h = zeros(S, n)  # height vector
@@ -45,7 +53,9 @@ function goddardrocket(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwa
 
     end
 
-    function constraints(X :: Vector{S}) where {S}
+    function constraints(X)
+        
+        S = eltype(X)
 
         v = zeros(S, n)
         h = zeros(S, n)
@@ -68,15 +78,14 @@ function goddardrocket(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwa
         return constraints
 
     end
-    Δt  = T(1/(n-1))  # Indya, ce n'est pas 1/(n-1) à la place ?
+    Δt  = T(1/(n-1)) 
     X0 = T_max/2 * ones(T, n) 
     lvar = zeros(T, n) 
     uvar =  T_max/2 * ones(T, n) 
     lcon = zeros(T, 3 * n)
     ucon = T[i ≤ 2n ? T(Inf) : ( T(m_0 - m_f)) for i=1:3n]
 
-    nlp = ADNLPModel(Objective, X0, lvar, uvar, constraints, lcon, ucon)
-    return nlp
+    return ADNLPModel(f, X0, lvar, uvar, constraints, lcon, ucon)
 end
 
 
