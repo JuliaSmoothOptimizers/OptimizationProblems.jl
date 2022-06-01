@@ -10,27 +10,34 @@
 
 export elec
 
-function elec(args...;n::Int = default_nvar, kwargs...)
+function elec(args...; n::Int = default_nvar, kwargs...)
+  n = max(2, div(n, 3))
 
-    n=max(2, div(n,3))
+  nlp = Model()
 
-    nlp = Model()
+  range0 = [i / n for i = 1:n]
 
-    range0 = [i/n for i=1:n]
+  θ0 = 2π .* range0
+  ϕ0 = π .* range0
+  xini = [sin(θ0[i]) * cos(ϕ0[i]) for i = 1:n] # x coordinate
+  yini = [sin(θ0[i]) * sin(ϕ0[i]) for i = 1:n] # y coordinate 
+  zini = [cos(θ0[i]) for i = 1:n]            # z coordinate
+  x0 = [xini; yini; zini]
 
-    θ0 = 2π.*range0
-    ϕ0 = π.*range0
-    xini = [sin(θ0[i])*cos(ϕ0[i]) for i = 1:n] # x coordinate
-    yini = [sin(θ0[i])*sin(ϕ0[i]) for i = 1:n] # y coordinate 
-    zini = [cos(θ0[i]) for i = 1:n]            # z coordinate
-    x0 = [xini; yini; zini]
+  @variable(nlp, -1 <= x[i = 1:(3n)] <= 1, start = x0[i])
 
-    @variable(nlp, -1 <= x[i = 1:3n] <= 1, start = x0[i])
+  @NLobjective(
+    nlp,
+    Min,
+    sum(
+      sum(
+        1 / sqrt((x[j] - x[i])^2 + (x[n + j] - x[n + i])^2 + (x[2n + j] - x[2n + i])^2) for
+        j = (i + 1):n
+      ) for i = 1:(n - 1)
+    )
+  )
 
-    @NLobjective(nlp, Min, sum( sum( 1/sqrt((x[j]-x[i])^2 + (x[n+j]-x[n+i])^2 + (x[2n+j]-x[2n+i])^2) for j=i+1:n) for i=1:n-1))
+  @NLconstraint(nlp, [k = 1:n], x[k]^2 + x[n + k]^2 + x[2n + k]^2 == 1)
 
-    @NLconstraint(nlp, [k = 1:n], x[k]^2 + x[n+k]^2 + x[2n+k]^2 == 1)
-
-    return nlp
+  return nlp
 end
- 
