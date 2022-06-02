@@ -1,26 +1,16 @@
 export camshape
 
 function camshape(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-    R_min = T(args[1])
-    R_max = T(args[2])
-    R_v = T(args[3])
-    α = T(args[4])
+    R_min = T(1)
+    R_max = T(2)
+    R_v = T(1)
+    α = T(1.5)
     θ = T(2*pi/(5*(n+1)))
     function f(y)
         return -T(R_v*pi/n) * sum(y[i] for i = 1:n)
     end
     function c(y::V) where {V}
-        ci = zeros(eltype(V), n+2)
-        ci[1] = - R_min*y[1] - y[1]*y[2] + 2*R_min*y[2]*cos(θ)
-        ci[2] = - R_min^2 - R_min*y[1] + 2*R_min*y[1]*cos(θ)
-        ci[3] = - y[n-1]*y[n] - y[n]*R_max + 2*y[n-1]*R_max*cos(θ)
-        ci[4] = - 2*R_max*y[n] + 2*y[n]^2*cos(θ)
-        k = 4
-        for i = 2:n-1
-            k += 1
-            ci[k] = - y[i-1]*y[i] - y[i]*y[i+1] + 2*y[i-1]*y[i+1]*cos(θ)
-        end
-        return vcat(R_max - y[n], y[1] - R_min, [y[i+1] - y[i] for i = 1:(n - 1)], ci)
+        return vcat(R_max - y[n], y[1] - R_min, [y[i+1] - y[i] for i = 1:(n - 1)], - R_min*y[1] - y[1]*y[2] + 2*R_min*y[2]*cos(θ), - R_min^2 - R_min*y[1] + 2*R_min*y[1]*cos(θ), - y[n-1]*y[n] - y[n]*R_max + 2*y[n-1]*R_max*cos(θ), - 2*R_max*y[n] + 2*y[n]^2*cos(θ), [- y[i-1]*y[i] - y[i]*y[i+1] + 2*y[i-1]*y[i+1]*cos(θ) for i = 2:(n-1)])
     end
 
     lvar = T(R_min) * ones(T, n)
