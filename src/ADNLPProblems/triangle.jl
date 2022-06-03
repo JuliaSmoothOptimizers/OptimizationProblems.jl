@@ -1,4 +1,4 @@
-include("OptimizationProblems.jl/data/triangle.jl")
+include("../../data/triangle.jl")
 export triangle
 
 function triangle(x0 = xe, TRIS::Vector{Int64} = Tr, Const::Vector{Int64} = Constants; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
@@ -46,14 +46,14 @@ function triangle(x0 = xe, TRIS::Vector{Int64} = Tr, Const::Vector{Int64} = Cons
 end
 
 
-include("OptimizationProblems.jl/data/triangle_deer.jl")
+include("../../data/triangle_deer.jl")
 export triangle_deer
-triangle_deer(;kwargs...) = triangle(x0 = xe_deer, TRIS=TRIS_deer, Const=Const_deer; kwargs...)
+triangle_deer(;kwargs...) = triangle(xe_deer, TRIS_deer, Const_deer; name = "triangle_deer", kwargs...)
 
-include("OptimizationProblems.jl/data/triangle_pacman.jl")
+include("../../data/triangle_pacman.jl")
 export triangle_pacman
-triangle_pacman(;kwargs...) = triangle(x0 = xe_pacman, TRIS=TRIS_pacman, Const=Const_pacman; kwargs...)
+triangle_pacman(;kwargs...) = triangle(xe_pacman, TRIS_pacman, Const_pacman; name = "triangle_pacman", kwargs...)
 
-include("OptimizationProblems.jl/data/triangle_turtle.jl")
+include("../../data/triangle_turtle.jl")
 export triangle_turtle
-triangle_turtle(; kwargs...) = triangle_turtle(x0 = xe_turtle, TRIS=TRIS_turtle, Const=Const_turtle; kwargs...)
+triangle_turtle(; kwargs...) = triangle_turtle(xe_turtle, TRIS_turtle, Const_turtle; name = "triangle_turtle", kwargs...)

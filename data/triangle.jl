@@ -1,5 +1,3 @@
-export xe, Tr, Constants
-
 xe = [0 0
      1 0
      0  1
