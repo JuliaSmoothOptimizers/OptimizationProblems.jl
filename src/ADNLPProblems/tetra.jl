@@ -33,10 +33,12 @@ function tetra(x0 = xe, TETS::Vector{Int64} = Tets, Const::Vector{Int64} = Const
     lvar = -T(Inf) * ones(T, n)
     lvar[Const] = x0[Const]
     lvar[Const.+N] = x0[Const.+N]
+    lvar[Const.+ 2*N] = x0[Const.+ 2*N]
     
     uvar = T(Inf) * ones(T, n)
     uvar[Const] = x0[Const]
     uvar[Const.+N] = x0[Const.+N]
+    uvar[Const.+ 2*N] = x0[Const.+ 2*N]
     
     lcon = τ*ones(T, E)
     ucon = T(Inf)*ones(T, E)
