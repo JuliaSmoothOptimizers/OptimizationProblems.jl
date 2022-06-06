@@ -24,7 +24,7 @@ function tetra(x0 = xe, TETS::Vector{Int64} = Tets, Const::Vector{Int64} = Const
     end
 
     function f(y)
-        return sum(nfrob(e,y)/(3*area(e,y)^(2/3)) for e=1:E)
+        return sum(nfrob(e,y)/(3*area(e,y)^(2//3)) for e=1:E)
     end
     function c(y)
         return [area(e,y) for e=1:E]
@@ -57,25 +57,25 @@ end
 
 include("../../data/tetra_duct12.jl")
 export tetra_duct12
-tetra_duct12(;kwargs...) = tetra(xe_duct12, TETS_duct12, Const_duct12; kwargs...)
+tetra_duct12(;kwargs...) = tetra(xe_duct12, TETS_duct12, Const_duct12; name = "tetra_duct12", kwargs...)
 
 include("../../data/tetra_duct15.jl")
 export tetra_duct15
-tetra_duct15(;kwargs...) = tetra(xe_duct15, TETS_duct15, Const_duct15; kwargs...)
+tetra_duct15(;kwargs...) = tetra(xe_duct15, TETS_duct15, Const_duct15; name = "tetra_duct15", kwargs...)
 
 include("../../data/tetra_duct20.jl")
 export tetra_duct20
-tetra_duct20(;kwargs...) = tetra(xe_duct20, TETS_duct20, Const_duct20; kwargs...)
+tetra_duct20(;kwargs...) = tetra(xe_duct20, TETS_duct20, Const_duct20; name = "tetra_duct20", kwargs...)
 
 include("../../data/tetra_hook.jl")
 export tetra_hook
-tetra_hook(;kwargs...) = tetra(xe_hook, TETS_hook, Const_hook; kwargs...)
+tetra_hook(;kwargs...) = tetra(xe_hook, TETS_hook, Const_hook; name = "tetra_hook", kwargs...)
 
 include("../../data/tetra_foam5.jl")
 export tetra_foam5
-tetra_foam5(;kwargs...) = tetra(xe_foam5, TETS_foam5, Const_foam5; kwargs...)
+tetra_foam5(;kwargs...) = tetra(xe_foam5, TETS_foam5, Const_foam5; name = "tetra_foam5", kwargs...)
 
 include("../../data/tetra_gear.jl")
 export tetra_gear
-tetra_gear(;kwargs...) = tetra(xe_gear, TETS_gear, Const_gear; kwargs...)
+tetra_gear(;kwargs...) = tetra(xe_gear, TETS_gear, Const_gear; name = "tetra_gear", kwargs...)
 
