@@ -9,7 +9,8 @@
 include("../../data/tetra.jl")
 export tetra
 
-function tetra(x0 = xe, TETS::Vector{Int64} = Tets, Const::Vector{Int64} = Constants; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function tetra(x0 = xe_tetra, TETS::Vector{Int64} = Tets_tetra, Const::Vector{Int64} = Constants_tetra; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+
     x0 = T.(x0)
     n = length(x0)
     τ = zero(T)
