@@ -6,7 +6,7 @@ xe_tetra = [
   0.5 0.2 0.1 
 ];
 
-Tets = [
+Tets_tetra = [
   1 2 3 5
   5 4 3 1
   5 4 1 2
