@@ -13,6 +13,6 @@ Tets_tetra = [
   5 2 3 4
 ];
 
-Tets = vec(reshape(Tets, 16, 1));
+Tets_tetra = vec(reshape(Tets_tetra, 16, 1));
 xe = vec(reshape(xe, 15, 1));
 Constants = [1, 2, 3, 4];
