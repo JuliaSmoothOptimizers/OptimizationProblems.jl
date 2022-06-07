@@ -14,5 +14,5 @@ Tets_tetra = [
 ];
 
 Tets_tetra = vec(reshape(Tets_tetra, 16, 1));
-xe = vec(reshape(xe, 15, 1));
+xe_tetra = vec(reshape(xe_tetra, 15, 1));
 Constants = [1, 2, 3, 4];
