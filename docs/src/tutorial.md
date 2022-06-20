@@ -28,7 +28,12 @@ jump_model_12 = woods(n=12)
 jump_model_120 = woods(n=120)
 ```
 These problems can be converted as [NLPModels](https://github.com/JuliaSmoothOptimizers/NLPModels.jl) via [NLPModelsJuMP](https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl) to facilitate evaluating
-objective, constraints and their derivatives as we will see in the benchmark section.
+objective, constraints and their derivatives.
+``` @example ex1
+using NLPModels, NLPModelsJuMP
+nlp_model_120 = MathOptNLPModel(jump_model_120)
+obj(nlp_model_120, zeros(120))
+```
 
 ## Problems in ADNLPModel syntax: ADNLPProblems
 
