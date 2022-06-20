@@ -20,12 +20,11 @@ pkg> add OptimizationProblems
 pkg> test OptimizationProblems
 ```
 
-You can obtain the list of problems currently defined with
-`names(OptimizationProblems.PureJuMP)`. The first symbol in the list is
-`:PureJuMP` itself&ndash;the name of the module.
-
-Currently, only a few unconstrained problems are implemented. Some are
-available in variable size.
+This package collects all the metadata of the implemented problems in a single [`DataFrame`](https://github.com/JuliaData/DataFrames.jl).
+```julia
+using OptimizationProblems
+OptimizationProblems.meta
+```
 
 This module is particularly useful in conjunction with
 [NLPModels](https://github.com/JuliaSmoothOptimizers/NLPModels.jl) to facilitate evaluating
