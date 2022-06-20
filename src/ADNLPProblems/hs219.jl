@@ -13,6 +13,6 @@ function hs219(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   x0 = 10 * ones(T, 4)
   lcon = zeros(T, 2)
   ucon = zeros(T, 2)
-  nlp = ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "hs219", lin = [1]; kwargs...)
+  nlp = ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "hs219"; kwargs...)
   return nlp
 end
