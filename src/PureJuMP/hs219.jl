@@ -21,10 +21,6 @@ function hs219(; n::Int = default_nvar, kwargs...)
   @NLconstraint(nlp, x[1]^2 - x[2] - x[4]^2 == 0)
   @NLconstraint(nlp, x[2] - x[1]^3 - x[3]^2 == 0)
 
-  @NLobjective(
-    nlp,
-    Min,
-    -x[1]
-  )
+  @NLobjective(nlp, Min, -x[1])
   return nlp
 end
