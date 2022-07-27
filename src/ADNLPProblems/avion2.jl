@@ -5,24 +5,23 @@ function avion2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
 
   function f(x)
     SR, LR, PK, EF, SX, LX, SD, SK, ST, SF, LF, AM, CA, CB, SO, SS, IMPDER, IMPK, IMPFUS, QI, PT, MV, MC, MD, PD, NS, VS, CR, PM, DV, MZ, VN, QV, QF, IMPTRAIN, IMPMOT, IMPNMOT, IMPPET, IMPPIL, IMPCAN, IMPSNA, MS, EL, DE, DS, IMPVOIL, NM, NP, NG = x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8], x[9], x[10], x[11], x[12], x[13], x[14], x[15], x[16], x[17], x[18], x[19], x[20], x[21], x[22], x[23], x[24], x[25], x[26], x[27], x[28], x[29], x[30], x[31], x[32], x[33], x[34], x[35], x[36], x[37], x[38], x[39], x[40], x[41], x[42], x[43], x[44], x[45], x[46], x[47], x[48], x[49]
-    return     (SK - T(0.01)*PK*SR)^2
-    + (CA - (SS-SO-CB*LF)/(LF^2) )^2
-    + (-2*AM+SO+SS + T(0.01)*EF/LF)^2
-    + (AM - T(0.025)*SO*CB^2/CA)^2
-    + (IMPDER - T(27.5)*SD - T(1.3)*SD^2)^2
-    + (IMPK - 70*SK + T(8.6)*SK^2)^2
-    + (QI - 1000 + MV^2/24000)^2
-    + (1000*PT - MD*PD)^2
-    + (VN + VS +QF/790 + 2 - MZ/CR +DV*PT)^2
-    + (IMPMOT - 1000*PT/(PM+20) - 12*sqrt(PT))^2
-    + (ST - T(1.25)*SR*NM)^2
-    + (SR - MD/MS)^2
-    + (QV - T(2.4)*SX*sqrt(SX)*EL/sqrt(LX))^2
-    + (SO - T(0.785)*DE^2*PT)^2
-    + (SS - T(0.785)*DS^2*PT)^2
-    + (CB - 2*(VN-CA*LF^3)/(LF^2*(3-SO*LF)))^2
-    + (IMPVOIL - T(1.15)*SX*(15+T(0.15)*SX)*(8+(MC*LX/(50*SR*EL))^1.5))^2
-    
+    return (SK - T(0.01)*PK*SR)^2 +
+      (CA - (SS-SO-CB*LF)/(LF^2) )^2 +
+      (-2*AM+SO+SS + T(0.01)*EF/LF)^2 +
+      (AM - T(0.025)*SO*CB^2/CA)^2 +
+      (IMPDER - T(27.5)*SD - T(1.3)*SD^2)^2 +
+      (IMPK - 70*SK + T(8.6)*SK^2)^2 +
+      (QI - 1000 + MV^2/24000)^2 +
+      (1000*PT - MD*PD)^2 +
+      (VN + VS +QF/790 + 2 - MZ/CR +DV*PT)^2 +
+      (IMPMOT - 1000*PT/(PM+20) - 12*sqrt(PT))^2 +
+      (ST - T(1.25)*SR*NM)^2 +
+      (SR - MD/MS)^2 +
+      (QV - T(2.4)*SX*sqrt(SX)*EL/sqrt(LX))^2 +
+      (SO - T(0.785)*DE^2*PT)^2 +
+      (SS - T(0.785)*DS^2*PT)^2 +
+      (CB - 2*(VN-CA*LF^3)/(LF^2*(3-SO*LF)))^2 +
+      (IMPVOIL - T(1.15)*SX*(15+T(0.15)*SX)*(8+(MC*LX/(50*SR*EL))^(3//2)))^2
   end
   x0 = T[
     2.7452e+01,
