@@ -15,13 +15,7 @@ function hs116(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   lvar = T[0.1, 0.1, 0.1, 0.0001, 0.1, 0.1, 0.1, 0.1, 500, 0.1, 1, 0.0001, 0.0001]
   uvar = T[1, 1, 1, 0.1, 0.9, 0.9, 1000, 1000, 1000, 500, 150, 150, 150]
   function c(x)
-    n = length(x)
     return [
-      x[3] - x[2],
-      x[2] - x[1],
-      -a * x[7] + a * x[8],
-      x[11] + x[12] + x[13],
-      x[11] + x[12] + x[13],
       x[13] - b * x[10] + ci * x[3] * x[10],
       x[5] - d * x[2] - e * x[2] * x[5] + fi * x[2]^2,
       x[6] - d * x[3] - e * x[3] * x[6] + fi * x[3]^2,
@@ -41,11 +35,13 @@ function hs116(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     x0,
     lvar,
     uvar,
+    [1; 1; 2; 2; 3; 3; 4; 4; 4; 5; 5; 5],
+    [3; 2; 2; 1; 7; 8; 11; 12; 13; 11; 12; 13],
+    T[1; -1; 1; -1; -a; a; 1; 1; 1; 1; 1; 1],
     c,
     lcon,
     ucon,
-    name = "hs116",
-    lin = [1, 2, 3, 4, 5];
+    name = "hs116";
     kwargs...,
   )
 end

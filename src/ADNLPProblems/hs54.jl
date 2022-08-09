@@ -17,10 +17,6 @@ function hs54(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   x0 = T[6e3, 1.5, 4e6, 2, 3e-3, 5e7]
   lvar = T[0, -10, 0, 0, -1, 0]
   uvar = T[2e4, 10, 1e7, 20, 1, 2e8]
-  function c(x)
-    n = length(x)
-    return [x[1] + 3 * x[2]]
-  end
   lcon = zeros(T, 1)
   ucon = zeros(T, 1)
   return ADNLPModels.ADNLPModel(
@@ -28,11 +24,12 @@ function hs54(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x0,
     lvar,
     uvar,
-    c,
+    [1; 1],
+    [1; 2],
+    T[1; 3],
     lcon,
     ucon,
-    name = "hs54",
-    lin = [1];
+    name = "hs54";
     kwargs...,
   )
 end

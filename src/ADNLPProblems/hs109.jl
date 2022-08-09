@@ -14,7 +14,6 @@ function hs109(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   function c(x)
     n = length(x)
     return [
-      x[4] - x[3],
       2250000 - x[1]^2 - x[8]^2,
       2250000 - x[2]^2 - x[9]^2,
       x[5] * x[6] * sin(-x[3] - 1 / 4) + x[5] * x[7] * sin(-x[4] - 1 / 4) + 2 * b * x[5]^2 -
@@ -40,11 +39,13 @@ function hs109(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     x0,
     lvar,
     uvar,
+    [1; 1],
+    [4; 3],
+    T[1; -1],
     c,
     lcon,
     ucon,
-    name = "hs109",
-    lin = [1];
+    name = "hs109";
     kwargs...,
   )
 end

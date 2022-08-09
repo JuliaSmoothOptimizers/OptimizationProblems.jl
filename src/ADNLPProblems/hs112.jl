@@ -9,14 +9,6 @@ function hs112(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   x0 = T(0.1) * ones(T, 10)
   lvar = T(1.0e-6) * ones(T, 10)
   uvar = T(Inf) * ones(T, 10)
-  function c(x)
-    n = length(x)
-    return [
-      x[1] + 2 * x[2] + 2 * x[3] + x[6] + x[10],
-      x[4] + 2 * x[5] + x[6] + x[7],
-      x[3] + x[7] + x[8] + 2 * x[9] + x[10],
-    ]
-  end
   lcon = T[2, 1, 1]
   ucon = T[2, 1, 1]
   return ADNLPModels.ADNLPModel(
@@ -24,11 +16,12 @@ function hs112(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     x0,
     lvar,
     uvar,
-    c,
+    [1; 1; 1; 1; 1; 2; 2; 2; 2; 3; 3; 3; 3; 3],
+    [1; 2; 3; 6; 10; 4; 5; 6; 7; 3; 7; 8; 9; 10],
+    T[1; 2; 2; 1; 1; 1; 2; 1; 1; 1; 1; 1; 2; 1],
     lcon,
     ucon,
-    name = "hs112",
-    lin = [1, 2, 3];
+    name = "hs112";
     kwargs...,
   )
 end

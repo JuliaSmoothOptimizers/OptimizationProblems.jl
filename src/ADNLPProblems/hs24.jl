@@ -8,10 +8,6 @@ function hs24(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   x0 = T[1, 0.5]
   lvar = zeros(T, 2)
   uvar = T(Inf) * ones(T, 2)
-  function c(x)
-    n = length(x)
-    return [x[1] / sqrt(3) - x[2], x[1] + sqrt(3) * x[2]]
-  end
   lcon = zeros(T, 2)
   ucon = T[Inf, 6]
   return ADNLPModels.ADNLPModel(
@@ -19,11 +15,12 @@ function hs24(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x0,
     lvar,
     uvar,
-    c,
+    [1; 1; 2; 2],
+    [1; 2; 1; 2],
+    T[1 / sqrt(3); -1; 1; sqrt(3)],
     lcon,
     ucon,
-    name = "hs24",
-    lin = [1, 2];
+    name = "hs24";
     kwargs...,
   )
 end

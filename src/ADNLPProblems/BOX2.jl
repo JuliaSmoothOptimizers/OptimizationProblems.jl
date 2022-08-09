@@ -18,8 +18,6 @@ function BOX2(
         x[3] * (exp(-one(T) / 10 * j) - exp(-T(j)))
       )^2 for j = 1:m
     )
-  c(x) = [x[3]]
-  l = ones(T, 1)
 
-  return ADNLPModels.ADNLPModel(f, x0, c, l, l, name = "BOX2", lin = [1]; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, [1], [3], T[1], T[1], T[1], name = "BOX2"; kwargs...)
 end

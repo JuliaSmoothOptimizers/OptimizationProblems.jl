@@ -19,11 +19,12 @@ function polygon2(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     xi,
     lvar,
     uvar,
-    c,
+    ones(Int, N),
+    collect((N + 1):(2 * N)),
+    ones(T, N),
     T[2π],
     T[2π],
-    name = "polygon2",
-    lin = collect(1:1);
+    name = "polygon2";
     kwargs...,
   )
 end
