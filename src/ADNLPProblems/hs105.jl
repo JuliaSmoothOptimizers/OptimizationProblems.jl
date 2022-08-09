@@ -42,10 +42,6 @@ function hs105(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   x0 = T[0.1, 0.2, 100, 125, 175, 11.2, 13.2, 15.8]
   lvar = T[0.001, 0.001, 100, 130, 170, 5, 5, 5]
   uvar = T[0.499, 0.499, 180, 210, 240, 25, 25, 25]
-  function c(x)
-    n = length(x)
-    return [-x[1] - x[2]]
-  end
   lcon = -ones(T, 1)
   ucon = T(Inf) * ones(T, 1)
   return ADNLPModels.ADNLPModel(
@@ -53,11 +49,12 @@ function hs105(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     x0,
     lvar,
     uvar,
-    c,
+    [1; 1],
+    [1; 2],
+    T[-1; -1],
     lcon,
     ucon,
-    name = "hs105",
-    lin = [1];
+    name = "hs105";
     kwargs...,
   )
 end

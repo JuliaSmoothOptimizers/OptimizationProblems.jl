@@ -11,8 +11,6 @@ function hs73(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   function c(x)
     n = length(x)
     return [
-      x[1] + x[2] + x[3] + x[4],
-      2.3 * x[1] + 5.6 * x[2] + 11.1 * x[3] + 1.3 * x[4],
       12 * x[1] + 11.9 * x[2] + 41.8 * x[3] + 52.1 * x[4] - 21 -
       1.645 * sqrt(0.28x[1]^2 + 0.19 * x[2]^2 + 20.5 * x[3]^2 + 0.62x[4]^2),
     ]
@@ -24,11 +22,13 @@ function hs73(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x0,
     lvar,
     uvar,
+    [1; 1; 1; 1; 2; 2; 2; 2],
+    [1; 2; 3; 4; 1; 2; 3; 4],
+    T[1; 1; 1; 1; 2.3; 5.6; 11.1; 1.3],
     c,
     lcon,
     ucon,
-    name = "hs73",
-    lin = [1, 2];
+    name = "hs73";
     kwargs...,
   )
 end

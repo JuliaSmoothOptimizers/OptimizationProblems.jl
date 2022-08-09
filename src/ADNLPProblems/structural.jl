@@ -63,15 +63,12 @@ function structural(
     x, u = y[1:M], y[(M + 1):(2 * M)]
     return sum(ℓ[j] * x[j] for j = 1:M)
   end
-  function c(y)
-    x, u = y[1:M], y[(M + 1):(2 * M)]
-    return vcat(
-      [sum(u[j] * nx[i, j] for j = 1:M) for i in setdiff(1:N, fixed)],
-      [sum(u[j] * ny[i, j] for j = 1:M) for i in setdiff(1:N, fixed)],
-      -x + u,
-      u - x,
-    )
-  end
+  A = [
+    spzeros(T, length(setdiff(1:N, fixed)), M) nx[setdiff(1:N, fixed), :]
+    spzeros(T, length(setdiff(1:N, fixed)), M) ny[setdiff(1:N, fixed), :]
+    spdiagm(0 => -ones(T, M)) spdiagm(0 => ones(T, M))
+    spdiagm(0 => -ones(T, M)) spdiagm(0 => ones(T, M))
+  ]
   lcon = vcat(-fx[setdiff(1:N, fixed)], -fy[setdiff(1:N, fixed)], -T(Inf) * ones(T, 2 * M))
   ucon = vcat(-fx[setdiff(1:N, fixed)], -fy[setdiff(1:N, fixed)], zeros(T, 2 * M))
   x0 = zeros(T, 2 * M)
@@ -82,11 +79,10 @@ function structural(
     x0,
     lvar,
     uvar,
-    c,
+    sparse(A),
     lcon,
     ucon,
-    name = "structural",
-    lin = collect(1:length(lcon));
+    name = "structural";
     kwargs...,
   )
 end

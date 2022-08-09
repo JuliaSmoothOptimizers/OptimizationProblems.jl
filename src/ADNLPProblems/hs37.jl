@@ -19,11 +19,12 @@ function hs37(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x0,
     lvar,
     uvar,
-    c,
+    [1; 1; 1],
+    [1; 2; 3],
+    T[1; 2; 2],
     lcon,
     ucon,
-    name = "hs37",
-    lin = [1];
+    name = "hs37";
     kwargs...,
   )
 end

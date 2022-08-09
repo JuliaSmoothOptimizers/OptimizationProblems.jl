@@ -8,10 +8,6 @@ function hs53(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   x0 = 2 * ones(T, 5)
   lvar = -10 * ones(T, 5)
   uvar = 10 * ones(T, 5)
-  function c(x)
-    n = length(x)
-    return [x[1] + 3 * x[2], x[3] + x[4] - 2 * x[5], x[2] - x[5]]
-  end
   lcon = zeros(T, 3)
   ucon = zeros(T, 3)
   return ADNLPModels.ADNLPModel(
@@ -19,11 +15,12 @@ function hs53(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x0,
     lvar,
     uvar,
-    c,
+    [1; 1; 2; 2; 2; 3; 3],
+    [1; 2; 3; 4; 5; 2; 5],
+    T[1; 3; 1; 1; -2; 1; -1],
     lcon,
     ucon,
-    name = "hs53",
-    lin = 1:3;
+    name = "hs53";
     kwargs...,
   )
 end

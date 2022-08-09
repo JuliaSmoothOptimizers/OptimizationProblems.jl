@@ -45,9 +45,6 @@ function hs119(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   x0 = 10 * ones(T, 16)
   lvar = zeros(T, 16)
   uvar = 5 * ones(T, 16)
-  function c(x)
-    return [sum(b[i, j] * x[j] for j = 1:16) for i = 1:8]
-  end
   lcon = T[
     40,
     17.599999999999998,
@@ -68,16 +65,5 @@ function hs119(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     36.8,
     -24,
   ]
-  return ADNLPModels.ADNLPModel(
-    f,
-    x0,
-    lvar,
-    uvar,
-    c,
-    lcon,
-    ucon,
-    name = "hs119",
-    lin = 1:8;
-    kwargs...,
-  )
+  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, sparse(b), lcon, ucon, name = "hs119"; kwargs...)
 end

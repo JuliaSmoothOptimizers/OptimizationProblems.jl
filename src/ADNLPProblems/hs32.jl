@@ -9,8 +9,7 @@ function hs32(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   lvar = zeros(T, 3)
   uvar = T(Inf) * ones(T, 3)
   function c(x)
-    n = length(x)
-    return [x[1] + x[2] + x[3], 6 * x[2] + 4 * x[3] - x[1]^3 - 3]
+    return [6 * x[2] + 4 * x[3] - x[1]^3 - 3]
   end
   lcon = T[1, 0]
   ucon = T[1, Inf]
@@ -19,11 +18,13 @@ function hs32(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x0,
     lvar,
     uvar,
+    [1; 1; 1],
+    [1; 2; 3],
+    T[1; 1; 1],
     c,
     lcon,
     ucon,
-    name = "hs32",
-    lin = [1];
+    name = "hs32";
     kwargs...,
   )
 end

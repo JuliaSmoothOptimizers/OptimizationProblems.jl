@@ -12,10 +12,6 @@ function hs62(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   x0 = T[0.7, 0.2, 0.1]
   lvar = zeros(T, 3)
   uvar = ones(T, 3)
-  function c(x)
-    n = length(x)
-    return [x[1] + x[2] + x[3]]
-  end
   lcon = ones(T, 1)
   ucon = ones(T, 1)
   return ADNLPModels.ADNLPModel(
@@ -23,11 +19,12 @@ function hs62(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     x0,
     lvar,
     uvar,
-    c,
+    [1; 1; 1],
+    [1; 2; 3],
+    T[1; 1; 1],
     lcon,
     ucon,
-    name = "hs62",
-    lin = [1];
+    name = "hs62";
     kwargs...,
   )
 end
