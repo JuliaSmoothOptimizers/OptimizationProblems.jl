@@ -24,10 +24,15 @@ function chain(args...; n::Int = default_nvar, kwargs...)
 
   nlp = Model()
 
-  @variable(nlp, u[k = 1:(nh + 1)], start = 4 * abs(b - a) * ( k / nh - tmin ))
+  @variable(nlp, u[k = 1:(nh + 1)], start = 4 * abs(b - a) * (k / nh - tmin))
   @variable(nlp, x1[k = 1:(nh + 1)], start = 4 * abs(b - a) * k / nh * (1 / 2 * k / nh - tmin) + a)
-  @variable(nlp, x2[k = 1:(nh + 1)], start = (4 * abs(b - a) * k / nh * (1 / 2 * k / nh - tmin) + a) * (4 * abs(b - a) * ( k / nh - tmin )))
-  @variable(nlp, x3[k = 1:(nh + 1)], start = 4 * abs(b - a) * ( k / nh - tmin ))
+  @variable(
+    nlp,
+    x2[k = 1:(nh + 1)],
+    start =
+      (4 * abs(b - a) * k / nh * (1 / 2 * k / nh - tmin) + a) * (4 * abs(b - a) * (k / nh - tmin))
+  )
+  @variable(nlp, x3[k = 1:(nh + 1)], start = 4 * abs(b - a) * (k / nh - tmin))
 
   @NLobjective(nlp, Min, x2[nh + 1])
 
@@ -40,8 +45,17 @@ function chain(args...; n::Int = default_nvar, kwargs...)
   @constraint(nlp, x3[1] == 0)
   @constraint(nlp, x3[nh + 1] == L)
 
-  @NLconstraint(nlp, [j = 1:nh], x2[j + 1] - x2[j] - 1 / 2 * h * (x1[j] * sqrt(1 + u[j]^2) + x1[j + 1] * sqrt(1 + u[j + 1]^2)) == 0)
-  @NLconstraint(nlp, [j = 1:nh], x3[j + 1] - x3[j] - 1 / 2 * h * (sqrt(1 + u[j]^2) + sqrt(1 + u[j + 1]^2)) == 0)
+  @NLconstraint(
+    nlp,
+    [j = 1:nh],
+    x2[j + 1] - x2[j] - 1 / 2 * h * (x1[j] * sqrt(1 + u[j]^2) + x1[j + 1] * sqrt(1 + u[j + 1]^2)) ==
+    0
+  )
+  @NLconstraint(
+    nlp,
+    [j = 1:nh],
+    x3[j + 1] - x3[j] - 1 / 2 * h * (sqrt(1 + u[j]^2) + sqrt(1 + u[j + 1]^2)) == 0
+  )
 
   return nlp
 end

@@ -12,21 +12,24 @@ function chain(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
 
   # Define the objective function to minimize
   function f(x)
-    u = view(x,1:(nh + 1))
-    x1 = view(x,(1 + nh + 1):(2 * (nh + 1)))
-    x2 = view(x,(1 + 2 * (nh + 1)):(3 * (nh + 1)))
-    x3 = view(x,(1 + 3 * (nh + 1)):(4 * (nh + 1)))
+    u = view(x, 1:(nh + 1))
+    x1 = view(x, (1 + nh + 1):(2 * (nh + 1)))
+    x2 = view(x, (1 + 2 * (nh + 1)):(3 * (nh + 1)))
+    x3 = view(x, (1 + 3 * (nh + 1)):(4 * (nh + 1)))
     return x2[nh + 1]
   end
 
   function c(x)
-    u = view(x,1:(nh + 1))
-    x1 = view(x,(1 + nh + 1):(2 * (nh + 1)))
-    x2 = view(x,(1 + 2 * (nh + 1)):(3 * (nh + 1)))
-    x3 = view(x,(1 + 3 * (nh + 1)):(4 * (nh + 1)))
+    u = view(x, 1:(nh + 1))
+    x1 = view(x, (1 + nh + 1):(2 * (nh + 1)))
+    x2 = view(x, (1 + 2 * (nh + 1)):(3 * (nh + 1)))
+    x3 = view(x, (1 + 3 * (nh + 1)):(4 * (nh + 1)))
     return vcat(
-      [x2[j + 1] - x2[j] - 1 // 2 * h * (x1[j] * sqrt(1 + u[j]^2) + x1[j + 1] * sqrt(1 + u[j + 1]^2)) for j=1:nh],
-      [x3[j + 1] - x3[j] - 1 // 2 * h * (sqrt(1 + u[j]^2) + sqrt(1 + u[j + 1]^2)) for j=1:nh],
+      [
+        x2[j + 1] - x2[j] -
+        1 // 2 * h * (x1[j] * sqrt(1 + u[j]^2) + x1[j + 1] * sqrt(1 + u[j + 1]^2)) for j = 1:nh
+      ],
+      [x3[j + 1] - x3[j] - 1 // 2 * h * (sqrt(1 + u[j]^2) + sqrt(1 + u[j + 1]^2)) for j = 1:nh],
     )
   end
 
@@ -45,8 +48,8 @@ function chain(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   lcon = ucon = vcat(zeros(T, nh), a, b, 0, 0, L, zeros(T, 2 * nh))
 
   x0 = zeros(T, 4 * nh + 4)
-  for k=1:(nh + 1)
-    x0[k] = 4 * abs(b - a) * ( k // nh - tmin ) # u
+  for k = 1:(nh + 1)
+    x0[k] = 4 * abs(b - a) * (k // nh - tmin) # u
     x0[k + nh + 1] = 4 * abs(b - a) * k // nh * (1 // 2 * k // nh - tmin) + a # x[k,1]
     x0[k + 2 * (nh + 1)] = x0[k + nh + 1] * x0[k]
     x0[k + 3 * (nh + 1)] = x0[k]

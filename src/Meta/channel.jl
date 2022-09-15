@@ -18,8 +18,10 @@ channel_meta = Dict(
   :origin => :unknown,
 )
 get_channel_nvar(; n::Integer = default_nvar, kwargs...) = 8 * max(2, div(n, 8))
-get_channel_ncon(; n::Integer = default_nvar, kwargs...) = 4 * (max(2, div(n, 8)) - 1) + max(2, div(n, 8)) * 4 + 4
+get_channel_ncon(; n::Integer = default_nvar, kwargs...) =
+  4 * (max(2, div(n, 8)) - 1) + max(2, div(n, 8)) * 4 + 4
 get_channel_nlin(; n::Integer = default_nvar, kwargs...) = (max(2, div(n, 8)) - 1) * 4 + 4
 get_channel_nnln(; n::Integer = default_nvar, kwargs...) = max(2, div(n, 8)) * 4
-get_channel_nequ(; n::Integer = default_nvar, kwargs...) = 4 * (max(2, div(n, 8)) - 1) + max(2, div(n, 8)) * 4 + 4
+get_channel_nequ(; n::Integer = default_nvar, kwargs...) =
+  4 * (max(2, div(n, 8)) - 1) + max(2, div(n, 8)) * 4 + 4
 get_channel_nineq(; n::Integer = default_nvar, kwargs...) = 0
