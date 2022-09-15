@@ -30,9 +30,5 @@ function elec(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   zini = T[cos(θ0[i]) for i = 1:n]            # z coordinate
   x0 = [xini; yini; zini]
 
-  # defining the bounds on the variables
-  lvar = -ones(T, 3n)
-  uvar = ones(T, 3n)
-
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "elec")
+  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "elec")
 end
