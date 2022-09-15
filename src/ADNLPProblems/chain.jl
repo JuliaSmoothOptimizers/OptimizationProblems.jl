@@ -19,7 +19,6 @@ function chain(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     return x2[nh + 1]
   end
 
-  # Define the constraints on these points (sum of the square of the coordinates = 1)
   function c(x)
     u = view(x,1:(nh + 1))
     x1 = view(x,(1 + nh + 1):(2 * (nh + 1)))
@@ -30,23 +29,6 @@ function chain(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
       [x3[j + 1] - x3[j] - 1 // 2 * h * (sqrt(1 + u[j]^2) + sqrt(1 + u[j + 1]^2)) for j=1:nh],
     )
   end
-
-  #=
-  function ctemp(x)
-    u = view(x,1:(nh + 1))
-    x1 = view(x,(1 + nh + 1):(2 * (nh + 1)))
-    x2 = view(x,(1 + 2 * (nh + 1)):(3 * (nh + 1)))
-    x3 = view(x,(1 + 3 * (nh + 1)):(4 * (nh + 1)))
-    return vcat(
-      [x1[j + 1] - x1[j] - 1 // 2 * h * (u[j] + u[j + 1]) for j=1:nh],
-      x1[1] - a,
-      x1[nh + 1] - b,
-      x2[1] - 0,
-      x3[1] - 0,
-      x3[nh + 1] - L,
-    )
-  end
-  =#
 
   A = spzeros(T, nh + 5, 4 * nh + 4)
   A[1:nh, 1:nh] = spdiagm(0 => -1 // 2 * h * ones(T, nh))
