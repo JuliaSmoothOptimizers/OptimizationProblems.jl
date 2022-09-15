@@ -24,7 +24,7 @@ function elec(args...; n::Int = default_nvar, kwargs...)
   zini = [cos(θ0[i]) for i = 1:n]            # z coordinate
   x0 = [xini; yini; zini]
 
-  @variable(nlp, -1 <= x[i = 1:(3n)] <= 1, start = x0[i])
+  @variable(nlp, x[i = 1:(3n)], start = x0[i])
 
   @NLobjective(
     nlp,
