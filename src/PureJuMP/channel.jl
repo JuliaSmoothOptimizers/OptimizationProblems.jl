@@ -56,11 +56,8 @@ function channel(args...; n::Int = default_nvar, kwargs...)
     @constraint(nlp, sum(v[i,k] * h^(k - s) / prod(j for j=1:(k - s)) for k=s:nd) + h^(nd - s + 1) * sum(w[i, k] / prod(j for j=1:(k + nd - s)) for k=1:nc) - v[i + 1, s] == 0.0)
   end
 
-  Duc(i,j,s) = sum(v[i,k]* (ρ[j] * h) ^ (k - s) / prod(j for j=1:(k - s)) for k=s:nd) + h^(nd - s + 1) * sum(w[i,k] * ρ[j]^(k + nd - s) / prod(j for j=1:(k + nd - s)) for k=1:nc)
-  register(nlp, :Duc, 3, Duc; autodiff = true)
-
-  for i=1:(nh - 1), j=1:nc
-    @NLconstraint(nlp, sum(w[i,k] * (ρ[j]^(k - 1) / prod(j for j=1:(k-1))) for k=1:nc) - R * (Duc(i,j,2) * Duc(i,j,3) - Duc(i,j,1) * Duc(i,j,4)) == 0.0)
+  for i=1:nh, j=1:nc
+    @NLconstraint(nlp, sum(w[i,k] * (ρ[j]^(k - 1) / prod(j for j=1:(k-1))) for k=1:nc) - R * ((sum(v[i,k]* (ρ[j] * h) ^ (k - 2) / prod(j for j=1:(k - 2)) for k=2:nd) + h^(nd - 2 + 1) * sum(w[i,k] * ρ[j]^(k + nd - 2) / prod(j for j=1:(k + nd - 2)) for k=1:nc)) * (sum(v[i,k]* (ρ[j] * h) ^ (k - 3) / prod(j for j=1:(k - 3)) for k=3:nd) + h^(nd - 3 + 1) * sum(w[i,k] * ρ[j]^(k + nd - 3) / prod(j for j=1:(k + nd - 3)) for k=1:nc)) - (sum(v[i,k]* (ρ[j] * h) ^ (k - 1) / prod(j for j=1:(k - 1)) for k=1:nd) + h^(nd - 1 + 1) * sum(w[i,k] * ρ[j]^(k + nd - 1) / prod(j for j=1:(k + nd - 1)) for k=1:nc)) * (sum(v[i,k]* (ρ[j] * h) ^ (k - 4) / prod(j for j=1:(k - 4)) for k=4:nd) + h^(nd - 4 + 1) * sum(w[i,k] * ρ[j]^(k + nd - 4) / prod(j for j=1:(k + nd - 4)) for k=1:nc))) == 0.0)
   end
 
   return nlp
