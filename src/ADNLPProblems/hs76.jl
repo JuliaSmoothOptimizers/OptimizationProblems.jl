@@ -3,7 +3,7 @@ export hs76
 function hs76(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
-    return x[1]^2 + T(0.5) * x[2]^2 + x[3]^2 + T(0.5) * x[4]^2 - x[1] * x[3] + x[3] * x[4] - x[1] -
+    return x[1]^2 + 1 // 2 * x[2]^2 + x[3]^2 + 1 // 2 * x[4]^2 - x[1] * x[3] + x[3] * x[4] - x[1] -
            3 * x[2] + x[3] - x[4]
   end
   x0 = T(0.5) * ones(T, 4)

@@ -3,7 +3,7 @@ export zangwil3
 function zangwil3(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
-    return zero(T)
+    return zero(eltype(x))
   end
   x0 = T[100, -1, 2.5]
   lcon = zeros(T, 3)

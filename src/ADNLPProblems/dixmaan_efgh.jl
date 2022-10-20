@@ -15,10 +15,10 @@ function dixmaane(;
   function f(x)
     n = length(x)
     return 1 +
-           sum(T(i / n) * T(α) * x[i]^2 for i = 1:n) +
+           sum(i // n * T(α) * x[i]^2 for i = 1:n) +
            sum(T(β) * x[i]^2 * (x[i + 1] + x[i + 1]^2)^2 for i = 1:(n - 1)) +
            sum(T(γ) * x[i]^2 * x[i + m]^4 for i = 1:(2 * m)) +
-           sum(T(i / n) * T(δ) * x[i] * x[i + 2 * m] for i = 1:m)
+           sum(i // n * T(δ) * x[i] * x[i + 2 * m] for i = 1:m)
   end
   x0 = 2 * ones(T, n)
   return ADNLPModels.ADNLPModel(f, x0, name = "dixmaane"; kwargs...)

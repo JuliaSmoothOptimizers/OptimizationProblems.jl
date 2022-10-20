@@ -4,7 +4,7 @@ function brownden(; m::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   m < 4 && @warn("brownden: must have m ≥ 4")
   m = max(m, 4)
   x0 = T[25.0; 5.0; -5.0; -1.0]
-  t = T[i / 5 for i = 1:m]
+  t = [i // 5 for i = 1:m]
   function f(x)
     return sum(
       ((x[1] + t[i] * x[2] - exp(t[i]))^2 + (x[3] + x[4] * sin(t[i]) - cos(t[i]))^2)^2 for i = 1:m

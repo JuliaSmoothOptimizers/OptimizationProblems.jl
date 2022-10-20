@@ -13,10 +13,10 @@ function hs56(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
       asin(sqrt(5 / 7.2)),
     ],
     x -> [
-      x[1] - T(4.2) * sin(x[4])^2
-      x[2] - T(4.2) * sin(x[5])^2
-      x[3] - T(4.2) * sin(x[6])^2
-      x[1] + 2 * x[2] + 2 * x[3] - 7.2 * sin(x[7])^2
+      x[1] - 42 // 10 * sin(x[4])^2
+      x[2] - 42 // 10 * sin(x[5])^2
+      x[3] - 42 // 10 * sin(x[6])^2
+      x[1] + 2 * x[2] + 2 * x[3] - 72 // 10 * sin(x[7])^2
     ],
     zeros(T, 4),
     zeros(T, 4),

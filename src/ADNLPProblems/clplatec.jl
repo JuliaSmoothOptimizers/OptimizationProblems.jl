@@ -26,11 +26,11 @@ function clplatec(;
            ) +
            sum(
              sum(
-               T(1 / 2) * (x[i + (j - 1) * p] - x[i - 1 + (j - 1) * p])^2 +
+              1 // 2 * (x[i + (j - 1) * p] - x[i - 1 + (j - 1) * p])^2 +
                (x[i + (j - 1) * p] - x[i - 1 + (j - 1) * p])^4 for j = 2:p
              ) for i = 3:p
            ) +
-           sum(T(1 / 2) * (x[2 + (j - 1) * p])^2 + (x[2 + (j - 1) * p])^4 for j = 2:p)
+           sum(1 // 2 * (x[2 + (j - 1) * p])^2 + (x[2 + (j - 1) * p])^4 for j = 2:p)
   end
   x0 = zeros(T, n)
   return ADNLPModels.ADNLPModel(f, x0, name = "clplatec"; kwargs...)

@@ -5,7 +5,7 @@ function sparsqur(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   n = max(10, n)
   function f(x)
     n = length(x)
-    return T(1 / 8) * sum(
+    return 1 // 8 * sum(
       i *
       (
         x[i]^2 +

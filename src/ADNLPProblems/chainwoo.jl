@@ -11,7 +11,7 @@ function chainwoo(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
       90 * (x[2 * i + 2] - x[2 * i + 1]^2)^2 +
       (1 - x[2 * i + 1])^2 +
       10 * (x[2 * i] + x[2 * i + 2] - 2)^2 +
-      T(0.1) * (x[2 * i] - x[2 * i + 2])^2 for i = 1:(div(n, 2) - 1)
+      1 // 10 * (x[2 * i] - x[2 * i + 2])^2 for i = 1:(div(n, 2) - 1)
     )
   end
   x0 = vcat([-3, -1, -3, -1], -2 * ones(T, n - 4))

@@ -8,7 +8,7 @@ function curly30(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
     n = length(x)
     return sum(
       (sum(x[j] for j = i:min(i + b, n))) *
-      ((sum(x[j] for j = i:min(i + b, n))) * ((sum(x[j] for j = i:min(i + b, n)))^2 - 20) - T(0.1))
+      ((sum(x[j] for j = i:min(i + b, n))) * ((sum(x[j] for j = i:min(i + b, n)))^2 - 20) - 1 // 10)
       for i = 1:n
     )
   end
