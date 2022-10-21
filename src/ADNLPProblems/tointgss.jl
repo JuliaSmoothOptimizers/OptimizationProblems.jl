@@ -6,7 +6,7 @@ function tointgss(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   function f(x)
     n = length(x)
     return sum(
-      (T(10 / (n + 2)) + x[i + 2]^2) * (2 - exp(-(x[i] - x[i + 1])^2 / (T(0.1) + x[i + 2]^2))) for
+      ((10 // (n + 2)) + x[i + 2]^2) * (2 - exp(-(x[i] - x[i + 1])^2 / (1 // 10 + x[i + 2]^2))) for
       i = 1:(n - 2)
     )
   end

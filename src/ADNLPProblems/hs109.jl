@@ -1,18 +1,18 @@
 export hs109
 
 function hs109(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  a = T(50.176)
-  b = T(sin(0.25))
-  ci = T(cos(0.25))
   function f(x)
     n = length(x)
-    return 3 * x[1] + T(1e-6) * x[1]^3 + 2 * x[2] + T(0.522074e-6) * x[2]^3
+    return 3 * x[1] + 1 // 1000000 * x[1]^3 + 2 * x[2] + eltype(x)(0.522074e-6) * x[2]^3
   end
   x0 = zeros(T, 9)
   lvar = T[0, 0, -0.55, -0.55, 196, 196, 196, -400, -400]
   uvar = T[Inf, Inf, 0.55, 0.55, 252, 252, 252, 800, 800]
   function c(x)
     n = length(x)
+    a = 50176 // 1000
+    b = sin(eltype(x)(25 // 100))
+    ci = cos(eltype(x)(25 // 100))
     return [
       2250000 - x[1]^2 - x[8]^2,
       2250000 - x[2]^2 - x[9]^2,

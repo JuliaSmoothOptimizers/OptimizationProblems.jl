@@ -2,7 +2,7 @@ export clnlbeam
 
 function clnlbeam(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   N = div(n - 3, 3)
-  h = one(T) / N
+  h = 1 // N
   alpha = 350
   function f(y)
     t, x, u = y[1:(N + 1)], y[(N + 2):(2 * N + 2)], y[(2 * N + 3):end]

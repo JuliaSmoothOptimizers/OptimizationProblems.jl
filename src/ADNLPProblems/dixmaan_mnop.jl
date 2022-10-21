@@ -14,11 +14,12 @@ function dixmaanm(;
   n = 3 * m
   function f(x)
     n = length(x)
+    Ti = eltype(x)
     return 1 +
-           sum((i // n)^2 * T(α) * x[i]^2 for i = 1:n) +
-           sum((i // n) * T(β) * x[i]^2 * (x[i + 1] + x[i + 1]^2)^2 for i = 1:(n - 1)) +
-           sum((i // n) * T(γ) * x[i]^2 * x[i + m]^4 for i = 1:(2 * m)) +
-           sum((i // n)^2 * T(δ) * x[i] * x[i + 2 * m] for i = 1:m)
+           sum((i // n)^2 * Ti(α) * x[i]^2 for i = 1:n) +
+           sum((i // n) * Ti(β) * x[i]^2 * (x[i + 1] + x[i + 1]^2)^2 for i = 1:(n - 1)) +
+           sum((i // n) * Ti(γ) * x[i]^2 * x[i + m]^4 for i = 1:(2 * m)) +
+           sum((i // n)^2 * Ti(δ) * x[i] * x[i + 2 * m] for i = 1:m)
   end
   x0 = 2 * ones(T, n)
   return ADNLPModels.ADNLPModel(f, x0, name = "dixmaanm"; kwargs...)

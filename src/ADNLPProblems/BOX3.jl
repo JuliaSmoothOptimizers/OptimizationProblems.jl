@@ -15,7 +15,7 @@ function BOX3(
     1 // 2 * sum(
       (
         exp(-1 // 10 * j * x[1]) - exp(-1 // 10 * j * x[2]) -
-        x[3] * (exp(-one(T) / 10 * j) - exp(-T(j)))
+        x[3] * (exp(-one(eltype(x)) / 10 * j) - exp(-eltype(x)(j)))
       )^2 for j = 1:m
     )
 

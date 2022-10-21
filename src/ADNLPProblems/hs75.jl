@@ -4,7 +4,7 @@ function hs75(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   a = T(0.48)
   function f(x)
     n = length(x)
-    return 3 * x[1] + T(1e-6) * x[1]^3 + 2 * x[2] + T(1e-6 * (2 / 3)) * x[2]^3
+    return 3 * x[1] + 1 // 1000000 * x[1]^3 + 2 * x[2] + 1 // 1000000 * 2 // 3 * x[2]^3
   end
   x0 = zeros(T, 4)
   lvar = T[0, 0, -a, -a]
@@ -12,9 +12,9 @@ function hs75(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   function c(x)
     n = length(x)
     return [
-      1000 * sin(-x[3] - 0.25) + 1000 * sin(-x[4] - 0.25) + 894.8 - x[1],
-      1000 * sin(x[3] - 0.25) + 1000 * sin(x[3] - x[4] - 0.25) + 894.8 - x[2],
-      1000 * sin(x[4] - 0.25) + 1000 * sin(x[4] - x[3] - 0.25) + 1294.8,
+      1000 * sin(-x[3] - 25 // 100) + 1000 * sin(-x[4] - 25 // 100) + 8948 // 10 - x[1],
+      1000 * sin(x[3] - 25 // 100) + 1000 * sin(x[3] - x[4] - 25 // 100) + 8948 // 10 - x[2],
+      1000 * sin(x[4] - 25 // 100) + 1000 * sin(x[4] - x[3] - 25 // 100) + 12948 // 10,
     ]
   end
   lcon = vcat(-a, zeros(T, 3))

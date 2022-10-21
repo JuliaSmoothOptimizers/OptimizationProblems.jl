@@ -18,7 +18,7 @@ function triangle(
   kwargs...,
 ) where {T}
   x0 = T.(x0)
-  τ = zero(T)
+  τ = 0
   n = length(x0)
   N = Int(div(n, 2))
   E = Int(div(length(TRIS), 3))
@@ -27,7 +27,7 @@ function triangle(
     return 2 * (
       (x[TRIS[e + E]] - x[TRIS[e]]) * (x[TRIS[e + 2 * E] + N] - x[TRIS[e] + N]) -
       (x[TRIS[e + 2 * E]] - x[TRIS[e]]) * (x[TRIS[e + E] + N] - x[TRIS[e] + N])
-    ) / T(sqrt(3))
+    ) / eltype(x)(sqrt(3))
   end
   function nfrob(e, x)
     return sum(

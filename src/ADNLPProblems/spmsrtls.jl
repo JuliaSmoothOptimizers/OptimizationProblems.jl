@@ -3,10 +3,11 @@ export spmsrtls
 function spmsrtls(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   m = max(Int(round((n + 2) / 3)), 34)
   n = m * 3 - 2
-  p = T[sin(i^2) for i = 1:n]
+  p = [sin(i^2) for i = 1:n]
   x0 = T[p[i] / 5 for i = 1:n]
 
   function f(x)
+    p = eltype(x).(p)
     return sum(
              (
                x[(3 * (i - 1) + 1) - 4] * x[(3 * (i - 1) + 1) - 1] -

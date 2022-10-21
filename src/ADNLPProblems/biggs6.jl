@@ -8,11 +8,14 @@ function biggs6(;
 ) where {T}
   m = max(6, m)
   z = [i // 10 for i = 1:m]
-  y = [exp(-T(zi)) - 5 * exp(-10 * T(zi)) + 3 * exp(-4 * T(zi)) for zi in z]
-  f(x) = sum(
-    x[3] * exp(-x[1] * z[i]) - x[4] * exp(-x[2] * z[i]) + x[6] * exp(-x[5] * z[i]) - y[i] for
-    i = 1:m
-  )
+  y = [exp(-zi) - 5 * exp(-10 * zi) + 3 * exp(-4 * zi) for zi in z]
+  function f(x)
+    Ti = eltype(x)
+    return sum(
+      x[3] * exp(-x[1] * z[i]) - x[4] * exp(-x[2] * z[i]) + x[6] * exp(-x[5] * z[i]) - Ti(y[i]) for
+      i = 1:m
+    )
+  end
   x0 = ones(T, 6)
   x0[2] = 2
   return ADNLPModels.ADNLPModel(f, x0, name = "biggs6"; kwargs...)
