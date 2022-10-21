@@ -5,7 +5,7 @@ function fletcbv3_mod(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwar
   n = max(2, n)
   function f(x)
     n = length(x)
-    p = T(10.0^(-8))
+    p = 1 // 100000000
     h = 1 // (n + 1)
     return (p / 2) * (x[1]^2 + sum((x[i] - x[i + 1])^2 for i = 1:(n - 1)) + x[n]^2) -
            p * sum(100 * (1 + (2 / h^2)) * sin(x[i] / 100) + (1 / h^2) * cos(x[i]) for i = 1:n)

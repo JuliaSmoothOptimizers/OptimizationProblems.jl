@@ -9,9 +9,9 @@ function clplatea(;
   p = floor(Int, sqrt(n))
   p * p != n && @warn("clplatea: number of variables adjusted from $n down to $(p*p)")
   n = p * p
-  hp2 = T(1 / 2) * p^2
+  hp2 = (1 // 2) * p^2
   function f(x)
-    return (T(wght) * x[p + (p - 1) * p]) +
+    return (eltype(x)(wght) * x[p + (p - 1) * p]) +
            sum(
              sum(
               1 // 2 * (x[i + (j - 1) * p] - x[i + (j - 2) * p])^2 +

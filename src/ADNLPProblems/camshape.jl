@@ -7,9 +7,11 @@ function camshape(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   α = 15 // 10
   θ = T(2 * pi / (5 * (n + 1)))
   function f(y)
-    return -T(R_v * pi / n) * sum(y[i] for i = 1:n)
+    Ti = eltype(y)
+    return -Ti(R_v * pi / n) * sum(y[i] for i = 1:n)
   end
   function c(y::V) where {V}
+    θ = eltype(y)(2 * pi / (5 * (n + 1)))
     return vcat(
       R_max - y[n],
       y[1] - R_min,

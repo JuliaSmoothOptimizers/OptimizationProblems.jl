@@ -19,7 +19,7 @@ function tetra(
 ) where {T}
   x0 = T.(x0)
   n = length(x0)
-  τ = zero(T)
+  τ = 0
   N = round(Int, n / 3)
   E = round(Int, length(TETS) / 4)
 
@@ -32,7 +32,7 @@ function tetra(
         (x[TETS[e + 2 * E] + N * mod(i - 1, 3)] - x[TETS[e] + N * mod(i - 1, 3)]) *
         (x[TETS[e + 3 * E] + N * mod(i + 1, 3)] - x[TETS[e] + N * mod(i + 1, 3)])
       ) *
-      T(sqrt(2)) for i = 0:2
+      eltype(x)(sqrt(2)) for i = 0:2
     )
   end
   function nfrob(e, x)

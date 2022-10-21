@@ -9,10 +9,9 @@ function clplateb(;
   p = floor(Int, sqrt(n))
   p * p != n && @warn("clplateb: number of variables adjusted from $n down to $(p*p)")
   n = p * p
-  hp2 = T(1 / 2) * p^2
-  disw = T(wght) / (p - 1)
+  hp2 = 1 // 2 * p^2
   function f(x)
-    return sum(disw * x[p + (j - 1) * p] for j = 1:p) +
+    return sum(eltype(x)(wght) / (p - 1) * x[p + (j - 1) * p] for j = 1:p) +
            sum(
              sum(
               1 // 2 * (x[i + (j - 1) * p] - x[i + (j - 2) * p])^2 +

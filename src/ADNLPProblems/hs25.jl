@@ -1,9 +1,9 @@
 export hs25
 
 function hs25(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  u = [25 + (-50 * log(T(1) / 100 * i))^(2 // 3) for i = 1:99]
   function f(x)
     n = length(x)
+    u = [25 + (-50 * log(eltype(x)(1) / 100 * i))^(2 // 3) for i = 1:99]
     return sum((-1 // 100 * i + exp(-1 / x[1] * (u[i] - x[2])^x[3]))^2 for i = 1:99)
   end
   x0 = T[100, 12.5, 3]

@@ -12,12 +12,10 @@ function clplatec(;
   p * p != n && @warn("clplatec: number of variables adjusted from $n down to $(p*p)")
   n = p * p
 
-  hp2 = T(1 / 2) * p^2
-  wr = T(wght * r)
-  wl = T(wght * l)
+  hp2 = 1 // 2 * p^2
   function f(x)
-    return wr * x[p + (p - 1) * p] +
-           wl * x[p] +
+    return eltype(x)(wght * r) * x[p + (p - 1) * p] +
+           eltype(x)(wght * l) * x[p] +
            sum(
              sum(
                hp2 * (x[i + (j - 1) * p] - x[i + (j - 2) * p])^2 +

@@ -5,7 +5,7 @@ function helical(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
     return (
              10 * (
                x[3] -
-               10 * (atan(x[2] / x[1]) - 1 // 4 * (x[1] - abs(x[1]) / x[1])) / (2 * T(pi))
+               10 * (atan(x[2] / x[1]) - 1 // 4 * (x[1] - abs(x[1]) / x[1])) / (2 * eltype(x)(pi))
              )
            )^2 +
            (10 * (sqrt(x[1]^2 + x[2]^2) - 1))^2 +

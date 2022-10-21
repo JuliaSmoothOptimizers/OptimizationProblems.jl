@@ -61,7 +61,7 @@ function structural(
   end
   function f(y)
     x, u = y[1:M], y[(M + 1):(2 * M)]
-    return sum(ℓ[j] * x[j] for j = 1:M)
+    return sum(eltype(y)(ℓ[j]) * x[j] for j = 1:M)
   end
   A = [
     spzeros(T, length(setdiff(1:N, fixed)), M) nx[setdiff(1:N, fixed), :]
