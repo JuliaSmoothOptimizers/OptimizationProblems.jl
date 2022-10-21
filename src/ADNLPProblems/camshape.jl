@@ -1,10 +1,10 @@
 export camshape
 
 function camshape(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  R_min = T(1)
-  R_max = T(2)
-  R_v = T(1)
-  α = T(1.5)
+  R_min = 1
+  R_max = 2
+  R_v = 1
+  α = 15 // 10
   θ = T(2 * pi / (5 * (n + 1)))
   function f(y)
     return -T(R_v * pi / n) * sum(y[i] for i = 1:n)

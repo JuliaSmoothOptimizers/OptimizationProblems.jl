@@ -4,7 +4,7 @@ function polygon(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kw
   N = div(n, 2)
   function f(y)
     r, θ = y[1:N], y[(N + 1):end]
-    return -T(0.5) * sum(r[i] * r[i + 1] * sin(θ[i + 1] - θ[i]) for i = 1:(N - 1))
+    return -1 // 2 * sum(r[i] * r[i + 1] * sin(θ[i + 1] - θ[i]) for i = 1:(N - 1))
   end
   function c(y::V) where {V}
     r, θ = y[1:N], y[(N + 1):end]

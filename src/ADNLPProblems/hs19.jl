@@ -10,7 +10,7 @@ function hs19(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   uvar = T[100, 100]
   function c(x)
     n = length(x)
-    return [(x[1] - 5)^2 + (x[2] - 5)^2 - 100, (x[2] - 5)^2 + (x[1] - 6)^2 - T(82.81)]
+    return [(x[1] - 5)^2 + (x[2] - 5)^2 - 100, (x[2] - 5)^2 + (x[1] - 6)^2 - 8281 // 100]
   end
   lcon = [zero(T), -T(Inf)]
   ucon = [T(Inf), zero(T)]

@@ -3,12 +3,12 @@ export hs95
 function hs95(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
-    return T(4.3) * x[1] +
-           T(31.8) * x[2] +
-           T(63.3) * x[3] +
-           T(15.8) * x[4] +
-           T(68.5) * x[5] +
-           T(4.7) * x[6]
+    return 43 // 10 * x[1] +
+           318 // 10 * x[2] +
+           633 // 10 * x[3] +
+           158 // 10 * x[4] +
+           685 // 10 * x[5] +
+           47 // 10 * x[6]
   end
   x0 = zeros(T, 6)
   lvar = zeros(T, 6)

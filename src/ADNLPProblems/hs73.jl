@@ -3,7 +3,7 @@ export hs73
 function hs73(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
-    return T(24.55) * x[1] + T(26.75) * x[2] + 39 * x[3] + T(40.50) * x[4]
+    return 2455 // 100 * x[1] + 2675 // 100 * x[2] + 39 * x[3] + 4050 // 100 * x[4]
   end
   x0 = ones(T, 4)
   lvar = zeros(T, 4)

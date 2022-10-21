@@ -8,9 +8,9 @@ function fminsrf2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   p * p != n && @warn("fminsrf2: number of variables adjusted from $n down to $(p*p)")
   n = p * p
 
-  h00 = one(T)
-  slopej = T(4)
-  slopei = T(8)
+  h00 = 1
+  slopej = 4
+  slopei = 8
 
   scale = (p - 1)^2
 
@@ -33,7 +33,7 @@ function fminsrf2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
     return sum(
       sum(
         100 * sqrt(
-          T(1 / 2) *
+          1 // 2 *
           (p - 1)^2 *
           ((x[i + (j - 1) * p] - x[i + 1 + j * p])^2 + (x[i + 1 + (j - 1) * p] - x[i + j * p])^2) +
           1,

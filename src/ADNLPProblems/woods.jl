@@ -11,7 +11,7 @@ function woods(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
       90 * (x[4 * i] - x[4 * i - 1]^2)^2 +
       (1 - x[4 * i - 1])^2 +
       10 * (x[4 * i - 2] + x[4 * i] - 2)^2 +
-      T(0.1) * (x[4 * i - 2] - x[4 * i])^2 for i = 1:div(n, 4)
+      1 // 10 * (x[4 * i - 2] - x[4 * i])^2 for i = 1:div(n, 4)
     )
   end
 

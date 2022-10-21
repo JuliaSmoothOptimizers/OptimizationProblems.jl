@@ -55,7 +55,7 @@ function hs57(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   b[43:44] .= 0.39
   function f(x)
     n = length(x)
-    return sum([b[i] - x[1] - (T(0.49) - x[1]) * exp(-x[2] * (a[i] - 8)) for i = 1:44] .^ 2)
+    return sum([b[i] - x[1] - (49 // 100 - x[1]) * exp(-x[2] * (a[i] - 8)) for i = 1:44] .^ 2)
   end
   x0 = T[0.42, 5]
   lvar = T[0.4, -4]

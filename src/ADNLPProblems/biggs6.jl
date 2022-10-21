@@ -7,8 +7,8 @@ function biggs6(;
   kwargs...,
 ) where {T}
   m = max(6, m)
-  z = [T(i) / 10 for i = 1:m]
-  y = [exp(-zi) - 5 * exp(-10 * zi) + 3 * exp(-4 * zi) for zi in z]
+  z = [i // 10 for i = 1:m]
+  y = [exp(-T(zi)) - 5 * exp(-10 * T(zi)) + 3 * exp(-4 * T(zi)) for zi in z]
   f(x) = sum(
     x[3] * exp(-x[1] * z[i]) - x[4] * exp(-x[2] * z[i]) + x[6] * exp(-x[5] * z[i]) - y[i] for
     i = 1:m

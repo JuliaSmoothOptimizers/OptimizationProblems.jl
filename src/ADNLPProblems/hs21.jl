@@ -3,7 +3,7 @@ export hs21
 function hs21(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
-    return T(0.01) * x[1]^2 + x[2]^2 - 100
+    return 1 // 100 * x[1]^2 + x[2]^2 - 100
   end
   x0 = -ones(T, 2)
   lvar = T[2, -50]

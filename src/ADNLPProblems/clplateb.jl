@@ -15,14 +15,14 @@ function clplateb(;
     return sum(disw * x[p + (j - 1) * p] for j = 1:p) +
            sum(
              sum(
-               T(1 / 2) * (x[i + (j - 1) * p] - x[i + (j - 2) * p])^2 +
+              1 // 2 * (x[i + (j - 1) * p] - x[i + (j - 2) * p])^2 +
                hp2 * (x[i + (j - 1) * p] - x[i + (j - 2) * p])^4 for j = 2:p
              ) for i = 2:p
            ) +
-           sum(T(1 / 2) * (x[2 + (j - 1) * p])^2 + hp2 * (x[2 + (j - 1) * p])^4 for j = 2:p) +
+           sum(1 // 2 * (x[2 + (j - 1) * p])^2 + hp2 * (x[2 + (j - 1) * p])^4 for j = 2:p) +
            sum(
              sum(
-               T(1 / 2) * (x[i + (j - 1) * p] - x[i - 1 + (j - 1) * p])^2 +
+              1 // 2 * (x[i + (j - 1) * p] - x[i - 1 + (j - 1) * p])^2 +
                hp2 * (x[i + (j - 1) * p] - x[i - 1 + (j - 1) * p])^4 for j = 2:p
              ) for i = 3:p
            )

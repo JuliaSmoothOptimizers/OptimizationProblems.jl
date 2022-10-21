@@ -7,17 +7,17 @@ function controlinvestment(
   kwargs...,
 ) where {T}
   N = div(n, 2)
-  h = T(1 / N)
+  h = 1 // N
   x0 = 1
   gamma = 3
   function f(y)
     x, u = y[1:N], y[(N + 1):end]
-    return T(0.5) * h * sum((u[k] - 1) * x[k] + (u[k + 1] - 1) * x[k + 1] for k = 1:(N - 1))
+    return 1 // 2 * h * sum((u[k] - 1) * x[k] + (u[k + 1] - 1) * x[k + 1] for k = 1:(N - 1))
   end
   function c(y)
     x, u = y[1:N], y[(N + 1):end]
     return vcat([
-      x[k + 1] - x[k] - T(0.5) * h * gamma * (u[k] * x[k] + u[k + 1] * x[k + 1]) for k = 1:(N - 1)
+      x[k + 1] - x[k] - 1 // 2 * h * gamma * (u[k] * x[k] + u[k + 1] * x[k + 1]) for k = 1:(N - 1)
     ],)
   end
   lvar = vcat(-T(Inf) * ones(T, N), zeros(T, N))

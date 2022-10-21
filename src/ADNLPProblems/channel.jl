@@ -18,7 +18,7 @@ function channel(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
 
   # Define the objective function to minimize
   function f(x)
-    return one(T)
+    return one(eltype(x))
   end
 
   function c(x)

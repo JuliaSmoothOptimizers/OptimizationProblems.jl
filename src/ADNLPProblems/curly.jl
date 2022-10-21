@@ -11,7 +11,7 @@ function curly(;
   function f(x)
     return sum(
       sum(x[j] for j = i:min(i + b, n)) *
-      (sum(x[j] for j = i:min(i + b, n)) * (sum(x[j] for j = i:min(i + b, n))^2 - 20) - T(1 / 10))
+      (sum(x[j] for j = i:min(i + b, n)) * (sum(x[j] for j = i:min(i + b, n))^2 - 20) - 1 // 10)
       for i = 1:n
     )
   end

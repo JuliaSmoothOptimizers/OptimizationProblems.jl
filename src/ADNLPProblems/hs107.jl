@@ -5,7 +5,7 @@ function hs107(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   d = T((48.4 / 50.176) * cos(0.25))
   function f(x)
     n = length(x)
-    return 3000 * x[1] + 1000 * x[1]^3 + 2000 * x[2] + T(666.667) * x[2]^3
+    return 3000 * x[1] + 1000 * x[1]^3 + 2000 * x[2] + 666667 // 1000 * x[2]^3
   end
   x0 = T[0.8, 0.8, 0.2, 0.2, 1.0454, 1.0454, 1.0454, 0, 0]
   lvar = T[0, 0, -Inf, -Inf, 0.90909, 0.90909, 0.90909, -Inf, -Inf]

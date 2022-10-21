@@ -5,7 +5,7 @@ function sparsine(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   n = max(10, n)
   function f(x)
     n = length(x)
-    return T(0.5) * sum(
+    return 1 // 2 * sum(
       i *
       (
         sin(x[i]) +
