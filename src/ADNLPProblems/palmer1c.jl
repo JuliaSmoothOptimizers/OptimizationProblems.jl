@@ -1,7 +1,7 @@
 export palmer1c
 
 function palmer1c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  X = T[
+  X = [
     -1.788963,
     -1.745329,
     -1.658063,
@@ -39,7 +39,7 @@ function palmer1c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
     1.8325957,
   ]
 
-  Y = T[
+  Y = [
     78.596218,
     65.77963,
     43.96947,
@@ -78,7 +78,8 @@ function palmer1c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   ]
   function f(x)
     n = length(x)
-    return sum((Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8))^2 for i = 1:35)
+    Ti = eltype(x)
+    return sum((Ti(Y[i]) - sum(x[j] * Ti(X[i])^(2 * j - 2) for j = 1:8))^2 for i = 1:35)
   end
   x0 = ones(T, 8)
   return ADNLPModels.ADNLPModel(f, x0, name = "palmer1c"; kwargs...)

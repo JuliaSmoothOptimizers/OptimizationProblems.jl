@@ -1,7 +1,7 @@
 export palmer5c
 
 function palmer5c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  X = T[
+  X = [
     0.000000,
     1.570796,
     1.396263,
@@ -16,7 +16,7 @@ function palmer5c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
     0.174533,
   ]
 
-  Y = T[
+  Y = [
     83.57418,
     81.007654,
     18.983286,
@@ -45,7 +45,8 @@ function palmer5c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   end
   function f(x)
     n = length(x)
-    return sum((Y[i] - sum(x[j] * t[i, 2 * j - 1] for j = 1:6))^2 for i = 1:12)
+    Ti = eltype(x)
+    return sum((Ti(Y[i]) - sum(x[j] * Ti(t[i, 2 * j - 1]) for j = 1:6))^2 for i = 1:12)
   end
   x0 = ones(T, 6)
   return ADNLPModels.ADNLPModel(f, x0, name = "palmer5c"; kwargs...)
