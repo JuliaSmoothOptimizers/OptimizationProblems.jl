@@ -1,7 +1,7 @@
 export palmer7c
 
 function palmer7c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-  X = T[
+  X = [
     0.000000,
     0.139626,
     0.261799,
@@ -17,7 +17,7 @@ function palmer7c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
     1.658063,
   ]
 
-  Y = T[
+  Y = [
     4.419446,
     3.564931,
     2.139067,
@@ -34,7 +34,8 @@ function palmer7c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   ]
   function f(x)
     n = length(x)
-    return sum((Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8))^2 for i = 1:13)
+    Ti = eltype(x)
+    return sum((Ti(Y[i]) - sum(x[j] * Ti(X[i])^(2 * j - 2) for j = 1:8))^2 for i = 1:13)
   end
   x0 = ones(T, 8)
   return ADNLPModels.ADNLPModel(f, x0, name = "palmer7c"; kwargs...)
