@@ -3,7 +3,8 @@ export hs104
 function hs104(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
-    return 4 // 10 * (x[1] / x[7])^(67 // 100) + 4 // 10 * (x[2] / x[8])^(67 // 100) + 10 - x[1] - x[2]
+    return 4 // 10 * (x[1] / x[7])^(67 // 100) + 4 // 10 * (x[2] / x[8])^(67 // 100) + 10 - x[1] -
+           x[2]
   end
   x0 = T[6, 3, 0.4, 0.2, 6, 6, 1, 0.5]
   lvar = T(0.1) * ones(T, 8)

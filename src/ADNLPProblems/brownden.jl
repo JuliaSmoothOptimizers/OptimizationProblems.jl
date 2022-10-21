@@ -8,7 +8,8 @@ function brownden(; m::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   function f(x)
     Ti = eltype(x)
     return sum(
-      ((x[1] + t[i] * x[2] - exp(Ti(t[i])))^2 + (x[3] + x[4] * sin(Ti(t[i])) - cos(Ti(t[i])))^2)^2 for i = 1:m
+      ((x[1] + t[i] * x[2] - exp(Ti(t[i])))^2 + (x[3] + x[4] * sin(Ti(t[i])) - cos(Ti(t[i])))^2)^2
+      for i = 1:m
     )
   end
 
