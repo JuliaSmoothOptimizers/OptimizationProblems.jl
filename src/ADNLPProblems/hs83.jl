@@ -4,7 +4,8 @@ function hs83(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   function f(x)
     n = length(x)
     Ti = eltype(x)
-    return Ti(5.3578547) * x[3]^2 + Ti(0.8356891) * x[1] * x[5] + Ti(37.293239) * x[1] - Ti(40792.141)
+    return Ti(5.3578547) * x[3]^2 + Ti(0.8356891) * x[1] * x[5] + Ti(37.293239) * x[1] -
+           Ti(40792.141)
   end
   x0 = T[78, 33, 27, 27, 27]
   lvar = T[78, 33, 27, 27, 27]

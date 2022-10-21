@@ -24,7 +24,7 @@ function clplatec(;
            ) +
            sum(
              sum(
-              1 // 2 * (x[i + (j - 1) * p] - x[i - 1 + (j - 1) * p])^2 +
+               1 // 2 * (x[i + (j - 1) * p] - x[i - 1 + (j - 1) * p])^2 +
                (x[i + (j - 1) * p] - x[i - 1 + (j - 1) * p])^4 for j = 2:p
              ) for i = 3:p
            ) +
