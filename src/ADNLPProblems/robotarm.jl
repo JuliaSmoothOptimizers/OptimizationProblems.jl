@@ -45,7 +45,17 @@ function robotarm(;
     c_euler5 = x[(4n + 2):(5n)] - x[(4n + 1):(5n - 1)] - x[(7n + 1):(8n - 1)] * x[end] / n
     c_euler6 = x[(5n + 2):(6n)] - x[(5n + 1):(6n - 1)] - x[(8n + 1):(9n - 1)] * x[end] / n
 
-    return vcat(c_ρ_acc, c_θ_acc, c_ϕ_acc, c_euler1, c_euler2, c_euler3, c_euler4, c_euler5, c_euler6)
+    return vcat(
+      c_ρ_acc,
+      c_θ_acc,
+      c_ϕ_acc,
+      c_euler1,
+      c_euler2,
+      c_euler3,
+      c_euler4,
+      c_euler5,
+      c_euler6,
+    )
   end
 
   lcon = T[
