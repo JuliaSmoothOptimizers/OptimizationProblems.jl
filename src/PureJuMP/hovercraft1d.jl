@@ -22,6 +22,8 @@ function hovercraft1d(args...; n::Int = default_nvar, kwargs...)
   # satisfy the dynamics
   for i = 1:(T - 1)
     @constraint(nlp, x[i + 1] == x[i] + v[i])
+  end
+  for i = 1:(T - 1)
     @constraint(nlp, v[i + 1] == v[i] + u[i])
   end
 
