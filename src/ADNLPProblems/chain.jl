@@ -55,5 +55,5 @@ function chain(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     x0[k + 3 * (nh + 1)] = x0[k]
   end
 
-  return ADNLPModels.ADNLPModel(f, x0, A, c, lcon, ucon, name = "chain")
+  return ADNLPModels.ADNLPModel(f, x0, A, c, lcon, ucon, name = "chain"; kwargs...)
 end

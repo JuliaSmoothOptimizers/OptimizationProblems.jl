@@ -69,5 +69,5 @@ function channel(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
     x0[3 * nh + i] = -12
   end
 
-  return ADNLPModels.ADNLPModel(f, x0, A, c, lcon, ucon, name = "channel")
+  return ADNLPModels.ADNLPModel(f, x0, A, c, lcon, ucon, name = "channel"; kwargs...)
 end
