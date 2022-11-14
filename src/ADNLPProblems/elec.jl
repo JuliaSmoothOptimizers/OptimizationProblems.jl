@@ -30,5 +30,5 @@ function elec(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   zini = T[cos(θ0[i]) for i = 1:n]            # z coordinate
   x0 = [xini; yini; zini]
 
-  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "elec")
+  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "elec"; kwargs...)
 end
