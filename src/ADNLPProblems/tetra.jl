@@ -12,7 +12,7 @@ export tetra
 function tetra(
   x0 = xe_tetra,
   TETS::Vector{Int64} = Tets_tetra,
-  Const::Vector{Int64} = Constants_tetra; 
+  Const::Vector{Int64} = Constants_tetra;
   n::Int = default_nvar,
   type::Val{T} = Val(Float64),
   kwargs...,
