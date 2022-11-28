@@ -6,13 +6,13 @@
 #   see "Benchmarking Optimization Software with COPS"
 #   Argonne National Labs Technical Report ANL/MCS-246 (2004)
 
-include("../../data/tetra.jl")
+@load joinpath(data_path, "data_tetra.jld2") xe_tetra Tets_tetra Constants_tetra
 export tetra
 
 function tetra(
   x0 = xe_tetra,
   TETS::Vector{Int64} = Tets_tetra,
-  Const::Vector{Int64} = Constants_tetra;
+  Const::Vector{Int64} = Constants_tetra; 
   n::Int = default_nvar,
   type::Val{T} = Val(Float64),
   kwargs...,
@@ -68,29 +68,29 @@ function tetra(
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "tetra"; kwargs...)
 end
 
-include("../../data/tetra_duct12.jl")
+@load joinpath(data_path, "data_tetra_duct12.jld2") xe_duct12 TETS_duct12 Const_duct12
 export tetra_duct12
 tetra_duct12(; kwargs...) =
   tetra(xe_duct12, TETS_duct12, Const_duct12; name = "tetra_duct12", kwargs...)
 
-include("../../data/tetra_duct15.jl")
+@load joinpath(data_path, "data_tetra_duct15.jld2") xe_duct15 TETS_duct15 Const_duct15
 export tetra_duct15
 tetra_duct15(; kwargs...) =
   tetra(xe_duct15, TETS_duct15, Const_duct15; name = "tetra_duct15", kwargs...)
 
-include("../../data/tetra_duct20.jl")
+@load joinpath(data_path, "data_tetra_duct20.jld2") xe_duct20 TETS_duct20 Const_duct20
 export tetra_duct20
 tetra_duct20(; kwargs...) =
   tetra(xe_duct20, TETS_duct20, Const_duct20; name = "tetra_duct20", kwargs...)
 
-include("../../data/tetra_hook.jl")
+@load joinpath(data_path, "data_tetra_hook.jld2") xe_hook TETS_hook Const_hook
 export tetra_hook
 tetra_hook(; kwargs...) = tetra(xe_hook, TETS_hook, Const_hook; name = "tetra_hook", kwargs...)
 
-include("../../data/tetra_foam5.jl")
+@load joinpath(data_path, "data_tetra_foam5.jld2") xe_foam5 TETS_foam5 Const_foam5
 export tetra_foam5
 tetra_foam5(; kwargs...) = tetra(xe_foam5, TETS_foam5, Const_foam5; name = "tetra_foam5", kwargs...)
 
-include("../../data/tetra_gear.jl")
+@load joinpath(data_path, "data_tetra_gear.jld2") xe_gear TETS_gear Const_gear
 export tetra_gear
 tetra_gear(; kwargs...) = tetra(xe_gear, TETS_gear, Const_gear; name = "tetra_gear", kwargs...)

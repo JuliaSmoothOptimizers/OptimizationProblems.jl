@@ -8,9 +8,10 @@ reshape_array(a, dims) = invoke(Base._reshape, Tuple{AbstractArray, typeof(dims)
 
 @init begin
   @require ADNLPModels = "54578032-b7ea-4c30-94aa-7cbd1cce6c9a" begin
-    using LinearAlgebra, SparseArrays
+    using JLD2, LinearAlgebra, SparseArrays
 
     path = dirname(@__FILE__)
+    data_path = joinpath(@__DIR__, "..", "..", "data")
     files = filter(x -> x[(end - 2):end] == ".jl", readdir(path))
     for file in files
       if file ≠ "ADNLPProblems.jl"
