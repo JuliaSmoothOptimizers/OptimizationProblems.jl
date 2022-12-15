@@ -8,8 +8,6 @@
 #   Springer Verlag, Heidelberg, 1981.
 #
 #   classification PLR-AN-5-10
-#
-# A. Montoison, Montreal, 05/2018.
 
 export hs87
 
