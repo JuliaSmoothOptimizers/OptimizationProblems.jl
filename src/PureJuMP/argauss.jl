@@ -23,34 +23,37 @@ export argauss
 function argauss(; n::Int = default_nvar, kwargs...)
   nlp = Model()
 
-  xinit = [ 0.4
- 1.0
- 0.0]
-  rhs = [ 0.0009
- 0.0044
- 0.0175
- 0.0540
- 0.1295
- 0.2420
- 0.3521
- 0.3989
- 0.3521
- 0.2420
- 0.1295
- 0.0540
- 0.0175
- 0.0044
- 0.0009]
+  xinit = [
+    0.4
+    1.0
+    0.0
+  ]
+  rhs = [
+    0.0009
+    0.0044
+    0.0175
+    0.0540
+    0.1295
+    0.2420
+    0.3521
+    0.3989
+    0.3521
+    0.2420
+    0.1295
+    0.0540
+    0.0175
+    0.0044
+    0.0009
+  ]
 
-  @variable(nlp, -Inf <= x[i=1:3] <= Inf, start = xinit[i])
+  @variable(nlp, -Inf <= x[i = 1:3] <= Inf, start = xinit[i])
 
-  @NLobjective(nlp, Min, 
-      0
-  )
-  @NLconstraint(nlp, cons[i=1:15],
- x[1]*exp(-0.5*x[2]*(0.5*(8-i)-x[3])^2) - rhs[i] == 0
+  @NLobjective(nlp, Min, 0)
+  @NLconstraint(
+    nlp,
+    cons[i = 1:15],
+    x[1] * exp(-0.5 * x[2] * (0.5 * (8 - i) - x[3])^2) - rhs[i] == 0
   )
 
   return nlp
 end
-
