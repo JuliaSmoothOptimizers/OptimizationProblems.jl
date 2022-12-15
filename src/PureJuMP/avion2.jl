@@ -17,7 +17,6 @@ export avion2
 function avion2(; n::Int = default_nvar, kwargs...)
   nlp = Model()
 
-
   @variable(nlp, 10 <= SR <= 150, start = 2.7452e+01)
   @variable(nlp, 0 <= LR <= 10, start = 1.5000e+00)
   @variable(nlp, 0 <= PK <= 10, start = 1.0000e+01)
@@ -68,73 +67,42 @@ function avion2(; n::Int = default_nvar, kwargs...)
   @variable(nlp, 1 <= NP <= 2, start = 1)
   @variable(nlp, 1 <= NG <= 2, start = 1)
 
-  @NLobjective(nlp, Min, 
-    (SK - 0.01*PK*SR)^2
-    + (CA - (SS-SO-CB*LF)/(LF^2) )^2
-    + (-2*AM+SO+SS + 0.01*EF/LF)^2
-    + (AM - 0.025*SO*CB^2/CA)^2
-    + (IMPDER - 27.5*SD - 1.3*SD^2)^2
-    + (IMPK - 70*SK + 8.6*SK^2)^2
-    + (QI - 1000 + MV^2/24000)^2
-    + (1000*PT - MD*PD)^2
-    + (VN + VS +QF/790 + 2 - MZ/CR +DV*PT)^2
-    + (IMPMOT - 1000*PT/(PM+20) - 12*sqrt(PT))^2
-    + (ST - 1.25*SR*NM)^2
-    + (SR - MD/MS)^2
-    + (QV - 2.4*SX*sqrt(SX)*EL/sqrt(LX))^2
-    + (SO - 0.785*DE^2*PT)^2
-    + (SS - 0.785*DS^2*PT)^2
-    + (CB - 2*(VN-CA*LF^3)/(LF^2*(3-SO*LF)))^2
-    + (IMPVOIL - 1.15*SX*(15+0.15*SX)*(8+(MC*LX/(50*SR*EL))^1.5))^2
-    
+  @NLobjective(
+    nlp,
+    Min,
+    (SK - 0.01 * PK * SR)^2 +
+    (CA - (SS - SO - CB * LF) / (LF^2))^2 +
+    (-2 * AM + SO + SS + 0.01 * EF / LF)^2 +
+    (AM - 0.025 * SO * CB^2 / CA)^2 +
+    (IMPDER - 27.5 * SD - 1.3 * SD^2)^2 +
+    (IMPK - 70 * SK + 8.6 * SK^2)^2 +
+    (QI - 1000 + MV^2 / 24000)^2 +
+    (1000 * PT - MD * PD)^2 +
+    (VN + VS + QF / 790 + 2 - MZ / CR + DV * PT)^2 +
+    (IMPMOT - 1000 * PT / (PM + 20) - 12 * sqrt(PT))^2 +
+    (ST - 1.25 * SR * NM)^2 +
+    (SR - MD / MS)^2 +
+    (QV - 2.4 * SX * sqrt(SX) * EL / sqrt(LX))^2 +
+    (SO - 0.785 * DE^2 * PT)^2 +
+    (SS - 0.785 * DS^2 * PT)^2 +
+    (CB - 2 * (VN - CA * LF^3) / (LF^2 * (3 - SO * LF)))^2 +
+    (IMPVOIL - 1.15 * SX * (15 + 0.15 * SX) * (8 + (MC * LX / (50 * SR * EL))^1.5))^2
   )
-  @NLconstraint(nlp, cons1,
-SD-0.13*SR == 0
-  )
-  @NLconstraint(nlp, cons2,
-SX-0.7*SR == 0
-  )
-  @NLconstraint(nlp, cons3,
-LX-LR == 0
-  )
-  @NLconstraint(nlp, cons5,
-SF - ST - 2*SD - 2*SX - 2*SK == 0
-  )
-  @NLconstraint(nlp, cons11,
-IMPFUS - 20*SF == 0
-  )
-  @NLconstraint(nlp, cons12,
-MD - 2*MV == 0
-  )
-  @NLconstraint(nlp, cons15,
-QF - QI - QV == 0
-  )
-  @NLconstraint(nlp, cons17,
-IMPTRAIN - 0.137*MV == 0
-  )
-  @NLconstraint(nlp, cons19,
-IMPNMOT - 35*NM == 0
-  )
-  @NLconstraint(nlp, cons20,
-IMPPET - 0.043*QI == 0
-  )
-  @NLconstraint(nlp, cons21,
-IMPPIL - 200*NP == 0
-  )
-  @NLconstraint(nlp, cons22,
-IMPCAN - 120*NG == 0
-  )
-  @NLconstraint(nlp, cons23,
-IMPSNA - 300*NS -400 == 0
-  )
-  @NLconstraint(nlp, cons24,
-MC - MV + 95*NP + 70*NG + 660*NM + 0.5*QI -380== 0
-  )
-  @NLconstraint(nlp, cons25,
-MZ - IMPTRAIN + IMPNMOT + IMPPET + IMPPIL + IMPCAN + IMPSNA
-+ 290==0
-  )
+  @NLconstraint(nlp, cons1, SD - 0.13 * SR == 0)
+  @NLconstraint(nlp, cons2, SX - 0.7 * SR == 0)
+  @NLconstraint(nlp, cons3, LX - LR == 0)
+  @NLconstraint(nlp, cons5, SF - ST - 2 * SD - 2 * SX - 2 * SK == 0)
+  @NLconstraint(nlp, cons11, IMPFUS - 20 * SF == 0)
+  @NLconstraint(nlp, cons12, MD - 2 * MV == 0)
+  @NLconstraint(nlp, cons15, QF - QI - QV == 0)
+  @NLconstraint(nlp, cons17, IMPTRAIN - 0.137 * MV == 0)
+  @NLconstraint(nlp, cons19, IMPNMOT - 35 * NM == 0)
+  @NLconstraint(nlp, cons20, IMPPET - 0.043 * QI == 0)
+  @NLconstraint(nlp, cons21, IMPPIL - 200 * NP == 0)
+  @NLconstraint(nlp, cons22, IMPCAN - 120 * NG == 0)
+  @NLconstraint(nlp, cons23, IMPSNA - 300 * NS - 400 == 0)
+  @NLconstraint(nlp, cons24, MC - MV + 95 * NP + 70 * NG + 660 * NM + 0.5 * QI - 380 == 0)
+  @NLconstraint(nlp, cons25, MZ - IMPTRAIN + IMPNMOT + IMPPET + IMPPIL + IMPCAN + IMPSNA + 290 == 0)
 
   return nlp
 end
-
