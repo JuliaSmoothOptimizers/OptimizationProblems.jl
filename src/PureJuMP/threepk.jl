@@ -1,4 +1,6 @@
 #
+# Converted in Julia from https://github.com/mpf/Optimization-Test-Problems
+#
 #**************************
 # SET UP THE INITIAL DATA *
 #**************************
