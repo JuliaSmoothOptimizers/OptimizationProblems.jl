@@ -1,3 +1,6 @@
+#
+# Converted in Julia from https://github.com/mpf/Optimization-Test-Problems
+#
 # AMPL Model by Hande Y. Benson
 #
 # Copyright (C) 2001 Princeton University

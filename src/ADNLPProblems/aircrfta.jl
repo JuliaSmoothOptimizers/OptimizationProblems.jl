@@ -4,7 +4,7 @@ function aircrfta(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
 
 
   function f(x)
-    return zero(T)
+    return zero(eltype(x))
   end
   x0 = T[
     0.0,
@@ -40,12 +40,12 @@ function aircrfta(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   function c(x)
     rollrate, pitchrat, yawrate, attckang, sslipang, elevator, aileron, rudderdf = x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8]
     return vcat(
-      (-T(3.933)*rollrate+T(0.107)*pitchrat+T(0.126)*yawrate-T(9.99)*sslipang-T(45.83)*aileron-T(7.64)*rudderdf-T(0.727)*pitchrat*yawrate+
-      T(8.39)*yawrate*attckang-T(684.4)*attckang*sslipang+T(63.5)*pitchrat*attckang),
-      (-T(0.987)*pitchrat-T(22.95)*attckang-T(28.37)*elevator+T(0.949)*rollrate*yawrate+T(0.173)*rollrate*sslipang),
-      (T(0.002)*rollrate-T(0.235)*yawrate+T(5.67)*sslipang-T(0.921)*aileron-T(6.51)*rudderdf-T(0.716)*rollrate*pitchrat-T(1.578)*rollrate*attckang+T(1.132)*pitchrat*attckang),
-      (pitchrat- attckang-T(1.168)*elevator-rollrate*sslipang),
-      (-yawrate-T(0.196)*sslipang-T(0.0071)*aileron+rollrate*attckang)
+      (-(3933 // 1000)*rollrate+(107 // 1000)*pitchrat+(126 // 1000)*yawrate-(999 // 100)*sslipang-(4583 // 100)*aileron-(764 // 100)*rudderdf-(727 // 1000)*pitchrat*yawrate+
+      (839 // 100)*yawrate*attckang-(6844 // 10)*attckang*sslipang+(635 // 10)*pitchrat*attckang),
+      (-(987 // 1000)*pitchrat-(2295 // 100)*attckang-(2837 // 100)*elevator+(949 // 1000)*rollrate*yawrate+(173 // 1000)*rollrate*sslipang),
+      ((2 // 1000)*rollrate-(235 // 1000)*yawrate+(567 // 100)*sslipang-(921 // 1000)*aileron-(651 // 100)*rudderdf-(716 // 1000)*rollrate*pitchrat-(1578 // 1000)*rollrate*attckang+(1132 // 1000)*pitchrat*attckang),
+      (pitchrat- attckang-(1168 // 1000)*elevator-rollrate*sslipang),
+      (-yawrate-(196 // 1000)*sslipang-(71 // 10000)*aileron+rollrate*attckang)
     )
   end
 
