@@ -9,7 +9,6 @@
 #   
 #   classification PPR-AN-6-4
 #
-# A. Montoison, Montreal, 05/2018.
 
 export hs99
 
