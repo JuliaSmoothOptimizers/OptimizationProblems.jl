@@ -16,7 +16,7 @@ function hs87(args...; kwargs...)
   nlp = Model()
   x0 = [390, 1000, 419.5, 340.5, 198.175, 0.5]
   lvar = [0, 0, 340, 340, -1000, 0]
-  uvar = [400, 1000, 420, 420, 10000, .5236]
+  uvar = [400, 1000, 420, 420, 10000, 0.5236]
   @variable(nlp, lvar[i] <= x[i = 1:6] <= uvar[i], start = x0[i])
 
   a = 131078 // 1000
@@ -24,7 +24,6 @@ function hs87(args...; kwargs...)
   ci = 90798 // 100000
   d = cos(147588 // 100000)
   e = sin(147588 // 100000)
-
 
   @NLconstraint(nlp, 300 - x[1] - 1 / a * x[3] * x[4] * cos(b - x[6]) + ci / a * d * x[3] == 0)
   @NLconstraint(nlp, -x[2] - 1 / a * x[3] * x[4] * cos(b + x[6]) + ci / a * d * x[4]^2 == 0)
@@ -51,14 +50,10 @@ function hs87(args...; kwargs...)
     else
       eltype(x)(Inf)
     end
-  end 
-  register(nlp, :f1, 1 , f1, autodiff = true)
-  register(nlp, :f2, 1 , f2, autodiff = true)
-  @NLobjective(
-    nlp,
-    Min,
-    f1(x[1]) + f2(x[2])
-  )
+  end
+  register(nlp, :f1, 1, f1, autodiff = true)
+  register(nlp, :f2, 1, f2, autodiff = true)
+  @NLobjective(nlp, Min, f1(x[1]) + f2(x[2]))
 
   return nlp
 end

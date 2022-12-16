@@ -33,7 +33,11 @@ function hs68(args...; kwargs...)
   @NLconstraint(nlp, x[3] - 2 * phi(x[2]) == 0)
   @NLconstraint(nlp, x[4] - phi(-x[2] + d1 * sqrt(n1)) - phi(-x[2] - d1 * sqrt(n1)) == 0)
 
-  @NLobjective(nlp, Min, (a1 * n1 - (b1 * (exp(x[1] - 1) - x[3])) / (exp(x[1] -1 + x[4])) * x[4]) / x[1])
+  @NLobjective(
+    nlp,
+    Min,
+    (a1 * n1 - (b1 * (exp(x[1] - 1) - x[3])) / (exp(x[1] - 1 + x[4])) * x[4]) / x[1]
+  )
 
   return nlp
 end
