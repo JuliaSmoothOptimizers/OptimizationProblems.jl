@@ -3,8 +3,7 @@ export cragglvy
 function cragglvy(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n < 2 && @warn("cragglvy: number of variables must be ≥ 2")
   n = max(2, n)
-  function f(x)
-    n = length(x)
+  function f(x; n = length(x))
     return sum(
       (exp(x[2 * i - 1]) - x[2 * i])^4 +
       100 * (x[2 * i] - x[2 * i + 1])^6 +

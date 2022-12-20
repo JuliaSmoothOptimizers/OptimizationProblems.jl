@@ -3,8 +3,7 @@ export penalty2
 function penalty2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n < 3 && @warn("penalty2: number of variables must be ≥ 3")
   n = max(3, n)
-  function f(x)
-    n = length(x)
+  function f(x; n = length(x))
     a = 1 // 100000
     m = 2 * n
     y = eltype(x)[exp(i // 10) + exp((i - 1) // 10) for i = 1:m]

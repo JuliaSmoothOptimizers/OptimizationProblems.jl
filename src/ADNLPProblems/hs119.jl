@@ -38,8 +38,7 @@ function hs119(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   b[:, 14] = [0, 0, 0, 0, 0, 1, 0, 0]
   b[:, 15] = [0, 0, 0, 0, 0, 0, 1, 0]
   b[:, 16] = [0, 0, 0, 0, 0, 0, 0, 1]
-  function f(x)
-    n = length(x)
+  function f(x; a = a)
     return sum(sum(a[i, j] * (x[i]^2 + x[i] + 1) * (x[j]^2 + x[j] + 1) for j = 1:16) for i = 1:16)
   end
   x0 = 10 * ones(T, 16)

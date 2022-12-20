@@ -3,7 +3,7 @@ export elec
 function elec(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n = max(2, div(n, 3))
   # Define the objective function to minimize
-  function f(x)
+  function f(x; n = n)
     return sum(
       sum(
         1 / sqrt((x[j] - x[i])^2 + (x[n + j] - x[n + i])^2 + (x[2n + j] - x[2n + i])^2) for

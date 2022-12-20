@@ -3,8 +3,7 @@ export woods
 function woods(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   (n % 4 == 0) || @warn("woods: number of variables adjusted to be a multiple of 4")
   n = 4 * max(1, div(n, 4))
-  function f(x)
-    n = length(x)
+  function f(x; n = length(x))
     return sum(
       100 * (x[4 * i - 2] - x[4 * i - 3]^2)^2 +
       (1 - x[4 * i - 3])^2 +

@@ -31,8 +31,7 @@ function hs70(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
     1509 // 100000,
     189 // 100000,
   ]
-  function f(x)
-    n = length(x)
+  function f(x; yobs = yobs, ci = ci)
     b = x[3] + (1 - x[3]) * x[4]
     ycal = [
       (1 + 1 / (12 * x[2])) * (

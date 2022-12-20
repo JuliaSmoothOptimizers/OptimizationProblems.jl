@@ -12,8 +12,7 @@ function dixmaane(;
   (n % 3 == 0) || @warn("dixmaan: number of variables adjusted to be a multiple of 3")
   m = max(1, div(n, 3))
   n = 3 * m
-  function f(x)
-    n = length(x)
+  function f(x; n = length(x), α = α, β = β, γ = γ, δ = δ)
     Ti = eltype(x)
     return 1 +
            sum(i // n * Ti(α) * x[i]^2 for i = 1:n) +

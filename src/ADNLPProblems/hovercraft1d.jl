@@ -7,7 +7,7 @@ function hovercraft1d(
   kwargs...,
 ) where {T}
   N = div(n, 3)
-  function f(y)
+  function f(y; N = N)
     x, v, u = y[1:N], y[(N + 1):(2 * N)], y[(2 * N + 1):end]
     return sum(u .^ 2)
   end

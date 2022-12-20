@@ -33,7 +33,6 @@ function palmer6c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
     9.026378,
   ]
   function f(x)
-    n = length(x)
     Ti = eltype(x)
     return sum((Ti(Y[i]) - sum(x[j] * Ti(X[i])^(2 * j - 2) for j = 1:8))^2 for i = 1:13)
   end

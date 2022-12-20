@@ -13,8 +13,7 @@ function hs112(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     -26662 // 1000,
     -22179 // 1000,
   ]
-  function f(x)
-    n = length(x)
+  function f(x; ci = ci)
     return sum(x[j] * (ci[j] + log(x[j] / (sum(x[k] for k = 1:10)))) for j = 1:10)
   end
   x0 = T(0.1) * ones(T, 10)

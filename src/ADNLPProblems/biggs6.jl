@@ -9,7 +9,7 @@ function biggs6(;
   m = max(6, m)
   z = [i // 10 for i = 1:m]
   y = [exp(-zi) - 5 * exp(-10 * zi) + 3 * exp(-4 * zi) for zi in z]
-  function f(x)
+  function f(x; m = m, z = z, y = y)
     Ti = eltype(x)
     return sum(
       x[3] * exp(-x[1] * z[i]) - x[4] * exp(-x[2] * z[i]) + x[6] * exp(-x[5] * z[i]) - Ti(y[i]) for

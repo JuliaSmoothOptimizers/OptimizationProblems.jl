@@ -32,8 +32,7 @@ function hs105(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   y[226:232] .= 240
   y[233] = 245
   y[234:235] .= 250
-  function f(x)
-    n = length(x)
+  function f(x; y = y)
     a = [(x[1] / x[6] * exp(-(y[i] - x[3])^2 / (2 * x[6]^2))) for i = 1:235]
     b = [(x[2] / x[7] * exp(-(y[i] - x[4])^2 / (2 * x[7]^2))) for i = 1:235]
     c = [((1 - x[2] - x[1]) / x[8] * exp(-(y[i] - x[5])^2 / (2 * x[8]^2))) for i = 1:235]

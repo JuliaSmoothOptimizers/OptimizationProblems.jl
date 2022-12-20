@@ -6,7 +6,7 @@ function spmsrtls(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   p = [sin(i^2) for i = 1:n]
   x0 = T[p[i] / 5 for i = 1:n]
 
-  function f(x)
+  function f(x; p = p)
     p = eltype(x).(p)
     return sum(
              (
