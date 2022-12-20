@@ -8,7 +8,7 @@ function hovercraft1d(
 ) where {T}
   N = div(n, 3)
   function f(y; N = N)
-    x, v, u = y[1:N], y[(N + 1):(2 * N)], y[(2 * N + 1):end]
+    @views x, v, u = y[1:N], y[(N + 1):(2 * N)], y[(2 * N + 1):end]
     return sum(u .^ 2)
   end
   xi = zeros(T, 3 * N - 1)

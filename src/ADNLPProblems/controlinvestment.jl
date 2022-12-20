@@ -11,7 +11,7 @@ function controlinvestment(
   x0 = 1
   gamma = 3
   function f(y; N = N, h = h)
-    x, u = y[1:N], y[(N + 1):end]
+    @views x, u = y[1:N], y[(N + 1):end]
     return 1 // 2 * h * sum((u[k] - 1) * x[k] + (u[k + 1] - 1) * x[k + 1] for k = 1:(N - 1))
   end
   function c(y)

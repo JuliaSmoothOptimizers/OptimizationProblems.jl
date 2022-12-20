@@ -14,7 +14,7 @@ function hs111(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     -22179 // 1000,
   ]
   function f(x; ci = ci)
-    return sum([exp(x[j]) * (ci[j] + x[j] - log(sum([exp(x[k]) for k = 1:10]))) for j = 1:10])
+    return sum(exp(x[j]) * (ci[j] + x[j] - log(sum([exp(x[k]) for k = 1:10]))) for j = 1:10)
   end
   x0 = -T(2.3) * ones(T, 10)
   lvar = -100 * ones(T, 10)
