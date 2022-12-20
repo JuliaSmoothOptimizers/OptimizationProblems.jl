@@ -1,7 +1,6 @@
 export hs99
 
 function hs99(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
-
   b = 32
   a = [0, 50, 50, 75, 75, 75, 100, 100]
   t = [0, 25, 50, 100, 150, 200, 290, 380]
