@@ -8,7 +8,7 @@ function curly(;
 ) where {T}
   n < 2 && @warn("curly: number of variables must be ≥ 2")
   n = max(2, n)
-  function f(x)
+  function f(x; n = n, b = b)
     return sum(
       sum(x[j] for j = i:min(i + b, n)) *
       (sum(x[j] for j = i:min(i + b, n)) * (sum(x[j] for j = i:min(i + b, n))^2 - 20) - 1 // 10) for

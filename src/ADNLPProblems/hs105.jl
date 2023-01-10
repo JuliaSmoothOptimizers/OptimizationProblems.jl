@@ -32,12 +32,11 @@ function hs105(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   y[226:232] .= 240
   y[233] = 245
   y[234:235] .= 250
-  function f(x)
-    n = length(x)
-    a = [(x[1] / x[6] * exp(-(y[i] - x[3])^2 / (2 * x[6]^2))) for i = 1:235]
-    b = [(x[2] / x[7] * exp(-(y[i] - x[4])^2 / (2 * x[7]^2))) for i = 1:235]
-    c = [((1 - x[2] - x[1]) / x[8] * exp(-(y[i] - x[5])^2 / (2 * x[8]^2))) for i = 1:235]
-    return -sum(log((a[i] + b[i] + c[i]) / eltype(x)(sqrt(2 * pi))) for i = 1:235)
+  function f(x; y = y)
+    return -sum(
+        log(((x[1] / x[6] * exp(-(y[i] - x[3])^2 / (2 * x[6]^2))) + (x[2] / x[7] * exp(-(y[i] - x[4])^2 / (2 * x[7]^2))) + ((1 - x[2] - x[1]) / x[8] * exp(-(y[i] - x[5])^2 / (2 * x[8]^2)))) / (sqrt(2 * one(eltype(x)) * pi))) 
+        for i = 1:235
+      )
   end
   x0 = T[0.1, 0.2, 100, 125, 175, 11.2, 13.2, 15.8]
   lvar = T[0.001, 0.001, 100, 130, 170, 5, 5, 5]

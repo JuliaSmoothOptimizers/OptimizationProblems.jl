@@ -25,8 +25,7 @@ function hs117(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   d = [4, 8, 10, 6, 2]
 
   e = [-15, -27, -36, -18, -12]
-  function f(x)
-    n = length(x)
+  function f(x; b = b, ci = ci, d = d)
     return -sum(b[j] * x[j] for j = 1:10) +
            sum(sum(ci[k, j] * x[10 + k] * x[10 + j] for k = 1:5) for j = 1:5) +
            2 * sum(d[j] * x[10 + j]^3 for j = 1:5)

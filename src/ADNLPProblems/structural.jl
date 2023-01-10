@@ -59,8 +59,8 @@ function structural(
     fx[ind] = L[2]
     fy[ind] = L[3]
   end
-  function f(y)
-    x, u = y[1:M], y[(M + 1):(2 * M)]
+  function f(y; M = M)
+    @views x, u = y[1:M], y[(M + 1):(2 * M)]
     return sum(eltype(y)(ℓ[j]) * x[j] for j = 1:M)
   end
   A = [

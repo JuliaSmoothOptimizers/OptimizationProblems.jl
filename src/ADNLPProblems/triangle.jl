@@ -37,7 +37,7 @@ function triangle(
     )
   end
 
-  function f(y)
+  function f(y; E = E)
     return sum(nfrob(e, y) / (2 * area(e, y)) for e = 1:E)
   end
   function c(y)

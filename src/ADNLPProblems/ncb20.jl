@@ -3,8 +3,7 @@ export ncb20
 function ncb20(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n < 31 && @warn("ncb20: number of variables must be ≥ 31")
   n = max(31, n)
-  function f(x)
-    n = length(x)
+  function f(x; n = length(x))
     return 2 +
            sum(
              10 // i * (sum(x[i + j - 1] / (1 + x[i + j - 1]^2) for j = 1:20))^2 -

@@ -13,7 +13,7 @@ function clplatec(;
   n = p * p
 
   hp2 = 1 // 2 * p^2
-  function f(x)
+  function f(x; p = p, hp2 = hp2, wght = wght, r = r, l = l)
     return eltype(x)(wght * r) * x[p + (p - 1) * p] +
            eltype(x)(wght * l) * x[p] +
            sum(

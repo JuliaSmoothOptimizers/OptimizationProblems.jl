@@ -25,8 +25,7 @@ function hs86(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   d = [4, 8, 10, 6, 2]
 
   e = [-15, -27, -36, -18, -12]
-  function f(x)
-    n = length(x)
+  function f(x; e = e, ci = ci, d = d)
     return sum(e[j] * x[j] for j = 1:5) +
            sum(sum(ci[i, j] * x[i] * x[j] for j = 1:5) for i = 1:5) +
            sum(d[j] * x[j]^3 for j = 1:5)

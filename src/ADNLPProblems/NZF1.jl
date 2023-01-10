@@ -3,9 +3,7 @@ export NZF1
 function NZF1(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   nbis = max(2, div(n, 13))
   n = 13 * nbis
-  function f(x)
-    nbis = max(2, div(n, 13))
-    n = 13 * nbis
+  function f(x; nbis = nbis, n = n)
     l = div(n, 13)
     return sum(
       (3 * x[i] - 60 + 1 // 10 * (x[i + 1] - x[i + 2])^2)^2 +

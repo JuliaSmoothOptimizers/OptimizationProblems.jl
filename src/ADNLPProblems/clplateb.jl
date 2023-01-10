@@ -10,7 +10,7 @@ function clplateb(;
   p * p != n && @warn("clplateb: number of variables adjusted from $n down to $(p*p)")
   n = p * p
   hp2 = 1 // 2 * p^2
-  function f(x)
+  function f(x; p = p, hp2 = hp2, wght = wght)
     return sum(eltype(x)(wght) / (p - 1) * x[p + (j - 1) * p] for j = 1:p) +
            sum(
              sum(

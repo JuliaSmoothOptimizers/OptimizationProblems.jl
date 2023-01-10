@@ -46,7 +46,7 @@ function tetra(
     )
   end
 
-  function f(y)
+  function f(y; E = E)
     return sum(nfrob(e, y) / (3 * area(e, y)^(2 // 3)) for e = 1:E)
   end
   function c(y)

@@ -28,8 +28,7 @@ function fminsrf2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   x0[I .+ (p .- 1) * p] .= (I .- 1) * ston .+ h00
   x0[1 .+ (J .- 1) * p] .= (J .- 1) * wtoe .+ h00
   x0[p .+ (J .- 1) * p] .= (J .- 1) * wtoe .+ h10
-  function f(x)
-    n = length(x)
+  function f(x; n = length(x))
     return sum(
       sum(
         100 * sqrt(

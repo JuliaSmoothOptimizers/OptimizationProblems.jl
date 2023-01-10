@@ -2,8 +2,8 @@ export polygon1
 
 function polygon1(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   N = div(n, 2)
-  function f(y)
-    r, θ = y[1:N], y[(N + 1):end]
+  function f(y; N = N)
+    @views r, θ = y[1:N], y[(N + 1):end]
     return -1 // 2 * sum(r[i] * r[i + 1] * sin(θ[i + 1] - θ[i]) for i = 1:(N - 1)) -
            1 // 2 * r[1] * r[N] * sin(θ[1] - θ[N])
   end
