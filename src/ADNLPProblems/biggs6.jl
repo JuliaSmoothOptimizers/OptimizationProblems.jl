@@ -12,8 +12,7 @@ function biggs6(;
   function f(x; m = m, z = z, y = y)
     si = sum(y[i] for i = 1:m)
     return sum(
-      + x[3] * exp(-x[1] * z[i]) - x[4] * exp(-x[2] * z[i]) + x[6] * exp(-x[5] * z[i])
-      for i = 1:m
+      +x[3] * exp(-x[1] * z[i]) - x[4] * exp(-x[2] * z[i]) + x[6] * exp(-x[5] * z[i]) for i = 1:m
     ) - eltype(x)(si)
   end
   x0 = ones(T, 6)
