@@ -35,6 +35,9 @@ function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
   @test meta[:has_fixed_variables] == (get_ifix(nlp) != [])
 end
 
+# Avoid SparseADJacobian/Hessian for too large problem as it requires a lot of memory for CIs
+simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
+
 # Test that every problem can be instantiated.
 @testset "Test problems compatibility" begin
   @testset "problem: $prob" for prob in names(PureJuMP)
@@ -52,7 +55,7 @@ end
       eval(Meta.parse("ADNLPProblems.$(prob)()"))
     else
       # Avoid SparseADJacobian for too large problem as it requires a lot of memory for CIs
-      eval(Meta.parse("ADNLPProblems.$(prob)(jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian)"))
+      eval(Meta.parse("ADNLPProblems.$(prob)(" * simp_backend * ")"))
     end
 
     @test nlp_jump.meta.nvar == nlp_ad.meta.nvar
@@ -91,8 +94,7 @@ end
       nlp = if (nvar + ncon < 10000)
         eval(Meta.parse("ADNLPProblems.$(prob)(type=$(Val(T)))"))
       else
-        # Avoid SparseADJacobian for too large problem as it requires a lot of memory for CIs
-        eval(Meta.parse("ADNLPProblems.$(prob)(type=$(Val(T)), jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian)"))
+        eval(Meta.parse("ADNLPProblems.$(prob)(type=$(Val(T)), " * simp_backend * ")"))
       end
       x0 = nlp.meta.x0
       @test eltype(x0) == T
@@ -108,12 +110,18 @@ names_pb_vars = meta[
   meta.variable_nvar .== true,
   [:nvar, :name, :best_known_upper_bound, :best_known_lower_bound],
 ]
-adproblems = (eval(Meta.parse("ADNLPProblems.$(pb[:name])()")) for pb in eachrow(names_pb_vars))
-adproblems11 =
-  (eval(Meta.parse("ADNLPProblems.$(pb[:name])(n=$(13 * ndef))")) for pb in eachrow(names_pb_vars))
+adproblems = (
+  eval(Meta.parse("ADNLPProblems.$(pb[:name])(" * simp_backend * ")")) for
+  pb in eachrow(names_pb_vars)
+)
+adproblems11 = (
+  eval(Meta.parse("ADNLPProblems.$(pb[:name])(n=$(13 * ndef), " * simp_backend * ")")) for
+  pb in eachrow(names_pb_vars)
+)
 
 @testset "Test scalable problems" begin
-  @testset "problem: $pb" for (pb, nlp, nlp11) in zip(eachrow(names_pb_vars), adproblems, adproblems11)
+  @testset "problem: $pb" for (pb, nlp, nlp11) in
+                              zip(eachrow(names_pb_vars), adproblems, adproblems11)
     @test pb[:nvar] == nlp.meta.nvar
     n11 = OptimizationProblems.eval(Symbol(:get_, pb[:name], :_nvar))(n = 13 * ndef)
     @test n11 == nlp11.meta.nvar
