@@ -52,7 +52,11 @@ end
       eval(Meta.parse("ADNLPProblems.$(prob)()"))
     else
       # Avoid SparseADJacobian for too large problem as it requires a lot of memory for CIs
-      eval(Meta.parse("ADNLPProblems.$(prob)(jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian)"))
+      eval(
+        Meta.parse(
+          "ADNLPProblems.$(prob)(jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian)",
+        ),
+      )
     end
 
     @test nlp_jump.meta.nvar == nlp_ad.meta.nvar
@@ -92,7 +96,11 @@ end
         eval(Meta.parse("ADNLPProblems.$(prob)(type=$(Val(T)))"))
       else
         # Avoid SparseADJacobian for too large problem as it requires a lot of memory for CIs
-        eval(Meta.parse("ADNLPProblems.$(prob)(type=$(Val(T)), jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian)"))
+        eval(
+          Meta.parse(
+            "ADNLPProblems.$(prob)(type=$(Val(T)), jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian)",
+          ),
+        )
       end
       x0 = nlp.meta.x0
       @test eltype(x0) == T
@@ -113,7 +121,8 @@ adproblems11 =
   (eval(Meta.parse("ADNLPProblems.$(pb[:name])(n=$(13 * ndef))")) for pb in eachrow(names_pb_vars))
 
 @testset "Test scalable problems" begin
-  @testset "problem: $pb" for (pb, nlp, nlp11) in zip(eachrow(names_pb_vars), adproblems, adproblems11)
+  @testset "problem: $pb" for (pb, nlp, nlp11) in
+                              zip(eachrow(names_pb_vars), adproblems, adproblems11)
     @test pb[:nvar] == nlp.meta.nvar
     n11 = OptimizationProblems.eval(Symbol(:get_, pb[:name], :_nvar))(n = 13 * ndef)
     @test n11 == nlp11.meta.nvar
