@@ -1,6 +1,6 @@
 name = "OptimizationProblems"
 uuid = "5049e819-d29b-5fba-b941-0eee7e64c1c6"
-version = "0.5.0"
+version = "0.6.0"
 
 [deps]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
