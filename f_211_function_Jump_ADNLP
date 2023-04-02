@@ -1,7 +1,7 @@
 # Modèle JuMP
 f_211 = Model(Ipopt.Optimizer)
-@variable(f_211, x1)
-@variable(f_211, x2)
+@variable(f_211, x1, start = -1.2)
+@variable(f_211, x2, start = 1)
 @NLobjective(f_211, Min, 100*(x2 - x1^3)^2 + (1 - x1)^2)
 JuMP.optimize!(f_211)
 JuMP.solution_summary(f_211)
