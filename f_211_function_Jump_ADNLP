@@ -1,0 +1,13 @@
+# Modèle JuMP
+f_211 = Model(Ipopt.Optimizer)
+@variable(f_211, x1)
+@variable(f_211, x2)
+@NLobjective(f_211, Min, 100*(x2 - x1^3)^2 + (1 - x1)^2)
+JuMP.optimize!(f_211)
+JuMP.solution_summary(f_211)
+@show JuMP.value(x1)
+@show JuMP.value(x2)
+#Modèle ADNLPModel
+f(x) = 100*(x[2] - x[1]^3)^2 + (1 - x[1])^2
+x0_211 = [-1.2, 1.]
+f_ADNLP_211 = ADNLPModel(f, x0_211)   
