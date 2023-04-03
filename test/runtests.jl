@@ -38,6 +38,21 @@ end
 # Avoid SparseADJacobian/Hessian for too large problem as it requires a lot of memory for CIs
 simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
 
+@testset "Test Nonlinear Least Squares" begin
+  @testset "problem: $pb" for pb in ["arglina"] # meta[meta.objtype .== :least_squares, :name]
+    nls = OptimizationProblems.ADNLPProblems.eval(Symbol(pb))(use_nls = true)
+    @test typeof(nls) <: ADNLPModels.ADNLSModel
+    x = get_x0(nls)
+    Fx = similar(x, nls.nls_meta.nequ)
+    if VERSION ≥ v"1.7"
+      @allocated residual!(nls, x, Fx)
+      @test (@allocated residual!(nls, x, Fx)) == 0
+    end
+    m = OptimizationProblems.get_arglina_nls_nequ()
+    @test nls.nls_meta.nequ == m
+  end
+end
+
 # Test that every problem can be instantiated.
 @testset "Test problems compatibility" begin
   @testset "problem: $prob" for prob in names(PureJuMP)

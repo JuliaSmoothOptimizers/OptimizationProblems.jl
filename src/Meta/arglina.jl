@@ -23,3 +23,4 @@ get_arglina_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_arglina_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_arglina_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_arglina_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_arglina_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * n
