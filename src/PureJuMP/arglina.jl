@@ -23,8 +23,8 @@ function arglina(args...; n::Int = default_nvar, m::Int = 2n, kwargs...)
   @NLobjective(
     nlp,
     Min,
-    sum((x[i] - 2 / m * sum(x[j] for j = 1:n) - 1)^2 for i = 1:n) +
-    sum((-2 / m * sum(x[j] for j = 1:n) - 1)^2 for i = (n + 1):m)
+    0.5 * sum((x[i] - 2 / m * sum(x[j] for j = 1:n) - 1)^2 for i = 1:n) +
+    0.5 * sum((-2 / m * sum(x[j] for j = 1:n) - 1)^2 for i = (n + 1):m)
   )
 
   return nlp
