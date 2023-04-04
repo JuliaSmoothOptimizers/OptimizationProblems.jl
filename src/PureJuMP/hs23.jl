@@ -25,7 +25,7 @@ function hs23(args...; kwargs...)
   @NLconstraint(nlp, x[1]^2 - x[2] ≥ 0)
   @NLconstraint(nlp, x[2]^2 - x[1] ≥ 0)
 
-  @NLobjective(nlp, Min, x[1]^2 + x[2]^2)
+  @NLobjective(nlp, Min, 0.5 * x[1]^2 + 0.5 * x[2]^2)
 
   return nlp
 end

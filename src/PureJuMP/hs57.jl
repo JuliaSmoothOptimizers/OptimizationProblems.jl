@@ -77,7 +77,7 @@ function hs57(args...; kwargs...)
 
   @NLexpression(nlp, f[i = 1:44], b[i] - x[1] - (0.49 - x[1]) * exp(-x[2] * (a[i] - 8)))
 
-  @NLobjective(nlp, Min, sum(f[i]^2 for i = 1:44))
+  @NLobjective(nlp, Min, 0.5 * sum(f[i]^2 for i = 1:44))
 
   return nlp
 end

@@ -38,8 +38,8 @@ function freuroth(args...; n::Int = default_nvar, kwargs...)
   @NLobjective(
     nlp,
     Min,
-    sum(((5.0 - x[i + 1]) * x[i + 1]^2 + x[i] - 2 * x[i + 1] - 13.0)^2 for i = 1:ngs) +
-    sum(((1.0 + x[i + 1]) * x[i + 1]^2 + x[i] - 14 * x[i + 1] - 29.0)^2 for i = 1:ngs)
+    0.5 * sum(((5.0 - x[i + 1]) * x[i + 1]^2 + x[i] - 2 * x[i + 1] - 13.0)^2 for i = 1:ngs) +
+    0.5 * sum(((1.0 + x[i + 1]) * x[i + 1]^2 + x[i] - 14 * x[i + 1] - 29.0)^2 for i = 1:ngs)
   )
 
   return nlp

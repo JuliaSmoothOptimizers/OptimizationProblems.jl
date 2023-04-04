@@ -28,6 +28,6 @@ function hovercraft1d(args...; n::Int = default_nvar, kwargs...)
   end
 
   # minimize 2-norm
-  @objective(nlp, Min, sum(u .^ 2))
+  @objective(nlp, Min, 0.5 * sum(u .^ 2))
   return nlp
 end

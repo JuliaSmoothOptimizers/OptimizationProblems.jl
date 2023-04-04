@@ -84,7 +84,7 @@ function osborne2(args...; n::Int = default_nvar, kwargs...)
   @NLobjective(
     nlp,
     Min,
-    sum(
+    0.5 * sum(
       (
         y[i] - (
           x[1] * exp(-(i - 1) / 10 * x[5]) +

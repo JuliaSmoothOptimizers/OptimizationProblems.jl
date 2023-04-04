@@ -20,7 +20,7 @@ function arglinb(args...; n::Int = default_nvar, m::Int = 2n, kwargs...)
 
   @variable(nlp, x[j = 1:n], start = 1.0)
 
-  @NLobjective(nlp, Min, sum((i * sum(j * x[j] for j = 1:n) - 1)^2 for i = 1:m))
+  @NLobjective(nlp, Min, 0.5 * sum((i * sum(j * x[j] for j = 1:n) - 1)^2 for i = 1:m))
 
   return nlp
 end

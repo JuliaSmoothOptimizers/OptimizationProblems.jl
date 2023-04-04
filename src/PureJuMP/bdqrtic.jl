@@ -36,7 +36,7 @@ function bdqrtic(args...; n::Int = default_nvar, kwargs...)
   @NLobjective(
     nlp,
     Min,
-    sum(
+    0.5 * sum(
       (3 - 4 * x[i])^2 + (x[i]^2 + 2 * x[i + 1]^2 + 3 * x[i + 2]^2 + 4 * x[i + 3]^2 + 5 * x[n]^2)^2
       for i = 1:(n - 4)
     )

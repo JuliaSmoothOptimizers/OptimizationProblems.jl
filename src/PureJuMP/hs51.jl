@@ -23,7 +23,7 @@ function hs51(args...; kwargs...)
   @constraint(nlp, x[3] + x[4] - 2 * x[5] == 0)
   @constraint(nlp, x[2] - x[5] == 0)
 
-  @NLobjective(nlp, Min, (x[1] - x[2])^2 + (x[2] + x[3] - 2)^2 + (x[4] - 1)^2 + (x[5] - 1)^2)
+  @NLobjective(nlp, Min, 0.5 * (x[1] - x[2])^2 + 0.5 * (x[2] + x[3] - 2)^2 + 0.5 * (x[4] - 1)^2 + 0.5 * (x[5] - 1)^2)
 
   return nlp
 end

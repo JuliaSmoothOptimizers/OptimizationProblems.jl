@@ -48,7 +48,7 @@ function palmer8c(args...; kwargs...)
     97.874528,
   ]
 
-  @NLobjective(nlp, Min, sum((Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8))^2 for i = 1:12))
+  @NLobjective(nlp, Min, 0.5 * sum((Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8))^2 for i = 1:12))
 
   return nlp
 end

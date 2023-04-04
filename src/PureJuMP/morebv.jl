@@ -39,11 +39,11 @@ function morebv(args...; n::Int = default_nvar, kwargs...)
   @NLobjective(
     nlp,
     Min,
-    sum(
+    0.5 * sum(
       (2.0 * x[i] - x[i - 1] - x[i + 1] + (h^2 / 2.0) * (x[i] + i * h + 1)^3)^2 for i = 2:(n - 1)
     ) +
-    (2.0 * x[1] - x[2] + (h^2 / 2.0) * (x[1] + 1)^3)^2 +
-    (2.0 * x[n] - x[n - 1] + (h^2 / 2.0) * (x[n] + n * h + 1)^3)^2
+    0.5 * (2.0 * x[1] - x[2] + (h^2 / 2.0) * (x[1] + 1)^3)^2 +
+    0.5 * (2.0 * x[n] - x[n - 1] + (h^2 / 2.0) * (x[n] + n * h + 1)^3)^2
   )
 
   return nlp

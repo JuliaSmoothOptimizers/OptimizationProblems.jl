@@ -44,7 +44,7 @@ function sbrybnd(args...; n::Int = default_nvar, kwargs...)
   @NLobjective(
     nlp,
     Min,
-    sum(
+    0.5 * sum(
       (
         (2.0 + 5.0 * p[i]^2 * x[i]^2) * p[i] * x[i] + 1.0 -
         sum(p[j] * x[j] * (1.0 + p[j] * x[j]) for j in J[i])
