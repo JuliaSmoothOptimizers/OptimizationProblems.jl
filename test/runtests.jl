@@ -39,7 +39,7 @@ end
 simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
 
 @testset "Test Nonlinear Least Squares" begin
-  @testset "problem: $pb" for pb in ["arglina"] # meta[meta.objtype .== :least_squares, :name]
+  @testset "problem: $pb" for pb in meta[meta.objtype .== :least_squares, :name]
     nls = OptimizationProblems.ADNLPProblems.eval(Symbol(pb))(use_nls = true)
     @test typeof(nls) <: ADNLPModels.ADNLSModel
     x = get_x0(nls)
