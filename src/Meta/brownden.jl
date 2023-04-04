@@ -23,3 +23,4 @@ get_brownden_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_brownden_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_brownden_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_brownden_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_brownden_nls_nequ(; n::Integer = default_nvar, kwargs...) = max(n, 4)

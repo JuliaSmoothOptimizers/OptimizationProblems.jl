@@ -165,10 +165,9 @@ function palmer1c(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64
     108.18086,
     92.733676,
   ]
-  function F!(r, x; X = X, Y = Y)
-    Ti = eltype(x)
+  function F!(r, x; X = eltype(x).(X), Y = eltype(x).(Y))
     for i=1:35
-      r[i] = Ti(Y[i]) - sum(x[j] * Ti(X[i])^(2 * j - 2) for j = 1:8)
+      r[i] = Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8)
     end
     return r
   end

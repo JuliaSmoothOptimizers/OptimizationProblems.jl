@@ -19,11 +19,10 @@ end
 function errinros_mod(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   n < 2 && @warn("errinros_mod: number of variables must be ≥ 2")
   n = max(2, n)
-  function F!(r, x)
-    n = length(x)
+  function F!(r::AbstractVector{Ti}, x::AbstractVector{Ti}; n = length(x)) where {Ti}
     for i = 2:n
-      r[i - 1] = x[i - 1] - 16 * x[i]^2 * (15 // 10 + eltype(x)sin(i))^2
-      r[i - 1 + n - 1] =1 - x[i]
+      r[i - 1] = x[i - 1] - 16 * x[i]^2 * (15 // 10 + sin(i * one(Ti)))^2
+      r[i - 1 + n - 1] = 1 - x[i]
     end
     return r
   end

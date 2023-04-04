@@ -23,4 +23,4 @@ get_errinros_mod_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_errinros_mod_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_errinros_mod_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_errinros_mod_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_errinros_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * (n - 1)
+get_errinros_mod_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * (n - 1)

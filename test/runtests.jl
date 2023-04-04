@@ -44,11 +44,11 @@ simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_ba
     @test typeof(nls) <: ADNLPModels.ADNLSModel
     x = get_x0(nls)
     Fx = similar(x, nls.nls_meta.nequ)
-    if VERSION ≥ v"1.7"
+    if VERSION ≥ v"1.7" && !occursin("palmer", pb) # palmer residual allocate
       @allocated residual!(nls, x, Fx)
       @test (@allocated residual!(nls, x, Fx)) == 0
     end
-    m = OptimizationProblems.get_arglina_nls_nequ()
+    m = OptimizationProblems.eval(Meta.parse("get_$(pb)_nls_nequ"))()
     @test nls.nls_meta.nequ == m
   end
 end

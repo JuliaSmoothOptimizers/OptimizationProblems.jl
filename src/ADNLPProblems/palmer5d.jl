@@ -73,10 +73,9 @@ function palmer5d(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64
     62.822177,
     77.719674,
   ]
-  function F!(r, x)
-    Ti = eltype(x)
+  function F!(r::AbstractVector{Ti}, x::AbstractVector{Ti}; X::AbstractVector{Ti} = Ti.(X), Y::AbstractVector{Ti} = Ti.(Y)) where {Ti}
     for i=1:12
-      r[i] = Ti(Y[i]) - sum(x[j] * Ti(X[i])^(2 * j - 2) for j = 1:4)
+      r[i] = Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:4)
     end
     return r
   end
