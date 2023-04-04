@@ -23,3 +23,4 @@ get_jennrichsampson_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_jennrichsampson_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_jennrichsampson_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_jennrichsampson_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_jennrichsampson_nls_nequ(; n::Integer = default_nvar, m = m, kwargs...) = m

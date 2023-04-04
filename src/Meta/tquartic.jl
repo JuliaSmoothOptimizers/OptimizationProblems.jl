@@ -23,3 +23,4 @@ get_tquartic_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_tquartic_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_tquartic_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_tquartic_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_tquartic_nls_nequ(; n::Integer = default_nvar, kwargs...) = n - 1

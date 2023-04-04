@@ -23,3 +23,4 @@ get_palmer7c_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer7c_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer7c_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer7c_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_palmer7c_nls_nequ(; n::Integer = default_nvar, kwargs...) = 13

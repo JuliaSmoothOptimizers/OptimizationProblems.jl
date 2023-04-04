@@ -23,3 +23,4 @@ get_brybnd_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_brybnd_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_brybnd_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_brybnd_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_brybnd_nls_nequ(; n::Integer = default_nvar, kwargs...) = n

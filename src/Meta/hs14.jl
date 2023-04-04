@@ -23,3 +23,4 @@ get_hs14_nlin(; n::Integer = default_nvar, kwargs...) = 1
 get_hs14_nnln(; n::Integer = default_nvar, kwargs...) = 1
 get_hs14_nequ(; n::Integer = default_nvar, kwargs...) = 1
 get_hs14_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_hs14_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2

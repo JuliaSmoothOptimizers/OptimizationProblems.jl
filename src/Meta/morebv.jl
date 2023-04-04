@@ -23,3 +23,4 @@ get_morebv_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_morebv_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_morebv_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_morebv_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_morebv_nls_nequ(; n::Integer = default_nvar, kwargs...) = n

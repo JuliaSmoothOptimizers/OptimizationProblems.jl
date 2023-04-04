@@ -23,3 +23,4 @@ get_hs23_nlin(; n::Integer = default_nvar, kwargs...) = 1
 get_hs23_nnln(; n::Integer = default_nvar, kwargs...) = 4
 get_hs23_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_hs23_nineq(; n::Integer = default_nvar, kwargs...) = 5
+get_hs23_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2

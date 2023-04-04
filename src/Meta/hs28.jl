@@ -23,3 +23,4 @@ get_hs28_nlin(; n::Integer = default_nvar, kwargs...) = 1
 get_hs28_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_hs28_nequ(; n::Integer = default_nvar, kwargs...) = 1
 get_hs28_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs28_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2

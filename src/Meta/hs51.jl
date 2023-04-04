@@ -23,3 +23,4 @@ get_hs51_nlin(; n::Integer = default_nvar, kwargs...) = 3
 get_hs51_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_hs51_nequ(; n::Integer = default_nvar, kwargs...) = 3
 get_hs51_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs51_nls_nequ(; n::Integer = default_nvar, kwargs...) = 4

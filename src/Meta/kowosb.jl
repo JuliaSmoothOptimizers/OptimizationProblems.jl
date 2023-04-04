@@ -23,3 +23,4 @@ get_kowosb_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_kowosb_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_kowosb_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_kowosb_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_kowosb_nls_nequ(; n::Integer = default_nvar, kwargs...) = 11

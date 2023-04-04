@@ -23,3 +23,4 @@ get_dixon3dq_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_dixon3dq_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_dixon3dq_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_dixon3dq_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_dixon3dq_nls_nequ(; n::Integer = default_nvar, kwargs...) = n

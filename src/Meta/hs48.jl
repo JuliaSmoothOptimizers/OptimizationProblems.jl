@@ -23,3 +23,4 @@ get_hs48_nlin(; n::Integer = default_nvar, kwargs...) = 2
 get_hs48_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_hs48_nequ(; n::Integer = default_nvar, kwargs...) = 2
 get_hs48_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs48_nls_nequ(; n::Integer = default_nvar, kwargs...) = 3
