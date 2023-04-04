@@ -21,7 +21,7 @@ function hs28(args...; kwargs...)
 
   @constraint(nlp, x[1] + 2 * x[2] + 3 * x[3] - 1 == 0)
 
-  @NLobjective(nlp, Min, (x[1] + x[2])^2 + (x[2] + x[3])^2)
+  @NLobjective(nlp, Min, 0.5 * (x[1] + x[2])^2 + 0.5 * (x[2] + x[3])^2)
 
   return nlp
 end

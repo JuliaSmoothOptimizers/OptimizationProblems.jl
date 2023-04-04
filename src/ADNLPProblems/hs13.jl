@@ -3,7 +3,7 @@ export hs13
 function hs13(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
-    return (x[1] - 2)^2 + x[2]^2
+    return 1 // 2 * (x[1] - 2)^2 + 1 // 2 * x[2]^2
   end
   x0 = -2 * ones(T, 2)
   lvar = zeros(T, 2)

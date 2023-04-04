@@ -23,3 +23,4 @@ get_palmer1c_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer1c_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer1c_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer1c_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_palmer1c_nls_nequ(; n::Integer = default_nvar, kwargs...) = 35

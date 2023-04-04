@@ -19,7 +19,7 @@ function kowosb(args...; n::Int = default_nvar, kwargs...)
   @NLobjective(
     nlp,
     Min,
-    sum((y[i] - (x[1] * (u[i]^2 + u[i] * x[2])) / (u[i]^2 + u[i] * x[3] + x[4]))^2 for i = 1:m)
+    0.5 * sum((y[i] - (x[1] * (u[i]^2 + u[i] * x[2])) / (u[i]^2 + u[i] * x[3] + x[4]))^2 for i = 1:m)
   )
   return nlp
 end

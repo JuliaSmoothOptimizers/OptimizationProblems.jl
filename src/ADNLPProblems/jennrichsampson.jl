@@ -7,7 +7,7 @@ function jennrichsampson(;
   kwargs...,
 ) where {T}
   x0 = T[0.3; 0.4]
-  f(x) = sum((2 + 2 * i - (exp(i * x[1]) + exp(i * x[2])))^2 for i = 1:m)
+  f(x) = 1 // 2 * sum((2 + 2 * i - (exp(i * x[1]) + exp(i * x[2])))^2 for i = 1:m)
 
   return ADNLPModels.ADNLPModel(f, x0, name = "jennrichsampson"; kwargs...)
 end

@@ -23,3 +23,4 @@ get_brownbs_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_brownbs_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_brownbs_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_brownbs_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_brownbs_nls_nequ(; n::Integer = default_nvar, kwargs...) = 3

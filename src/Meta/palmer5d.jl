@@ -23,3 +23,4 @@ get_palmer5d_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer5d_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer5d_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer5d_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_palmer5c_nls_nequ(; n::Integer = default_nvar, kwargs...) = 12

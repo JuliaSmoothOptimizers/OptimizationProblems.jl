@@ -23,3 +23,4 @@ get_osborne2_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_osborne2_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_osborne2_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_osborne2_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_osborne2_nls_nequ(; n::Integer = default_nvar, kwargs...) = 65

@@ -22,7 +22,7 @@ function hs14(args...; kwargs...)
 
   @constraint(nlp, x[1] - 2 * x[2] + 1 == 0)
 
-  @NLobjective(nlp, Min, (x[1] - 2)^2 + (x[2] - 1)^2)
+  @NLobjective(nlp, Min, 0.5 * (x[1] - 2)^2 + 0.5 * (x[2] - 1)^2)
 
   return nlp
 end

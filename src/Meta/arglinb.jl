@@ -23,3 +23,4 @@ get_arglinb_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_arglinb_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_arglinb_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_arglinb_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_arglinb_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * n

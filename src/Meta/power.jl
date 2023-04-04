@@ -23,3 +23,4 @@ get_power_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_power_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_power_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_power_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_power_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1

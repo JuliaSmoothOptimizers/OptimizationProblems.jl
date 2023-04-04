@@ -54,7 +54,7 @@ function palmer4c(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   ]
   function f(x)
     Ti = eltype(x)
-    return sum((Ti(Y[i]) - sum(x[j] * Ti(X[i])^(2 * j - 2) for j = 1:8))^2 for i = 1:23)
+    return 1 // 2 * sum((Ti(Y[i]) - sum(x[j] * Ti(X[i])^(2 * j - 2) for j = 1:8))^2 for i = 1:23)
   end
   x0 = ones(T, 8)
   return ADNLPModels.ADNLPModel(f, x0, name = "palmer4c"; kwargs...)

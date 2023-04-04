@@ -40,7 +40,7 @@ function meyer3(args...; kwargs...)
 
   t = 45 .+ 5 * (1:16)
 
-  @NLobjective(nlp, Min, sum((x[1] * exp(x[2] / (t[i] + x[3])) - y[i])^2 for i = 1:16))
+  @NLobjective(nlp, Min, 0.5 * sum((x[1] * exp(x[2] / (t[i] + x[3])) - y[i])^2 for i = 1:16))
 
   return nlp
 end

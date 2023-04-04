@@ -23,3 +23,4 @@ get_hs6_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_hs6_nnln(; n::Integer = default_nvar, kwargs...) = 1
 get_hs6_nequ(; n::Integer = default_nvar, kwargs...) = 1
 get_hs6_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs6_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1

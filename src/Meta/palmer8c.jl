@@ -23,3 +23,4 @@ get_palmer8c_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer8c_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer8c_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_palmer8c_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_palmer8c_nls_nequ(; n::Integer = default_nvar, kwargs...) = 12

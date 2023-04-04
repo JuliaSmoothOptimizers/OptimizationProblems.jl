@@ -23,3 +23,4 @@ get_meyer3_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_meyer3_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_meyer3_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_meyer3_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_meyer3_nls_nequ(; n::Integer = default_nvar, kwargs...) = 16

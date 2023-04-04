@@ -22,7 +22,7 @@ function hs30(args...; kwargs...)
 
   @NLconstraint(nlp, x[1]^2 + x[2]^2 - 1 ≥ 0)
 
-  @NLobjective(nlp, Min, sum(x[i]^2 for i = 1:3))
+  @NLobjective(nlp, Min, 0.5 * sum(x[i]^2 for i = 1:3))
 
   return nlp
 end

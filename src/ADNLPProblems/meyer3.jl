@@ -22,7 +22,7 @@ function meyer3(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
     2872,
   ]
   function f(x)
-    return sum((x[1] * exp(x[2] / (t[i] + x[3])) - y[i])^2 for i = 1:16)
+    return 1 // 2 * sum((x[1] * exp(x[2] / (t[i] + x[3])) - y[i])^2 for i = 1:16)
   end
   return ADNLPModels.ADNLPModel(f, x0, name = "meyer3"; kwargs...)
 end

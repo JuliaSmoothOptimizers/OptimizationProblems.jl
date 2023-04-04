@@ -23,3 +23,4 @@ get_freuroth_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_freuroth_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_freuroth_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_freuroth_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_freuroth_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * (n - 1)
