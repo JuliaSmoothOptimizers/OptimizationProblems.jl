@@ -71,7 +71,7 @@ function osborne2(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   m = 65
 
   function f(x)
-    return sum(
+    return 1 // 2 * sum(
       (
         y[i] - (
           x[1] * exp(-(i - 1) // 10 * x[5]) +

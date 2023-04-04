@@ -30,7 +30,7 @@ function kowosb(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwa
     625 // 10000,
   ]
   function f(x; m = m, y = y, u = u)
-    return sum(
+    return 1 // 2 * sum(
       (y[i] - (x[1] * (u[i]^2 + u[i] * x[2])) / (u[i]^2 + u[i] * x[3] + x[4]))^2 for i = 1:m
     )
   end

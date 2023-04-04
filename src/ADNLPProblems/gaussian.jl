@@ -19,7 +19,7 @@ function gaussian(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     9 // 10000,
   ]
   function f(x; y = y)
-    return sum((x[1] * exp(-x[2] / 2 * ((8 - i) // 2 - x[3])^2) - y[i])^2 for i = 1:15)
+    return 1 // 2 * sum((x[1] * exp(-x[2] / 2 * ((8 - i) // 2 - x[3])^2) - y[i])^2 for i = 1:15)
   end
   x0 = T[0.4, 1, 0]
   return ADNLPModels.ADNLPModel(f, x0, name = "gaussian"; kwargs...)

@@ -8,13 +8,13 @@ function spmsrtls(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
 
   function f(x; p = p)
     p = eltype(x).(p)
-    return sum(
+    return 1 // 2 * sum(
              (
                x[(3 * (i - 1) + 1) - 4] * x[(3 * (i - 1) + 1) - 1] -
                p[(3 * (i - 1) + 1) - 4] * p[(3 * (i - 1) + 1) - 1]
              )^2 for i = 3:m
            ) +
-           sum(
+           1 // 2 * sum(
              (
                x[(3 * (i - 1) + 1) - 3] * x[(3 * (i - 1) + 1) - 1] +
                x[(3 * (i - 1) + 1) - 1] * x[(3 * (i - 1) + 1)] -
@@ -22,20 +22,20 @@ function spmsrtls(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
                p[(3 * (i - 1) + 1) - 1] * p[(3 * (i - 1) + 1)]
              )^2 for i = 2:m
            ) +
-           sum((x[(3 * (i - 1) + 1)]^2 - p[(3 * (i - 1) + 1)]^2)^2 for i = 1:m) +
-           sum(
+           1 // 2 * sum((x[(3 * (i - 1) + 1)]^2 - p[(3 * (i - 1) + 1)]^2)^2 for i = 1:m) +
+           1 // 2 * sum(
              (
                x[(3 * (i - 1) + 1) - 2] * x[(3 * (i - 1) + 1) - 1] -
                p[(3 * (i - 1) + 1) - 2] * p[(3 * (i - 1) + 1) - 1]
              )^2 for i = 2:m
            ) +
-           sum(
+           1 // 2 * sum(
              (
                x[(3 * (i - 1) + 1) + 2] * x[(3 * (i - 1) + 1) + 1] -
                p[(3 * (i - 1) + 1) + 2] * p[(3 * (i - 1) + 1) + 1]
              )^2 for i = 1:(m - 1)
            ) +
-           sum(
+           1 // 2 * sum(
              (
                x[(3 * (i - 1) + 1) + 3] * x[(3 * (i - 1) + 1) + 1] +
                x[(3 * (i - 1) + 1) + 1] * x[(3 * (i - 1) + 1)] -
@@ -43,7 +43,7 @@ function spmsrtls(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
                p[(3 * (i - 1) + 1) + 1] * p[(3 * (i - 1) + 1)]
              )^2 for i = 1:(m - 1)
            ) +
-           sum(
+           1 // 2 * sum(
              (
                x[(3 * (i - 1) + 1) + 4] * x[(3 * (i - 1) + 1) + 1] -
                p[(3 * (i - 1) + 1) + 4] * p[(3 * (i - 1) + 1) + 1]

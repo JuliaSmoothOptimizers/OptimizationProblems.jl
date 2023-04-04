@@ -46,7 +46,7 @@ function spmsrtls(args...; n::Int = default_nvar, kwargs...)
       )^2 for i = 2:m
     ) +
     0.5 * sum((x[(3 * (i - 1) + 1)]^2 - p[(3 * (i - 1) + 1)]^2)^2 for i = 1:m) +
-    sum(
+    0.5 * sum(
       (
         x[(3 * (i - 1) + 1) - 2] * x[(3 * (i - 1) + 1) - 1] -
         p[(3 * (i - 1) + 1) - 2] * p[(3 * (i - 1) + 1) - 1]
