@@ -1,7 +1,12 @@
 export hovercraft1d
 
+function hovercraft1d(;use_nls::Bool = false, kwargs...)
+  model = use_nls ? :nls : :nlp
+  return hovercraft1d(Val(model); kwargs...)
+end
+
 function hovercraft1d(
-  args...;
+  ::Val{:nlp};
   n::Int = default_nvar,
   type::Val{T} = Val(Float64),
   kwargs...,
@@ -57,6 +62,69 @@ function hovercraft1d(
     vcat(zeros(T, 2), T(100), zeros(T, 2 * N - 1)),
     vcat(zeros(T, 2), T(100), zeros(T, 2 * N - 1)),
     name = "hovercraft1d";
+    kwargs...,
+  )
+end
+
+function hovercraft1d(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
+  N = div(n, 3)
+  function F!(r, y; N = N)
+    @views x, v, u = y[1:N], y[(N + 1):(2 * N)], y[(2 * N + 1):end]
+    r .= u
+    return r
+  end
+  xi = zeros(T, 3 * N - 1)
+  clinrows = vcat(
+    [1],
+    [2],
+    [3],
+    [4],
+    [4 + i for i = 1:(N - 1)], # x[i + 1] - x[i] - v[i]
+    [4 + i for i = 1:(N - 1)],
+    [4 + i for i = 1:(N - 1)],
+    [4 + N - 1 + i for i = 1:(N - 1)], # [v[i + 1] - v[i] - u[i] for i = 1:(N - 1)]
+    [4 + N - 1 + i for i = 1:(N - 1)],
+    [4 + N - 1 + i for i = 1:(N - 1)],
+  )
+  clincols = vcat(
+    [1],
+    [N + 1],
+    [N],
+    [2 * N],
+    [i + 1 for i = 1:(N - 1)], # x[i + 1]
+    [i for i = 1:(N - 1)], # x[i]
+    [N + i for i = 1:(N - 1)], # v[i]
+    [N + i + 1 for i = 1:(N - 1)], # v[i + 1]
+    [N + i for i = 1:(N - 1)], # v[i]
+    [2 * N + i for i = 1:(N - 1)], # u[i]
+  )
+  clinvals = vcat(
+    T[1],
+    T[1],
+    T[1],
+    T[1],
+    T[1 for i = 1:(N - 1)],
+    T[-1 for i = 1:(N - 1)],
+    T[-1 for i = 1:(N - 1)],
+    T[1 for i = 1:(N - 1)],
+    T[-1 for i = 1:(N - 1)],
+    T[-1 for i = 1:(N - 1)],
+  )
+  return ADNLPModels.ADNLSModel!(
+    F!,
+    xi,
+    N - 1,
+    clinrows,
+    clincols,
+    clinvals,
+    vcat(zeros(T, 2), T(100), zeros(T, 2 * N - 1)),
+    vcat(zeros(T, 2), T(100), zeros(T, 2 * N - 1)),
+    name = "hovercraft1d-nls";
     kwargs...,
   )
 end

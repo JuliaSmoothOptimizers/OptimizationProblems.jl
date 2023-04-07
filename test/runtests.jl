@@ -39,16 +39,16 @@ end
 simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
 
 @testset "Test Nonlinear Least Squares" begin
-  @testset "problem: $pb" for pb in ["arglina"] # meta[meta.objtype .== :least_squares, :name]
+  @testset "problem: $pb" for pb in meta[meta.objtype .== :least_squares, :name]
     nls = OptimizationProblems.ADNLPProblems.eval(Symbol(pb))(use_nls = true)
     @test typeof(nls) <: ADNLPModels.ADNLSModel
     x = get_x0(nls)
     Fx = similar(x, nls.nls_meta.nequ)
-    if VERSION ≥ v"1.7"
+    if VERSION ≥ v"1.7" && !occursin("palmer", pb) # palmer residual allocate
       @allocated residual!(nls, x, Fx)
       @test (@allocated residual!(nls, x, Fx)) == 0
     end
-    m = OptimizationProblems.get_arglina_nls_nequ()
+    m = OptimizationProblems.eval(Meta.parse("get_$(pb)_nls_nequ"))()
     @test nls.nls_meta.nequ == m
   end
 end

@@ -23,4 +23,4 @@ get_bdqrtic_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_bdqrtic_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_bdqrtic_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_bdqrtic_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_bdqrtic_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * (n - 4)
+get_bdqrtic_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * (max(5, n) - 4)
