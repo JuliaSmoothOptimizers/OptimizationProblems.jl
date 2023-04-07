@@ -1,6 +1,6 @@
 export hs53
 
-function hs53(;use_nls::Bool = false, kwargs...)
+function hs53(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return hs53(Val(model); kwargs...)
 end
@@ -8,7 +8,10 @@ end
 function hs53(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
     n = length(x)
-    return 1 // 2 * (x[1] - x[2])^2 + 1 // 2 * (x[2] + x[3] - 2)^2 + 1 // 2 * (x[4] - 1)^2 + 1 // 2 * (x[5] - 1)^2
+    return 1 // 2 * (x[1] - x[2])^2 +
+           1 // 2 * (x[2] + x[3] - 2)^2 +
+           1 // 2 * (x[4] - 1)^2 +
+           1 // 2 * (x[5] - 1)^2
   end
   x0 = 2 * ones(T, 5)
   lvar = -10 * ones(T, 5)

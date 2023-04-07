@@ -1,6 +1,6 @@
 export hovercraft1d
 
-function hovercraft1d(;use_nls::Bool = false, kwargs...)
+function hovercraft1d(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return hovercraft1d(Val(model); kwargs...)
 end

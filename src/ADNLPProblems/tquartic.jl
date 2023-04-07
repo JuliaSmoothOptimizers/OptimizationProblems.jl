@@ -1,11 +1,16 @@
 export tquartic
 
-function tquartic(;use_nls::Bool = false, kwargs...)
+function tquartic(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return tquartic(Val(model); kwargs...)
 end
 
-function tquartic(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function tquartic(
+  ::Val{:nlp};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   n < 2 && @warn("tquartic: number of variables must be ≥ 2")
   n = max(2, n)
   function f(x; n = length(x))
@@ -15,7 +20,12 @@ function tquartic(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64
   return ADNLPModels.ADNLPModel(f, x0, name = "tquartic"; kwargs...)
 end
 
-function tquartic(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function tquartic(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   n < 2 && @warn("tquartic: number of variables must be ≥ 2")
   n = max(2, n)
   function F!(r, x; n = length(x))

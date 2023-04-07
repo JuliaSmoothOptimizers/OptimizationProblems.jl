@@ -1,6 +1,6 @@
 export hs22
 
-function hs22(;use_nls::Bool = false, kwargs...)
+function hs22(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return hs22(Val(model); kwargs...)
 end

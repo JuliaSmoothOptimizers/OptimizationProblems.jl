@@ -1,16 +1,23 @@
 export freuroth
 
-function freuroth(;use_nls::Bool = false, kwargs...)
+function freuroth(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return freuroth(Val(model); kwargs...)
 end
 
-function freuroth(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function freuroth(
+  ::Val{:nlp};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   n < 2 && @warn("freuroth: number of variables must be ≥ 2")
   n = max(2, n)
   function f(x; n = length(x))
-    return 1 // 2 * sum(((5 - x[i + 1]) * x[i + 1]^2 + x[i] - 2 * x[i + 1] - 13)^2 for i = 1:(n - 1)) +
-           1 // 2 * sum(((1 + x[i + 1]) * x[i + 1]^2 + x[i] - 14 * x[i + 1] - 29)^2 for i = 1:(n - 1))
+    return 1 // 2 *
+           sum(((5 - x[i + 1]) * x[i + 1]^2 + x[i] - 2 * x[i + 1] - 13)^2 for i = 1:(n - 1)) +
+           1 // 2 *
+           sum(((1 + x[i + 1]) * x[i + 1]^2 + x[i] - 14 * x[i + 1] - 29)^2 for i = 1:(n - 1))
   end
 
   x0 = zeros(T, n)
@@ -19,7 +26,12 @@ function freuroth(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64
   return ADNLPModels.ADNLPModel(f, x0, name = "freuroth"; kwargs...)
 end
 
-function freuroth(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function freuroth(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   n < 2 && @warn("freuroth: number of variables must be ≥ 2")
   n = max(2, n)
   function F!(r, x; n = length(x))

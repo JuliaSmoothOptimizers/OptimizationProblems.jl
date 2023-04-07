@@ -1,11 +1,16 @@
 export palmer6c
 
-function palmer6c(;use_nls::Bool = false, kwargs...)
+function palmer6c(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return palmer6c(Val(model); kwargs...)
 end
 
-function palmer6c(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function palmer6c(
+  ::Val{:nlp};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   X = [
     0.000000,
     1.570796,
@@ -45,7 +50,12 @@ function palmer6c(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64
   return ADNLPModels.ADNLPModel(f, x0, name = "palmer6c"; kwargs...)
 end
 
-function palmer6c(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function palmer6c(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   X = [
     0.000000,
     1.570796,
@@ -78,8 +88,13 @@ function palmer6c(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64
     9.026378,
   ]
 
-  function F!(r::AbstractVector{Ti}, x::AbstractVector{Ti}; X::AbstractVector{Ti} = Ti.(X), Y::AbstractVector{Ti} = Ti.(Y)) where {Ti}
-    for i=1:13
+  function F!(
+    r::AbstractVector{Ti},
+    x::AbstractVector{Ti};
+    X::AbstractVector{Ti} = Ti.(X),
+    Y::AbstractVector{Ti} = Ti.(Y),
+  ) where {Ti}
+    for i = 1:13
       r[i] = Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8)
     end
     return r

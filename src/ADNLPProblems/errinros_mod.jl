@@ -1,11 +1,16 @@
 export errinros_mod
 
-function errinros_mod(;use_nls::Bool = false, kwargs...)
+function errinros_mod(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return errinros_mod(Val(model); kwargs...)
 end
 
-function errinros_mod(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function errinros_mod(
+  ::Val{:nlp};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   n < 2 && @warn("errinros_mod: number of variables must be ≥ 2")
   n = max(2, n)
   function f(x; n = length(x))
@@ -16,7 +21,12 @@ function errinros_mod(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Flo
   return ADNLPModels.ADNLPModel(f, x0, name = "errinros"; kwargs...)
 end
 
-function errinros_mod(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function errinros_mod(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   n < 2 && @warn("errinros_mod: number of variables must be ≥ 2")
   n = max(2, n)
   function F!(r::AbstractVector{Ti}, x::AbstractVector{Ti}; n = length(x)) where {Ti}
