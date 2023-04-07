@@ -1,6 +1,6 @@
 export beale
 
-function beale(;use_nls::Bool = false, kwargs...)
+function beale(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return beale(Val(model); kwargs...)
 end

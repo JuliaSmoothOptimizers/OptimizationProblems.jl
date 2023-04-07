@@ -1,12 +1,17 @@
 
 export osborne1
 
-function osborne1(;use_nls::Bool = false, kwargs...)
+function osborne1(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return osborne1(Val(model); kwargs...)
 end
 
-function osborne1(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function osborne1(
+  ::Val{:nlp};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   y = [
     844 // 1000,
     908 // 1000,
@@ -45,13 +50,19 @@ function osborne1(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64
 
   function f(x)
     m = 33
-    return 1 // 2 * sum((y[j] - (x[1] + x[2] * exp(-j * x[4]) + x[3] * exp(-j * x[5])))^2 for j = 1:m)
+    return 1 // 2 *
+           sum((y[j] - (x[1] + x[2] * exp(-j * x[4]) + x[3] * exp(-j * x[5])))^2 for j = 1:m)
   end
   x0 = T[0.5; 1.5; -1; 0.01; 0.02]
   return ADNLPModels.ADNLPModel(f, x0, name = "osborne1"; kwargs...)
 end
 
-function osborne1(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function osborne1(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   y = [
     844 // 1000,
     908 // 1000,
@@ -90,7 +101,7 @@ function osborne1(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64
 
   function F!(r, x)
     m = 33
-    for i=1:m
+    for i = 1:m
       r[i] = y[i] - (x[1] + x[2] * exp(-i * x[4]) + x[3] * exp(-i * x[5]))
     end
     return r

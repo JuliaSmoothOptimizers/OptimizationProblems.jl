@@ -1,11 +1,16 @@
 export osborne2
 
-function osborne2(;use_nls::Bool = false, kwargs...)
+function osborne2(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return osborne2(Val(model); kwargs...)
 end
 
-function osborne2(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function osborne2(
+  ::Val{:nlp};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   y = [
     1366 // 1000,
     1191 // 1000,
@@ -91,7 +96,12 @@ function osborne2(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64
   return ADNLPModels.ADNLPModel(f, x0, name = "osborne2"; kwargs...)
 end
 
-function osborne2(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function osborne2(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   y = [
     1366 // 1000,
     1191 // 1000,
@@ -162,13 +172,14 @@ function osborne2(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64
   m = 65
 
   function F!(r, x; m = m)
-    for i=1:m
-      r[i] = y[i] - (
-        x[1] * exp(-(i - 1) // 10 * x[5]) +
-        x[2] * exp(-((i - 1) // 10 - x[9])^2 * x[6]) +
-        x[3] * exp(-((i - 1) // 10 - x[10])^2 * x[7]) +
-        x[4] * exp(-((i - 1) // 10 - x[11])^2 * x[8])
-      )
+    for i = 1:m
+      r[i] =
+        y[i] - (
+          x[1] * exp(-(i - 1) // 10 * x[5]) +
+          x[2] * exp(-((i - 1) // 10 - x[9])^2 * x[6]) +
+          x[3] * exp(-((i - 1) // 10 - x[10])^2 * x[7]) +
+          x[4] * exp(-((i - 1) // 10 - x[11])^2 * x[8])
+        )
     end
     return r
   end

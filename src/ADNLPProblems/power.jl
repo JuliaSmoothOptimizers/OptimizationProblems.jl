@@ -1,6 +1,6 @@
 export power
 
-function power(;use_nls::Bool = false, kwargs...)
+function power(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return power(Val(model); kwargs...)
 end

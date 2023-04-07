@@ -1,6 +1,6 @@
 export hs57
 
-function hs57(;use_nls::Bool = false, kwargs...)
+function hs57(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return hs57(Val(model); kwargs...)
 end
@@ -128,7 +128,7 @@ function hs57(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   b[43:44] .= 39 // 100
 
   function F!(r, x; a = a, b = b)
-    for i=1:44
+    for i = 1:44
       r[i] = b[i] - x[1] - (49 // 100 - x[1]) * exp(-x[2] * (a[i] - 8))
     end
     return r
@@ -142,5 +142,16 @@ function hs57(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   end
   lcon = zeros(T, 1)
   ucon = T(Inf) * ones(T, 1)
-  return ADNLPModels.ADNLSModel!(F!, x0, 44, lvar, uvar, c!, lcon, ucon, name = "hs57-nls"; kwargs...)
+  return ADNLPModels.ADNLSModel!(
+    F!,
+    x0,
+    44,
+    lvar,
+    uvar,
+    c!,
+    lcon,
+    ucon,
+    name = "hs57-nls";
+    kwargs...,
+  )
 end

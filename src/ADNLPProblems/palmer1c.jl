@@ -1,11 +1,16 @@
 export palmer1c
 
-function palmer1c(;use_nls::Bool = false, kwargs...)
+function palmer1c(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return palmer1c(Val(model); kwargs...)
 end
 
-function palmer1c(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function palmer1c(
+  ::Val{:nlp};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   X = [
     -1.788963,
     -1.745329,
@@ -89,7 +94,12 @@ function palmer1c(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64
   return ADNLPModels.ADNLPModel(f, x0, name = "palmer1c"; kwargs...)
 end
 
-function palmer1c(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function palmer1c(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   X = [
     -1.788963,
     -1.745329,
@@ -166,7 +176,7 @@ function palmer1c(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64
     92.733676,
   ]
   function F!(r, x; X = eltype(x).(X), Y = eltype(x).(Y))
-    for i=1:35
+    for i = 1:35
       r[i] = Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8)
     end
     return r

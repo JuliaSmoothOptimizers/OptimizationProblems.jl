@@ -1,11 +1,16 @@
 export kowosb
 
-function kowosb(;use_nls::Bool = false, kwargs...)
+function kowosb(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return kowosb(Val(model); kwargs...)
 end
 
-function kowosb(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function kowosb(
+  ::Val{:nlp};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   n = 4
   m = 11
   y = [
@@ -43,7 +48,12 @@ function kowosb(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64),
   return ADNLPModels.ADNLPModel(f, x0, name = "kowosb"; kwargs...)
 end
 
-function kowosb(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function kowosb(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   n = 4
   m = 11
   y = [
@@ -73,7 +83,7 @@ function kowosb(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64),
     625 // 10000,
   ]
   function F!(r, x; m = m, y = y, u = u)
-    for i=1:m
+    for i = 1:m
       r[i] = y[i] - (x[1] * (u[i]^2 + u[i] * x[2])) / (u[i]^2 + u[i] * x[3] + x[4])
     end
     return r

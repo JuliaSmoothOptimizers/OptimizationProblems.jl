@@ -1,6 +1,6 @@
 export jennrichsampson
 
-function jennrichsampson(;use_nls::Bool = false, kwargs...)
+function jennrichsampson(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return jennrichsampson(Val(model); kwargs...)
 end
@@ -27,7 +27,7 @@ function jennrichsampson(
 ) where {T}
   x0 = T[0.3; 0.4]
   function F!(r, x; m = m)
-    for i=1:m
+    for i = 1:m
       r[i] = 2 + 2 * i - (exp(i * x[1]) + exp(i * x[2]))
     end
     return r

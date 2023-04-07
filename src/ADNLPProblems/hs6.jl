@@ -1,6 +1,6 @@
 export hs6
 
-function hs6(;use_nls::Bool = false, kwargs...)
+function hs6(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return hs6(Val(model); kwargs...)
 end

@@ -1,6 +1,6 @@
 export hs48
 
-function hs48(;use_nls::Bool = false, kwargs...)
+function hs48(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return hs48(Val(model); kwargs...)
 end

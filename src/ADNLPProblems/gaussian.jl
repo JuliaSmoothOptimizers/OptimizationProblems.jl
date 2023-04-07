@@ -1,11 +1,16 @@
 export gaussian
 
-function gaussian(;use_nls::Bool = false, kwargs...)
+function gaussian(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
   return gaussian(Val(model); kwargs...)
 end
 
-function gaussian(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function gaussian(
+  ::Val{:nlp};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   y = [
     9 // 10000,
     44 // 10000,
@@ -30,7 +35,12 @@ function gaussian(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64
   return ADNLPModels.ADNLPModel(f, x0, name = "gaussian"; kwargs...)
 end
 
-function gaussian(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function gaussian(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Val{T} = Val(Float64),
+  kwargs...,
+) where {T}
   y = [
     9 // 10000,
     44 // 10000,
@@ -49,7 +59,7 @@ function gaussian(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64
     9 // 10000,
   ]
   function F!(r, x; y = y)
-    for i=1:15
+    for i = 1:15
       r[i] = x[1] * exp(-x[2] / 2 * ((8 - i) // 2 - x[3])^2) - y[i]
     end
     return r
