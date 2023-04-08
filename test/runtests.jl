@@ -38,6 +38,22 @@ end
 # Avoid SparseADJacobian/Hessian for too large problem as it requires a lot of memory for CIs
 simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
 
+@testset "Test In-place Nonlinear Constraints" begin
+  @testset "problem: $pb" for pb in meta[(meta.contype .== :quadratic) .| (meta.contype .== :general), :name]
+    nlp = OptimizationProblems.ADNLPProblems.eval(Symbol(pb))()
+    x = get_x0(nlp)
+    ncon = nlp.meta.nnln
+    @test ncon > 0
+    cx = similar(x, ncon)
+    if VERSION ≥ v"1.7"
+      @allocated cons_nln!(nlp, x, cx)
+      @test (@allocated cons_nln!(nlp, x, cx)) == 0 # TODO
+    end
+    m = OptimizationProblems.eval(Meta.parse("get_$(pb)_nnln"))()
+    @test ncon == m
+  end
+end
+
 @testset "Test Nonlinear Least Squares" begin
   @testset "problem: $pb" for pb in meta[meta.objtype .== :least_squares, :name]
     nls = OptimizationProblems.ADNLPProblems.eval(Symbol(pb))(use_nls = true)

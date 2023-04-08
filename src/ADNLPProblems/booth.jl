@@ -6,13 +6,15 @@ function booth(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   end
   x0 = zeros(T, 2)
 
-  function c(x)
-    return [x[1] + 2 * x[2] - 7, 2 * x[1] + x[2] - 5]
+  function c!(cx, x)
+    cx[1] = x[1] + 2 * x[2] - 7
+    cx[2] = 2 * x[1] + x[2] - 5
+    return cx
   end
-  return ADNLPModels.ADNLPModel(
+  return ADNLPModels.ADNLPModel!(
     f,
     x0,
-    c,
+    c!,
     zeros(T, 2),
     zeros(T, 2),
     minimize = true,

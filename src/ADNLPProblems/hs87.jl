@@ -36,16 +36,15 @@ function hs87(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   d = cos(147588 // 100000)
   e = sin(147588 // 100000)
 
-  function c(x)
-    return [
-      300 - x[1] - (1000 // 131078) * x[3] * x[4] * cos(b - x[6]) +
-      ci * (1000 // 131078) * d * x[3]
-      -x[2] - (1000 // 131078) * x[3] * x[4] * cos(b + x[6]) + ci * (1000 // 131078) * d * x[4]^2
-      -x[5] - (1000 // 131078) * x[3] * x[4] * cos(b + x[6]) + ci * (1000 // 131078) * e * x[4]^2
-      200 - (1000 // 131078) * x[3] * x[4] * sin(b - x[6]) + ci * (1000 // 131078) * e * x[3]^2
-    ]
+  function c!(cx, x)
+    cx[1] = 300 - x[1] - (1000 // 131078) * x[3] * x[4] * cos(b - x[6]) +
+    ci * (1000 // 131078) * d * x[3]
+    cx[2] = -x[2] - (1000 // 131078) * x[3] * x[4] * cos(b + x[6]) + ci * (1000 // 131078) * d * x[4]^2
+    cx[3] = -x[5] - (1000 // 131078) * x[3] * x[4] * cos(b + x[6]) + ci * (1000 // 131078) * e * x[4]^2
+    cx[4] = 200 - (1000 // 131078) * x[3] * x[4] * sin(b - x[6]) + ci * (1000 // 131078) * e * x[3]^2
+    return cx
   end
   lcon = zeros(T, 4)
   ucon = zeros(T, 4)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs87"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs87"; kwargs...)
 end

@@ -31,16 +31,19 @@ function argauss(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
   lvar = -T(Inf) * ones(T, 3)
   uvar = T(Inf) * ones(T, 3)
 
-  function c(x)
-    return [x[1] * exp(-1 // 2 * x[2] * (1 // 2 * (8 - i) - x[3])^2) - rhs[i] for i = 1:15]
+  function c!(cx, x; rhs = rhs)
+    for i = 1:15
+      cx[i] = x[1] * exp(-1 // 2 * x[2] * (1 // 2 * (8 - i) - x[3])^2) - rhs[i]
+    end
+    return cx
   end
 
-  return ADNLPModels.ADNLPModel(
+  return ADNLPModels.ADNLPModel!(
     f,
     x0,
     lvar,
     uvar,
-    c,
+    c!,
     zeros(T, 15),
     zeros(T, 15),
     name = "argauss",

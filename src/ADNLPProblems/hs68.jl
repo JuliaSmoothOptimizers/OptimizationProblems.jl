@@ -13,14 +13,13 @@ function hs68(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   uvar = T[100, 100, 2, 2]
   lvar = T[1 // 10000, 0, 0, 0]
 
-  function c(x)
+  function c!(cx, x; d1 = d1, n1 = n1)
     phi(t) = 1 // 2 * (erf(t / sqrt(2)) + 1)
-    return [
-      x[3] - 2 * phi(x[2])
-      x[4] - phi(-x[2] + d1 * sqrt(n1)) - phi(-x[2] - d1 * sqrt(n1))
-    ]
+    cx[1] = x[3] - 2 * phi(x[2])
+    cx[2] = x[4] - phi(-x[2] + d1 * sqrt(n1)) - phi(-x[2] - d1 * sqrt(n1))
+    return cx
   end
   lcon = zeros(T, 2)
   ucon = zeros(T, 2)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs68"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs68"; kwargs...)
 end

@@ -11,19 +11,19 @@ function hs22(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     return 1 // 2 * (x[1] - 2)^2 + 1 // 2 * (x[2] - 1)^2
   end
   x0 = 2 * ones(T, 2)
-  function c(x)
-    n = length(x)
-    return [-x[1]^2 + x[2]]
+  function c!(cx, x)
+    cx[1] = -x[1]^2 + x[2]
+    return cx
   end
   lcon = [-T(Inf), zero(T)]
   ucon = [2, T(Inf)]
-  return ADNLPModels.ADNLPModel(
+  return ADNLPModels.ADNLPModel!(
     f,
     x0,
     [1; 1],
     [1; 2],
     T[1; 1],
-    c,
+    c!,
     lcon,
     ucon,
     name = "hs22";

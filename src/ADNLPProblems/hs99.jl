@@ -38,13 +38,12 @@ function hs99(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   q8(x) = 1 // 2 * (t[8] - t[7])^2 * (a[8] * sin(x[7]) - b) + (t[8] - t[7]) * s7(x) + q7(x)
   s8(x) = (t[8] - t[7]) * (a[8] * sin(x[7]) - b) + s7(x)
 
-  function c(x)
-    return [
-      q8(x) - 100000
-      s8(x) - 1000
-    ]
+  function c!(cx, x)
+    cx[1] = q8(x) - 100000
+    cx[2] = s8(x) - 1000
+    return cx
   end
   lcon = zeros(T, 2)
   ucon = zeros(T, 2)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs99"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs99"; kwargs...)
 end

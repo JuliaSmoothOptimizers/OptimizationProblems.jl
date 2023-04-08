@@ -49,8 +49,11 @@ function tetra(
   function f(y; E = E)
     return sum(nfrob(e, y) / (3 * area(e, y)^(2 // 3)) for e = 1:E)
   end
-  function c(y)
-    return [area(e, y) for e = 1:E]
+  function c!(cx, y)
+    for e = 1:E
+      cx[e] = area(e, y)
+    end
+    return cx
   end
 
   lvar = -T(Inf) * ones(T, n)
@@ -65,7 +68,7 @@ function tetra(
 
   lcon = τ * ones(T, E)
   ucon = T(Inf) * ones(T, E)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "tetra"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "tetra"; kwargs...)
 end
 
 @load joinpath(data_path, "data_tetra_duct12.jld2") xe_duct12 TETS_duct12 Const_duct12

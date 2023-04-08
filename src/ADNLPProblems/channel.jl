@@ -21,16 +21,16 @@ function channel(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
     return one(eltype(x))
   end
 
-  function c(x)
+  function c!(cx, x)
     v = reshape_array(view(x, 1:(4 * nh)), (nh, 4))
     w = reshape_array(view(x, (4 * nh + 1):(8 * nh)), (nh, 4))
     Duc(i, j, s) =
       sum(v[i, k] * (ρ[j] * h)^(k - s) / factorial(k - s) for k = s:nd) +
       h^(nd - s + 1) * sum(w[i, k] * ρ[j]^(k + nd - s) / factorial(k + nd - s) for k = 1:nc)
-    return [
-      sum(w[i, k] * (ρ[j]^(k - 1) / factorial(k - 1)) for k = 1:nc) -
-      R * (Duc(i, j, 2) * Duc(i, j, 3) - Duc(i, j, 1) * Duc(i, j, 4)) for i = 1:nh, j = 1:nc # collocation
-    ][:]
+    for j = 1:nc, i = 1:nh
+      cx[i + (j - 1) * nh] = sum(w[i, k] * (ρ[j]^(k - 1) / factorial(k - 1)) for k = 1:nc) - R * (Duc(i, j, 2) * Duc(i, j, 3) - Duc(i, j, 1) * Duc(i, j, 4))
+    end
+    return cx
   end
 
   A = spzeros(T, (nh - 1) * nd + 4, 4 * nh + nc * nh)
@@ -69,5 +69,5 @@ function channel(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
     x0[3 * nh + i] = -12
   end
 
-  return ADNLPModels.ADNLPModel(f, x0, A, c, lcon, ucon, name = "channel"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, A, c!, lcon, ucon, name = "channel"; kwargs...)
 end

@@ -19,18 +19,16 @@ function chain(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     return x2[nh + 1]
   end
 
-  function c(x)
+  function c!(cx, x; h = h, nh = nh)
     u = view(x, 1:(nh + 1))
     x1 = view(x, (1 + nh + 1):(2 * (nh + 1)))
     x2 = view(x, (1 + 2 * (nh + 1)):(3 * (nh + 1)))
     x3 = view(x, (1 + 3 * (nh + 1)):(4 * (nh + 1)))
-    return vcat(
-      [
-        x2[j + 1] - x2[j] -
-        1 // 2 * h * (x1[j] * sqrt(1 + u[j]^2) + x1[j + 1] * sqrt(1 + u[j + 1]^2)) for j = 1:nh
-      ],
-      [x3[j + 1] - x3[j] - 1 // 2 * h * (sqrt(1 + u[j]^2) + sqrt(1 + u[j + 1]^2)) for j = 1:nh],
-    )
+    for j = 1:nh
+      cx[j] = x2[j + 1] - x2[j] - 1 // 2 * h * (x1[j] * sqrt(1 + u[j]^2) + x1[j + 1] * sqrt(1 + u[j + 1]^2))
+      cx[nh + j] = x3[j + 1] - x3[j] - 1 // 2 * h * (sqrt(1 + u[j]^2) + sqrt(1 + u[j + 1]^2))
+    end
+    return cx
   end
 
   A = spzeros(T, nh + 5, 4 * nh + 4)
@@ -55,5 +53,5 @@ function chain(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     x0[k + 3 * (nh + 1)] = x0[k]
   end
 
-  return ADNLPModels.ADNLPModel(f, x0, A, c, lcon, ucon, name = "chain"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, A, c!, lcon, ucon, name = "chain"; kwargs...)
 end

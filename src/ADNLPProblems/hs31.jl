@@ -8,11 +8,11 @@ function hs31(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   x0 = ones(T, 3)
   lvar = T[-10, 1, -10]
   uvar = T[10, 10, 1]
-  function c(x)
-    n = length(x)
-    return [x[1] * x[2] - 1]
+  function c!(cx, x)
+    cx[1] = x[1] * x[2] - 1
+    return cx
   end
   lcon = zeros(T, 1)
   ucon = T[Inf]
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs31"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs31"; kwargs...)
 end

@@ -29,33 +29,22 @@ function robotarm(;
   end
 
   # constraints function 
-  function c(x)
-
+  function c!(cx, x; L = L, n = n)
     # dynamic bounds on ρ_acc, θ_acc, ϕ_acc
-    c_ρ_acc = L * x[(6n + 1):(7n)]
-    c_θ_acc =
-      x[(7n + 1):(8n)] .* ((L .- x[1:n]) .^ 3 .+ x[1:n] .^ 3) / 3 .* sin.(x[(2n + 1):(3n)]) .^ 2
-    c_ϕ_acc = x[(8n + 1):(9n)] .* ((L .- x[1:n]) .^ 3 .+ x[1:n] .^ 3) / 3
-
-    # Euler's constraints 
-    c_euler1 = x[2:n] - x[1:(n - 1)] - x[(3n + 1):(4n - 1)] * x[end] / n
-    c_euler2 = x[(n + 2):(2n)] - x[(n + 1):(2n - 1)] - x[(4n + 1):(5n - 1)] * x[end] / n
-    c_euler3 = x[(2n + 2):(3n)] - x[(2n + 1):(3n - 1)] - x[(5n + 1):(6n - 1)] * x[end] / n
-    c_euler4 = x[(3n + 2):(4n)] - x[(3n + 1):(4n - 1)] - x[(6n + 1):(7n - 1)] * x[end] / n
-    c_euler5 = x[(4n + 2):(5n)] - x[(4n + 1):(5n - 1)] - x[(7n + 1):(8n - 1)] * x[end] / n
-    c_euler6 = x[(5n + 2):(6n)] - x[(5n + 1):(6n - 1)] - x[(8n + 1):(9n - 1)] * x[end] / n
-
-    return vcat(
-      c_ρ_acc,
-      c_θ_acc,
-      c_ϕ_acc,
-      c_euler1,
-      c_euler2,
-      c_euler3,
-      c_euler4,
-      c_euler5,
-      c_euler6,
-    )
+    for i=1:n
+      cx[i] = L * x[6n + i]
+      cx[n + i] = x[7n + i] * ((L - x[i])^ 3 + x[i]^ 3) / 3 * sin(x[2n + i]) ^ 2
+      cx[2 * n + i] = x[8n + i] * ((L - x[i]) ^ 3 + x[i] ^ 3) / 3
+    end
+    for i=1:(n-1)
+      cx[3 * n + i] = x[1 + i] - x[i] - x[3n + i] * x[end] / n
+      cx[4 * n - 1 + i] = x[n + 1 + i] - x[n + i] - x[4n + i] * x[end] / n
+      cx[5 * n - 2 + i] = x[2n + 1 + i] - x[2n + i] - x[5n + i] * x[end] / n
+      cx[6 * n - 3 + i] = x[3n + 1 + i] - x[3n + i] - x[6n + i] * x[end] / n
+      cx[7 * n - 4 + i] = x[4n + 1 + i] - x[4n + i] - x[7n + i] * x[end] / n
+      cx[8 * n - 5 + i] = x[5n + 1 + i] - x[5n + i] - x[8n + i] * x[end] / n
+    end
+    return cx
   end
 
   lcon = T[
@@ -107,5 +96,5 @@ function robotarm(;
                                         uvar[8n] =
                                           lvar[8n + 1] = uvar[8n + 1] = lvar[9n] = uvar[9n] = T(0)
 
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "robotarm"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "robotarm"; kwargs...)
 end

@@ -9,17 +9,20 @@ function alsotame(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs..
   lvar = T[-Inf, -Inf]
   uvar = T[Inf, Inf]
 
-  function c(x)
+  function c!(cx, x)
     x, y = x[1], x[2]
-    return vcat(sin(-x + y - 1), x, y)
+    cx[1] = sin(-x + y - 1)
+    cx[2] = x
+    cx[3] = y
+    return cx
   end
 
-  return ADNLPModels.ADNLPModel(
+  return ADNLPModels.ADNLPModel!(
     f,
     x0,
     lvar,
     uvar,
-    c,
+    c!,
     T[0, -2, -1.5],
     T[0, 2, 1.5],
     name = "alsotame",

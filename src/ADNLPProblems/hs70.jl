@@ -54,11 +54,11 @@ function hs70(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   x0 = T[2, 4, 0.04, 2]
   lvar = T(0.00001) * ones(T, 4)
   uvar = T[100, 100, 1, 100]
-  function c(x)
-    n = length(x)
-    return [x[3] + (1 - x[3]) * x[4]]
+  function c!(cx, x)
+    cx[1] = x[3] + (1 - x[3]) * x[4]
+    return cx
   end
   lcon = zeros(T, 1)
   ucon = T(Inf) * ones(T, 1)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs70"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs70"; kwargs...)
 end

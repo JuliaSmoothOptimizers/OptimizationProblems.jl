@@ -40,8 +40,11 @@ function triangle(
   function f(y; E = E)
     return sum(nfrob(e, y) / (2 * area(e, y)) for e = 1:E)
   end
-  function c(y)
-    return [area(e, y) for e = 1:E]
+  function c!(cx, y)
+    for e = 1:E
+      cx[e] = area(e, y)
+    end
+    return cx
   end
 
   lvar = -T(Inf) * ones(T, n)
@@ -54,7 +57,7 @@ function triangle(
 
   lcon = τ * ones(T, E)
   ucon = T(Inf) * ones(T, E)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "triangle"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "triangle"; kwargs...)
 end
 
 @load joinpath(data_path, "data_triangle_deer.jld2") xe_deer TRIS_deer Const_deer
