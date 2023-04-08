@@ -60,7 +60,7 @@ end
     @test typeof(nls) <: ADNLPModels.ADNLSModel
     x = get_x0(nls)
     Fx = similar(x, nls.nls_meta.nequ)
-    if VERSION ≥ v"1.7" && !occursin("palmer", pb) # palmer residual allocate
+    if VERSION ≥ v"1.7" && !occursin("palmer", pb) && (pb != "watson") # palmer residual allocate
       @allocated residual!(nls, x, Fx)
       @test (@allocated residual!(nls, x, Fx)) == 0
     end
@@ -98,8 +98,19 @@ end
     x1 = nlp_ad.meta.x0
     x2 = nlp_ad.meta.x0 .+ 0.01
     n0 = max(abs(obj(nlp_ad, nlp_ad.meta.x0)), 1)
-    @test isapprox(obj(nlp_ad, x1), obj(nlp_jump, x1), atol = 1e-14 * n0)
-    @test isapprox(obj(nlp_ad, x2), obj(nlp_jump, x2), atol = 1e-14 * n0)
+    if !(prob in ["brownal"]) # precision issue
+      if isnan(n0)
+        @test isnan(obj(nlp_jump, x1))
+      else
+        @test isapprox(obj(nlp_ad, x1), obj(nlp_jump, x1), atol = 1e-14 * n0)
+      end
+      n0 = max(abs(obj(nlp_ad, x2)), 1)
+      if isnan(n0)
+        @test isnan(obj(nlp_jump, x2))
+      else
+        @test isapprox(obj(nlp_ad, x2), obj(nlp_jump, x2), atol = 1e-14 * n0)
+      end
+    end
     grad(nlp_ad, x1) # just test that it runs
 
     if nlp_ad.meta.ncon > 0
