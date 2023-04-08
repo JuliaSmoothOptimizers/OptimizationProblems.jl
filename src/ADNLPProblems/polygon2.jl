@@ -7,10 +7,6 @@ function polygon2(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     return -1 // 2 * sum(r[i] * r[i + 1] * sin(α[i]) for i = 1:(N - 1)) -
            1 // 2 * r[1] * r[N] * sin(α[N])
   end
-  function c(y)
-    r, α = y[1:N], y[(N + 1):end]
-    return [sum(α)]
-  end
   lvar = vcat(zeros(T, N), zeros(T, N))
   uvar = vcat(ones(T, N), T(Inf) * ones(T, N))
   xi = zeros(T, 2 * N)

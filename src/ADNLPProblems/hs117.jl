@@ -33,14 +33,14 @@ function hs117(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   x0 = T(0.001) * [1, 1, 1, 1, 1, 1, 60000, 1, 1, 1, 1, 1, 1, 1, 1]
   lvar = zeros(T, 15)
   uvar = T(Inf) * ones(T, 15)
-  function c(x)
-    n = length(x)
-    return [
-      2 * sum(ci[k, j] * x[10 + k] + 3 * d[j] * x[10 + j]^2 for k = 1:5) + e[j] -
-      sum(a[k, j] * x[k] for k = 1:10) for j = 1:5
-    ]
+  function c!(cx, x)
+    for j = 1:5
+      cx[j] = 2 * sum(ci[k, j] * x[10 + k] + 3 * d[j] * x[10 + j]^2 for k = 1:5) + e[j] -
+      sum(a[k, j] * x[k] for k = 1:10)
+    end
+    return cx
   end
   lcon = zeros(T, 5)
   ucon = T(Inf) * ones(T, 5)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs117"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs117"; kwargs...)
 end

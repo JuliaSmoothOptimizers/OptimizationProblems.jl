@@ -64,13 +64,13 @@ function hs57(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   x0 = T[0.42, 5]
   lvar = T[0.4, -4]
   uvar = T(Inf) * ones(T, 2)
-  function c(x)
-    n = length(x)
-    return [49 // 100 * x[2] - x[1] * x[2] - 9 // 100]
+  function c!(cx, x)
+    cx[1] = 49 // 100 * x[2] - x[1] * x[2] - 9 // 100
+    return cx
   end
   lcon = zeros(T, 1)
   ucon = T(Inf) * ones(T, 1)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs57"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs57"; kwargs...)
 end
 
 function hs57(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}

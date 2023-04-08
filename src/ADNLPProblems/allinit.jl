@@ -14,16 +14,19 @@ function allinit(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
   lvar = -T(Inf) * ones(T, 4)
   uvar = T(Inf) * ones(T, 4)
 
-  function c(x)
-    return vcat(x[2] - 1, x[3], x[4] - 2)
+  function c!(cx, x)
+    cx[1] = x[2] - 1
+    cx[2] = x[3]
+    cx[3] = x[4] - 2
+    return cx
   end
 
-  return ADNLPModels.ADNLPModel(
+  return ADNLPModels.ADNLPModel!(
     f,
     x0,
     lvar,
     uvar,
-    c,
+    c!,
     T[0, -1e+10, 0],
     T[Inf, 1, 0],
     name = "allinit",

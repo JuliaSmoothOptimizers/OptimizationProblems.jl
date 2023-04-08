@@ -20,11 +20,13 @@ function hs59(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   x0 = T[90, 10]
   lvar = zeros(T, 2)
   uvar = T[75, 65]
-  function c(x)
-    n = length(x)
-    return [x[1] * x[2] - 700, x[2] - (x[1]^2) / 125, (x[2] - 50)^2 - 5 * (x[1] - 55)]
+  function c!(cx, x)
+    cx[1] = x[1] * x[2] - 700
+    cx[2] = x[2] - (x[1]^2) / 125
+    cx[3] = (x[2] - 50)^2 - 5 * (x[1] - 55)
+    return cx
   end
   lcon = zeros(T, 3)
   ucon = T(Inf) * ones(T, 3)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs59"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs59"; kwargs...)
 end

@@ -13,13 +13,13 @@ function hs30(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   x0 = ones(T, 3)
   lvar = T[1, -10, -10]
   uvar = T[10, 10, 10]
-  function c(x)
-    n = length(x)
-    return [x[1]^2 + x[2]^2 - 1]
+  function c!(cx, x)
+    cx[1] = x[1]^2 + x[2]^2 - 1
+    return cx
   end
   lcon = zeros(T, 1)
   ucon = [T(Inf)]
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs30"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs30"; kwargs...)
 end
 
 function hs30(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}

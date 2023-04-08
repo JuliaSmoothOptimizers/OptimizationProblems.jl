@@ -174,7 +174,7 @@ function avion2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
     1,
     1,
   ]
-  function c(x)
+  function c!(cx, x)
     SR,
     LR,
     PK,
@@ -272,23 +272,22 @@ function avion2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
     x[47],
     x[48],
     x[49]
-    return [
-      SD - (13 // 100) * SR,
-      SX - (7 // 10) * SR,
-      LX - LR,
-      SF - ST - 2 * SD - 2 * SX - 2 * SK,
-      IMPFUS - 20 * SF,
-      MD - 2 * MV,
-      QF - QI - QV,
-      IMPTRAIN - (137 // 1000) * MV,
-      IMPNMOT - 35 * NM,
-      IMPPET - (43 // 1000) * QI,
-      IMPPIL - 200 * NP,
-      IMPCAN - 120 * NG,
-      IMPSNA - 300 * NS - 400,
-      MC - MV + 95 * NP + 70 * NG + 660 * NM + (1 // 2) * QI - 380,
-      MZ - IMPTRAIN + IMPNMOT + IMPPET + IMPPIL + IMPCAN + IMPSNA + 290,
-    ]
+    cx[1] = SD - (13 // 100) * SR
+    cx[2] = SX - (7 // 10) * SR
+    cx[3] = LX - LR
+    cx[4] = SF - ST - 2 * SD - 2 * SX - 2 * SK
+    cx[5] = IMPFUS - 20 * SF
+    cx[6] = MD - 2 * MV
+    cx[7] = QF - QI - QV
+    cx[8] = IMPTRAIN - (137 // 1000) * MV
+    cx[9] = IMPNMOT - 35 * NM
+    cx[10] = IMPPET - (43 // 1000) * QI
+    cx[11] = IMPPIL - 200 * NP
+    cx[12] = IMPCAN - 120 * NG
+    cx[13] = IMPSNA - 300 * NS - 400
+    cx[14] = MC - MV + 95 * NP + 70 * NG + 660 * NM + (1 // 2) * QI - 380
+    cx[15] = MZ - IMPTRAIN + IMPNMOT + IMPPET + IMPPIL + IMPCAN + IMPSNA + 290
+    return cx
   end
   lcon = zeros(T, 15)
   ucon = zeros(T, 15)
@@ -395,5 +394,5 @@ function avion2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...)
     2,
   ]
 
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "avion2"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "avion2"; kwargs...)
 end

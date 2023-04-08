@@ -8,11 +8,11 @@ function hs65(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   x0 = T[-5, 5, 0]
   lvar = T[-4.5, -4.5, -5]
   uvar = T[4.5, 4.5, 5]
-  function c(x)
-    n = length(x)
-    return [-48 + x[1]^2 + x[2]^2 + x[3]^2]
+  function c!(cx, x)
+    cx[1] = -48 + x[1]^2 + x[2]^2 + x[3]^2
+    return cx
   end
   lcon = T[-Inf]
   ucon = zeros(T, 1)
-  return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, c, lcon, ucon, name = "hs65"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs65"; kwargs...)
 end

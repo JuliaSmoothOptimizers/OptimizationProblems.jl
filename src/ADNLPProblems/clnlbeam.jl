@@ -11,9 +11,12 @@ function clnlbeam(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
       i = 1:N
     )
   end
-  function c(y)
-    t, x, u = y[1:(N + 1)], y[(N + 2):(2 * N + 2)], y[(2 * N + 3):end]
-    return vcat([x[i + 1] - x[i] - 1 // 2 * h * (sin(t[i + 1]) + sin(t[i])) for i = 1:N],)
+  function c!(cx, y; N = N)
+    @views t, x, u = y[1:(N + 1)], y[(N + 2):(2 * N + 2)], y[(2 * N + 3):end]
+    for i = 1:N
+      cx[i] = x[i + 1] - x[i] - 1 // 2 * h * (sin(t[i + 1]) + sin(t[i]))
+    end
+    return cx
   end
   lvar = vcat(-ones(T, N + 1), -T(0.05) * ones(T, N + 1), -T(Inf) * ones(T, N + 1))
   uvar = vcat(ones(T, N + 1), T(0.05) * ones(T, N + 1), T(Inf) * ones(T, N + 1))
@@ -38,7 +41,7 @@ function clnlbeam(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     [-T(0.5) * h for i = 1:N], # u[i + 1]
     [-T(0.5) * h for i = 1:N], # u[i]
   )
-  return ADNLPModels.ADNLPModel(
+  return ADNLPModels.ADNLPModel!(
     f,
     xi,
     lvar,
@@ -46,7 +49,7 @@ function clnlbeam(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     clinrows,
     clincols,
     clinvals,
-    c,
+    c!,
     zeros(T, 2 * N),
     zeros(T, 2 * N),
     name = "clnlbeam";

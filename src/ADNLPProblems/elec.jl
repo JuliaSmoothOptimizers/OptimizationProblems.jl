@@ -13,8 +13,11 @@ function elec(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   end
 
   # Define the constraints on these points (sum of the square of the coordinates = 1)
-  function c(x)
-    return [x[k]^2 + x[n + k]^2 + x[2n + k]^2 - 1 for k = 1:n]
+  function c!(cx, x; n = n)
+    for k = 1:n
+      cx[k] = x[k]^2 + x[n + k]^2 + x[2n + k]^2 - 1
+    end
+    return cx
   end
 
   # bounds on the constraints
@@ -30,5 +33,5 @@ function elec(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   zini = T[cos(θ0[i]) for i = 1:n]            # z coordinate
   x0 = [xini; yini; zini]
 
-  return ADNLPModels.ADNLPModel(f, x0, c, lcon, ucon, name = "elec"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "elec"; kwargs...)
 end
