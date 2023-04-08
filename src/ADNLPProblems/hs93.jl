@@ -13,8 +13,9 @@ function hs93(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   uvar = T(Inf) * ones(T, 6)
   function c!(cx, x)
     cx[1] = 1 // 1000 * prod(x[i] for i = 1:6) - 207 // 100
-    cx[2] = 1 - 62 // 100000 * x[1] * x[4] * x[5]^2 * (x[1] + x[2] + x[3]) -
-    58 // 100000 * x[2] * x[3] * x[6]^2 * (x[1] + 157 // 100 * x[2] + x[4])
+    cx[2] =
+      1 - 62 // 100000 * x[1] * x[4] * x[5]^2 * (x[1] + x[2] + x[3]) -
+      58 // 100000 * x[2] * x[3] * x[6]^2 * (x[1] + 157 // 100 * x[2] + x[4])
     return cx
   end
   lcon = zeros(T, 2)

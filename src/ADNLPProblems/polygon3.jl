@@ -9,7 +9,7 @@ function polygon3(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   end
   function c!(cx, y; N = N)
     @views x, y = y[1:N], y[(N + 1):end]
-    for i=1:N
+    for i = 1:N
       cx[i] = x[i]^2 + y[i]^2 - 1
     end
     for i = 1:(N - 1)

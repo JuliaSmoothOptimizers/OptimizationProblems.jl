@@ -12,5 +12,14 @@ function bqp1var(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
   lcon = T[0.0,]
   ucon = T[0.5,]
 
-  return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "bqp1var", minimize = true; kwargs...)
+  return ADNLPModels.ADNLPModel!(
+    f,
+    x0,
+    c!,
+    lcon,
+    ucon,
+    name = "bqp1var",
+    minimize = true;
+    kwargs...,
+  )
 end

@@ -25,7 +25,9 @@ function chain(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     x2 = view(x, (1 + 2 * (nh + 1)):(3 * (nh + 1)))
     x3 = view(x, (1 + 3 * (nh + 1)):(4 * (nh + 1)))
     for j = 1:nh
-      cx[j] = x2[j + 1] - x2[j] - 1 // 2 * h * (x1[j] * sqrt(1 + u[j]^2) + x1[j + 1] * sqrt(1 + u[j + 1]^2))
+      cx[j] =
+        x2[j + 1] - x2[j] -
+        1 // 2 * h * (x1[j] * sqrt(1 + u[j]^2) + x1[j + 1] * sqrt(1 + u[j + 1]^2))
       cx[nh + j] = x3[j + 1] - x3[j] - 1 // 2 * h * (sqrt(1 + u[j]^2) + sqrt(1 + u[j + 1]^2))
     end
     return cx
