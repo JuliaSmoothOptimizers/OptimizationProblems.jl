@@ -22,7 +22,7 @@ function brownal(args...; n::Int = default_nvar, kwargs...)
   @NLobjective(
     nlp, 
     Min, 
-    0.5 * sum((x[i] + sum(x[j] for j = 1:n) - (n + 1))^2 for i = 1:n) + 0.5 * (prod(x[j] for j = 1:n) - 1)^2
+    0.5 * sum((x[i] + sum(x[j] for j = 1:n) - (n + 1))^2 for i = 1:(n-1)) + 0.5 * (prod(x[j] for j = 1:n) - 1)^2
   )
 
   return nlp

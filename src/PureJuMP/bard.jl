@@ -2,7 +2,7 @@
 #   This function is a nonlinear least squares with 15 groups.
 #   Each group has a linear and a nonlinear element.
 #
-#   Source: Problem 3 in
+#   Source: Problem 8 in
 #      J.J. More', B.S. Garbow and K.E. Hillstrom,
 #      "Testing Unconstrained Optimization Software",
 #      ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
@@ -23,7 +23,7 @@ function bard(args...; n::Int = default_nvar, m::Int = 2n, kwargs...)
   @NLobjective(
     nlp,
     Min,
-    1 // 2 * sum(y[i] - (x[1] + i / ((16 - i) * x[2] + min(i, 16 - i) * x[3])) for i = 1:15)
+    0.5 * sum(y[i] - (x[1] + i / ((16 - i) * x[2] + min(i, 16 - i) * x[3])) for i = 1:15)
   )
 
   return nlp
