@@ -11,7 +11,8 @@ function hs42(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     return cx
   end
   return ADNLPModels.ADNLPModel!(
-    x -> 1 // 2 * (x[1] - 1)^2 + 1 // 2 * (x[2] - 2)^2 + 1 // 2 * (x[3] - 3)^2 + 1 // 2 * (x[4] - 4)^2,
+    x ->
+      1 // 2 * (x[1] - 1)^2 + 1 // 2 * (x[2] - 2)^2 + 1 // 2 * (x[3] - 3)^2 + 1 // 2 * (x[4] - 4)^2,
     ones(T, 4),
     [1],
     [1],

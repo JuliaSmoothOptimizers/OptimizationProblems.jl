@@ -17,20 +17,26 @@ function hs107(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     y4 = cos(x[9])
     y5 = sin(x[8] - x[9])
     y6 = cos(x[8] - x[9])
-    cx[1] = 0.4 - x[1] + 2 * ci * x[5]^2 - x[5] * x[6] * (d * y1 + ci * y2) -
-    x[5] * x[7] * (d * y3 + ci * y4)
-    cx[2] = 0.4 - x[2] +
-    2 * ci * x[6]^2 +
-    x[5] * x[6] * (d * y1 - ci * y2) +
-    x[6] * x[7] * (d * y5 - ci * y6)
-    cx[3] = 0.8 + 2 * ci * x[7]^2 + x[5] * x[7] * (d * y3 - ci * y4) - x[6] * x[7] * (d * y5 + ci * y6)
-    cx[4] =  0.2 - x[3] +
-    2 * d * x[5]^2 +
-    x[5] * x[6] * (ci * y1 - d * y2) +
-    x[5] * x[7] * (ci * y3 - d * y4)
-    cx[5] =  0.2 - x[4] + 2 * d * x[6]^2 - x[5] * x[6] * (ci * y1 + d * y2) -
-    x[6] * x[7] * (ci * y5 + d * y6)
-    cx[6] = -0.337 + 2 * d * x[7]^2 - x[5] * x[7] * (ci * y3 + d * y4) + x[6] * x[7] * (ci * y5 - d * y6)
+    cx[1] =
+      0.4 - x[1] + 2 * ci * x[5]^2 - x[5] * x[6] * (d * y1 + ci * y2) -
+      x[5] * x[7] * (d * y3 + ci * y4)
+    cx[2] =
+      0.4 - x[2] +
+      2 * ci * x[6]^2 +
+      x[5] * x[6] * (d * y1 - ci * y2) +
+      x[6] * x[7] * (d * y5 - ci * y6)
+    cx[3] =
+      0.8 + 2 * ci * x[7]^2 + x[5] * x[7] * (d * y3 - ci * y4) - x[6] * x[7] * (d * y5 + ci * y6)
+    cx[4] =
+      0.2 - x[3] +
+      2 * d * x[5]^2 +
+      x[5] * x[6] * (ci * y1 - d * y2) +
+      x[5] * x[7] * (ci * y3 - d * y4)
+    cx[5] =
+      0.2 - x[4] + 2 * d * x[6]^2 - x[5] * x[6] * (ci * y1 + d * y2) -
+      x[6] * x[7] * (ci * y5 + d * y6)
+    cx[6] =
+      -0.337 + 2 * d * x[7]^2 - x[5] * x[7] * (ci * y3 + d * y4) + x[6] * x[7] * (ci * y5 - d * y6)
     return cx
   end
   lcon = zeros(T, 6)

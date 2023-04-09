@@ -31,12 +31,12 @@ function robotarm(;
   # constraints function 
   function c!(cx, x; L = L, n = n)
     # dynamic bounds on ρ_acc, θ_acc, ϕ_acc
-    for i=1:n
+    for i = 1:n
       cx[i] = L * x[6n + i]
-      cx[n + i] = x[7n + i] * ((L - x[i])^ 3 + x[i]^ 3) / 3 * sin(x[2n + i]) ^ 2
-      cx[2 * n + i] = x[8n + i] * ((L - x[i]) ^ 3 + x[i] ^ 3) / 3
+      cx[n + i] = x[7n + i] * ((L - x[i])^3 + x[i]^3) / 3 * sin(x[2n + i])^2
+      cx[2 * n + i] = x[8n + i] * ((L - x[i])^3 + x[i]^3) / 3
     end
-    for i=1:(n-1)
+    for i = 1:(n - 1)
       cx[3 * n + i] = x[1 + i] - x[i] - x[3n + i] * x[end] / n
       cx[4 * n - 1 + i] = x[n + 1 + i] - x[n + i] - x[4n + i] * x[end] / n
       cx[5 * n - 2 + i] = x[2n + 1 + i] - x[2n + i] - x[5n + i] * x[end] / n

@@ -9,8 +9,9 @@ function hs73(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
   lvar = zeros(T, 4)
   uvar = T(Inf) * ones(T, 4)
   function c!(cx, x)
-    cx[1] = 12 * x[1] + 11.9 * x[2] + 41.8 * x[3] + 52.1 * x[4] - 21 -
-    1.645 * sqrt(0.28x[1]^2 + 0.19 * x[2]^2 + 20.5 * x[3]^2 + 0.62x[4]^2)
+    cx[1] =
+      12 * x[1] + 11.9 * x[2] + 41.8 * x[3] + 52.1 * x[4] - 21 -
+      1.645 * sqrt(0.28x[1]^2 + 0.19 * x[2]^2 + 20.5 * x[3]^2 + 0.62x[4]^2)
     return cx
   end
   lcon = T[1, 5, 0]

@@ -39,7 +39,10 @@ end
 simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
 
 @testset "Test In-place Nonlinear Constraints" begin
-  @testset "problem: $pb" for pb in meta[(meta.contype .== :quadratic) .| (meta.contype .== :general), :name]
+  @testset "problem: $pb" for pb in meta[
+    (meta.contype .== :quadratic) .| (meta.contype .== :general),
+    :name,
+  ]
     nlp = OptimizationProblems.ADNLPProblems.eval(Symbol(pb))()
     x = get_x0(nlp)
     ncon = nlp.meta.nnln

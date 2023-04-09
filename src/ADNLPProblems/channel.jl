@@ -28,7 +28,9 @@ function channel(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...
       sum(v[i, k] * (ρ[j] * h)^(k - s) / factorial(k - s) for k = s:nd) +
       h^(nd - s + 1) * sum(w[i, k] * ρ[j]^(k + nd - s) / factorial(k + nd - s) for k = 1:nc)
     for j = 1:nc, i = 1:nh
-      cx[i + (j - 1) * nh] = sum(w[i, k] * (ρ[j]^(k - 1) / factorial(k - 1)) for k = 1:nc) - R * (Duc(i, j, 2) * Duc(i, j, 3) - Duc(i, j, 1) * Duc(i, j, 4))
+      cx[i + (j - 1) * nh] =
+        sum(w[i, k] * (ρ[j]^(k - 1) / factorial(k - 1)) for k = 1:nc) -
+        R * (Duc(i, j, 2) * Duc(i, j, 3) - Duc(i, j, 1) * Duc(i, j, 4))
     end
     return cx
   end
