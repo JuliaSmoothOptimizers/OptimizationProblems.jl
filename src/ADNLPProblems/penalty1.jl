@@ -13,9 +13,9 @@ function penalty1(
 ) where {T}
   function f(x; n = length(x), a = eltype(x)(sqrt(1e-5)))
     return 1 // 2 * sum((a * (x[i] - 1))^2 for i = 1:n) +
-           1 // 2 * (sum(x[j]^2 for j=1:n) - 1 // 4)^2
+           1 // 2 * (sum(x[j]^2 for j = 1:n) - 1 // 4)^2
   end
-  x0 = T[j for j=1:n]
+  x0 = T[j for j = 1:n]
   return ADNLPModels.ADNLPModel(f, x0, name = "penalty1"; kwargs...)
 end
 
@@ -29,7 +29,7 @@ function penalty1(
     for i = 1:n
       r[i] = a * (x[i] - 1)
     end
-    r[n + 1] = sum(x[j]^2 for j=1:n) - 1 // 4
+    r[n + 1] = sum(x[j]^2 for j = 1:n) - 1 // 4
     return r
   end
   x0 = ones(T, n)
