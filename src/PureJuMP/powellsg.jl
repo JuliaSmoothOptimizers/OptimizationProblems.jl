@@ -2,7 +2,7 @@
 #   This problem is a sum of n/4 sets of four terms, each of which is
 #   assigned its own group.
 
-#   Source:  Problem 13 in
+#   Source:  Problem 13 & 22 in
 #   J.J. More', B.S. Garbow and K.E. Hillstrom,
 #   "Testing Unconstrained Optimization Software",
 #   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
@@ -20,9 +20,6 @@
 #   http://www.cs.cas.cz/matonoha/download/V1081.pdf
 #
 # J.-P. Dussault, Clermont-Ferrand 05/2016.
-
-# Note: prob 13 in More' is defined only for n = 4 and the coefficients differ
-# (e.g., sqrt(5) vs 5)
 
 export powellsg
 
