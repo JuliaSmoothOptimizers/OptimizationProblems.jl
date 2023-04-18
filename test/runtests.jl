@@ -13,62 +13,23 @@ test_nvar = Int(round(ndef / 2))
 
 meta = OptimizationProblems.meta
 
-function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
-  meta = OptimizationProblems.eval(Symbol(prob, :_meta))
-  getnvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))(n = test_nvar)
-  @test getnvar == meta[:nvar] || meta[:variable_nvar]
-  getncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))(n = test_nvar)
-  @test getncon == meta[:ncon] || meta[:variable_ncon]
-  getnlin = OptimizationProblems.eval(Symbol(:get_, prob, :_nlin))(n = test_nvar)
-  @test getnlin == nlp.meta.nlin || meta[:variable_ncon]
-  getnnln = OptimizationProblems.eval(Symbol(:get_, prob, :_nnln))(n = test_nvar)
-  @test getnnln == nlp.meta.nnln || meta[:variable_ncon]
-  getnequ = OptimizationProblems.eval(Symbol(:get_, prob, :_nequ))(n = test_nvar)
-  @test getnequ == length(get_jfix(nlp)) || meta[:variable_ncon]
-  getnineq = OptimizationProblems.eval(Symbol(:get_, prob, :_nineq))(n = test_nvar)
-  @test getnineq == (get_ncon(nlp) - length(get_jfix(nlp))) || meta[:variable_ncon]
-  @test meta[:best_known_lower_bound] <= meta[:best_known_upper_bound]
-  @test meta[:minimize] == get_minimize(nlp)
-  @test meta[:has_equalities_only] == (length(get_jfix(nlp)) == get_ncon(nlp) > 0)
-  @test meta[:has_inequalities_only] == (get_ncon(nlp) > 0 && length(get_jfix(nlp)) == 0)
-  @test meta[:has_bounds] == (length(get_ifree(nlp)) < get_nvar(nlp))
-  @test meta[:has_fixed_variables] == (get_ifix(nlp) != [])
-end
-
 # Avoid SparseADJacobian/Hessian for too large problem as it requires a lot of memory for CIs
 simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
+
+include("test_utils.jl")
 
 @testset "Test In-place Nonlinear Constraints" begin
   @testset "problem: $pb" for pb in meta[
     (meta.contype .== :quadratic) .| (meta.contype .== :general),
     :name,
   ]
-    nlp = OptimizationProblems.ADNLPProblems.eval(Symbol(pb))()
-    x = get_x0(nlp)
-    ncon = nlp.meta.nnln
-    @test ncon > 0
-    cx = similar(x, ncon)
-    if VERSION ≥ v"1.7"
-      @allocated cons_nln!(nlp, x, cx)
-      @test (@allocated cons_nln!(nlp, x, cx)) == 0 # TODO
-    end
-    m = OptimizationProblems.eval(Meta.parse("get_$(pb)_nnln"))()
-    @test ncon == m
+    test_in_place_constraints(pb)
   end
 end
 
 @testset "Test Nonlinear Least Squares" begin
   @testset "problem: $pb" for pb in meta[meta.objtype .== :least_squares, :name]
-    nls = OptimizationProblems.ADNLPProblems.eval(Symbol(pb))(use_nls = true)
-    @test typeof(nls) <: ADNLPModels.ADNLSModel
-    x = get_x0(nls)
-    Fx = similar(x, nls.nls_meta.nequ)
-    if VERSION ≥ v"1.7" && !occursin("palmer", pb) && (pb != "watson") # palmer residual allocate
-      @allocated residual!(nls, x, Fx)
-      @test (@allocated residual!(nls, x, Fx)) == 0
-    end
-    m = OptimizationProblems.eval(Meta.parse("get_$(pb)_nls_nequ"))()
-    @test nls.nls_meta.nequ == m
+    test_in_place_residual(pb)
   end
 end
 
@@ -76,78 +37,16 @@ end
 @testset "Test problems compatibility" begin
   @testset "problem: $prob" for prob in names(PureJuMP)
     prob == :PureJuMP && continue
-
-    prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
-    model = prob_fn(n = ndef)
-
     prob == :hs61 && continue #because nlpmodelsjump is not working here https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl/issues/84
 
-    nlp_jump = MathOptNLPModel(model)
-    nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-    ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-    nlp_ad = if (nvar + ncon < 10000)
-      eval(Meta.parse("ADNLPProblems.$(prob)()"))
-    else
-      # Avoid SparseADJacobian for too large problem as it requires a lot of memory for CIs
-      eval(Meta.parse("ADNLPProblems.$(prob)(" * simp_backend * ")"))
-    end
-
-    @test nlp_jump.meta.nvar == nlp_ad.meta.nvar
-    @test nlp_jump.meta.x0 == nlp_ad.meta.x0
-    @test nlp_jump.meta.ncon == nlp_ad.meta.ncon
-    @test nlp_jump.meta.lvar == nlp_ad.meta.lvar
-    @test nlp_jump.meta.uvar == nlp_ad.meta.uvar
-
-    x1 = nlp_ad.meta.x0
-    x2 = nlp_ad.meta.x0 .+ 0.01
-    n0 = max(abs(obj(nlp_ad, nlp_ad.meta.x0)), 1)
-    if !(prob in ["brownal"]) # precision issue
-      if isnan(n0)
-        @test isnan(obj(nlp_jump, x1))
-      else
-        @test isapprox(obj(nlp_ad, x1), obj(nlp_jump, x1), atol = 1e-14 * n0)
-      end
-      n0 = max(abs(obj(nlp_ad, x2)), 1)
-      if isnan(n0)
-        @test isnan(obj(nlp_jump, x2))
-      else
-        @test isapprox(obj(nlp_ad, x2), obj(nlp_jump, x2), atol = 1e-14 * n0)
-      end
-    end
-    grad(nlp_ad, x1) # just test that it runs
-
-    if nlp_ad.meta.ncon > 0
-      @test nlp_ad.meta.lcon == nlp_jump.meta.lcon
-      @test nlp_ad.meta.ucon == nlp_jump.meta.ucon
-      @test all(isapprox.(cons(nlp_ad, x1), cons(nlp_jump, x1), atol = 1e-10 * n0))
-      @test all(isapprox.(cons(nlp_ad, x2), cons(nlp_jump, x2), atol = 1e-10 * n0))
-      @test nlp_jump.meta.lin == nlp_ad.meta.lin
-    end
-
-    meta_sanity_check(prob, nlp_ad)
+    test_compatibility(prob, ndef)
   end
 end
 
 @testset "Test multi-precision ADNLPProblems" begin
   @testset "problem: $(prob)" for prob in names(ADNLPProblems)
     prob == :ADNLPProblems && continue
-
-    nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-    ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-
-    for T in [Float32, Float64]
-      nlp = if (nvar + ncon < 10000)
-        eval(Meta.parse("ADNLPProblems.$(prob)(type=$(Val(T)))"))
-      else
-        eval(Meta.parse("ADNLPProblems.$(prob)(type=$(Val(T)), " * simp_backend * ")"))
-      end
-      x0 = nlp.meta.x0
-      @test eltype(x0) == T
-      @test typeof(obj(nlp, x0)) == T
-      if nlp.meta.ncon > 0
-        @test eltype(cons(nlp, x0)) == T
-      end
-    end
+    test_multi_precision(prob)
   end
 end
 
