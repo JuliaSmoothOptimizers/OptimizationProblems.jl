@@ -6,7 +6,8 @@ import ADNLPModels
 
 list_problems = intersect(names(ADNLPProblems), names(PureJuMP))
 # all problems have a JuMP and ADNLPModels formulations
-@test setdiff(union(names(ADNLPProblems), names(PureJuMP)), list_problems) == [:ADNLPProblems, :PureJuMP]
+@test setdiff(union(names(ADNLPProblems), names(PureJuMP)), list_problems) ==
+      [:ADNLPProblems, :PureJuMP]
 
 include("test_utils.jl")
 
@@ -26,10 +27,7 @@ include("test_utils.jl")
     eval(Meta.parse("ADNLPProblems.$(prob)(" * simp_backend * ")"))
   end
 
-  if pb in meta[
-    (meta.contype .== :quadratic) .| (meta.contype .== :general),
-    :name,
-  ]
+  if pb in meta[(meta.contype .== :quadratic) .| (meta.contype .== :general), :name]
     @testset "Test In-place Nonlinear Constraints for AD-$prob" begin
       test_in_place_constraints(prob, nlp_ad)
     end
@@ -39,7 +37,7 @@ include("test_utils.jl")
     test_multi_precision(prob, nlp_ad)
   end
 
-  if  pb in meta[meta.objtype .== :least_squares, :name]
+  if pb in meta[meta.objtype .== :least_squares, :name]
     @testset "Test Nonlinear Least Squares for $prob" begin
       test_in_place_residual(prob)
     end
