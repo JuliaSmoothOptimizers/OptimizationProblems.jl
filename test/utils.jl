@@ -202,16 +202,13 @@ function test_one_problem(prob::Symbol)
   nlp_ad = eval(Meta.parse("ADNLPProblems.$(prob)()"))
   @info "Test multi-precision ADNLPProblems for $prob"
   test_multi_precision(prob, nlp_ad)
-  if pb in meta[
-    (meta.contype .== :quadratic) .| (meta.contype .== :general),
-    :name,
-  ]
+  if pb in meta[(meta.contype .== :quadratic) .| (meta.contype .== :general), :name]
     @info "Test In-place Nonlinear Constraints for AD-$prob"
     test_in_place_constraints(prob, nlp_ad)
     # Check to see if there are linear constraints
   end
 
-  if  pb in meta[meta.objtype .== :least_squares, :name]
+  if pb in meta[meta.objtype .== :least_squares, :name]
     @info "Test Nonlinear Least Squares for $prob"
     test_in_place_residual(prob)
   else
@@ -225,5 +222,4 @@ function test_one_problem(prob::Symbol)
   nlp_jump = MathOptNLPModel(model)
   @info "Test compatibility between PureJuMP and ADNLPProblems"
   test_compatibility(prob, nlp_jump, nlp_ad, ndef)
-
 end

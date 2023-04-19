@@ -83,8 +83,12 @@ function test_compatibility(prob::Symbol, ndef::Integer = ndef)
   return test_compatibility(prob, nlp_jump, nlp_ad, ndef)
 end
 
-function test_compatibility(prob::Symbol, nlp_jump, nlp_ad::ADNLPModels.ADModel, ndef::Integer = ndef)
-
+function test_compatibility(
+  prob::Symbol,
+  nlp_jump,
+  nlp_ad::ADNLPModels.ADModel,
+  ndef::Integer = ndef,
+)
   @test nlp_jump.meta.nvar == nlp_ad.meta.nvar
   @test nlp_jump.meta.x0 == nlp_ad.meta.x0
   @test nlp_jump.meta.ncon == nlp_ad.meta.ncon
@@ -120,7 +124,11 @@ function test_compatibility(prob::Symbol, nlp_jump, nlp_ad::ADNLPModels.ADModel,
   meta_sanity_check(prob, nlp_ad)
 end
 
-function test_multi_precision(prob::Symbol, nlp_ad::ADNLPModels.ADNLPModel{T}; list_types = [Float32, Float64]) where {T}
+function test_multi_precision(
+  prob::Symbol,
+  nlp_ad::ADNLPModels.ADNLPModel{T};
+  list_types = [Float32, Float64],
+) where {T}
   test_multi_precision(T, nlp_ad)
   test_multi_precision(prob, list_types = setdiff(list_types, [T]))
 end
