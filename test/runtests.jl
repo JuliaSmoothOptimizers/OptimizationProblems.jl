@@ -26,7 +26,7 @@ include("test_utils.jl")
   pb = string(prob)
 
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
+  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
   nlp_ad = if (nvar + ncon < 10000)
     eval(Meta.parse("ADNLPProblems.$(prob)()"))

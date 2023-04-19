@@ -64,7 +64,7 @@ function test_compatibility(prob::Symbol, ndef::Integer = ndef)
   nlp_jump = MathOptNLPModel(model)
 
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
+  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
   nlp_ad = if (nvar + ncon < 10000)
     eval(Meta.parse("ADNLPProblems.$(prob)()"))
@@ -120,7 +120,7 @@ end
 
 function test_multi_precision(prob::Symbol; list_types = [Float32, Float64])
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
+  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
   for T in list_types
     nlp = if (nvar + ncon < 10000)
