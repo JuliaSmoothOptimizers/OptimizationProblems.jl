@@ -23,13 +23,13 @@ include("test_utils.jl")
     (meta.contype .== :quadratic) .| (meta.contype .== :general),
     :name,
   ]
-    test_in_place_constraints(pb)
+    test_in_place_constraints(Symbol(pb))
   end
 end
 
 @testset "Test Nonlinear Least Squares" begin
   @testset "problem: $pb" for pb in meta[meta.objtype .== :least_squares, :name]
-    test_in_place_residual(pb)
+    test_in_place_residual(Symbol(pb))
   end
 end
 
