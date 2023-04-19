@@ -8,19 +8,10 @@ list_problems = intersect(names(ADNLPProblems), names(PureJuMP))
 # all problems have a JuMP and ADNLPModels formulations
 @test setdiff(union(names(ADNLPProblems), names(PureJuMP)), list_problems) == [:ADNLPProblems, :PureJuMP]
 
-ndef = OptimizationProblems.default_nvar
+include("test_utils.jl")
 
 @test ndef == OptimizationProblems.PureJuMP.default_nvar
 @test ndef == OptimizationProblems.ADNLPProblems.default_nvar
-
-test_nvar = Int(round(ndef / 2))
-
-meta = OptimizationProblems.meta
-
-# Avoid SparseADJacobian/Hessian for too large problem as it requires a lot of memory for CIs
-simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
-
-include("test_utils.jl")
 
 @testset "problem: $prob" for prob in list_problems
   pb = string(prob)
