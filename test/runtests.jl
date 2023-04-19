@@ -4,49 +4,53 @@ using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
 
 import ADNLPModels
 
-ndef = OptimizationProblems.default_nvar
+list_problems = intersect(names(ADNLPProblems), names(PureJuMP))
+# all problems have a JuMP and ADNLPModels formulations
+@test setdiff(union(names(ADNLPProblems), names(PureJuMP)), list_problems) == [:ADNLPProblems, :PureJuMP]
+
+include("test_utils.jl")
 
 @test ndef == OptimizationProblems.PureJuMP.default_nvar
 @test ndef == OptimizationProblems.ADNLPProblems.default_nvar
 
-test_nvar = Int(round(ndef / 2))
+@testset "problem: $prob" for prob in list_problems
+  pb = string(prob)
 
-meta = OptimizationProblems.meta
+  nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
+  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
-# Avoid SparseADJacobian/Hessian for too large problem as it requires a lot of memory for CIs
-simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
+  nlp_ad = if (nvar + ncon < 10000)
+    eval(Meta.parse("ADNLPProblems.$(prob)()"))
+  else
+    # Avoid SparseADJacobian for too large problem as it requires a lot of memory for CIs
+    eval(Meta.parse("ADNLPProblems.$(prob)(" * simp_backend * ")"))
+  end
 
-include("test_utils.jl")
-
-@testset "Test In-place Nonlinear Constraints" begin
-  @testset "problem: $pb" for pb in meta[
+  if pb in meta[
     (meta.contype .== :quadratic) .| (meta.contype .== :general),
     :name,
   ]
-    test_in_place_constraints(pb)
+    @testset "Test In-place Nonlinear Constraints for AD-$prob" begin
+      test_in_place_constraints(prob, nlp_ad)
+    end
   end
-end
 
-@testset "Test Nonlinear Least Squares" begin
-  @testset "problem: $pb" for pb in meta[meta.objtype .== :least_squares, :name]
-    test_in_place_residual(pb)
+  @testset "Test multi-precision ADNLPProblems for $prob" begin
+    test_multi_precision(prob, nlp_ad)
   end
-end
 
-# Test that every problem can be instantiated.
-@testset "Test problems compatibility" begin
-  @testset "problem: $prob" for prob in names(PureJuMP)
-    prob == :PureJuMP && continue
+  if  pb in meta[meta.objtype .== :least_squares, :name]
+    @testset "Test Nonlinear Least Squares for $prob" begin
+      test_in_place_residual(prob)
+    end
+  end
+
+  @testset "Test problems compatibility for $prob" begin
     prob == :hs61 && continue #because nlpmodelsjump is not working here https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl/issues/84
-
-    test_compatibility(prob, ndef)
-  end
-end
-
-@testset "Test multi-precision ADNLPProblems" begin
-  @testset "problem: $(prob)" for prob in names(ADNLPProblems)
-    prob == :ADNLPProblems && continue
-    test_multi_precision(prob)
+    prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
+    model = prob_fn(n = ndef)
+    nlp_jump = MathOptNLPModel(model)
+    test_compatibility(prob, nlp_jump, nlp_ad, ndef)
   end
 end
 

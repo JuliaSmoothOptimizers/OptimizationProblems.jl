@@ -1,4 +1,6 @@
-using ADNLPModels, NLPModels, NLPModelsJuMP, OptimizationProblems
+using ADNLPModels, NLPModels, NLPModelsJuMP, OptimizationProblems, Test
+
+include("test_utils.jl")
 
 function set_meta(all::AbstractVector{T}) where {T <: Union{Symbol, String}}
   for name in string.(all)
@@ -185,4 +187,43 @@ function test_linear_constraints(sample_size = 100)
     end
   end
   return list
+end
+
+test_one_problem(pb::String) = test_one_problem(Symbol(pb))
+function test_one_problem(prob::Symbol)
+  pb = string(prob)
+  @info "Check that $prob is in PureJuMP"
+  @test prob in names(PureJuMP)
+  @info "Check that $prob is in ADNLPProblems"
+  @test prob in names(ADNLPProblems)
+  @info "Check that $prob in Meta"
+  @test string(prob) in OptimizationProblems.meta[!, :name]
+  @info "Instantiate default ADNLPModel"
+  nlp_ad = eval(Meta.parse("ADNLPProblems.$(prob)()"))
+  @info "Test multi-precision ADNLPProblems for $prob"
+  test_multi_precision(prob, nlp_ad)
+  if pb in meta[
+    (meta.contype .== :quadratic) .| (meta.contype .== :general),
+    :name,
+  ]
+    @info "Test In-place Nonlinear Constraints for AD-$prob"
+    test_in_place_constraints(prob, nlp_ad)
+    # Check to see if there are linear constraints
+  end
+
+  if  pb in meta[meta.objtype .== :least_squares, :name]
+    @info "Test Nonlinear Least Squares for $prob"
+    test_in_place_residual(prob)
+  else
+    # Test if we suggest that the problem is a NLS
+  end
+
+  @info "Instantiate PureJuMP model"
+  prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
+  model = prob_fn(n = ndef)
+  @info "Instantiate MathOptNLPModel version of the JuMP model"
+  nlp_jump = MathOptNLPModel(model)
+  @info "Test compatibility between PureJuMP and ADNLPProblems"
+  test_compatibility(prob, nlp_jump, nlp_ad, ndef)
+
 end

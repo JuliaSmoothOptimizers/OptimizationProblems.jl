@@ -1,3 +1,10 @@
+ndef = OptimizationProblems.default_nvar
+test_nvar = Int(round(ndef / 2))
+meta = OptimizationProblems.meta
+
+# Avoid SparseADJacobian/Hessian for too large problem as it requires a lot of memory for CIs
+simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
+
 # list of functions used in unit tests
 
 function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
@@ -22,12 +29,12 @@ function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
   @test meta[:has_fixed_variables] == (get_ifix(nlp) != [])
 end
 
-function test_in_place_constraints(pb::String)
-  nlp = OptimizationProblems.ADNLPProblems.eval(Symbol(pb))()
-  return test_in_place_constraints(pb, nlp)
+function test_in_place_constraints(prob::Symbol)
+  nlp = OptimizationProblems.ADNLPProblems.eval(prob)()
+  return test_in_place_constraints(prob, nlp)
 end
 
-function test_in_place_constraints(pb::String, nlp::AbstractNLPModel)
+function test_in_place_constraints(prob::Symbol, nlp::AbstractNLPModel)
   x = get_x0(nlp)
   ncon = nlp.meta.nnln
   @test ncon > 0
@@ -36,24 +43,25 @@ function test_in_place_constraints(pb::String, nlp::AbstractNLPModel)
     @allocated cons_nln!(nlp, x, cx)
     @test (@allocated cons_nln!(nlp, x, cx)) == 0
   end
-  m = OptimizationProblems.eval(Meta.parse("get_$(pb)_nnln"))()
+  m = OptimizationProblems.eval(Meta.parse("get_$(prob)_nnln"))()
   @test ncon == m
 end
 
-function test_in_place_residual(pb::String)
-  nls = OptimizationProblems.ADNLPProblems.eval(Symbol(pb))(use_nls = true)
+function test_in_place_residual(prob::Symbol)
+  nls = OptimizationProblems.ADNLPProblems.eval(prob)(use_nls = true)
   @test typeof(nls) <: ADNLPModels.ADNLSModel
-  return test_in_place_residual(pb, nls)
+  return test_in_place_residual(prob, nls)
 end
 
-function test_in_place_residual(pb::String, nls::AbstractNLSModel)
+function test_in_place_residual(prob::Symbol, nls::AbstractNLSModel)
   x = get_x0(nls)
   Fx = similar(x, nls.nls_meta.nequ)
+  pb = String(prob)
   if VERSION ≥ v"1.7" && !occursin("palmer", pb) && (pb != "watson") # palmer residual allocate
     @allocated residual!(nls, x, Fx)
     @test (@allocated residual!(nls, x, Fx)) == 0
   end
-  m = OptimizationProblems.eval(Meta.parse("get_$(pb)_nls_nequ"))()
+  m = OptimizationProblems.eval(Meta.parse("get_$(prob)_nls_nequ"))()
   @test nls.nls_meta.nequ == m
 end
 
@@ -63,7 +71,7 @@ function test_compatibility(prob::Symbol, ndef::Integer = ndef)
   nlp_jump = MathOptNLPModel(model)
 
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
+  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
   nlp_ad = if (nvar + ncon < 10000)
     eval(Meta.parse("ADNLPProblems.$(prob)()"))
@@ -119,7 +127,7 @@ end
 
 function test_multi_precision(prob::Symbol; list_types = [Float32, Float64])
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
+  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
   for T in list_types
     nlp = if (nvar + ncon < 10000)
