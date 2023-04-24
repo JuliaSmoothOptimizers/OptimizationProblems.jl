@@ -1,11 +1,11 @@
-export Misra1a
+export misra1a
 
-function Misra1a(; use_nls::Bool = false, kwargs...)
+function misra1a(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
-  return Misra1a(Val(model); kwargs...)
+  return misra1a(Val(model); kwargs...)
 end
 
-function Misra1a(
+function misra1a(
   ::Val{:nlp};
   n::Int = default_nvar,
   type::Val{T} = Val(Float64),
@@ -32,10 +32,10 @@ function Misra1a(
     return 1 // 2 * sum((y[i, 1] - x[1]*(1 - exp(-x[2] * y[i, 2])))^2 for i = 1:m)
   end
   x0 = T[500, 0.0001] # starting value 2 is: T[250, 0.0005]
-  return ADNLPModels.ADNLPModel(f, x0, name = "Misra1a"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "misra1a"; kwargs...)
 end
 
-function Misra1a(
+function misra1a(
   ::Val{:nls};
   n::Int = default_nvar,
   type::Val{T} = Val(Float64),
@@ -65,5 +65,5 @@ function Misra1a(
     return r
   end
   x0 = T[500, 0.0001] # starting value 2 is: T[250, 0.0005]
-  return ADNLPModels.ADNLSModel!(F!, x0, 14, name = "Misra1a-nls"; kwargs...)
+  return ADNLPModels.ADNLSModel!(F!, x0, 14, name = "misra1a-nls"; kwargs...)
 end

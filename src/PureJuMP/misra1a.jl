@@ -1,9 +1,9 @@
 
 #=
-https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/Misra1a.dat
+https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/misra1a.dat
 
 NIST/ITL StRD
-Dataset Name:  Misra1a           (Misra1a.dat)
+Dataset Name:  misra1a           (misra1a.dat)
 
 File Format:   ASCII
                Starting Values   (lines 41 to 42)
@@ -32,9 +32,9 @@ Model:         Exponential Class
                y = b1*(1-exp[-b2*x])  +  e
 =#
 
-export Misra1a
+export misra1a
 
-function Misra1a(args...; kwargs...)
+function misra1a(args...; kwargs...)
 
   y = Rational{Int}[
     10.07E0      77.6E0
