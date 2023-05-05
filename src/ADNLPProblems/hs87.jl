@@ -11,7 +11,10 @@ function hs87(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
       eltype(x)(Inf)
     end
     =#
-    return (0 <= x) * (x <= 300) * 30 * x + (300 <= x) * (x <= 400) * 31 * x + (x < 0) * convert(eltype(x), Inf) + (x > 400) * convert(eltype(x), Inf)
+    return (0 <= x) * (x <= 300) * 30 * x +
+           (300 <= x) * (x <= 400) * 31 * x +
+           (x < 0) * convert(eltype(x), Inf) +
+           (x > 400) * convert(eltype(x), Inf)
   end
 
   function f2(x)
@@ -26,7 +29,11 @@ function hs87(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) w
       eltype(x)(Inf)
     end
     =#
-    return (0 <= x) * (x <= 100) * 28 * x + (100 <= x) * (x <= 200) * 29 * x + (200 <= x) * (x <= 1000) * 30 * x + (x < 0) * convert(eltype(x), Inf) + (x > 1000) * convert(eltype(x), Inf)
+    return (0 <= x) * (x <= 100) * 28 * x +
+           (100 <= x) * (x <= 200) * 29 * x +
+           (200 <= x) * (x <= 1000) * 30 * x +
+           (x < 0) * convert(eltype(x), Inf) +
+           (x > 1000) * convert(eltype(x), Inf)
   end
   function f(x)
     return f1(x[1]) + f2(x[2])
