@@ -54,7 +54,7 @@ function test_in_place_residual(prob::Symbol)
 end
 
 function test_in_place_residual(prob::Symbol, nls::AbstractNLSModel)
-  x = get_x0(nls)
+  x = nls.meta.x0
   Fx = similar(x, nls.nls_meta.nequ)
   pb = String(prob)
   if VERSION ≥ v"1.7" && !occursin("palmer", pb) && (pb != "watson") # palmer residual allocate
