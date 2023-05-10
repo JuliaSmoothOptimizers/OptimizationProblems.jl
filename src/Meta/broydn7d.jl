@@ -17,7 +17,7 @@ broydn7d_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_broydn7d_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_broydn7d_nvar(; n::Integer = default_nvar, kwargs...) = 2 * max(1, div(n, 2))
 get_broydn7d_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_broydn7d_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_broydn7d_nnln(; n::Integer = default_nvar, kwargs...) = 0
