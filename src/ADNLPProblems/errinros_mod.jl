@@ -29,7 +29,7 @@ function errinros_mod(
 ) where {T}
   n < 2 && @warn("errinros_mod: number of variables must be ≥ 2")
   n = max(2, n)
-  function F!(r::AbstractVector{Ti}, x::AbstractVector{Ti}; n = length(x)) where {Ti}
+  function F!(r::AbstractVector{Ti}, x; n = length(x)) where {Ti}
     for i = 2:n
       r[i - 1] = x[i - 1] - 16 * x[i]^2 * (15 // 10 + sin(i * one(Ti)))^2
       r[i - 1 + n - 1] = 1 - x[i]

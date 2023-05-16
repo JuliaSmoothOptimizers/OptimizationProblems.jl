@@ -85,9 +85,9 @@ function palmer5d(
   ]
   function F!(
     r::AbstractVector{Ti},
-    x::AbstractVector{Ti};
-    X::AbstractVector{Ti} = Ti.(X),
-    Y::AbstractVector{Ti} = Ti.(Y),
+    x;
+    X = Ti.(X),
+    Y = Ti.(Y),
   ) where {Ti}
     for i = 1:12
       r[i] = Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:4)
