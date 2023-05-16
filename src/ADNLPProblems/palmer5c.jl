@@ -110,12 +110,7 @@ function palmer5c(
     end
   end
 
-  function F!(
-    r::AbstractVector{Ti},
-    x;
-    t = Ti.(t),
-    Y = Ti.(Y),
-  ) where {Ti}
+  function F!(r::AbstractVector{Ti}, x; t = Ti.(t), Y = Ti.(Y)) where {Ti}
     for i = 1:12
       r[i] = Y[i] - sum(x[j] * t[i, 2 * j - 1] for j = 1:6)
     end
