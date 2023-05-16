@@ -37,6 +37,7 @@ Model:         Exponential Class
 
                y = (b1/b2) * exp[-0.5*((x-b3)/b2)**2]  +  e
 =#
+# T. Migot, Montreal, 2023.
 
 export eckerle4
 

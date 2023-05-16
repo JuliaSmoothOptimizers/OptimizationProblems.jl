@@ -37,6 +37,7 @@ Model:         Exponential Class
 
                log[y] = b1 - b2*x1 * exp[-b3*x2]  +  e
 =#
+# T. Migot, Montreal, 2023.
 
 export nelson
 

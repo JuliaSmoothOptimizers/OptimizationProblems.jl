@@ -37,6 +37,7 @@ Model:         Exponential Class
 
                y = b1 + b2*exp[-x*b4] + b3*exp[-x*b5]  +  e
 =#
+# T. Migot, Montreal, 2023.
 
 export mgh17
 

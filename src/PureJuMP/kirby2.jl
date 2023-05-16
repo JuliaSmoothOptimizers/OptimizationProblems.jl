@@ -31,6 +31,7 @@ Model:         Rational Class (quadratic/quadratic)
                y = (b1 + b2*x + b3*x**2) /
                    (1 + b4*x + b5*x**2)  +  e
 =#
+# T. Migot, Montreal, 2023.
 
 export kirby2
 

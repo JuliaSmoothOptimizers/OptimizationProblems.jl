@@ -34,6 +34,7 @@ Model:         Miscellaneous Class
 
                y = b1*b2*x*((1+b2*x)**(-1))  +  e
 =#
+# T. Migot, Montreal, 2023.
 
 export misra1d
 

@@ -32,6 +32,7 @@ Model:         Miscellaneous Class
 
                y = b1 * (b2+x)**(-1/b3)  +  e
 =#
+# T. Migot, Montreal, 2023.
 
 export bennett5
 

@@ -30,6 +30,7 @@ Model:         Exponential Class
                y = b1*exp( -b2*x ) + b3*exp( -(x-b4)**2 / b5**2 )
                                    + b6*exp( -(x-b7)**2 / b8**2 ) + e
 =#
+# T. Migot, Montreal, 2023.
 
 export gauss3
 

@@ -37,6 +37,7 @@ Model:         Exponential Class
 
                y = b1 / ((1+exp[b2-b3*x])**(1/b4))  +  e
 =#
+# T. Migot, Montreal, 2023.
 
 export rat43
 

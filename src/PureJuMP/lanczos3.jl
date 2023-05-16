@@ -38,6 +38,7 @@ Model:         Exponential Class
                y = b1*exp(-b2*x) + b3*exp(-b4*x) + b5*exp(-b6*x)  +  e
 
 =#
+# T. Migot, Montreal, 2023.
 
 export lanczos3
 

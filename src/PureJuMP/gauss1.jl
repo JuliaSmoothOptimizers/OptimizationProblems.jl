@@ -31,6 +31,7 @@ Model:         Exponential Class
                                    + b6*exp( -(x-b7)**2 / b8**2 ) + e
  
 =#
+# T. Migot, Montreal, 2023.
 
 export gauss1
 

@@ -37,6 +37,7 @@ Model:         Miscellaneous Class
 
                y  = b1*x**b2  +  e
 =#
+# T. Migot, Montreal, 2023.
 
 export danwood
 
