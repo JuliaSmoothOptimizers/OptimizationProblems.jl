@@ -127,12 +127,7 @@ function palmer2c(
     40.149455,
     72.676767,
   ]
-  function F!(
-    r::AbstractVector{Ti},
-    x;
-    X = Ti.(X),
-    Y = Ti.(Y),
-  ) where {Ti}
+  function F!(r::AbstractVector{Ti}, x; X = Ti.(X), Y = Ti.(Y)) where {Ti}
     for i = 1:23
       r[i] = Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8)
     end

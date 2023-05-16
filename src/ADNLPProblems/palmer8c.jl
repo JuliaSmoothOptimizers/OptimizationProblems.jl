@@ -83,12 +83,7 @@ function palmer8c(
     76.541947,
     97.874528,
   ]
-  function F!(
-    r::AbstractVector{Ti},
-    x;
-    X = Ti.(X),
-    Y = Ti.(Y),
-  ) where {Ti}
+  function F!(r::AbstractVector{Ti}, x; X = Ti.(X), Y = Ti.(Y)) where {Ti}
     for i = 1:12
       r[i] = Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8)
     end
