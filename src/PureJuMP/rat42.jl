@@ -17,14 +17,9 @@ Description:   This model and data are an example of fitting
                The response variable is pasture yield, and the
                predictor variable is growing time.
 
-
 Reference:     Ratkowsky, D.A. (1983).  
                Nonlinear Regression Modeling.
                New York, NY:  Marcel Dekker, pp. 61 and 88.
-
-
-
-
 
 Data:          1 Response  (y = pasture yield)
                1 Predictor (x = growing time)
@@ -42,17 +37,16 @@ Model:         Exponential Class
 export rat42
 
 function rat42(args...; kwargs...)
-
   y = Rational{Int}[
-    8.930E0        9.000E0
-    10.800E0       14.000E0
-    18.590E0       21.000E0
-    22.330E0       28.000E0
-    39.350E0       42.000E0
-    56.110E0       57.000E0
-    61.730E0       63.000E0
-    64.620E0       70.000E0
-    67.080E0       79.000E0
+    8.930E0 9.000E0
+    10.800E0 14.000E0
+    18.590E0 21.000E0
+    22.330E0 28.000E0
+    39.350E0 42.000E0
+    56.110E0 57.000E0
+    61.730E0 63.000E0
+    64.620E0 70.000E0
+    67.080E0 79.000E0
   ]
 
   nlp = Model()

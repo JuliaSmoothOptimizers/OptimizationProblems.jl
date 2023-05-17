@@ -11,17 +11,17 @@ function danwood(
   type::Val{T} = Val(Float64),
   kwargs...,
 ) where {T}
-y = Rational{Int}[
-  2.138E0        1.309E0
-  3.421E0        1.471E0
-  3.597E0        1.490E0
-  4.340E0        1.565E0
-  4.882E0        1.611E0
-  5.660E0        1.680E0
-]
+  y = Rational{Int}[
+    2.138E0 1.309E0
+    3.421E0 1.471E0
+    3.597E0 1.490E0
+    4.340E0 1.565E0
+    4.882E0 1.611E0
+    5.660E0 1.680E0
+  ]
   function f(x; y = y)
     m = 6
-    return 1 // 2 * sum((y[i, 1] - x[1]* y[i, 1]^(x[2]))^2 for i = 1:6)
+    return 1 // 2 * sum((y[i, 1] - x[1] * y[i, 1]^(x[2]))^2 for i = 1:6)
   end
   x0 = T[1, 5]
   return ADNLPModels.ADNLPModel(f, x0, name = "danwood"; kwargs...)
@@ -33,18 +33,18 @@ function danwood(
   type::Val{T} = Val(Float64),
   kwargs...,
 ) where {T}
-y = Rational{Int}[
-  2.138E0        1.309E0
-  3.421E0        1.471E0
-  3.597E0        1.490E0
-  4.340E0        1.565E0
-  4.882E0        1.611E0
-  5.660E0        1.680E0
-]
+  y = Rational{Int}[
+    2.138E0 1.309E0
+    3.421E0 1.471E0
+    3.597E0 1.490E0
+    4.340E0 1.565E0
+    4.882E0 1.611E0
+    5.660E0 1.680E0
+  ]
   function F!(r, x)
     m = 6
     for i = 1:m
-      r[i] = y[i, 1] - x[1]* y[i, 1]^(x[2])
+      r[i] = y[i, 1] - x[1] * y[i, 1]^(x[2])
     end
     return r
   end
