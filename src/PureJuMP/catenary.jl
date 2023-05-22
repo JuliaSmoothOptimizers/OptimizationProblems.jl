@@ -34,7 +34,7 @@ function catenary(args...; n::Int = default_nvar, kwargs...) where {T}
   @variable(nlp, z[i=0:(N+1)],start=0)
 
 
-  @NLobjective(nlp, Min, sum(y[i] for i = 1:N))
+  @objective(nlp, Min, sum(y[i] for i = 1:N))
 
   @constraint(nlp,x[0]==0)
   @constraint(nlp,y[0]==0)
