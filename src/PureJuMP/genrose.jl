@@ -72,7 +72,7 @@ function genrose(args...; n::Int = default_nvar, kwargs...)
 
   nlp = Model()
 
-  x0 = [(i / (n + 1)) for i =1:n]
+  x0 = [(i / (n + 1)) for i = 1:n]
   # Alternative:
   # x0 .= -1.2
   # for i=1:Int(round(n / 2))
