@@ -16,6 +16,7 @@ makedocs(
     "Tutorial" => "tutorial.md",
     "Problem classification" => "meta.md",
     "Benchmark" => "benchmark.md",
+    "Stats" => "id.md",
     "Reference" => "reference.md",
     "Contributing" => "contributing.md",
   ],
