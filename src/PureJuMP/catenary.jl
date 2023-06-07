@@ -29,21 +29,20 @@ function catenary(args...; n::Int = default_nvar, kwargs...) where {T}
   d = (N+1)*FRACT
   nlp = Model()
 
-  @variable(nlp, x[i=0:(N+1)],start=0)
-  @variable(nlp, y[i=0:(N+1)],start=0)
-  @variable(nlp, z[i=0:(N+1)],start=0)
+  lvar = -Inf*ones(n)
+  uvar = Inf*ones(n)
+  lvar[1:3] .= 0
+  uvar[1:3] .= 0
+  lvar[n-1:n] .= 0
+  uvar[n-1:n] .= 0
+  lvar[n-2] = d
+  uvar[n-2]  = d
 
+  @variable(nlp,lvar[i]<= x[i=1:n]<=uvar[i],start = 0)
 
-  @objective(nlp, Min, sum(y[i] for i = 1:N))
+  @objective(nlp, Min, sum(x[2+3*i] for i = 1:N))
 
-  @constraint(nlp,x[0]==0)
-  @constraint(nlp,y[0]==0)
-  @constraint(nlp,z[0]==0)
-  @constraint(nlp,x[N+1]==d)
-  @constraint(nlp,y[N+1]==0)
-  @constraint(nlp,z[N+1]==0)
-
-  @constraint(nlp,c[i=1:N+1],(x[i]-x[i-1])^2+(y[i]-y[i-1])^2+(z[i]-z[i-1])^2==Bl^2)
+  @NLconstraint(nlp,c[i=1:N],(x[1+3*i]-x[-2+3*i])^2 + (x[2+3*i]-x[-1+3*i])^2 + (x[3+3*i]-x[3*i])^2 - Bl^2==0)
 
   return nlp
 end
