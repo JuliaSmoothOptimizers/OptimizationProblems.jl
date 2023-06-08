@@ -9,6 +9,7 @@
 #   
 #   classification QQR2-AN-2-1
 #
+#   M. Gollier, Montréal, 05/2023
 export hs318
 
 "HS318 model"
