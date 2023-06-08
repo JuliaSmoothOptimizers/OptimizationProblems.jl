@@ -13,6 +13,6 @@ function hs378(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   end
   x0 = convert(Vector{T}, -2.3 .* ones(10))
   lcon = convert(Vector{T}, zeros(3))
-  ucon = convert(Vector{T}, zeros(3))
+  ucon = zeros(T, 3)
   return ADNLPModels.ADNLPModel(f, x0, c!, lcon, ucon, name = "hs378"; kwargs...)
 end
