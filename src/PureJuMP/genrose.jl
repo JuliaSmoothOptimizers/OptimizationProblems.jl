@@ -51,6 +51,18 @@
 # which does not affect its utility as a test problem other than perhaps
 # for convergence-testing.
 
+# Difference with the following is the initial guess.
+#
+#   Problem 1 in
+#   L. Luksan, C. Matonoha and J. Vlcek
+#   Sparse Test Problems for Unconstrained Optimization,
+#   Technical Report 1064,
+#   Institute of Computer Science,
+#   Academy of Science of the Czech Republic
+#
+#   https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization
+#
+
 export genrose, rosenbrock
 
 "Generalized Rosenbrock model in size `n`"
@@ -60,7 +72,13 @@ function genrose(args...; n::Int = default_nvar, kwargs...)
 
   nlp = Model()
 
-  @variable(nlp, x[i = 1:n], start = (i / (n + 1)))
+  x0 = [(i / (n + 1)) for i = 1:n]
+  # Alternative:
+  # x0 .= -1.2
+  # for i=1:Int(round(n / 2))
+  #   x0 = 1
+  # end
+  @variable(nlp, x[i = 1:n], start = x0[i])
 
   @NLobjective(
     nlp,

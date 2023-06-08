@@ -2,7 +2,7 @@ export hs378
 
 function hs378(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   A = T[-6.089,-17.164,-34.054,-5.914,-24.721,-14.986,-24.1,-10.708,-26.662,-22.179]
-  function f(x)
+  function f(x; A = A)
     return sum(exp(x[i])*(A[i]+x[i]-log(sum(exp(x[j]) for j = 1:10))) for i = 1:10)
   end
   function c!(cx,x)
