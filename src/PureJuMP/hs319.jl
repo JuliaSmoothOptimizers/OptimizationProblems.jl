@@ -1,7 +1,7 @@
-# Schittkowski problem number 318.
+# Schittkowski problem number 319.
 #
 #   Source:
-#   Problem 318 in
+#   Problem 319 in
 #   Schittkowski, K. (1987). 
 #   More Test Examples for Nonlinear Programming Codes. 
 #   Lecture Notes in Economics and Mathematical Systems.
