@@ -1,6 +1,6 @@
 export mgh01feas
 
-function mgh01feas(args...; n::Int = default_nvar, kwargs...) where {T}
+function mgh01feas(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
 
   @variable(nlp, x1, start = -1.2)
