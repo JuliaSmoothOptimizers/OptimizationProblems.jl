@@ -13,7 +13,7 @@ function triangle(
   TRIS::Vector{Int64} = Tr,
   Const::Vector{Int64} = Constants;
   kwargs...,
-) where {T}
+)
   τ = 0.0
   n = length(x0)
   N = Int(div(n, 2))
