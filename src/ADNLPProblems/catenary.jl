@@ -15,7 +15,7 @@ function catenary(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
     return sum(x[2+3*i] for i = 1:N)
   end
 
-  function c!(cx, x) 
+  function c!(cx, x; N = N, B1 = B1) 
     for i in 1:N
         cx[i] = (x[1+3*i]-x[-2+3*i])^2 + (x[2+3*i]-x[-1+3*i])^2 + (x[3+3*i]-x[3*i])^2 - Bl^2
     end
