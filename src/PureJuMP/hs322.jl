@@ -16,7 +16,7 @@ function hs322(args...; kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:2] , start = 0)
 
-  @NLconstraint(nlp,x[1]^2/100+x[2]^2/0.01-1==0)
+  @NLconstraint(nlp,x[1]^2/100+x[2]^2 * 100-1==0)
   @NLobjective(nlp,Min,(x[1]-20)^2+(x[2]+20)^2)
 
   return nlp
