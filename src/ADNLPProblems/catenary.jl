@@ -11,7 +11,7 @@ function catenary(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   Bl = 1
   FRACT = 0.6
   d = (N+1)*FRACT
-  function f(x;n=length(x))
+  function f(x; N = N)
     return sum(x[2+3*i] for i = 1:N)
   end
 
