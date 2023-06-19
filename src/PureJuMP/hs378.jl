@@ -9,6 +9,7 @@
 #   
 #   classification OOR2-AN-10-3
 #
+#   M. Gollier, Montréal, 05/2023
 export hs378
 
 "HS378 model"
