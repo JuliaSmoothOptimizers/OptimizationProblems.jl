@@ -8,7 +8,7 @@ function catenary(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
 
   ## Model Parameters
   N = Int(n/3) - 1
-  Bl = 1
+  B1 = 1
   FRACT = 0.6
   d = (N+1)*FRACT
   function f(x; N = N)
@@ -17,7 +17,7 @@ function catenary(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), k
 
   function c!(cx, x; N = N, B1 = B1) 
     for i in 1:N
-        cx[i] = (x[1+3*i]-x[-2+3*i])^2 + (x[2+3*i]-x[-1+3*i])^2 + (x[3+3*i]-x[3*i])^2 - Bl^2
+        cx[i] = (x[1+3*i]-x[-2+3*i])^2 + (x[2+3*i]-x[-1+3*i])^2 + (x[3+3*i]-x[3*i])^2 - B1^2
     end
     return cx
   end
