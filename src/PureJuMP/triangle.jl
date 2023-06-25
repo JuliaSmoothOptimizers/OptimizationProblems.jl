@@ -8,12 +8,7 @@
 include("../../data/triangle.jl")
 export triangle
 
-function triangle(
-  x0 = xe,
-  TRIS::Vector{Int64} = Tr,
-  Const::Vector{Int64} = Constants;
-  kwargs...,
-) where {T}
+function triangle(x0 = xe, TRIS::Vector{Int64} = Tr, Const::Vector{Int64} = Constants; kwargs...)
   τ = 0.0
   n = length(x0)
   N = Int(div(n, 2))

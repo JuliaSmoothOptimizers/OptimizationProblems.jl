@@ -10,7 +10,7 @@
 
 export camshape
 
-function camshape(args...; n::Int = default_nvar, kwargs...) where {T}
+function camshape(args...; n::Int = default_nvar, kwargs...)
   R_min = 1
   R_max = 2
   R_v = 1
