@@ -17,9 +17,9 @@ catenary_meta = Dict(
   :defined_everywhere => missing,
   :origin => :academic,
 )
-get_catenary_nvar(; n::Integer = default_nvar, kwargs...) = max(6,3 * max(1, div(n, 3)))  
-get_catenary_ncon(; n::Integer = default_nvar, kwargs...) = max(2, max(1, div(n, 3)))-1
+get_catenary_nvar(; n::Integer = default_nvar, kwargs...) = max(6, 3 * max(1, div(n, 3)))
+get_catenary_ncon(; n::Integer = default_nvar, kwargs...) = max(2, max(1, div(n, 3))) - 1
 get_catenary_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_catenary_nnln(; n::Integer = default_nvar, kwargs...) = max(2, max(1, div(n, 3)))-1
-get_catenary_nequ(; n::Integer = default_nvar, kwargs...) = max(2, max(1, div(n, 3)))-1
+get_catenary_nnln(; n::Integer = default_nvar, kwargs...) = max(2, max(1, div(n, 3))) - 1
+get_catenary_nequ(; n::Integer = default_nvar, kwargs...) = max(2, max(1, div(n, 3))) - 1
 get_catenary_nineq(; n::Integer = default_nvar, kwargs...) = 0
