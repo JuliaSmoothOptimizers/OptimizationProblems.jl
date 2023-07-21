@@ -12,6 +12,7 @@ function hs248(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   ]
   function c!(cx, x)
     cx[1] = x[1]^2 + x[2]^2 + x[3]^2 - 1
+    return cx
   end
   return ADNLPModels.ADNLPModel!(f, x0, sparse(A), c!, lcon, ucon, name = "hs248"; kwargs...)
 end
