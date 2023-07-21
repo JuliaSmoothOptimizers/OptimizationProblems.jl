@@ -71,5 +71,8 @@ adproblems11 = (
     @test pb[:nvar] == nlp.meta.nvar
     n11 = OptimizationProblems.eval(Symbol(:get_, pb[:name], :_nvar))(n = 13 * ndef)
     @test n11 == nlp11.meta.nvar
+
+    # test that the problem is actually scalable
+    @test n11 != pb[:nvar]
   end
 end
