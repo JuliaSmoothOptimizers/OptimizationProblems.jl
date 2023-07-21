@@ -10,7 +10,7 @@ function hs254(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   uvar = T[Inf, Inf, Inf]
   function c!(cx, x)
     cx[1] = x[2]^2 + x[3]^2 - 4
-    cx[2] = x[3] -1 - x[2]^2
+    cx[2] = x[3] - 1 - x[2]^2
     return cx
   end
   lcon = ucon = zeros(T, 2)

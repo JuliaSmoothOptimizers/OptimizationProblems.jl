@@ -19,7 +19,11 @@ function hs261(args...; kwargs...)
   x0 = [0, 0, 0, 0]
   @variable(nlp, x[i = 1:4], start = x0[i])
 
-  @NLobjective(nlp, Min, (exp(x[1]) - x[2])^4 + 100 * (x[2] - x[3])^6 + tan(x[3] - x[4])^4 + x[1]^8 + (x[4] - 1)^2)
+  @NLobjective(
+    nlp,
+    Min,
+    (exp(x[1]) - x[2])^4 + 100 * (x[2] - x[3])^6 + tan(x[3] - x[4])^4 + x[1]^8 + (x[4] - 1)^2
+  )
 
   return nlp
 end
