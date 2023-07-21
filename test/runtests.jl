@@ -15,7 +15,7 @@ include("test_utils.jl")
 @test ndef == OptimizationProblems.ADNLPProblems.default_nvar
 
 # Fix: :hs247
-@testset "problem: $prob" for prob in [:hs266] # list_problems
+@testset "problem: $prob" for prob in list_problems
   pb = string(prob)
 
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
