@@ -20,6 +20,6 @@ function hs233(args...; kwargs...)
   @variable(nlp, x[i = 1:2], start = x0[i])
 
   @NLobjective(nlp, Min, 100 * (x[2] - x[1]^2)^2 + (1 - x[1])^2)
-  @NLconstraint(nlp, x[1]^2 + x[2]^2 - 0.25 >= 0 )
+  @NLconstraint(nlp, x[1]^2 + x[2]^2 - 0.25 >= 0)
   return nlp
 end

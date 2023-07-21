@@ -8,7 +8,7 @@ function hs232(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   lvar = T[0, 0]
   uvar = T[Inf, Inf]
   A = T[
-    1 / sqrt(3) -1
+    1/sqrt(3) -1
     1 sqrt(3)
     -1 -sqrt(3)
   ]
