@@ -1,6 +1,6 @@
 bard_meta = Dict(
   :nvar => 3,
-  :variable_nvar => true,
+  :variable_nvar => false,
   :ncon => 0,
   :variable_ncon => false,
   :minimize => true,
