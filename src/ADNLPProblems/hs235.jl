@@ -2,8 +2,7 @@ export hs235
 
 function hs235(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
-    n = length(x)
-    return 100 * (x[2] - x[1]^2)^2 + (1 - x[1])^2
+    return 1 // 100 * (x[1] - 1)^2 + (x[2] - x[1]^2)^2
   end
   x0 = T[-2, 3, 1]
   function c!(cx, x)
