@@ -23,6 +23,5 @@ function hs227(args...; kwargs...)
   @NLconstraint(nlp, -x[1]^2 + x[2] >= 0)
   @NLconstraint(nlp, x[1] - x[2]^2 >= 0)
 
-
   return nlp
 end

@@ -21,7 +21,7 @@ function hs265(args...; kwargs...)
   uvar = [1, 1, 1, 1]
   @variable(nlp, uvar[i] ≥ x[i = 1:4] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, sum(1 - exp(-10 * x[i] * exp(-x[i + 2])) for i=1:2))
+  @NLobjective(nlp, Min, sum(1 - exp(-10 * x[i] * exp(-x[i + 2])) for i = 1:2))
   @constraint(nlp, x[1] + x[2] - 1 == 0)
   @constraint(nlp, x[3] + x[4] - 1 == 0)
 

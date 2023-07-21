@@ -19,7 +19,13 @@ function hs245(args...; kwargs...)
   x0 = [0, 10, 20]
   @variable(nlp, x[i = 1:3], start = x0[i])
 
-  @NLobjective(nlp, Min, sum((exp(-x[1] * i / 10) - exp(-x[2] * i / 10) - x[3] * (exp(- i / 10) - exp(- i)))^2 for i=1:10))
+  @NLobjective(
+    nlp,
+    Min,
+    sum(
+      (exp(-x[1] * i / 10) - exp(-x[2] * i / 10) - x[3] * (exp(-i / 10) - exp(-i)))^2 for i = 1:10
+    )
+  )
 
   return nlp
 end

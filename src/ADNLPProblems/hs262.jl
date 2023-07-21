@@ -2,7 +2,7 @@ export hs262
 
 function hs262(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
   function f(x)
-    return - 1 // 2 * x[1] - x[2] - 1 // 2 * x[3] - x[4]
+    return -1 // 2 * x[1] - x[2] - 1 // 2 * x[3] - x[4]
   end
   x0 = T[1, 1, 1, 1]
   lvar = T[0, 0, 0, 0]

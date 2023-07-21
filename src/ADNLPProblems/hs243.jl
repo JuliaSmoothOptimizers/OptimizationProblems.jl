@@ -14,10 +14,10 @@ function hs243(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     0.658799 -0.636666 -0.681091
     -0.869487 0.586387 0.289826
   ]
-  
+
   function f(x; A = A, B = B, D = D, G = G)
     F = A + G * x + 1 // 2 * x' * B * x * D
-    return  F' * F
+    return F' * F
   end
   x0 = T[0.1, 0.1, 0.1]
 
