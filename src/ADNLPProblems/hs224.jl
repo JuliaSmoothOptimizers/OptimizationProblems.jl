@@ -11,9 +11,9 @@ function hs224(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   lcon = T[0; -18; 0; -8]
   ucon = T(Inf) * ones(T, 4)
   A = T[
-    1 3;
-    -1 -3;
-    1 1;
+    1 3
+    -1 -3
+    1 1
     -1 -1
   ]
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, sparse(A), lcon, ucon, name = "hs224"; kwargs...)

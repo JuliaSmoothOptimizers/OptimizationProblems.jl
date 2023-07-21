@@ -33,7 +33,17 @@ function hs243(args...; kwargs...)
     -0.869487 0.586387 0.289826
   ]
 
-  @NLobjective(nlp, Min, sum( (A[j] + sum(G[j, k] * x[k] for k=1:3) + 0.5 * sum(x[l] * sum(B[l, k] * x[k] for k=1:3) for l=1:3) * D[j] )^2 for j=1:4))
+  @NLobjective(
+    nlp,
+    Min,
+    sum(
+      (
+        A[j] +
+        sum(G[j, k] * x[k] for k = 1:3) +
+        0.5 * sum(x[l] * sum(B[l, k] * x[k] for k = 1:3) for l = 1:3) * D[j]
+      )^2 for j = 1:4
+    )
+  )
 
   return nlp
 end

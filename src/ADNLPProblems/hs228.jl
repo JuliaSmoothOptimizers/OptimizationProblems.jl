@@ -7,7 +7,7 @@ function hs228(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   end
   x0 = T[0, 0]
   function c!(cx, x)
-    cx[1] = - (x[1]^2 + x[2]^2) + 9
+    cx[1] = -(x[1]^2 + x[2]^2) + 9
     return cx
   end
   A = T[-1 -1]
