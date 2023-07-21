@@ -11,5 +11,5 @@ function hs235(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
     return cx
   end
   lcon = ucon = T[0]
-  return ADNLPModels.ADNLPModel(f, x0, c!, lcon, ucon, name = "hs235"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "hs235"; kwargs...)
 end
