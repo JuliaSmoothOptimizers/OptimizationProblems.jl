@@ -6,8 +6,8 @@ function hs231(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) 
   end
   x0 = T[-1.2, 1]
   A = T[
-    1 // 3 1;
-    -1 // 3 1
+    1//3 1
+    -1//3 1
   ]
   lcon = T[-0.1; -0.1]
   ucon = T[Inf; Inf]
