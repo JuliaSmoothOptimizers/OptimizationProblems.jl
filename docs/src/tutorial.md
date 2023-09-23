@@ -1,6 +1,6 @@
 # OptimizationProblems.jl Tutorial
 
-In this tutorial, we will see how to access the problems in [JuMP](https://github.com/JuliaOpt/JuMP.jl) and [ADNLPModel](https://github.com/JuliaSmoothOptimizers/ADNLPModels.jl) syntax.
+In this tutorial, we will see how to access the problems in [JuMP](https://github.com/jump-dev/JuMP.jl) and [ADNLPModel](https://github.com/JuliaSmoothOptimizers/ADNLPModels.jl) syntax.
 This package is subdivided in two submodules: `PureJuMP` for the JuMP problems, `ADNLPProblems` for the ADNLPModel problems.
 
 ## Problems in JuMP syntax: PureJuMP
