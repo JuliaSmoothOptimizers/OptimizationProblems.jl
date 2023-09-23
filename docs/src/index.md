@@ -1,7 +1,7 @@
 # OptimizationProblems.jl
 
 This package provides a collection of optimization problems in
-[JuMP](https://github.com/JuliaOpt/JuMP.jl) and [ADNLPModels](https://github.com/JuliaSmoothOptimizers/ADNLPModels.jl) syntax.
+[JuMP](https://github.com/jump-dev/JuMP.jl) and [ADNLPModels](https://github.com/JuliaSmoothOptimizers/ADNLPModels.jl) syntax.
 
 ## Installing
 
