@@ -5,12 +5,7 @@ function penalty1(; use_nls::Bool = false, kwargs...)
   return penalty1(Val(model); kwargs...)
 end
 
-function penalty1(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function penalty1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x), a = eltype(x)(sqrt(1e-5)))
     return 1 // 2 * sum((a * (x[i] - 1))^2 for i = 1:n) +
            1 // 2 * (sum(x[j]^2 for j = 1:n) - 1 // 4)^2
@@ -19,12 +14,7 @@ function penalty1(
   return ADNLPModels.ADNLPModel(f, x0, name = "penalty1"; kwargs...)
 end
 
-function penalty1(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function penalty1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x; n = length(x), a = eltype(x)(sqrt(1e-5)))
     for i = 1:n
       r[i] = a * (x[i] - 1)

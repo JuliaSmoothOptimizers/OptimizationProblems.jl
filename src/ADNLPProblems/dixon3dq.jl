@@ -5,12 +5,7 @@ function dixon3dq(; use_nls::Bool = false, kwargs...)
   return dixon3dq(Val(model); kwargs...)
 end
 
-function dixon3dq(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function dixon3dq(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
     return 1 // 2 * (x[1] - 1)^2 +
            1 // 2 * (x[n] - 1)^2 +
@@ -20,12 +15,7 @@ function dixon3dq(
   return ADNLPModels.ADNLPModel(f, x0, name = "dixon3dq"; kwargs...)
 end
 
-function dixon3dq(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function dixon3dq(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x; n = length(x))
     r[1] = x[1] - 1
     r[2] = x[n] - 1

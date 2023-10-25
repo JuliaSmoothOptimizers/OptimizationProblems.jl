@@ -5,12 +5,7 @@ function spmsrtls(; use_nls::Bool = false, kwargs...)
   return spmsrtls(Val(model); kwargs...)
 end
 
-function spmsrtls(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function spmsrtls(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   m = max(Int(round((n + 2) / 3)), 34)
   n = m * 3 - 2
   p = [sin(i^2) for i = 1:n]
@@ -63,12 +58,7 @@ function spmsrtls(
   return ADNLPModels.ADNLPModel(f, x0, name = "spmsrtls"; kwargs...)
 end
 
-function spmsrtls(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function spmsrtls(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   m = max(Int(round((n + 2) / 3)), 34)
   n = m * 3 - 2
   p = [sin(i^2) for i = 1:n]

@@ -5,12 +5,7 @@ function kirby2(; use_nls::Bool = false, kwargs...)
   return kirby2(Val(model); kwargs...)
 end
 
-function kirby2(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function kirby2(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     00082//10000 965//100
     00112//10000 1074//100
@@ -176,12 +171,7 @@ function kirby2(
   return ADNLPModels.ADNLPModel(f, x0, name = "kirby2"; kwargs...)
 end
 
-function kirby2(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function kirby2(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     00082//10000 965//100
     00112//10000 1074//100

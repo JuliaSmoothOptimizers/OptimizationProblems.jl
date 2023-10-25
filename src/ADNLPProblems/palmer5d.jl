@@ -5,12 +5,7 @@ function palmer5d(; use_nls::Bool = false, kwargs...)
   return palmer5d(Val(model); kwargs...)
 end
 
-function palmer5d(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function palmer5d(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   X = [
     0.000000,
     1.570796,
@@ -48,12 +43,7 @@ function palmer5d(
   return ADNLPModels.ADNLPModel(f, x0, name = "palmer5d"; kwargs...)
 end
 
-function palmer5d(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function palmer5d(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   X = [
     0.000000,
     1.570796,

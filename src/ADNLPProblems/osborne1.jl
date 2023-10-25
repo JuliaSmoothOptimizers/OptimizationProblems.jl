@@ -6,12 +6,7 @@ function osborne1(; use_nls::Bool = false, kwargs...)
   return osborne1(Val(model); kwargs...)
 end
 
-function osborne1(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function osborne1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = [
     844 // 1000,
     908 // 1000,
@@ -57,12 +52,7 @@ function osborne1(
   return ADNLPModels.ADNLPModel(f, x0, name = "osborne1"; kwargs...)
 end
 
-function osborne1(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function osborne1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = [
     844 // 1000,
     908 // 1000,

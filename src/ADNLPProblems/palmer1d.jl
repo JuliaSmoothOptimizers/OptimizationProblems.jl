@@ -5,12 +5,7 @@ function palmer1d(; use_nls::Bool = false, kwargs...)
   return palmer1d(Val(model); kwargs...)
 end
 
-function palmer1d(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function palmer1d(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   X = [
     -1.788963,
     -1.745329,
@@ -94,12 +89,7 @@ function palmer1d(
   return ADNLPModels.ADNLPModel(f, x0, name = "palmer1d"; kwargs...)
 end
 
-function palmer1d(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function palmer1d(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   X = [
     -1.788963,
     -1.745329,

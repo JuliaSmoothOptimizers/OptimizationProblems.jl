@@ -5,12 +5,7 @@ function nelson(; use_nls::Bool = false, kwargs...)
   return nelson(Val(model); kwargs...)
 end
 
-function nelson(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function nelson(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     15.00E0 1E0 180E0
     17.00E0 1E0 180E0
@@ -151,12 +146,7 @@ function nelson(
   return ADNLPModels.ADNLPModel(f, x0, name = "nelson"; kwargs...)
 end
 
-function nelson(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function nelson(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     15.00E0 1E0 180E0
     17.00E0 1E0 180E0

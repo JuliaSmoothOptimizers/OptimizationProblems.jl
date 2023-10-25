@@ -5,12 +5,7 @@ function kowosb(; use_nls::Bool = false, kwargs...)
   return kowosb(Val(model); kwargs...)
 end
 
-function kowosb(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function kowosb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n = 4
   m = 11
   y = [
@@ -48,12 +43,7 @@ function kowosb(
   return ADNLPModels.ADNLPModel(f, x0, name = "kowosb"; kwargs...)
 end
 
-function kowosb(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function kowosb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n = 4
   m = 11
   y = [

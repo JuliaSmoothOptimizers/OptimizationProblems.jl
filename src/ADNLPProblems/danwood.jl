@@ -5,12 +5,7 @@ function danwood(; use_nls::Bool = false, kwargs...)
   return danwood(Val(model); kwargs...)
 end
 
-function danwood(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function danwood(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     2.138E0 1.309E0
     3.421E0 1.471E0
@@ -27,12 +22,7 @@ function danwood(
   return ADNLPModels.ADNLPModel(f, x0, name = "danwood"; kwargs...)
 end
 
-function danwood(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function danwood(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     2.138E0 1.309E0
     3.421E0 1.471E0

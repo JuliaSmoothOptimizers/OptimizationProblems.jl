@@ -1,11 +1,6 @@
 export structural
 
-function structural(
-  args...;
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function structural(args...; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n = max(n, 100)
 
   sub2ind(shape, a, b) = LinearIndices(shape)[CartesianIndex.(a, b)]

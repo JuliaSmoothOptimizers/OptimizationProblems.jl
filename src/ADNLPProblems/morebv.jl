@@ -5,12 +5,7 @@ function morebv(; use_nls::Bool = false, kwargs...)
   return morebv(Val(model); kwargs...)
 end
 
-function morebv(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function morebv(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 2 && @warn("morebv: number of variables must be ≥ 4")
   n = max(2, n)
   function f(x)
@@ -28,12 +23,7 @@ function morebv(
   return ADNLPModels.ADNLPModel(f, x0, name = "morebv"; kwargs...)
 end
 
-function morebv(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function morebv(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 2 && @warn("morebv: number of variables must be ≥ 4")
   n = max(2, n)
 

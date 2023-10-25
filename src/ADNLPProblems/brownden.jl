@@ -5,12 +5,7 @@ function brownden(; use_nls::Bool = false, kwargs...)
   return brownden(Val(model); kwargs...)
 end
 
-function brownden(
-  ::Val{:nlp};
-  m::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function brownden(::Val{:nlp}; m::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   m < 4 && @warn("brownden: must have m ≥ 4")
   m = max(m, 4)
   x0 = T[25.0; 5.0; -5.0; -1.0]
@@ -27,12 +22,7 @@ function brownden(
   return ADNLPModels.ADNLPModel(f, x0, name = "brownden"; kwargs...)
 end
 
-function brownden(
-  ::Val{:nls};
-  m::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function brownden(::Val{:nls}; m::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   m < 4 && @warn("brownden: must have m ≥ 4")
   m = max(m, 4)
   x0 = T[25.0; 5.0; -5.0; -1.0]

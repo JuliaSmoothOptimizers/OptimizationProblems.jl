@@ -5,12 +5,7 @@ function integreq(; use_nls::Bool = false, kwargs...)
   return integreq(Val(model); kwargs...)
 end
 
-function integreq(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function integreq(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
     h = 1 // (n + 1)
     return 1 // 2 * sum(
@@ -27,12 +22,7 @@ function integreq(
   return ADNLPModels.ADNLPModel(f, x0, name = "integreq"; kwargs...)
 end
 
-function integreq(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function integreq(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x; n = length(x))
     h = 1 // (n + 1)
     for i = 1:(n - 1)

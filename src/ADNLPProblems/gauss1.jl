@@ -5,12 +5,7 @@ function gauss1(; use_nls::Bool = false, kwargs...)
   return gauss1(Val(model); kwargs...)
 end
 
-function gauss1(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function gauss1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     97.62227 1.000000
     97.80724 2.000000
@@ -278,12 +273,7 @@ function gauss1(
   return ADNLPModels.ADNLPModel(f, x0, name = "gauss1"; kwargs...)
 end
 
-function gauss1(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function gauss1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     97.62227 1.000000
     97.80724 2.000000
