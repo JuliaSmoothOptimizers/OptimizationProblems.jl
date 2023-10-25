@@ -141,7 +141,7 @@ function test_multi_precision(prob::Symbol; list_types = [Float32, Float64])
     nlp = if (nvar + ncon < 10000)
       eval(Meta.parse("ADNLPProblems.$(prob)(type=$(T))"))
     else
-      eval(Meta.parse("ADNLPProblems.$(prob)(type=$T), " * simp_backend * ")"))
+      eval(Meta.parse("ADNLPProblems.$(prob)(type=$T, " * simp_backend * ")"))
     end
     test_multi_precision(T, nlp)
   end
