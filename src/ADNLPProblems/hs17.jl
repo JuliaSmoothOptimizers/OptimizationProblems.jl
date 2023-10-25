@@ -1,6 +1,6 @@
 export hs17
 
-function hs17(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs17(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 100 * (x[2] - x[1]^2)^2 + (1 - x[1])^2

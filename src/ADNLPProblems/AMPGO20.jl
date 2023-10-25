@@ -1,6 +1,6 @@
 export AMPGO20
 
-function AMPGO20(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function AMPGO20(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return -(x[1] - sin(x[1])) * exp(-x[1]^2)

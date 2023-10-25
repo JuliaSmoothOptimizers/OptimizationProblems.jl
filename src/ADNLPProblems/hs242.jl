@@ -1,6 +1,6 @@
 export hs242
 
-function hs242(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs242(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   t = [(10 + i) // 100 for i = 1:10]
   function f(x::AbstractVector{Ti}; t = Ti.(t)) where {Ti}
     return sum(

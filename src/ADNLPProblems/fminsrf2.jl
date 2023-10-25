@@ -1,6 +1,6 @@
 export fminsrf2
 
-function fminsrf2(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function fminsrf2(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 4 && @warn("fminsrf2: number of variables must be ≥ 4")
   n = max(4, n)
 

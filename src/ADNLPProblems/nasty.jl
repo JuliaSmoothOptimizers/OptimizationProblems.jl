@@ -1,6 +1,6 @@
 export nasty
 
-function nasty(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function nasty(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 1 // 2 * ((eltype(x)(1.0e10) * x[1])^2 + x[2]^2)

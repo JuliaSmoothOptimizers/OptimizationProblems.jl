@@ -8,7 +8,7 @@ end
 function tquartic(
   ::Val{:nlp};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   n < 2 && @warn("tquartic: number of variables must be ≥ 2")
@@ -23,7 +23,7 @@ end
 function tquartic(
   ::Val{:nls};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   n < 2 && @warn("tquartic: number of variables must be ≥ 2")

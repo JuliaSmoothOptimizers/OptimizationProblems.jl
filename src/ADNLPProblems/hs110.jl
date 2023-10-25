@@ -1,6 +1,6 @@
 export hs110
 
-function hs110(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs110(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return sum(log(x[i] - 2)^2 + log(10 - x[i])^2 for i = 1:10) - prod(x[i] for i = 1:10)^(2 // 10)

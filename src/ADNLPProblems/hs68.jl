@@ -1,6 +1,6 @@
 export hs68
 
-function hs68(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs68(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   a1 = 1 // 10000
   b1 = 1
   d1 = 1

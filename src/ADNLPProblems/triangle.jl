@@ -14,7 +14,7 @@ function triangle(
   TRIS::Vector{Int64} = Tr,
   Const::Vector{Int64} = Constants;
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   x0 = T.(x0)

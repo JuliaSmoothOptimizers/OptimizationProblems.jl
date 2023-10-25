@@ -35,7 +35,7 @@ The documentation should be added to the file in the `PureJuMP` folder.
     end
 ```
 
-* Problems modeled with `ADNLPModels` should be type-stable, i.e. they should all have keyword argument `type::Val{T} = Val(Float64)` where `T` is the type of the initial guess and the type used by the `NLPModel` API.
+* Problems modeled with `ADNLPModels` should be type-stable, i.e. they should all have keyword argument `type::Type{T} = Float64` where `T` is the type of the initial guess and the type used by the `NLPModel` API.
 
 ## Templates for the new functions
 
@@ -67,7 +67,7 @@ Next, we describe the `ADNLPProblems` file `function_name.jl`.
 ```
 export function_name
 
-function function_name(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} 
+function function_name(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T} 
   # define f 
   # define x0
   # nlp = ADNLPModels.ADNLPModel(f, x0, name = "function_name"; kwargs...)

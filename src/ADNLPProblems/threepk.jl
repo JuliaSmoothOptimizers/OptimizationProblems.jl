@@ -1,6 +1,6 @@
 export threepk
 
-function threepk(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function threepk(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   npkc = 3
   npkcm1 = -1 + 3
   npkcp1 = 1 + 3

@@ -1,6 +1,6 @@
 export hs81
 
-function hs81(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs81(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return exp(prod(x[i] for i = 1:5)) - 1 // 2 * (x[1]^3 + x[2]^3 + 1)^2

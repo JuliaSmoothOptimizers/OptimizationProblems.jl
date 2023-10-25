@@ -1,6 +1,6 @@
 export Shpak6
 
-function Shpak6(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function Shpak6(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   veca =
     [4696 // 1000 4885 // 1000 800 // 1000 4986 // 1000 3901 // 1000 2395 // 1000 945 // 1000 8371 //
                                                                                               1000 6181 //

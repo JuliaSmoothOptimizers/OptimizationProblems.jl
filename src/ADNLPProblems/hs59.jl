@@ -1,6 +1,6 @@
 export hs59
 
-function hs59(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs59(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     Ti = eltype(x)

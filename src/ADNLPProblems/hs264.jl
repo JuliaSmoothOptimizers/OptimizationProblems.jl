@@ -1,6 +1,6 @@
 export hs264
 
-function hs264(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs264(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return x[1]^2 + x[2]^2 + 2 * x[3]^2 + x[4]^2 - 5 * x[1] - 5 * x[2] - 21 * x[3] + 7 * x[4]

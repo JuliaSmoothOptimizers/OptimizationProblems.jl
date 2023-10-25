@@ -1,6 +1,6 @@
 export hs227
 
-function hs227(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs227(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return (x[1] - 2)^2 + (x[2] - 1)^2

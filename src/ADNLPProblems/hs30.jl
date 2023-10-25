@@ -5,7 +5,7 @@ function hs30(; use_nls::Bool = false, kwargs...)
   return hs30(Val(model); kwargs...)
 end
 
-function hs30(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs30(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 1 // 2 * sum(x[i]^2 for i = 1:3)
@@ -22,7 +22,7 @@ function hs30(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs30"; kwargs...)
 end
 
-function hs30(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs30(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x)
     r .= x
     return r

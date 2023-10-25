@@ -8,7 +8,7 @@ end
 function integreq(
   ::Val{:nlp};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   function f(x; n = length(x))
@@ -30,7 +30,7 @@ end
 function integreq(
   ::Val{:nls};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   function F!(r, x; n = length(x))

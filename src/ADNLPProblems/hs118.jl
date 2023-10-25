@@ -1,6 +1,6 @@
 export hs118
 
-function hs118(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs118(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   x0 = T[20, 55, 15, 20, 60, 20, 20, 60, 20, 20, 60, 20, 20, 60, 20]
   lvar = T[8, 43, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   uvar = T[21, 57, 16, 90, 120, 60, 90, 120, 60, 90, 120, 60, 90, 120, 60]

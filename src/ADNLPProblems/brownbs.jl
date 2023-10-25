@@ -8,7 +8,7 @@ end
 function brownbs(
   ::Val{:nlp};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   function f(x)
@@ -23,7 +23,7 @@ end
 function brownbs(
   ::Val{:nls};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   function F!(r, x)

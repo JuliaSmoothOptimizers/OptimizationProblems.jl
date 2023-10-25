@@ -1,6 +1,6 @@
 export arglinc
 
-function arglinc(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function arglinc(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
     m = 2 * n
     sj = sum(j * x[j] for j = 2:(n - 1))

@@ -2,7 +2,7 @@ export biggs6
 
 function biggs6(;
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   m::Int = 13,
   kwargs...,
 ) where {T}

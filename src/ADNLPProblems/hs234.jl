@@ -1,6 +1,6 @@
 export hs234
 
-function hs234(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs234(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     return (x[2] - x[1])^4 - (1 - x[1])
   end

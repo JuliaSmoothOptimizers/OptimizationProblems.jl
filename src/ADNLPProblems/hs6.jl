@@ -5,7 +5,7 @@ function hs6(; use_nls::Bool = false, kwargs...)
   return hs6(Val(model); kwargs...)
 end
 
-function hs6(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs6(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function c!(cx, x)
     cx[1] = 10 * (x[2] - x[1]^2)
     return cx
@@ -21,7 +21,7 @@ function hs6(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kw
   )
 end
 
-function hs6(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs6(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x)
     r[1] = 1 // 2 * (x[1] - 1)^2
     return r

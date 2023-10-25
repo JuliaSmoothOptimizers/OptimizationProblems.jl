@@ -5,7 +5,7 @@ function hs52(; use_nls::Bool = false, kwargs...)
   return hs52(Val(model); kwargs...)
 end
 
-function hs52(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs52(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   return ADNLPModels.ADNLPModel(
     x ->
       1 // 2 * (4 * x[1] - x[2])^2 +
@@ -23,7 +23,7 @@ function hs52(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   )
 end
 
-function hs52(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs52(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x)
     r[1] = 4 * x[1] - x[2]
     r[2] = x[2] + x[3] - 2

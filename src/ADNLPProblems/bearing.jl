@@ -4,7 +4,7 @@ function bearing(;
   n::Int = default_nvar,
   nx::Int = Int(round(sqrt(max(n, 1)))) - 2,
   ny::Int = Int(round(sqrt(max(n, 1)))) - 2,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   # nx > 0 # grid points in 1st direction

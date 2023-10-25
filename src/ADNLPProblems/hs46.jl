@@ -1,6 +1,6 @@
 export hs46
 
-function hs46(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs46(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function c!(cx, x)
     cx[1] = (x[1]^2) * x[4] + sin(x[4] - x[5]) - 1
     cx[2] = x[2] + (x[3]^4) * (x[4]^2) - 2

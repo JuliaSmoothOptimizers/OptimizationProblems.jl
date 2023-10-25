@@ -1,6 +1,6 @@
 export hs316
 
-function hs316(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs316(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     return (x[1] - 20)^2 + (x[2] + 20)^2
   end

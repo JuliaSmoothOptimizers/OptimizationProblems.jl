@@ -2,7 +2,7 @@ export curly
 
 function curly(;
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   b::Int = 10,
   kwargs...,
 ) where {T}

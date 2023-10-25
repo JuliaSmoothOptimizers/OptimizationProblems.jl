@@ -1,6 +1,6 @@
 export booth
 
-function booth(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function booth(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     return zero(eltype(x))
   end

@@ -1,6 +1,6 @@
 export hs27
 
-function hs27(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs27(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function c!(cx, x)
     cx[1] = x[1] + x[3]^2 + 1
     return cx

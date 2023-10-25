@@ -1,6 +1,6 @@
 export scosine
 
-function scosine(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function scosine(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 2 && @warn("scosine: number of variables must be ≥ 2")
   n = max(2, n)
   p = [exp(6 * (i - 1) // (n - 1)) for i = 1:n]

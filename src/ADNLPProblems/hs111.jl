@@ -1,6 +1,6 @@
 export hs111
 
-function hs111(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs111(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   ci = [
     -6089 // 1000,
     -17164 // 1000,

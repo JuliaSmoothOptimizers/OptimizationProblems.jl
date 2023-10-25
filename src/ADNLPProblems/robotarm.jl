@@ -12,7 +12,7 @@ export robotarm
 function robotarm(;
   n::Int = default_nvar,
   L = 4.5,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   N = max(2, div(n, 9))

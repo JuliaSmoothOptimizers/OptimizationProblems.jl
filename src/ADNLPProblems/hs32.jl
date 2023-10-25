@@ -1,6 +1,6 @@
 export hs32
 
-function hs32(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs32(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return (x[1] + 3 * x[2] + x[3])^2 + 4 * (x[1] - x[2])^2

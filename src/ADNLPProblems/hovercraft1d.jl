@@ -8,7 +8,7 @@ end
 function hovercraft1d(
   ::Val{:nlp};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   N = div(n, 3)
@@ -69,7 +69,7 @@ end
 function hovercraft1d(
   ::Val{:nls};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   N = div(n, 3)

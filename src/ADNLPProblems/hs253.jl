@@ -1,6 +1,6 @@
 export hs253
 
-function hs253(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs253(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   c = ones(Int, 8)
   a1 = [0; 10; 10; 0; 0; 10; 10; 0]
   a2 = [0; 0; 10; 10; 0; 0; 10; 10]

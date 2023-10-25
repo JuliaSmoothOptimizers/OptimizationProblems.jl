@@ -8,7 +8,7 @@ end
 function meyer3(
   ::Val{:nlp};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   t = 45 .+ 5 * (1:16)
@@ -40,7 +40,7 @@ end
 function meyer3(
   ::Val{:nls};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   t = 45 .+ 5 * (1:16)

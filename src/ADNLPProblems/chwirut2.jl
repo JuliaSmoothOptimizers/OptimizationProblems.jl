@@ -8,7 +8,7 @@ end
 function chwirut2(
   ::Val{:nlp};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   y = Rational{Int}[
@@ -78,7 +78,7 @@ end
 function chwirut2(
   ::Val{:nls};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   y = Rational{Int}[

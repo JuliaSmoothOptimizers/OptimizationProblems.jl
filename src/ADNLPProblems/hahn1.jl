@@ -5,7 +5,7 @@ function hahn1(; use_nls::Bool = false, kwargs...)
   return hahn1(Val(model); kwargs...)
 end
 
-function hahn1(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hahn1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     591//1000 24410//1000
     1547//1000 34820//1000
@@ -257,7 +257,7 @@ function hahn1(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), 
   return ADNLPModels.ADNLPModel(f, x0, name = "hahn1"; kwargs...)
 end
 
-function hahn1(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hahn1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     591//1000 24410//1000
     1547//1000 34820//1000

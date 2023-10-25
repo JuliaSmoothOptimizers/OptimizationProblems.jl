@@ -1,6 +1,6 @@
 export hs232
 
-function hs232(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs232(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x::AbstractVector{Ti}) where {Ti}
     return -(9 - (x[1] - 3)^2) * x[2]^3 / Ti(27 * sqrt(3))
   end

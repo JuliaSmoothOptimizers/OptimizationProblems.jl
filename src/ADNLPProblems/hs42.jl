@@ -5,7 +5,7 @@ function hs42(; use_nls::Bool = false, kwargs...)
   return hs42(Val(model); kwargs...)
 end
 
-function hs42(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs42(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function c!(cx, x)
     cx[1] = x[3]^2 + x[4]^2 - 2
     return cx
@@ -25,7 +25,7 @@ function hs42(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   )
 end
 
-function hs42(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs42(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x)
     r[1] = x[1] - 1
     r[2] = x[2] - 2

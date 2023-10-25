@@ -1,6 +1,6 @@
 export hs265
 
-function hs265(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs265(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return sum(1 - exp(-10 * x[i] * exp(-x[i + 2])) for i = 1:2)

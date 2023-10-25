@@ -2,7 +2,7 @@ export clplatec
 
 function clplatec(;
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   wght = -0.1,
   r = 0.99,
   l = 0.01,

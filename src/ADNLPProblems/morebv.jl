@@ -8,7 +8,7 @@ end
 function morebv(
   ::Val{:nlp};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   n < 2 && @warn("morebv: number of variables must be ≥ 4")
@@ -31,7 +31,7 @@ end
 function morebv(
   ::Val{:nls};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   n < 2 && @warn("morebv: number of variables must be ≥ 4")

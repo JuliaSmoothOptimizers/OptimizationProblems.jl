@@ -1,6 +1,6 @@
 export britgas
 
-function britgas(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function britgas(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   hours = T(8)
   nodes = T(23)
   theta = T(0.75)

@@ -1,6 +1,6 @@
 export AMPGO13
 
-function AMPGO13(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function AMPGO13(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     # return 0 < x[1] < 1 ? -(x[1]^(2 // 3) + (1 - x[1]^2)^(1 // 3)) : convert(eltype(x), Inf)
     return (x[1] ≤ 0) * convert(eltype(x), Inf) + (x[1] ≥ 1) * convert(eltype(x), Inf) -

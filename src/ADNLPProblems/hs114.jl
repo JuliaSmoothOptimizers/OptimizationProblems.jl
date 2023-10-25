@@ -1,6 +1,6 @@
 export hs114
 
-function hs114(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs114(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   a = T(0.99)
   b = T(0.9)
   function f(x)

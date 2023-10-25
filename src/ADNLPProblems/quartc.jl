@@ -1,6 +1,6 @@
 export quartc
 
-function quartc(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function quartc(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
     return sum((x[i] - i)^4 for i = 1:n)
   end

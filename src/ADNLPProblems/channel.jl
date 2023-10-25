@@ -1,6 +1,6 @@
 export channel
 
-function channel(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function channel(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   nh = max(2, div(n, 8))
 
   nc = 4

@@ -1,6 +1,6 @@
 export penalty3
 
-function penalty3(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function penalty3(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 3 && @warn("penalty3: number of variables must be ≥ 3")
   n = max(3, n)
   function f(x; n = length(x))

@@ -1,6 +1,6 @@
 export hs65
 
-function hs65(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs65(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return (x[1] - x[2])^2 + ((x[1] + x[2] - 10)^2) / 9 + (x[3] - 5)^2

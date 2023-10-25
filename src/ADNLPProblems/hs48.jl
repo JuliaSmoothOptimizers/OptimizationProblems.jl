@@ -5,7 +5,7 @@ function hs48(; use_nls::Bool = false, kwargs...)
   return hs48(Val(model); kwargs...)
 end
 
-function hs48(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs48(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   return ADNLPModels.ADNLPModel(
     x -> 1 // 2 * (x[1] - 1)^2 + 1 // 2 * (x[2] - x[3])^2 + 1 // 2 * (x[4] - x[5])^2,
     T[3, 5, -3, 2, -2],
@@ -20,7 +20,7 @@ function hs48(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   )
 end
 
-function hs48(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs48(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x)
     r[1] = x[1] - 1
     r[2] = x[2] - x[3]

@@ -1,6 +1,6 @@
 export hs243
 
-function hs243(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs243(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   A = Rational{Int}[0.14272; -0.184918; -0.521869; -0.685306]
   B = Rational{Int}[
     2.95137 4.87407 -2.0506

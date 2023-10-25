@@ -5,7 +5,7 @@ function mgh17(; use_nls::Bool = false, kwargs...)
   return mgh17(Val(model); kwargs...)
 end
 
-function mgh17(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function mgh17(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     8.440000E-01 0.000000E+00
     9.080000E-01 1.000000E+01
@@ -51,7 +51,7 @@ function mgh17(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), 
   return ADNLPModels.ADNLPModel(f, x0, name = "mgh17"; kwargs...)
 end
 
-function mgh17(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function mgh17(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     8.440000E-01 0.000000E+00
     9.080000E-01 1.000000E+01

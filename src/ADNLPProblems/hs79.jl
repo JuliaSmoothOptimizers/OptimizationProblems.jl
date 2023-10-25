@@ -1,6 +1,6 @@
 export hs79
 
-function hs79(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs79(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function c!(cx, x)
     Ti = eltype(x)
     cx[1] = x[1] + x[2]^2 + x[3]^3 - 2 - 3 * Ti(sqrt(2))

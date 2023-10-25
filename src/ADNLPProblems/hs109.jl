@@ -1,6 +1,6 @@
 export hs109
 
-function hs109(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs109(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 3 * x[1] + 1 // 1000000 * x[1]^3 + 2 * x[2] + eltype(x)(0.522074e-6) * x[2]^3

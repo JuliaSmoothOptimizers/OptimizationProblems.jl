@@ -1,6 +1,6 @@
 export hs73
 
-function hs73(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs73(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 2455 // 100 * x[1] + 2675 // 100 * x[2] + 39 * x[3] + 4050 // 100 * x[4]
