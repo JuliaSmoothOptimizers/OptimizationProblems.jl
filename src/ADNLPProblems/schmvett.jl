@@ -1,6 +1,6 @@
 export schmvett
 
-function schmvett(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function schmvett(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 3 && @warn("schmvett: number of variables must be ≥ 3")
   n = max(3, n)
   function f(x; n = length(x))

@@ -1,6 +1,6 @@
 export hs31
 
-function hs31(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs31(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 9 * x[1]^2 + x[2]^2 + 9 * x[3]^2

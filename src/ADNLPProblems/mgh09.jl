@@ -5,7 +5,7 @@ function mgh09(; use_nls::Bool = false, kwargs...)
   return mgh09(Val(model); kwargs...)
 end
 
-function mgh09(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function mgh09(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     1957//10000 4
     1947//10000 2
@@ -30,7 +30,7 @@ function mgh09(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), 
   return ADNLPModels.ADNLPModel(f, x0, name = "mgh09"; kwargs...)
 end
 
-function mgh09(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function mgh09(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     1957//10000 4
     1947//10000 2

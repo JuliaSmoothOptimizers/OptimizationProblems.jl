@@ -5,7 +5,7 @@ function hs57(; use_nls::Bool = false, kwargs...)
   return hs57(Val(model); kwargs...)
 end
 
-function hs57(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs57(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   a = Array{Int64}(undef, 44)
   a[1:2] .= 8
   a[3:6] .= 10
@@ -73,7 +73,7 @@ function hs57(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs57"; kwargs...)
 end
 
-function hs57(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs57(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   a = Array{Int64}(undef, 44)
   a[1:2] .= 8
   a[3:6] .= 10

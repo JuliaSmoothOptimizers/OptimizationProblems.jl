@@ -1,6 +1,6 @@
 export hs107
 
-function hs107(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs107(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   ci = T((48.4 / 50.176) * sin(0.25))
   d = T((48.4 / 50.176) * cos(0.25))
   function f(x)

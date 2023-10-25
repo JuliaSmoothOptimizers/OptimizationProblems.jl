@@ -1,6 +1,6 @@
 export chain
 
-function chain(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function chain(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   nh = max(2, div(n - 4, 4))
 
   L = 4

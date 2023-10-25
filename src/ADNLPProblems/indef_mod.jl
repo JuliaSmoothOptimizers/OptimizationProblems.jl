@@ -1,6 +1,6 @@
 export indef_mod
 
-function indef_mod(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function indef_mod(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 3 && @warn("indef_mod: number of variables must be ≥ 4")
   n = max(3, n)
   function f(x; n = length(x))

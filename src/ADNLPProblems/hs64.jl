@@ -1,6 +1,6 @@
 export hs64
 
-function hs64(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs64(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 5 * x[1] + 50000 / x[1] + 20 * x[2] + 72000 / x[2] + 10 * x[3] + 144000 / x[3]

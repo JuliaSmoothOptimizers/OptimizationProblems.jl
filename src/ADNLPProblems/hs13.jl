@@ -5,7 +5,7 @@ function hs13(; use_nls::Bool = false, kwargs...)
   return hs13(Val(model); kwargs...)
 end
 
-function hs13(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs13(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 1 // 2 * (x[1] - 2)^2 + 1 // 2 * x[2]^2
@@ -22,7 +22,7 @@ function hs13(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs13"; kwargs...)
 end
 
-function hs13(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs13(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x)
     r[1] = x[1] - 2
     r[2] = x[2]

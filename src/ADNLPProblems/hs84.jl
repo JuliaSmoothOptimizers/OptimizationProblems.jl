@@ -1,6 +1,6 @@
 export hs84
 
-function hs84(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs84(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   a = Array{Rational{Int}}(undef, 21)
   a[1:7] = [
     -24345,

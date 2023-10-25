@@ -8,7 +8,7 @@ end
 function errinros_mod(
   ::Val{:nlp};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   n < 2 && @warn("errinros_mod: number of variables must be ≥ 2")
@@ -24,7 +24,7 @@ end
 function errinros_mod(
   ::Val{:nls};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   n < 2 && @warn("errinros_mod: number of variables must be ≥ 2")

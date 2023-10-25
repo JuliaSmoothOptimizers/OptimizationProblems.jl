@@ -60,7 +60,7 @@ nlp_120 = woods(n=120)
 ```
 One of the advantages of these problems is that they are type-stable. Indeed, one can specify the output type with the keyword `type` as follows.
 ``` @example ex2
-nlp16_12 = woods(n=12, type=Val(Float16))
+nlp16_12 = woods(n=12, type=Float16)
 ```
 Then, all the API will be compatible with the precised type.
 ``` @example ex2

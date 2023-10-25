@@ -1,6 +1,6 @@
 export hs255
 
-function hs255(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs255(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     return 100 * (x[2] - x[1]^2) +
            (1 - x[1])^2 +

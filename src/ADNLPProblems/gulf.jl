@@ -8,7 +8,7 @@ end
 function gulf(
   ::Val{:nlp};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   m::Int = 100,
   kwargs...,
 ) where {T}
@@ -28,7 +28,7 @@ end
 function gulf(
   ::Val{:nls};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   m::Int = 100,
   kwargs...,
 ) where {T}

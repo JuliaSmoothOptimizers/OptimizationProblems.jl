@@ -5,7 +5,7 @@ function hs22(; use_nls::Bool = false, kwargs...)
   return hs22(Val(model); kwargs...)
 end
 
-function hs22(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs22(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 1 // 2 * (x[1] - 2)^2 + 1 // 2 * (x[2] - 1)^2
@@ -31,7 +31,7 @@ function hs22(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), k
   )
 end
 
-function hs22(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs22(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x)
     r[1] = x[1] - 2
     r[2] = x[2] - 1

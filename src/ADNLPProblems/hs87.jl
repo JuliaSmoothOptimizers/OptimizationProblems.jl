@@ -1,6 +1,6 @@
 export hs87
 
-function hs87(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs87(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f1(x)
     #=
     return if 0 <= x <= 300

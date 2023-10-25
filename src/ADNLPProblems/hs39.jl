@@ -1,6 +1,6 @@
 export hs39
 
-function hs39(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs39(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function c!(cx, x)
     cx[1] = x[2] - x[1]^3 - x[3]^2
     cx[2] = x[1]^2 - x[2] - x[4]^2

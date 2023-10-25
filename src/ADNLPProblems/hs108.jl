@@ -1,6 +1,6 @@
 export hs108
 
-function hs108(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs108(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return -1 // 2 *

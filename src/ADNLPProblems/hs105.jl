@@ -1,6 +1,6 @@
 export hs105
 
-function hs105(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs105(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Array{Int}(undef, 235)
   y[1] = 95
   y[2] = 105

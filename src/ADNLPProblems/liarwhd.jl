@@ -1,6 +1,6 @@
 export liarwhd
 
-function liarwhd(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function liarwhd(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 2 && @warn("liarwhd: number of variables must be ≥ 4")
   n = max(2, n)
   function f(x; n = length(x))

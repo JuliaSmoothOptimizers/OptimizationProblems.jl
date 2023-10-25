@@ -1,6 +1,6 @@
 export hs263
 
-function hs263(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs263(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return -x[1]

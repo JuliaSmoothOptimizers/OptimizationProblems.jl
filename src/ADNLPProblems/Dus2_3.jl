@@ -1,6 +1,6 @@
 export Dus2_3
 
-function Dus2_3(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function Dus2_3(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 1 - (1 / (5 * (x[1]^2) - 6 * x[1] + 5))

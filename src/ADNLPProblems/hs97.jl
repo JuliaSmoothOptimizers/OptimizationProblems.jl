@@ -1,6 +1,6 @@
 export hs97
 
-function hs97(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs97(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 43 // 10 * x[1] +

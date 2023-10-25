@@ -1,6 +1,6 @@
 export cliff
 
-function cliff(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function cliff(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     return (1 // 100 * x[1] - 3 // 100)^2 - x[1] + x[2] + exp(20 * (x[1] - x[2]))
   end

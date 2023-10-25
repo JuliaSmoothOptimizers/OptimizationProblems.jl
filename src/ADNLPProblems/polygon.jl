@@ -1,6 +1,6 @@
 export polygon
 
-function polygon(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function polygon(args...; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   N = div(n, 2)
   function f(y; N = N)
     @views r, θ = y[1:N], y[(N + 1):end]

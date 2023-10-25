@@ -1,6 +1,6 @@
 export clnlbeam
 
-function clnlbeam(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function clnlbeam(args...; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   N = div(n - 3, 3)
   h = 1 // N
   alpha = 350

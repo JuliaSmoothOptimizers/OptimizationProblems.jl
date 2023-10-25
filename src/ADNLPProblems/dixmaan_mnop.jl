@@ -2,7 +2,7 @@ export dixmaanm, dixmaann, dixmaano, dixmaanp
 
 function dixmaanm(;
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   α = 1,
   β = 0,
   γ = 125 // 1000,
@@ -23,7 +23,7 @@ function dixmaanm(;
   return ADNLPModels.ADNLPModel(f, x0, name = "dixmaanm"; kwargs...)
 end
 
-dixmaann(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} = dixmaanm(
+dixmaann(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T} = dixmaanm(
   n = n,
   type = type,
   α = 1,
@@ -34,7 +34,7 @@ dixmaann(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where 
   kwargs...,
 )
 
-dixmaano(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} = dixmaanm(
+dixmaano(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T} = dixmaanm(
   n = n,
   type = type,
   α = 1,
@@ -45,7 +45,7 @@ dixmaano(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where 
   kwargs...,
 )
 
-dixmaanp(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T} = dixmaanm(
+dixmaanp(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T} = dixmaanm(
   n = n,
   type = type,
   α = 1,

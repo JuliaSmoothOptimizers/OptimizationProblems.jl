@@ -1,6 +1,6 @@
 export allinitc
 
-function allinitc(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function allinitc(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     return x[3] - 1 + x[1]^2 + x[2]^2 + (x[3] + x[4])^2 + sin(x[3])^2 + x[1]^2 * x[2]^2 + x[4] - 3 +
            sin(x[3])^2 +

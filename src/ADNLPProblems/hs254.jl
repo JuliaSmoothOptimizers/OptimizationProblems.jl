@@ -1,6 +1,6 @@
 export hs254
 
-function hs254(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs254(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return log(x[3]) - x[2]

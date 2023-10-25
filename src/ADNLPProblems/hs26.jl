@@ -1,6 +1,6 @@
 export hs26
 
-function hs26(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs26(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function c!(cx, x)
     cx[1] = (1 + x[2]^2) * x[1] + x[3]^4 - 3
     return cx

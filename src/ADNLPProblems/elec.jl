@@ -1,6 +1,6 @@
 export elec
 
-function elec(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function elec(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n = max(2, div(n, 3))
   # Define the objective function to minimize
   function f(x; n = n)

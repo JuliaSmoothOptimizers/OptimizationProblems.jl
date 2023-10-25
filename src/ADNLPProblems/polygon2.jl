@@ -1,6 +1,6 @@
 export polygon2
 
-function polygon2(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function polygon2(args...; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   N = div(n, 2)
   function f(y; N = N)
     r, α = y[1:N], y[(N + 1):end]

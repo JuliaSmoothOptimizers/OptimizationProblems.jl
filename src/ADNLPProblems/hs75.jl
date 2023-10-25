@@ -1,6 +1,6 @@
 export hs75
 
-function hs75(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs75(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   a = T(0.48)
   function f(x)
     n = length(x)

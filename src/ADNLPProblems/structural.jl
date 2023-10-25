@@ -3,7 +3,7 @@ export structural
 function structural(
   args...;
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   n = max(n, 100)

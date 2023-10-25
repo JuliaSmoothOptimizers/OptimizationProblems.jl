@@ -1,6 +1,6 @@
 export lincon
 
-function lincon(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function lincon(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   A = [1 2; 3 4]
   b = [5; 6]
   B = LinearAlgebra.diagm([3 * i for i = 3:5])

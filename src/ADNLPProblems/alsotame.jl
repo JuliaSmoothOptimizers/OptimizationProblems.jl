@@ -1,6 +1,6 @@
 export alsotame
 
-function alsotame(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function alsotame(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     x, y = x[1], x[2]
     return exp(x - 2 * y)

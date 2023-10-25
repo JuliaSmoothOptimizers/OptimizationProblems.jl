@@ -8,7 +8,7 @@ end
 function sbrybnd(
   ::Val{:nlp};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   n < 2 && @warn("sbrybnd: number of variables must be ≥ 2")
@@ -31,7 +31,7 @@ end
 function sbrybnd(
   ::Val{:nls};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   n < 2 && @warn("sbrybnd: number of variables must be ≥ 2")

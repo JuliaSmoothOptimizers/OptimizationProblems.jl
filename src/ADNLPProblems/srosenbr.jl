@@ -1,6 +1,6 @@
 export srosenbr
 
-function srosenbr(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function srosenbr(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   (n % 2 == 0) || @warn("srosenbr: number of variables adjusted to be even")
   n = 2 * max(1, div(n, 2))
   function f(x; n = length(x))

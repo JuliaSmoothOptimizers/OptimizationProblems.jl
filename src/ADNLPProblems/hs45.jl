@@ -1,6 +1,6 @@
 export hs45
 
-function hs45(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs45(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 2 - x[1] * x[2] * x[3] * x[4] * x[5] / 120

@@ -1,6 +1,6 @@
 export hs230
 
-function hs230(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs230(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     return x[2]
   end

@@ -1,6 +1,6 @@
 export hs66
 
-function hs66(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs66(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 2 // 10 * x[3] - 8 // 10 * x[1]

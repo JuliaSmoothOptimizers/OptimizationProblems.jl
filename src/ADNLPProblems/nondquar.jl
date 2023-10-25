@@ -1,6 +1,6 @@
 export nondquar
 
-function nondquar(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function nondquar(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 2 && @warn("nondquar: number of variables must be ≥ 2")
   n = max(2, n)
   function f(x; n = length(x))

@@ -8,7 +8,7 @@ end
 function brownden(
   ::Val{:nlp};
   m::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   m < 4 && @warn("brownden: must have m ≥ 4")
@@ -30,7 +30,7 @@ end
 function brownden(
   ::Val{:nls};
   m::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   m < 4 && @warn("brownden: must have m ≥ 4")

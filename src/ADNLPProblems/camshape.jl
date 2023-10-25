@@ -1,6 +1,6 @@
 export camshape
 
-function camshape(args...; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function camshape(args...; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   R_min = 1
   R_max = 2
   R_v = 1

@@ -1,6 +1,6 @@
 export AMPGO07
 
-function AMPGO07(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function AMPGO07(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     return (x[1] <= 0) * convert(eltype(x), Inf) +
            sin(x[1]) +

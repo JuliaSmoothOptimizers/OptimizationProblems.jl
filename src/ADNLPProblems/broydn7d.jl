@@ -1,6 +1,6 @@
 export broydn7d
 
-function broydn7d(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function broydn7d(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   mod(n, 2) > 0 && @warn("broydn7d: number of variables adjusted to be even")
   n2 = max(1, div(n, 2))
   n = 2 * n2

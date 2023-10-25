@@ -1,6 +1,6 @@
 export hs33
 
-function hs33(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs33(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return (x[1] - 1) * (x[1] - 2) * (x[1] - 3) + x[3]

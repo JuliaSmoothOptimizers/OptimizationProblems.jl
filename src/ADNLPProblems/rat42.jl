@@ -5,7 +5,7 @@ function rat42(; use_nls::Bool = false, kwargs...)
   return rat42(Val(model); kwargs...)
 end
 
-function rat42(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function rat42(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     8.930E0 9.000E0
     10.800E0 14.000E0
@@ -24,7 +24,7 @@ function rat42(::Val{:nlp}; n::Int = default_nvar, type::Val{T} = Val(Float64), 
   return ADNLPModels.ADNLPModel(f, x0, name = "rat42"; kwargs...)
 end
 
-function rat42(::Val{:nls}; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function rat42(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     8.930E0 9.000E0
     10.800E0 14.000E0

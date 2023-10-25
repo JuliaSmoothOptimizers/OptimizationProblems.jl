@@ -1,6 +1,6 @@
 export hs62
 
-function hs62(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs62(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return -32174 // 1000 * (

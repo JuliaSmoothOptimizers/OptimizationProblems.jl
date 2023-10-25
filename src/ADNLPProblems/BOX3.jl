@@ -3,7 +3,7 @@ export BOX3
 function BOX3(
   args...;
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   m::Int = 2n,
   kwargs...,
 ) where {T}

@@ -3,7 +3,7 @@ export marine
 function marine(;
   n::Int = default_nvar,
   nc::Int = 1,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   nc = max(min(nc, 4), 1) # number of collocation points 

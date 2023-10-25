@@ -1,6 +1,6 @@
 export genhumps
 
-function genhumps(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function genhumps(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
     ζ = 20
     return sum(

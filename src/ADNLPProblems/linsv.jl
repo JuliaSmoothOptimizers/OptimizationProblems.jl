@@ -1,6 +1,6 @@
 export linsv
 
-function linsv(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function linsv(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   x0 = zeros(T, 2)
   f(x) = x[1]
   lcon = T[3; 1]

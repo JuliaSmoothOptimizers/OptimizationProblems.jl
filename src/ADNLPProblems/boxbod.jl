@@ -8,7 +8,7 @@ end
 function boxbod(
   ::Val{:nlp};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   y = Rational{Int}[
@@ -30,7 +30,7 @@ end
 function boxbod(
   ::Val{:nls};
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   kwargs...,
 ) where {T}
   y = Rational{Int}[

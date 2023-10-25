@@ -1,6 +1,6 @@
 export hs70
 
-function hs70(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs70(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   ci = Array{Rational{Int}}(undef, 19)
   ci[1] = 1 // 10
   for i = 2:19

@@ -1,6 +1,6 @@
 export hs101
 
-function hs101(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs101(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   a = -25 // 100
   exposant_f = Array{Rational{Int}}(undef, 4, 7)
   exposant_f[1, :] = [1, -1, 0, 2, 0, -3, a]

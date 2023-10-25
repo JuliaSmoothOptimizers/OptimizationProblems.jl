@@ -2,7 +2,7 @@ export clplatea
 
 function clplatea(;
   n::Int = default_nvar,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   wght = -0.1,
   kwargs...,
 ) where {T}

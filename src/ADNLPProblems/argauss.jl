@@ -1,6 +1,6 @@
 export argauss
 
-function argauss(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function argauss(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   xinit = T[
     0.4
     1.0

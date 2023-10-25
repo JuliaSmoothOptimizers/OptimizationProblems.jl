@@ -1,6 +1,6 @@
 export bt1
 
-function bt1(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function bt1(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     n = length(x)
     return 100 * x[1]^2 + 100 * x[2]^2 - x[1] - 100

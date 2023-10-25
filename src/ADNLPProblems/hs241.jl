@@ -1,6 +1,6 @@
 export hs241
 
-function hs241(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs241(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     return (x[1]^2 + x[2]^2 + x[3]^2 - 1)^2 +
            (x[1]^2 + x[2]^2 + (x[3] - 2)^2 - 1)^2 +

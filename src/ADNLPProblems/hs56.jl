@@ -1,6 +1,6 @@
 export hs56
 
-function hs56(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs56(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function c!(cx, x)
     cx[1] = x[1] - 42 // 10 * sin(x[4])^2
     cx[2] = x[2] - 42 // 10 * sin(x[5])^2

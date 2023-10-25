@@ -1,6 +1,6 @@
 export hs119
 
-function hs119(; n::Int = default_nvar, type::Val{T} = Val(Float64), kwargs...) where {T}
+function hs119(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   ci = T[2.5, 1.1, -3.1, -3.5, 1.3, 2.1, 2.3, -1.5]
 
   a = Array{Int}(undef, 16, 16)
