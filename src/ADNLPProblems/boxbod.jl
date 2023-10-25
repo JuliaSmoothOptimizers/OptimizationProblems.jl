@@ -5,12 +5,7 @@ function boxbod(; use_nls::Bool = false, kwargs...)
   return boxbod(Val(model); kwargs...)
 end
 
-function boxbod(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function boxbod(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     109 1
     149 2
@@ -27,12 +22,7 @@ function boxbod(
   return ADNLPModels.ADNLPModel(f, x0, name = "boxbod"; kwargs...)
 end
 
-function boxbod(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function boxbod(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     109 1
     149 2

@@ -5,12 +5,7 @@ function bdqrtic(; use_nls::Bool = false, kwargs...)
   return bdqrtic(Val(model); kwargs...)
 end
 
-function bdqrtic(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function bdqrtic(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 5 && @warn("bdqrtic: number of variables must be ≥ 5")
   n = max(5, n)
   function f(x; n = length(x))
@@ -23,12 +18,7 @@ function bdqrtic(
   return ADNLPModels.ADNLPModel(f, x0, name = "bdqrtic"; kwargs...)
 end
 
-function bdqrtic(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function bdqrtic(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 5 && @warn("bdqrtic: number of variables must be ≥ 5")
   n = max(5, n)
   function F!(r, x; n = length(x))

@@ -5,12 +5,7 @@ function arglinb(; use_nls::Bool = false, kwargs...)
   return arglinb(Val(model); kwargs...)
 end
 
-function arglinb(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function arglinb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
     m = 2 * n
     sj = sum(j * x[j] for j = 1:n)
@@ -20,12 +15,7 @@ function arglinb(
   return ADNLPModels.ADNLPModel(f, x0, name = "arglinb"; kwargs...)
 end
 
-function arglinb(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function arglinb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x; n = length(x))
     m = 2 * n
     sj = sum(j * x[j] for j = 1:n)

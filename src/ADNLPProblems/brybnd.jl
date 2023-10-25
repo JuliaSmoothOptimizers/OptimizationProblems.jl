@@ -5,12 +5,7 @@ function brybnd(; use_nls::Bool = false, kwargs...)
   return brybnd(Val(model); kwargs...)
 end
 
-function brybnd(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function brybnd(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
     ml = 5
     mu = 1
@@ -25,12 +20,7 @@ function brybnd(
   return ADNLPModels.ADNLPModel(f, x0, name = "brybnd"; kwargs...)
 end
 
-function brybnd(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function brybnd(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x; n = length(x))
     ml = 5
     mu = 1

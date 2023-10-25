@@ -5,12 +5,7 @@ function gaussian(; use_nls::Bool = false, kwargs...)
   return gaussian(Val(model); kwargs...)
 end
 
-function gaussian(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function gaussian(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = [
     9 // 10000,
     44 // 10000,
@@ -35,12 +30,7 @@ function gaussian(
   return ADNLPModels.ADNLPModel(f, x0, name = "gaussian"; kwargs...)
 end
 
-function gaussian(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function gaussian(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = [
     9 // 10000,
     44 // 10000,

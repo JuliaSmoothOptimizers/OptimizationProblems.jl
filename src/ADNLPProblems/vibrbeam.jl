@@ -5,12 +5,7 @@ function vibrbeam(; use_nls::Bool = false, kwargs...)
   return vibrbeam(Val(model); kwargs...)
 end
 
-function vibrbeam(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function vibrbeam(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   # Positions
   X = Rational{Int}[
     391722 // 10000
@@ -127,12 +122,7 @@ function vibrbeam(
   return ADNLPModels.ADNLPModel(f, x0, name = "vibrbeam"; kwargs...)
 end
 
-function vibrbeam(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function vibrbeam(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   # Positions
   X = Rational{Int}[
     391722 // 10000

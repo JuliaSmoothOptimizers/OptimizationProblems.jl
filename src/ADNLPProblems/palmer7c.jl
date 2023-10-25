@@ -5,12 +5,7 @@ function palmer7c(; use_nls::Bool = false, kwargs...)
   return palmer7c(Val(model); kwargs...)
 end
 
-function palmer7c(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function palmer7c(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   X = [
     0.000000,
     0.139626,
@@ -50,12 +45,7 @@ function palmer7c(
   return ADNLPModels.ADNLPModel(f, x0, name = "palmer7c"; kwargs...)
 end
 
-function palmer7c(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function palmer7c(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   X = [
     0.000000,
     0.139626,

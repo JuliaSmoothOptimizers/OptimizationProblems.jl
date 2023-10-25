@@ -5,12 +5,7 @@ function rozman1(; use_nls::Bool = false, kwargs...)
   return rozman1(Val(model); kwargs...)
 end
 
-function rozman1(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function rozman1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     0.252429 -4868.68
     0.252141 -4868.09
@@ -47,12 +42,7 @@ function rozman1(
   return ADNLPModels.ADNLPModel(f, x0, name = "rozman1"; kwargs...)
 end
 
-function rozman1(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function rozman1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     0.252429 -4868.68
     0.252141 -4868.09

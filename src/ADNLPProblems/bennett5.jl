@@ -5,12 +5,7 @@ function bennett5(; use_nls::Bool = false, kwargs...)
   return bennett5(Val(model); kwargs...)
 end
 
-function bennett5(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function bennett5(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     -34.834702E0 7.447168E0
     -34.393200E0 8.102586E0
@@ -175,12 +170,7 @@ function bennett5(
   return ADNLPModels.ADNLPModel(f, x0, name = "bennett5"; kwargs...)
 end
 
-function bennett5(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function bennett5(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     -34.834702E0 7.447168E0
     -34.393200E0 8.102586E0

@@ -5,12 +5,7 @@ function sbrybnd(; use_nls::Bool = false, kwargs...)
   return sbrybnd(Val(model); kwargs...)
 end
 
-function sbrybnd(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function sbrybnd(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 2 && @warn("sbrybnd: number of variables must be ≥ 2")
   n = max(2, n)
   p = [exp(6 * (i - 1) / (n - 1)) for i = 1:n]
@@ -28,12 +23,7 @@ function sbrybnd(
   return ADNLPModels.ADNLPModel(f, x0, name = "sbrybnd"; kwargs...)
 end
 
-function sbrybnd(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function sbrybnd(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 2 && @warn("sbrybnd: number of variables must be ≥ 2")
   n = max(2, n)
   p = [exp(6 * (i - 1) / (n - 1)) for i = 1:n]

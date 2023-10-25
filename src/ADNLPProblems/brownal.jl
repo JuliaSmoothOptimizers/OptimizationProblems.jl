@@ -5,12 +5,7 @@ function brownal(; use_nls::Bool = false, kwargs...)
   return brownal(Val(model); kwargs...)
 end
 
-function brownal(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function brownal(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
     sj = sum(x[j] for j = 1:n)
     pj = prod(x[j] for j = 1:n)
@@ -20,12 +15,7 @@ function brownal(
   return ADNLPModels.ADNLPModel(f, x0, name = "brownal"; kwargs...)
 end
 
-function brownal(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function brownal(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x; n = length(x))
     sj = sum(x[j] for j = 1:n)
     for i = 1:(n - 1)

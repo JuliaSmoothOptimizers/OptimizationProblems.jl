@@ -5,12 +5,7 @@ function palmer3c(; use_nls::Bool = false, kwargs...)
   return palmer3c(Val(model); kwargs...)
 end
 
-function palmer3c(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function palmer3c(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   X = [
     -1.658063,
     -1.570796,
@@ -70,12 +65,7 @@ function palmer3c(
   return ADNLPModels.ADNLPModel(f, x0, name = "palmer3c"; kwargs...)
 end
 
-function palmer3c(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function palmer3c(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   X = [
     -1.658063,
     -1.570796,

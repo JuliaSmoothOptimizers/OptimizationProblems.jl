@@ -5,12 +5,7 @@ function chwirut1(; use_nls::Bool = false, kwargs...)
   return chwirut1(Val(model); kwargs...)
 end
 
-function chwirut1(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function chwirut1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     92.9000E0 0.5000E0
     78.7000E0 0.6250E0
@@ -235,12 +230,7 @@ function chwirut1(
   return ADNLPModels.ADNLPModel(f, x0, name = "chwirut1"; kwargs...)
 end
 
-function chwirut1(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function chwirut1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     92.9000E0 0.5000E0
     78.7000E0 0.6250E0

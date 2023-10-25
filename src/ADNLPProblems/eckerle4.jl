@@ -5,12 +5,7 @@ function eckerle4(; use_nls::Bool = false, kwargs...)
   return eckerle4(Val(model); kwargs...)
 end
 
-function eckerle4(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function eckerle4(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     0.0001575E0 400.000000E0
     0.0001699E0 405.000000E0
@@ -58,12 +53,7 @@ function eckerle4(
   return ADNLPModels.ADNLPModel(f, x0, name = "eckerle4"; kwargs...)
 end
 
-function eckerle4(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function eckerle4(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     0.0001575E0 400.000000E0
     0.0001699E0 405.000000E0

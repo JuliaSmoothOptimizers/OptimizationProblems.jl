@@ -5,12 +5,7 @@ function watson(; use_nls::Bool = false, kwargs...)
   return watson(Val(model); kwargs...)
 end
 
-function watson(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function watson(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n = min(max(n, 2), 31)
   function f(x; n = n)
     Ti = eltype(x)
@@ -34,12 +29,7 @@ function watson(
   return ADNLPModels.ADNLPModel(f, x0, name = "watson"; kwargs...)
 end
 
-function watson(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function watson(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n = min(max(n, 2), 31)
   function F!(r, x; n = n)
     Ti = eltype(x)

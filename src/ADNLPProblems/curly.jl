@@ -1,11 +1,6 @@
 export curly
 
-function curly(;
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  b::Int = 10,
-  kwargs...,
-) where {T}
+function curly(; n::Int = default_nvar, type::Type{T} = Float64, b::Int = 10, kwargs...) where {T}
   n < 2 && @warn("curly: number of variables must be ≥ 2")
   n = max(2, n)
   function f(x; n = n, b = b)

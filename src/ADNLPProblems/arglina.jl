@@ -5,12 +5,7 @@ function arglina(; use_nls::Bool = false, kwargs...)
   return arglina(Val(model); kwargs...)
 end
 
-function arglina(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function arglina(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
     m = 2 * n
     sj = sum(x[j] for j = 1:n)
@@ -21,12 +16,7 @@ function arglina(
   return ADNLPModels.ADNLPModel(f, x0, name = "arglina"; kwargs...)
 end
 
-function arglina(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function arglina(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x)
     m = 2 * n
     sj = sum(x[j] for j = 1:n)

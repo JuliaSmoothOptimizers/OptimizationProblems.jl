@@ -5,12 +5,7 @@ function misra1c(; use_nls::Bool = false, kwargs...)
   return misra1c(Val(model); kwargs...)
 end
 
-function misra1c(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function misra1c(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     10.07E0 77.6E0
     14.73E0 114.9E0
@@ -35,12 +30,7 @@ function misra1c(
   return ADNLPModels.ADNLPModel(f, x0, name = "misra1c"; kwargs...)
 end
 
-function misra1c(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function misra1c(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     10.07E0 77.6E0
     14.73E0 114.9E0

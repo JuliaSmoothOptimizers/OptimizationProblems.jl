@@ -5,12 +5,7 @@ function lanczos1(; use_nls::Bool = false, kwargs...)
   return lanczos1(Val(model); kwargs...)
 end
 
-function lanczos1(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function lanczos1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     2.513400000000E+00 0.000000000000E+00
     2.044333373291E+00 5.000000000000E-02
@@ -49,12 +44,7 @@ function lanczos1(
   return ADNLPModels.ADNLPModel(f, x0, name = "lanczos1"; kwargs...)
 end
 
-function lanczos1(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function lanczos1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     2.513400000000E+00 0.000000000000E+00
     2.044333373291E+00 5.000000000000E-02

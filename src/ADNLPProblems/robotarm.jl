@@ -9,12 +9,7 @@ export robotarm
 
 #  classification OOR2-AN-V-V
 
-function robotarm(;
-  n::Int = default_nvar,
-  L = 4.5,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function robotarm(; n::Int = default_nvar, L = 4.5, type::Type{T} = Float64, kwargs...) where {T}
   N = max(2, div(n, 9))
   n = N + 1
   L = T(L)

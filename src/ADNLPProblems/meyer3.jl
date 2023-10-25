@@ -5,12 +5,7 @@ function meyer3(; use_nls::Bool = false, kwargs...)
   return meyer3(Val(model); kwargs...)
 end
 
-function meyer3(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function meyer3(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   t = 45 .+ 5 * (1:16)
   x0 = T[0.02, 4000, 250]
   y = [
@@ -37,12 +32,7 @@ function meyer3(
   return ADNLPModels.ADNLPModel(f, x0, name = "meyer3"; kwargs...)
 end
 
-function meyer3(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function meyer3(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   t = 45 .+ 5 * (1:16)
   x0 = T[0.02, 4000, 250]
   y = [

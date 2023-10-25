@@ -5,12 +5,7 @@ function freuroth(; use_nls::Bool = false, kwargs...)
   return freuroth(Val(model); kwargs...)
 end
 
-function freuroth(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function freuroth(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 2 && @warn("freuroth: number of variables must be ≥ 2")
   n = max(2, n)
   function f(x; n = length(x))
@@ -26,12 +21,7 @@ function freuroth(
   return ADNLPModels.ADNLPModel(f, x0, name = "freuroth"; kwargs...)
 end
 
-function freuroth(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function freuroth(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 2 && @warn("freuroth: number of variables must be ≥ 2")
   n = max(2, n)
   function F!(r, x; n = length(x))

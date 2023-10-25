@@ -5,12 +5,7 @@ function thurber(; use_nls::Bool = false, kwargs...)
   return thurber(Val(model); kwargs...)
 end
 
-function thurber(
-  ::Val{:nlp};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function thurber(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     80574//1000 -3067//1000
     84248//1000 -2981//1000
@@ -64,12 +59,7 @@ function thurber(
   return ADNLPModels.ADNLPModel(f, x0, name = "thurber"; kwargs...)
 end
 
-function thurber(
-  ::Val{:nls};
-  n::Int = default_nvar,
-  type::Type{T} = Float64,
-  kwargs...,
-) where {T}
+function thurber(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   y = Rational{Int}[
     80574//1000 -3067//1000
     84248//1000 -2981//1000
