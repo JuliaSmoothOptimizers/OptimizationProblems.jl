@@ -38,7 +38,7 @@ as much information as possible on the provenance of problems. The documentation
 
 ## How to cite
 
-If you use OptimizationProblems.jl in your work, please cite using the format given in [CITATION.bib](CITATION.bib).
+If you use OptimizationProblems.jl in your work, please cite using the format given in [CITATION.cff](CITATION.cff).
 
 # Bug reports and discussions
 
