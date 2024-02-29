@@ -44,7 +44,7 @@ function hs237(args...; kwargs...)
     -2.8673112392
   ]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     B[1] +
@@ -68,9 +68,9 @@ function hs237(args...; kwargs...)
     B[19] * x[1] * x[2]^3 +
     B[20] * exp(0.0005 * x[1] * x[2])
   )
-  @NLconstraint(nlp, x[1] * x[2] - 700 >= 0)
-  @NLconstraint(nlp, x[2] - 5 * (x[1] / 25)^2 >= 0)
-  @NLconstraint(nlp, (x[2] - 50)^2 - 5 * (x[1] - 55) >= 0)
+  @constraint(nlp, x[1] * x[2] - 700 >= 0)
+  @constraint(nlp, x[2] - 5 * (x[1] / 25)^2 >= 0)
+  @constraint(nlp, (x[2] - 50)^2 - 5 * (x[1] - 55) >= 0)
 
   return nlp
 end

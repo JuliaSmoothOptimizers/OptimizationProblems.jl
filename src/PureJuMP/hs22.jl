@@ -19,9 +19,9 @@ function hs22(args...; kwargs...)
   @variable(nlp, x[i = 1:2], start = 2)
 
   @constraint(nlp, x[1] + x[2] - 2 ≤ 0)
-  @NLconstraint(nlp, -x[1]^2 + x[2] ≥ 0)
+  @constraint(nlp, -x[1]^2 + x[2] ≥ 0)
 
-  @NLobjective(nlp, Min, 0.5 * (x[1] - 2)^2 + 0.5 * (x[2] - 1)^2)
+  @objective(nlp, Min, 0.5 * (x[1] - 2)^2 + 0.5 * (x[2] - 1)^2)
 
   return nlp
 end

@@ -199,7 +199,7 @@ function bennett5(args...; kwargs...)
   @variable(nlp, x[j = 1:3])
   set_start_value.(x, [-2000, 50, 0.8]) # other initial points [-1500, 45, 0.85]
 
-  @NLobjective(nlp, Min, 0.5 * sum((y[i, 1] - x[1] * (x[2] + y[i, 2])^(-1 / x[3]))^2 for i = 1:154))
+  @objective(nlp, Min, 0.5 * sum((y[i, 1] - x[1] * (x[2] + y[i, 2])^(-1 / x[3]))^2 for i = 1:154))
 
   return nlp
 end

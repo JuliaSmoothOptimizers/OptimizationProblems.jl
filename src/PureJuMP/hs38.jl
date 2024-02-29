@@ -19,7 +19,7 @@ function hs38(args...; kwargs...)
   x0 = [-3, -1, -3, -1]
   @variable(nlp, -10 ≤ x[i = 1:4] ≤ 10, start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     100 * (x[2] - x[1]^2)^2 +

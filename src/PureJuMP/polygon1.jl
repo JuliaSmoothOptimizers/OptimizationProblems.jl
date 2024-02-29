@@ -25,7 +25,7 @@ function polygon1(args...; n::Int = default_nvar, kwargs...)
     @constraint(nlp, θ[i + 1] - θ[i] >= 0.0)
   end
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     -0.5 * sum(r[i] * r[i + 1] * sin(θ[i + 1] - θ[i]) for i = 1:(N - 1)) -

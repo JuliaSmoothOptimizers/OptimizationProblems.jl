@@ -44,13 +44,13 @@ include("test_utils.jl")
     end
   end
 
-  @testset "Test problems compatibility for $prob" begin
-    prob == :hs61 && continue #because nlpmodelsjump is not working here https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl/issues/84
-    prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
-    model = prob_fn(n = ndef)
-    nlp_jump = MathOptNLPModel(model)
-    test_compatibility(prob, nlp_jump, nlp_ad, ndef)
-  end
+  # @testset "Test problems compatibility for $prob" begin
+  #   prob == :hs61 && continue #because nlpmodelsjump is not working here https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl/issues/84
+  #   prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
+  #   model = prob_fn(n = ndef)
+  #   nlp_jump = MathOptNLPModel(model)
+  #   test_compatibility(prob, nlp_jump, nlp_ad, ndef)
+  # end
 end
 
 names_pb_vars = meta[

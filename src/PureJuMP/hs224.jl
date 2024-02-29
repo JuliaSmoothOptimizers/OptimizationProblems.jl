@@ -21,7 +21,7 @@ function hs224(args...; kwargs...)
   uvar = [6, 6]
   @variable(nlp, uvar[i] ≥ x[i = 1:2] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, 2 * x[1]^2 + x[2]^2 - 48 * x[1] - 40 * x[2])
+  @objective(nlp, Min, 2 * x[1]^2 + x[2]^2 - 48 * x[1] - 40 * x[2])
   @constraint(nlp, x[1] + 3 * x[2] >= 0)
   @constraint(nlp, 18 - x[1] - 3 * x[2] >= 0)
   @constraint(nlp, x[1] + x[2] >= 0)

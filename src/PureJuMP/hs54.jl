@@ -33,7 +33,7 @@ function hs54(args...; kwargs...)
     ((x[6] - 1.e8)^2) / 2.5e17
   )
 
-  @NLobjective(nlp, Min, -exp(-h / 2))
+  @objective(nlp, Min, -exp(-h / 2))
 
   return nlp
 end

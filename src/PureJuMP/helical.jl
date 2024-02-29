@@ -9,7 +9,7 @@ function helical(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   x0 = [-1.0; 0.0; 0.0]
   @variable(nlp, x[i = 1:3], start = x0[i])
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     (10 * (x[3] - 10 * (atan(x[2] / x[1]) - 0.25 * (x[1] - abs(x[1]) / x[1])) / (2 * pi)))^2 +

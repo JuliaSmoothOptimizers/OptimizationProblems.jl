@@ -27,7 +27,7 @@ function sinquad(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = 0.1)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     (x[1] - 1.0)^4 +

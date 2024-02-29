@@ -21,7 +21,7 @@ function hs251(args...; kwargs...)
   uvar = [42, 42, 42]
   @variable(nlp, uvar[i] ≥ x[i = 1:3] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, -x[1] * x[2] * x[3])
+  @objective(nlp, Min, -x[1] * x[2] * x[3])
   @constraint(nlp, 72 - x[1] - 2 * x[2] - 2 * x[3] >= 0)
 
   return nlp

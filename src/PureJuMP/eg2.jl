@@ -32,7 +32,7 @@ function eg2(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = 0)
 
-  @NLobjective(nlp, Min, sum(sin(x[1] + x[i]^2 - 1) for i = 1:(n - 1)) + 0.5 * sin(x[n]^2))
+  @objective(nlp, Min, sum(sin(x[1] + x[i]^2 - 1) for i = 1:(n - 1)) + 0.5 * sin(x[n]^2))
 
   return nlp
 end

@@ -14,7 +14,7 @@ function AMPGO04(args...; kwargs...)
 
   @variable(nlp, x, start = 1.9)
 
-  @NLobjective(nlp, Min, -(16 * x^2 - 24 * x + 5) * exp(-x))
+  @objective(nlp, Min, -(16 * x^2 - 24 * x + 5) * exp(-x))
 
   return nlp
 end

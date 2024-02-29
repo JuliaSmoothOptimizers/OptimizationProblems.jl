@@ -62,7 +62,7 @@ function palmer5c(args...; kwargs...)
     end
   end
 
-  @NLobjective(nlp, Min, 0.5 * sum((Y[i] - sum(x[j] * t[i, 2 * j - 1] for j = 1:6))^2 for i = 1:12))
+  @objective(nlp, Min, 0.5 * sum((Y[i] - sum(x[j] * t[i, 2 * j - 1] for j = 1:6))^2 for i = 1:12))
 
   return nlp
 end

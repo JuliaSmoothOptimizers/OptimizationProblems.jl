@@ -21,12 +21,12 @@ function hs56(args...; kwargs...)
   x0 = [1, 1, 1, a, a, a, b]
   @variable(nlp, x[i = 1:7], start = x0[i])
 
-  @NLconstraint(nlp, x[1] - 4.2 * sin(x[4])^2 == 0)
-  @NLconstraint(nlp, x[2] - 4.2 * sin(x[5])^2 == 0)
-  @NLconstraint(nlp, x[3] - 4.2 * sin(x[6])^2 == 0)
-  @NLconstraint(nlp, x[1] + 2 * x[2] + 2 * x[3] - 7.2 * sin(x[7])^2 == 0)
+  @constraint(nlp, x[1] - 4.2 * sin(x[4])^2 == 0)
+  @constraint(nlp, x[2] - 4.2 * sin(x[5])^2 == 0)
+  @constraint(nlp, x[3] - 4.2 * sin(x[6])^2 == 0)
+  @constraint(nlp, x[1] + 2 * x[2] + 2 * x[3] - 7.2 * sin(x[7])^2 == 0)
 
-  @NLobjective(nlp, Min, -x[1] * x[2] * x[3])
+  @objective(nlp, Min, -x[1] * x[2] * x[3])
 
   return nlp
 end

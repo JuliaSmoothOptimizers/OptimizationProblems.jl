@@ -66,7 +66,7 @@ function mgh10(args...; kwargs...)
   set_start_value.(x, [2, 400000, 25000])
   # alternative: [0.02, 4000, 250]
 
-  @NLobjective(nlp, Min, 0.5 * sum((y[i, 1] - x[1] * exp(x[2] / (x[3] + y[i, 2])))^2 for i = 1:16))
+  @objective(nlp, Min, 0.5 * sum((y[i, 1] - x[1] * exp(x[2] / (x[3] + y[i, 2])))^2 for i = 1:16))
 
   return nlp
 end

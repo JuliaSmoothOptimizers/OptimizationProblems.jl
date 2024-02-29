@@ -24,7 +24,7 @@ function integreq(args...; n::Int = default_nvar, kwargs...)
   x0 = [j * h * (j * h - 1) for j = 1:n]
   set_start_value.(x, x0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     1 / 2 * sum(

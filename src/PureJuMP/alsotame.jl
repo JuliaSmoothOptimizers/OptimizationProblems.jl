@@ -25,10 +25,10 @@ function alsotame(; n::Int = default_nvar, kwargs...)
   @variable(nlp, -Inf <= x <= Inf, start = 0.0)
   @variable(nlp, -Inf <= y <= Inf, start = 0.0)
 
-  @NLobjective(nlp, Min, exp(x - 2 * y))
-  @NLconstraint(nlp, cons1, sin(-x + y - 1) == 0)
-  @NLconstraint(nlp, cons2, -2 <= x <= 2)
-  @NLconstraint(nlp, cons3, -1.5 <= y <= 1.5)
+  @objective(nlp, Min, exp(x - 2 * y))
+  @constraint(nlp, cons1, sin(-x + y - 1) == 0)
+  @constraint(nlp, cons2, -2 <= x <= 2)
+  @constraint(nlp, cons3, -1.5 <= y <= 1.5)
 
   return nlp
 end

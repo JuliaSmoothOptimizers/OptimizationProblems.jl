@@ -177,7 +177,7 @@ function nelson(args...; kwargs...)
   @variable(nlp, x[j = 1:3])
   set_start_value.(x, [2, 0.0001, -0.01]) # other: [2.5, 0.000000005, -0.05]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum((log(y[i, 1]) - (x[1] - x[2] * y[i, 2] * exp(-x[3] * y[i, 3])))^2 for i = 1:128)

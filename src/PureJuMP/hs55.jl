@@ -27,7 +27,7 @@ function hs55(args...; kwargs...)
   @constraint(nlp, x[2] + x[5] - 2 == 0)
   @constraint(nlp, x[3] + x[6] - 2 == 0)
 
-  @NLobjective(nlp, Min, x[1] + 2 * x[2] + 4 * x[5] + exp(x[1] * x[4]))
+  @objective(nlp, Min, x[1] + 2 * x[2] + 4 * x[5] + exp(x[1] * x[4]))
 
   return nlp
 end

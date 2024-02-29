@@ -36,7 +36,7 @@ function hs118(args...; kwargs...)
   @constraint(nlp, x[10] + x[11] + x[12] - 50 ≥ 0)
   @constraint(nlp, x[13] + x[14] + x[15] - 85 ≥ 0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

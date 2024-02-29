@@ -45,7 +45,7 @@ function clplatec(
   wr = wght * r
   wl = wght * l
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     wr * x[p, p] +

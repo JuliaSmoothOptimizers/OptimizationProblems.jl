@@ -20,7 +20,7 @@ function bard(args...; n::Int = default_nvar, m::Int = 2n, kwargs...)
 
   @variable(nlp, x[j = 1:3], start = 1.0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(y[i] - (x[1] + i / ((16 - i) * x[2] + min(i, 16 - i) * x[3])) for i = 1:15)

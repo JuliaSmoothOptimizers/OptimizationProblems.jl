@@ -13,7 +13,7 @@ function Duscube(args...; kwargs...)
 
   @variable(nlp, x, start = 1.0)
 
-  @NLobjective(nlp, Min, x^3 - (x - 4)^2 - 100 * x)
+  @objective(nlp, Min, x^3 - (x - 4)^2 - 100 * x)
 
   return nlp
 end
