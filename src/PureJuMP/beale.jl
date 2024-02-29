@@ -18,7 +18,7 @@ function beale(args...; kwargs...)
 
   @variable(nlp, x[i = 1:2], start = 1.0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * (1.5 - x[1] * (1.0 - x[2]))^2 +

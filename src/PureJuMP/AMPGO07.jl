@@ -14,7 +14,7 @@ function AMPGO07(args...; kwargs...)
 
   @variable(nlp, x, start = 2.7)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     ifelse(x <= 0.0, Inf, sin(x) + sin((10.0 / 3.0) * x) + log(abs(x)) - 0.84 * x + 3)

@@ -14,7 +14,7 @@ function AMPGO11(args...; kwargs...)
 
   @variable(nlp, x, start = -pi)
 
-  @NLobjective(nlp, Min, 2 * cos(x) + cos(2 * x))
+  @objective(nlp, Min, 2 * cos(x) + cos(2 * x))
 
   return nlp
 end

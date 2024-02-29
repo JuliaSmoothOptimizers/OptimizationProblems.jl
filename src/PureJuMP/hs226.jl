@@ -20,9 +20,9 @@ function hs226(args...; kwargs...)
   lvar = [0, 0]
   @variable(nlp, x[i = 1:2] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, -x[1] * x[2])
-  @NLconstraint(nlp, x[1]^2 + x[2]^2 >= 0)
-  @NLconstraint(nlp, 1 - x[1]^2 - x[2]^2 >= 0)
+  @objective(nlp, Min, -x[1] * x[2])
+  @constraint(nlp, x[1]^2 + x[2]^2 >= 0)
+  @constraint(nlp, 1 - x[1]^2 - x[2]^2 >= 0)
 
   return nlp
 end

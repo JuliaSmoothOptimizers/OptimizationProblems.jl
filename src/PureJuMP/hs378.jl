@@ -31,11 +31,11 @@ function hs378(args...; kwargs...)
 
   @variable(nlp, x[i = 1:10], start = -2.3)
 
-  @NLconstraint(nlp, exp(x[1]) + 2 * exp(x[2]) + 2 * exp(x[3]) + exp(x[6]) + exp(x[10]) - 2 == 0)
-  @NLconstraint(nlp, exp(x[4]) + 2 * exp(x[5]) + exp(x[6]) + exp(x[7]) - 1 == 0)
-  @NLconstraint(nlp, exp(x[3]) + exp(x[7]) + exp(x[8]) + 2 * exp(x[9]) + exp(x[10]) - 1 == 0)
+  @constraint(nlp, exp(x[1]) + 2 * exp(x[2]) + 2 * exp(x[3]) + exp(x[6]) + exp(x[10]) - 2 == 0)
+  @constraint(nlp, exp(x[4]) + 2 * exp(x[5]) + exp(x[6]) + exp(x[7]) - 1 == 0)
+  @constraint(nlp, exp(x[3]) + exp(x[7]) + exp(x[8]) + 2 * exp(x[9]) + exp(x[10]) - 1 == 0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(exp(x[i]) * (A[i] + x[i] - log(sum(exp(x[j]) for j = 1:10))) for i = 1:10)

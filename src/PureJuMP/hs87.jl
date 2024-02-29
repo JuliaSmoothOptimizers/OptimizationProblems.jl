@@ -25,10 +25,10 @@ function hs87(args...; kwargs...)
   d = cos(147588 // 100000)
   e = sin(147588 // 100000)
 
-  @NLconstraint(nlp, 300 - x[1] - 1 / a * x[3] * x[4] * cos(b - x[6]) + ci / a * d * x[3] == 0)
-  @NLconstraint(nlp, -x[2] - 1 / a * x[3] * x[4] * cos(b + x[6]) + ci / a * d * x[4]^2 == 0)
-  @NLconstraint(nlp, -x[5] - 1 / a * x[3] * x[4] * cos(b + x[6]) + ci / a * e * x[4]^2 == 0)
-  @NLconstraint(nlp, 200 - 1 / a * x[3] * x[4] * sin(b - x[6]) + ci / a * e * x[3]^2 == 0)
+  @constraint(nlp, 300 - x[1] - 1 / a * x[3] * x[4] * cos(b - x[6]) + ci / a * d * x[3] == 0)
+  @constraint(nlp, -x[2] - 1 / a * x[3] * x[4] * cos(b + x[6]) + ci / a * d * x[4]^2 == 0)
+  @constraint(nlp, -x[5] - 1 / a * x[3] * x[4] * cos(b + x[6]) + ci / a * e * x[4]^2 == 0)
+  @constraint(nlp, 200 - 1 / a * x[3] * x[4] * sin(b - x[6]) + ci / a * e * x[3]^2 == 0)
 
   function f1(x)
     return if 0 <= x <= 300
@@ -53,7 +53,7 @@ function hs87(args...; kwargs...)
   end
   register(nlp, :f1, 1, f1, autodiff = true)
   register(nlp, :f2, 1, f2, autodiff = true)
-  @NLobjective(nlp, Min, f1(x[1]) + f2(x[2]))
+  @objective(nlp, Min, f1(x[1]) + f2(x[2]))
 
   return nlp
 end

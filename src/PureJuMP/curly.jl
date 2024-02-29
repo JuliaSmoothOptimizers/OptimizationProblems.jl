@@ -35,7 +35,7 @@ function curly(args...; n::Int = default_nvar, b::Int = 10, kwargs...)
 
   @NLexpression(nlp, f[i = 1:n], sum(x[j] for j = i:min(i + b, n)))
 
-  @NLobjective(nlp, Min, sum(f[i] * (f[i] * (f[i]^2 - 20) - 0.1) for i = 1:n))
+  @objective(nlp, Min, sum(f[i] * (f[i] * (f[i]^2 - 20) - 0.1) for i = 1:n))
 
   return nlp
 end

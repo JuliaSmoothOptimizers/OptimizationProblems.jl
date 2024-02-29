@@ -24,7 +24,7 @@ function gulf(args...; n::Int = default_nvar, m::Int = 100, kwargs...)
   @variable(nlp, x[j = 1:n])
   set_start_value.(x, [5, 2.5, 0.15])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

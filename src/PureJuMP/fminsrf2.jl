@@ -53,7 +53,7 @@ function fminsrf2(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:p, j = 1:p], start = x0[i, j])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

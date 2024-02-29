@@ -33,7 +33,7 @@ function bdqrtic(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = 1.0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

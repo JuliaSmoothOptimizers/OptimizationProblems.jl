@@ -22,7 +22,7 @@ function hs99(args...; kwargs...)
 
   @variable(nlp, 0 ≤ x[i = 1:7] ≤ 1.58, start = 0.5)
 
-  @NLconstraint(
+  @constraint(
     nlp,
     sum(
       0.5 * (t[i] - t[i - 1])^2 * (a[i] * sin(x[i - 1]) - b) +
@@ -30,9 +30,9 @@ function hs99(args...; kwargs...)
       i = 2:8
     ) - 1e5 == 0
   )
-  @NLconstraint(nlp, sum((t[i] - t[i - 1]) * (a[i] * sin(x[i - 1]) - b) for i = 2:8) - 1e3 == 0)
+  @constraint(nlp, sum((t[i] - t[i - 1]) * (a[i] * sin(x[i - 1]) - b) for i = 2:8) - 1e3 == 0)
 
-  @NLobjective(nlp, Min, -(sum(a[i] * (t[i] - t[i - 1]) * cos(x[i - 1]) for i = 2:8))^2)
+  @objective(nlp, Min, -(sum(a[i] * (t[i] - t[i - 1]) * cos(x[i - 1]) for i = 2:8))^2)
 
   return nlp
 end

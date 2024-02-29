@@ -40,7 +40,7 @@ function channel(args...; n::Int = default_nvar, kwargs...)
   @variable(nlp, v[i = 1:nh, j = 1:nd], start = x0[i + (j - 1) * nh])
   @variable(nlp, w[i = 1:nh, j = 1:nc], start = 0.0)
 
-  @NLobjective(nlp, Min, 1.0)
+  @objective(nlp, Min, 1.0)
 
   @constraint(nlp, v[1, 1] == bc[1, 1])
   @constraint(nlp, v[1, 2] == bc[2, 1])
@@ -65,7 +65,7 @@ function channel(args...; n::Int = default_nvar, kwargs...)
   end
 
   for j = 1:nc, i = 1:nh
-    @NLconstraint(
+    @constraint(
       nlp,
       sum(w[i, k] * (ρ[j]^(k - 1) / prod(j for j = 1:(k - 1))) for k = 1:nc) -
       R * (

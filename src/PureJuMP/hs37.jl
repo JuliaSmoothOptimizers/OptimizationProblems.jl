@@ -20,7 +20,7 @@ function hs37(args...; kwargs...)
 
   @constraint(nlp, 0 ≤ x[1] + 2 * x[2] + 2 * x[3] ≤ 72)
 
-  @NLobjective(nlp, Min, -x[1] * x[2] * x[3])
+  @objective(nlp, Min, -x[1] * x[2] * x[3])
 
   return nlp
 end

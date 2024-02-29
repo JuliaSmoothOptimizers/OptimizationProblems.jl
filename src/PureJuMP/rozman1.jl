@@ -70,7 +70,7 @@ function rozman1(args...; kwargs...)
   @variable(nlp, x[j = 1:4])
   set_start_value.(x, [0.1, -0.00001, 1000, -100]) # other: [0.2, -0.000005, 1200, -150]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 *

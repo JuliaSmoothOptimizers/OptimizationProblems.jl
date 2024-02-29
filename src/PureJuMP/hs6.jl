@@ -19,9 +19,9 @@ function hs6(args...; kwargs...)
   x0 = [-1.2, 1]
   @variable(nlp, x[i = 1:2], start = x0[i])
 
-  @NLobjective(nlp, Min, 0.5 * (1 - x[1])^2)
+  @objective(nlp, Min, 0.5 * (1 - x[1])^2)
 
-  @NLconstraint(nlp, 10 * (x[2] - x[1]^2) == 0)
+  @constraint(nlp, 10 * (x[2] - x[1]^2) == 0)
 
   return nlp
 end

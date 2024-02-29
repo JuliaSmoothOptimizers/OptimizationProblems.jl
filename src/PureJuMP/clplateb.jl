@@ -38,7 +38,7 @@ function clplateb(args...; n::Int = default_nvar, wght::Float64 = -0.1, kwargs..
   hp2 = 0.5 * p^2
   disw = wght / (p - 1)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(disw * x[p, j] for j = 1:p) +
