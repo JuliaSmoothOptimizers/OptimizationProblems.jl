@@ -21,8 +21,8 @@ function hs234(args...; kwargs...)
   uvar = [2, 2]
   @variable(nlp, uvar[i] ≥ x[i = 1:2] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, (x[2] - x[1])^4 - (1 - x[1]))
-  @NLconstraint(nlp, -x[1]^2 - x[2]^2 + 1 >= 0)
+  @objective(nlp, Min, (x[2] - x[1])^4 - (1 - x[1]))
+  @constraint(nlp, -x[1]^2 - x[2]^2 + 1 >= 0)
 
   return nlp
 end

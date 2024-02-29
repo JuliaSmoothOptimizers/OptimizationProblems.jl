@@ -60,7 +60,7 @@ function mgh09(args...; kwargs...)
   @variable(nlp, x[j = 1:4])
   set_start_value.(x, [25, 39, 41.5, 39]) # other: [0.25, 0.39, 0.415, 0.39]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

@@ -220,7 +220,7 @@ function enso(args...; kwargs...)
   set_start_value.(x, [11, 3, 0.5, 40, -0.7, -1.3, 25, -0.3, 1.4])
   # other: [10, 3, 0.5, 44, -1.5, 0.5, 26, -0.1, 1.5]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

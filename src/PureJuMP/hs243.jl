@@ -33,7 +33,7 @@ function hs243(args...; kwargs...)
     -0.869487 0.586387 0.289826
   ]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

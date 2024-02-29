@@ -20,7 +20,7 @@ function zangwil3(args...; kwargs...)
 
   @variable(nlp, x[i = 1:3], start = x0[i])
 
-  @NLobjective(nlp, Min, 0)
+  @objective(nlp, Min, 0)
 
   @constraint(nlp, constr1, x[1] - x[2] + x[3] == 0)
 

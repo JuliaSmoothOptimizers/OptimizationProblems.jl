@@ -20,7 +20,7 @@ function hs232(args...; kwargs...)
   lvar = [0, 0]
   @variable(nlp, x[i = 1:2] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, -(9 - (x[1] - 3)^2) * x[2]^3 / (27 * sqrt(3)))
+  @objective(nlp, Min, -(9 - (x[1] - 3)^2) * x[2]^3 / (27 * sqrt(3)))
   @constraint(nlp, x[1] / sqrt(3) - x[2] >= 0)
   @constraint(nlp, x[1] + sqrt(3) * x[2] >= 0)
   @constraint(nlp, 6 - x[1] - sqrt(3) * x[2] >= 0)

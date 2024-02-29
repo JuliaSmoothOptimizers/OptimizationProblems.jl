@@ -81,7 +81,7 @@ function osborne2(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   x0 = [1.3, 0.65, 0.65, 0.7, 0.6, 3, 5, 7, 2, 4.5, 5.5]
   @variable(nlp, x[i = 1:11], start = x0[i])
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

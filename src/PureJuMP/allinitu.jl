@@ -22,7 +22,7 @@ function allinitu(; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, -Inf <= x[1:4] <= Inf, start = 0.0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     x[3] - 1 + x[1]^2 + x[2]^2 + (x[3] + x[4])^2 + sin(x[3])^2 + x[1]^2 * x[2]^2 + x[4] - 3 +

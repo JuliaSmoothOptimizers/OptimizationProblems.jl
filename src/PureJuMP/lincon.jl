@@ -24,7 +24,7 @@ function lincon(args...; n::Int = default_nvar, kwargs...)
     @constraint(nlp, sum(B[j, i] * x[2 + i] for i = 1:3) <= c[j])
   end
   @constraint(nlp, -11 <= sum(b[i] * x[7 + i] for i = 1:2) <= 9)
-  @NLobjective(nlp, Min, sum(i + x[i]^4 for i = 1:15))
+  @objective(nlp, Min, sum(i + x[i]^4 for i = 1:15))
 
   return nlp
 end

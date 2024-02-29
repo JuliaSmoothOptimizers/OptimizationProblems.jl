@@ -19,10 +19,10 @@ function hs46(args...; kwargs...)
   x0 = [sqrt(2) / 2, 1.75, 0.5, 2, 2]
   @variable(nlp, x[i = 1:5], start = x0[i])
 
-  @NLconstraint(nlp, (x[1]^2) * x[4] + sin(x[4] - x[5]) - 1 == 0)
-  @NLconstraint(nlp, x[2] + (x[3]^4) * (x[4]^2) - 2 == 0)
+  @constraint(nlp, (x[1]^2) * x[4] + sin(x[4] - x[5]) - 1 == 0)
+  @constraint(nlp, x[2] + (x[3]^4) * (x[4]^2) - 2 == 0)
 
-  @NLobjective(nlp, Min, (x[1] - x[2])^2 + (x[3] - 1)^2 + (x[4] - 1)^4 + (x[5] - 1)^6)
+  @objective(nlp, Min, (x[1] - x[2])^2 + (x[3] - 1)^2 + (x[4] - 1)^4 + (x[5] - 1)^6)
 
   return nlp
 end

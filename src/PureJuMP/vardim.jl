@@ -20,7 +20,7 @@ function vardim(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = (1 - i / n))
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum((x[i] - 1)^2 for i = 1:n) +

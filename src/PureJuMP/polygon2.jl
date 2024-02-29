@@ -17,7 +17,7 @@ function polygon2(args...; n::Int = default_nvar, kwargs...)
   # impose an order to the angles
   @constraint(nlp, sum(α) == 2π)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     -0.5 * sum(r[i] * r[i + 1] * sin(α[i]) for i = 1:(N - 1)) - 0.5 * r[1] * r[N] * sin(α[N])

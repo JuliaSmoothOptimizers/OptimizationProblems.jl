@@ -20,7 +20,7 @@ function hs257(args...; kwargs...)
   lvar = [0, -Inf, 0, -Inf]
   @variable(nlp, x[i = 1:4] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     100 * (x[2] - x[1]^2)^2 +

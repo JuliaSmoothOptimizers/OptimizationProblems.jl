@@ -20,11 +20,11 @@ function hs59(args...; kwargs...)
   uvar = [75, 65]
   @variable(nlp, 0 ≤ x[i = 1:2] ≤ uvar[i], start = x0[i])
 
-  @NLconstraint(nlp, x[1] * x[2] - 700 ≥ 0)
-  @NLconstraint(nlp, x[2] - (x[1]^2) / 125 ≥ 0)
-  @NLconstraint(nlp, (x[2] - 50)^2 - 5 * (x[1] - 55) ≥ 0)
+  @constraint(nlp, x[1] * x[2] - 700 ≥ 0)
+  @constraint(nlp, x[2] - (x[1]^2) / 125 ≥ 0)
+  @constraint(nlp, (x[2] - 50)^2 - 5 * (x[1] - 55) ≥ 0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     -75.196 + 3.8112 * x[1] + 0.0020567 * x[1]^3 - 1.0345e-5 * x[1]^4 + 6.8306 * x[2] -

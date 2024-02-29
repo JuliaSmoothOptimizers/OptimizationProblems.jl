@@ -24,9 +24,9 @@ function hs106(args...; kwargs...)
   @constraint(nlp, 1 - 0.0025 * (x[4] + x[6]) ≥ 0)
   @constraint(nlp, 1 - 0.0025 * (x[5] + x[7] - x[4]) ≥ 0)
   @constraint(nlp, 1 - 0.01 * (x[8] - x[5]) ≥ 0)
-  @NLconstraint(nlp, x[1] * x[6] - 833.33252 * x[4] - 100 * x[1] + 83333.333 ≥ 0)
-  @NLconstraint(nlp, x[2] * x[7] - 1250 * x[5] - x[2] * x[4] + 1250 * x[4] ≥ 0)
-  @NLconstraint(nlp, x[3] * x[8] - 1250000 - x[3] * x[5] + 2500 * x[5] ≥ 0)
+  @constraint(nlp, x[1] * x[6] - 833.33252 * x[4] - 100 * x[1] + 83333.333 ≥ 0)
+  @constraint(nlp, x[2] * x[7] - 1250 * x[5] - x[2] * x[4] + 1250 * x[4] ≥ 0)
+  @constraint(nlp, x[3] * x[8] - 1250000 - x[3] * x[5] + 2500 * x[5] ≥ 0)
 
   @objective(nlp, Min, x[1] + x[2] + x[3])
 

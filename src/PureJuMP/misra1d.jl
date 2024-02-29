@@ -55,7 +55,7 @@ function misra1d(args...; kwargs...)
   @variable(nlp, x[j = 1:2])
   set_start_value.(x, [500, 0.0001]) # other: [450, 0.0003]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum((y[i, 1] - x[1] * x[2] * y[i, 2] * (1 + x[2] * y[i, 2])^(-1))^2 for i = 1:14)

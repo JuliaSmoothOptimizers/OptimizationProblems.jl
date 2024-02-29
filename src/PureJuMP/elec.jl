@@ -26,7 +26,7 @@ function elec(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:(3n)], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(
@@ -37,7 +37,7 @@ function elec(args...; n::Int = default_nvar, kwargs...)
     )
   )
 
-  @NLconstraint(nlp, [k = 1:n], x[k]^2 + x[n + k]^2 + x[2n + k]^2 == 1)
+  @constraint(nlp, [k = 1:n], x[k]^2 + x[n + k]^2 + x[2n + k]^2 == 1)
 
   return nlp
 end

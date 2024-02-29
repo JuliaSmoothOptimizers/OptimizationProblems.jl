@@ -22,7 +22,7 @@ function hs24(args...; kwargs...)
   @constraint(nlp, x[1] / sqrt(3) - x[2] ≥ 0)
   @constraint(nlp, 0 ≤ x[1] + sqrt(3) * x[2] ≤ 6)
 
-  @NLobjective(nlp, Min, 1 / (27 * sqrt(3)) * ((x[1] - 3)^2 - 9) * x[2]^3)
+  @objective(nlp, Min, 1 / (27 * sqrt(3)) * ((x[1] - 3)^2 - 9) * x[2]^3)
 
   return nlp
 end

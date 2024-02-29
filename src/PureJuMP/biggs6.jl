@@ -19,7 +19,7 @@ function biggs6(args...; n::Int = default_nvar, m::Int = 13, kwargs...)
   nlp = Model()
   x0 = [1.0; 2.0; 1.0; 1.0; 1.0; 1.0]
   @variable(nlp, x[i = 1:6], start = x0[i])
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

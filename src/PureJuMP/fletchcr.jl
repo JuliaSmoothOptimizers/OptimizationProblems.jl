@@ -40,7 +40,7 @@ function fletchcr(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = 0.0)
 
-  @NLobjective(nlp, Min, 100.0 * sum((x[i + 1] - x[i] + 1 - x[i]^2)^2 for i = 1:(n - 1)))
+  @objective(nlp, Min, 100.0 * sum((x[i + 1] - x[i] + 1 - x[i]^2)^2 for i = 1:(n - 1)))
 
   return nlp
 end

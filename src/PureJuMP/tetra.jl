@@ -34,7 +34,7 @@ function tetra(
 
   @variable(nlp, lvar[i] <= x[i = 1:n] <= uvar[i], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(
@@ -62,7 +62,7 @@ function tetra(
   )
 
   for e = 1:E
-    @NLconstraint(
+    @constraint(
       nlp,
       sum(
         (x[TETS[e + E] + N * i] - x[TETS[e] + N * i]) *

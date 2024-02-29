@@ -16,7 +16,7 @@ function Shpak2(args...; kwargs...)
 
   @variable(nlp, x, start = 3.1)
 
-  @NLobjective(nlp, Min, sin(x) + sin((10.0 / 3.0) * x))
+  @objective(nlp, Min, sin(x) + sin((10.0 / 3.0) * x))
 
   return nlp
 end

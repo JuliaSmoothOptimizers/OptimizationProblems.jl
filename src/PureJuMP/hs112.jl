@@ -19,7 +19,7 @@ function hs112(args...; kwargs...)
   c = [-6.089, -17.164, -34.054, -5.914, -24.721, -14.986, -24.100, -10.708, -26.662, -22.179]
   @variable(nlp, x[i = 1:10] ≥ 1.0e-6, start = 0.1)
 
-  @NLobjective(nlp, Min, sum(x[j] * (c[j] + log(x[j] / (sum(x[k] for k = 1:10)))) for j = 1:10))
+  @objective(nlp, Min, sum(x[j] * (c[j] + log(x[j] / (sum(x[k] for k = 1:10)))) for j = 1:10))
 
   @constraint(nlp, x[1] + 2 * x[2] + 2 * x[3] + x[6] + x[10] - 2 == 0)
 

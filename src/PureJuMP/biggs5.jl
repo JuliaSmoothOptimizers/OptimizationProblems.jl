@@ -23,7 +23,7 @@ function biggs5(args...; n::Int = default_nvar, m::Int = 13, kwargs...)
   x0 = [1.0; 2.0; 1.0; 1.0; 1.0; 1.0]
   @variable(nlp, x[i = 1:6], start = x0[i])
   fix(x[6], 3)
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

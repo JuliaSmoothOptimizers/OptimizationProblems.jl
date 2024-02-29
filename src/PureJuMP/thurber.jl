@@ -83,7 +83,7 @@ function thurber(args...; kwargs...)
   set_start_value.(x, [1000, 1000, 400, 40, 0.7, 0.3, 0.03])
   # other: [1300, 1500, 500, 75, 1, 0.4, 0.05]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

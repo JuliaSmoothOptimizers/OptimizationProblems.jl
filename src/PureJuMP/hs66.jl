@@ -20,8 +20,8 @@ function hs66(args...; kwargs...)
   uvar = [100, 100, 10]
   @variable(nlp, 0 ≤ x[i = 1:3] ≤ uvar[i], start = x0[i])
 
-  @NLconstraint(nlp, x[2] - exp(x[1]) ≥ 0)
-  @NLconstraint(nlp, x[3] - exp(x[2]) ≥ 0)
+  @constraint(nlp, x[2] - exp(x[1]) ≥ 0)
+  @constraint(nlp, x[3] - exp(x[2]) ≥ 0)
 
   @objective(nlp, Min, 0.2 * x[3] - 0.8 * x[1])
 

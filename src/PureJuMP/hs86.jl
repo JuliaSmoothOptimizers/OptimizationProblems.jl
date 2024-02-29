@@ -48,7 +48,7 @@ function hs86(args...; kwargs...)
     @constraint(nlp, sum(a[i, j] * x[j] for j = 1:5) - b[i] ≥ 0)
   end
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(e[j] * x[j] for j = 1:5) +

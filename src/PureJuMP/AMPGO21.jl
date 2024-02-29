@@ -14,7 +14,7 @@ function AMPGO21(args...; kwargs...)
 
   @variable(nlp, x, start = 0.0)
 
-  @NLobjective(nlp, Min, (x * sin(x)) + (x * cos(2 * x)))
+  @objective(nlp, Min, (x * sin(x)) + (x * cos(2 * x)))
 
   return nlp
 end

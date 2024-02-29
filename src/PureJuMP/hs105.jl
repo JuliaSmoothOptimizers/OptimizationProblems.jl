@@ -59,7 +59,7 @@ function hs105(args...; kwargs...)
 
   @constraint(nlp, 1 - x[1] - x[2] ≥ 0)
 
-  @NLobjective(nlp, Min, -sum(log((a[i] + b[i] + c[i]) / sqrt(2 * pi)) for i = 1:235))
+  @objective(nlp, Min, -sum(log((a[i] + b[i] + c[i]) / sqrt(2 * pi)) for i = 1:235))
 
   return nlp
 end

@@ -46,7 +46,7 @@ function bearing(
   # var v {i in 0..nx+1, 0..ny+1} >= 0;
   @variable(nlp, uvar[i, j] >= v[i = 1:(nx + 2), j = 1:(ny + 2)] >= 0, start = max(sin(i * hx), 0))
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 *

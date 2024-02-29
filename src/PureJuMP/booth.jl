@@ -25,9 +25,9 @@ function booth(; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, -Inf <= x[1:2] <= Inf, start = 0.0)
 
-  @NLobjective(nlp, Min, 0)
-  @NLconstraint(nlp, cons1, (x[1] + 2 * x[2] - 7) == 0)
-  @NLconstraint(nlp, cons2, (2 * x[1] + x[2] - 5) == 0)
+  @objective(nlp, Min, 0)
+  @constraint(nlp, cons1, (x[1] + 2 * x[2] - 7) == 0)
+  @constraint(nlp, cons2, (2 * x[1] + x[2] - 5) == 0)
 
   return nlp
 end

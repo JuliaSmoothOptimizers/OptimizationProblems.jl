@@ -49,9 +49,9 @@ function hs70(args...; kwargs...)
     exp(x[1] - b * c[i] * x[1] / (7.658 * x[4]))
   )
 
-  @NLconstraint(nlp, x[3] + (1 - x[3]) * x[4] ≥ 0)
+  @constraint(nlp, x[3] + (1 - x[3]) * x[4] ≥ 0)
 
-  @NLobjective(nlp, Min, sum((ycal[i] - yobs[i])^2 for i = 1:19))
+  @objective(nlp, Min, sum((ycal[i] - yobs[i])^2 for i = 1:19))
 
   return nlp
 end

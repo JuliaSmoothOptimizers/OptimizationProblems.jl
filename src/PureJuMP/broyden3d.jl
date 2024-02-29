@@ -18,7 +18,7 @@ function broyden3d(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = -1.0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(((3 - 2 * x[i]) * x[i] - x[i - 1] - 2 * x[i + 1] + 1)^2 for i = 2:(n - 1)) +

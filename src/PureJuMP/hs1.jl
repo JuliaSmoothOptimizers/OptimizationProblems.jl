@@ -20,7 +20,7 @@ function hs1(args...; kwargs...)
   lvar = [-Inf, -1.5]
   @variable(nlp, x[i = 1:2] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, 100 * (x[2] - x[1]^2)^2 + (1 - x[1])^2)
+  @objective(nlp, Min, 100 * (x[2] - x[1]^2)^2 + (1 - x[1])^2)
 
   return nlp
 end

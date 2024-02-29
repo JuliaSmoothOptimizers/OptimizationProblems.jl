@@ -21,8 +21,8 @@ function bqp1var(; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, -Inf <= x1 <= Inf, start = 0.25)
 
-  @NLobjective(nlp, Min, x1 + x1^2)
-  @NLconstraint(nlp, cons1, 0.0 <= x1 <= 0.5)
+  @objective(nlp, Min, x1 + x1^2)
+  @constraint(nlp, cons1, 0.0 <= x1 <= 0.5)
 
   return nlp
 end

@@ -36,7 +36,7 @@ function clplatea(args...; n::Int = default_nvar, wght::Float64 = -0.1, kwargs..
 
   hp2 = 0.5 * p^2
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     (wght * x[p, p]) +

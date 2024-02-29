@@ -14,7 +14,7 @@ function AMPGO02(args...; kwargs...)
 
   @variable(nlp, x, start = 2.7)
 
-  @NLobjective(nlp, Min, sin(x) + sin((10.0 / 3.0) * x))
+  @objective(nlp, Min, sin(x) + sin((10.0 / 3.0) * x))
 
   return nlp
 end

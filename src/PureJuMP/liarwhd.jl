@@ -31,7 +31,7 @@ function liarwhd(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = 4.0)
 
-  @NLobjective(nlp, Min, sum(4.0 * (x[i]^2 - x[1])^2 + (x[i] - 1)^2 for i = 1:n))
+  @objective(nlp, Min, sum(4.0 * (x[i]^2 - x[1])^2 + (x[i] - 1)^2 for i = 1:n))
 
   return nlp
 end

@@ -14,7 +14,7 @@ function AMPGO12(args...; kwargs...)
 
   @variable(nlp, x, start = 0.0)
 
-  @NLobjective(nlp, Min, sin(x)^3 + cos(x)^3)
+  @objective(nlp, Min, sin(x)^3 + cos(x)^3)
 
   return nlp
 end

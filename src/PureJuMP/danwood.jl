@@ -55,7 +55,7 @@ function danwood(args...; kwargs...)
   @variable(nlp, x[j = 1:2])
   set_start_value.(x, [1, 5]) # other: [0.7, 4]
 
-  @NLobjective(nlp, Min, 0.5 * sum((y[i, 1] - x[1] * y[i, 1]^(x[2]))^2 for i = 1:6))
+  @objective(nlp, Min, 0.5 * sum((y[i, 1] - x[1] * y[i, 1]^(x[2]))^2 for i = 1:6))
 
   return nlp
 end

@@ -21,10 +21,10 @@ function hs19(args...; kwargs...)
   uvar = [100, 100]
   @variable(nlp, lvar[i] ≤ x[i = 1:2] ≤ uvar[i], start = x0[i])
 
-  @NLconstraint(nlp, (x[1] - 5)^2 + (x[2] - 5)^2 - 100 ≥ 0)
-  @NLconstraint(nlp, (x[2] - 5)^2 + (x[1] - 6)^2 - 82.81 ≤ 0)
+  @constraint(nlp, (x[1] - 5)^2 + (x[2] - 5)^2 - 100 ≥ 0)
+  @constraint(nlp, (x[2] - 5)^2 + (x[1] - 6)^2 - 82.81 ≤ 0)
 
-  @NLobjective(nlp, Min, (x[1] - 10)^3 + (x[2] - 20)^3)
+  @objective(nlp, Min, (x[1] - 10)^3 + (x[2] - 20)^3)
 
   return nlp
 end

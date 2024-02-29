@@ -18,7 +18,7 @@ function cliff(args...; kwargs...)
 
   @variable(nlp, x[i = 1:2], start = x0[i])
 
-  @NLobjective(nlp, Min, (0.01 * x[1] - 0.03)^2 - x[1] + x[2] + exp(20 * (x[1] - x[2])))
+  @objective(nlp, Min, (0.01 * x[1] - 0.03)^2 - x[1] + x[2] + exp(20 * (x[1] - x[2])))
 
   return nlp
 end

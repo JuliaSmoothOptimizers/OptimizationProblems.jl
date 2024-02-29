@@ -19,9 +19,9 @@ function hs26(args...; kwargs...)
   x0 = [-2.6, 2.0, 2.0]
   @variable(nlp, x[i = 1:3], start = x0[i])
 
-  @NLobjective(nlp, Min, (x[1] - x[2])^2 + (x[2] - x[3])^4)
+  @objective(nlp, Min, (x[1] - x[2])^2 + (x[2] - x[3])^4)
 
-  @NLconstraint(nlp, constr1, (1 + x[2]^2) * x[1] + x[3]^4 - 3 == 0)
+  @constraint(nlp, constr1, (1 + x[2]^2) * x[1] + x[3]^4 - 3 == 0)
 
   return nlp
 end

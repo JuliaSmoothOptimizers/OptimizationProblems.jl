@@ -23,7 +23,7 @@ function sparsqur(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = 0.5)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     1 / 8 * sum(

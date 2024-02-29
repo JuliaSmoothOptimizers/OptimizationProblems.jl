@@ -143,7 +143,7 @@ function threepk(; n::Int = default_nvar, kwargs...)
   @variable(nlp, 0.0 <= t3_5 <= Inf, start = 150.0)
   @variable(nlp, 0.0 <= t4_5 <= Inf, start = 20.0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     (0.01 * t0_3 - 1.0) * (0.01 * t0_3 - 1.0) +

@@ -83,7 +83,7 @@ function mgh17(args...; kwargs...)
   @variable(nlp, x[j = 1:5])
   set_start_value.(x, [50, 150, -100, 1, 2]) # other: [0.5, 1.5, -1, 0.01, 0.02]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

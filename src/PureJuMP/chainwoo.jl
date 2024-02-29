@@ -49,7 +49,7 @@ function chainwoo(args...; n::Int = default_nvar, kwargs...)
   set_start_value(x[3], -3)
   set_start_value(x[4], -1)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     1.0 + sum(

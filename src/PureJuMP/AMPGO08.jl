@@ -13,7 +13,7 @@ function AMPGO08(args...; kwargs...)
 
   @variable(nlp, x, start = -10.0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     -(

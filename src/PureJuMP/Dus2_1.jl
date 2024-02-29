@@ -14,7 +14,7 @@ function Dus2_1(args...; kwargs...)
 
   @variable(nlp, x, start = -1.0)
 
-  @NLobjective(nlp, Min, exp(x * (x - 1)))
+  @objective(nlp, Min, exp(x * (x - 1)))
 
   return nlp
 end

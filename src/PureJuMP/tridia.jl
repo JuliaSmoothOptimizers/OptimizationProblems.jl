@@ -29,7 +29,7 @@ function tridia(
 
   @variable(nlp, x[i = 1:n], start = 1.0)
 
-  @NLobjective(nlp, Min, γ * (x[1] * δ - 1.0)^2 + sum(i * (-β * x[i - 1] + α * x[i])^2 for i = 2:n))
+  @objective(nlp, Min, γ * (x[1] * δ - 1.0)^2 + sum(i * (-β * x[i - 1] + α * x[i])^2 for i = 2:n))
 
   return nlp
 end

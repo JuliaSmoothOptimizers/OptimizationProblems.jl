@@ -24,7 +24,7 @@ function brownden(args...; m::Int = default_nvar, kwargs...)
 
   t = Float64[i / 5 for i = 1:m]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

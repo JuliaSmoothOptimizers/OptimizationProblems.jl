@@ -20,13 +20,13 @@ function hs264(args...; kwargs...)
 
   @variable(nlp, x[i = 1:4], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     x[1]^2 + x[2]^2 + 2 * x[3]^2 + x[4]^2 - 5 * x[1] - 5 * x[2] - 21 * x[3] + 7 * x[4]
   )
-  @NLconstraint(nlp, -x[1]^2 - x[2]^2 - x[3]^2 - x[4]^2 - x[1] + x[2] + x[3] + x[4] + 8 >= 0)
-  @NLconstraint(nlp, -x[1]^2 - 2 * x[2]^2 - x[3]^2 - 2 * x[4]^2 + x[1] + x[4] + 9 >= 0)
-  @NLconstraint(nlp, -2 * x[1]^2 - x[2]^2 - x[3]^2 - 2 * x[1] + x[2] + x[4] + 5 >= 0)
+  @constraint(nlp, -x[1]^2 - x[2]^2 - x[3]^2 - x[4]^2 - x[1] + x[2] + x[3] + x[4] + 8 >= 0)
+  @constraint(nlp, -x[1]^2 - 2 * x[2]^2 - x[3]^2 - 2 * x[4]^2 + x[1] + x[4] + 9 >= 0)
+  @constraint(nlp, -2 * x[1]^2 - x[2]^2 - x[3]^2 - 2 * x[1] + x[2] + x[4] + 5 >= 0)
   return nlp
 end

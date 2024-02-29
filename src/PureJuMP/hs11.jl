@@ -19,9 +19,9 @@ function hs11(args...; kwargs...)
   x0 = [4.9, 0.1]
   @variable(nlp, x[i = 1:2], start = x0[i])
 
-  @NLobjective(nlp, Min, (x[1] - 5)^2 + x[2]^2 - 25)
+  @objective(nlp, Min, (x[1] - 5)^2 + x[2]^2 - 25)
 
-  @NLconstraint(nlp, x[1]^2 ≤ x[2])
+  @constraint(nlp, x[1]^2 ≤ x[2])
 
   return nlp
 end

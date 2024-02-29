@@ -41,7 +41,7 @@ function sbrybnd(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = 1.0 / p[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

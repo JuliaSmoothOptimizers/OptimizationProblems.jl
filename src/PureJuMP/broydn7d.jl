@@ -54,7 +54,7 @@ function broydn7d(args...; n::Int = default_nvar, p::Float64 = 7 / 3, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = (-1.0))
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     abs(1 - 2 * x[2] + (3 - x[1] / 2) * x[1])^p +

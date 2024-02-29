@@ -29,7 +29,7 @@ function penalty3(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:n], start = i / (n + 1))
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     1.0 +

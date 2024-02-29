@@ -34,7 +34,7 @@ function nondquar(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:n], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     (x[1] - x[2])^2 + (x[n - 1] - x[n])^2 + sum((x[i] + x[i + 1] + x[n])^4 for i = 1:(n - 2))

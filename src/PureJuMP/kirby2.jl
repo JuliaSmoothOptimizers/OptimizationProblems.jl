@@ -194,7 +194,7 @@ function kirby2(args...; kwargs...)
   @variable(nlp, x[j = 1:5])
   set_start_value.(x, [2, -0.1, 0.003, -0.001, 0.00001]) # other: [1.5, -0.15, 0.0025, -0.0015, 0.00002]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

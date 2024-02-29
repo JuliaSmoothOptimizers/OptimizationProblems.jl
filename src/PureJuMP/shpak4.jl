@@ -17,7 +17,7 @@ function Shpak4(args...; kwargs...)
 
   @variable(nlp, x, start = -1.0)
 
-  @NLobjective(nlp, Min, (x + sin(x)) * exp(-(x)^2))
+  @objective(nlp, Min, (x + sin(x)) * exp(-(x)^2))
 
   return nlp
 end

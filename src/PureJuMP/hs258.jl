@@ -20,7 +20,7 @@ function hs258(args...; kwargs...)
 
   @variable(nlp, x[i = 1:4], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     100 * (x[2] - x[1]^2)^2 +

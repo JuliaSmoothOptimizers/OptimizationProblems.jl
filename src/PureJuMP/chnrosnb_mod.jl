@@ -23,7 +23,7 @@ function chnrosnb_mod(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = -1.0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     16 * sum((x[i - 1] - x[i]^2)^2 * (1.5 + sin(i))^2 for i = 2:n) +

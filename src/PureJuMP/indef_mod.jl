@@ -22,7 +22,7 @@ function indef_mod(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = i / (n + 1))
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     100.0 * sum(sin(x[i] / 100.0) for i = 1:n) +

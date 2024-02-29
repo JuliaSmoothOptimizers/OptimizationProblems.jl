@@ -28,10 +28,10 @@ function polygon(args...; n::Int = default_nvar, kwargs...)
   end
   for i = 1:(N - 1)
     for j = (i + 1):N
-      @NLconstraint(nlp, r[i]^2 + r[j]^2 - 2 * r[i] * r[j] * cos(θ[i] - θ[j]) - 1 <= 0)
+      @constraint(nlp, r[i]^2 + r[j]^2 - 2 * r[i] * r[j] * cos(θ[i] - θ[j]) - 1 <= 0)
     end
   end
 
-  @NLobjective(nlp, Min, -0.5 * sum(r[i] * r[i + 1] * sin(θ[i + 1] - θ[i]) for i = 1:(N - 1)))
+  @objective(nlp, Min, -0.5 * sum(r[i] * r[i + 1] * sin(θ[i + 1] - θ[i]) for i = 1:(N - 1)))
   return nlp
 end

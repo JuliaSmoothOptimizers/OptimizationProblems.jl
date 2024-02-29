@@ -135,7 +135,7 @@ function vibrbeam(args...; n::Int = default_nvar, kwargs...)
   x0 = [-3.5; 1; 0; 0; 1.7; 0; 0; 0]
   @variable(nlp, x[j = 1:8], start = x0[j])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

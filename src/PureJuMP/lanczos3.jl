@@ -71,7 +71,7 @@ function lanczos3(args...; kwargs...)
   @variable(nlp, x[j = 1:6])
   set_start_value.(x, [1.2, 0.3, 5.6, 5.5, 6.5, 7.6]) # other: [0.5, 0.7, 3.6, 4.2, 4, 6.3]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

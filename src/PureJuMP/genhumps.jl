@@ -27,7 +27,7 @@ function genhumps(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum((sin(ζ * x[i])^2 * sin(ζ * x[i + 1])^2 + 0.05 * (x[i]^2 + x[i + 1]^2)) for i = 1:(n - 1))

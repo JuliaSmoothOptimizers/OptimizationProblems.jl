@@ -26,7 +26,7 @@ function triangle(x0 = xe, TRIS::Vector{Int64} = Tr, Const::Vector{Int64} = Cons
 
   @variable(nlp, lvar[i] <= x[i = 1:n] <= uvar[i], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(
@@ -46,7 +46,7 @@ function triangle(x0 = xe, TRIS::Vector{Int64} = Tr, Const::Vector{Int64} = Cons
   )
 
   for e = 1:E
-    @NLconstraint(
+    @constraint(
       nlp,
       2 * (
         (x[TRIS[e + E]] - x[TRIS[e]]) * (x[TRIS[e + 2 * E] + N] - x[TRIS[e] + N]) -

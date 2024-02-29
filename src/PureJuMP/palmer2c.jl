@@ -70,7 +70,7 @@ function palmer2c(args...; kwargs...)
     72.676767,
   ]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum((Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8))^2 for i = 1:23)

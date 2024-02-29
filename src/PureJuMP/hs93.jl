@@ -19,14 +19,14 @@ function hs93(args...; kwargs...)
   x0 = [5.54, 4.4, 12.02, 11.82, 0.702, 0.852]
   @variable(nlp, x[i = 1:6] ≥ 0, start = x0[i])
 
-  @NLconstraint(nlp, 0.001 * prod(x[i] for i = 1:6) - 2.07 ≥ 0)
-  @NLconstraint(
+  @constraint(nlp, 0.001 * prod(x[i] for i = 1:6) - 2.07 ≥ 0)
+  @constraint(
     nlp,
     1 - 0.00062 * x[1] * x[4] * x[5]^2 * (x[1] + x[2] + x[3]) -
     0.00058 * x[2] * x[3] * x[6]^2 * (x[1] + 1.57 * x[2] + x[4]) ≥ 0
   )
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.0204 * x[1] * x[4] * (x[1] + x[2] + x[3]) +

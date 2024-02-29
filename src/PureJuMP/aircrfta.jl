@@ -32,8 +32,8 @@ function aircrfta(; n::Int = default_nvar, kwargs...)
   @variable(nlp, 0.0 <= aileron <= 0.0, start = 0.0)
   @variable(nlp, 0.0 <= rudderdf <= 0.0, start = 0.0)
 
-  @NLobjective(nlp, Min, 0)
-  @NLconstraint(
+  @objective(nlp, Min, 0)
+  @constraint(
     nlp,
     cons1,
     (
@@ -42,7 +42,7 @@ function aircrfta(; n::Int = default_nvar, kwargs...)
       684.4 * attckang * sslipang + 63.5 * pitchrat * attckang
     ) == 0
   )
-  @NLconstraint(
+  @constraint(
     nlp,
     cons2,
     (
@@ -51,7 +51,7 @@ function aircrfta(; n::Int = default_nvar, kwargs...)
       0.173 * rollrate * sslipang
     ) == 0
   )
-  @NLconstraint(
+  @constraint(
     nlp,
     cons3,
     (
@@ -59,8 +59,8 @@ function aircrfta(; n::Int = default_nvar, kwargs...)
       0.716 * rollrate * pitchrat - 1.578 * rollrate * attckang + 1.132 * pitchrat * attckang
     ) == 0
   )
-  @NLconstraint(nlp, cons4, (pitchrat - attckang - 1.168 * elevator - rollrate * sslipang) == 0)
-  @NLconstraint(
+  @constraint(nlp, cons4, (pitchrat - attckang - 1.168 * elevator - rollrate * sslipang) == 0)
+  @constraint(
     nlp,
     cons5,
     (-yawrate - 0.196 * sslipang - 0.0071 * aileron + rollrate * attckang) == 0

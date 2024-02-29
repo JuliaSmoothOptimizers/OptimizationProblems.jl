@@ -32,7 +32,7 @@ function gaussian(args...; n::Int = default_nvar, kwargs...)
     0.0009,
   ]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * (x[1] * exp(-x[2] / 2 * ((8 - 1) / 2 - x[3])^2) - y[1])^2 +

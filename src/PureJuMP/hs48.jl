@@ -22,7 +22,7 @@ function hs48(args...; kwargs...)
   @constraint(nlp, x[1] + x[2] + x[3] + x[4] + x[5] - 5 == 0)
   @constraint(nlp, x[3] - 2 * (x[4] + x[5]) + 3 == 0)
 
-  @NLobjective(nlp, Min, 0.5 * (x[1] - 1)^2 + 0.5 * (x[2] - x[3])^2 + 0.5 * (x[4] - x[5])^2)
+  @objective(nlp, Min, 0.5 * (x[1] - 1)^2 + 0.5 * (x[2] - x[3])^2 + 0.5 * (x[4] - x[5])^2)
 
   return nlp
 end

@@ -33,7 +33,7 @@ function schmvett(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = 3.0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

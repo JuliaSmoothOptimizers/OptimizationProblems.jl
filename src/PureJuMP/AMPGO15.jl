@@ -14,7 +14,7 @@ function AMPGO15(args...; kwargs...)
 
   @variable(nlp, x, start = -5.0)
 
-  @NLobjective(nlp, Min, (x^2 - 5 * x + 6) / (x^2 + 1))
+  @objective(nlp, Min, (x^2 - 5 * x + 6) / (x^2 + 1))
 
   return nlp
 end

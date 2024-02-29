@@ -47,7 +47,7 @@ function palmer5d(args...; kwargs...)
     77.719674,
   ]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum((Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:4))^2 for i = 1:12)

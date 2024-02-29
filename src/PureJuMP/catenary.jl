@@ -53,7 +53,7 @@ function catenary(args...; n::Int = default_nvar, kwargs...)
 
   @objective(nlp, Min, mg * x[2] / 2 + sum(mg * x[2 + 3 * i] for i = 1:N) + mg * x[3 * N + 5] / 2)
 
-  @NLconstraint(
+  @constraint(
     nlp,
     c[i = 1:(N + 1)],
     (x[1 + 3 * i] - x[-2 + 3 * i])^2 +
