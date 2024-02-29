@@ -20,7 +20,7 @@ function hs4(args...; kwargs...)
   lvar = [1, 0]
   @variable(nlp, x[i = 1:2] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, (x[1] + 1)^3 / 3 + x[2])
+  @objective(nlp, Min, (x[1] + 1)^3 / 3 + x[2])
 
   return nlp
 end

@@ -17,7 +17,7 @@ function NZF1(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = 1)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

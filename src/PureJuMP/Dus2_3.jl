@@ -13,7 +13,7 @@ function Dus2_3(args...; kwargs...)
 
   @variable(nlp, x, start = -2.0)
 
-  @NLobjective(nlp, Min, 1 - (1 / (5 * (x^2) - 6 * x + 5)))
+  @objective(nlp, Min, 1 - (1 / (5 * (x^2) - 6 * x + 5)))
 
   return nlp
 end

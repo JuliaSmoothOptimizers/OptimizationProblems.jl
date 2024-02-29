@@ -21,7 +21,7 @@ function noncvxun(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:n], start = i)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

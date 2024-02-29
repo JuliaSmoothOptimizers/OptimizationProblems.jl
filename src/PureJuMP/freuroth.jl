@@ -35,7 +35,7 @@ function freuroth(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(((5.0 - x[i + 1]) * x[i + 1]^2 + x[i] - 2 * x[i + 1] - 13.0)^2 for i = 1:ngs) +

@@ -21,7 +21,7 @@ function hs41(args...; kwargs...)
 
   @constraint(nlp, x[1] + 2 * x[2] + 2 * x[3] - x[4] == 0)
 
-  @NLobjective(nlp, Min, 2 - x[1] * x[2] * x[3])
+  @objective(nlp, Min, 2 - x[1] * x[2] * x[3])
 
   return nlp
 end

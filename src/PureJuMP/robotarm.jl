@@ -59,31 +59,31 @@ function robotarm(; n::Int = default_nvar, L = 4.5, kwargs...)
   @objective(nlp, Min, x[end])
 
   for j = 1:n
-    @NLconstraint(nlp, -1 <= L * x[6n + j] <= 1)
+    @constraint(nlp, -1 <= L * x[6n + j] <= 1)
   end
   for j = 1:n
-    @NLconstraint(nlp, -1 <= x[7n + j] * ((L - x[j])^3 + x[j]^3) / 3 * sin(x[2n + j])^2 <= 1)
+    @constraint(nlp, -1 <= x[7n + j] * ((L - x[j])^3 + x[j]^3) / 3 * sin(x[2n + j])^2 <= 1)
   end
   for j = 1:n
-    @NLconstraint(nlp, -1 <= x[8n + j] * ((L - x[j])^3 + x[j]^3) / 3 <= 1)
+    @constraint(nlp, -1 <= x[8n + j] * ((L - x[j])^3 + x[j]^3) / 3 <= 1)
   end
   for j = 1:(n - 1)
-    @NLconstraint(nlp, x[j + 1] - x[j] - x[3n + j] * x[end] / n == 0)
+    @constraint(nlp, x[j + 1] - x[j] - x[3n + j] * x[end] / n == 0)
   end
   for j = 1:(n - 1)
-    @NLconstraint(nlp, x[n + 1 + j] - x[n + j] - x[4n + j] * x[end] / n == 0)
+    @constraint(nlp, x[n + 1 + j] - x[n + j] - x[4n + j] * x[end] / n == 0)
   end
   for j = 1:(n - 1)
-    @NLconstraint(nlp, x[2n + 1 + j] - x[2n + j] - x[5n + j] * x[end] / n == 0)
+    @constraint(nlp, x[2n + 1 + j] - x[2n + j] - x[5n + j] * x[end] / n == 0)
   end
   for j = 1:(n - 1)
-    @NLconstraint(nlp, x[3n + 1 + j] - x[3n + j] - x[6n + j] * x[end] / n == 0)
+    @constraint(nlp, x[3n + 1 + j] - x[3n + j] - x[6n + j] * x[end] / n == 0)
   end
   for j = 1:(n - 1)
-    @NLconstraint(nlp, x[4n + 1 + j] - x[4n + j] - x[7n + j] * x[end] / n == 0)
+    @constraint(nlp, x[4n + 1 + j] - x[4n + j] - x[7n + j] * x[end] / n == 0)
   end
   for j = 1:(n - 1)
-    @NLconstraint(nlp, x[5n + 1 + j] - x[5n + j] - x[8n + j] * x[end] / n == 0)
+    @constraint(nlp, x[5n + 1 + j] - x[5n + j] - x[8n + j] * x[end] / n == 0)
   end
 
   return nlp

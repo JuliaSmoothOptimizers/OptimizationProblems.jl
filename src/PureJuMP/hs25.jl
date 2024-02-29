@@ -24,7 +24,7 @@ function hs25(args...; kwargs...)
   @NLexpression(nlp, u[i = 1:99], 25 + (-50 * log(0.01 * i))^(2 / 3))
   @NLexpression(nlp, f[i = 1:99], -0.01 * i + exp(-1 / x[1] * (u[i] - x[2])^x[3]))
 
-  @NLobjective(nlp, Min, sum(f[i]^2 for i = 1:99))
+  @objective(nlp, Min, sum(f[i]^2 for i = 1:99))
 
   return nlp
 end

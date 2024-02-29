@@ -24,7 +24,7 @@ function watson(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[j = 1:n], start = 0.0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

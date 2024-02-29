@@ -21,7 +21,7 @@ function Shpak6(args...; kwargs...)
 
   @variable(nlp, x, start = 0.0)
 
-  @NLobjective(nlp, Min, -sum(1.0 / (veck[i]^2 * (x - veca[i])^2 + vecc[i]) for i = 1:10))
+  @objective(nlp, Min, -sum(1.0 / (veck[i]^2 * (x - veca[i])^2 + vecc[i]) for i = 1:10))
 
   return nlp
 end

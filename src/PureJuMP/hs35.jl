@@ -20,7 +20,7 @@ function hs35(args...; kwargs...)
 
   @constraint(nlp, -3 + x[1] + x[2] + 2 * x[3] ≤ 0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     9 - 8 * x[1] - 6 * x[2] - 4 * x[3] +

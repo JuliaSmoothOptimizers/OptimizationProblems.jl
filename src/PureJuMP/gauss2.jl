@@ -294,7 +294,7 @@ function gauss2(args...; kwargs...)
   set_start_value.(x, [96, 0.009, 103, 106, 18, 72, 151, 18])
   # other: [98, 0.0105, 103, 105, 20, 73, 150, 20]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

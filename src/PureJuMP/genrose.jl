@@ -80,7 +80,7 @@ function genrose(args...; n::Int = default_nvar, kwargs...)
   # end
   @variable(nlp, x[i = 1:n], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     1.0 +

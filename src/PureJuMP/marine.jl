@@ -178,7 +178,7 @@ function marine(args...; n::Int = default_nvar, nc::Int = 1, kwargs...)
   @variable(nlp, Duc[1:nh, 1:nc, 1:ne])
   set_start_value.(Duc, Duc0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(
@@ -191,18 +191,18 @@ function marine(args...; n::Int = default_nvar, nc::Int = 1, kwargs...)
       ) for j = 1:nm
     )
   )
-  @NLconstraint(
+  @constraint(
     nlp,
     [i = 1:(nh - 1), s = 1:ne],
     v[i, s] + h * sum(w[i, j, s] / fact[j + 1] for j = 1:nc) - v[i + 1, s] == 0
   )
-  @NLconstraint(nlp, [i = 1:nh, j = 1:nc], Duc[i, j, 1] + (m[1] + g[1]) * uc[i, j, 1] == 0)
-  @NLconstraint(
+  @constraint(nlp, [i = 1:nh, j = 1:nc], Duc[i, j, 1] + (m[1] + g[1]) * uc[i, j, 1] == 0)
+  @constraint(
     nlp,
     [i = 1:nh, j = 1:nc, s = 2:(ne - 1)],
     Duc[i, j, s] - g[s - 1] * uc[i, j, s - 1] + (m[s] + g[s]) * uc[i, j, s] == 0
   )
-  @NLconstraint(
+  @constraint(
     nlp,
     [i = 1:nh, j = 1:nc],
     Duc[i, j, ne] - g[ne - 1] * uc[i, j, ne - 1] + m[ne] * uc[i, j, ne] == 0

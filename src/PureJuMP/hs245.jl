@@ -19,7 +19,7 @@ function hs245(args...; kwargs...)
   x0 = [0, 10, 20]
   @variable(nlp, x[i = 1:3], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

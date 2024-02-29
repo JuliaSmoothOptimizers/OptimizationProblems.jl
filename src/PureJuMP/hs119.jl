@@ -61,7 +61,7 @@ function hs119(args...; kwargs...)
     @constraint(nlp, sum(b[i, j] * x[j] - c[i] for j = 1:16) == 0)
   end
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(sum(a[i, j] * (x[i]^2 + x[i] + 1) * (x[j]^2 + x[j] + 1) for j = 1:16) for i = 1:16)
