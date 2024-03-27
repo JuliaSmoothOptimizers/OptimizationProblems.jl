@@ -7,15 +7,17 @@ The tutorial will use:
 - [SolverBenchmark](https://github.com/JuliaSmoothOptimizers/SolverBenchmark.jl): This package provides general tools for benchmarking solvers.
 
 ``` @example ex1
-using JSOSolvers, NLPModels, NLPModelsJuMP, OptimizationProblems, OptimizationProblems.PureJuMP, SolverBenchmark
+using JSOSolvers, NLPModels, NLPModelsJuMP, OptimizationProblems, SolverBenchmark
+using OptimizationProblems.PureJuMP
 ```
 We select the problems from `PureJuMP` submodule of `OptimizationProblems` converted in [NLPModels](https://github.com/JuliaSmoothOptimizers/NLPModels.jl) using [NLPModelsJuMP](https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl).
 ``` @example ex1
 problems = (MathOptNLPModel(eval(Meta.parse(problem))(), name=problem) for problem ∈ OptimizationProblems.meta[!, :name])
 ```
-The same can be achieved using `OptimizationProblems.ADNLPProblems` as follows:
+The same can be achieved using `OptimizationProblems.ADNLPProblems` instead of `OptimizationProblems.PureJuMP` as follows:
 ``` @example ex1
 using ADNLPModels
+using OptimizationProblems.ADNLPProblems
 ad_problems = (eval(Meta.parse(problem))() for problem ∈ OptimizationProblems.meta[!, :name])
 ```
 
