@@ -6,7 +6,7 @@
 #   see "Benchmarking Optimization Software with COPS"
 #   Argonne National Labs Technical Report ANL/MCS-246 (2004)
 
-@load joinpath(data_path, "data_triangle.jld2") xe Tr Constants
+include("../../data/triangle.jl")
 export triangle
 
 function triangle(
@@ -60,17 +60,17 @@ function triangle(
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "triangle"; kwargs...)
 end
 
-@load joinpath(data_path, "data_triangle_deer.jld2") xe_deer TRIS_deer Const_deer
+include("../../data/triangle_deer.jl")
 export triangle_deer
 triangle_deer(; kwargs...) =
   triangle(xe_deer, TRIS_deer, Const_deer; name = "triangle_deer", kwargs...)
 
-@load joinpath(data_path, "data_triangle_pacman.jld2") xe_pacman TRIS_pacman Const_pacman
+include("../../data/triangle_pacman.jl")
 export triangle_pacman
 triangle_pacman(; kwargs...) =
   triangle(xe_pacman, TRIS_pacman, Const_pacman; name = "triangle_pacman", kwargs...)
 
-@load joinpath(data_path, "data_triangle_turtle.jld2") xe_turtle TRIS_turtle Const_turtle
+  include("../../data/triangle_turtle.jl")
 export triangle_turtle
 triangle_turtle(; kwargs...) =
   triangle(xe_turtle, TRIS_turtle, Const_turtle; name = "triangle_turtle", kwargs...)
