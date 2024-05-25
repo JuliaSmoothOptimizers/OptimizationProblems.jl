@@ -70,7 +70,7 @@ export triangle_pacman
 triangle_pacman(; kwargs...) =
   triangle(xe_pacman, TRIS_pacman, Const_pacman; name = "triangle_pacman", kwargs...)
 
-  include("../../data/triangle_turtle.jl")
+include("../../data/triangle_turtle.jl")
 export triangle_turtle
 triangle_turtle(; kwargs...) =
   triangle(xe_turtle, TRIS_turtle, Const_turtle; name = "triangle_turtle", kwargs...)
