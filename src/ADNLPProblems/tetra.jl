@@ -81,7 +81,7 @@ export tetra_duct15
 tetra_duct15(; kwargs...) =
   tetra(xe_duct15, TETS_duct15, Const_duct15; name = "tetra_duct15", kwargs...)
 
-  include("../../data/tetra_duct20.jl")
+include("../../data/tetra_duct20.jl")
 export tetra_duct20
 tetra_duct20(; kwargs...) =
   tetra(xe_duct20, TETS_duct20, Const_duct20; name = "tetra_duct20", kwargs...)
