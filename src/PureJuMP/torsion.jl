@@ -3,6 +3,8 @@
 # Version 2.0 - October 2000
 # COPS 3.1 - March 2004
 
+export torsion
+
 function torsion(args...; n = default_nvar, kwargs...)
   nx, ny = n
   c = 5.0

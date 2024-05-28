@@ -5,6 +5,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export methanol
+
 function methanol(args...; n::Int = default_nvar, kwargs...)
   ne = 3
   np = 5

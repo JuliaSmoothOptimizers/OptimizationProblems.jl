@@ -10,6 +10,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export pinene
+
 function pinene(; n::Int = default_nvar, kwargs...)
   nc = 3        # number of collocation points
   ne = 5        # number of differential equations

@@ -5,6 +5,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export gasoil
+
 function gasoil(; n::Int = default_nvar, kwargs...)
   nc = 4        # number of collocation points
   ne = 2        # number of differential equations
