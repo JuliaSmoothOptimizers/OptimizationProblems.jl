@@ -4,6 +4,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export steering
+
 function steering(; n::Int=default_nvar, kwargs...)
   a = 100.0  # Magnitude of force.
   # Bounds on the control

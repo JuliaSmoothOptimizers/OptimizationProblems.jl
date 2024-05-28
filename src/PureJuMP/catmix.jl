@@ -3,6 +3,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export catmix
+
 function catmix(args...; n::Int = default_nvar, kwargs...)
   ne = 2
   nc = 3
@@ -20,7 +22,7 @@ function catmix(args...; n::Int = default_nvar, kwargs...)
   alpha = 0.0      # Smoothing parameter
 
   model = Model()
-
+ 
   @variable(model, 0.0 <= u[i=1:n, j=1:nc] <= 1.0, start=0.0)
   @variable(model, v[i=1:n, s=1:ne], start=mod(s, ne))
   @variable(model, w[i=1:n, j=1:nc, s=1:ne], start=0.0)

@@ -5,6 +5,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export glider
+
 function glider(; n::Int = default_nvar, kwargs...)
   # Design parameters
   x_0 = 0.0

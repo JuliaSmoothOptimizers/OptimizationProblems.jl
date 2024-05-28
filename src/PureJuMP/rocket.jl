@@ -4,6 +4,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export rocket
+
 function rocket(; n::Int = default_nvar, kwargs...)
   h_0 = 1.0
   v_0 = 0.0

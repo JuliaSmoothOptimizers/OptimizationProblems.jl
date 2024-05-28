@@ -9,6 +9,7 @@
 #  Argonne National Labs Technical Report ANL/MCS-246 (2004)
 #  classification OBR2-AN-V-V
 
+export minsurf
 
 function minsurf(args...; n = default_nvar, kwargs...)
   nx, ny = n
