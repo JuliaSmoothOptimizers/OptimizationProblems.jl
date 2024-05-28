@@ -131,13 +131,21 @@ function is_feasible(nlp::AbstractNLPModel; x = nlp.meta.x0)
 end
 
 function var_size(name::String, get_field::Function, default_nvar)
+  nlp_eval = if name != "hs61" && name in string.(names(PureJuMP))
+    n -> eval(Meta.parse("MathOptNLPModel(PureJuMP." * name * "(n = $n))"))
+  elseif name in string.(names(ADNLPProblems))
+    n -> eval(Meta.parse("ADNLPProblems." * name * "(n = $n)"))
+  end
+  return var_size(nlp_eval, name, get_field, default_nvar)
+end
+
+function var_size(nlp_eval::Function, name::String, get_field::Function, default_nvar)
   n1 = default_nvar
   n2 = div(default_nvar, 2)
 
-  prefix = name in string.(names(ADNLPProblems)) ? "ADNLPProblems." : ""
-  nlp1 = eval(Meta.parse(prefix * name))(n = n1)
+  nlp1 = nlp_eval(n1)
   nvar1 = get_field(nlp1)
-  nlp2 = eval(Meta.parse(prefix * name))(n = n2)
+  nlp2 = nlp_eval(n2)
   nvar2 = get_field(nlp2)
   variable_nvar = nvar1 != nvar2
   #Assuming the scale is linear in n
