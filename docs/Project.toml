@@ -10,9 +10,9 @@ Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 SolverBenchmark = "581a75fa-a23a-52d0-a590-d6201de2218a"
 
 [compat]
-ADNLPModels = "0.7"
+ADNLPModels = "0.8"
 Documenter = "0.27"
 JSOSolvers = "0.11"
-NLPModels = "0.20"
-NLPModelsJuMP = "0.12"
+NLPModels = "0.21"
+NLPModelsJuMP = "0.13"
 SolverBenchmark = "0.5"
