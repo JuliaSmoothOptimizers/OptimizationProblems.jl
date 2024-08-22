@@ -2,15 +2,14 @@ export hs12
 
 function hs12(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
-    n = length(x)
     return x[1]^2 / 2 + x[2]^2 - x[1] * x[2] - 7 * x[1] - 7 * x[2]
   end
   x0 = zeros(T, 2)
   function c!(cx, x)
-    cx[1] = 4 * x[1]^2 + x[2]^2 - 25
+    cx[1] = 4 * x[1]^2 + x[2]^2
     return cx
   end
   lcon = -T(Inf) * ones(T, 1)
-  ucon = zeros(T, 1)
+  ucon = zeros(T, 1) .+ 25
   return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "hs12"; kwargs...)
 end

@@ -6,10 +6,10 @@ function hs233(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   end
   x0 = T[1.2, 1]
   function c!(cx, x)
-    cx[1] = x[1]^2 + x[2]^2 - 1 // 4
+    cx[1] = x[1]^2 + x[2]^2
     return cx
   end
-  lcon = T[0]
+  lcon = T[1 // 4]
   ucon = T[Inf]
   return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "hs233"; kwargs...)
 end

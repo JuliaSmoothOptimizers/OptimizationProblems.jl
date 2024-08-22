@@ -19,7 +19,7 @@ alsotame_meta = Dict(
 )
 get_alsotame_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_alsotame_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_alsotame_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_alsotame_nnln(; n::Integer = default_nvar, kwargs...) = 3
+get_alsotame_nlin(; n::Integer = default_nvar, kwargs...) = 2
+get_alsotame_nnln(; n::Integer = default_nvar, kwargs...) = 1
 get_alsotame_nequ(; n::Integer = default_nvar, kwargs...) = 1
 get_alsotame_nineq(; n::Integer = default_nvar, kwargs...) = 2

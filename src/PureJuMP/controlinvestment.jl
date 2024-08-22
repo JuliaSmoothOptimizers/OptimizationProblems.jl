@@ -14,7 +14,7 @@ function controlinvestment(args...; n::Int = default_nvar, kwargs...)
   @variable(nlp, x[1:N], start = x0)
   @variable(nlp, 0 ≤ u[1:N] ≤ 1, start = 0)
 
-  @NLexpression(nlp, f[k = 1:N], (u[k] - 1) * x[k])
+  @expression(nlp, f[k = 1:N], (u[k] - 1) * x[k])
   @objective(nlp, Min, 0.5 * h * sum(f[k] + f[k + 1] for k = 1:(N - 1)))
 
   @constraint(nlp, x[1] == x0)

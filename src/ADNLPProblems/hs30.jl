@@ -14,10 +14,10 @@ function hs30(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwarg
   lvar = T[1, -10, -10]
   uvar = T[10, 10, 10]
   function c!(cx, x)
-    cx[1] = x[1]^2 + x[2]^2 - 1
+    cx[1] = x[1]^2 + x[2]^2
     return cx
   end
-  lcon = zeros(T, 1)
+  lcon = ones(T, 1)
   ucon = [T(Inf)]
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs30"; kwargs...)
 end

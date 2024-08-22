@@ -26,12 +26,12 @@ function hs83(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
   ]
 
   function c!(cx, x, a = a)
-    cx[1] = a[1] + a[2] * x[2] * x[5] + a[3] * x[1] * x[4] - a[4] * x[3] * x[5]
-    cx[2] = a[5] + a[6] * x[2] * x[5] + a[7] * x[1] * x[2] - a[8] * x[3] * x[3] - 90
-    cx[3] = a[9] + a[10] * x[3] * x[5] + a[11] * x[1] * x[3] - a[12] * x[3] * x[4] - 20
+    cx[1] = a[2] * x[2] * x[5] + a[3] * x[1] * x[4] - a[4] * x[3] * x[5]
+    cx[2] = a[6] * x[2] * x[5] + a[7] * x[1] * x[2] - a[8] * x[3] * x[3]
+    cx[3] = a[10] * x[3] * x[5] + a[11] * x[1] * x[3] - a[12] * x[3] * x[4]
     return cx
   end
-  lcon = zeros(T, 3)
-  ucon = T[92, 20, 5]
+  lcon = T[-a[1], -a[5] + 90, -a[9] + 20]
+  ucon = T[92 - a[1], 20 -a[5] + 90, 5-a[9] + 20]
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs83"; kwargs...)
 end

@@ -19,7 +19,7 @@ function hs104(args...; kwargs...)
   x0 = [6, 3, 0.4, 0.2, 6, 6, 1, 0.5]
   @variable(nlp, 0.1 ≤ x[i = 1:8] ≤ 10, start = x0[i])
 
-  @NLexpression(nlp, f, 0.4 * (x[1] / x[7])^(0.67) + 0.4 * (x[2] / x[8])^(0.67) + 10 - x[1] - x[2])
+  @expression(nlp, f, 0.4 * (x[1] / x[7])^(0.67) + 0.4 * (x[2] / x[8])^(0.67) + 10 - x[1] - x[2])
 
   @constraint(nlp, 1 - 0.0588 * x[5] * x[7] - 0.1 * x[1] ≥ 0)
   @constraint(nlp, 1 - 0.0588 * x[6] * x[8] - 0.1 * x[1] - 0.1 * x[2] ≥ 0)

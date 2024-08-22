@@ -14,21 +14,27 @@ function allinit(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wh
   lvar = -T(Inf) * ones(T, 4)
   uvar = T(Inf) * ones(T, 4)
 
-  function c!(cx, x)
-    cx[1] = x[2] - 1
-    cx[2] = x[3]
-    cx[3] = x[4] - 2
-    return cx
-  end
+  #function c!(cx, x)
+  #  cx[3] = x[4]
+  #  cx[1] = x[2]
+  #  cx[2] = x[3]
+  #  return cx
+  #end
+  A = T[
+    0 0 0 1;
+    0 1 0 0;
+    0 0 1 0
+  ]
 
   return ADNLPModels.ADNLPModel!(
     f,
     x0,
     lvar,
     uvar,
-    c!,
-    T[0, -1e+10, 0],
-    T[Inf, 1, 0],
+    findnz(sparse(A))...,
+    (cx, x) -> cx,
+    T[2, 1, -1e+10],
+    T[2, Inf, 1],
     name = "allinit",
     minimize = true;
     kwargs...,

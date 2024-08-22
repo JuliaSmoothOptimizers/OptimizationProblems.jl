@@ -26,7 +26,6 @@ function hs101(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   exposant_c4[3, :] = [-3, -2, 1, 0, 1, 0, 3 // 4]
   exposant_c4[4, :] = [0, 0, -2, 1, 0, 0, 1 // 2]
   function f(x)
-    n = length(x)
     f =
       10 * prod(x[i]^exposant_f[1, i] for i = 1:7) +
       15 * prod(x[i]^exposant_f[2, i] for i = 1:7) +

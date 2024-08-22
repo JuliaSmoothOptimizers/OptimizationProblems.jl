@@ -11,7 +11,6 @@ function hs61(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
     cx[2] = 4 * x[1] - x[3]^2 - 11
     return cx
   end
-  lcon = zeros(T, 2)
-  ucon = zeros(T, 2)
+  lcon = ucon = T[0; 0]
   return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "hs61"; kwargs...)
 end

@@ -75,7 +75,7 @@ function hs57(args...; kwargs...)
 
   @constraint(nlp, 0.49 * x[2] - x[1] * x[2] - 0.09 ≥ 0)
 
-  @NLexpression(nlp, f[i = 1:44], b[i] - x[1] - (0.49 - x[1]) * exp(-x[2] * (a[i] - 8)))
+  @expression(nlp, f[i = 1:44], b[i] - x[1] - (0.49 - x[1]) * exp(-x[2] * (a[i] - 8)))
 
   @objective(nlp, Min, 0.5 * sum(f[i]^2 for i = 1:44))
 

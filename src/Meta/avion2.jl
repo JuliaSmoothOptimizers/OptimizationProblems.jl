@@ -10,7 +10,7 @@ avion2_meta = Dict(
   :has_bounds => true,
   :has_fixed_variables => false,
   :objtype => :other,
-  :contype => :general,
+  :contype => :linear,
   :best_known_lower_bound => -Inf,
   :best_known_upper_bound => Inf,
   :is_feasible => missing,
@@ -19,7 +19,7 @@ avion2_meta = Dict(
 )
 get_avion2_nvar(; n::Integer = default_nvar, kwargs...) = 49
 get_avion2_ncon(; n::Integer = default_nvar, kwargs...) = 15
-get_avion2_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_avion2_nnln(; n::Integer = default_nvar, kwargs...) = 15
+get_avion2_nlin(; n::Integer = default_nvar, kwargs...) = 15
+get_avion2_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_avion2_nequ(; n::Integer = default_nvar, kwargs...) = 15
 get_avion2_nineq(; n::Integer = default_nvar, kwargs...) = 0

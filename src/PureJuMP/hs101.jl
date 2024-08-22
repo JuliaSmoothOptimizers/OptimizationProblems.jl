@@ -26,7 +26,7 @@ function hs101(args...; kwargs...)
   exposant_f[3, :] = [-2, 1, 0, -1, -2, 1, 0]
   exposant_f[4, :] = [2, 2, -1, 0, 0.5, -2, 1]
 
-  @NLexpression(
+  @expression(
     nlp,
     f,
     10 * prod(x[i]^exposant_f[1, i] for i = 1:7) +

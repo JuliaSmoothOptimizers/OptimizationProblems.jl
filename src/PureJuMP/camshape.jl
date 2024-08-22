@@ -28,8 +28,9 @@ function camshape(args...; n::Int = default_nvar, kwargs...)
   for i = 1:(n - 1)
     @constraint(nlp, -α * θ <= x[i + 1] - x[i] <= α * θ)
   end
-  @constraint(nlp, -R_min * x[1] - x[1] * x[2] + 2 * R_min * x[2] * cos(θ) <= 0)
   @constraint(nlp, -R_min^2 - R_min * x[1] + 2 * R_min * x[1] * cos(θ) <= 0)
+  # quadratic
+  @constraint(nlp, -R_min * x[1] - x[1] * x[2] + 2 * R_min * x[2] * cos(θ) <= 0)
   @constraint(nlp, -x[n - 1] * x[n] - x[n] * R_max + 2 * x[n - 1] * R_max * cos(θ) <= 0)
   @constraint(nlp, -2 * R_max * x[n] + 2 * x[n]^2 * cos(θ) <= 0)
   for i = 2:(n - 1)

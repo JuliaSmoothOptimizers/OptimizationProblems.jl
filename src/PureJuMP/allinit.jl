@@ -33,9 +33,9 @@ function allinit(; n::Int = default_nvar, kwargs...)
     (x[1] - 4 + sin(x[4])^2 + x[2]^2 * x[3]^2)^2 +
     sin(x[4])^4
   )
+  @constraint(nlp, cons3, x[4] - 2 == 0)
   @constraint(nlp, cons1, x[2] - 1 >= 0)
   @constraint(nlp, cons2, -1e+10 <= x[3] <= 1)
-  @constraint(nlp, cons3, x[4] - 2 == 0)
 
   return nlp
 end

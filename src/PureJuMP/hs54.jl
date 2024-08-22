@@ -23,7 +23,7 @@ function hs54(args...; kwargs...)
 
   @constraint(nlp, x[1] + 3 * x[2] == 0)
 
-  @NLexpression(
+  @expression(
     nlp,
     h,
     (((x[1] - 1e4)^2) / 6.4e7 + (x[1] - 1e4) * (x[2] - 1) / 2e4 + (x[2] - 1)^2) / 0.96 +

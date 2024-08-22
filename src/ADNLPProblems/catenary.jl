@@ -1,6 +1,6 @@
 export catenary
 
-function catenary(args...; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+function catenary(args...; n::Int = default_nvar, type::Type{T} = Float64, Bl = 1, FRACT = 0.6, kwargs...) where {T}
   (n % 3 == 0) || @warn("catenary: number of variables adjusted to be a multiple of 3")
   n = 3 * max(1, div(n, 3))
   (n < 6) || @warn("catenary: number of variables adjusted to be greater or equal to 6")
@@ -8,8 +8,6 @@ function catenary(args...; n::Int = default_nvar, type::Type{T} = Float64, kwarg
 
   ## Model Parameters
   N = div(n, 3) - 2
-  Bl = 1
-  FRACT = 0.6
   d = Bl * (N + 1) * FRACT
 
   gamma = 9.81
@@ -26,7 +24,7 @@ function catenary(args...; n::Int = default_nvar, type::Type{T} = Float64, kwarg
       cx[i] =
         (x[1 + 3 * i] - x[-2 + 3 * i])^2 +
         (x[2 + 3 * i] - x[-1 + 3 * i])^2 +
-        (x[3 + 3 * i] - x[3 * i])^2 - Bl^2
+        (x[3 + 3 * i] - x[3 * i])^2
     end
     return cx
   end
@@ -38,8 +36,8 @@ function catenary(args...; n::Int = default_nvar, type::Type{T} = Float64, kwarg
   lvar[n - 2] = T(d)
   uvar[n - 2] = T(d)
 
-  lcon = zeros(T, N + 1)
-  ucon = zeros(T, N + 1)
+  lcon = zeros(T, N + 1) .+ Bl^2
+  ucon = zeros(T, N + 1) .+ Bl^2
   x0 = zeros(T, n)
 
   for i = 0:(N + 1)

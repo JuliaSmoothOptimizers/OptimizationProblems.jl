@@ -10,12 +10,12 @@ function polygon3(args...; n::Int = default_nvar, type::Type{T} = Float64, kwarg
   function c!(cx, y; N = N)
     @views x, y = y[1:N], y[(N + 1):end]
     for i = 1:N
-      cx[i] = x[i]^2 + y[i]^2 - 1
+      cx[N + i] = x[i]^2 + y[i]^2
     end
     for i = 1:(N - 1)
-      cx[N + i] = x[i] * y[i + 1] - y[i] * x[i + 1]
+      cx[i] = x[i] * y[i + 1] - y[i] * x[i + 1]
     end
-    cx[2 * N] = x[N] * y[1] - y[N] * x[1]
+    cx[N] = x[N] * y[1] - y[N] * x[1]
     return cx
   end
   xi = zeros(T, 2 * N)
@@ -23,8 +23,8 @@ function polygon3(args...; n::Int = default_nvar, type::Type{T} = Float64, kwarg
     f,
     xi,
     c!,
-    vcat(-T(Inf) * ones(T, N), zeros(T, N)),
-    vcat(zeros(T, N), T(Inf) * ones(T, N)),
+    vcat(zeros(T, N), -T(Inf) * ones(T, N)),
+    vcat(T(Inf) * ones(T, N), ones(T, N)),
     name = "polygon3";
     kwargs...,
   )

@@ -2,7 +2,7 @@ export hs63
 
 function hs63(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function c!(cx, x)
-    cx[1] = x[1]^2 + x[2]^2 + x[3]^2 - 25
+    cx[1] = x[1]^2 + x[2]^2 + x[3]^2
     return cx
   end
   return ADNLPModels.ADNLPModel!(
@@ -14,8 +14,8 @@ function hs63(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
     [1; 2; 3],
     T[8; 14; 7],
     c!,
-    T[56, 0],
-    T[56, 0],
+    T[56, 25],
+    T[56, 25],
     name = "hs63";
     kwargs...,
   )

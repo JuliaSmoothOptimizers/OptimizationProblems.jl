@@ -7,7 +7,7 @@ end
 
 function hs42(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function c!(cx, x)
-    cx[1] = x[3]^2 + x[4]^2 - 2
+    cx[1] = x[3]^2 + x[4]^2
     return cx
   end
   return ADNLPModels.ADNLPModel!(
@@ -18,8 +18,8 @@ function hs42(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwarg
     [1],
     T[1],
     c!,
-    T[2, 0],
-    T[2, 0],
+    T[2, 2],
+    T[2, 2],
     name = "hs42";
     kwargs...,
   )

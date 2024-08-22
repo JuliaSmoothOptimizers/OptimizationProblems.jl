@@ -26,8 +26,8 @@ function hs114(args...; kwargs...)
 
   @expression(nlp, g1, 35.82 - 0.222 * x[10] - b * x[9])
   @expression(nlp, g2, -133 + 3 * x[7] - a * x[10])
-  @NLexpression(nlp, g5, 1.12 * x[1] + 0.13167 * x[1] * x[8] - 0.00667 * x[1] * x[8]^2 - a * x[4])
-  @NLexpression(nlp, g6, 57.425 + 1.098 * x[8] - 0.038 * x[8]^2 + 0.325 * x[6] - a * x[7])
+  @expression(nlp, g5, 1.12 * x[1] + 0.13167 * x[1] * x[8] - 0.00667 * x[1] * x[8]^2 - a * x[4])
+  @expression(nlp, g6, 57.425 + 1.098 * x[8] - 0.038 * x[8]^2 + 0.325 * x[6] - a * x[7])
 
   @constraint(nlp, g1 ≥ 0)
   @constraint(nlp, g2 ≥ 0)

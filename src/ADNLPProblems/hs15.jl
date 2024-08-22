@@ -9,11 +9,11 @@ function hs15(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
   lvar = -T(Inf) * ones(T, 2)
   uvar = T[0.5, Inf]
   function c!(cx, x)
-    cx[1] = x[1] * x[2] - 1
+    cx[1] = x[1] * x[2]
     cx[2] = x[1] + x[2]^2
     return cx
   end
-  lcon = zeros(T, 2)
+  lcon = T[1; 0]
   ucon = T(Inf) * ones(T, 2)
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs15"; kwargs...)
 end

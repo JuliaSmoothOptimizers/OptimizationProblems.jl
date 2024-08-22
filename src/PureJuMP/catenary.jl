@@ -16,7 +16,7 @@
 
 export catenary
 
-function catenary(args...; n::Int = default_nvar, kwargs...)
+function catenary(args...; n::Int = default_nvar, Bl = 1.0, FRACT = 0.6, kwargs...)
   (n % 3 == 0) || @warn("catenary: number of variables adjusted to be a multiple of 3")
   n = 3 * max(1, div(n, 3))
   (n < 6) || @warn("catenary: number of variables adjusted to be greater or equal to 6")
@@ -25,8 +25,6 @@ function catenary(args...; n::Int = default_nvar, kwargs...)
   ## Model Parameters
 
   N = div(n, 3) - 2
-  Bl = 1.0
-  FRACT = 0.6
   d = Bl * (N + 1) * FRACT
 
   gamma = 9.81

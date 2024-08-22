@@ -24,12 +24,12 @@ function hs107(args...; kwargs...)
   c = (48.4 / 50.176) * sin(0.25)
   d = (48.4 / 50.176) * cos(0.25)
 
-  @NLexpression(nlp, y1, sin(x[8]))
-  @NLexpression(nlp, y2, cos(x[8]))
-  @NLexpression(nlp, y3, sin(x[9]))
-  @NLexpression(nlp, y4, cos(x[9]))
-  @NLexpression(nlp, y5, sin(x[8] - x[9]))
-  @NLexpression(nlp, y6, cos(x[8] - x[9]))
+  @expression(nlp, y1, sin(x[8]))
+  @expression(nlp, y2, cos(x[8]))
+  @expression(nlp, y3, sin(x[9]))
+  @expression(nlp, y4, cos(x[9]))
+  @expression(nlp, y5, sin(x[8] - x[9]))
+  @expression(nlp, y6, cos(x[8] - x[9]))
 
   @constraint(
     nlp,

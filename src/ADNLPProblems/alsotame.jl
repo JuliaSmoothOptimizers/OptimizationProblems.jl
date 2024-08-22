@@ -12,19 +12,22 @@ function alsotame(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) w
   function c!(cx, x)
     x, y = x[1], x[2]
     cx[1] = sin(-x + y - 1)
-    cx[2] = x
-    cx[3] = y
     return cx
   end
+  A = T[
+    1 0 0;
+    0 1 0
+  ]
 
   return ADNLPModels.ADNLPModel!(
     f,
     x0,
     lvar,
     uvar,
+    findnz(sparse(A))...,
     c!,
-    T[0, -2, -1.5],
-    T[0, 2, 1.5],
+    T[-2, -1.5, 0],
+    T[2, 1.5, 0],
     name = "alsotame",
     minimize = true;
     kwargs...,

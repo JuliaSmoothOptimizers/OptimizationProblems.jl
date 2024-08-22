@@ -10,7 +10,7 @@ allinit_meta = Dict(
   :has_bounds => false,
   :has_fixed_variables => false,
   :objtype => :other,
-  :contype => :general,
+  :contype => :linear,
   :best_known_lower_bound => -Inf,
   :best_known_upper_bound => Inf,
   :is_feasible => missing,
@@ -19,7 +19,7 @@ allinit_meta = Dict(
 )
 get_allinit_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_allinit_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_allinit_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_allinit_nnln(; n::Integer = default_nvar, kwargs...) = 3
+get_allinit_nlin(; n::Integer = default_nvar, kwargs...) = 3
+get_allinit_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_allinit_nequ(; n::Integer = default_nvar, kwargs...) = 1
 get_allinit_nineq(; n::Integer = default_nvar, kwargs...) = 2

@@ -12,7 +12,6 @@ function hs60(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
     cx[1] = x[1] * (1 + x[2]^2) + x[3]^4 - 4 - 3 * sqrt(2)
     return cx
   end
-  lcon = zeros(T, 1)
-  ucon = zeros(T, 1)
+  lcon = ucon = T[0]
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs60"; kwargs...)
 end

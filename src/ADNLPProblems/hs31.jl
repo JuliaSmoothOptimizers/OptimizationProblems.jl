@@ -9,10 +9,10 @@ function hs31(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
   lvar = T[-10, 1, -10]
   uvar = T[10, 10, 1]
   function c!(cx, x)
-    cx[1] = x[1] * x[2] - 1
+    cx[1] = x[1] * x[2]
     return cx
   end
-  lcon = zeros(T, 1)
+  lcon = ones(T, 1)
   ucon = T[Inf]
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs31"; kwargs...)
 end

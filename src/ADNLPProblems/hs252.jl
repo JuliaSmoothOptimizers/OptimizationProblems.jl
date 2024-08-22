@@ -6,9 +6,9 @@ function hs252(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   end
   x0 = T[-1, 2, 2]
   function c!(cx, x)
-    cx[1] = x[1] + x[3]^2 + 1
+    cx[1] = x[1] + x[3]^2
     return cx
   end
-  lcon = ucon = T[0]
+  lcon = ucon = T[-1]
   return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "hs252"; kwargs...)
 end

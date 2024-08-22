@@ -9,12 +9,12 @@ function hs106(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   lvar = T[100, 1000, 1000, 10, 10, 10, 10, 10]
   uvar = T[10000, 10000, 10000, 1000, 1000, 1000, 1000, 1000]
   function c!(cx, x)
-    cx[1] = x[1] * x[6] - 833.33252 * x[4] - 100 * x[1] + 83333.333
+    cx[1] = x[1] * x[6] - 833.33252 * x[4] - 100 * x[1]
     cx[2] = x[2] * x[7] - 1250 * x[5] - x[2] * x[4] + 1250 * x[4]
-    cx[3] = x[3] * x[8] - 1250000 - x[3] * x[5] + 2500 * x[5]
+    cx[3] = x[3] * x[8] - x[3] * x[5] + 2500 * x[5]
     return cx
   end
-  lcon = vcat(-ones(T, 3), zeros(T, 3))
+  lcon = vcat(-ones(T, 3), -83333333 // 1000, 0, 1250000)
   ucon = T(Inf) * ones(T, 6)
   return ADNLPModels.ADNLPModel!(
     f,
