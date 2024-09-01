@@ -517,7 +517,9 @@ function avion2(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwa
     r[14] = SO - (785 // 1000) * DE^2 * PT
     r[15] = SS - (785 // 1000) * DS^2 * PT
     r[16] = CB - 2 * (VN - CA * LF^3) / (LF^2 * (3 - SO * LF))
-    r[17] = IMPVOIL - (115 // 100) * SX * (15 + (15 // 100) * SX) * (8 + (MC * LX / (50 * SR * EL))^(3 // 2))
+    r[17] =
+      IMPVOIL -
+      (115 // 100) * SX * (15 + (15 // 100) * SX) * (8 + (MC * LX / (50 * SR * EL))^(3 // 2))
     return r
   end
   x0 = T[
@@ -791,5 +793,16 @@ function avion2(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwa
     2,
   ]
 
-  return ADNLPModels.ADNLSModel!(F!, x0, 17, lvar, uvar, c!, lcon, ucon, name = "avion2-nls"; kwargs...)
+  return ADNLPModels.ADNLSModel!(
+    F!,
+    x0,
+    17,
+    lvar,
+    uvar,
+    c!,
+    lcon,
+    ucon,
+    name = "avion2-nls";
+    kwargs...,
+  )
 end

@@ -35,7 +35,12 @@ function NZF1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwarg
   function F!(r, x; l = l)
     for i = 1:l
       r[i] = 3 * x[i] - 60 + 1 // 10 * (x[i + 1] - x[i + 2])^2
-      r[i + l] = x[i + 1]^2 + x[i + 2]^2 + (x[i + 3]^2) * (1 + x[i + 3])^2 + x[i + 6] + x[i + 5] / (1 + x[i + 4]^2 + sin(x[i + 4] / 1000))
+      r[i + l] =
+        x[i + 1]^2 +
+        x[i + 2]^2 +
+        (x[i + 3]^2) * (1 + x[i + 3])^2 +
+        x[i + 6] +
+        x[i + 5] / (1 + x[i + 4]^2 + sin(x[i + 4] / 1000))
       r[i + 2l] = x[i + 6] + x[i + 7] - x[i + 8]^2 + x[i + 10]
       r[i + 3l] = log(1 + x[i + 10]^2) + x[i + 11] - 5 * x[i + 12] + 20
       r[i + 4l] = x[i + 4] + x[i + 5] + x[i + 5] * x[i + 9] + 10 * x[i + 9] - 50
