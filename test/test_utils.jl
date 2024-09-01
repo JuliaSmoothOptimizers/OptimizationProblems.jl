@@ -115,7 +115,7 @@ function test_compatibility(
   grad(nlp_ad, x1) # just test that it runs
 
   if nlp_ad.meta.ncon > 0
-    cons_tol = 1e-7 #hs100
+    cons_tol = 1e-10
     @test nlp_ad.meta.lcon ≈ nlp_jump.meta.lcon
     @test nlp_ad.meta.ucon ≈ nlp_jump.meta.ucon
     @test all(isapprox.(cons(nlp_ad, x1), cons(nlp_jump, x1), atol = cons_tol * n0))

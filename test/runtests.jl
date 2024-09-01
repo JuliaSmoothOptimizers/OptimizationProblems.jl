@@ -1,5 +1,4 @@
 using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
-using LinearAlgebra # norm
 
 @test names(ADNLPProblems) == [:ADNLPProblems]
 
