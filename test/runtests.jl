@@ -17,9 +17,6 @@ include("test_utils.jl")
 
 @testset "problem: $prob" for prob in list_problems
   pb = string(prob)
-  if (pb in ["camshape", "hs113", "hs114", "hs19", "hs263", "hs40", "hs47"]) || (pb in ["hs68", "hs69", "hs87"]) || (pb in ["marine", "robotarm"])
-    continue
-  end
 
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
   ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
@@ -48,7 +45,8 @@ include("test_utils.jl")
   end
 
   @testset "Test problems compatibility for $prob" begin
-    pb == "britgas" && continue
+    pb == "britgas" && continue # the same up to some permutation of the constraints
+    pb == "hs87" && continue # if/else issue
     prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
     model = prob_fn(n = ndef)
     nlp_jump = MathOptNLPModel(model)

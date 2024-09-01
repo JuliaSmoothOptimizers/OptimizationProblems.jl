@@ -29,7 +29,7 @@ function hs68(args...; kwargs...)
   @variable(nlp, lvar[i] ≤ x[i = 1:4] ≤ uvar[i], start = x0[i])
 
   phi(t) = 1 // 2 * (erf(t / sqrt(2)) + 1)
-  register(nlp, :phi, 1, phi; autodiff = true)
+  @expression(nlp, phi)
   @constraint(nlp, x[3] - 2 * phi(x[2]) == 0)
   @constraint(nlp, x[4] - phi(-x[2] + d1 * sqrt(n1)) - phi(-x[2] - d1 * sqrt(n1)) == 0)
 

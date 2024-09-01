@@ -30,30 +30,32 @@ function hs87(args...; kwargs...)
   @constraint(nlp, -x[5] - 1 / a * x[3] * x[4] * cos(b + x[6]) + ci / a * e * x[4]^2 == 0)
   @constraint(nlp, 200 - 1 / a * x[3] * x[4] * sin(b - x[6]) + ci / a * e * x[3]^2 == 0)
 
-  function f1(x)
-    return if 0 <= x <= 300
-      30 * x
-    elseif 300 <= x <= 400
-      31 * x
+  function f1(t)
+    return if 0 <= t <= 300
+      30 * t
+    elseif 300 <= t <= 400
+      31 * t
     else
       eltype(x)(Inf)
     end
   end
 
-  function f2(x)
-    return if 0 <= x <= 100
-      28 * x
-    elseif 100 <= x <= 200
-      29 * x
-    elseif 200 <= x <= 1000
-      30 * x
+  function f2(t)
+    return if 0 <= t <= 100
+      28 * t
+    elseif 100 <= t <= 200
+      29 * t
+    elseif 200 <= t <= 1000
+      30 * t
     else
-      eltype(x)(Inf)
+      eltype(t)(Inf)
     end
   end
-  register(nlp, :f1, 1, f1, autodiff = true)
-  register(nlp, :f2, 1, f2, autodiff = true)
-  @objective(nlp, Min, f1(x[1]) + f2(x[2]))
+  @operator(nlp, op_f1, 1, f1)
+  @expression(nlp, op_f1)
+  @operator(nlp, op_f2, 1, f2)
+  @expression(nlp, op_f2)
+  @objective(nlp, Min, op_f1(x[1]) + op_f2(x[2]))
 
   return nlp
 end

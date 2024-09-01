@@ -2,8 +2,8 @@ export hs40
 
 function hs40(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function c!(cx, x)
-    cx[3] = x[1]^3 + x[2]^2 - 1
-    cx[2] = x[4] * x[1]^2 - x[3]
+    cx[2] = x[1]^3 + x[2]^2 - 1
+    cx[3] = x[4] * x[1]^2 - x[3]
     cx[1] = x[4]^2 - x[2]
     return cx
   end

@@ -20,24 +20,24 @@ function camshape(args...; n::Int = default_nvar, type::Type{T} = Float64, kwarg
     return cx
   end
 
-  lcon = vcat(T(-α * θ) * ones(T, n + 1), -T(Inf) * ones(T, n + 2))
-  ucon = vcat(T(α * θ) * ones(T, n + 1), zeros(T, n + 2))
+  lcon = vcat(-T(Inf), T(-α * θ) * ones(T, n + 1), -T(Inf) * ones(T, n + 1))
+  ucon = vcat(T(0), T(α * θ) * ones(T, n + 1), zeros(T, n + 1))
 
   A = zeros(T, n + 2, n)
-  A[1,n] = -1
-  lcon[1] -= R_max
-  ucon[1] -= R_max
-  A[2,1] = 1
-  lcon[2] += R_min
-  ucon[2] += R_min
+  A[2,n] = -1
+  lcon[2] -= R_max
+  ucon[2] -= R_max
+  A[3,1] = 1
+  lcon[3] += R_min
+  ucon[3] += R_min
   for i = 1:(n - 1)
-    A[2 + i, i + 1] = 1
-    A[2 + i, i] = -1
+    A[3 + i, i + 1] = 1
+    A[3 + i, i] = -1
   end
   # cx[n + 3] = -R_min^2 - R_min * y[1] + 2 * R_min * y[1] * cos(θ)
-  A[n + 2, 1] =  -R_min + 2 * R_min * cos(θ)
-  lcon[n + 2] += R_min^2
-  ucon[n + 2] += R_min^2
+  A[1, 1] =  -R_min + 2 * R_min * cos(θ)
+  lcon[1] += R_min^2
+  ucon[1] += R_min^2
 
   lvar = T(R_min) * ones(T, n)
   uvar = T(R_max) * ones(T, n)
