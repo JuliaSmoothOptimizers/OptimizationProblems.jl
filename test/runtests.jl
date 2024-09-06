@@ -45,7 +45,6 @@ include("test_utils.jl")
 
   @testset "Test problems compatibility for $prob" begin
     pb == "britgas" && continue # the same up to some permutation of the constraints
-    pb == "hs87" && continue # if/else issue
     prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
     model = prob_fn(n = ndef)
     nlp_jump = MathOptNLPModel(model)
