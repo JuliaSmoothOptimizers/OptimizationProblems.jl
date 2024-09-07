@@ -12,8 +12,8 @@ function hs109(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
     a = 50176 // 1000
     b = sin(eltype(x)(25 // 100))
     ci = cos(eltype(x)(25 // 100))
-    cx[1] = - x[1]^2 - x[8]^2
-    cx[2] = - x[2]^2 - x[9]^2
+    cx[1] = -x[1]^2 - x[8]^2
+    cx[2] = -x[2]^2 - x[9]^2
     cx[3] =
       x[5] * x[6] * sin(-x[3] - 1 / 4) + x[5] * x[7] * sin(-x[4] - 1 / 4) + 2 * b * x[5]^2 -
       a * x[1] + 400 * a
@@ -36,7 +36,7 @@ function hs109(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
       2 * ci * x[7]^2 + 0.7533e-3 * a * x[7]^2
     return cx
   end
-  lcon = vcat(-T(0.55), - 2250000, -2250000, zeros(T, 6))
+  lcon = vcat(-T(0.55), -2250000, -2250000, zeros(T, 6))
   ucon = vcat(T(0.55), T(Inf), T(Inf), zeros(T, 6))
   return ADNLPModels.ADNLPModel!(
     f,

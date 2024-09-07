@@ -1,6 +1,13 @@
 export catenary
 
-function catenary(args...; n::Int = default_nvar, type::Type{T} = Float64, Bl = 1, FRACT = 0.6, kwargs...) where {T}
+function catenary(
+  args...;
+  n::Int = default_nvar,
+  type::Type{T} = Float64,
+  Bl = 1,
+  FRACT = 0.6,
+  kwargs...,
+) where {T}
   (n % 3 == 0) || @warn("catenary: number of variables adjusted to be a multiple of 3")
   n = 3 * max(1, div(n, 3))
   (n < 6) || @warn("catenary: number of variables adjusted to be greater or equal to 6")

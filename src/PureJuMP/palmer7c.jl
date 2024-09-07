@@ -50,11 +50,7 @@ function palmer7c(args...; kwargs...)
     117.630959,
   ]
 
-  @objective(
-    nlp,
-    Min,
-    0.5 * sum((Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8))^2 for i = 1:13)
-  )
+  @objective(nlp, Min, 0.5 * sum((Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8))^2 for i = 1:13))
 
   return nlp
 end
