@@ -151,7 +151,17 @@ function marine(; n::Int = default_nvar, nc::Int = 1, type::Type{T} = Float64, k
     end
   end
 
-  function c!(cx, x; ne::Int = ne, nh::Int = nh, nc::Int = nc, h::Rational{Int} = h, fact::Vector{Int} = fact, ngm::Int = ngm, ngmv::Int = ngmv)
+  function c!(
+    cx,
+    x;
+    ne::Int = ne,
+    nh::Int = nh,
+    nc::Int = nc,
+    h::Rational{Int} = h,
+    fact::Vector{Int} = fact,
+    ngm::Int = ngm,
+    ngmv::Int = ngmv,
+  )
     g = view(x, 1:(ne - 1))
     m = view(x, ne:ngm)
     ngmw = ngmv + nh * nc * ne
@@ -182,5 +192,16 @@ function marine(; n::Int = default_nvar, nc::Int = 1, type::Type{T} = Float64, k
     return cx
   end
 
-  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, findnz(sparse(A))..., c!, lcon, ucon, name = "marine"; kwargs...)
+  return ADNLPModels.ADNLPModel!(
+    f,
+    x0,
+    lvar,
+    uvar,
+    findnz(sparse(A))...,
+    c!,
+    lcon,
+    ucon,
+    name = "marine";
+    kwargs...,
+  )
 end

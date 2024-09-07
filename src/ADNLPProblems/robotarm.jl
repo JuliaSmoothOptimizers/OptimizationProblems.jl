@@ -25,7 +25,7 @@ function robotarm(; n::Int = default_nvar, L = 4.5, type::Type{T} = Float64, kwa
 
   A = zeros(T, n, 9n + 1)
   for i = 1:n
-    A[i, 6n + i] = L 
+    A[i, 6n + i] = L
   end
 
   # constraints function 
@@ -95,5 +95,16 @@ function robotarm(; n::Int = default_nvar, L = 4.5, type::Type{T} = Float64, kwa
                                         uvar[8n] =
                                           lvar[8n + 1] = uvar[8n + 1] = lvar[9n] = uvar[9n] = T(0)
 
-  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, findnz(sparse(A))..., c!, lcon, ucon, name = "robotarm"; kwargs...)
+  return ADNLPModels.ADNLPModel!(
+    f,
+    x0,
+    lvar,
+    uvar,
+    findnz(sparse(A))...,
+    c!,
+    lcon,
+    ucon,
+    name = "robotarm";
+    kwargs...,
+  )
 end

@@ -23,14 +23,8 @@ function hs104(args...; kwargs...)
 
   @constraint(nlp, 1 - 0.0588 * x[5] * x[7] - 0.1 * x[1] ≥ 0)
   @constraint(nlp, 1 - 0.0588 * x[6] * x[8] - 0.1 * x[1] - 0.1 * x[2] ≥ 0)
-  @constraint(
-    nlp,
-    1 - 4 * x[3] / x[5] - 2 * x[3]^(-0.71) / x[5] - 0.0588 * x[3]^(-1.3) * x[7] ≥ 0
-  )
-  @constraint(
-    nlp,
-    1 - 4 * x[4] / x[6] - 2 * x[4]^(-0.71) / x[6] - 0.0588 * x[4]^(-1.3) * x[8] ≥ 0
-  )
+  @constraint(nlp, 1 - 4 * x[3] / x[5] - 2 * x[3]^(-0.71) / x[5] - 0.0588 * x[3]^(-1.3) * x[7] ≥ 0)
+  @constraint(nlp, 1 - 4 * x[4] / x[6] - 2 * x[4]^(-0.71) / x[6] - 0.0588 * x[4]^(-1.3) * x[8] ≥ 0)
   @constraint(nlp, 1 ≤ f ≤ 4.2)
 
   @objective(nlp, Min, f)

@@ -22,7 +22,7 @@ function hs116(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
     cx[5] = x[12] - b * x[9] + ci * x[2] * x[9]
     cx[6] = x[11] - b * x[8] + ci * x[1] * x[8]
     cx[7] = x[5] * x[7] - x[1] * x[8] - x[4] * x[7] + x[4] * x[8]
-    cx[8] = - a * (x[2] * x[9] + x[5] * x[8] - x[1] * x[8] - x[6] * x[9]) - x[5] - x[6]
+    cx[8] = -a * (x[2] * x[9] + x[5] * x[8] - x[1] * x[8] - x[6] * x[9]) - x[5] - x[6]
     cx[9] = x[2] * x[9] - x[3] * x[10] - x[6] * x[9] - 500 * x[2] + 500 * x[6] + x[2] * x[10]
     cx[10] = x[2] - a * (x[2] * x[10] - x[3] * x[10])
     return cx

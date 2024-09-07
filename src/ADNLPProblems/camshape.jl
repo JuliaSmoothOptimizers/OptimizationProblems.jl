@@ -24,10 +24,10 @@ function camshape(args...; n::Int = default_nvar, type::Type{T} = Float64, kwarg
   ucon = vcat(T(0), T(α * θ) * ones(T, n + 1), zeros(T, n + 1))
 
   A = zeros(T, n + 2, n)
-  A[2,n] = -1
+  A[2, n] = -1
   lcon[2] -= R_max
   ucon[2] -= R_max
-  A[3,1] = 1
+  A[3, 1] = 1
   lcon[3] += R_min
   ucon[3] += R_min
   for i = 1:(n - 1)
@@ -35,13 +35,25 @@ function camshape(args...; n::Int = default_nvar, type::Type{T} = Float64, kwarg
     A[3 + i, i] = -1
   end
   # cx[n + 3] = -R_min^2 - R_min * y[1] + 2 * R_min * y[1] * cos(θ)
-  A[1, 1] =  -R_min + 2 * R_min * cos(θ)
+  A[1, 1] = -R_min + 2 * R_min * cos(θ)
   lcon[1] += R_min^2
   ucon[1] += R_min^2
 
   lvar = T(R_min) * ones(T, n)
   uvar = T(R_max) * ones(T, n)
-  
+
   x0 = T((R_min + R_max) / 2) * ones(T, n)
-  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, findnz(sparse(A))..., c!, lcon, ucon, name = "camshape", ; kwargs...)
+  return ADNLPModels.ADNLPModel!(
+    f,
+    x0,
+    lvar,
+    uvar,
+    findnz(sparse(A))...,
+    c!,
+    lcon,
+    ucon,
+    name = "camshape",
+    ;
+    kwargs...,
+  )
 end

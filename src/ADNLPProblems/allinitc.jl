@@ -19,8 +19,8 @@ function allinitc(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) w
     return cx
   end
   A = T[
-    0 0 0 1;
-    0 1 0 0;
+    0 0 0 1
+    0 1 0 0
     0 0 1 0
   ]
 

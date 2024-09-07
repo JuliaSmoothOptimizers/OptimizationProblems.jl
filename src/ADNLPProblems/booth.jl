@@ -7,7 +7,7 @@ function booth(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   x0 = zeros(T, 2)
 
   A = T[
-    1 2;
+    1 2
     2 1
   ]
   function c!(cx, x)
