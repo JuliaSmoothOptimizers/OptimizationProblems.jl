@@ -12,9 +12,9 @@ export hs211
 "HS211 model"
 function hs211(; n::Int = default_nvar, kwargs...)
   nlp = Model()
-  @variable(f_211, x1, start = -1.2)
-  @variable(f_211, x2, start = 1)
+  @variable(nlp, x1, start = -1.2)
+  @variable(nlp, x2, start = 1)
 
-  @objective(f_211, Min, 100*(x2 - x1^3)^2 + (1 - x1)^2)
+  @objective(nlp, Min, 100*(x2 - x1^3)^2 + (1 - x1)^2)
   return nlp
 end
