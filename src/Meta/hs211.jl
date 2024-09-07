@@ -17,9 +17,9 @@ hs211_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
-get_hs201_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs201_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs201_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs201_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs201_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs201_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs211_nvar(; n::Integer = default_nvar, kwargs...) = 2
+get_hs211_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_hs211_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_hs211_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_hs211_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_hs211_nineq(; n::Integer = default_nvar, kwargs...) = 0
