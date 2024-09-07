@@ -19,6 +19,7 @@ function hs201(args...; n::Int = default_nvar, kwargs...)
     set_start_value(x2, 9)
 
     #Définition de la fonction objectif
-    @NLobjective(model, Min, 4*(x1-5)^2+(x2-6)^2)
+    @objective(model, Min, 4*(x1-5)^2+(x2-6)^2)
+
     return model
 end
