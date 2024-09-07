@@ -139,11 +139,21 @@ function marine(; n::Int = default_nvar, nc::Int = 1, type::Type{T} = Float64, k
 
   ncon = (nh - 1) * ne + nh * nc + nh * nc * (ne - 2) + nh * nc
   lcon = ucon = zeros(T, ncon)
-  function c!(cx, x; ne = ne, nh = nh, nc = nc, h = h, fact = fact)
+
+  A = zeros(T, (nh - 1) * ne, length(x0))
+  ngm = 2 * ne - 1
+  ngmv = ngm + nh * ne
+  for i = 1:(nh - 1), s = 1:ne
+    A[i + (s - 1) * (nh - 1), ngm + i + (s - 1) * nh] = 1
+    A[i + (s - 1) * (nh - 1), ngm + i + (s - 1) * nh + 1] = -1
+    for j = 1:nc
+      A[i + (s - 1) * (nh - 1), ngmv + i + (s - 1) * nh + (j - 1) * nc] = h / fact[j + 1]
+    end
+  end
+
+  function c!(cx, x; ne::Int = ne, nh::Int = nh, nc::Int = nc, h::Rational{Int} = h, fact::Vector{Int} = fact, ngm::Int = ngm, ngmv::Int = ngmv)
     g = view(x, 1:(ne - 1))
-    ngm = 2 * ne - 1
     m = view(x, ne:ngm)
-    ngmv = ngm + nh * ne
     ngmw = ngmv + nh * nc * ne
     v = reshape_array(view(x, (ngm + 1):(ngmv)), (nh, ne))
     w = reshape_array(view(x, (ngmv + 1):(ngmw)), (nh, nc, ne))
@@ -152,15 +162,14 @@ function marine(; n::Int = default_nvar, nc::Int = 1, type::Type{T} = Float64, k
     Duc = reshape_array(view(x, (nuc + 1):(nuc + nh * nc * ne)), (nh, nc, ne))
 
     # continuity
-    for i = 1:(nh - 1), s = 1:ne
-      cx[i + (s - 1) * (nh - 1)] =
-        v[i, s] + h * sum(w[i, j, s] / fact[j + 1] for j = 1:nc) - v[i + 1, s]
-    end
-    ncx = (nh - 1) * ne
+    #for i = 1:(nh - 1), s = 1:ne
+    #  cx[i + (s - 1) * (nh - 1)] =
+    #    v[i, s] + h * sum(w[i, j, s] / fact[j + 1] for j = 1:nc) - v[i + 1, s]
+    #end
     for i = 1:nh, j = 1:nc
-      cx[ncx + i + (j - 1) * nh] = Duc[i, j, 1] + (m[1] + g[1]) * uc[i, j, 1]
+      cx[i + (j - 1) * nh] = Duc[i, j, 1] + (m[1] + g[1]) * uc[i, j, 1]
     end
-    ncx += nc * nh
+    ncx = nc * nh
     for i = 1:nh, j = 1:nc, s = 2:(ne - 1)
       cx[ncx + i + (j - 1) * nh + (s - 2) * nh * nc] =
         Duc[i, j, s] - g[s - 1] * uc[i, j, s - 1] + (m[s] + g[s]) * uc[i, j, s]
@@ -173,5 +182,5 @@ function marine(; n::Int = default_nvar, nc::Int = 1, type::Type{T} = Float64, k
     return cx
   end
 
-  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "marine"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, findnz(sparse(A))..., c!, lcon, ucon, name = "marine"; kwargs...)
 end

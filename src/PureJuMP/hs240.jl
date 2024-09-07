@@ -19,7 +19,7 @@ function hs240(args...; kwargs...)
   x0 = [100, -1, 2.5]
   @variable(nlp, x[i = 1:3], start = x0[i])
 
-  @NLobjective(nlp, Min, (x[1] - x[2] + x[3])^2 + (-x[1] + x[2] + x[3])^2 + (x[1] + x[2] - x[3])^2)
+  @objective(nlp, Min, (x[1] - x[2] + x[3])^2 + (-x[1] + x[2] + x[3])^2 + (x[1] + x[2] - x[3])^2)
 
   return nlp
 end

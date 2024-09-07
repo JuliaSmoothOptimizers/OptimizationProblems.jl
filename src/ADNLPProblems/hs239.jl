@@ -49,10 +49,10 @@ function hs239(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   lvar = T[0, 0]
   uvar = T[75, 65]
   function c!(cx, x)
-    cx[1] = x[1] * x[2] - 700
+    cx[1] = x[1] * x[2]
     return cx
   end
-  lcon = zeros(T, 1)
+  lcon = lcon = T[700]
   ucon = T[Inf]
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs239"; kwargs...)
 end

@@ -19,7 +19,7 @@ allinitc_meta = Dict(
 )
 get_allinitc_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_allinitc_ncon(; n::Integer = default_nvar, kwargs...) = 4
-get_allinitc_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_allinitc_nnln(; n::Integer = default_nvar, kwargs...) = 4
+get_allinitc_nlin(; n::Integer = default_nvar, kwargs...) = 3
+get_allinitc_nnln(; n::Integer = default_nvar, kwargs...) = 1
 get_allinitc_nequ(; n::Integer = default_nvar, kwargs...) = 1
 get_allinitc_nineq(; n::Integer = default_nvar, kwargs...) = 3

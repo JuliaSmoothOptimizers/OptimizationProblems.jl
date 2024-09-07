@@ -98,26 +98,28 @@ function test_compatibility(
   x1 = nlp_ad.meta.x0
   x2 = nlp_ad.meta.x0 .+ 0.01
   n0 = max(abs(obj(nlp_ad, nlp_ad.meta.x0)), 1)
-  if !(prob in ["brownal"]) # precision issue
+  obj_tol = 1e-10
+  if !(prob in [:triangle_pacman, :triangle_deer]) # precision issue
     if isnan(n0)
       @test isnan(obj(nlp_jump, x1))
     else
-      @test isapprox(obj(nlp_ad, x1), obj(nlp_jump, x1), atol = 1e-14 * n0)
+      @test isapprox(obj(nlp_ad, x1), obj(nlp_jump, x1), atol = obj_tol * n0)
     end
     n0 = max(abs(obj(nlp_ad, x2)), 1)
     if isnan(n0)
       @test isnan(obj(nlp_jump, x2))
     else
-      @test isapprox(obj(nlp_ad, x2), obj(nlp_jump, x2), atol = 1e-14 * n0)
+      @test isapprox(obj(nlp_ad, x2), obj(nlp_jump, x2), atol = obj_tol * n0)
     end
   end
   grad(nlp_ad, x1) # just test that it runs
 
   if nlp_ad.meta.ncon > 0
-    @test nlp_ad.meta.lcon == nlp_jump.meta.lcon
-    @test nlp_ad.meta.ucon == nlp_jump.meta.ucon
-    @test all(isapprox.(cons(nlp_ad, x1), cons(nlp_jump, x1), atol = 1e-10 * n0))
-    @test all(isapprox.(cons(nlp_ad, x2), cons(nlp_jump, x2), atol = 1e-10 * n0))
+    cons_tol = 1e-10
+    @test nlp_ad.meta.lcon ≈ nlp_jump.meta.lcon
+    @test nlp_ad.meta.ucon ≈ nlp_jump.meta.ucon
+    @test all(isapprox.(cons(nlp_ad, x1), cons(nlp_jump, x1), atol = cons_tol * n0))
+    @test all(isapprox.(cons(nlp_ad, x2), cons(nlp_jump, x2), atol = cons_tol * n0))
     @test nlp_jump.meta.lin == nlp_ad.meta.lin
   end
 

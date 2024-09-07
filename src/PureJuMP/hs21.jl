@@ -22,7 +22,7 @@ function hs21(args...; kwargs...)
 
   @constraint(nlp, 10 * x[1] - x[2] - 10 ≥ 0)
 
-  @NLobjective(nlp, Min, 0.01 * x[1]^2 + x[2]^2 - 100)
+  @objective(nlp, Min, 0.01 * x[1]^2 + x[2]^2 - 100)
 
   return nlp
 end

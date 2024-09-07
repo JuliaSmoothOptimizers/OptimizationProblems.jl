@@ -18,7 +18,7 @@ function BOX2(args...; n::Int = default_nvar, m::Int = 10, kwargs...)
   x0 = [0.0; 10.0; 1.0]
   @variable(nlp, x[i = 1:3], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

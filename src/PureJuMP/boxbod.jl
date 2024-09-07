@@ -51,7 +51,7 @@ function boxbod(args...; kwargs...)
   @variable(nlp, x[j = 1:2])
   set_start_value.(x, [1, 1]) # other: [100, 0.75]
 
-  @NLobjective(nlp, Min, 0.5 * sum((y[i, 1] - x[1] * (1 - exp(-x[2] * y[i, 2])))^2 for i = 1:6))
+  @objective(nlp, Min, 0.5 * sum((y[i, 1] - x[1] * (1 - exp(-x[2] * y[i, 2])))^2 for i = 1:6))
 
   return nlp
 end

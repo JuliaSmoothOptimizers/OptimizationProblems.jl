@@ -10,10 +10,10 @@ function hs226(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   uvar = T[Inf, Inf]
   function c!(cx, x)
     cx[1] = x[1]^2 + x[2]^2
-    cx[2] = 1 - x[1]^2 - x[2]^2
+    cx[2] = - x[1]^2 - x[2]^2
     return cx
   end
-  lcon = zeros(T, 2)
+  lcon = T[0; -1]
   ucon = T(Inf) * ones(T, 2)
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs226"; kwargs...)
 end

@@ -24,7 +24,7 @@ function hs117(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
 
   d = [4, 8, 10, 6, 2]
 
-  e = [-15, -27, -36, -18, -12]
+  e = T[-15, -27, -36, -18, -12]
   function f(x; b = b, ci = ci, d = d)
     return -sum(b[j] * x[j] for j = 1:10) +
            sum(sum(ci[k, j] * x[10 + k] * x[10 + j] for k = 1:5) for j = 1:5) +
@@ -36,12 +36,12 @@ function hs117(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   function c!(cx, x)
     for j = 1:5
       cx[j] =
-        2 * sum(ci[k, j] * x[10 + k] + 3 * d[j] * x[10 + j]^2 for k = 1:5) + e[j] -
+        2 * sum(ci[k, j] * x[10 + k] + 3 * d[j] * x[10 + j]^2 for k = 1:5) -
         sum(a[k, j] * x[k] for k = 1:10)
     end
     return cx
   end
-  lcon = zeros(T, 5)
+  lcon = -e
   ucon = T(Inf) * ones(T, 5)
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs117"; kwargs...)
 end

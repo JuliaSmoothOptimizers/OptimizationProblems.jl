@@ -48,8 +48,8 @@ function argauss(; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, -Inf <= x[i = 1:3] <= Inf, start = xinit[i])
 
-  @NLobjective(nlp, Min, 0)
-  @NLconstraint(
+  @objective(nlp, Min, 0)
+  @constraint(
     nlp,
     cons[i = 1:15],
     x[1] * exp(-0.5 * x[2] * (0.5 * (8 - i) - x[3])^2) - rhs[i] == 0

@@ -25,7 +25,7 @@ function hs253(args...; kwargs...)
   a2 = [0; 0; 10; 10; 0; 0; 10; 10]
   a3 = [0; 0; 0; 0; 10; 10; 10; 10]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(c[j] * sqrt((a1[j] - x[1]^2 + (a2[j] - x[2])^2 + (a3[j] - x[3])^2)) for j = 1:8)

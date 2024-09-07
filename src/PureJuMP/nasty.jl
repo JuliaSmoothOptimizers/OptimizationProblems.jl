@@ -14,7 +14,7 @@ function nasty(args...; kwargs...)
 
   @variable(nlp, x[i = 1:2], start = x0[i])
 
-  @NLobjective(nlp, Min, 0.5 * ((1.0e10 * x[1])^2 + x[2]^2))
+  @objective(nlp, Min, 0.5 * ((1.0e10 * x[1])^2 + x[2]^2))
 
   return nlp
 end

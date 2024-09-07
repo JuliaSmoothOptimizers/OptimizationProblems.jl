@@ -54,7 +54,7 @@ function rat42(args...; kwargs...)
   @variable(nlp, x[j = 1:3])
   set_start_value.(x, [100, 1, 0.1]) # other: [75, 2.5, 0.07]
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum((y[i, 1] - x[1] / (1 + exp(x[2] - x[3] * y[i, 2])))^2 for i = 1:9)

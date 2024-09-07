@@ -15,13 +15,13 @@ function elec(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
   # Define the constraints on these points (sum of the square of the coordinates = 1)
   function c!(cx, x; n = n)
     for k = 1:n
-      cx[k] = x[k]^2 + x[n + k]^2 + x[2n + k]^2 - 1
+      cx[k] = x[k]^2 + x[n + k]^2 + x[2n + k]^2
     end
     return cx
   end
 
   # bounds on the constraints
-  lcon = ucon = zeros(T, n)
+  lcon = ucon = ones(T, n)
 
   # building a feasible x0
   range0 = T[i / n for i = 1:n]

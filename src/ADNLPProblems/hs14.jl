@@ -9,11 +9,11 @@ function hs14(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwarg
   x0 = T[2; 2]
   f(x) = 1 // 2 * (x[1] - 2)^2 + 1 // 2 * (x[2] - 1)^2
   function c!(cx, x)
-    cx[1] = x[1]^2 / 4 + x[2]^2 - 1
+    cx[1] = x[1]^2 / 4 + x[2]^2
     return cx
   end
   lcon = T[-1; -Inf]
-  ucon = T[-1; 0]
+  ucon = T[-1; 1]
 
   return ADNLPModels.ADNLPModel!(
     f,
@@ -37,11 +37,11 @@ function hs14(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwarg
     return r
   end
   function c!(cx, x)
-    cx[1] = x[1]^2 / 4 + x[2]^2 - 1
+    cx[1] = x[1]^2 / 4 + x[2]^2
     return cx
   end
   lcon = T[-1; -Inf]
-  ucon = T[-1; 0]
+  ucon = T[-1; 1]
 
   return ADNLPModels.ADNLSModel!(
     F!,

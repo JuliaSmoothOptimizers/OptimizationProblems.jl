@@ -9,8 +9,8 @@ function hs72(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
   lvar = T(0.001) * ones(T, 4)
   uvar = T[(5 - i) * 1e5 for i = 1:4]
   function c!(cx, x)
-    cx[1] = -0.0401 + 4 / x[1] + 2.25 / x[2] + 1 / x[3] + 0.25 / x[4]
-    cx[2] = -0.010085 + 0.16 / x[1] + 0.36 / x[2] + 0.64 / x[3] + 0.64 / x[4]
+    cx[1] = + 4 / x[1] + 2.25 / x[2] + 1 / x[3] + 0.25 / x[4] - 0.0401
+    cx[2] = + 0.16 / x[1] + 0.36 / x[2] + 0.64 / x[3] + 0.64 / x[4] - 0.010085
     return cx
   end
   lcon = -T(Inf) * ones(T, 2)

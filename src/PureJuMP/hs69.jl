@@ -29,11 +29,11 @@ function hs69(args...; kwargs...)
   @variable(nlp, lvar[i] ≤ x[i = 1:4] ≤ uvar[i], start = x0[i])
 
   phi(t) = 1 // 2 * (erf(t / sqrt(2)) + 1)
-  register(nlp, :phi, 1, phi; autodiff = true)
-  @NLconstraint(nlp, x[3] - 2 * phi(x[2]) == 0)
-  @NLconstraint(nlp, x[4] - phi(-x[2] + d1 * sqrt(n1)) - phi(-x[2] - d1 * sqrt(n1)) == 0)
+  @expression(nlp, phi)
+  @constraint(nlp, x[3] - 2 * phi(x[2]) == 0)
+  @constraint(nlp, x[4] - phi(-x[2] + d1 * sqrt(n1)) - phi(-x[2] - d1 * sqrt(n1)) == 0)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     (a1 * n1 - (b1 * (exp(x[1] - 1) - x[3])) / (exp(x[1] - 1 + x[4])) * x[4]) / x[1]

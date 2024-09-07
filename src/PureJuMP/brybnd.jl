@@ -48,7 +48,7 @@ function brybnd(args...; n::Int = default_nvar, ml::Int = 5, mu::Int = 1, kwargs
 
   @variable(nlp, x[i = 1:n], start = (-1.0))
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

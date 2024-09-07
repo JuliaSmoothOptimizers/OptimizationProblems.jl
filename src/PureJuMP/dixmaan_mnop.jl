@@ -39,7 +39,7 @@ function dixmaanm(
 
   @variable(nlp, x[i = 1:n], start = 2)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     1 +

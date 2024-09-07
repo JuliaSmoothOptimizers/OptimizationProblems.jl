@@ -22,12 +22,12 @@ function hs116(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
     cx[5] = x[12] - b * x[9] + ci * x[2] * x[9]
     cx[6] = x[11] - b * x[8] + ci * x[1] * x[8]
     cx[7] = x[5] * x[7] - x[1] * x[8] - x[4] * x[7] + x[4] * x[8]
-    cx[8] = 1 - a * (x[2] * x[9] + x[5] * x[8] - x[1] * x[8] - x[6] * x[9]) - x[5] - x[6]
+    cx[8] = - a * (x[2] * x[9] + x[5] * x[8] - x[1] * x[8] - x[6] * x[9]) - x[5] - x[6]
     cx[9] = x[2] * x[9] - x[3] * x[10] - x[6] * x[9] - 500 * x[2] + 500 * x[6] + x[2] * x[10]
-    cx[10] = x[2] - 0.9 - a * (x[2] * x[10] - x[3] * x[10])
+    cx[10] = x[2] - a * (x[2] * x[10] - x[3] * x[10])
     return cx
   end
-  lcon = vcat(zeros(T, 2), -1, 50, -T(Inf), zeros(T, 10))
+  lcon = vcat(zeros(T, 2), -1, 50, -T(Inf), zeros(T, 7), T[-1; 0; 9 // 10])
   ucon = vcat(T(Inf) * ones(T, 4), 250, T(Inf) * ones(T, 10))
   return ADNLPModels.ADNLPModel!(
     f,

@@ -21,9 +21,9 @@ function hs223(args...; kwargs...)
   uvar = [10, 10]
   @variable(nlp, uvar[i] ≥ x[i = 1:2] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, -x[1])
-  @NLconstraint(nlp, exp(exp(x[1])) >= 0)
-  @NLconstraint(nlp, x[2] - exp(exp(x[1])) >= 0)
+  @objective(nlp, Min, -x[1])
+  @constraint(nlp, exp(exp(x[1])) >= 0)
+  @constraint(nlp, x[2] - exp(exp(x[1])) >= 0)
 
   return nlp
 end

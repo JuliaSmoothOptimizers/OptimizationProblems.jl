@@ -14,7 +14,6 @@ include("test_utils.jl")
 @test ndef == OptimizationProblems.PureJuMP.default_nvar
 @test ndef == OptimizationProblems.ADNLPProblems.default_nvar
 
-# Fix: :hs247
 @testset "problem: $prob" for prob in list_problems
   pb = string(prob)
 

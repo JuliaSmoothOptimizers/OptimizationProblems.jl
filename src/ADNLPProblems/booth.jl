@@ -6,17 +6,20 @@ function booth(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   end
   x0 = zeros(T, 2)
 
+  A = T[
+    1 2;
+    2 1
+  ]
   function c!(cx, x)
-    cx[1] = x[1] + 2 * x[2] - 7
-    cx[2] = 2 * x[1] + x[2] - 5
     return cx
   end
   return ADNLPModels.ADNLPModel!(
     f,
     x0,
+    findnz(sparse(A))...,
     c!,
-    zeros(T, 2),
-    zeros(T, 2),
+    T[7, 5],
+    T[7, 5],
     minimize = true,
     name = "booth";
     kwargs...,

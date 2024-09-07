@@ -25,7 +25,7 @@ function hs44(args...; kwargs...)
   @constraint(nlp, -8 + x[3] + 2 * x[4] ≤ 0)
   @constraint(nlp, -5 + x[3] + x[4] ≤ 0)
 
-  @NLobjective(nlp, Min, x[1] - x[2] - x[3] - x[1] * x[3] + x[1] * x[4] + x[2] * x[3] - x[2] * x[4])
+  @objective(nlp, Min, x[1] - x[2] - x[3] - x[1] * x[3] + x[1] * x[4] + x[2] * x[3] - x[2] * x[4])
 
   return nlp
 end

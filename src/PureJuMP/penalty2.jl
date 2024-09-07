@@ -25,7 +25,7 @@ function penalty2(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   @variable(nlp, x[i = 1:n], start = 1 / 2)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     (x[1] - 0.2)^2 +

@@ -20,7 +20,7 @@ function hs262(args...; kwargs...)
   lvar = [0, 0, 0, 0]
   @variable(nlp, x[i = 1:4] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, -0.5 * x[1] - x[2] - 0.5 * x[3] - x[4])
+  @objective(nlp, Min, -0.5 * x[1] - x[2] - 0.5 * x[3] - x[4])
 
   @constraint(nlp, x[1] + x[2] + x[3] - 2 * x[4] - 6 == 0)
   @constraint(nlp, 10 - x[1] - x[2] - x[3] - x[4] >= 0)

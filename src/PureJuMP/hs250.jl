@@ -21,7 +21,7 @@ function hs250(args...; kwargs...)
   uvar = [20, 11, 42]
   @variable(nlp, uvar[i] ≥ x[i = 1:3] ≥ lvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, -x[1] * x[2] * x[3])
+  @objective(nlp, Min, -x[1] * x[2] * x[3])
   @constraint(nlp, x[1] + 2 * x[2] + 2 * x[3] >= 0)
   @constraint(nlp, 72 - x[1] - 2 * x[2] - 2 * x[3] >= 0)
 

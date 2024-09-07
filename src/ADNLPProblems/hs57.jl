@@ -65,10 +65,10 @@ function hs57(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwarg
   lvar = T[0.4, -4]
   uvar = T(Inf) * ones(T, 2)
   function c!(cx, x)
-    cx[1] = 49 // 100 * x[2] - x[1] * x[2] - 9 // 100
+    cx[1] = 49 // 100 * x[2] - x[1] * x[2]
     return cx
   end
-  lcon = zeros(T, 1)
+  lcon = zeros(T, 1) .+ 9 // 100
   ucon = T(Inf) * ones(T, 1)
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs57"; kwargs...)
 end

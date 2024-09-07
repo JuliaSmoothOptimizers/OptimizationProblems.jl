@@ -21,9 +21,9 @@ function hs65(args...; kwargs...)
   uvar = [4.5, 4.5, 5]
   @variable(nlp, lvar[i] ≤ x[i = 1:3] ≤ uvar[i], start = x0[i])
 
-  @NLconstraint(nlp, -48 + x[1]^2 + x[2]^2 + x[3]^2 ≤ 0)
+  @constraint(nlp, -48 + x[1]^2 + x[2]^2 + x[3]^2 ≤ 0)
 
-  @NLobjective(nlp, Min, (x[1] - x[2])^2 + ((x[1] + x[2] - 10)^2) / 9 + (x[3] - 5)^2)
+  @objective(nlp, Min, (x[1] - x[2])^2 + ((x[1] + x[2] - 10)^2) / 9 + (x[3] - 5)^2)
 
   return nlp
 end

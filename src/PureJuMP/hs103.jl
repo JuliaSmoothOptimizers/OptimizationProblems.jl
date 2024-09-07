@@ -26,7 +26,7 @@ function hs103(args...; kwargs...)
   exposant_f[3, :] = [-2, 1, 0, -1, -2, 1, 0]
   exposant_f[4, :] = [2, 2, -1, 0, 0.5, -2, 1]
 
-  @NLexpression(
+  @expression(
     nlp,
     f,
     10 * prod(x[i]^exposant_f[1, i] for i = 1:7) +
@@ -39,7 +39,7 @@ function hs103(args...; kwargs...)
   exposant_c1[1, :] = [0.5, 0, -1, 0, 0, -2, 1]
   exposant_c1[2, :] = [3, 1, -2, 0, 0, 1, 0.5]
   exposant_c1[3, :] = [0, -1, 1, -0.5, 0, 2 / 3, 1 / 4]
-  @NLconstraint(
+  @constraint(
     nlp,
     1 - 0.5 * prod(x[i]^exposant_c1[1, i] for i = 1:7) -
     0.7 * prod(x[i]^exposant_c1[2, i] for i = 1:7) -
@@ -50,7 +50,7 @@ function hs103(args...; kwargs...)
   exposant_c2[1, :] = [-0.5, 1, -1, 0, -1, 1, 0]
   exposant_c2[2, :] = [0, 0, 1, -1, -1, 2, 0]
   exposant_c2[3, :] = [-1, 0.5, 0, -2, -1, 1 / 3, 0]
-  @NLconstraint(
+  @constraint(
     nlp,
     1 - 1.3 * prod(x[i]^exposant_c2[1, i] for i = 1:7) -
     0.8 * prod(x[i]^exposant_c2[2, i] for i = 1:7) -
@@ -62,7 +62,7 @@ function hs103(args...; kwargs...)
   exposant_c3[2, :] = [0, 1, -0.5, 0, 1, -1, -0.5]
   exposant_c3[3, :] = [-1, 1, 0.5, 0, 1, 0, 0]
   exposant_c3[4, :] = [0, -2, 1, 0, 1, -1, 1]
-  @NLconstraint(
+  @constraint(
     nlp,
     1 - 2 * prod(x[i]^exposant_c3[1, i] for i = 1:7) -
     0.1 * prod(x[i]^exposant_c3[2, i] for i = 1:7) - 1 * prod(x[i]^exposant_c3[3, i] for i = 1:7) -
@@ -74,7 +74,7 @@ function hs103(args...; kwargs...)
   exposant_c4[2, :] = [0.5, 2, 1, 1 / 3, -2 / 3, 0, 1 / 4]
   exposant_c4[3, :] = [-3, -2, 1, 0, 1, 0, 3 / 4]
   exposant_c4[4, :] = [0, 0, -2, 1, 0, 0, 0.5]
-  @NLconstraint(
+  @constraint(
     nlp,
     1 - 0.2 * prod(x[i]^exposant_c4[1, i] for i = 1:7) -
     0.3 * prod(x[i]^exposant_c4[2, i] for i = 1:7) -
@@ -82,9 +82,9 @@ function hs103(args...; kwargs...)
     0.5 * prod(x[i]^exposant_c4[4, i] for i = 1:7) ≥ 0
   )
 
-  @NLconstraint(nlp, 100 ≤ f ≤ 3000)
+  @constraint(nlp, 100 ≤ f ≤ 3000)
 
-  @NLobjective(nlp, Min, f)
+  @objective(nlp, Min, f)
 
   return nlp
 end

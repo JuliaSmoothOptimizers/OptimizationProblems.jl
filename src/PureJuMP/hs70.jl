@@ -30,8 +30,8 @@ function hs70(args...; kwargs...)
   yobs[1:10] = [0.00189, 0.1038, 0.268, 0.506, 0.577, 0.604, 0.725, 0.898, 0.947, 0.845]
   yobs[11:19] = [0.702, 0.528, 0.385, 0.257, 0.159, 0.0869, 0.0453, 0.01509, 0.00189]
 
-  @NLexpression(nlp, b, x[3] + (1 - x[3]) * x[4])
-  @NLexpression(
+  @expression(nlp, b, x[3] + (1 - x[3]) * x[4])
+  @expression(
     nlp,
     ycal[i = 1:19],
     (1 + 1 / (12 * x[2])) * (
@@ -49,9 +49,9 @@ function hs70(args...; kwargs...)
     exp(x[1] - b * c[i] * x[1] / (7.658 * x[4]))
   )
 
-  @NLconstraint(nlp, x[3] + (1 - x[3]) * x[4] ≥ 0)
+  @constraint(nlp, x[3] + (1 - x[3]) * x[4] ≥ 0)
 
-  @NLobjective(nlp, Min, sum((ycal[i] - yobs[i])^2 for i = 1:19))
+  @objective(nlp, Min, sum((ycal[i] - yobs[i])^2 for i = 1:19))
 
   return nlp
 end

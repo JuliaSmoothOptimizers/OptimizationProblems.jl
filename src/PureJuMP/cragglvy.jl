@@ -37,7 +37,7 @@ function cragglvy(args...; n::Int = default_nvar, kwargs...)
   @variable(nlp, x[i = 1:n], start = 2)
   set_start_value(x[1], 1)
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

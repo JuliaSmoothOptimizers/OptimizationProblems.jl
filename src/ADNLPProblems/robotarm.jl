@@ -23,37 +23,41 @@ function robotarm(; n::Int = default_nvar, L = 4.5, type::Type{T} = Float64, kwa
     x[end]
   end
 
+  A = zeros(T, n, 9n + 1)
+  for i = 1:n
+    A[i, 6n + i] = L 
+  end
+
   # constraints function 
   function c!(cx, x; L = L, n = n)
     # dynamic bounds on ρ_acc, θ_acc, ϕ_acc
     for i = 1:n
-      cx[i] = L * x[6n + i]
-      cx[n + i] = x[7n + i] * ((L - x[i])^3 + x[i]^3) / 3 * sin(x[2n + i])^2
-      cx[2 * n + i] = x[8n + i] * ((L - x[i])^3 + x[i]^3) / 3
+      cx[6 * n - 6 + i] = x[7n + i] * ((L - x[i])^3 + x[i]^3) / 3 * sin(x[2n + i])^2
+      cx[7 * n - 6 + i] = x[8n + i] * ((L - x[i])^3 + x[i]^3) / 3
     end
     for i = 1:(n - 1)
-      cx[3 * n + i] = x[1 + i] - x[i] - x[3n + i] * x[end] / n
-      cx[4 * n - 1 + i] = x[n + 1 + i] - x[n + i] - x[4n + i] * x[end] / n
-      cx[5 * n - 2 + i] = x[2n + 1 + i] - x[2n + i] - x[5n + i] * x[end] / n
-      cx[6 * n - 3 + i] = x[3n + 1 + i] - x[3n + i] - x[6n + i] * x[end] / n
-      cx[7 * n - 4 + i] = x[4n + 1 + i] - x[4n + i] - x[7n + i] * x[end] / n
-      cx[8 * n - 5 + i] = x[5n + 1 + i] - x[5n + i] - x[8n + i] * x[end] / n
+      cx[i] = x[1 + i] - x[i] - x[3n + i] * x[end] / n
+      cx[n - 1 + i] = x[n + 1 + i] - x[n + i] - x[4n + i] * x[end] / n
+      cx[2 * n - 2 + i] = x[2n + 1 + i] - x[2n + i] - x[5n + i] * x[end] / n
+      cx[3 * n - 3 + i] = x[3n + 1 + i] - x[3n + i] - x[6n + i] * x[end] / n
+      cx[4 * n - 4 + i] = x[4n + 1 + i] - x[4n + i] - x[7n + i] * x[end] / n
+      cx[5 * n - 5 + i] = x[5n + 1 + i] - x[5n + i] - x[8n + i] * x[end] / n
     end
     return cx
   end
 
   lcon = T[
     -ones(n)
-    -ones(n)
-    -ones(n)
     zeros(6N)
+    -ones(n)
+    -ones(n)
   ]
 
   ucon = T[
     ones(n)
-    ones(n)
-    ones(n)
     zeros(6N)
+    ones(n)
+    ones(n)
   ]
 
   # Building a feasible x0
@@ -91,5 +95,5 @@ function robotarm(; n::Int = default_nvar, L = 4.5, type::Type{T} = Float64, kwa
                                         uvar[8n] =
                                           lvar[8n + 1] = uvar[8n + 1] = lvar[9n] = uvar[9n] = T(0)
 
-  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "robotarm"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, findnz(sparse(A))..., c!, lcon, ucon, name = "robotarm"; kwargs...)
 end

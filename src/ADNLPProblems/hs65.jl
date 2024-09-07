@@ -9,10 +9,10 @@ function hs65(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
   lvar = T[-4.5, -4.5, -5]
   uvar = T[4.5, 4.5, 5]
   function c!(cx, x)
-    cx[1] = -48 + x[1]^2 + x[2]^2 + x[3]^2
+    cx[1] = x[1]^2 + x[2]^2 + x[3]^2
     return cx
   end
   lcon = T[-Inf]
-  ucon = zeros(T, 1)
+  ucon = T[48]
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs65"; kwargs...)
 end

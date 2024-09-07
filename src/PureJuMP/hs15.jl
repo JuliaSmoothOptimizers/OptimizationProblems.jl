@@ -20,11 +20,11 @@ function hs15(args...; kwargs...)
   uvar = [0.5, Inf]
   @variable(nlp, x[i = 1:2] ≤ uvar[i], start = x0[i])
 
-  @NLobjective(nlp, Min, 100 * (x[2] - x[1]^2)^2 + (1 - x[1])^2)
+  @objective(nlp, Min, 100 * (x[2] - x[1]^2)^2 + (1 - x[1])^2)
 
-  @NLconstraint(nlp, x[1] * x[2] - 1 ≥ 0)
+  @constraint(nlp, x[1] * x[2] - 1 ≥ 0)
 
-  @NLconstraint(nlp, x[1] + x[2]^2 ≥ 0)
+  @constraint(nlp, x[1] + x[2]^2 ≥ 0)
 
   return nlp
 end

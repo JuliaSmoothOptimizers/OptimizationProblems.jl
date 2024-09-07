@@ -29,7 +29,7 @@ function dqrtic(args...; n::Int = default_nvar, kwargs...)
 
   @variable(nlp, x[i = 1:n], start = 2)
 
-  @NLobjective(nlp, Min, sum((x[i] - i)^4 for i = 1:n))
+  @objective(nlp, Min, sum((x[i] - i)^4 for i = 1:n))
 
   return nlp
 end

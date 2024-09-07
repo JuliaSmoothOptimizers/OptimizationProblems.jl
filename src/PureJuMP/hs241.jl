@@ -19,7 +19,7 @@ function hs241(args...; kwargs...)
   x0 = [1, 2, 0]
   @variable(nlp, x[i = 1:3], start = x0[i])
 
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     (x[1]^2 + x[2]^2 + x[3]^2 - 1)^2 +

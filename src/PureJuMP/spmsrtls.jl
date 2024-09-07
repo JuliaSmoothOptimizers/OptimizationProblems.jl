@@ -28,7 +28,7 @@ function spmsrtls(args...; n::Int = default_nvar, kwargs...)
 
   nlp = Model()
   @variable(nlp, x[i = 1:n], start = x0[i])
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     0.5 * sum(

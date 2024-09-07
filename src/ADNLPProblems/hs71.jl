@@ -9,11 +9,11 @@ function hs71(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
   lvar = ones(T, 4)
   uvar = 5 * ones(T, 4)
   function c!(cx, x)
-    cx[1] = x[1] * x[2] * x[3] * x[4] - 25
-    cx[2] = x[1]^2 + x[2]^2 + x[3]^2 + x[4]^2 - 40
+    cx[2] = x[1] * x[2] * x[3] * x[4] - 25
+    cx[1] = x[1]^2 + x[2]^2 + x[3]^2 + x[4]^2
     return cx
   end
-  lcon = zeros(T, 2)
-  ucon = [T(Inf), zero(T)]
+  lcon = T[40; 0]
+  ucon = [40, T(Inf)]
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "hs71"; kwargs...)
 end

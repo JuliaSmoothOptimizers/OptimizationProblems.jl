@@ -23,7 +23,6 @@ function hs378(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
     return cx
   end
   x0 = T(-2.3) * ones(T, 10)
-  lcon = zeros(T, 3)
-  ucon = zeros(T, 3)
+  lcon = ucon = zeros(T, 3)
   return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "hs378"; kwargs...)
 end

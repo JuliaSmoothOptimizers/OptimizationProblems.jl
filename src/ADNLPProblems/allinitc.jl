@@ -15,21 +15,24 @@ function allinitc(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) w
   uvar = T(Inf) * ones(T, 4)
 
   function c!(cx, x)
-    cx[1] = x[2] - 1
-    cx[2] = x[3]
-    cx[3] = x[4] - 2
-    cx[4] = x[1]^2 + x[2]^2 - 1
+    cx[1] = x[1]^2 + x[2]^2
     return cx
   end
+  A = T[
+    0 0 0 1;
+    0 1 0 0;
+    0 0 1 0
+  ]
 
   return ADNLPModels.ADNLPModel!(
     f,
     x0,
     lvar,
     uvar,
+    sparse(A),
     c!,
-    T[0, -1e+10, 0, -Inf],
-    T[Inf, 1, 0, 0],
+    T[2, 1, -1e+10, -Inf],
+    T[2, Inf, 1, 1],
     name = "allinitc",
     minimize = true;
     kwargs...,

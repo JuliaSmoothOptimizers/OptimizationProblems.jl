@@ -179,123 +179,13 @@ function avion2(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwa
     1,
     1,
   ]
+  A = sparse([1, 2, 3, 2, 4, 3, 1, 4, 4, 4, 4, 5, 5, 7, 10, 14, 6, 8, 14, 14, 6, 13, 15, 7, 7, 8, 15, 9, 15, 10, 15, 11, 15, 12, 15, 13, 15, 9, 14, 11, 14, 12, 14], [1, 1, 2, 5, 5, 6, 7, 7, 8, 9, 10, 10, 
+  19, 20, 20, 20, 22, 22, 22, 23, 24, 26, 31, 33, 34, 35, 35, 37, 37, 38, 38, 39, 39, 40, 40, 41, 41, 47, 47, 48, 48, 49, 49], T[-0.13, -0.7, -1.0, 1.0, -2.0, 1.0, 1.0, -2.0, -2.0, -1.0, 1.0, -20.0, 1.0, -1.0, -0.043, 0.5, -2.0, -0.137, -1.0, 1.0, 1.0, -300.0, 1.0, -1.0, 1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -35.0, 660.0, -200.0, 95.0, -120.0, 70.0], 15, 49)
   function c!(cx, x)
-    SR,
-    LR,
-    PK,
-    EF,
-    SX,
-    LX,
-    SD,
-    SK,
-    ST,
-    SF,
-    LF,
-    AM,
-    CA,
-    CB,
-    SO,
-    SS,
-    IMPDER,
-    IMPK,
-    IMPFUS,
-    QI,
-    PT,
-    MV,
-    MC,
-    MD,
-    PD,
-    NS,
-    VS,
-    CR,
-    PM,
-    DV,
-    MZ,
-    VN,
-    QV,
-    QF,
-    IMPTRAIN,
-    IMPMOT,
-    IMPNMOT,
-    IMPPET,
-    IMPPIL,
-    IMPCAN,
-    IMPSNA,
-    MS,
-    EL,
-    DE,
-    DS,
-    IMPVOIL,
-    NM,
-    NP,
-    NG = x[1],
-    x[2],
-    x[3],
-    x[4],
-    x[5],
-    x[6],
-    x[7],
-    x[8],
-    x[9],
-    x[10],
-    x[11],
-    x[12],
-    x[13],
-    x[14],
-    x[15],
-    x[16],
-    x[17],
-    x[18],
-    x[19],
-    x[20],
-    x[21],
-    x[22],
-    x[23],
-    x[24],
-    x[25],
-    x[26],
-    x[27],
-    x[28],
-    x[29],
-    x[30],
-    x[31],
-    x[32],
-    x[33],
-    x[34],
-    x[35],
-    x[36],
-    x[37],
-    x[38],
-    x[39],
-    x[40],
-    x[41],
-    x[42],
-    x[43],
-    x[44],
-    x[45],
-    x[46],
-    x[47],
-    x[48],
-    x[49]
-    cx[1] = SD - (13 // 100) * SR
-    cx[2] = SX - (7 // 10) * SR
-    cx[3] = LX - LR
-    cx[4] = SF - ST - 2 * SD - 2 * SX - 2 * SK
-    cx[5] = IMPFUS - 20 * SF
-    cx[6] = MD - 2 * MV
-    cx[7] = QF - QI - QV
-    cx[8] = IMPTRAIN - (137 // 1000) * MV
-    cx[9] = IMPNMOT - 35 * NM
-    cx[10] = IMPPET - (43 // 1000) * QI
-    cx[11] = IMPPIL - 200 * NP
-    cx[12] = IMPCAN - 120 * NG
-    cx[13] = IMPSNA - 300 * NS - 400
-    cx[14] = MC - MV + 95 * NP + 70 * NG + 660 * NM + (1 // 2) * QI - 380
-    cx[15] = MZ - IMPTRAIN + IMPNMOT + IMPPET + IMPPIL + IMPCAN + IMPSNA + 290
     return cx
   end
-  lcon = zeros(T, 15)
-  ucon = zeros(T, 15)
+  lcon = vcat(zeros(T, 12), 400, 380, -290)
+  ucon = vcat(zeros(T, 12), 400, 380, -290)
   lvar = T[
     10,
     0,
@@ -399,7 +289,7 @@ function avion2(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwa
     2,
   ]
 
-  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "avion2"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, findnz(A)..., c!, lcon, ucon, name = "avion2"; kwargs...)
 end
 
 function avion2(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}

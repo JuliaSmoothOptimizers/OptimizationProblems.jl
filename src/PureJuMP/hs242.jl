@@ -22,7 +22,7 @@ function hs242(args...; kwargs...)
   @variable(nlp, uvar[i] ≥ x[i = 1:3] ≥ lvar[i], start = x0[i])
 
   t = [(10 + i) / 100 for i = 1:10]
-  @NLobjective(
+  @objective(
     nlp,
     Min,
     sum(

@@ -23,7 +23,7 @@ function hs50(args...; kwargs...)
   @constraint(nlp, x[2] + 2 * x[3] + 3 * x[4] - 6 == 0)
   @constraint(nlp, x[3] + 2 * x[4] + 3 * x[5] - 6 == 0)
 
-  @NLobjective(nlp, Min, (x[1] - x[2])^2 + (x[2] - x[3])^2 + (x[3] - x[4])^4 + (x[4] - x[5])^2)
+  @objective(nlp, Min, (x[1] - x[2])^2 + (x[2] - x[3])^2 + (x[3] - x[4])^4 + (x[4] - x[5])^2)
 
   return nlp
 end

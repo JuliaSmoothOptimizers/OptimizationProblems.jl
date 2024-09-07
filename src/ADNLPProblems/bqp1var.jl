@@ -6,7 +6,6 @@ function bqp1var(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wh
   end
   x0 = T[0.25,]
   function c!(cx, x)
-    cx[1] = x[1]
     return cx
   end
   lcon = T[0.0,]
@@ -15,6 +14,7 @@ function bqp1var(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wh
   return ADNLPModels.ADNLPModel!(
     f,
     x0,
+    findnz(sparse(ones(T, 1, 1)))...,
     c!,
     lcon,
     ucon,

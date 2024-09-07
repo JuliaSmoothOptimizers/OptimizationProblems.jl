@@ -19,7 +19,7 @@ function hs73(args...; kwargs...)
   @variable(nlp, x[i = 1:4] ≥ 0, start = 1)
 
   @constraint(nlp, 2.3 * x[1] + 5.6 * x[2] + 11.1 * x[3] + 1.3 * x[4] - 5 ≥ 0)
-  @NLconstraint(
+  @constraint(
     nlp,
     12 * x[1] + 11.9 * x[2] + 41.8 * x[3] + 52.1 * x[4] - 21 -
     1.645 * sqrt(0.28x[1]^2 + 0.19 * x[2]^2 + 20.5 * x[3]^2 + 0.62x[4]^2) ≥ 0

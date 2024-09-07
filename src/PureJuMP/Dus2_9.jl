@@ -13,7 +13,7 @@ function Dus2_9(args...; kwargs...)
 
   @variable(nlp, x, start = 0.0)
 
-  @NLobjective(nlp, Min, 1 - 12 * x + 7.5 * x^2 - x^3)
+  @objective(nlp, Min, 1 - 12 * x + 7.5 * x^2 - x^3)
 
   return nlp
 end
