@@ -18,7 +18,7 @@ function errinros_mod(
            1 // 2 * sum((1 - x[i])^2 for i = 2:n)
   end
   x0 = -ones(T, n)
-  return ADNLPModels.ADNLPModel(f, x0, name = "errinros"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "errinros_mod"; kwargs...)
 end
 
 function errinros_mod(
@@ -37,5 +37,5 @@ function errinros_mod(
     return r
   end
   x0 = -ones(T, n)
-  return ADNLPModels.ADNLSModel!(F!, x0, 2 * (n - 1), name = "errinros-nls"; kwargs...)
+  return ADNLPModels.ADNLSModel!(F!, x0, 2 * (n - 1), name = "errinros_mod-nls"; kwargs...)
 end
