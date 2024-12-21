@@ -8,5 +8,5 @@ function chnrosnb_mod(; n::Int = default_nvar, type::Type{T} = Float64, kwargs..
            sum((1 - x[i])^2 for i = 2:n)
   end
   x0 = -ones(T, n)
-  return ADNLPModels.ADNLPModel(f, x0, name = "chnrosnb"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "chnrosnb_mod"; kwargs...)
 end

@@ -27,6 +27,8 @@ include("test_utils.jl")
     eval(Meta.parse("ADNLPProblems.$(prob)(" * simp_backend * ")"))
   end
 
+  @test nlp_ad.meta.name == pb
+
   if pb in meta[(meta.contype .== :quadratic) .| (meta.contype .== :general), :name]
     @testset "Test In-place Nonlinear Constraints for AD-$prob" begin
       test_in_place_constraints(prob, nlp_ad)

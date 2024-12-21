@@ -8,5 +8,5 @@ function indef_mod(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) 
            1 // 2 * sum(cos(2 * x[i] - x[n] - x[1]) for i = 2:(n - 1))
   end
   x0 = T.([(i / (n + 1)) for i = 1:n])
-  return ADNLPModels.ADNLPModel(f, x0, name = "indef"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "indef_mod"; kwargs...)
 end
