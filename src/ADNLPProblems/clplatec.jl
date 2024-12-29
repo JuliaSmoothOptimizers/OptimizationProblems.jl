@@ -8,8 +8,8 @@ function clplatec(;
   l = 0.01,
   kwargs...,
 ) where {T}
-  p = floor(Int, sqrt(n))
-  p * p != n && @warn("clplatec: number of variables adjusted from $n down to $(p*p)")
+  p = max(floor(Int, sqrt(n)), 3)
+  p * p != n && @warn("clplatec: number of variables adjusted from $n to $(p*p)")
   n = p * p
 
   hp2 = 1 // 2 * p^2
