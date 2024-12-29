@@ -6,7 +6,7 @@ function clplateb(;
   wght = -0.1,
   kwargs...,
 ) where {T}
-  p = floor(Int, sqrt(n)) < 3 ? 3 : floor(Int, sqrt(n))
+  p = max(floor(Int, sqrt(n)), 3)
   p * p != n && @warn("clplateb: number of variables adjusted from $n to $(p*p)")
   n = p * p
   hp2 = 1 // 2 * p^2
