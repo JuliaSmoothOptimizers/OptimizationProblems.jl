@@ -14,8 +14,8 @@ gulf_meta = Dict(
   :best_known_lower_bound => -Inf,
   :best_known_upper_bound => 0.0,
   :is_feasible => true,
-  :defined_everywhere => missing,
-  :origin => :unknown,
+  :defined_everywhere => false,
+  :origin => :real,
 )
 get_gulf_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_gulf_ncon(; n::Integer = default_nvar, kwargs...) = 0
