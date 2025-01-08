@@ -14,8 +14,8 @@ mgh10_meta = Dict(
   :best_known_lower_bound => -Inf,
   :best_known_upper_bound => 500.0,
   :is_feasible => true,
-  :defined_everywhere => missing,
-  :origin => :unknown,
+  :defined_everywhere => false,
+  :origin => :academic,
 )
 get_mgh10_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_mgh10_ncon(; n::Integer = default_nvar, kwargs...) = 0
