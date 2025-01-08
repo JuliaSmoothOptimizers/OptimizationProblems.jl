@@ -79,6 +79,7 @@ The following keys are valid:
   - `best_known_lower_bound::Real`: lower bound on the global optimal value (default: -Inf for minimization problem, f(x0) for maximization problem if x0 is feasible, -Inf otherwise)
   - `best_known_upper_bound::Real`: upper bound on the global optimal value (default: Inf for maximization problem, f(x0) for minimization problem if x0 is feasible, Inf otherwise)
   - `is_feasible::Union{Bool, Missing}`: true if problem is feasible
+  - `defined_everywhere::Union{Bool, Missing}`: true if the objective is define for all values of the variables
   - `origin::Symbol`: origin of the problem, in [:academic, :modelling, :real, :unknown]
 """
 const meta = DataFrame(names .=> [Array{T}(undef, number_of_problems) for T in types])
