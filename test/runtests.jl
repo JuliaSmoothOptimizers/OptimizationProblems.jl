@@ -45,6 +45,13 @@ include("test_utils.jl")
     end
   end
 
+  @testset "Test for nls_prob flag for $prob" begin
+    nls_prob = eval(Meta.parse("ADNLPProblems.$(prob)(use_nls = true)"))
+    if (typeof(nls_prob) <: ADNLPModels.ADNLSModel) # if the nls_flag is not supported we ignore the prob
+      test_in_place_residual(prob, nls_prob)
+    end 
+  end
+
   @testset "Test problems compatibility for $prob" begin
     prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
     model = prob_fn(n = ndef)

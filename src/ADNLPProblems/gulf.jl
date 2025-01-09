@@ -35,7 +35,7 @@ function gulf(
   m = min(m, 100)
 
   function F!(r, x; m = m)
-    for i = 1:n
+    for i = 1:m
       r[i] =
         exp(-abs((25 + (-50 * log(i * one(T) / 100))^(2 // 3)) * m * i * x[2])^x[3] / x[1]) -
         i // 100
