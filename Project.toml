@@ -13,7 +13,7 @@ SpecialFunctions = "276daf66-3868-5448-9aa4-cd146d93841b"
 
 [compat]
 DataFrames = "^1"
-JLD2 = "^0.4"
+JLD2 = ">=0.4"
 JuMP = "^1.15"
 Requires = "1"
 SpecialFunctions = "2"
