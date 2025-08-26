@@ -8,9 +8,7 @@ function hs251(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   x0 = T[10, 10, 10]
   lvar = T[0, 0, 0]
   uvar = T[42, 42, 42]
-  A = T[
-    -1 -2 -2
-  ]
+  A = T[-1 -2 -2]
   lcon = T[-72]
   ucon = T[Inf]
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, sparse(A), lcon, ucon, name = "hs251"; kwargs...)
