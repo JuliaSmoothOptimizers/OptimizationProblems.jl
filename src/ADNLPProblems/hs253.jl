@@ -13,9 +13,7 @@ function hs253(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   x0 = T[0, 2, 0]
   lvar = T[0, 0, 0]
   uvar = T[Inf, Inf, Inf]
-  A = T[
-    -3 0 -3
-  ]
+  A = T[-3 0 -3]
   lcon = T[-30]
   ucon = T[Inf]
   return ADNLPModels.ADNLPModel(f, x0, lvar, uvar, sparse(A), lcon, ucon, name = "hs253"; kwargs...)
