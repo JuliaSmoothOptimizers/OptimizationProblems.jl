@@ -1,4 +1,5 @@
 #   A nonconvex unconstrained function with a unique minimum value
+#   See discussion here https://github.com/JuliaSmoothOptimizers/CUTEst.jl/issues/321
 
 #   classification OUR2-AN-V-0
 
