@@ -1,10 +1,10 @@
-prob09_trig_meta = Dict(
+trig_meta = Dict(
   :nvar => 100,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
   :minimize => true,
-  :name => "prob09_trig",
+  :name => "trig",
   :has_equalities_only => false,
   :has_inequalities_only => false,
   :has_bounds => false,
@@ -18,10 +18,10 @@ prob09_trig_meta = Dict(
   :origin => :unknown,
 )
 
-get_prob09_trig_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_prob09_trig_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_prob09_trig_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_prob09_trig_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_prob09_trig_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_prob09_trig_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_prob09_trig_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_trig_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_trig_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_trig_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_trig_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_trig_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_trig_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_trig_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0

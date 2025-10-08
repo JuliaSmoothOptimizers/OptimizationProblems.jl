@@ -1,10 +1,10 @@
-prob11_auglag_meta = Dict(
+auglag_meta = Dict(
   :nvar => 100,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
   :minimize => true,
-  :name => "prob11_auglag",
+  :name => "auglag",
   :has_equalities_only => false,
   :has_inequalities_only => false,
   :has_bounds => false,
@@ -18,10 +18,10 @@ prob11_auglag_meta = Dict(
   :origin => :unknown,
 )
 
-get_prob11_auglag_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_prob11_auglag_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_prob11_auglag_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_prob11_auglag_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_prob11_auglag_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_prob11_auglag_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_prob11_auglag_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_auglag_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_auglag_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_auglag_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_auglag_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_auglag_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_auglag_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_auglag_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0

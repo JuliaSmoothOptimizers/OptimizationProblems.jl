@@ -1,10 +1,10 @@
-prob08_nazareth_meta = Dict(
+nazareth_meta = Dict(
   :nvar => 100,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
   :minimize => false,
-  :name => "prob08_nazareth",
+  :name => "nazareth",
   :has_equalities_only => false,
   :has_inequalities_only => false,
   :has_bounds => false,
@@ -18,10 +18,10 @@ prob08_nazareth_meta = Dict(
   :origin => :unknown,
 )
 
-get_prob08_nazareth_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_prob08_nazareth_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_prob08_nazareth_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_prob08_nazareth_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_prob08_nazareth_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_prob08_nazareth_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_prob08_nazareth_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1 * n
+get_nazareth_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_nazareth_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_nazareth_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_nazareth_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_nazareth_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_nazareth_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_nazareth_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1 * n

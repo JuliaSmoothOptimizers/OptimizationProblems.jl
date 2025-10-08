@@ -1,10 +1,10 @@
-prob12_browngen_meta = Dict(
+browngen_meta = Dict(
   :nvar => 100,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
   :minimize => true,
-  :name => "prob12_browngen",
+  :name => "browngen",
   :has_equalities_only => false,
   :has_inequalities_only => false,
   :has_bounds => false,
@@ -18,10 +18,10 @@ prob12_browngen_meta = Dict(
   :origin => :unknown,
 )
 
-get_prob12_browngen_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_prob12_browngen_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_prob12_browngen_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_prob12_browngen_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_prob12_browngen_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_prob12_browngen_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_prob12_browngen_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_browngen_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_browngen_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_browngen_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_browngen_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_browngen_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_browngen_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_browngen_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0

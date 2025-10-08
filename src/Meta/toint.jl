@@ -1,10 +1,10 @@
-prob10_toint_meta = Dict(
+toint_meta = Dict(
   :nvar => 100,
   :variable_nvar => true,
   :ncon => 0,
   :variable_ncon => false,
   :minimize => true,
-  :name => "prob10_toint",
+  :name => "toint",
   :has_equalities_only => false,
   :has_inequalities_only => false,
   :has_bounds => false,
@@ -18,10 +18,10 @@ prob10_toint_meta = Dict(
   :origin => :unknown,
 )
 
-get_prob10_toint_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_prob10_toint_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_prob10_toint_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_prob10_toint_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_prob10_toint_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_prob10_toint_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_prob10_toint_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_toint_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_toint_ncon(; n::Integer = default_nvar, kwargs...) = 0
+get_toint_nlin(; n::Integer = default_nvar, kwargs...) = 0
+get_toint_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_toint_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_toint_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_toint_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0
