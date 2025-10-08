@@ -5,6 +5,18 @@ function auglag(; use_nls::Bool = false, kwargs...)
   return auglag(Val(model); kwargs...)
 end
 
+function auglag(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  function F!(r, x; n = length(x))
+    # simple residual for placeholder: r = x - 1
+    for i in 1:n
+      r[i] = x[i] - one(T)
+    end
+    return r
+  end
+  x0 = zeros(T, n)
+  return ADNLPModels.ADNLSModel!(F!, x0, n, name = "auglag-nls"; kwargs...)
+end
+
 function auglag(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
     # Placeholder augmented Lagrangian style objective
