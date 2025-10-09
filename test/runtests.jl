@@ -4,8 +4,6 @@ using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
 
 import ADNLPModels
 
-# Temporarily run only the browngen problem for targeted testing
-list_problems = [:browngen]
 @test length(list_problems) > 0
 
 include("test_utils.jl")

@@ -21,9 +21,14 @@ end
 
 function browngen(::Val{:nls}; n::Int = default_nvar, type::Type = Float64, kwargs...)
   T = type
-  function F!(r, x; n = length(x))
-    for i in 1:n
-      r[i] = x[i] - T(0.5)
+  h = T(0.5)
+  function F!(r, x)
+    @inbounds begin
+      rr = r
+      xx = x
+      for i in 1:n
+        rr[i] = xx[i] - h
+      end
     end
     return r
   end
