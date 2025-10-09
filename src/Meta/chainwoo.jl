@@ -23,3 +23,4 @@ get_chainwoo_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_chainwoo_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_chainwoo_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_chainwoo_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_chainwoo_nls_nequ(; n::Integer = default_nvar, kwargs...) = get_chainwoo_nvar(; n = n)

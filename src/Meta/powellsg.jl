@@ -23,3 +23,4 @@ get_powellsg_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_powellsg_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_powellsg_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_powellsg_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_powellsg_nls_nequ(; n::Integer = default_nvar, kwargs...) = get_powellsg_nvar(; n = n)

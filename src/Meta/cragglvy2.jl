@@ -17,9 +17,11 @@ cragglvy2_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
 )
+
 get_cragglvy2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_cragglvy2_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_cragglvy2_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_cragglvy2_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_cragglvy2_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_cragglvy2_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_cragglvy2_nls_nequ(; n::Integer = default_nvar, kwargs...) = get_cragglvy2_nvar(; n = n)

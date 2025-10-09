@@ -24,4 +24,4 @@ get_broyden7d_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_broyden7d_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_broyden7d_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_broyden7d_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_broyden7d_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_broyden7d_nls_nequ(; n::Integer = default_nvar, kwargs...) = n

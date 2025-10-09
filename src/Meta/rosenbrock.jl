@@ -23,3 +23,4 @@ get_rosenbrock_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_rosenbrock_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_rosenbrock_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_rosenbrock_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_rosenbrock_nls_nequ(; n::Integer = default_nvar, kwargs...) = max(1, get_rosenbrock_nvar(n = n) - 1)
