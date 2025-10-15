@@ -1,5 +1,3 @@
-using NLPModels
-using ADNLPModels
 ndef = OptimizationProblems.default_nvar
 test_nvar = Int(round(ndef / 2))
 meta = OptimizationProblems.meta
@@ -60,16 +58,8 @@ function test_in_place_residual(prob::Symbol, nls::AbstractNLSModel)
   Fx = similar(x, nls.nls_meta.nequ)
   pb = String(prob)
   if VERSION ≥ v"1.7" && !occursin("palmer", pb) && (pb != "watson") # palmer residual allocate
-    # Prefer calling the user-provided in-place residual `F!` directly when
-    # available — ADNLPModels.residual! may allocate internal temporaries.
-    if hasfield(typeof(nls), Symbol("F!"))
-      f = getfield(nls, Symbol("F!"))
-      @allocated f(Fx, x)
-      @test (@allocated f(Fx, x)) == 0
-    else
-      @allocated residual!(nls, x, Fx)
-      @test (@allocated residual!(nls, x, Fx)) == 0
-    end
+    @allocated residual!(nls, x, Fx)
+    @test (@allocated residual!(nls, x, Fx)) == 0
   end
   m = OptimizationProblems.eval(Meta.parse("get_$(prob)_nls_nequ"))()
   @test nls.nls_meta.nequ == m
