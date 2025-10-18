@@ -4,34 +4,44 @@ function browngen(; use_nls::Bool = false, kwargs...)
   return browngen(Val(model); kwargs...)
 end
 
-function browngen(::Val{:nlp}; n::Int = default_nvar, type::Type = Float64, kwargs...)
-  T = type
+function browngen(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
-    # Placeholder for generalized Brown function (precision-safe)
+    sx = zero(T)
+    @inbounds for i in 1:n
+      sx += x[i]
+    end
     s = zero(T)
-    for i in 1:n
-      t = x[i] - T(0.5)
+    @inbounds for i in 1:(n - 1)
+      t = x[i] + sx - T(n + 1)
       s += t * t
     end
-    return s
+    p = one(T)
+    @inbounds for i in 1:n
+      p *= x[i]
+    end
+    t = p - one(T)
+    return s + t * t
   end
-  x0 = ones(T, n) .* T(0.5)
+  x0 = fill(T(0.5), n)
   return ADNLPModels.ADNLPModel(f, x0, name = "browngen"; kwargs...)
 end
 
-function browngen(::Val{:nls}; n::Int = default_nvar, type::Type = Float64, kwargs...)
-  T = type
-  h = T(0.5)
+function browngen(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x)
-    @inbounds begin
-      rr = r
-      xx = x
-      for i in 1:n
-        rr[i] = xx[i] - h
-      end
+    sx = zero(T)
+    @inbounds for i in 1:n
+      sx += x[i]
     end
+    @inbounds for i in 1:(n - 1)
+      r[i] = x[i] + sx - T(n + 1)
+    end
+    p = one(T)
+    @inbounds for i in 1:n
+      p *= x[i]
+    end
+    r[n] = p - one(T)
     return r
   end
-  x0 = ones(T, n) .* T(0.5)
+  x0 = fill(T(0.5), n)
   return ADNLPModels.ADNLSModel!(F!, x0, n, name = "browngen-nls"; kwargs...)
 end

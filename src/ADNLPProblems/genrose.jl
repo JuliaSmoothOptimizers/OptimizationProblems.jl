@@ -18,11 +18,15 @@ function genrose(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kw
 end
 
 function genrose(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  nequ = max(1, n - 1)
+  # Ensure safe indexing in F!: requires at least 2 variables
+  n = max(2, n)
+  nequ = n - 1
   function F!(r, x; n = length(x))
+    # @inbounds disables bounds checks for performance in this hot loop.
+    # Safe because n ≥ 2, nequ == length(r), and all indices used exist in x and r.
     @inbounds r[1] = x[2] - x[1]^2
-    for i = 2:nequ
-      @inbounds r[i] = x[i + 1] - x[i]^2
+    @inbounds for i = 2:nequ
+      r[i] = x[i + 1] - x[i]^2
     end
     return r
   end
