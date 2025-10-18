@@ -7,7 +7,6 @@ end
 
 function auglag(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x; n = length(x))
-    # simple residual for placeholder: r = x - 1
     for i in 1:n
       r[i] = x[i] - one(T)
     end
