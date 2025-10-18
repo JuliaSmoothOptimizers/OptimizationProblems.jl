@@ -17,7 +17,7 @@ function cragglvy2(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, 
       (x[2 * i + 2] - 1)^2 for i = 1:(div(n, 2) - 1)
     )
   end
-  x0 = vcat(T(1), T(2) * ones(T, n - 1))
+  x0 = vcat(1, 2 * ones(T, n - 1))
   return ADNLPModels.ADNLPModel(f, x0, name = "cragglvy2"; kwargs...)
 end
 
