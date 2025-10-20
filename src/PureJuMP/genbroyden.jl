@@ -1,9 +1,13 @@
 export genbroyden
 
-"""JuMP model counterpart for genbroyden (placeholder matching ADNLPProblems)."""
-function genbroyden(; n::Int = default_nvar, alpha::Float64 = 2.0)
+function genbroyden(; n::Int = default_nvar)
+  p = 7 / 3
   nlp = Model()
   @variable(nlp, x[1:n], start = -1.0)
-  @objective(nlp, Min, 0.5 * sum(((3 - alpha * x[i]) * x[i] - (i>1 ? x[i-1] : 0) - (i<n ? 2*x[i+1] : 0) + 1)^2 for i=1:n))
+  @NLobjective(nlp, Min,
+    abs((3 - 2 * x[1]) * x[1] - 0 - x[2] + 1)^p +
+    sum(abs((3 - 2 * x[i]) * x[i] - x[i-1] - x[i+1] + 1)^p for i = 2:(n-1)) +
+    abs((3 - 2 * x[n]) * x[n] - x[n-1] - 0 + 1)^p
+  )
   return nlp
 end

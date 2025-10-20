@@ -15,10 +15,10 @@ auglag_meta = Dict(
   :best_known_upper_bound => Inf,
   :is_feasible => missing,
   :defined_everywhere => missing,
-  :origin => :unknown,
+  :origin => :literature,
 )
 
-get_auglag_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_auglag_nvar(; n::Integer = default_nvar, kwargs...) = n
 get_auglag_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_auglag_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_auglag_nnln(; n::Integer = default_nvar, kwargs...) = 0

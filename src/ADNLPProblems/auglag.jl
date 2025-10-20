@@ -24,18 +24,20 @@ function auglag(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwa
 end
 
 function auglag(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  λ₁ = one(T)
+  λ₂ = one(T)
+  λ₃ = one(T)
   function f(x; n = length(x))
-    # f(x) = Σ (x[i]-1)^2 + (Σ x[i] - n)^2
-    s1 = zero(T)
-    @inbounds for i in 1:n
-      s1 += (x[i] - one(T))^2
+    s_exp = zero(T)
+    s_sq = zero(T)
+    p = one(T)
+    @inbounds for j in 1:n
+      s_exp += exp(x[j])
+      s_sq += x[j]^2
+      p *= x[j]
     end
-    s2 = zero(T)
-    @inbounds for i in 1:n
-      s2 += x[i]
-    end
-    return s1 + (s2 - T(n))^2
+    return λ₁ * s_exp + λ₂ * s_sq + λ₃ * (p - one(T))^2
   end
-  x0 = zeros(T, n)
+  x0 = ones(T, n)
   return ADNLPModels.ADNLPModel(f, x0, name = "auglag"; kwargs...)
 end

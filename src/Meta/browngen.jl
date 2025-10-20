@@ -24,4 +24,4 @@ get_browngen_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_browngen_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_browngen_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_browngen_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_browngen_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1 * n
+get_browngen_nls_nequ(; n::Integer = default_nvar, kwargs...) = n
