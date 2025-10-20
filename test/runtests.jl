@@ -4,7 +4,7 @@ using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
 
 import ADNLPModels
 
-list_problems = intersect(names(ADNLPProblems), names(PureJuMP))
+const list_problems = intersect(names(ADNLPProblems), names(PureJuMP))
 # all problems have a JuMP and ADNLPModels formulations
 @test setdiff(union(names(ADNLPProblems), names(PureJuMP)), list_problems) ==
       [:ADNLPProblems, :PureJuMP]
