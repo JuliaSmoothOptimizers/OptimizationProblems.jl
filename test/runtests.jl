@@ -25,7 +25,7 @@ addprocs(np - 1)
 @test setdiff(union(names(PureJuMP), list_problems_not_PureJuMP), list_problems) ==
       [:PureJuMP]
 
-include("test_utils.jl")
+@everywhere include("test_utils.jl")
 
 @test ndef == OptimizationProblems.PureJuMP.default_nvar
 @test ndef == OptimizationProblems.ADNLPProblems.default_nvar
