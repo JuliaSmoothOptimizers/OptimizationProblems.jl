@@ -27,7 +27,7 @@ function auglag(; n::Int = default_nvar)
   # Build objective only for i where mod(i, 5) == 0 and i >= 5
   indices = [i for i = 5:n if mod(i, 5) == 0]
   
-  @NLobjective(nlp, Min,
+  @objective(nlp, Min,
     sum(
       exp(prod(x[i+1-j] for j = 1:5)) +
       10 * (sum(x[i+1-j]^2 for j = 1:5) - 10 - λ₁)^2 +
