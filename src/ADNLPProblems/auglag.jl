@@ -47,7 +47,7 @@ function auglag(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) whe
       x0[i] = T(2)
     elseif m == 4
       x0[i] = T(-1)
-    else # m == 0
+    else
       x0[i] = T(-1)
     end
   end
