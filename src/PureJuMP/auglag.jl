@@ -8,7 +8,6 @@ function auglag(; n::Int = default_nvar)
   nlp = Model()
   @variable(nlp, x[1:n])
   
-  # Set initial values based on mod(i, 5)
   for i = 1:n
     m = mod(i, 5)
     if m == 1
