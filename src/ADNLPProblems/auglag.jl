@@ -23,12 +23,12 @@ function auglag(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) whe
         
         # Add (x[i-3]*x[i-2] - 5*x[i-1]*x[i] - λ₂)^2
         if i >= 4
-          s += (x[i-3] * x[i-2] - 5 * x[i-1] * x[i] - λ₂)^2
+          s += 10 * (x[i-3] * x[i-2] - 5 * x[i-1] * x[i] - λ₂)^2
         end
         
         # Add (x[i-4]^3 + x[i-3]^3 + 1 - λ₃)^2
         if i >= 4
-          s += (x[i-4]^3 + x[i-3]^3 + 1 - λ₃)^2
+          s += 10 * (x[i-4]^3 + x[i-3]^3 + 1 - λ₃)^2
         end
       end
     end
