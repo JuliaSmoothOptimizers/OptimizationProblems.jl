@@ -35,7 +35,6 @@ function auglag(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) whe
     return s
   end
   
-  # Initial point based on mod(i, 5)
   x0 = zeros(T, n)
   for i = 1:n
     m = mod(i, 5)
