@@ -1,43 +1,56 @@
 export auglag
 
-function auglag(; use_nls::Bool = false, kwargs...)
-  model = use_nls ? :nls : :nlp
-  return auglag(Val(model); kwargs...)
-end
-
-function auglag(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  nequ = n + 1
-  function F!(r, x; n = length(x))
-    @inbounds for i in 1:n
-      r[i] = x[i] - one(T)
-    end
-    # r[n+1] = sum(x) - n
-    s = zero(T)
-    @inbounds for i in 1:n
-      s += x[i]
-    end
-    r[n + 1] = s - T(n)
-    return r
-  end
-  x0 = zeros(T, n)
-  return ADNLPModels.ADNLSModel!(F!, x0, nequ, name = "auglag-nls"; kwargs...)
-end
-
-function auglag(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  λ₁ = one(T)
-  λ₂ = one(T)
-  λ₃ = one(T)
+function auglag(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  λ₁ = T(-0.002008)
+  λ₂ = T(-0.001900)
+  λ₃ = T(-0.000261)
+  
   function f(x; n = length(x))
-    s_exp = zero(T)
-    s_sq = zero(T)
-    p = one(T)
-    @inbounds for j in 1:n
-      s_exp += exp(x[j])
-      s_sq += x[j]^2
-      p *= x[j]
+    s = zero(T)
+    for i = 1:n
+      if mod(i, 5) == 0
+        # Compute exp(∏ x[i+1-j] for j=1:5)
+        prod_term = one(T)
+        sum_sq = zero(T)
+        for j = 1:5
+          idx = i + 1 - j
+          if 1 <= idx <= n
+            prod_term *= x[idx]
+            sum_sq += x[idx]^2
+          end
+        end
+        s += exp(prod_term) + 10 * (sum_sq - 10 - λ₁)^2
+        
+        # Add (x[i-3]*x[i-2] - 5*x[i-1]*x[i] - λ₂)^2
+        if i >= 4
+          s += (x[i-3] * x[i-2] - 5 * x[i-1] * x[i] - λ₂)^2
+        end
+        
+        # Add (x[i-4]^3 + x[i-3]^3 + 1 - λ₃)^2
+        if i >= 4
+          s += (x[i-4]^3 + x[i-3]^3 + 1 - λ₃)^2
+        end
+      end
     end
-    return λ₁ * s_exp + λ₂ * s_sq + λ₃ * (p - one(T))^2
+    return s
   end
-  x0 = ones(T, n)
+  
+  # Initial point based on mod(i, 5)
+  x0 = zeros(T, n)
+  for i = 1:n
+    m = mod(i, 5)
+    if m == 1
+      x0[i] = i <= 2 ? T(-2) : T(-1)
+    elseif m == 2
+      x0[i] = i <= 2 ? T(2) : T(-1)
+    elseif m == 3
+      x0[i] = T(2)
+    elseif m == 4
+      x0[i] = T(-1)
+    else # m == 0
+      x0[i] = T(-1)
+    end
+  end
+  
   return ADNLPModels.ADNLPModel(f, x0, name = "auglag"; kwargs...)
 end
