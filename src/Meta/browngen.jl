@@ -9,19 +9,19 @@ browngen_meta = Dict(
   :has_inequalities_only => false,
   :has_bounds => false,
   :has_fixed_variables => false,
-  :objtype => :nls,
+  :objtype => :other,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
   :best_known_upper_bound => Inf,
   :is_feasible => missing,
   :defined_everywhere => missing,
-  :origin => :unknown,
+  :origin => :literature,
 )
 
-get_browngen_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_browngen_nvar(; n::Integer = default_nvar, kwargs...) = n
 get_browngen_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_browngen_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_browngen_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_browngen_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_browngen_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_browngen_nls_nequ(; n::Integer = default_nvar, kwargs...) = n
+get_browngen_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0
