@@ -9,16 +9,16 @@ addprocs(np - 1)
 
 @everywhere import ADNLPModels
 
-const list_problems = intersect(names(ADNLPProblems), names(PureJuMP))
+@everywhere const list_problems = intersect(names(ADNLPProblems), names(PureJuMP))
 
 # The problems included should be carefully argumented and issues
 # to create them added.
 # TODO: tests are limited for JuMP-only problems
-const list_problems_not_ADNLPProblems = Symbol[]
-const list_problems_not_PureJuMP = Symbol[]
+@everywhere const list_problems_not_ADNLPProblems = Symbol[]
+@everywhere const list_problems_not_PureJuMP = Symbol[]
 
-const list_problems_ADNLPProblems = setdiff(list_problems, list_problems_not_ADNLPProblems)
-const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
+@everywhere const list_problems_ADNLPProblems = setdiff(list_problems, list_problems_not_ADNLPProblems)
+@everywhere const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
 
 @test setdiff(union(names(ADNLPProblems), list_problems_not_ADNLPProblems), list_problems) ==
       [:ADNLPProblems]
