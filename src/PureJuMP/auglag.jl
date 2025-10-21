@@ -19,7 +19,7 @@ function auglag(; n::Int = default_nvar)
       set_start_value(x[i], 2.0)
     elseif m == 4
       set_start_value(x[i], -1.0)
-    else # m == 0
+    else
       set_start_value(x[i], -1.0)
     end
   end
