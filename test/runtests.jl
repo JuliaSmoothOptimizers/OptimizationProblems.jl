@@ -78,7 +78,7 @@ include("test_utils.jl")
   end
 end
 
-pmap(test_one_problem, list_problems_ADNLPProblems[1:10])
+pmap(test_one_problem, list_problems_ADNLPProblems)
 
 names_pb_vars = meta[
   meta.variable_nvar .== true,

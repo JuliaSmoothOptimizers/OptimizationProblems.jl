@@ -1,9 +1,9 @@
-const ndef = OptimizationProblems.default_nvar
-const test_nvar = Int(round(ndef / 2))
-meta = OptimizationProblems.meta
+@everywhere const ndef = OptimizationProblems.default_nvar
+@everywhere const test_nvar = Int(round(ndef / 2))
+@everywhere meta = OptimizationProblems.meta
 
 # Avoid SparseADJacobian/Hessian for too large problem as it requires a lot of memory for CIs
-const simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
+@everywhere const simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
 
 @everywhere function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
   meta = OptimizationProblems.eval(Symbol(prob, :_meta))
