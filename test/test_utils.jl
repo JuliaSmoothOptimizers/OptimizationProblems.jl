@@ -1,13 +1,11 @@
-ndef = OptimizationProblems.default_nvar
-test_nvar = Int(round(ndef / 2))
+const ndef = OptimizationProblems.default_nvar
+const test_nvar = Int(round(ndef / 2))
 meta = OptimizationProblems.meta
 
 # Avoid SparseADJacobian/Hessian for too large problem as it requires a lot of memory for CIs
-simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
+const simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
 
-# list of functions used in unit tests
-
-function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
+@everywhere function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
   meta = OptimizationProblems.eval(Symbol(prob, :_meta))
   getnvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))(n = test_nvar)
   @test getnvar == meta[:nvar] || meta[:variable_nvar]
@@ -29,12 +27,12 @@ function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
   @test meta[:has_fixed_variables] == (get_ifix(nlp) != [])
 end
 
-function test_in_place_constraints(prob::Symbol)
+@everywhere function test_in_place_constraints(prob::Symbol)
   nlp = OptimizationProblems.ADNLPProblems.eval(prob)()
   return test_in_place_constraints(prob, nlp)
 end
 
-function test_in_place_constraints(prob::Symbol, nlp::AbstractNLPModel)
+@everywhere function test_in_place_constraints(prob::Symbol, nlp::AbstractNLPModel)
   x = get_x0(nlp)
   ncon = nlp.meta.nnln
   @test ncon > 0
@@ -47,13 +45,13 @@ function test_in_place_constraints(prob::Symbol, nlp::AbstractNLPModel)
   @test ncon == m
 end
 
-function test_in_place_residual(prob::Symbol)
+@everywhere function test_in_place_residual(prob::Symbol)
   nls = OptimizationProblems.ADNLPProblems.eval(prob)(use_nls = true)
   @test typeof(nls) <: ADNLPModels.ADNLSModel
   return test_in_place_residual(prob, nls)
 end
 
-function test_in_place_residual(prob::Symbol, nls::AbstractNLSModel)
+@everywhere function test_in_place_residual(prob::Symbol, nls::AbstractNLSModel)
   x = nls.meta.x0
   Fx = similar(x, nls.nls_meta.nequ)
   pb = String(prob)
@@ -65,7 +63,7 @@ function test_in_place_residual(prob::Symbol, nls::AbstractNLSModel)
   @test nls.nls_meta.nequ == m
 end
 
-function test_compatibility(prob::Symbol, ndef::Integer = ndef)
+@everywhere function test_compatibility(prob::Symbol, ndef::Integer = ndef)
   prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
   model = prob_fn(n = ndef)
   nlp_jump = MathOptNLPModel(model)
@@ -83,7 +81,7 @@ function test_compatibility(prob::Symbol, ndef::Integer = ndef)
   return test_compatibility(prob, nlp_jump, nlp_ad, ndef)
 end
 
-function test_compatibility(
+@everywhere function test_compatibility(
   prob::Symbol,
   nlp_jump,
   nlp_ad::ADNLPModels.ADModel,
@@ -126,7 +124,7 @@ function test_compatibility(
   meta_sanity_check(prob, nlp_ad)
 end
 
-function test_multi_precision(
+@everywhere function test_multi_precision(
   prob::Symbol,
   nlp_ad::ADNLPModels.ADNLPModel{T};
   list_types = [Float32, Float64],
@@ -135,7 +133,7 @@ function test_multi_precision(
   test_multi_precision(prob, list_types = setdiff(list_types, [T]))
 end
 
-function test_multi_precision(prob::Symbol; list_types = [Float32, Float64])
+@everywhere function test_multi_precision(prob::Symbol; list_types = [Float32, Float64])
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
   ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
@@ -149,7 +147,7 @@ function test_multi_precision(prob::Symbol; list_types = [Float32, Float64])
   end
 end
 
-function test_multi_precision(::Type{T}, nlp::AbstractNLPModel) where {T}
+@everywhere function test_multi_precision(::Type{T}, nlp::AbstractNLPModel) where {T}
   x0 = get_x0(nlp)
   @test eltype(x0) == T
   @test typeof(obj(nlp, x0)) == T

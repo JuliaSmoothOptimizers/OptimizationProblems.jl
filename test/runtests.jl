@@ -1,20 +1,36 @@
-using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
+using Distributed
+
+np = Sys.CPU_THREADS
+addprocs(np - 1)
+
+@everywhere using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
 
 @test names(ADNLPProblems) == [:ADNLPProblems]
 
-import ADNLPModels
+@everywhere import ADNLPModels
 
 const list_problems = intersect(names(ADNLPProblems), names(PureJuMP))
-# all problems have a JuMP and ADNLPModels formulations
-@test setdiff(union(names(ADNLPProblems), names(PureJuMP)), list_problems) ==
-      [:ADNLPProblems, :PureJuMP]
+
+# The problems included should be carefully argumented and issues
+# to create them added.
+# TODO: tests are limited for JuMP-only problems
+const list_problems_not_ADNLPProblems = Symbol[]
+const list_problems_not_PureJuMP = Symbol[]
+
+const list_problems_ADNLPProblems = setdiff(list_problems, list_problems_not_ADNLPProblems)
+const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
+
+@test setdiff(union(names(ADNLPProblems), list_problems_not_ADNLPProblems), list_problems) ==
+      [:ADNLPProblems]
+@test setdiff(union(names(PureJuMP), list_problems_not_PureJuMP), list_problems) ==
+      [:PureJuMP]
 
 include("test_utils.jl")
 
 @test ndef == OptimizationProblems.PureJuMP.default_nvar
 @test ndef == OptimizationProblems.ADNLPProblems.default_nvar
 
-@testset "problem: $prob" for prob in list_problems
+@everywhere function test_one_problem(prob::Symbol)
   pb = string(prob)
 
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
@@ -52,13 +68,17 @@ include("test_utils.jl")
     end
   end
 
-  @testset "Test problems compatibility for $prob" begin
-    prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
-    model = prob_fn(n = ndef)
-    nlp_jump = MathOptNLPModel(model)
-    test_compatibility(prob, nlp_jump, nlp_ad, ndef)
+  if prob in list_problems_PureJuMP
+    @testset "Test problems compatibility for $prob" begin
+      prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
+      model = prob_fn(n = ndef)
+      nlp_jump = MathOptNLPModel(model)
+      test_compatibility(prob, nlp_jump, nlp_ad, ndef)
+    end
   end
 end
+
+pmap(test_one_problem, list_problems_ADNLPProblems[1:10])
 
 names_pb_vars = meta[
   meta.variable_nvar .== true,
@@ -84,3 +104,5 @@ adproblems11 = (
     @test n11 != pb[:nvar]
   end
 end
+
+rmprocs()
