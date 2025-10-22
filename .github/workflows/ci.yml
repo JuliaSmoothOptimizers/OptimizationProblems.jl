@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: ['1.6', '1']
+        version: ['lts', '1']
         os: [ubuntu-latest, macos-latest, windows-latest]
         arch: [x64]
         allow_failure: [false]
@@ -56,5 +56,6 @@ jobs:
       - uses: codecov/codecov-action@v4
         with:
           file: lcov.info
+
 
 
