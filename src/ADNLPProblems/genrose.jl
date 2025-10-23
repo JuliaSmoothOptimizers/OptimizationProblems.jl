@@ -28,7 +28,7 @@ function genrose(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kw
     end
     return r
   end
-  x0 = T.([i / (n + 1) for i = 1:n])
+  x0 = T.([i // (n + 1) for i = 1:n])
   return ADNLPModels.ADNLSModel!(F!, x0, nequ, name = "genrose-nls"; kwargs...)
 end
 
