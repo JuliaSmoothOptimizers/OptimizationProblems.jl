@@ -26,7 +26,7 @@ function cragglvy2(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, 
   n = max(2, n)
   function F!(r, x; n = length(x))
     for i = 1:(div(n, 2) - 1)
-      r[2 * i - 1] = exp(x[2 * i - 1]) - x[2 * i]
+      r[2 * i - 1] = (exp(x[2 * i - 1]) - x[2 * i])^2
       r[2 * i] = x[2 * i] - x[2 * i + 1]
       r[2 * i + 1] = tan(x[2 * i + 1] - x[2 * i + 2])
       r[2 * i + 2] = x[2 * i + 2] - 1
