@@ -1,4 +1,4 @@
-export genbroyden
+export genbroydentri
 
 function genbroyden(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
