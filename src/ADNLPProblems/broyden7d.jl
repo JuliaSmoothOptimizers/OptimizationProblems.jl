@@ -27,7 +27,7 @@ function broyden7d(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, 
 end
 
 function broyden7d(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  p = T(7) / T(3)
+  p = (7 // 3) - 2
   x0 = fill(-one(T), n)
   nh = div(n, 2)
   function F!(r, x)
