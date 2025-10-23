@@ -26,7 +26,7 @@ function nazareth(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
     end
     return s
   end
-  x0 = fill(one(T)/T(n), n)
+  x0 = fill(one(T) // n, n)
   return ADNLPModels.ADNLPModel(f, x0, name = "nazareth", minimize = true; kwargs...)
 end
 
