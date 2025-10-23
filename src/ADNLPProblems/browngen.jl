@@ -5,7 +5,7 @@ function browngen(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) w
   function f(x; n = length(x))
     s = zero(T)
     @inbounds for i in 2:n
-      s += (x[i - 1] - T(3))^2 +
+      s += (x[i - 1] - 3)^2 +
            (x[i - 1] - x[i])^2 +
            exp(20 * (x[i - 1] - x[i]))
     end
