@@ -19,7 +19,7 @@ function nazareth(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
       sumtrig = zero(T)
       for j in Ji
         aij = 5 * (1 + mod(i,5) + mod(j,5))
-        bij = T((i + j) / 10)
+        bij = (i + j) // 10
         sumtrig += aij * sin(x[j]) + bij * cos(x[j])
       end
       s += (n + i - sumtrig)^2
