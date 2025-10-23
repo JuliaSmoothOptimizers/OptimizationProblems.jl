@@ -41,7 +41,7 @@ function auglag(; n::Int = default_nvar)
     sum(
       exp(prod(x[i+1-j] for j = 1:5)) +
       10 * (sum(x[i+1-j]^2 for j = 1:5) - 10 - λ₁)^2 +
-      10 *  (x[i-3]*x[i-2] - 5*x[i-1]*x[i] - λ₂)^2 +
+      10 * (x[i-3]*x[i-2] - 5*x[i-1]*x[i] - λ₂)^2 +
       10 * (x[i-4]^3 + x[i-3]^3 + 1 - λ₃)^2
       for i in indices
     )
