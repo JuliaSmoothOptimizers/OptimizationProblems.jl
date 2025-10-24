@@ -18,7 +18,6 @@ function genrose(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kw
 end
 
 function genrose(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  # Ensure safe indexing in F!: requires at least 2 variables
   n = max(2, n)
   nequ = n - 1
   function F!(r, x; n = length(x))

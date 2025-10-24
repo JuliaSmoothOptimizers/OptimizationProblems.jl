@@ -1,6 +1,6 @@
-export browngen
+export browngen1
 
-function browngen(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+function browngen1(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n = max(2, n)
   function f(x; n = length(x))
     s = zero(T)
@@ -12,5 +12,5 @@ function browngen(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) w
     return s
   end
   x0 = [isodd(i) ? zero(T) : -one(T) for i in 1:n]
-  return ADNLPModels.ADNLPModel(f, x0, name = "browngen"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "browngen1"; kwargs...)
 end

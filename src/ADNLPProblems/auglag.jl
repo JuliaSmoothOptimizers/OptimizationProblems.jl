@@ -9,7 +9,6 @@ function auglag(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) whe
     s = zero(T)
     for i = 1:n
       if mod(i, 5) == 0
-        # Compute exp(∏ x[i+1-j] for j=1:5)
         prod_term = one(T)
         sum_sq = zero(T)
         for j = 1:5
@@ -21,12 +20,10 @@ function auglag(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) whe
         end
         s += exp(prod_term) + 10 * (sum_sq - 10 - λ₁)^2
         
-        # Add (x[i-3]*x[i-2] - 5*x[i-1]*x[i] - λ₂)^2
         if i >= 4
           s += 10 * (x[i-3] * x[i-2] - 5 * x[i-1] * x[i] - λ₂)^2
         end
         
-        # Add (x[i-4]^3 + x[i-3]^3 + 1 - λ₃)^2
         if i >= 4
           s += 10 * (x[i-4]^3 + x[i-3]^3 + 1 - λ₃)^2
         end

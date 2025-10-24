@@ -24,4 +24,4 @@ get_cragglvy2_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_cragglvy2_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_cragglvy2_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_cragglvy2_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy2_nls_nequ(; n::Integer = default_nvar, kwargs...) = get_cragglvy2_nvar(; n = n)
+get_cragglvy2_nls_nequ(; n::Integer = default_nvar, kwargs...) = 5 * (div(n, 2) - 1)

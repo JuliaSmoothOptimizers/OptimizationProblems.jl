@@ -26,12 +26,10 @@ function chainwoo(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
   (n % 4 == 0) || @warn("chainwoo: number of variables adjusted to be a multiple of 4")
   n = 4 * max(1, div(n, 4))
   function F!(r, x; n = length(x))
-    # construct typical residuals corresponding to each pair block
     for i = 1:(div(n, 2) - 1)
       idx = 2 * i - 1
       r[idx] = 1 - x[idx]
       r[idx + 1] = x[idx + 1] - x[idx]^2
-      # second pair
       r[idx + 2] = 1 - x[idx + 2]
       r[idx + 3] = x[idx + 3] - x[idx + 2]^2
     end

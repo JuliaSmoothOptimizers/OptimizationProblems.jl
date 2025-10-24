@@ -1,11 +1,11 @@
 export genbroydentri
 
-function genbroyden(; use_nls::Bool = false, kwargs...)
+function genbroydentri(; use_nls::Bool = false, kwargs...)
   model = use_nls ? :nls : :nlp
-  return genbroyden(Val(model); kwargs...)
+  return genbroydentri(Val(model); kwargs...)
 end
 
-function genbroyden(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+function genbroydentri(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   p = T(7) / T(3)
   function f(x; n = length(x))
     x0 = zero(T)
@@ -18,10 +18,10 @@ function genbroyden(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64,
     return s
   end
   x0 = fill(-one(T), n)
-  return ADNLPModels.ADNLPModel(f, x0, name = "genbroyden"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "genbroydentri"; kwargs...)
 end
 
-function genbroyden(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+function genbroydentri(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   p = T(7) / T(3)
   x0 = fill(-one(T), n)
   function F!(r, x)
@@ -36,5 +36,5 @@ function genbroyden(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64,
     end
     return r
   end
-  return ADNLPModels.ADNLSModel!(F!, x0, n, name = "genbroyden-nls"; kwargs...)
+  return ADNLPModels.ADNLSModel!(F!, x0, n, name = "genbroydentri-nls"; kwargs...)
 end
