@@ -18,7 +18,7 @@ browngen2_meta = Dict(
   :origin => :literature,
 )
 
-get_browngen2_nvar(; n::Integer = default_nvar, kwargs...) = n
+get_browngen2_nvar(; n::Integer = default_nvar, kwargs...) = max(2, n)
 get_browngen2_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_browngen2_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_browngen2_nnln(; n::Integer = default_nvar, kwargs...) = 0
