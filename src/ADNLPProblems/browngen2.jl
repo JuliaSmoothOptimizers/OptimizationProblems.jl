@@ -5,7 +5,7 @@ function browngen2(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) 
   function f(x; n = length(x))
     s = zero(T)
     @inbounds for i = 2:n
-      s += abs(x[i-1])^(x[i]^2 + one(T)) + abs(x[i])^(x[i-1]^2 + one(T))
+      s += (x[i-1]^2)^(x[i]^2 + 1) + (x[i]^2)^(x[i-1]^2 + 1)
     end
     return s
   end
