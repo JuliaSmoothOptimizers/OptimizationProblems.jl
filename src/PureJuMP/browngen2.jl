@@ -18,7 +18,7 @@ function browngen2(; n::Int = default_nvar)
   end
 
   @objective(nlp, Min,
-    sum(abs(x[i-1])^(x[i]^2 + 1) + abs(x[i])^(x[i-1]^2 + 1) for i = 2:n)
+    sum((x[i-1]^2)^(x[i]^2 + 1) + (x[i]^2)^(x[i-1]^2 + 1) for i = 2:n)
   )
   return nlp
 end
