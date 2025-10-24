@@ -13,6 +13,7 @@ export browngen1
 function browngen1(; n::Int = default_nvar)
   nlp = Model()
   n = max(2, n)
+  n = max(2, n)
   @variable(nlp, x[1:n])
   for i in 1:n
     set_start_value(x[i], isodd(i) ? 0.0 : -1.0)
