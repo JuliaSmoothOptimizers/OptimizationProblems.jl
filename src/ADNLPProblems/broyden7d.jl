@@ -30,7 +30,7 @@ function broyden7d(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, 
   p = (7 // 3) - 2
   x0 = fill(-one(T), n)
   nh = div(n, 2)
-  function F!(r, x)
+  function F!(r, x; n = length(x),  p = p)
     @inbounds begin
       r[1] = abs((3 - 2 * x[1]) * x[1] - zero(T) - x[2] + 1)^p
       for i = 2:(n - 1)
