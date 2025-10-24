@@ -1,6 +1,6 @@
 # Augmented Lagrangian function
 #
-#   Problem 1 in
+#   Problem 11 in
 #   L. Luksan, C. Matonoha and J. Vlcek
 #   Sparse Test Problems for Unconstrained Optimization,
 #   Technical Report 1064,
