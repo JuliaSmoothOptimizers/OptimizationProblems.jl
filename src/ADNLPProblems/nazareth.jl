@@ -19,7 +19,7 @@ function nazareth(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
       for j = 1:n
         if abs(j-i) == nh && (j < max(1, i-2) || j > min(n, i+2))
           aij = 5 * (1 + mod(i,5) + mod(j,5))
-          bij = T((i + j) / 10)
+          bij = (i + j) // 10
           sumtrig += aij * sin(x[j]) + bij * cos(x[j])
         end
       end
