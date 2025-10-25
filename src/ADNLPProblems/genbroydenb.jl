@@ -26,8 +26,7 @@ function genbroydenb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64
 end
 
 function genbroydenb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  p = 7 // 3
-  pe_half = p / 2
+  p = 7 // 6
   function F!(r, x; n = length(x))
     @inbounds for i = 1:n
       diag = (2 + 5 * x[i]^2) * x[i] + one(T)
