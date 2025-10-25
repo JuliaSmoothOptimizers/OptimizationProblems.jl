@@ -6,13 +6,15 @@ function genbroydenb(; use_nls::Bool = false, kwargs...)
 end
 
 function genbroydenb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  p = T(7) / T(3)
+  p = 7 // 3
   function f(x; n = length(x))
     s = zero(T)
     for i = 1:n
       diag = (2 + 5 * x[i]^2) * x[i] + one(T)
       neigh = zero(T)
-      for j = max(1, i - 5):min(n, i + 1)
+      lo = max(1, i - 5)
+      hi = min(n, i + 1)
+      @inbounds for j = lo:hi
         if j != i
           neigh += x[j] * (one(T) + x[j])
         end
@@ -22,21 +24,24 @@ function genbroydenb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64
     return s
   end
   x0 = fill(-one(T), n)
-  return ADNLPModels.ADNLPModel(f, x0, name = "genbroydenb"; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "genbroydenb", minimize = true; kwargs...)
 end
 
 function genbroydenb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  p = T(7) / T(3)
+  p = 7 // 3
+  pe_half = p / 2
   function F!(r, x; n = length(x))
-    for i = 1:n
+    @inbounds for i = 1:n
       diag = (2 + 5 * x[i]^2) * x[i] + one(T)
       neigh = zero(T)
-      for j = max(1, i - 5):min(n, i + 1)
+      lo = max(1, i - 5)
+      hi = min(n, i + 1)
+      for j = lo:hi
         if j != i
           neigh += x[j] * (one(T) + x[j])
         end
       end
-      r[i] = abs(diag + neigh)^p
+      r[i] = abs(diag + neigh)^pe_half
     end
     return r
   end

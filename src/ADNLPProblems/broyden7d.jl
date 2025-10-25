@@ -27,21 +27,22 @@ function broyden7d(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, 
 end
 
 function broyden7d(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  p = (7 // 3) - 2
   x0 = fill(-one(T), n)
-  nh = div(n, 2)
-  function F!(r, x; n = length(x),  p = p)
+  function F!(r, x; n = length(x))
+    p = 7 // 3
+    nh = div(n, 2)
     @inbounds begin
-      r[1] = abs((3 - 2 * x[1]) * x[1] - zero(T) - x[2] + 1)^p
+      r[1] = abs((3 - 2 * x[1]) * x[1] - zero(T) - x[2] + one(T))^p
       for i = 2:(n - 1)
-        r[i] = abs((3 - 2 * x[i]) * x[i] - x[i - 1] - x[i + 1] + 1)^p
+        r[i] = abs((3 - 2 * x[i]) * x[i] - x[i - 1] - x[i + 1] + one(T))^p
       end
-      r[n] = abs((3 - 2 * x[n]) * x[n] - x[n - 1] - zero(T) + 1)^p
+      r[n] = abs((3 - 2 * x[n]) * x[n] - x[n - 1] - zero(T) + one(T))^p
       for i = 1:nh
         r[n + i] = abs(x[i] + x[i + nh])^p
       end
     end
     return r
   end
-  return ADNLPModels.ADNLSModel!(F!, x0, n + nh, name = "broyden7d-nls"; kwargs...)
+  nequ = n + div(n, 2)
+  return ADNLPModels.ADNLSModel!(F!, x0, nequ, name = "broyden7d-nls"; kwargs...)
 end

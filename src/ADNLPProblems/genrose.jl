@@ -21,13 +21,14 @@ function genrose(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kw
   n = max(2, n)
   nequ = n - 1
   function F!(r, x; n = length(x))
-    @inbounds r[1] = x[2] - x[1]^2
-    @inbounds for i = 2:nequ
-      r[i] = x[i + 1] - x[i]^2
+    @inbounds for i = 1:nequ
+      t1 = 10 * (x[i + 1] - x[i]^2)
+      t2 = x[i] - one(T)
+      r[i] = sqrt(t1^2 + t2^2)
     end
     return r
   end
-  x0 = T.([i // (n + 1) for i = 1:n])
+  x0 = T.([i / (n + 1) for i = 1:n])
   return ADNLPModels.ADNLSModel!(F!, x0, nequ, name = "genrose-nls"; kwargs...)
 end
 
