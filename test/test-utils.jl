@@ -134,11 +134,7 @@ end
   ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
   for T in list_types
-    nlp = if (nvar + ncon < 10000)
-      eval(Meta.parse("ADNLPProblems.$(prob)(type=$(T))"))
-    else
-      eval(Meta.parse("ADNLPProblems.$(prob)(type=$T, " * simp_backend * ")"))
-    end
+    nlp = make_ad_nlp(prob; type = T)
     test_multi_precision(T, nlp)
   end
 end
