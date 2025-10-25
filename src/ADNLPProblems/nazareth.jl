@@ -32,7 +32,7 @@ function nazareth(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
 end
 
 function nazareth(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  x0 = fill(one(T)/sqrt(T(n)), n)
+  x0 = fill(one(T) / n, n)
   function F!(r, x)
     nh = div(n, 2)
     @inbounds for i = 1:n
