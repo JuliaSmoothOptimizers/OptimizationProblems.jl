@@ -28,16 +28,13 @@ const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP
 include("test-defined-problems.jl")
 @everywhere include("test-utils.jl")
 
-@test ndef == OptimizationProblems.PureJuMP.default_nvar
-@test ndef == OptimizationProblems.ADNLPProblems.default_nvar
-
-@everywhere function make_ad_nlp(prob::Symbol; simp_backend="")
+@everywhere function make_ad_nlp(prob::Symbol; kwargs...)
     mod = ADNLPProblems
     if !isdefined(mod, prob)
         error("Problem $(prob) is not defined in ADNLPProblems on pid $(myid()).")
     end
     ctor = getfield(mod, prob)
-    return isempty(simp_backend) ? ctor() : ctor(eval(Meta.parse(simp_backend)))
+    return ctor(matrix_free = true; kwargs...)
 end
 
 @everywhere function test_one_problem(prob::Symbol)
@@ -46,12 +43,7 @@ end
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
   ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
-  nlp_ad = if (nvar + ncon < 10000)
-    make_ad_nlp(prob)
-  else
-    # Avoid SparseADJacobian for too large problem as it requires a lot of memory for CIs
-    make_ad_nlp(prob, simp_backend = simp_backend)
-  end
+  nlp_ad = make_ad_nlp(prob)
 
   @test nlp_ad.meta.name == pb
 
@@ -103,29 +95,6 @@ end
 
 pmap(test_one_problem, list_problems_ADNLPProblems)
 
-names_pb_vars = meta[
-  meta.variable_nvar .== true,
-  [:nvar, :name, :best_known_upper_bound, :best_known_lower_bound],
-]
-adproblems = (
-  eval(Meta.parse("ADNLPProblems.$(pb[:name])(" * simp_backend * ")")) for
-  pb in eachrow(names_pb_vars)
-)
-adproblems11 = (
-  eval(Meta.parse("ADNLPProblems.$(pb[:name])(n=$(13 * ndef), " * simp_backend * ")")) for
-  pb in eachrow(names_pb_vars)
-)
-
-@testset "Test scalable problems" begin
-  @testset "problem: $pb" for (pb, nlp, nlp11) in
-                              zip(eachrow(names_pb_vars), adproblems, adproblems11)
-    @test pb[:nvar] == nlp.meta.nvar
-    n11 = OptimizationProblems.eval(Symbol(:get_, pb[:name], :_nvar))(n = 13 * ndef)
-    @test n11 == nlp11.meta.nvar
-
-    # test that the problem is actually scalable
-    @test n11 != pb[:nvar]
-  end
-end
+include("test-scalable.jl")
 
 rmprocs()

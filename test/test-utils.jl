@@ -1,9 +1,10 @@
 @everywhere const ndef = OptimizationProblems.default_nvar
+
+@test ndef == OptimizationProblems.PureJuMP.default_nvar
+@test ndef == OptimizationProblems.ADNLPProblems.default_nvar
+
 @everywhere const test_nvar = Int(round(ndef / 2))
 @everywhere meta = OptimizationProblems.meta
-
-# Avoid SparseADJacobian/Hessian for too large problem as it requires a lot of memory for CIs
-@everywhere const simp_backend = "jacobian_backend = ADNLPModels.ForwardDiffADJacobian, hessian_backend = ADNLPModels.ForwardDiffADHessian"
 
 @everywhere function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
   meta = OptimizationProblems.eval(Symbol(prob, :_meta))
@@ -71,12 +72,7 @@ end
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
   ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
-  nlp_ad = if (nvar + ncon < 10000)
-    eval(Meta.parse("ADNLPProblems.$(prob)()"))
-  else
-    # Avoid SparseADJacobian for too large problem as it requires a lot of memory for CIs
-    eval(Meta.parse("ADNLPProblems.$(prob)(" * simp_backend * ")"))
-  end
+  nlp_ad = make_ad_nlp(prob)
 
   return test_compatibility(prob, nlp_jump, nlp_ad, ndef)
 end

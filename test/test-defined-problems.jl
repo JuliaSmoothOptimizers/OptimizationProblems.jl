@@ -8,8 +8,6 @@
     return (pid = myid(), missing = missing)
 end
 
-const list_problems_ADNLPProblems =
-    setdiff(list_problems, list_problems_not_ADNLPProblems)
 probes = @sync begin
     for pid in workers()
         @async remotecall_fetch(probe_missing, pid, ADNLPProblems, list_problems_ADNLPProblems)
@@ -17,8 +15,6 @@ probes = @sync begin
 end
 @info "ADNLPProblems missing per worker" probes
 
-const list_problems_PureJuMP =
-    setdiff(list_problems, list_problems_not_PureJuMP)
 probes = @sync begin
     for pid in workers()
         @async remotecall_fetch(probe_missing, pid, PureJuMP, list_problems_PureJuMP)
