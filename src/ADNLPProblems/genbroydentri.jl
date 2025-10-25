@@ -22,7 +22,7 @@ function genbroydentri(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float
 end
 
 function genbroydentri(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  p = 7 // 3
+  p = 7 // 6
   x0 = fill(-one(T), n)
   function F!(r, x)
     x0_val = zero(T)
