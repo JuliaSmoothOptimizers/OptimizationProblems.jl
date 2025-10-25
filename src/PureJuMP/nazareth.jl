@@ -12,7 +12,7 @@ export nazareth
 
 function nazareth(; n::Int = default_nvar)
   nlp = Model()
-  @variable(nlp, x[1:n], start = 1.0 / sqrt(n))
+  @variable(nlp, x[1:n], start = 1 / n)
 
   A = zeros(Float64, n, n)
   B = zeros(Float64, n, n)
