@@ -23,4 +23,4 @@ get_genrose_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_genrose_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_genrose_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_genrose_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_genrose_nls_nequ(; n::Integer = default_nvar, kwargs...) = max(1, n - 1)
+get_genrose_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * (n - 1) + 1
