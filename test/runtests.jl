@@ -9,26 +9,20 @@ addprocs(np - 1)
 
 @everywhere import ADNLPModels
 
-@everywhere const list_problems = intersect(names(ADNLPProblems), names(PureJuMP))
-
-# The problems included should be carefully argumented and issues
-# to create them added.
-# TODO: tests are limited for JuMP-only problems
-@everywhere const list_problems_not_ADNLPProblems = Symbol[]
-@everywhere const list_problems_not_PureJuMP = Symbol[]
-
-@everywhere const list_problems_ADNLPProblems = setdiff(list_problems, list_problems_not_ADNLPProblems)
-@everywhere const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
-
-@test setdiff(union(names(ADNLPProblems), list_problems_not_ADNLPProblems), list_problems) ==
-      [:ADNLPProblems]
-@test setdiff(union(names(PureJuMP), list_problems_not_PureJuMP), list_problems) ==
-      [:PureJuMP]
-
-@everywhere include("test_utils.jl")
+@everywhere include("test-defined-problems.jl")
+@everywhere include("test-utils.jl")
 
 @test ndef == OptimizationProblems.PureJuMP.default_nvar
 @test ndef == OptimizationProblems.ADNLPProblems.default_nvar
+
+@everywhere function make_ad_nlp(prob::Symbol; simp_backend="")
+    mod = ADNLPProblems
+    if !isdefined(mod, prob)
+        error("Problem $(prob) is not defined in ADNLPProblems on pid $(myid()).")
+    end
+    ctor = getfield(mod, prob)
+    return isempty(simp_backend) ? ctor() : ctor(eval(Meta.parse(simp_backend)))
+end
 
 @everywhere function test_one_problem(prob::Symbol)
   pb = string(prob)
@@ -37,10 +31,10 @@ addprocs(np - 1)
   ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
   nlp_ad = if (nvar + ncon < 10000)
-    eval(Meta.parse("ADNLPProblems.$(prob)()"))
+    make_ad_nlp(prob)
   else
     # Avoid SparseADJacobian for too large problem as it requires a lot of memory for CIs
-    eval(Meta.parse("ADNLPProblems.$(prob)(" * simp_backend * ")"))
+    make_ad_nlp(prob, simp_backend = simp_backend)
   end
 
   @test nlp_ad.meta.name == pb
@@ -62,7 +56,14 @@ addprocs(np - 1)
   end
 
   @testset "Test for nls_prob flag for $prob" begin
-    nls_prob = eval(Meta.parse("ADNLPProblems.$(prob)(use_nls = true)"))
+    nls_prob = begin
+      mod = ADNLPProblems
+      if isdefined(mod, prob)
+            getfield(mod, prob)(; use_nls = true)
+      else
+            nothing
+      end
+    end
     if (typeof(nls_prob) <: ADNLPModels.ADNLSModel) # if the nls_flag is not supported we ignore the prob
       test_in_place_residual(prob, nls_prob)
     end
