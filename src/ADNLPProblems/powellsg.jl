@@ -28,7 +28,7 @@ function powellsg(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
   n = 4 * max(1, div(n, 4))
   function F!(r, x; n = length(x))
     @inbounds for j = 1:4:n
-      r[j] = x[j] + T(10) * x[j + 1]
+      r[j] = x[j] + 10 * x[j + 1]
       r[j + 1] = sqrt(T(5)) * (x[j + 2] - x[j + 3])
       r[j + 2] = (x[j + 1] - T(2) * x[j + 2])^2
       r[j + 3] = sqrt(T(10)) * (x[j] - x[j + 3])^2
