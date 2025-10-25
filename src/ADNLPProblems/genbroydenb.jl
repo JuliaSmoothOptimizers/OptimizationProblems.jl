@@ -38,7 +38,7 @@ function genbroydenb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64
           neigh += x[j] * (one(T) + x[j])
         end
       end
-      r[i] = abs(diag + neigh)^pe_half
+      r[i] = abs(diag + neigh)^p
     end
     return r
   end
