@@ -9,7 +9,23 @@ addprocs(np - 1)
 
 @everywhere import ADNLPModels
 
-@everywhere include("test-defined-problems.jl")
+@everywhere function defined_names(mod::Module)
+    # Exported only (default) + actually defined. Adjust all=true if you prefer.
+    [n for n in names(mod) if isdefined(mod, n)]
+end
+
+const list_problems =
+    setdiff(union(defined_names(ADNLPProblems), defined_names(PureJuMP)), [:PureJuMP, :ADNLPProblems])
+
+# The problems included should be carefully argumented and issues
+# to create them added.
+# TODO: tests are limited for JuMP-only problems
+const list_problems_not_ADNLPProblems = Symbol[]
+const list_problems_ADNLPProblems = setdiff(list_problems, list_problems_not_ADNLPProblems)
+const list_problems_not_PureJuMP = Symbol[]
+const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
+
+include("test-defined-problems.jl")
 @everywhere include("test-utils.jl")
 
 @test ndef == OptimizationProblems.PureJuMP.default_nvar
@@ -69,10 +85,16 @@ end
     end
   end
 
-  if prob in list_problems_PureJuMP
+  model = begin
+      mod = PureJuMP
+      if isdefined(mod, prob)
+            getfield(mod, prob)(n = ndef)
+      else
+            nothing
+      end
+  end
+  if !isnothing(model)
     @testset "Test problems compatibility for $prob" begin
-      prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
-      model = prob_fn(n = ndef)
       nlp_jump = MathOptNLPModel(model)
       test_compatibility(prob, nlp_jump, nlp_ad, ndef)
     end
