@@ -29,7 +29,7 @@ end
 function broyden7d(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   x0 = fill(-one(T), n)
   function F!(r, x; n = length(x))
-    p = 7 // 3
+    p = 7 // 6
     nh = div(n, 2)
     @inbounds begin
       r[1] = abs((3 - 2 * x[1]) * x[1] - zero(T) - x[2] + one(T))^p
