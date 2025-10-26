@@ -22,7 +22,7 @@ function genrose(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kw
   nequ = 2 * (n - 1) + 1
   function F!(r, x; n = length(x))
     @inbounds begin
-      r[1] = one(T)
+      r[1] = 1
       for i = 1:(n - 1)
         r[i + 1] = 10 * (x[i + 1] - x[i]^2)
         r[i + n] = x[i] - 1
