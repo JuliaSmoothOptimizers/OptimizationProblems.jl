@@ -1,4 +1,4 @@
-xe_deer = [
+const _xe_deer = [
   1 2.90000000000000e+00 1.20000000000000e+00
   2 3.60000000000000e+00 1.20000000000000e+00
   3 3.35000000000000e+00 1.20000000000000e+00
@@ -1123,7 +1123,7 @@ xe_deer = [
   1122 1.82000000000000e+01 2.06000000000000e+01
 ];
 
-TRIS_deer = [
+const _TRIS_deer = [
   1 1 3 4
   2 1 4 5
   3 3 2 7
@@ -3022,10 +3022,10 @@ TRIS_deer = [
   1896 1121 1120 1122
 ];
 
-TRIS_deer = vec(reshape(TRIS_deer[:, 2:4], 1896 * 3, 1));
-xe_deer = vec(reshape(xe_deer[:, 2:3], 2 * 1122, 1));
+const TRIS_deer = vec(reshape(_TRIS_deer[:, 2:4], 1896 * 3, 1));
+const xe_deer = vec(reshape(_xe_deer[:, 2:3], 2 * 1122, 1));
 
-Const_deer = [
+const Const_deer = [
   1,
   2,
   3,

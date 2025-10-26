@@ -1,4 +1,4 @@
-xe_turtle = [
+const _xe_turtle = [
   1 1.50000000000000e-01 4.12500000000000e+00
   2 2.00000000000000e-01 4.00000000000000e+00
   3 0.00000000000000e+00 4.50000000000000e+00
@@ -2223,7 +2223,7 @@ xe_turtle = [
   2222 1.46000000000000e+01 1.14000000000000e+01
 ];
 
-TRIS_turtle = [
+const _TRIS_turtle = [
   1 2 7 1
   2 7 4 1
   3 5 7 2
@@ -6251,9 +6251,9 @@ TRIS_turtle = [
   4025 2221 2222 2220
 ];
 
-TRIS_turtle = vec(reshape(TRIS_turtle[:, 2:4], 4025 * 3, 1));
-xe_turtle = vec(reshape(xe_turtle[:, 2:3], 2222 * 2, 1));
-Const_turtle = [
+const TRIS_turtle = vec(reshape(_TRIS_turtle[:, 2:4], 4025 * 3, 1));
+const xe_turtle = vec(reshape(_xe_turtle[:, 2:3], 2222 * 2, 1));
+const Const_turtle = [
   1,
   2,
   3,
