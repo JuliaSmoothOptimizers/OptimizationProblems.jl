@@ -10,7 +10,7 @@ function genbroydenb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64
   function f(x; n = length(x))
     s = zero(T)
     for i = 1:n
-      diag = (2 + 5 * x[i]^2) * x[i] + one(T)
+      diag = (2 + 5 * x[i]^2) * x[i] + 1
       neigh = zero(T)
       @inbounds for j = max(1, i - 5):min(n, i + 1)
         if j != i
