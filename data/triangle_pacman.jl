@@ -1,4 +1,4 @@
-xe_pacman = [
+const _xe_pacman = [
   1 0.00000000000000e+00 1.00000000000000e+00
   2 8.97600000000000e-01 2.18200000000000e-01
   3 1.34640000000000e+00 2.51000000000000e-02
@@ -684,7 +684,7 @@ xe_pacman = [
   683 1.52592000000000e+01 1.28943000000000e+01
 ];
 
-TRIS_pacman = [
+const _TRIS_pacman = [
   1 2 8 6
   2 3 8 2
   3 12 3 9
@@ -1869,10 +1869,10 @@ TRIS_pacman = [
   1182 683 682 681
 ];
 
-xe_pacman = vec(reshape(xe_pacman[:, 2:3], 2 * 683, 1))
-TRIS_pacman = vec(reshape(TRIS_pacman[:, 2:4], 1182 * 3, 1))
+const xe_pacman = vec(reshape(_xe_pacman[:, 2:3], 2 * 683, 1))
+const TRIS_pacman = vec(reshape(_TRIS_pacman[:, 2:4], 1182 * 3, 1))
 
-Const_pacman = [
+const Const_pacman = [
   1,
   2,
   3,

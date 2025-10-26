@@ -60,17 +60,20 @@ function triangle(
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, lcon, ucon, name = "triangle"; kwargs...)
 end
 
-include("../../data/triangle_deer.jl")
 export triangle_deer
-triangle_deer(; kwargs...) =
+function triangle_deer(; kwargs...)
+  _ensure_data!(:triangle_deer, "triangle_deer.jl")
   triangle(xe_deer, TRIS_deer, Const_deer; name = "triangle_deer", kwargs...)
+end
 
-include("../../data/triangle_pacman.jl")
 export triangle_pacman
-triangle_pacman(; kwargs...) =
+function triangle_pacman(; kwargs...)
+  _ensure_data!(:triangle_pacman, "triangle_pacman.jl")
   triangle(xe_pacman, TRIS_pacman, Const_pacman; name = "triangle_pacman", kwargs...)
+end
 
-include("../../data/triangle_turtle.jl")
 export triangle_turtle
-triangle_turtle(; kwargs...) =
+function triangle_turtle(; kwargs...)
+  _ensure_data!(:triangle_turtle, "triangle_turtle.jl")
   triangle(xe_turtle, TRIS_turtle, Const_turtle; name = "triangle_turtle", kwargs...)
+end
