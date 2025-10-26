@@ -14,7 +14,7 @@ function genbroydenb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64
       neigh = zero(T)
       @inbounds for j = max(1, i - 5):min(n, i + 1)
         if j != i
-          neigh += x[j] * (one(T) + x[j])
+          neigh += x[j] * (1 + x[j])
         end
       end
       s += abs(diag + neigh)^p
