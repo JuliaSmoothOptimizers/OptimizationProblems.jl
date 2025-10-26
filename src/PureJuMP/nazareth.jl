@@ -10,38 +10,33 @@
 #   https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization
 export nazareth
 
-function nazareth(; n::Int = default_nvar)
-  nlp = Model()
-  @variable(nlp, x[1:n], start = 1 / n)
-
-  A = zeros(Float64, n, n)
-  B = zeros(Float64, n, n)
-  neighbors = [Int[] for _ in 1:n]
+function nazareth(; n::Int = default_nvar, type::Type{T} = Float64) where {T}
   nh = div(n, 2)
+  neighbors = Vector{Vector{Int}}(undef, n)
+  a_row = Vector{Vector{T}}(undef, n)
+  b_row = Vector{Vector{T}}(undef, n)
   for i in 1:n
     lo = max(1, i - 2)
     hi = min(n, i + 2)
-    for j in lo:hi
-      if A[i, j] == 0.0
-        push!(neighbors[i], j)
-      end
-      A[i, j] = 5.0 * (1 + mod(i, 5) + mod(j, 5))
-      B[i, j] = (i + j) / 10
-    end
-    for j in (i - nh, i + nh)
-      if 1 <= j <= n && (j < lo || j > hi)
-        if A[i, j] == 0.0
-          push!(neighbors[i], j)
-        end
-        A[i, j] = 5.0 * (1 + mod(i, 5) + mod(j, 5))
-        B[i, j] = (i + j) / 10
+    neigh = collect(lo:hi)
+    j1 = i - nh
+    j2 = i + nh
+    for j in (j1, j2)
+      if 1 <= j <= n && !(j >= lo && j <= hi)
+        push!(neigh, j)
       end
     end
+    neighbors[i] = neigh
+    a_row[i] = [5 * (1 + mod(i, 5) + mod(j, 5)) for j in neigh]
+    b_row[i] = [(i + j) / 10 for j in neigh]
   end
+
+  nlp = Model()
+  @variable(nlp, x[1:n], start = one(T) / n)
 
   @objective(nlp, Min,
     sum(
-      (n + i - sum(A[i, j] * sin(x[j]) + B[i, j] * cos(x[j]) for j in neighbors[i]))^2
+      (n + i - sum(a_row[i][k] * sin(x[ neighbors[i][k] ]) + b_row[i][k] * cos(x[ neighbors[i][k] ]) for k in 1:length(neighbors[i])))^2
       for i = 1:n
     ) / n
   )

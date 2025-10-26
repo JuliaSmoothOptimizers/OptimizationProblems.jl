@@ -9,7 +9,7 @@ rosenbrock_meta = Dict(
   :has_inequalities_only => false,
   :has_bounds => false,
   :has_fixed_variables => false,
-  :objtype => :nls,
+  :objtype => :least_squares,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
   :best_known_upper_bound => 32.308641975308646,
@@ -23,4 +23,4 @@ get_rosenbrock_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_rosenbrock_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_rosenbrock_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_rosenbrock_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_rosenbrock_nls_nequ(; n::Integer = default_nvar, kwargs...) = max(1, get_rosenbrock_nvar(n = n) - 1)
+get_rosenbrock_nls_nequ(; n::Integer = default_nvar, kwargs...) = 3

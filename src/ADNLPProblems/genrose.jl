@@ -19,12 +19,16 @@ end
 
 function genrose(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n = max(2, n)
-  nequ = n - 1
+  nequ = 2 * (n - 1) + 1
   function F!(r, x; n = length(x))
-    @inbounds for i = 1:nequ
-      t1 = 10 * (x[i + 1] - x[i]^2)
-      t2 = x[i] - one(T)
-      r[i] = sqrt(t1^2 + t2^2)
+    @inbounds begin
+      r[1] = one(T)
+      for i = 1:(n - 1)
+        t1 = 10 * (x[i + 1] - x[i]^2)
+        t2 = x[i] - one(T)
+        r[i + 1] = t1
+        r[i + n] = t2
+      end
     end
     return r
   end
@@ -32,5 +36,4 @@ function genrose(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kw
   return ADNLPModels.ADNLSModel!(F!, x0, nequ, name = "genrose-nls"; kwargs...)
 end
 
-rosenbrock(args...; kwargs...) =
-  genrose(args..., n = 2, name = "rosenbrock"; delete!(Dict(kwargs), :n)...)
+rosenbrock(args...; kwargs...) = genrose(args..., n = 2, name = "rosenbrock"; delete!(Dict(kwargs), :n)...)
