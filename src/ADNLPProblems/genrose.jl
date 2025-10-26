@@ -24,10 +24,8 @@ function genrose(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kw
     @inbounds begin
       r[1] = one(T)
       for i = 1:(n - 1)
-        t1 = 10 * (x[i + 1] - x[i]^2)
-        t2 = x[i] - one(T)
-        r[i + 1] = t1
-        r[i + n] = t2
+        r[i + 1] = 10 * (x[i + 1] - x[i]^2)
+        r[i + n] = x[i] - 1
       end
     end
     return r
