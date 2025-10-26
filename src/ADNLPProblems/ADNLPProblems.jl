@@ -7,19 +7,19 @@ const data_path = joinpath(@__DIR__, "..", "..", "data")
 
 reshape_array(a, dims) = invoke(Base._reshape, Tuple{AbstractArray, typeof(dims)}, a, dims)
 
-const _data_loaded = Dict{Symbol,Ref{Bool}}()
-const _data_locks  = Dict{Symbol,ReentrantLock}()
+const _data_loaded = Dict{Symbol, Ref{Bool}}()
+const _data_locks = Dict{Symbol, ReentrantLock}()
 
 function _ensure_data!(key::Symbol, relpath::AbstractString)
-    flag = get!(_data_loaded, key, Ref(false))
+  flag = get!(_data_loaded, key, Ref(false))
+  flag[] && return
+  lck = get!(_data_locks, key, ReentrantLock())
+  lock(lck) do
     flag[] && return
-    lck  = get!(_data_locks,  key, ReentrantLock())
-    lock(lck) do
-        flag[] && return
-        Base.include(@__MODULE__, joinpath(@__DIR__, "..", "..", "data", relpath))
-        flag[] = true
-    end
-    return
+    Base.include(@__MODULE__, joinpath(@__DIR__, "..", "..", "data", relpath))
+    flag[] = true
+  end
+  return
 end
 
 @init begin

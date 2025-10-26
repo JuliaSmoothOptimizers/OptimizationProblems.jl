@@ -62,18 +62,18 @@ end
 
 export triangle_deer
 function triangle_deer(; kwargs...)
-    _ensure_data!(:triangle_deer, "triangle_deer.jl")
-    tetra(xe_deer, TRIS_deer, Const_deer; name = "triangle_deer", kwargs...)
+  _ensure_data!(:triangle_deer, "triangle_deer.jl")
+  tetra(xe_deer, TRIS_deer, Const_deer; name = "triangle_deer", kwargs...)
 end
 
 export triangle_pacman
 function triangle_pacman(; kwargs...)
-    _ensure_data!(:triangle_pacman, "triangle_pacman.jl")
-    tetra(xe_pacman, TRIS_pacman, Const_pacman; name = "triangle_pacman", kwargs...)
+  _ensure_data!(:triangle_pacman, "triangle_pacman.jl")
+  tetra(xe_pacman, TRIS_pacman, Const_pacman; name = "triangle_pacman", kwargs...)
 end
 
 export triangle_turtle
 function triangle_turtle(; kwargs...)
-    _ensure_data!(:triangle_turtle, "triangle_turtle.jl")
-    tetra(xe_turtle, TRIS_turtle, Const_turtle; name = "triangle_turtle", kwargs...)
+  _ensure_data!(:triangle_turtle, "triangle_turtle.jl")
+  tetra(xe_turtle, TRIS_turtle, Const_turtle; name = "triangle_turtle", kwargs...)
 end
