@@ -35,7 +35,7 @@ function genbroydenb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64
       hi = min(n, i + 1)
       for j = lo:hi
         if j != i
-          neigh += x[j] * (one(T) + x[j])
+          neigh += x[j] * (1 + x[j])
         end
       end
       r[i] = abs(diag + neigh)^p
