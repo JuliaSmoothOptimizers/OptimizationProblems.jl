@@ -35,7 +35,7 @@ function chainwoo(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
       i4 = 2 * i + 2
       r[idx]     = 10 * (x[i2] - x[i1]^2)
       r[idx + 1] = 1 - x[i1]
-      r[idx + 2] = sqrt(90) * (x[i4] - x[i3]^2)
+      r[idx + 2] = T(sqrt(90)) * (x[i4] - x[i3]^2)
       r[idx + 3] = 1 - x[i3]
       r[idx + 4] = sqrt(10) * (x[i2] + x[i4] - 2)
       r[idx + 5] = (x[i2] - x[i4]) / sqrt(10)
