@@ -5,7 +5,12 @@ function genbroydentri(; use_nls::Bool = false, kwargs...)
   return genbroydentri(Val(model); kwargs...)
 end
 
-function genbroydentri(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+function genbroydentri(
+  ::Val{:nlp};
+  n::Int = default_nvar,
+  type::Type{T} = Float64,
+  kwargs...,
+) where {T}
   p = 7 // 3
   function f(x; n = length(x))
     x0 = zero(T)
@@ -21,7 +26,12 @@ function genbroydentri(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float
   return ADNLPModels.ADNLPModel(f, x0, name = "genbroydentri"; kwargs...)
 end
 
-function genbroydentri(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+function genbroydentri(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Type{T} = Float64,
+  kwargs...,
+) where {T}
   p = 7 // 6
   x0 = fill(-one(T), n)
   function F!(r, x)

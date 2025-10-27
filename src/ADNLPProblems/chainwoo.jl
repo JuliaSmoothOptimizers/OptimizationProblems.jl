@@ -30,12 +30,12 @@ function chainwoo(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
     r[1] = 1
     idx = 2
     @inbounds for i = 1:nb
-      r[idx]     = 10 * (x[2*i] - x[2*i - 1]^2)
-      r[idx + 1] = 1 - x[2*i - 1]
-      r[idx + 2] = T(sqrt(90)) * (x[2*i + 2] - x[2*i + 1]^2)
-      r[idx + 3] = 1 - x[2*i + 1]
-      r[idx + 4] = T(sqrt(10)) * (x[2*i] + x[2*i + 2] - 2)
-      r[idx + 5] = (x[2*i] - x[2*i + 2]) / T(sqrt(10))
+      r[idx] = 10 * (x[2 * i] - x[2 * i - 1]^2)
+      r[idx + 1] = 1 - x[2 * i - 1]
+      r[idx + 2] = T(sqrt(90)) * (x[2 * i + 2] - x[2 * i + 1]^2)
+      r[idx + 3] = 1 - x[2 * i + 1]
+      r[idx + 4] = T(sqrt(10)) * (x[2 * i] + x[2 * i + 2] - 2)
+      r[idx + 5] = (x[2 * i] - x[2 * i + 2]) / T(sqrt(10))
       idx += 6
     end
     return r

@@ -34,4 +34,5 @@ function genrose(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kw
   return ADNLPModels.ADNLSModel!(F!, x0, nequ, name = "genrose-nls"; kwargs...)
 end
 
-rosenbrock(args...; kwargs...) = genrose(args..., n = 2, name = "rosenbrock"; delete!(Dict(kwargs), :n)...)
+rosenbrock(args...; kwargs...) =
+  genrose(args..., n = 2, name = "rosenbrock"; delete!(Dict(kwargs), :n)...)

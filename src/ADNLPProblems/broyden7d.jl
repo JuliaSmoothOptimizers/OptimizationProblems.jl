@@ -7,7 +7,7 @@ end
 
 function broyden7d(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   p = 7 // 3
-  function f(x; n = length(x),  p = p)
+  function f(x; n = length(x), p = p)
     x0 = zero(T)
     xn1 = zero(T)
     s = zero(T)

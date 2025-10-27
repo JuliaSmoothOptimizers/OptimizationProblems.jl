@@ -10,7 +10,7 @@ function nazareth(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
   neighbors = Vector{Vector{Int}}(undef, n)
   a_row = Vector{Vector{T}}(undef, n)
   b_row = Vector{Vector{T}}(undef, n)
-  for i in 1:n
+  for i = 1:n
     lo = max(1, i - 2)
     hi = min(n, i + 2)
     neigh = collect(lo:hi)
@@ -22,18 +22,18 @@ function nazareth(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
       end
     end
     neighbors[i] = neigh
-    a_row[i] = [5 * (1 + mod(i,5) + mod(j,5)) for j in neigh]
+    a_row[i] = [5 * (1 + mod(i, 5) + mod(j, 5)) for j in neigh]
     b_row[i] = [(i + j) / 10 for j in neigh]
   end
 
   function f(x; n = length(x))
     s = zero(T)
-    for i in 1:n
+    for i = 1:n
       sumtrig = zero(T)
       neigh = neighbors[i]
       ai = a_row[i]
       bi = b_row[i]
-      @inbounds for k in 1:length(neigh)
+      @inbounds for k = 1:length(neigh)
         j = neigh[k]
         sumtrig += ai[k] * sin(x[j]) + bi[k] * cos(x[j])
       end
@@ -50,7 +50,7 @@ function nazareth(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
   neighbors = Vector{Vector{Int}}(undef, n)
   a_row = Vector{Vector{T}}(undef, n)
   b_row = Vector{Vector{T}}(undef, n)
-  for i in 1:n
+  for i = 1:n
     lo = max(1, i - 2)
     hi = min(n, i + 2)
     neigh = collect(lo:hi)
@@ -62,18 +62,18 @@ function nazareth(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
       end
     end
     neighbors[i] = neigh
-    a_row[i] = [5 * (1 + mod(i,5) + mod(j,5)) for j in neigh]
+    a_row[i] = [5 * (1 + mod(i, 5) + mod(j, 5)) for j in neigh]
     b_row[i] = [(i + j) / 10 for j in neigh]
   end
 
   x0 = fill(one(T) / n, n)
   function F!(r, x)
-    @inbounds for i in 1:n
+    @inbounds for i = 1:n
       sumtrig = zero(T)
       neigh = neighbors[i]
       ai = a_row[i]
       bi = b_row[i]
-      for k in 1:length(neigh)
+      for k = 1:length(neigh)
         j = neigh[k]
         sumtrig += ai[k] * sin(x[j]) + bi[k] * cos(x[j])
       end
@@ -83,4 +83,3 @@ function nazareth(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
   end
   return ADNLPModels.ADNLSModel!(F!, x0, n, name = "nazareth"; kwargs...)
 end
-

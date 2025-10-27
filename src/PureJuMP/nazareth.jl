@@ -16,13 +16,13 @@ function nazareth(; n::Int = default_nvar, type::Type{T} = Float64) where {T}
   nlp = Model()
   @variable(nlp, x[1:n], start = one(T) / T(n))
 
-  @objective(nlp, Min,
-    sum((begin
+  @objective(nlp, Min, sum((
+    begin
       lo = max(1, i - 2)
       hi = min(n, i + 2)
 
       sumtrig = 0
-      for j in lo:hi
+      for j = lo:hi
         aij = 5 * (1 + mod(i, 5) + mod(j, 5))
         bij = (i + j) / 10
         sumtrig += aij * sin(x[j]) + bij * cos(x[j])
@@ -39,7 +39,7 @@ function nazareth(; n::Int = default_nvar, type::Type{T} = Float64) where {T}
       end
 
       (n + i - sumtrig)^2
-    end) for i = 1:n) / T(n)
-  )
+    end
+  ) for i = 1:n) / T(n))
   return nlp
 end
