@@ -52,5 +52,6 @@ function genbroydenb(
     end
     return r
   end
+  x0 = fill(-1, n)
   return ADNLPModels.ADNLSModel!(F!, x0, n, name = "genbroydenb-nls"; kwargs...)
 end
