@@ -47,8 +47,7 @@ end
     stats = @timed f(args...; kwargs...)
     msg = "$(label) took $(round(stats.time, digits=2)) s " *
           "($(Base.format_bytes(stats.bytes)) allocated, " *
-          "GC $(round(100*stats.gctime/stats.time, digits=1)) %, " *
-          "compile $(round(100*stats.compile_time/stats.time, digits=1)) %)"
+          "GC $(round(100*stats.gctime/stats.time, digits=1)) %)"
     @info msg
     return stats.value
   end
