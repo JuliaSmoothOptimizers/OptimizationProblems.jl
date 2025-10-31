@@ -21,8 +21,7 @@ function genbroydenb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64
     end
     return s
   end
-  x0 = Vector{T}(undef, n)
-  fill!(x0, -one(T))
+  x0 = fill(-one(T), n)
   return ADNLPModels.ADNLPModel(f, x0, name = "genbroydenb", minimize = true; kwargs...)
 end
 
@@ -39,13 +38,10 @@ function genbroydenb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64
         end
       end
       z = diag + neigh
-      r[i] = sign(z) * abs(z)^(p)
+      r[i] = abs(z)^(p)
     end
     return r
   end
-
-  x0 = Vector{T}(undef, n)
-  fill!(x0, -one(T))
-
+x0 = fill(-one(T), n)
   return ADNLPModels.ADNLSModel!(F!, x0, n, name = "genbroydenb-nls"; kwargs...)
 end

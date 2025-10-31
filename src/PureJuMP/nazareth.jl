@@ -10,11 +10,11 @@
 #   https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization
 export nazareth
 
-function nazareth(; n::Int = default_nvar, type::Type{T} = Float64) where {T}
+function nazareth(; n::Int = default_nvar)
   nh = div(n, 2)
 
   nlp = Model()
-  @variable(nlp, x[1:n], start = one(T) / T(n))
+  @variable(nlp, x[1:n], start = 1 / n)
 
   @objective(nlp, Min, sum((
     begin
@@ -40,6 +40,6 @@ function nazareth(; n::Int = default_nvar, type::Type{T} = Float64) where {T}
 
       (n + i - sumtrig)^2
     end
-  ) for i = 1:n) / T(n))
+  ) for i = 1:n) / n)
   return nlp
 end

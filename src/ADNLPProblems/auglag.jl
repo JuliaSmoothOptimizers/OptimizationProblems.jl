@@ -36,15 +36,15 @@ function auglag(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) whe
   for i = 1:n
     m = mod(i, 5)
     if m == 1
-      x0[i] = i <= 2 ? T(-2) : T(-1)
+      x0[i] = i <= 2 ? -2 : -1
     elseif m == 2
-      x0[i] = i <= 2 ? T(2) : T(-1)
+      x0[i] = i <= 2 ? 2 : -1
     elseif m == 3
-      x0[i] = T(2)
+      x0[i] = 2
     elseif m == 4
-      x0[i] = T(-1)
+      x0[i] = -1
     else
-      x0[i] = T(-1)
+      x0[i] = -1
     end
   end
 
