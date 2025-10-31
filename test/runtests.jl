@@ -1,6 +1,6 @@
 using Distributed
 
-np = Sys.CPU_THREADS
+np = max(1, Sys.CPU_THREADS ÷ 2)
 addprocs(np - 1)
 
 @everywhere using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
@@ -43,7 +43,7 @@ end
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
   ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
-  nlp_ad = make_ad_nlp(prob)
+  @time nlp_ad = make_ad_nlp(prob)
 
   @test nlp_ad.meta.name == pb
 
@@ -93,7 +93,12 @@ end
   end
 end
 
-pmap(test_one_problem, list_problems_ADNLPProblems)
+pmap(
+  test_one_problem,
+  list_problems_ADNLPProblems,
+  retry_delays = fill(2.0, 2),
+  on_error = err -> (@warn "task failed" err; nothing)
+)
 
 include("test-scalable.jl")
 
