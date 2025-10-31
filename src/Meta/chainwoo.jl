@@ -9,7 +9,7 @@ chainwoo_meta = Dict(
   :has_inequalities_only => false,
   :has_bounds => false,
   :has_fixed_variables => false,
-  :objtype => :other,
+  :objtype => :least_squares,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
   :best_known_upper_bound => 371954.1,
@@ -23,3 +23,4 @@ get_chainwoo_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_chainwoo_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_chainwoo_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_chainwoo_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_chainwoo_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1 + 6 * (div(n, 2) - 1)

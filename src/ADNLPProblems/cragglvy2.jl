@@ -1,6 +1,11 @@
 export cragglvy2
 
-function cragglvy2(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+function cragglvy2(; use_nls::Bool = false, kwargs...)
+  model = use_nls ? :nls : :nlp
+  return cragglvy2(Val(model); kwargs...)
+end
+
+function cragglvy2(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n < 2 && @warn("cragglvy2: number of variables must be ≥ 2")
   n = max(2, n)
   function f(x; n = length(x))
@@ -14,4 +19,22 @@ function cragglvy2(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) 
   end
   x0 = vcat(1, 2 * ones(T, n - 1))
   return ADNLPModels.ADNLPModel(f, x0, name = "cragglvy2"; kwargs...)
+end
+
+function cragglvy2(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  n < 2 && @warn("cragglvy2: number of variables must be ≥ 2")
+  n = max(2, n)
+  function F!(r, x; n = length(x))
+    for i = 1:(div(n, 2) - 1)
+      r[5 * (i - 1) + 1] = (exp(x[2 * i - 1]) - x[2 * i])^2
+      r[5 * (i - 1) + 2] = 10 * (x[2 * i] - x[2 * i + 1])^3
+      r[5 * (i - 1) + 3] = (tan(x[2 * i + 1] - x[2 * i + 2]))^2
+      r[5 * (i - 1) + 4] = x[2 * i - 1]^4
+      r[5 * (i - 1) + 5] = x[2 * i + 2] - 1
+    end
+    return r
+  end
+  nequ = 5 * (div(n, 2) - 1)
+  x0 = vcat(T(1), T(2) * ones(T, n - 1))
+  return ADNLPModels.ADNLSModel!(F!, x0, nequ, name = "cragglvy2-nls"; kwargs...)
 end

@@ -9,7 +9,7 @@ genrose_meta = Dict(
   :has_inequalities_only => false,
   :has_bounds => false,
   :has_fixed_variables => false,
-  :objtype => :other,
+  :objtype => :least_squares,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
   :best_known_upper_bound => 405.1064193957891,
@@ -23,3 +23,4 @@ get_genrose_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_genrose_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_genrose_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_genrose_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_genrose_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * (n - 1) + 1
