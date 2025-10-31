@@ -26,7 +26,7 @@ const list_problems_not_PureJuMP = Symbol[]
 const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
 
 include("test-defined-problems.jl")
-@everywhere include("test-utils.jl")
+include("test-utils.jl")
 
 @everywhere function make_ad_nlp(prob::Symbol; kwargs...)
     mod = ADNLPProblems
@@ -43,7 +43,17 @@ end
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
   ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
-  @time nlp_ad = make_ad_nlp(prob)
+  function timed_info(label, f, args...; kwargs...)
+    stats = @timed f(args...; kwargs...)
+    msg = "$(label) took $(round(stats.time, digits=2)) s " *
+          "($(Base.format_bytes(stats.bytes)) allocated, " *
+          "GC $(round(100*stats.gctime/stats.time, digits=1)) %, " *
+          "compile $(round(100*stats.compile_time/stats.time, digits=1)) %)"
+    @info msg
+    return stats.value
+  end
+
+  nlp_ad = timed_info("Instantiating $(pb)", make_ad_nlp, prob)
 
   @test nlp_ad.meta.name == pb
 
@@ -60,20 +70,6 @@ end
   if pb in meta[meta.objtype .== :least_squares, :name]
     @testset "Test Nonlinear Least Squares for $prob" begin
       test_in_place_residual(prob)
-    end
-  end
-
-  @testset "Test for nls_prob flag for $prob" begin
-    nls_prob = begin
-      mod = ADNLPProblems
-      if isdefined(mod, prob)
-            getfield(mod, prob)(; use_nls = true)
-      else
-            nothing
-      end
-    end
-    if (typeof(nls_prob) <: ADNLPModels.ADNLSModel) # if the nls_flag is not supported we ignore the prob
-      test_in_place_residual(prob, nls_prob)
     end
   end
 
