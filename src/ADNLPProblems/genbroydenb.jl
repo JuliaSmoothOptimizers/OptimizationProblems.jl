@@ -5,7 +5,12 @@ function genbroydenb(; use_nls::Bool = false, kwargs...)
   return genbroydenb(Val(model); kwargs...)
 end
 
-function genbroydenb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+function genbroydenb(
+  ::Val{:nlp};
+  n::Int = default_nvar,
+  type::Type{T} = Float64,
+  kwargs...,
+) where {T}
   p = 7 // 3
   function f(x; n = length(x))
     s = zero(T)
@@ -25,7 +30,12 @@ function genbroydenb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64
   return ADNLPModels.ADNLPModel(f, x0, name = "genbroydenb", minimize = true; kwargs...)
 end
 
-function genbroydenb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+function genbroydenb(
+  ::Val{:nls};
+  n::Int = default_nvar,
+  type::Type{T} = Float64,
+  kwargs...,
+) where {T}
   p = 7 // 6
   function F!(r, x)
     m = length(x)
@@ -42,6 +52,6 @@ function genbroydenb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64
     end
     return r
   end
-x0 = fill(-one(T), n)
+  x0 = fill(-one(T), n)
   return ADNLPModels.ADNLSModel!(F!, x0, n, name = "genbroydenb-nls"; kwargs...)
 end
