@@ -16,7 +16,7 @@ for file in files
 end
 number_of_problems = length(files)
 
-const names = [
+const cols_names = [
   :nvar
   :variable_nvar
   :ncon
@@ -82,9 +82,9 @@ The following keys are valid:
   - `defined_everywhere::Union{Bool, Missing}`: true if the objective is define for all values of the variables
   - `origin::Symbol`: origin of the problem, in [:academic, :modelling, :real, :unknown]
 """
-const meta = DataFrame(names .=> [Array{T}(undef, number_of_problems) for T in types])
+const meta = DataFrame(cols_names .=> [Array{T}(undef, number_of_problems) for T in types])
 
-for name in names, i = 1:number_of_problems
+for name in cols_names, i = 1:number_of_problems
   meta[!, name][i] = eval(Meta.parse("$(split(files[i], ".")[1])_meta"))[name]
 end
 

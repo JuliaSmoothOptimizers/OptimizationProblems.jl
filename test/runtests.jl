@@ -1,31 +1,59 @@
-using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
+using Distributed
+
+np = max(1, Sys.CPU_THREADS ÷ 2)
+addprocs(np - 1)
+
+@everywhere using NLPModels, NLPModelsJuMP, OptimizationProblems, Test
 
 @test names(ADNLPProblems) == [:ADNLPProblems]
 
-import ADNLPModels
+@everywhere import ADNLPModels
 
-const list_problems = intersect(names(ADNLPProblems), names(PureJuMP))
-# all problems have a JuMP and ADNLPModels formulations
-@test setdiff(union(names(ADNLPProblems), names(PureJuMP)), list_problems) ==
-      [:ADNLPProblems, :PureJuMP]
+@everywhere function defined_names(mod::Module)
+  # Exported only (default) + actually defined. Adjust all=true if you prefer.
+  [n for n in names(mod) if isdefined(mod, n)]
+end
 
-include("test_utils.jl")
+const list_problems =
+  setdiff(union(defined_names(ADNLPProblems), defined_names(PureJuMP)), [:PureJuMP, :ADNLPProblems])
 
-@test ndef == OptimizationProblems.PureJuMP.default_nvar
-@test ndef == OptimizationProblems.ADNLPProblems.default_nvar
+# The problems included should be carefully argumented and issues
+# to create them added.
+# TODO: tests are limited for JuMP-only problems
+const list_problems_not_ADNLPProblems = Symbol[]
+const list_problems_ADNLPProblems = setdiff(list_problems, list_problems_not_ADNLPProblems)
+const list_problems_not_PureJuMP = Symbol[]
+const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
 
-@testset "problem: $prob" for prob in list_problems
+include("test-defined-problems.jl")
+include("test-utils.jl")
+
+@everywhere function make_ad_nlp(prob::Symbol; kwargs...)
+  mod = ADNLPProblems
+  if !isdefined(mod, prob)
+    error("Problem $(prob) is not defined in ADNLPProblems on pid $(myid()).")
+  end
+  ctor = getfield(mod, prob)
+  return ctor(matrix_free = true; kwargs...)
+end
+
+@everywhere function test_one_problem(prob::Symbol)
   pb = string(prob)
 
   nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
   ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
 
-  nlp_ad = if (nvar + ncon < 10000)
-    eval(Meta.parse("ADNLPProblems.$(prob)()"))
-  else
-    # Avoid SparseADJacobian for too large problem as it requires a lot of memory for CIs
-    eval(Meta.parse("ADNLPProblems.$(prob)(" * simp_backend * ")"))
+  function timed_info(label, f, args...; kwargs...)
+    stats = @timed f(args...; kwargs...)
+    msg =
+      "$(label) took $(round(stats.time, digits=2)) s " *
+      "($(Base.format_bytes(stats.bytes)) allocated, " *
+      "GC $(round(100*stats.gctime/stats.time, digits=1)) %)"
+    @info msg
+    return stats.value
   end
+
+  nlp_ad = timed_info("Instantiating $(pb)", make_ad_nlp, prob)
 
   @test nlp_ad.meta.name == pb
 
@@ -45,42 +73,24 @@ include("test_utils.jl")
     end
   end
 
-  @testset "Test for nls_prob flag for $prob" begin
-    nls_prob = eval(Meta.parse("ADNLPProblems.$(prob)(use_nls = true)"))
-    if (typeof(nls_prob) <: ADNLPModels.ADNLSModel) # if the nls_flag is not supported we ignore the prob
-      test_in_place_residual(prob, nls_prob)
+  model = begin
+    mod = PureJuMP
+    if isdefined(mod, prob)
+      getfield(mod, prob)(n = ndef)
+    else
+      nothing
     end
   end
-
-  @testset "Test problems compatibility for $prob" begin
-    prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
-    model = prob_fn(n = ndef)
-    nlp_jump = MathOptNLPModel(model)
-    test_compatibility(prob, nlp_jump, nlp_ad, ndef)
+  if !isnothing(model)
+    @testset "Test problems compatibility for $prob" begin
+      nlp_jump = MathOptNLPModel(model)
+      test_compatibility(prob, nlp_jump, nlp_ad, ndef)
+    end
   end
 end
 
-names_pb_vars = meta[
-  meta.variable_nvar .== true,
-  [:nvar, :name, :best_known_upper_bound, :best_known_lower_bound],
-]
-adproblems = (
-  eval(Meta.parse("ADNLPProblems.$(pb[:name])(" * simp_backend * ")")) for
-  pb in eachrow(names_pb_vars)
-)
-adproblems11 = (
-  eval(Meta.parse("ADNLPProblems.$(pb[:name])(n=$(13 * ndef), " * simp_backend * ")")) for
-  pb in eachrow(names_pb_vars)
-)
+pmap(test_one_problem, list_problems_ADNLPProblems)
 
-@testset "Test scalable problems" begin
-  @testset "problem: $pb" for (pb, nlp, nlp11) in
-                              zip(eachrow(names_pb_vars), adproblems, adproblems11)
-    @test pb[:nvar] == nlp.meta.nvar
-    n11 = OptimizationProblems.eval(Symbol(:get_, pb[:name], :_nvar))(n = 13 * ndef)
-    @test n11 == nlp11.meta.nvar
+include("test-scalable.jl")
 
-    # test that the problem is actually scalable
-    @test n11 != pb[:nvar]
-  end
-end
+rmprocs()

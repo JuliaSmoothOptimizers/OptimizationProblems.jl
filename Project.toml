@@ -21,9 +21,10 @@ julia = "1.6"
 
 [extras]
 ADNLPModels = "54578032-b7ea-4c30-94aa-7cbd1cce6c9a"
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 NLPModels = "a4795742-8479-5a88-8948-cc11e1c8c1a6"
 NLPModelsJuMP = "792afdf1-32c1-5681-94e0-d7bf7a5df49e"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["ADNLPModels", "NLPModels", "NLPModelsJuMP", "Test"]
+test = ["ADNLPModels", "Distributed", "NLPModels", "NLPModelsJuMP", "Test"]
