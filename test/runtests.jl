@@ -10,12 +10,12 @@ addprocs(np - 1)
 @everywhere import ADNLPModels
 
 @everywhere function defined_names(mod::Module)
-    # Exported only (default) + actually defined. Adjust all=true if you prefer.
-    [n for n in names(mod) if isdefined(mod, n)]
+  # Exported only (default) + actually defined. Adjust all=true if you prefer.
+  [n for n in names(mod) if isdefined(mod, n)]
 end
 
 const list_problems =
-    setdiff(union(defined_names(ADNLPProblems), defined_names(PureJuMP)), [:PureJuMP, :ADNLPProblems])
+  setdiff(union(defined_names(ADNLPProblems), defined_names(PureJuMP)), [:PureJuMP, :ADNLPProblems])
 
 # The problems included should be carefully argumented and issues
 # to create them added.
@@ -29,12 +29,12 @@ include("test-defined-problems.jl")
 include("test-utils.jl")
 
 @everywhere function make_ad_nlp(prob::Symbol; kwargs...)
-    mod = ADNLPProblems
-    if !isdefined(mod, prob)
-        error("Problem $(prob) is not defined in ADNLPProblems on pid $(myid()).")
-    end
-    ctor = getfield(mod, prob)
-    return ctor(matrix_free = true; kwargs...)
+  mod = ADNLPProblems
+  if !isdefined(mod, prob)
+    error("Problem $(prob) is not defined in ADNLPProblems on pid $(myid()).")
+  end
+  ctor = getfield(mod, prob)
+  return ctor(matrix_free = true; kwargs...)
 end
 
 @everywhere function test_one_problem(prob::Symbol)
@@ -45,9 +45,10 @@ end
 
   function timed_info(label, f, args...; kwargs...)
     stats = @timed f(args...; kwargs...)
-    msg = "$(label) took $(round(stats.time, digits=2)) s " *
-          "($(Base.format_bytes(stats.bytes)) allocated, " *
-          "GC $(round(100*stats.gctime/stats.time, digits=1)) %)"
+    msg =
+      "$(label) took $(round(stats.time, digits=2)) s " *
+      "($(Base.format_bytes(stats.bytes)) allocated, " *
+      "GC $(round(100*stats.gctime/stats.time, digits=1)) %)"
     @info msg
     return stats.value
   end
@@ -73,12 +74,12 @@ end
   end
 
   model = begin
-      mod = PureJuMP
-      if isdefined(mod, prob)
-            getfield(mod, prob)(n = ndef)
-      else
-            nothing
-      end
+    mod = PureJuMP
+    if isdefined(mod, prob)
+      getfield(mod, prob)(n = ndef)
+    else
+      nothing
+    end
   end
   if !isnothing(model)
     @testset "Test problems compatibility for $prob" begin
@@ -88,12 +89,7 @@ end
   end
 end
 
-pmap(
-  test_one_problem,
-  list_problems_ADNLPProblems,
-  retry_delays = fill(2.0, 2),
-  on_error = err -> (@warn "task failed" err; nothing)
-)
+pmap(test_one_problem, list_problems_ADNLPProblems)
 
 include("test-scalable.jl")
 

@@ -63,26 +63,26 @@ end
 export triangle_deer
 function triangle_deer(; kwargs...)
   _ensure_data!(:triangle_deer, "triangle_deer.jl")
-  xe   = Base.invokelatest(getfield, @__MODULE__, :xe_deer)
+  xe = Base.invokelatest(getfield, @__MODULE__, :xe_deer)
   TRIS = Base.invokelatest(getfield, @__MODULE__, :TRIS_deer)
-  Const= Base.invokelatest(getfield, @__MODULE__, :Const_deer)
+  Const = Base.invokelatest(getfield, @__MODULE__, :Const_deer)
   triangle(xe, TRIS, Const; name = "triangle_deer", kwargs...)
 end
 
 export triangle_pacman
 function triangle_pacman(; kwargs...)
   _ensure_data!(:triangle_pacman, "triangle_pacman.jl")
-  xe   = Base.invokelatest(getfield, @__MODULE__, :xe_pacman)
+  xe = Base.invokelatest(getfield, @__MODULE__, :xe_pacman)
   TRIS = Base.invokelatest(getfield, @__MODULE__, :TRIS_pacman)
-  Const= Base.invokelatest(getfield, @__MODULE__, :Const_pacman)
+  Const = Base.invokelatest(getfield, @__MODULE__, :Const_pacman)
   triangle(xe, TRIS, Const; name = "triangle_pacman", kwargs...)
 end
 
 export triangle_turtle
 function triangle_turtle(; kwargs...)
   _ensure_data!(:triangle_turtle, "triangle_turtle.jl")
-  xe   = Base.invokelatest(getfield, @__MODULE__, :xe_turtle)
+  xe = Base.invokelatest(getfield, @__MODULE__, :xe_turtle)
   TRIS = Base.invokelatest(getfield, @__MODULE__, :TRIS_turtle)
-  Const= Base.invokelatest(getfield, @__MODULE__, :Const_turtle)
+  Const = Base.invokelatest(getfield, @__MODULE__, :Const_turtle)
   triangle(xe, TRIS, Const; name = "triangle_turtle", kwargs...)
 end

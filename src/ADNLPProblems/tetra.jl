@@ -74,53 +74,53 @@ end
 export tetra_duct12
 function tetra_duct12(; kwargs...)
   _ensure_data!(:tetra_duct12, "tetra_duct12.jl")
-  xe   = Base.invokelatest(getfield, @__MODULE__, :xe_duct12)
+  xe = Base.invokelatest(getfield, @__MODULE__, :xe_duct12)
   TETS = Base.invokelatest(getfield, @__MODULE__, :TETS_duct12)
-  Const= Base.invokelatest(getfield, @__MODULE__, :Const_duct12)
+  Const = Base.invokelatest(getfield, @__MODULE__, :Const_duct12)
   tetra(xe, TETS, Const; name = "tetra_duct12", kwargs...)
 end
 
 export tetra_duct15
 function tetra_duct15(; kwargs...)
   _ensure_data!(:tetra_duct15, "tetra_duct15.jl")
-  xe   = Base.invokelatest(getfield, @__MODULE__, :xe_duct15)
+  xe = Base.invokelatest(getfield, @__MODULE__, :xe_duct15)
   TETS = Base.invokelatest(getfield, @__MODULE__, :TETS_duct15)
-  Const= Base.invokelatest(getfield, @__MODULE__, :Const_duct15)
+  Const = Base.invokelatest(getfield, @__MODULE__, :Const_duct15)
   tetra(xe, TETS, Const; name = "tetra_duct15", kwargs...)
 end
 
 export tetra_duct20
 function tetra_duct20(; kwargs...)
   _ensure_data!(:tetra_duct20, "tetra_duct20.jl")
-  xe   = Base.invokelatest(getfield, @__MODULE__, :xe_duct20)
+  xe = Base.invokelatest(getfield, @__MODULE__, :xe_duct20)
   TETS = Base.invokelatest(getfield, @__MODULE__, :TETS_duct20)
-  Const= Base.invokelatest(getfield, @__MODULE__, :Const_duct20)
+  Const = Base.invokelatest(getfield, @__MODULE__, :Const_duct20)
   tetra(xe, TETS, Const; name = "tetra_duct20", kwargs...)
 end
 
 export tetra_hook
 function tetra_hook(; kwargs...)
   _ensure_data!(:tetra_hook, "tetra_hook.jl")
-  xe   = Base.invokelatest(getfield, @__MODULE__, :xe_hook)
+  xe = Base.invokelatest(getfield, @__MODULE__, :xe_hook)
   TETS = Base.invokelatest(getfield, @__MODULE__, :TETS_hook)
-  Const= Base.invokelatest(getfield, @__MODULE__, :Const_hook)
+  Const = Base.invokelatest(getfield, @__MODULE__, :Const_hook)
   tetra(xe, TETS, Const; name = "tetra_hook", kwargs...)
 end
 
 export tetra_foam5
 function tetra_foam5(; kwargs...)
   _ensure_data!(:tetra_foam5, "tetra_foam5.jl")
-  xe   = Base.invokelatest(getfield, @__MODULE__, :xe_foam5)
+  xe = Base.invokelatest(getfield, @__MODULE__, :xe_foam5)
   TETS = Base.invokelatest(getfield, @__MODULE__, :TETS_foam5)
-  Const= Base.invokelatest(getfield, @__MODULE__, :Const_foam5)
+  Const = Base.invokelatest(getfield, @__MODULE__, :Const_foam5)
   tetra(xe, TETS, Const; name = "tetra_foam5", kwargs...)
 end
 
 export tetra_gear
 function tetra_gear(; kwargs...)
   _ensure_data!(:tetra_gear, "tetra_gear.jl")
-  xe   = Base.invokelatest(getfield, @__MODULE__, :xe_gear)
+  xe = Base.invokelatest(getfield, @__MODULE__, :xe_gear)
   TETS = Base.invokelatest(getfield, @__MODULE__, :TETS_gear)
-  Const= Base.invokelatest(getfield, @__MODULE__, :Const_gear)
+  Const = Base.invokelatest(getfield, @__MODULE__, :Const_gear)
   tetra(xe, TETS, Const; name = "tetra_gear", kwargs...)
 end
