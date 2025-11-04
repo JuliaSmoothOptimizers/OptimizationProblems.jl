@@ -18,10 +18,10 @@ boundary_meta = Dict(
   :origin => :academic,
 )
 
-get_boundary_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n
+get_boundary_nvar(; n::Integer = default_nvar, kwargs...) = n
 get_boundary_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_boundary_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_boundary_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_boundary_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_boundary_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_boundary_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1 * n
+get_boundary_nls_nequ(; n::Integer = default_nvar, kwargs...) = n
