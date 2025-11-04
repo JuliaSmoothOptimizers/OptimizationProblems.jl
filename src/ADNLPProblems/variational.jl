@@ -48,14 +48,7 @@ end
 function variational(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   h = 1 // (n + 1)
 
-  function diffquot(a, b)
-    d = b - a
-    if d == zero(d)
-      return exp(a)
-    else
-      return (exp(b) - exp(a)) / d
-    end
-  end
+  diffquot(a, b) = (b - a == zero(b - a)) ? exp(a) : (exp(b) - exp(a)) / (b - a)
 
   function F!(r, x)
     S = eltype(x)
@@ -89,7 +82,7 @@ function variational(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64
 
   x0 = Vector{T}(undef, n)
   for i = 1:n
-    x0[i] = T(i) * h * (one(T) - T(i) * h)
+    x0[i] = i * h * (1 - i * h)
   end
 
   return ADNLPModels.ADNLSModel!(F!, x0, 1, name = "variational-nls"; kwargs...)
