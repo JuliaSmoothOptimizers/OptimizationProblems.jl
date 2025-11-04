@@ -10,7 +10,7 @@
 #   https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization
 export variational
 
-function variational(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+function variational(; n::Int = default_nvar, kwargs...)
   h = 1 // (n + 1)
   model = Model()
   # type-stable start matching ADNLPProblems
