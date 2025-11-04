@@ -34,6 +34,6 @@ function variational(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...
     @expression(model, term2, (exp(x[1]) - exp(0.0)) / (x[1] - 0.0) + term2_mid + (exp(0.0) - exp(x[n])) / (0.0 - x[n]))
   end
 
-  @NLobjective(model, Min, $(T(2)) * (term1 + $(T(n)) * ($(h) / $(T(2))) * term2))
+  @objective(model, Min, $(T(2)) * (term1 + $(T(n)) * ($(h) / $(T(2))) * term2))
   return model
 end
