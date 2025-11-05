@@ -23,8 +23,6 @@ function variational(; n::Int = default_nvar, kwargs...)
     @expression(model, term1, term1_mid + x[n] * (x[n] - 0) / h)
   end
 
-  # Use inline expressions for the difference-quotient of exp to avoid registering
-  # a user function which can interact with JuMP's legacy NL macro machinery.
   if n == 1
     @expression(model, term2, (exp(x[1]) - 1) / x[1] + (exp(x[1]) - 1) / x[1])
   else
