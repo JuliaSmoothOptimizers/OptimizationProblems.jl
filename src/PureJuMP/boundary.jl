@@ -11,13 +11,12 @@
 export boundary
 
 function boundary(; n::Int = default_nvar, kwargs...)
-  # compute h and starts using Float64 exactly to match ADNLPProblems default starts
-  h = one(Float64) / Float64(n + 1)
+  h = 1 // n + 1
   model = Model()
-  x0 = [Float64(i) * h * (1.0 - Float64(i) * h) for i = 1:n]
+  x0 = [i * h * (1 - i * h) for i = 1:n]
   @variable(model, x[i = 1:n], start = x0[i])
   @objective(model, Min,
-    sum((2.0 * x[i] - (i == 1 ? 0.0 : x[i-1]) - (i == n ? 0.0 : x[i+1])
-      + (h^2 / 2.0) * (x[i] + Float64(i) * h + 1.0)^3)^2 for i = 1:n))
+    sum((2 * x[i] - (i == 1 ? 0 : x[i-1]) - (i == n ? 0 : x[i+1])
+      + (h^2 / 2) * (x[i] + Float64(i) * h + 1)^3)^2 for i = 1:n))
   return model
 end
