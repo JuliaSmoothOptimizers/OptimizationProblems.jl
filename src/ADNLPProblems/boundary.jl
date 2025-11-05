@@ -6,20 +6,20 @@ function boundary(; use_nls::Bool = false, kwargs...)
 end
 
 function boundary(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  h = one(T) / T(n + 1)
+  h = 1 // n + 1
   function f(x; n = length(x))
     s = zero(T)
     for i = 1:n
       xm = (i == 1) ? zero(T) : x[i - 1]
       xp = (i == n) ? zero(T) : x[i + 1]
-      s += (2 * x[i] - xm - xp + (h^2 / 2) * (x[i] + i * h + one(T))^3)^2
+      s += (2 * x[i] - xm - xp + (h^2 / 2) * (x[i] + i * h + 1)^3)^2
     end
     return s
   end
 
   x0 = Vector{T}(undef, n)
   for i = 1:n
-    x0[i] = i * h * (one(T) - i * h)
+    x0[i] = i * h * (1 - i * h)
   end
 
   return ADNLPModels.ADNLPModel(f, x0, name = "boundary", minimize = true; kwargs...)

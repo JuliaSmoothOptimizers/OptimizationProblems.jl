@@ -22,12 +22,12 @@ function variational_registered(; n::Int = default_nvar, kwargs...)
   model = Model()
   x0 = Vector{Float64}(undef, n)
   for i = 1:n
-    x0[i] = i * h * (1.0 - i * h)
+    x0[i] = i * h * (1 - i * h)
   end
   @variable(model, x[i = 1:n], start = x0[i])
 
   if n == 1
-    @expression(model, term1, x[1] * (x[1] - 0.0) / h)
+    @expression(model, term1, x[1] * (x[1] - 0) / h)
   else
     @expression(model, term1_mid, sum(x[i] * (x[i] - x[i+1]) / h for i = 1:n-1))
     @expression(model, term1, term1_mid + x[n] * (x[n] - 0) / h)
