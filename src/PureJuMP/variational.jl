@@ -23,14 +23,13 @@ function variational(; n::Int = default_nvar, kwargs...)
     @expression(model, term1, term1_mid + x[n] * (x[n] - 0) / h)
   end
 
-  diffquot(a, b) = (b - a == zero(b - a)) ? exp(a) : (exp(b) - exp(a)) / (b - a)
-  JuMP.register(model, :diffquot, 2, diffquot; autodiff = true)
-
+  # Use inline expressions for the difference-quotient of exp to avoid registering
+  # a user function which can interact with JuMP's legacy NL macro machinery.
   if n == 1
-    @expression(model, term2, diffquot(x[1], 0) + diffquot(0, x[1]))
+    @expression(model, term2, (exp(x[1]) - 1) / x[1] + (exp(x[1]) - 1) / x[1])
   else
-    @expression(model, term2_mid, sum(diffquot(x[j+1], x[j]) for j = 1:n-1))
-    @expression(model, term2, diffquot(x[1], 0) + term2_mid + diffquot(0, x[n]))
+    @expression(model, term2_mid, sum((exp(x[j+1]) - exp(x[j])) / (x[j+1] - x[j]) for j = 1:n-1))
+    @expression(model, term2, (exp(x[1]) - 1) / x[1] + term2_mid + (exp(x[n]) - 1) / x[n])
   end
   @objective(model, Min, 2 * (term1 + n * (h / 2) * term2))
   return model
