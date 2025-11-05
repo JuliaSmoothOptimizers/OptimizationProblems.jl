@@ -5,6 +5,11 @@ function variational(; use_nls::Bool = false, kwargs...)
   return variational(Val(model); kwargs...)
 end
 
+function diffquot(a, b)
+  d = b - a
+  return exp(a) * (one(d) + d/2 + d^2/6 + d^3/24 + d^4/120)
+end
+
 function variational(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   h = 1 // (n + 1)
 
@@ -25,10 +30,8 @@ function variational(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64
       xip1 = xext[i + 2]
       term1 += xi * (xi - xip1) / hS
     end
-
-    diffquot(a, b) = (b - a == zero(b - a)) ? exp(a) : (exp(b) - exp(a)) / (b - a)
-
-    term2 = zero(S)
+    
+  term2 = zero(S)
     @inbounds for j = 0:n
       a = xext[j + 1]
       b = xext[j + 2]
@@ -47,8 +50,6 @@ end
 
 function variational(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   h = 1 // (n + 1)
-
-  diffquot(a, b) = (b - a == zero(b - a)) ? exp(a) : (exp(b) - exp(a)) / (b - a)
 
   function F!(r, x)
     S = eltype(x)
