@@ -6,7 +6,7 @@ function boundary(; use_nls::Bool = false, kwargs...)
 end
 
 function boundary(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  h = 1 // n + 1
+  h = 1 // (n + 1)
   function f(x; n = length(x))
     s = zero(T)
     for i = 1:n
@@ -26,12 +26,12 @@ function boundary(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
 end
 
 function boundary(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  h = 1 // n + 1
+  h = 1 // (n + 1)
 
-  function F!(r, x)
-    @inbounds for i = 1:length(x)
+  function F!(r, x; n = length(x))
+    @inbounds for i = 1:n
       xm = (i == 1) ? zero(T) : x[i - 1]
-      xp = (i == length(x)) ? zero(T) : x[i + 1]
+      xp = (i == n) ? zero(T) : x[i + 1]
       r[i] = 2 * x[i] - xm - xp + (h^2 / 2) * (x[i] + i * h + 1)^3
     end
     return r
