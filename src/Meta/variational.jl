@@ -24,4 +24,4 @@ get_variational_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_variational_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_variational_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_variational_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_variational_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1
+get_variational_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0
