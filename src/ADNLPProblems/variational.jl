@@ -30,13 +30,9 @@ function variational(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...
     @inbounds for j = 0:n
       a = xext[j + 1]
       b = xext[j + 2]
-      if S <: AbstractFloat
-        term = (b == a) ? exp(a) : (exp(b) - exp(a)) / (b - a)
-      else
-        d = b - a
-        Pd = one(d) + d / 2 + d^2 / 6 + d^3 / 24 + d^4 / 120
-        term = exp(a) * Pd
-      end
+      d = b - a
+      Pd = one(d) + d / 2 + d^2 / 6 + d^3 / 24 + d^4 / 120
+      term = exp(a) * Pd
       term2 += term
     end
     return 2 * (term1 + n * (hS / 2) * term2)

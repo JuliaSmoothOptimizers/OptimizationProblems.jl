@@ -11,7 +11,7 @@
 export boundary
 
 function boundary(; n::Int = default_nvar, kwargs...)
-  h = 1 // n + 1
+  h = 1 // (n + 1)
   model = Model()
   x0 = [i * h * (1 - i * h) for i = 1:n]
   @variable(model, x[i = 1:n], start = x0[i])
