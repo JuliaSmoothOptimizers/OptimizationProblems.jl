@@ -20,11 +20,13 @@ function variational(; n::Int = default_nvar, kwargs...)
     model,
     Min,
     2 * (
-      sum(x[i] * (x[i] - (i == n ? 0 : x[i + 1])) / h for i = 1:n) +
-      n * (h / 2) * (
-        (exp(x[1]) - 1) / x[1] +
-        sum((exp(x[j + 1]) - exp(x[j])) / (x[j + 1] - x[j]) for j = 1:(n - 1)) +
-        (1 - exp(x[n])) / (-x[n])
+      (sum(x[i] * (x[i] - x[i + 1]) / h for i = 1:(n - 1)) + x[n] * x[n] / h) +
+      n *
+      (h / 2) *
+      (
+        (1 + x[1]/2 + x[1]^2/6 + x[1]^3/24 + x[1]^4/120) +
+        sum(exp(x[j]) * (1 + (x[j + 1] - x[j]) / 2 + (x[j + 1] - x[j])^2 / 6 + (x[j + 1] - x[j])^3 / 24 + (x[j + 1] - x[j])^4 / 120) for j = 1:(n - 1)) +
+        exp(x[n]) * (1 + (0 - x[n]) / 2 + (0 - x[n])^2 / 6 + (0 - x[n])^3 / 24 + (0 - x[n])^4 / 120)
       )
     )
   )
