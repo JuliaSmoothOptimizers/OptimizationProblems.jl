@@ -20,7 +20,8 @@ const list_problems =
 # The problems included should be carefully argumented and issues
 # to create them added.
 # TODO: tests are limited for JuMP-only problems
-const list_problems_not_ADNLPProblems = Symbol[:catmix, :gasoil, :glider, :methanol, :minsurf, :pinene, :rocket, :steering, :torsion]
+const list_problems_not_ADNLPProblems =
+  Symbol[:catmix, :gasoil, :glider, :methanol, :minsurf, :pinene, :rocket, :steering, :torsion]
 const list_problems_ADNLPProblems = setdiff(list_problems, list_problems_not_ADNLPProblems)
 const list_problems_not_PureJuMP = Symbol[]
 const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)

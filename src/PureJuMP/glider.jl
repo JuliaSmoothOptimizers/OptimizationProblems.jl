@@ -30,35 +30,38 @@ function glider(; n::Int = default_nvar, kwargs...)
   model = Model()
 
   @variables(model, begin
-    0 <= t_f,                       (start=1.0)
-    0.0 <= x[k=0:n],               (start=x_0 + vx_0*(k/n))
-    y[k=0:n],                      (start=y_0 + (k/n)*(y_f - y_0))
-    0.0 <= vx[k=0:n],              (start=vx_0)
-    vy[k=0:n],                     (start=vy_0)
-    cL_min <= cL[k=0:n] <= cL_max, (start=cL_max/2.0)
+    0 <= t_f, (start=1.0)
+    0.0 <= x[k = 0:n], (start=x_0 + vx_0*(k/n))
+    y[k = 0:n], (start=y_0 + (k/n)*(y_f - y_0))
+    0.0 <= vx[k = 0:n], (start=vx_0)
+    vy[k = 0:n], (start=vy_0)
+    cL_min <= cL[k = 0:n] <= cL_max, (start=cL_max/2.0)
   end)
 
   @objective(model, Max, x[n])
 
   @expressions(model, begin
-    step,           t_f / n
-    r[i=0:n],      (x[i]/r_0 - 2.5)^2
-    u[i=0:n],      u_c*(1 - r[i])*exp(-r[i])
-    w[i=0:n],      vy[i] - u[i]
-    v[i=0:n],      sqrt(vx[i]^2 + w[i]^2)
-    D[i=0:n],      0.5*(c0+c1*cL[i]^2)*rho*S*v[i]^2
-    L[i=0:n],      0.5*cL[i]*rho*S*v[i]^2
-    vx_dot[i=0:n], (-L[i]*(w[i]/v[i]) - D[i]*(vx[i]/v[i]))/m
-    vy_dot[i=0:n], (L[i]*(vx[i]/v[i]) - D[i]*(w[i]/v[i]))/m - g
+    step, t_f / n
+    r[i = 0:n], (x[i]/r_0 - 2.5)^2
+    u[i = 0:n], u_c*(1 - r[i])*exp(-r[i])
+    w[i = 0:n], vy[i] - u[i]
+    v[i = 0:n], sqrt(vx[i]^2 + w[i]^2)
+    D[i = 0:n], 0.5*(c0+c1*cL[i]^2)*rho*S*v[i]^2
+    L[i = 0:n], 0.5*cL[i]*rho*S*v[i]^2
+    vx_dot[i = 0:n], (-L[i]*(w[i]/v[i]) - D[i]*(vx[i]/v[i]))/m
+    vy_dot[i = 0:n], (L[i]*(vx[i]/v[i]) - D[i]*(w[i]/v[i]))/m - g
   end)
 
   # Dynamics
-  @constraints(model, begin
-    x_eqn[j=1:n],  x[j] == x[j-1] + 0.5 * step * (vx[j] + vx[j-1])
-    y_eqn[j=1:n],  y[j] == y[j-1] + 0.5 * step * (vy[j] + vy[j-1])
-    vx_eqn[j=1:n], vx[j] == vx[j-1] + 0.5 * step * (vx_dot[j] + vx_dot[j-1])
-    vy_eqn[j=1:n], vy[j] == vy[j-1] + 0.5 * step * (vy_dot[j] + vy_dot[j-1])
-  end)
+  @constraints(
+    model,
+    begin
+      x_eqn[j = 1:n], x[j] == x[j - 1] + 0.5 * step * (vx[j] + vx[j - 1])
+      y_eqn[j = 1:n], y[j] == y[j - 1] + 0.5 * step * (vy[j] + vy[j - 1])
+      vx_eqn[j = 1:n], vx[j] == vx[j - 1] + 0.5 * step * (vx_dot[j] + vx_dot[j - 1])
+      vy_eqn[j = 1:n], vy[j] == vy[j - 1] + 0.5 * step * (vy_dot[j] + vy_dot[j - 1])
+    end
+  )
   # Boundary constraints
   @constraints(model, begin
     x[0] == x_0
@@ -72,5 +75,3 @@ function glider(; n::Int = default_nvar, kwargs...)
 
   return model
 end
-
-
