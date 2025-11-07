@@ -35,12 +35,10 @@ function minsurf(args...; n = default_nvar, kwargs...)
     nlp,
     Min,
     sum(
-      area *
-      (1 + ((v[i + 1, j] - v[i, j]) / hx)^2 + ((v[i, j + 1] - v[i, j]) / hy)^2)^(1 / 2) for
+      area * (1 + ((v[i + 1, j] - v[i, j]) / hx)^2 + ((v[i, j + 1] - v[i, j]) / hy)^2)^(1 / 2) for
       i = 1:(nx + 1), j = 1:(ny + 1)
     ) + sum(
-      area *
-      (1 + ((v[i - 1, j] - v[i, j]) / hx)^2 + ((v[i, j - 1] - v[i, j]) / hy)^2)^(1 / 2) for
+      area * (1 + ((v[i - 1, j] - v[i, j]) / hx)^2 + ((v[i, j - 1] - v[i, j]) / hy)^2)^(1 / 2) for
       i = 2:(nx + 2), j = 2:(ny + 2)
     )
   )
@@ -52,10 +50,12 @@ function minsurf(args...; n = default_nvar, kwargs...)
   @constraint(nlp, [i = 0:(nx + 1), j = 0:(ny + 1)], v[i + 1, j + 1] >= 0)
   @constraint(
     nlp,
-    [i = Int(floor(0.25 / hx)):Int(ceil(0.75 / hx)), j = Int(floor(0.25 / hy)):Int(ceil(0.75 / hy))],
+    [
+      i = Int(floor(0.25 / hx)):Int(ceil(0.75 / hx)),
+      j = Int(floor(0.25 / hy)):Int(ceil(0.75 / hy)),
+    ],
     v[i + 1, j + 1] >= 1
   )
 
   return nlp
 end
-

@@ -16,37 +16,35 @@ function torsion(args...; n = default_nvar, kwargs...)
   area = 0.5 * hx * hy     # area of triangle
 
   # Distance to the boundary.
-  D = [min(min(i,nx-i+1)*hx, min(j, ny-j+1)*hy) for i in 0:nx+1, j in 0:ny+1]
+  D = [min(min(i, nx-i+1)*hx, min(j, ny-j+1)*hy) for i = 0:(nx + 1), j = 0:(ny + 1)]
 
   model = Model()
   # v defines the finite element approximation.
-  @variable(model, v[i=0:nx+1, j=0:ny+1], start=D[i+1, j+1])
+  @variable(model, v[i = 0:(nx + 1), j = 0:(ny + 1)], start=D[i + 1, j + 1])
 
-  @expression(
-    model,
-    linLower,
-    sum(v[i+1, j] + v[i, j] + v[i, j+1] for i in 0:nx, j in 0:ny)
-  )
+  @expression(model, linLower, sum(v[i + 1, j] + v[i, j] + v[i, j + 1] for i = 0:nx, j = 0:ny))
   @expression(
     model,
     linUpper,
-    sum(v[i, j] + v[i-1, j] + v[i, j-1] for i in 1:nx+1, j in 1:ny+1)
+    sum(v[i, j] + v[i - 1, j] + v[i, j - 1] for i = 1:(nx + 1), j = 1:(ny + 1))
   )
   @expression(
     model,
     quadLower,
-    sum(((v[i+1,j] - v[i,j])/hx)^2 + ((v[i,j+1] - v[i,j])/hy)^2 for i in 0:nx, j in 0:ny)
+    sum(((v[i + 1, j] - v[i, j])/hx)^2 + ((v[i, j + 1] - v[i, j])/hy)^2 for i = 0:nx, j = 0:ny)
   )
   @expression(
     model,
     quadUpper,
-    sum(((v[i,j] - v[i-1,j])/hx)^2 + ((v[i,j] - v[i,j-1])/hy)^2 for i in 1:nx+1, j in 1:ny+1)
+    sum(
+      ((v[i, j] - v[i - 1, j])/hx)^2 + ((v[i, j] - v[i, j - 1])/hy)^2 for
+      i = 1:(nx + 1), j = 1:(ny + 1)
+    )
   )
 
   @objective(model, Min, area * ((quadLower + quadUpper) / 2.0 - c * (linLower + linUpper) / 3.0))
 
-  @constraint(model, [i=0:nx+1, j=0:ny+1], -D[i+1, j+1] <= v[i, j] <= D[i+1, j+1])
+  @constraint(model, [i=0:(nx + 1), j=0:(ny + 1)], -D[i + 1, j + 1] <= v[i, j] <= D[i + 1, j + 1])
 
   return model
 end
-

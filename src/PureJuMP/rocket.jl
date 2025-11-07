@@ -24,28 +24,28 @@ function rocket(; n::Int = default_nvar, kwargs...)
   model = Model()
 
   @variables(model, begin
-    1.0 <= h[i=0:n],          (start=1.0)
-    0.0 <= v[i=0:n],          (start=i/n*(1.0 - i/n))
-    m_f <= m[i=0:n] <= m_0,   (start=(m_f - m_0)*(i/n) + m_0)
-    0.0 <= T[i=0:n] <= T_max, (start=T_max/2.0)
-    0.0 <= step,              (start=1/n)
+    1.0 <= h[i = 0:n], (start=1.0)
+    0.0 <= v[i = 0:n], (start=i/n*(1.0 - i/n))
+    m_f <= m[i = 0:n] <= m_0, (start=(m_f - m_0)*(i/n) + m_0)
+    0.0 <= T[i = 0:n] <= T_max, (start=T_max/2.0)
+    0.0 <= step, (start=1/n)
   end)
 
   @expressions(model, begin
-    D[i=0:n],  D_c*v[i]^2*exp(-h_c*(h[i] - h_0))/h_0
-    g[i=0:n],  g_0 * (h_0 / h[i])^2
-    dh[i=0:n], v[i]
-    dv[i=0:n], (T[i] - D[i] - m[i]*g[i]) / m[i]
-    dm[i=0:n], -T[i]/c
+    D[i = 0:n], D_c*v[i]^2*exp(-h_c*(h[i] - h_0))/h_0
+    g[i = 0:n], g_0 * (h_0 / h[i])^2
+    dh[i = 0:n], v[i]
+    dv[i = 0:n], (T[i] - D[i] - m[i]*g[i]) / m[i]
+    dm[i = 0:n], -T[i]/c
   end)
 
   @objective(model, Max, h[n])
 
   # Dynamics
   @constraints(model, begin
-    con_dh[i=1:n], h[i] == h[i-1] + 0.5 * step * (dh[i] + dh[i-1])
-    con_dv[i=1:n], v[i] == v[i-1] + 0.5 * step * (dv[i] + dv[i-1])
-    con_dm[i=1:n], m[i] == m[i-1] + 0.5 * step * (dm[i] + dm[i-1])
+    con_dh[i = 1:n], h[i] == h[i - 1] + 0.5 * step * (dh[i] + dh[i - 1])
+    con_dv[i = 1:n], v[i] == v[i - 1] + 0.5 * step * (dv[i] + dv[i - 1])
+    con_dm[i = 1:n], m[i] == m[i - 1] + 0.5 * step * (dm[i] + dm[i - 1])
   end)
   # Boundary constraints
   @constraints(model, begin
@@ -57,4 +57,3 @@ function rocket(; n::Int = default_nvar, kwargs...)
 
   return model
 end
-
