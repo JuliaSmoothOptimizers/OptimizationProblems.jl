@@ -9,9 +9,13 @@
 #  Argonne National Labs Technical Report ANL/MCS-246 (2004)
 #  classification OBR2-AN-V-V
 
+export minsurf
 
 function minsurf(args...; n = default_nvar, kwargs...)
-  nx, ny = n
+  # number of variables is (nx + 2) x (ny + 2)
+  if !((:nx in keys(kwargs)) & (:ny in keys(kwargs)))
+    nx, ny = Int(round(sqrt(max(1, n - 2)))), Int(round(sqrt(max(1, n - 2))))
+  end
   x_mesh = LinRange(0, 1, nx + 2) # coordinates of the mesh points x
 
   v0 = zeros(nx + 2, ny + 2) # Surface matrix initialization

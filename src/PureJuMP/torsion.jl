@@ -3,8 +3,13 @@
 # Version 2.0 - October 2000
 # COPS 3.1 - March 2004
 
+export torsion
+
 function torsion(args...; n = default_nvar, kwargs...)
-  nx, ny = n
+  # number of variables is (nx + 1) x (ny + 1)
+  if !((:nx in keys(kwargs)) & (:ny in keys(kwargs)))
+    nx, ny = Int(round(sqrt(max(1, n - 2)))), Int(round(sqrt(max(1, n - 2))))
+  end
   c = 5.0
   hx = 1.0 / (nx + 1.0)    # grid spacing
   hy = 1.0 / (ny + 1.0)    # grid spacing
