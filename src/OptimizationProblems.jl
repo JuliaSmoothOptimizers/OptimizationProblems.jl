@@ -10,9 +10,9 @@ const default_nvar = ADNLPProblems.default_nvar
 export PureJuMP, ADNLPProblems
 
 path = dirname(@__FILE__)
-files = filter(x -> x[(end - 2):end] == ".jl", readdir(path * "/Meta"))
+files = filter(x -> x[(end - 2):end] == ".jl", readdir(joinpath(path, "Meta")))
 for file in files
-  include("Meta/" * file)
+  include(joinpath(path, "Meta", file))
 end
 number_of_problems = length(files)
 

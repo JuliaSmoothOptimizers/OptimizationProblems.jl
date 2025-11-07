@@ -1,6 +1,20 @@
-using ADNLPModels, NLPModels, NLPModelsJuMP, OptimizationProblems, Test
+using ADNLPModels, Distributed, NLPModels, NLPModelsJuMP, OptimizationProblems, Test
 
-include("test_utils.jl")
+path = dirname(@__FILE__)
+include(joinpath(path, "test-utils.jl"))
+
+# create_meta_files(String["catmix", "gasoil", "glider", "methanol", "pinene", "rocket", "steering"])
+function create_meta_files(pb_names::Vector{String}; kwargs...)
+  for name in pb_names
+    create_meta_file(name; kwargs...)
+  end
+end
+
+function create_meta_file(name::String; path = joinpath(dirname(@__FILE__), "..", "src", "Meta"))
+  open("$name.jl", "w") do io
+    print(io, generate_meta(name))
+  end
+end
 
 function set_meta(all::AbstractVector{T}) where {T <: Union{Symbol, String}}
   for name in string.(all)

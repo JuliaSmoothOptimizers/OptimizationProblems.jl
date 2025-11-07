@@ -26,13 +26,11 @@ The documentation should be added to the file in the `PureJuMP` folder.
 * A first version of the `meta` can be generated using `generate_meta`. A `String` is returned that can be copy-pasted into the `Meta` folder, and then edited.
 
 ```julia
-    using ADNLPModels, NLPModels, NLPModelsJuMP, OptimizationProblems
+    using ADNLPModels, Distributed, NLPModels, NLPModelsJuMP, OptimizationProblems, Test
     include("test/utils.jl")
-    # there must exists a function `problem_name` which loads the model in the environment
-    name = "problem_name"
-    open("$name.jl", "w") do io
-      print(io, generate_meta(name))
-    end
+    # there must exists a function `problem_name` which loads the model in the environment,
+    # it must be exported.
+    create_meta_files(String["catmix", "gasoil", "glider", "methanol", "pinene", "rocket", "steering"])
 ```
 
 * Problems modeled with `ADNLPModels` should be type-stable, i.e. they should all have keyword argument `type::Type{T} = Float64` where `T` is the type of the initial guess and the type used by the `NLPModel` API.

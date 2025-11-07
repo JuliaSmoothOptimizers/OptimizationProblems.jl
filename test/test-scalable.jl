@@ -2,9 +2,9 @@
   try
     name = item.name
     @testset "Test scalable problems - problem: $(name)" begin
-      nlp = make_ad_nlp(Symbol(name))
+      nlp = make_nlp(Symbol(name))
       @test item.nvar == nlp.meta.nvar
-      nlp11 = make_ad_nlp(Symbol(name); n = 13 * ndef)
+      nlp11 = make_nlp(Symbol(name); n = 13 * ndef)
       n11 = OptimizationProblems.eval(Symbol(:get_, name, :_nvar))(n = 13 * ndef)
       @test n11 == nlp11.meta.nvar
 
