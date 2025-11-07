@@ -5,6 +5,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export glider
+
 function glider(; n::Int = default_nvar, kwargs...)
   # Design parameters
   x_0 = 0.0
@@ -38,7 +40,7 @@ function glider(; n::Int = default_nvar, kwargs...)
 
   @objective(model, Max, x[n])
 
-  @NLexpressions(model, begin
+  @expressions(model, begin
     step,           t_f / n
     r[i=0:n],      (x[i]/r_0 - 2.5)^2
     u[i=0:n],      u_c*(1 - r[i])*exp(-r[i])
@@ -51,7 +53,7 @@ function glider(; n::Int = default_nvar, kwargs...)
   end)
 
   # Dynamics
-  @NLconstraints(model, begin
+  @constraints(model, begin
     x_eqn[j=1:n],  x[j] == x[j-1] + 0.5 * step * (vx[j] + vx[j-1])
     y_eqn[j=1:n],  y[j] == y[j-1] + 0.5 * step * (vy[j] + vy[j-1])
     vx_eqn[j=1:n], vx[j] == vx[j-1] + 0.5 * step * (vx_dot[j] + vx_dot[j-1])

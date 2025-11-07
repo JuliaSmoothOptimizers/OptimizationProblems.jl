@@ -4,6 +4,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export steering
+
 function steering(; n::Int=default_nvar, kwargs...)
   a = 100.0  # Magnitude of force.
   # Bounds on the control
@@ -32,7 +34,7 @@ function steering(; n::Int=default_nvar, kwargs...)
 
   @constraint(model, tf >= 0.0)
   # Dynamics
-  @NLconstraints(
+  @constraints(
     model, begin
       [i=1:n], x[i+1,1] == x[i,1] + 0.5*h*(x[i,3] + x[i+1,3])
       [i=1:n], x[i+1,2] == x[i,2] + 0.5*h*(x[i,4] + x[i+1,4])

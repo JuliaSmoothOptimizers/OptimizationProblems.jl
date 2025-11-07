@@ -4,6 +4,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export rocket
+
 function rocket(; n::Int = default_nvar, kwargs...)
   h_0 = 1.0
   v_0 = 0.0
@@ -29,7 +31,7 @@ function rocket(; n::Int = default_nvar, kwargs...)
     0.0 <= step,              (start=1/n)
   end)
 
-  @NLexpressions(model, begin
+  @expressions(model, begin
     D[i=0:n],  D_c*v[i]^2*exp(-h_c*(h[i] - h_0))/h_0
     g[i=0:n],  g_0 * (h_0 / h[i])^2
     dh[i=0:n], v[i]
@@ -40,7 +42,7 @@ function rocket(; n::Int = default_nvar, kwargs...)
   @objective(model, Max, h[n])
 
   # Dynamics
-  @NLconstraints(model, begin
+  @constraints(model, begin
     con_dh[i=1:n], h[i] == h[i-1] + 0.5 * step * (dh[i] + dh[i-1])
     con_dv[i=1:n], v[i] == v[i-1] + 0.5 * step * (dv[i] + dv[i-1])
     con_dm[i=1:n], m[i] == m[i-1] + 0.5 * step * (dm[i] + dm[i-1])

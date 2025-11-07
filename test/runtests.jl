@@ -20,7 +20,7 @@ const list_problems =
 # The problems included should be carefully argumented and issues
 # to create them added.
 # TODO: tests are limited for JuMP-only problems
-const list_problems_not_ADNLPProblems = Symbol[]
+const list_problems_not_ADNLPProblems = Symbol[:catmix, :gasoil, :glider, :methanol, :pinene, :rocket, :steering]
 const list_problems_ADNLPProblems = setdiff(list_problems, list_problems_not_ADNLPProblems)
 const list_problems_not_PureJuMP = Symbol[]
 const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
@@ -28,10 +28,29 @@ const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP
 include("test-defined-problems.jl")
 include("test-utils.jl")
 
+@everywhere function make_nlp(prob::Symbol; kwargs...)
+  if isdefined(ADNLPProblems, prob)
+    return make_ad_nlp(prob; kwargs...)
+  elseif isdefined(PureJuMP, prob)
+    return make_jump_nlp(prob; kwargs...)
+  else
+    error("Problem $(prob) is not defined in ADNLPProblems or PureJuMP on pid $(myid()).")
+  end
+end
+
+@everywhere function make_jump_nlp(prob::Symbol; kwargs...)
+  mod = PureJuMP
+  if !isdefined(mod, prob)
+    error("Problem $(prob) is not defined in $mod on pid $(myid()).")
+  end
+  ctor = getfield(mod, prob)
+  return MathOptNLPModel(ctor(; kwargs...))
+end
+
 @everywhere function make_ad_nlp(prob::Symbol; kwargs...)
   mod = ADNLPProblems
   if !isdefined(mod, prob)
-    error("Problem $(prob) is not defined in ADNLPProblems on pid $(myid()).")
+    error("Problem $(prob) is not defined in $mod on pid $(myid()).")
   end
   ctor = getfield(mod, prob)
   return ctor(matrix_free = true; kwargs...)
@@ -53,7 +72,7 @@ end
     return stats.value
   end
 
-  nlp_ad = timed_info("Instantiating $(pb)", make_ad_nlp, prob)
+  nlp_ad = timed_info("Instantiating $(pb)", make_nlp, prob)
 
   @test nlp_ad.meta.name == pb
 

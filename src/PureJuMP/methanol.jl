@@ -5,6 +5,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export methanol
+
 function methanol(args...; n::Int = default_nvar, kwargs...)
   ne = 3
   np = 5
@@ -85,14 +87,14 @@ function methanol(args...; n::Int = default_nvar, kwargs...)
   @variable(model, Duc[i=1:n, j=1:nc, s=1:ne], start=0.0)
 
   # error
-  @NLexpression(
+  @expression(
     model,
     error[j=1:nm, s=1:ne],
     v[itau[j],s] + sum(w[itau[j],k,s]*(tau[j]-t[itau[j]])^k/(fact[k+1]*h^(k-1)) for k in 1:nc) - z[j,s]
   )
 
   # L2 error
-  @NLobjective(model, Min, sum(error[j, s]^2 for j in 1:nm, s in 1:ne))
+  @objective(model, Min, sum(error[j, s]^2 for j in 1:nm, s in 1:ne))
 
   # Collocation model
   @constraint(
@@ -114,20 +116,20 @@ function methanol(args...; n::Int = default_nvar, kwargs...)
     v[i, s] + sum(w[i, j, s]*h/fact[j+1] for j in 1:nc) == v[i+1, s]
   )
   # Dynamics
-  @NLconstraint(
+  @constraint(
     model,
     collocation_eqn1[i=1:n, j=1:nc],
     Duc[i,j,1] == - (2*theta[2] - (theta[1]*uc[i,j,2])/((theta[2]+theta[5])*uc[i,j,1]+uc[i,j,2]) +
                       theta[3] + theta[4])*uc[i,j,1]
   )
-  @NLconstraint(
+  @constraint(
     model,
     collocation_eqn2[i=1:n, j=1:nc],
     Duc[i,j,2] == (theta[1]*uc[i,j,1]*(theta[2]*uc[i,j,1]-uc[i,j,2]))/
     ((theta[2]+theta[5])*uc[i,j,1]+uc[i,j,2]) +
     theta[3]*uc[i,j,1]
   )
-  @NLconstraint(
+  @constraint(
     model,
     collocation_eqn3[i=1:n, j=1:nc],
     Duc[i,j,3] == (theta[1]*uc[i,j,1]*(uc[i,j,2]+theta[5]*uc[i,j,1]))/

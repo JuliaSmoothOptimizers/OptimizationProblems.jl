@@ -10,6 +10,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export pinene
+
 function pinene(; n::Int = default_nvar, kwargs...)
   nc = 3        # number of collocation points
   ne = 5        # number of differential equations
@@ -65,13 +67,13 @@ function pinene(; n::Int = default_nvar, kwargs...)
   @variable(model, uc[i=1:n, j=1:nc, s=1:ne], start=v0[i,s])
   @variable(model, Duc[i=1:n, j=1:nc, s=1:ne], start=0.0)
 
-  @NLexpression(
+  @expression(
     model,
     error[j=1:nm, s=1:ne],
     v[itau[j],s] + sum(w[itau[j],k,s]*(tau[j]-t[itau[j]])^k/(fact[k+1]*h^(k-1)) for k in 1:nc) - z[j,s]
   )
   # l2 error
-  @NLobjective(model, Min, sum(error[j, s]^2 for j in 1:nm, s in 1:ne))
+  @objective(model, Min, sum(error[j, s]^2 for j in 1:nm, s in 1:ne))
 
   # Collocation model
   @constraint(
@@ -92,7 +94,7 @@ function pinene(; n::Int = default_nvar, kwargs...)
     [i=1:n-1, s=1:ne],
     v[i, s] + sum(w[i, j, s]*h/fact[j+1] for j in 1:nc) == v[i+1, s],
   )
-  @NLconstraints(
+  @constraints(
     model, begin
       [i=1:n, j=1:nc], Duc[i,j,1] == - (theta[1]+theta[2])*uc[i,j,1]
       [i=1:n, j=1:nc], Duc[i,j,2] == theta[1]*uc[i,j,1]

@@ -3,6 +3,8 @@
 # COPS 3.0 - November 2002
 # COPS 3.1 - March 2004
 
+export catmix
+
 function catmix(args...; n::Int = default_nvar, kwargs...)
   ne = 2
   nc = 3
@@ -58,12 +60,12 @@ function catmix(args...; n::Int = default_nvar, kwargs...)
     v[i, s] + sum(w[i, j, s] * h / fact[j+1] for j in 1:nc) == v[i+1, s]
   )
   # Dynamics
-  @NLconstraint(
+  @constraint(
     model,
     de1[i=1:n, j=1:nc],
     Dpp[i,j,1] == u[i,j] * (10.0*pp[i,j,2] - pp[i,j,1]),
   )
-  @NLconstraint(
+  @constraint(
     model,
     de2[i=1:n, j=1:nc],
     Dpp[i,j,2] == u[i,j] * (pp[i,j,1] - 10.0*pp[i,j,2]) - (1 - u[i,j])*pp[i,j,2]
