@@ -46,24 +46,6 @@ end
   @test ncon == m
 end
 
-@everywhere function test_in_place_residual(prob::Symbol)
-  nls = OptimizationProblems.ADNLPProblems.eval(prob)(use_nls = true)
-  @test typeof(nls) <: ADNLPModels.ADNLSModel
-  return test_in_place_residual(prob, nls)
-end
-
-@everywhere function test_in_place_residual(prob::Symbol, nls::AbstractNLSModel)
-  x = nls.meta.x0
-  Fx = similar(x, nls.nls_meta.nequ)
-  pb = String(prob)
-  if VERSION ≥ v"1.7" && !occursin("palmer", pb) && (pb != "watson") # palmer residual allocate
-    @allocated residual!(nls, x, Fx)
-    @test (@allocated residual!(nls, x, Fx)) == 0
-  end
-  m = OptimizationProblems.eval(Meta.parse("get_$(prob)_nls_nequ"))()
-  @test nls.nls_meta.nequ == m
-end
-
 @everywhere function test_compatibility(prob::Symbol, ndef::Integer = ndef)
   prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
   model = prob_fn(n = ndef)

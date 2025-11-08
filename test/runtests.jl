@@ -14,17 +14,22 @@ addprocs(np - 1)
   [n for n in names(mod) if isdefined(mod, n)]
 end
 
-const list_problems =
+@everywhere const list_problems =
   setdiff(union(defined_names(ADNLPProblems), defined_names(PureJuMP)), [:PureJuMP, :ADNLPProblems])
+
+@testset "Test that all problems have a meta" begin
+  @test sort(list_problems) == sort(Symbol.(OptimizationProblems.meta[!, :name]))
+end
 
 # The problems included should be carefully argumented and issues
 # to create them added.
 # TODO: tests are limited for JuMP-only problems
-const list_problems_not_ADNLPProblems =
+@everywhere const list_problems_not_ADNLPProblems =
   Symbol[:catmix, :gasoil, :glider, :methanol, :minsurf, :pinene, :rocket, :steering, :torsion]
-const list_problems_ADNLPProblems = setdiff(list_problems, list_problems_not_ADNLPProblems)
-const list_problems_not_PureJuMP = Symbol[]
-const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
+@everywhere const list_problems_ADNLPProblems =
+  setdiff(list_problems, list_problems_not_ADNLPProblems)
+@everywhere const list_problems_not_PureJuMP = Symbol[]
+@everywhere const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
 
 include("test-defined-problems.jl")
 include("test-utils.jl")
@@ -45,7 +50,7 @@ end
     error("Problem $(prob) is not defined in $mod on pid $(myid()).")
   end
   ctor = getfield(mod, prob)
-  return MathOptNLPModel(ctor(; kwargs...))
+  return MathOptNLPModel(ctor(; kwargs...); name = "$prob")
 end
 
 @everywhere function make_ad_nlp(prob::Symbol; kwargs...)
@@ -56,6 +61,8 @@ end
   ctor = getfield(mod, prob)
   return ctor(matrix_free = true; kwargs...)
 end
+
+include("test-in-place-residual.jl")
 
 @everywhere function test_one_problem(prob::Symbol)
   pb = string(prob)
@@ -75,41 +82,33 @@ end
 
   nlp_ad = timed_info("Instantiating $(pb)", make_nlp, prob)
 
-  @test nlp_ad.meta.name == pb
+  @testset "Sanity check (name, obj)" begin
+    @test nlp_ad.meta.name == pb
+    @test !isnothing(obj(nlp_ad, nlp_ad.meta.x0))
+  end
 
-  if pb in meta[(meta.contype .== :quadratic) .| (meta.contype .== :general), :name]
+  if (typeof(nlp_ad) <: ADNLPModels.AbstractADNLPModel) &&
+     (pb in meta[(meta.contype .== :quadratic) .| (meta.contype .== :general), :name])
     @testset "Test In-place Nonlinear Constraints for AD-$prob" begin
       test_in_place_constraints(prob, nlp_ad)
     end
   end
 
-  @testset "Test multi-precision ADNLPProblems for $prob" begin
-    test_multi_precision(prob, nlp_ad)
-  end
-
-  if pb in meta[meta.objtype .== :least_squares, :name]
-    @testset "Test Nonlinear Least Squares for $prob" begin
-      test_in_place_residual(prob)
+  if typeof(nlp_ad) <: ADNLPModels.AbstractADNLPModel
+    @testset "Test multi-precision ADNLPProblems for $prob" begin
+      test_multi_precision(prob, nlp_ad)
     end
   end
 
-  model = begin
-    mod = PureJuMP
-    if isdefined(mod, prob)
-      getfield(mod, prob)(n = ndef)
-    else
-      nothing
-    end
-  end
-  if !isnothing(model)
+  if mod in intersect(list_problems_PureJuMP, list_problems_ADNLPProblems)
     @testset "Test problems compatibility for $prob" begin
-      nlp_jump = MathOptNLPModel(model)
+      nlp_jump = make_jump_nlp(prob; n = ndef)
       test_compatibility(prob, nlp_jump, nlp_ad, ndef)
     end
   end
 end
 
-pmap(test_one_problem, list_problems_ADNLPProblems)
+pmap(test_one_problem, list_problems)
 
 include("test-scalable.jl")
 

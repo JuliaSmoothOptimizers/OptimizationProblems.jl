@@ -22,6 +22,6 @@ function penalty1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
     r[n + 1] = sum(x[j]^2 for j = 1:n) - 1 // 4
     return r
   end
-  x0 = ones(T, n)
+  x0 = T[j for j = 1:n]
   return ADNLPModels.ADNLSModel!(F!, x0, n + 1, name = "penalty1-nls"; kwargs...)
 end
