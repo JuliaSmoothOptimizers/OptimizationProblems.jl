@@ -48,7 +48,7 @@ end
     error("Problem $(prob) is not defined in $mod on pid $(myid()).")
   end
   ctor = getfield(mod, prob)
-  return MathOptNLPModel(ctor(; kwargs...))
+  return MathOptNLPModel(ctor(;kwargs...); name = "$prob")
 end
 
 @everywhere function make_ad_nlp(prob::Symbol; kwargs...)
@@ -105,7 +105,7 @@ include("test-in-place-residual.jl")
   end
 end
 
-pmap(test_one_problem, list_problems_ADNLPProblems)
+pmap(test_one_problem, list_problems)
 
 include("test-scalable.jl")
 
