@@ -20,7 +20,8 @@ function watson(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwa
              sum((j - 1) * x[j] * x[1]^(j - 2) for j = 2:n) -
              sum(x[j] * x[1]^(j - 1) for j = 1:n)^2 - 1
            )^2 +
-           1 // 2 * (
+           1 // 2 *
+           (
              sum((j - 1) * x[j] * (x[2] - x[1]^2 - 1)^(j - 2) for j = 2:n) -
              sum(x[j] * (x[2] - x[1]^2 - 1)^(j - 1) for j = 1:n)^2 - 1
            )^2

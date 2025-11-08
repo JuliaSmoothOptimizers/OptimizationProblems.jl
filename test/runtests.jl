@@ -14,7 +14,8 @@ addprocs(np - 1)
   [n for n in names(mod) if isdefined(mod, n)]
 end
 
-@everywhere const list_problems = setdiff(union(defined_names(ADNLPProblems), defined_names(PureJuMP)), [:PureJuMP, :ADNLPProblems])
+@everywhere const list_problems =
+  setdiff(union(defined_names(ADNLPProblems), defined_names(PureJuMP)), [:PureJuMP, :ADNLPProblems])
 
 @testset "Test that all problems have a meta" begin
   @test sort(list_problems) == sort(Symbol.(OptimizationProblems.meta[!, :name]))
@@ -25,7 +26,8 @@ end
 # TODO: tests are limited for JuMP-only problems
 @everywhere const list_problems_not_ADNLPProblems =
   Symbol[:catmix, :gasoil, :glider, :methanol, :minsurf, :pinene, :rocket, :steering, :torsion]
-@everywhere const list_problems_ADNLPProblems = setdiff(list_problems, list_problems_not_ADNLPProblems)
+@everywhere const list_problems_ADNLPProblems =
+  setdiff(list_problems, list_problems_not_ADNLPProblems)
 @everywhere const list_problems_not_PureJuMP = Symbol[]
 @everywhere const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
 
@@ -48,7 +50,7 @@ end
     error("Problem $(prob) is not defined in $mod on pid $(myid()).")
   end
   ctor = getfield(mod, prob)
-  return MathOptNLPModel(ctor(;kwargs...); name = "$prob")
+  return MathOptNLPModel(ctor(; kwargs...); name = "$prob")
 end
 
 @everywhere function make_ad_nlp(prob::Symbol; kwargs...)
@@ -85,7 +87,8 @@ include("test-in-place-residual.jl")
     @test !isnothing(obj(nlp_ad, nlp_ad.meta.x0))
   end
 
-  if pb in meta[(meta.contype .== :quadratic) .| (meta.contype .== :general), :name]
+  if (typeof(nlp_ad) <: ADNLPModels.AbstractADNLPModel) &&
+     (pb in meta[(meta.contype .== :quadratic) .| (meta.contype .== :general), :name])
     @testset "Test In-place Nonlinear Constraints for AD-$prob" begin
       test_in_place_constraints(prob, nlp_ad)
     end
