@@ -23,7 +23,7 @@ function bard(args...; n::Int = default_nvar, m::Int = 2n, kwargs...)
   @objective(
     nlp,
     Min,
-    0.5 * sum(y[i] - (x[1] + i / ((16 - i) * x[2] + min(i, 16 - i) * x[3])) for i = 1:15)
+    0.5 * sum((y[i] - (x[1] + i / ((16 - i) * x[2] + min(i, 16 - i) * x[3])))^2 for i = 1:15)
   )
 
   return nlp

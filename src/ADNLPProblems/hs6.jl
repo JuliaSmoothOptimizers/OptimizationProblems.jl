@@ -23,7 +23,7 @@ end
 
 function hs6(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function F!(r, x)
-    r[1] = 1 // 2 * (x[1] - 1)^2
+    r[1] = (x[1] - 1)
     return r
   end
   function c!(cx, x)

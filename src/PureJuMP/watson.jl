@@ -40,7 +40,7 @@ function watson(args...; n::Int = default_nvar, kwargs...)
     0.5 * (
       sum((j - 1) * x[j] * (x[2] - x[1]^2 - 1)^(j - 2) for j = 2:n) -
       sum(x[j] * (x[2] - x[1]^2 - 1)^(j - 1) for j = 1:n)^2 - 1
-    )
+    )^2
   )
 
   return nlp
