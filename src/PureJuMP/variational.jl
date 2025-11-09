@@ -19,7 +19,7 @@ function variational(; n::Int = default_nvar, kwargs...)
   model = Model()
   @variable(model, x[i = 1:n], start = x0[i])
 
-  @NLobjective(
+  @objective(
     model,
     Min,
     2 * (
