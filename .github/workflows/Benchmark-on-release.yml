@@ -1,0 +1,61 @@
+name: Benchmark on release
+
+on:
+  release:
+    types: [published]
+jobs:
+  bench:
+    # Skip running on forks
+    if: ${{ !github.event.repository.fork }}
+    runs-on: ubuntu-latest
+    permissions: contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: '1'
+      - uses: julia-actions/cache@v1
+      - uses: julia-actions/julia-buildpkg@v1
+      - name: Instantiate benchmark env
+        run: julia --project=benchmark -e 'using Pkg; Pkg.instantiate()'
+      - name: Install benchmark deps
+        run: julia --project=benchmark -e 'using Pkg; pkg"add PkgBenchmark"'
+      - name: Run PkgBenchmark and save results
+        run: |
+          julia --project=benchmark -e '
+            using Dates, PkgBenchmark
+            # Run benchmarks; adjust the script path if yours differs
+            res = benchmarkpkg(pwd(); script="benchmark/benchmarks.jl")
+
+            # Save a machine-readable file
+            writeresults("benchmark-result.json", res)
+
+            # Also emit a lightweight Markdown summary
+            open("benchmark-result.md", "w") do io
+              println(io, "# Benchmark results for $(get(ENV, "GITHUB_REF_NAME", "unknown"))")
+              println(io, "")
+              println(io, "> Tag: $(get(ENV, "GITHUB_REF_NAME", "unknown"))")
+              println(io, "> Date: $(Dates.format(Dates.now(), "yyyy-mm-dd HH:MM")) UTC")
+              println(io, "")
+              show(io, "text/plain", res)  # plain-text tree; renders fine in Markdown
+              println(io)
+            end
+          '
+      - name: Upload benchmark artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-${{ github.event.release.tag_name }}
+          path: |
+            benchmark-result.json
+            benchmark-result.md
+      - name: Upload assets to the GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.release.tag_name }}
+          files: |
+            benchmark-result.json
+            benchmark-result.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
