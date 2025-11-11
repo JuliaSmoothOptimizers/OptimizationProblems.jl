@@ -15,6 +15,14 @@ const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP
 
 # Run locally with `tune!(SUITE)` and then `run(SUITE)`
 const SUITE = BenchmarkGroup()
+
+BenchmarkTools.DEFAULT_PARAMETERS[] = BenchmarkTools.Parameters(
+  samples = 5,     # default ~10k → 3
+  evals   = 1,     # run each sample once
+  # seconds = 0.2,   # time budget per benchmark
+  # gctrial = false, # skip extra GC runs
+)
+
 SUITE["ADNLPProblems"] = BenchmarkGroup()
 SUITE["ADNLPProblems"]["NLP"] = BenchmarkGroup()
 SUITE["ADNLPProblems"]["NLP"]["constructor"] = BenchmarkGroup()
