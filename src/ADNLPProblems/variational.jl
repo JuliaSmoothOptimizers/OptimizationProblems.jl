@@ -2,12 +2,7 @@ export variational
 
 function variational(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   h = 1 // (n + 1)
-  x0 = [
-    begin
-      ih = i * h
-      convert(T, ih * (1 - ih))
-    end for i = 1:n
-  ]
+  x0 = [(i * h) * (1 - i * h) for i = 1:n]
 
   function f(x)
     term1 = zero(T)
