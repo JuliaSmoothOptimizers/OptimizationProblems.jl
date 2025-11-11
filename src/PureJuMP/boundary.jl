@@ -21,7 +21,7 @@ function boundary(; n::Int = default_nvar, kwargs...)
     sum(
       (
         2 * x[i] - (i == 1 ? 0 : x[i - 1]) - (i == n ? 0 : x[i + 1]) +
-        (h^2 / 2) * (x[i] + Float64(i) * h + 1)^3
+        (h^2 / 2) * (x[i] + i * h + 1)^3
       )^2 for i = 1:n
     )
   )

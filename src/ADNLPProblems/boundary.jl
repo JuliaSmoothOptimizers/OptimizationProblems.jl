@@ -22,7 +22,7 @@ function boundary(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
     x0[i] = i * h * (1 - i * h)
   end
 
-  return ADNLPModels.ADNLPModel(f, x0, name = "boundary", minimize = true; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "boundary"; kwargs...)
 end
 
 function boundary(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}

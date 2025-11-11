@@ -14,7 +14,7 @@ variational_meta = Dict(
   :best_known_lower_bound => -Inf,
   :best_known_upper_bound => Inf,
   :is_feasible => true,
-  :defined_everywhere => missing,
+  :defined_everywhere => false,
   :origin => :academic,
 )
 

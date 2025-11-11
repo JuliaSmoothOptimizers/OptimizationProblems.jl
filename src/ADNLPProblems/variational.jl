@@ -2,10 +2,10 @@ export variational
 
 function variational(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   h = 1 // (n + 1)
-  x0 = [begin
-    ih = i * h
-    convert(T, ih * (1 - ih))
-    end for i = 1:n]
+  x0 = Vector{T}(undef, n)
+  for i = 1:n
+    x0[i] = i * h * (1 - i * h)
+  end
   f =
     x -> begin
       xext = vcat(zero(eltype(x)), x, zero(eltype(x)))
@@ -22,5 +22,5 @@ function variational(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...
       return 2 * (term1 + n * (convert(eltype(x), h) / 2) * term2)
     end
 
-  return ADNLPModels.ADNLPModel(f, x0, name = "variational", minimize = true; kwargs...)
+  return ADNLPModels.ADNLPModel(f, x0, name = "variational"; kwargs...)
 end
