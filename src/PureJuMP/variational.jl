@@ -12,7 +12,7 @@ export variational
 
 function variational(; n::Int = default_nvar, kwargs...)
   h = 1 // (n + 1)
-  x0 = [convert(T, (i * h) * (1 - i * h)) for i = 1:n]
+  x0 = [(i * h) * (1 - i * h) for i = 1:n]
   model = Model()
   @variable(model, x[i = 1:n], start = x0[i])
 
