@@ -1,4 +1,4 @@
-# OptimizationProblems
+# OptimizationProblems [TEMP]
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3672094.svg)](https://doi.org/10.5281/zenodo.3672094)
 [![CI](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/workflows/CI/badge.svg?branch=main)](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/actions)
