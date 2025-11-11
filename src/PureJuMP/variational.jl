@@ -12,10 +12,12 @@ export variational
 
 function variational(; n::Int = default_nvar, kwargs...)
   h = 1 // (n + 1)
-    x0 = [begin
-        ih = i * h
-        convert(Float64, ih * (1 - ih))
-      end for i = 1:n]
+  x0 = [
+    begin
+      ih = i * h
+      convert(T, ih * (1 - ih))
+    end for i = 1:n
+  ]
   model = Model()
   @variable(model, x[i = 1:n], start = x0[i])
 
@@ -27,17 +29,9 @@ function variational(; n::Int = default_nvar, kwargs...)
       n *
       (h / 2) *
       (
-        (1 + x[1]/2 + x[1]^2/6 + x[1]^3/24 + x[1]^4/120) +
-        sum(
-          exp(x[j]) * (
-            1 +
-            (x[j + 1] - x[j]) / 2 +
-            (x[j + 1] - x[j])^2 / 6 +
-            (x[j + 1] - x[j])^3 / 24 +
-            (x[j + 1] - x[j])^4 / 120
-          ) for j = 1:(n - 1)
-        ) +
-        exp(x[n]) * (1 + (0 - x[n]) / 2 + (0 - x[n])^2 / 6 + (0 - x[n])^3 / 24 + (0 - x[n])^4 / 120)
+        (exp(x[1]) - exp(0)) / (x[1] - 0) +
+        sum((exp(x[j + 1]) - exp(x[j])) / (x[j + 1] - x[j]) for j = 1:(n - 1)) +
+        (exp(0) - exp(x[n])) / (0 - x[n])
       )
     )
   )

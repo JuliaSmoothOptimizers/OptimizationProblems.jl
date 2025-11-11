@@ -2,25 +2,30 @@ export variational
 
 function variational(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   h = 1 // (n + 1)
-  x0 = Vector{T}(undef, n)
-  for i = 1:n
-    x0[i] = i * h * (1 - i * h)
-  end
-  f =
-    x -> begin
-      xext = vcat(zero(eltype(x)), x, zero(eltype(x)))
-      term1 = sum(x[i] * (x[i] - xext[i + 2]) / convert(eltype(x), h) for i = 1:n)
-      term2 = sum(
-        if eltype(x) <: AbstractFloat
-          d = xext[j + 2] - xext[j + 1]
-          abs(d) <= eps(eltype(x)) ? exp(xext[j + 1]) : (exp(xext[j + 2]) - exp(xext[j + 1])) / d
-        else
-          d = xext[j + 2] - xext[j + 1]
-          exp(xext[j + 1]) * expm1(d) / d
-        end for j = 0:n
-      )
-      return 2 * (term1 + n * (convert(eltype(x), h) / 2) * term2)
+  x0 = [
+    begin
+      ih = i * h
+      convert(T, ih * (1 - ih))
+    end for i = 1:n
+  ]
+
+  function f(x)
+    term1 = zero(T)
+    for i = 1:n
+      xi = x[i]
+      xip = (i < n) ? x[i + 1] : zero(T)
+      term1 += xi * (xi - xip) / h
     end
+
+    term2 = zero(T)
+    for j = 0:n
+      a = (j == 0) ? zero(T) : x[j]
+      b = (j == n) ? zero(T) : x[j + 1]
+      term2 += (exp(b) - exp(a)) / (b - a)
+    end
+
+    return 2 * (term1 + n * (h / 2) * term2)
+  end
 
   return ADNLPModels.ADNLPModel(f, x0, name = "variational"; kwargs...)
 end
