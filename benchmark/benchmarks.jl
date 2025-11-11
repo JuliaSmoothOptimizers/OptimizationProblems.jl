@@ -20,24 +20,27 @@ SUITE["ADNLPProblems"]["NLP"] = BenchmarkGroup()
 SUITE["ADNLPProblems"]["NLP"]["constructor"] = BenchmarkGroup()
 SUITE["ADNLPProblems"]["NLP"]["obj"] = BenchmarkGroup()
 for pb in list_problems_ADNLPProblems
-  SUITE["ADNLPProblems"]["NLP"]["constructor"][pb] =
-    @benchmarkable eval(Meta.parse("OptimizationProblems.ADNLPProblems.$pb()"))
-  SUITE["ADNLPProblems"]["NLP"]["obj"][pb] = @benchmarkable obj(nlp, nlp.meta.x0) setup =
-    (nlp = eval(Meta.parse("OptimizationProblems.ADNLPProblems.$pb()")))
+  problem_constructor = getproperty(OptimizationProblems.ADNLPProblems, Symbol(pb))
+  SUITE["ADNLPProblems"]["NLP"]["constructor"][pb] = @benchmarkable $(problem_constructor)()
+  SUITE["ADNLPProblems"]["NLP"]["obj"][pb] = @benchmarkable obj(nlp, nlp.meta.x0) setup = (nlp = $(problem_constructor)())
 end
 
 SUITE["ADNLPProblems"]["NLS"] = BenchmarkGroup()
-for pb in
-    intersect(Symbol.(meta[meta.objtype .== :least_squares, :name]), list_problems_ADNLPProblems)
-  SUITE["ADNLPProblems"]["NLS"]["constructor"] =
-    @benchmarkable eval(Meta.parse("OptimizationProblems.ADNLPProblems.$pb(use_nls = true)"))
-  SUITE["ADNLPProblems"]["NLS"]["obj"] = @benchmarkable obj(nlp, nlp.meta.x0) setup =
-    (nlp = eval(Meta.parse("OptimizationProblems.ADNLPProblems.$pb(use_nls = true)")))
+SUITE["ADNLPProblems"]["NLS"]["constructor"] = BenchmarkGroup()
+SUITE["ADNLPProblems"]["NLS"]["obj"] = BenchmarkGroup()
+list_problems_nls_ADNLPProblems = intersect(Symbol.(OptimizationProblems.meta[OptimizationProblems.meta.objtype .== :least_squares, :name]), list_problems_ADNLPProblems)
+for pb in list_problems_nls_ADNLPProblems
+  problem_constructor = getproperty(OptimizationProblems.ADNLPProblems, Symbol(pb))
+  SUITE["ADNLPProblems"]["NLS"]["constructor"][pb] = @benchmarkable $(problem_constructor)(use_nls = true)
+  SUITE["ADNLPProblems"]["NLS"]["obj"][pb] = @benchmarkable obj(nlp, nlp.meta.x0) setup = (nlp = $(problem_constructor)(use_nls = true))
 end
 SUITE["PureJuMP"] = BenchmarkGroup()
-for pb in list_problems_ADNLPProblems
-  SUITE["PureJuMP"]["constructor"] =
-    @benchmarkable eval(Meta.parse("OptimizationProblems.PureJuMP.$pb()"))
-  SUITE["PureJuMP"]["obj"] = @benchmarkable obj(nlp, nlp.meta.x0) setup =
-    (nlp = MathOptNLPModel(eval(Meta.parse("OptimizationProblems.PureJuMP.$pb()"))))
+SUITE["PureJuMP"]["constructor"] = BenchmarkGroup()
+SUITE["PureJuMP"]["obj"] = BenchmarkGroup()
+for pb in list_problems_PureJuMP
+    problem_constructor = getproperty(OptimizationProblems.PureJuMP, Symbol(pb))
+    SUITE["PureJuMP"]["constructor"][pb] = @benchmarkable $(problem_constructor)()
+    SUITE["PureJuMP"]["obj"][pb] = @benchmarkable obj(nlp, nlp.meta.x0) setup = (
+        nlp = MathOptNLPModel($(problem_constructor)())
+    )
 end
