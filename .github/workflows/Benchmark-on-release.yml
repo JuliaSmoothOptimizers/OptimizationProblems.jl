@@ -8,7 +8,8 @@ jobs:
     # Skip running on forks
     if: ${{ !github.event.repository.fork }}
     runs-on: ubuntu-latest
-    permissions: contents: write
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -59,3 +60,4 @@ jobs:
             benchmark-result.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
