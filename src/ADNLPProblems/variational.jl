@@ -2,7 +2,7 @@ export variational
 
 function variational(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   h = 1 // (n + 1)
-  x0 = [(i * h) * (1 - i * h) for i = 1:n]
+  x0 = T[(i * h) * (1 - i * h) for i = 1:n]
 
   function f(x)
     term1 = zero(T)
@@ -19,7 +19,7 @@ function variational(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...
       term2 += (exp(b) - exp(a)) / (b - a)
     end
 
-    return 2 * (term1 + n * (h / 2) * term2)
+    return 2 * (term1 + 2 * h * term2)
   end
 
   return ADNLPModels.ADNLPModel(f, x0, name = "variational"; kwargs...)

@@ -21,8 +21,7 @@ function variational(; n::Int = default_nvar, kwargs...)
     Min,
     2 * (
       (sum(x[i] * (x[i] - x[i + 1]) / h for i ∈ 1:(n - 1)) + x[n] * x[n] / h) +
-      n *
-      (h / 2) *
+      2 * h *
       (
         (exp(x[1]) - exp(0)) / (x[1] - 0) +
         sum((exp(x[j + 1]) - exp(x[j])) / (x[j + 1] - x[j]) for j ∈ 1:(n - 1)) +
