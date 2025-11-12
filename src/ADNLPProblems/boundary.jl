@@ -9,7 +9,7 @@ function boundary(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
   h = 1 // (n + 1)
   function f(x; n = length(x))
     s = zero(T)
-    for i = 1:n
+    @inbounds for i = 1:n
       xm = (i == 1) ? zero(T) : x[i - 1]
       xp = (i == n) ? zero(T) : x[i + 1]
       s += (2 * x[i] - xm - xp + (h^2 / 2) * (x[i] + i * h + 1)^3)^2
