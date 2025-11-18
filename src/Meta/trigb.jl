@@ -24,4 +24,3 @@ get_trigb_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_trigb_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_trigb_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_trigb_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_trigb_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * n

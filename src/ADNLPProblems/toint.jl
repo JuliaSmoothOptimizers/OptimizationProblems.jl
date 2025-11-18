@@ -2,7 +2,6 @@ export toint
 
 function toint(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
-    n_local = n
     s = zero(T)
     for i = 1:n_local
       xi = x[i]
@@ -30,6 +29,6 @@ function toint(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
     return s / T(n_local)
   end
 
-  x0 = fill(1, n)
+  x0 = fill(one(T), n)
   return ADNLPModels.ADNLPModel(f, x0, name = "toint"; kwargs...)
 end

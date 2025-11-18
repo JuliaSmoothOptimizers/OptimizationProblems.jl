@@ -2,15 +2,11 @@ export trig
 
 function trig(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x; n = length(x))
-    n_local = n
     s = zero(T)
     for i = 1:n_local
-      xi = x[i]
       term = i * (1 - cos(xi))
 
-      jlo = max(1, i - 2)
-      jhi = min(n_local, i + 2)
-      for j = jlo:jhi
+      for j = max(1, i - 2):min(n, i + 2)
         aij = 5 * (1 + mod(i, 5) + mod(j, 5))
         bij = (i + j) / 10
         term += aij * sin(x[j]) + bij * cos(x[j])
@@ -27,9 +23,9 @@ function trig(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
 
       s += term
     end
-    return s / T(n_local)
+    return s / n
   end
 
-  x0 = fill(1 / n, n)
+  x0 = fill(one(T) / n, n)
   return ADNLPModels.ADNLPModel(f, x0, name = "trig"; kwargs...)
 end
