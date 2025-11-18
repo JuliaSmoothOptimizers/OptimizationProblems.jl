@@ -23,15 +23,6 @@ function trig(args...; n::Int = default_nvar, kwargs...)
       sum(
         5 * (1 + mod(i, 5) + mod(j, 5)) * sin(x[j]) + (i + j) / 10 * cos(x[j]) for
         j = max(1, i - 2):min(n, i + 2)
-      ) +
-      (
-        iseven(n) ?
-        (
-          let j = i + (n ÷ 2);
-            (1 <= j <= n) ?
-            (5 * (1 + mod(i, 5) + mod(j, 5)) * sin(x[j]) + (i + j) / 10 * cos(x[j])) : 0
-          end
-        ) : 0
       ) for i = 1:n
     )
   )

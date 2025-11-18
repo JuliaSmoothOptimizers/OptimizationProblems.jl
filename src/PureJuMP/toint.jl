@@ -21,22 +21,11 @@ function toint(args...; n::Int = default_nvar, kwargs...)
     (1 / n) * sum(begin
       ci = 1 + i / 10
       s = zero(Float64)
-      jlo = max(1, i - 2)
-      jhi = min(n, i + 2)
-      for j = jlo:jhi
+      for j = max(1, i - 2):min(n, i + 2)
         aij = 5 * (1 + mod(i, 5) + mod(j, 5))
         bij = (i + j) / 10
         cj = 1 + j / 10
         s += aij * sin(bij + ci * x[i] + cj * x[j])
-      end
-      if iseven(n)
-        j = i + (n ÷ 2)
-        if 1 <= j <= n
-          aij = 5 * (1 + mod(i, 5) + mod(j, 5))
-          bij = (i + j) / 10
-          cj = 1 + j / 10
-          s += aij * sin(bij + ci * x[i] + cj * x[j])
-        end
       end
       s
     end for i = 1:n)
