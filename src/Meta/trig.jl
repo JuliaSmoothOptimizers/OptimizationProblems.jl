@@ -24,4 +24,3 @@ get_trig_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_trig_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_trig_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_trig_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_trig_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * n

@@ -24,4 +24,3 @@ get_toint_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_toint_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_toint_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_toint_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_toint_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * n
