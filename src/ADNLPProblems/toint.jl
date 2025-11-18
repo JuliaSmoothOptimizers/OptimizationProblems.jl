@@ -4,7 +4,7 @@ function toint(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   function f(x; n = length(x))
     s = zero(T)
     for i = 1:n
-      ci = 1 + (i / 10)
+      ci = 1 + (i // 10)
 
       for j = max(1, i - 2):min(n, i + 2)
         aij = 5 * (1 + mod(i, 5) + mod(j, 5))
