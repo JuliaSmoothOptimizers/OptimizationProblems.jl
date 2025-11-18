@@ -8,7 +8,7 @@ function trig(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
 
       for j = max(1, i - 2):min(n, i + 2)
         aij = 5 * (1 + mod(i, 5) + mod(j, 5))
-        bij = (i + j) / 10
+        bij = (i + j) // 10
         s += aij * sin(x[j]) + bij * cos(x[j])
       end
     end
