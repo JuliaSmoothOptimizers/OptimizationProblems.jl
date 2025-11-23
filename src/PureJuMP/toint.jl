@@ -21,7 +21,11 @@ function toint(args...; n::Int = default_nvar, kwargs...)
     (1 / n) * sum(begin
       ci = 1 + i / 10
       s = zero(Float64)
-      for j = max(1, i - 2):min(n, i + 2)
+      js = max(1, i - 2):min(n, i + 2)
+      if iseven(n)
+        js = sort(collect(union(collect(js), [j for j in (i + n ÷ 2, i - n ÷ 2) if 1 <= j <= n])))
+      end
+      for j in js
         aij = 5 * (1 + mod(i, 5) + mod(j, 5))
         bij = (i + j) / 10
         cj = 1 + j / 10
