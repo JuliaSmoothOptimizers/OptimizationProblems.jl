@@ -6,7 +6,11 @@ function trig(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
     for i = 1:n
       s += i * (1 - cos(x[i]))
 
-      for j = max(1, i - 2):min(n, i + 2)
+      js = max(1, i - 2):min(n, i + 2)
+      if iseven(n)
+        js = sort(collect(union(collect(js), [j for j in (i + n ÷ 2, i - n ÷ 2) if 1 <= j <= n])))
+      end
+      for j in js
         aij = 5 * (1 + mod(i, 5) + mod(j, 5))
         bij = (i + j) // 10
         s += aij * sin(x[j]) + bij * cos(x[j])
