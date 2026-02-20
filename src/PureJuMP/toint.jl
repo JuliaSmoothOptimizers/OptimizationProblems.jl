@@ -27,7 +27,7 @@ function toint(args...; n::Int = default_nvar, kwargs...)
       for j in jmin:jmax
         aij = 5 * (1 + mod(i, 5) + mod(j, 5))
         bij = (i + j) // 10
-        cj = (1 + j) // 10
+        cj = 1 + j // 10
         s += aij * sin(bij + ci * x[i] + cj * x[j])
       end
 
@@ -37,14 +37,14 @@ function toint(args...; n::Int = default_nvar, kwargs...)
         if 1 <= j1 <= n && (j1 < jmin || j1 > jmax)
           aij = 5 * (1 + mod(i, 5) + mod(j1, 5))
           bij = (i + j1) // 10
-          cj = (1 + j1) // 10
+          cj = 1 + j1 // 10
           s += aij * sin(bij + ci * x[i] + cj * x[j1])
         end
         j2 = i - half
         if 1 <= j2 <= n && j2 != j1 && (j2 < jmin || j2 > jmax)
           aij = 5 * (1 + mod(i, 5) + mod(j2, 5))
           bij = (i + j2) // 10
-          cj = (1 + j2) // 10
+          cj = 1 + j2 // 10
           s += aij * sin(bij + ci * x[i] + cj * x[j2])
         end
       end
