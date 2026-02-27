@@ -11,9 +11,20 @@ function bearing(;
   # ny > 0 # grid points in 2nd direction
   
   # Ensure nx and ny are at least 1, and warn if they need adjustment
-  (nx > 0 && ny > 0) || @warn("bearing: grid dimensions adjusted to ensure nx > 0 and ny > 0")
+  nx_orig = nx
+  ny_orig = ny
   nx = max(1, nx)
   ny = max(1, ny)
+  if nx != nx_orig || ny != ny_orig
+    msg_parts = String[]
+    if nx != nx_orig
+      push!(msg_parts, "nx from $(nx_orig) to $(nx)")
+    end
+    if ny != ny_orig
+      push!(msg_parts, "ny from $(ny_orig) to $(ny)")
+    end
+    @warn("bearing: grid dimensions adjusted: " * join(msg_parts, ", "))
+  end
 
   b = 10  # grid is (0,2*pi)x(0,2*b)
   e = 1 // 10 # eccentricity
