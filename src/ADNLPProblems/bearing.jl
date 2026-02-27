@@ -9,6 +9,11 @@ function bearing(;
 ) where {T}
   # nx > 0 # grid points in 1st direction
   # ny > 0 # grid points in 2nd direction
+  
+  # Ensure nx and ny are at least 1, and warn if they need adjustment
+  (nx > 0 && ny > 0) || @warn("bearing: grid dimensions adjusted to ensure nx > 0 and ny > 0")
+  nx = max(1, nx)
+  ny = max(1, ny)
 
   b = 10  # grid is (0,2*pi)x(0,2*b)
   e = 1 // 10 # eccentricity

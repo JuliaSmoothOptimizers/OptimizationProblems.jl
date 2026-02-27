@@ -6,6 +6,7 @@ function NZF1(; use_nls::Bool = false, kwargs...)
 end
 
 function NZF1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  (n % 13 == 0) || @warn("NZF1: number of variables adjusted to be a multiple of 13")
   nbis = max(2, div(n, 13))
   n = 13 * nbis
   l = div(n, 13)
@@ -29,6 +30,7 @@ function NZF1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwarg
 end
 
 function NZF1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  (n % 13 == 0) || @warn("NZF1: number of variables adjusted to be a multiple of 13")
   nbis = max(2, div(n, 13))
   n = 13 * nbis
   l = div(n, 13)
