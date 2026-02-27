@@ -42,7 +42,8 @@ end
     macro adjust_nvar_warn(problem_name, n_orig, n)
       return quote
         ($(esc(n)) == $(esc(n_orig))) ||
-          @warn($(esc(problem_name)) * ": number of variables adjusted from " * string($(esc(n_orig))) * " to " * string($(esc(n))))
+          @warn(string($(esc(problem_name)), ": number of variables adjusted from ",
+                      $(esc(n_orig)), " to ", $(esc(n))))
       end
     end
 

@@ -9,7 +9,7 @@ function bearing(;
 ) where {T}
   # nx > 0 # grid points in 1st direction
   # ny > 0 # grid points in 2nd direction
-  
+
   # Ensure nx and ny are at least 1, and warn if they need adjustment
   nx_orig = nx
   ny_orig = ny
