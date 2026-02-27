@@ -26,6 +26,26 @@ end
   @require ADNLPModels = "54578032-b7ea-4c30-94aa-7cbd1cce6c9a" begin
     using JLD2, LinearAlgebra, SparseArrays, SpecialFunctions
 
+    """
+        @adjust_nvar_warn(problem_name, n_orig, n)
+
+    Issue a warning if the number of variables was adjusted, showing both original and adjusted values.
+    This macro provides consistent warning messages across all problems with dimension adjustments.
+
+    # Example
+    ```julia
+    n_orig = n
+    n = 4 * max(1, div(n, 4))
+    @adjust_nvar_warn("woods", n_orig, n)
+    ```
+    """
+    macro adjust_nvar_warn(problem_name, n_orig, n)
+      return quote
+        ($(esc(n)) == $(esc(n_orig))) ||
+          @warn($(esc(problem_name)) * ": number of variables adjusted from " * string($(esc(n_orig))) * " to " * string($(esc(n))))
+      end
+    end
+
     path = dirname(@__FILE__)
     files = filter(x -> x[(end - 2):end] == ".jl", readdir(path))
     for file in files

@@ -9,7 +9,7 @@ function NZF1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwarg
   n_orig = n
   nbis = max(2, div(n, 13))
   n = 13 * nbis
-  (n == n_orig) || @warn("NZF1: number of variables adjusted from $n_orig to $n")
+  @adjust_nvar_warn("NZF1", n_orig, n)
   l = div(n, 13)
   function f(x; l = l)
     return sum(
@@ -34,7 +34,7 @@ function NZF1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwarg
   n_orig = n
   nbis = max(2, div(n, 13))
   n = 13 * nbis
-  (n == n_orig) || @warn("NZF1: number of variables adjusted from $n_orig to $n")
+  @adjust_nvar_warn("NZF1", n_orig, n)
   l = div(n, 13)
   function F!(r, x; l = l)
     for i = 1:l
