@@ -1,23 +1,3 @@
-#
-# Converted in Julia from https://github.com/mpf/Optimization-Test-Problems
-#
-# AMPL Model by Hande Y. Benson
-#
-# Copyright (C) 2001 Princeton University
-# All Rights Reserved
-#
-# Permission to use, copy, modify, and distribute this software and
-# its documentation for any purpose and without fee is hereby
-# granted, provided that the above copyright notice appear in all
-# copies and that the copyright notice and this
-# permission notice appear in all supporting documentation.
-#   Source: Problem 9 in
-#   J.J. More',"A collection of nonlinear model problems"
-#   Proceedings of the AMS-SIAM Summer Seminar on the Computational
-#   Solution of Nonlinear Systems of Equations, Colorado, 1988.
-#   Argonne National Laboratory MCS-P60-0289, 1989.
-#   SIF input: Ph. Toint, Dec 1989.
-#   classification NOR2-RN-8-5
 export aircrfta
 
 function aircrfta(; n::Int = default_nvar, kwargs...)
