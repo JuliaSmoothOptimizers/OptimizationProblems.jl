@@ -16,7 +16,6 @@ dembo_gp1a_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :academic,
-  :citation => "Dembo, Ron S. A set of geometric programming test problems and their solutions. Mathematical Programming 10.1 (1976): 192-213.",
 )
 get_dembo_gp1a_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_dembo_gp1a_ncon(; n::Integer = default_nvar, kwargs...) = 1
