@@ -19,7 +19,7 @@ dembo_gp6_meta = Dict(
 )
 get_dembo_gp6_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_dembo_gp6_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_dembo_gp6_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_dembo_gp6_nnln(; n::Integer = default_nvar, kwargs...) = 3
+get_dembo_gp6_nlin(; n::Integer = default_nvar, kwargs...) = 1
+get_dembo_gp6_nnln(; n::Integer = default_nvar, kwargs...) = 2
 get_dembo_gp6_nequ(; n::Integer = default_nvar, kwargs...) = 3
 get_dembo_gp6_nineq(; n::Integer = default_nvar, kwargs...) = 0
