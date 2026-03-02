@@ -10,7 +10,7 @@ export dembo_gp1a
 ```
 
 ## Solution
-x* = [log(1); log(1)], f* = 2
+x* = [log(2)/2; log(2)/2], f* = 2sqrt(2)
 
 ## Reference
 Dembo, Ron S. A set of geometric programming test problems and their solutions.

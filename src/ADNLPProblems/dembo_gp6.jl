@@ -28,7 +28,8 @@ function dembo_gp6(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) 
   end
   
   x0 = T[1.0, 1.0, 1.0, 1.0]
+  lvar = T[eps(T), eps(T), eps(T), eps(T)]
   lcon = T[0.0, 0.0, 0.0]
   ucon = T[0.0, 0.0, 0.0]
-  return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "dembo_gp6"; kwargs...)
+  return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "dembo_gp6"; lvar = lvar, kwargs...)
 end

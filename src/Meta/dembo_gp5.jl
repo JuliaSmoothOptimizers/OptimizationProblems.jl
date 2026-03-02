@@ -15,7 +15,8 @@ dembo_gp5_meta = Dict(
   :best_known_upper_bound => Inf,
   :is_feasible => true,
   :defined_everywhere => missing,
-  :origin => "Dembo, Ron S. A set of geometric programming test problems and their solutions. Mathematical Programming 10.1 (1976): 192-213.",
+  # Dembo, Ron S. "A set of geometric programming test problems and their solutions." Mathematical Programming 10.1 (1976): 192-213.
+  :origin => :Dembo1976,
 )
 get_dembo_gp5_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_dembo_gp5_ncon(; n::Integer = default_nvar, kwargs...) = 2

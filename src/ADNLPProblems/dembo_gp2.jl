@@ -13,7 +13,7 @@ function dembo_gp2(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) 
   end
   
   x0 = T[1.0, 1.0, 1.0]
-  lcon = T[0.0, -Inf]
+  lcon = T[-Inf, -Inf]
   ucon = T[0.0, 0.0]
   return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "dembo_gp2"; kwargs...)
 end
