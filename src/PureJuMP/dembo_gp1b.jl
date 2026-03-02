@@ -6,10 +6,10 @@ export dembo_gp1b
 ## Problem
 ```
     min  exp(x₁) + exp(x₂)
-    s.t. x₁ + x₂ >= log(2)
+    s.t. exp(x₁) * exp(x₂) >= 1
 ```
 
-Variant form of problem GP1, with constraints using a different parameterization.
+Variant form of problem GP1, equivalent to x₁ + x₂ >= log(1) = 0.
 
 ## Reference
 Dembo, Ron S. A set of geometric programming test problems and their solutions.
