@@ -20,13 +20,21 @@ function dembo_gp5(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) 
     return -(x[1] * x[2] * x[3])
   end
   
-  function c!(cx, x)
-    cx[1] = x[1] + x[2] - x[3]
-    cx[2] = 2*x[1] + x[2] - 2
-  end
-  
   x0 = T[0.5, 1.0, 1.5]
-  lcon = T[0.0, 0.0]
-  ucon = T[0.0, 0.0]
-  return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "dembo_gp5"; kwargs...)
+  # Linear constraints in sparse format:
+  # x₁ + x₂ - x₃ = 0  (row 1)
+  # 2x₁ + x₂ = 2       (row 2)
+  lcon = T[0.0, 2.0]
+  ucon = T[0.0, 2.0]
+  return ADNLPModels.ADNLPModel(
+    f,
+    x0,
+    [1; 1; 1; 2; 2],  # row indices
+    [1; 2; 3; 1; 2],  # column indices
+    T[1; 1; -1; 2; 1], # coefficients
+    lcon,
+    ucon,
+    name = "dembo_gp5";
+    kwargs...,
+  )
 end

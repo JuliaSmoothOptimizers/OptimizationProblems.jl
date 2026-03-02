@@ -19,12 +19,19 @@ function dembo_gp1a(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...)
     return exp(x[1]) + exp(x[2])
   end
   
-  function c!(cx, x)
-    cx[1] = x[1] + x[2] - log(T(2))
-  end
-  
   x0 = T[0.0, 0.0]
-  lcon = T[0.0]
+  # Linear constraint: x₁ + x₂ >= log(2) in sparse format
+  lcon = T[log(T(2))]
   ucon = T[Inf]
-  return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "dembo_gp1a"; kwargs...)
+  return ADNLPModels.ADNLPModel(
+    f,
+    x0,
+    [1; 1],      # row indices
+    [1; 2],      # column indices
+    T[1; 1],     # values (both 1)
+    lcon,
+    ucon,
+    name = "dembo_gp1a";
+    kwargs...,
+  )
 end
