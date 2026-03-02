@@ -22,7 +22,8 @@ function ackley(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
 
   x0 = [-32 + 64 * rand() for i = 1:n]
-  @variable(nlp, x[i = 1:n], start = x0[i])
+  @variable(nlp, -32 <= x[i = 1:n] <= 32, start = x0[i])
+  nlp.ext[:has_bounds] = true
 
   @objective(
     nlp,
