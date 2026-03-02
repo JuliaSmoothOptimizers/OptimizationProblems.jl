@@ -15,8 +15,7 @@ dembo_gp7_meta = Dict(
   :best_known_upper_bound => Inf,
   :is_feasible => true,
   :defined_everywhere => missing,
-  # Origin: Dembo, Ron S. "A set of geometric programming test problems and their solutions." Mathematical Programming 10.1 (1976): 192-213.
-  :origin => :dembo_1976,
+  :origin => :academic,
 )
 get_dembo_gp7_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_dembo_gp7_ncon(; n::Integer = default_nvar, kwargs...) = 2

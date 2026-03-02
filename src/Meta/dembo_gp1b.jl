@@ -15,7 +15,7 @@ dembo_gp1b_meta = Dict(
   :best_known_upper_bound => Inf,
   :is_feasible => true,
   :defined_everywhere => missing,
-  :origin => :academic,  # Dembo, Ron S. A set of geometric programming test problems and their solutions. Mathematical Programming 10.1 (1976): 192–213.
+  :origin => :academic,
 )
 get_dembo_gp1b_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_dembo_gp1b_ncon(; n::Integer = default_nvar, kwargs...) = 1
