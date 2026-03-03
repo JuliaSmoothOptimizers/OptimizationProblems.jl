@@ -19,7 +19,7 @@ Mathematical Programming 10.1 (1976): 192-213.
 """
 function dembo_gp6(; n = 4, kwargs...)
   model = Model()
-  @variable(model, x[1:4] >= 0.001)
+  @variable(model, x[1:4] >= 0.001, start = 1.0)
   
   @objective(model, Min, x[1] + x[2] + x[3] + x[4])
   

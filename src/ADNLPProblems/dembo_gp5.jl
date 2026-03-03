@@ -6,6 +6,8 @@ function dembo_gp5(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) 
   end
   
   x0 = T[0.5, 1.0, 1.5]
+  lvar = fill(T(0.001), 3)
+  uvar = fill(T(Inf), 3)
   # Linear constraints in sparse format:
   # x₁ + x₂ - x₃ = 0  (row 1)
   # 2x₁ + x₂ = 2       (row 2)
@@ -14,6 +16,8 @@ function dembo_gp5(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) 
   return ADNLPModels.ADNLPModel(
     f,
     x0,
+    lvar,
+    uvar,
     [1; 1; 1; 2; 2],  # row indices
     [1; 2; 3; 1; 2],  # column indices
     T[1; 1; -1; 2; 1], # coefficients

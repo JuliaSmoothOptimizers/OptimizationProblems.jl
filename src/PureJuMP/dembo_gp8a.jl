@@ -18,9 +18,9 @@ The Dembo geometric programming problem GP8a.
 Dembo, Ron S. A set of geometric programming test problems and their solutions.
 Mathematical Programming 10.1 (1976): 192-213.
 """
-function dembo_gp8a()
+function dembo_gp8a(; n::Int = default_nvar, kwargs...)
   model = Model()
-  @variable(model, x[1:7] >= 0)
+  @variable(model, x[1:7] >= 0, start = 0.5)
   
   @objective(model, Min, 70.5*x[1] + 13.5*x[2] + 56*x[3] + 47*x[4] + 50.5*x[5] - 19*x[6] - 15*x[7])
   

@@ -15,9 +15,9 @@ The Dembo geometric programming problem GP4b.
 Dembo, Ron S. A set of geometric programming test problems and their solutions.
 Mathematical Programming 10.1 (1976): 192-213.
 """
-function dembo_gp4b()
+function dembo_gp4b(; n::Int = default_nvar, kwargs...)
   model = Model()
-  @variable(model, x[1:5] >= 0.001)
+  @variable(model, x[1:5] >= 0.001, start = 1.0)
   
   @objective(model, Min, -(x[1]*x[2]*x[3]*x[4]*x[5]))
   

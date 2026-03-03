@@ -19,6 +19,9 @@ Mathematical Programming 10.1 (1976): 192-213.
 function dembo_gp5(; n = nothing, kwargs...)
   model = Model()
   @variable(model, x[1:3] >= 0.001)
+  set_start_value(x[1], 0.5)
+  set_start_value(x[2], 1.0)
+  set_start_value(x[3], 1.5)
   
   @objective(model, Min, -(x[1]*x[2]*x[3]))
   

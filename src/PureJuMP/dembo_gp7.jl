@@ -16,9 +16,13 @@ The Dembo geometric programming problem GP7.
 Dembo, Ron S. A set of geometric programming test problems and their solutions.
 Mathematical Programming 10.1 (1976): 192-213.
 """
-function dembo_gp7()
+function dembo_gp7(; n::Int = default_nvar, kwargs...)
   model = Model()
   @variable(model, x[1:4])
+  set_start_value(x[1], -1.0)
+  set_start_value(x[2], 1.0)
+  set_start_value(x[3], 1.0)
+  set_start_value(x[4], 1.0)
   
   @objective(model, Min, x[1]^2 + x[2]^2 + x[3]^2 + x[4]^2)
   
