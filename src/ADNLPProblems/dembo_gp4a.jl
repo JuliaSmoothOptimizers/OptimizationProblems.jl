@@ -26,6 +26,8 @@ function dembo_gp4a(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...)
   end
   
   x0 = T[1.0, 1.0, 1.0, 1.0, 1.0]
+  lvar = fill(T(0.001), 5)
+  uvar = fill(T(Inf), 5)
   lcon = T[5.0, 0.0]  # [linear constraint value, nonlinear constraint value]
   ucon = T[5.0, 0.0]
   
@@ -33,6 +35,8 @@ function dembo_gp4a(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...)
   return ADNLPModels.ADNLPModel!(
     f,
     x0,
+    lvar,
+    uvar,
     [1; 1; 1; 1; 1],  # row indices
     [1; 2; 3; 4; 5],  # column indices
     T[1; 1; 1; 1; 1], # coefficients
