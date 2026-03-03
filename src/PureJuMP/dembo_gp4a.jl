@@ -1,29 +1,16 @@
 export dembo_gp4a
 
-"""
-    dembo_gp4a()
-
-The Dembo geometric programming problem GP4a.
-
-## Problem
-```
-    min  -(x₁x₂x₃x₄x₅)
-    s.t. x₁ + x₂ + x₃ + x₄ + x₅ = 5
-         (x₁² + x₂² + x₃² + x₄² + x₅²) - 5 = 0
-```
-
-## Reference
-Dembo, Ron S. A set of geometric programming test problems and their solutions.
-Mathematical Programming 10.1 (1976): 192-213.
-"""
-function dembo_gp4a(; n = nothing, kwargs...)
+function dembo_gp4a(; n::Int = default_nvar, kwargs...)
   model = Model()
-  @variable(model, x[1:5] >= 0.001)
-  
-  @objective(model, Min, -(x[1]*x[2]*x[3]*x[4]*x[5]))
-  
-  @constraint(model, sum(x) == 5)
-  @constraint(model, sum(x[i]^2 for i=1:5) == 5)
-  
+  @variable(model, 0.1 <= x[1:8] <= 10.0)
+  set_start_value.(x, [6.0, 3.0, 0.4, 0.2, 6.0, 6.0, 1.0, 0.5])
+
+  @objective(model, Min, 0.4 * x[1]^0.67 * x[7]^0.67 + 0.4 * x[2]^0.67 * x[8]^0.67 + 10.0 - x[1] - x[2])
+
+  @constraint(model, 0.0588 * x[5] * x[7] + 0.1 * x[1] <= 0)
+  @constraint(model, 0.0588 * x[6] * x[8] + 0.1 * x[1] + 0.1 * x[2] <= 0)
+  @constraint(model, 4.0 * x[3] / x[5] + 2.0 * x[3]^0.71 / x[5] + 0.0588 * x[3]^1.3 * x[7] <= 0)
+  @constraint(model, 4.0 * x[4] / x[6] + 2.0 * x[4]^0.71 / x[6] + 0.0588 * x[4]^1.3 * x[8] <= 0)
+
   return model
 end

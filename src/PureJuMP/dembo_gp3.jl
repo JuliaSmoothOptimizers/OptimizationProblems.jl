@@ -1,31 +1,81 @@
 export dembo_gp3
 
-"""
-    dembo_gp3()
+function dembo_gp3(; n::Int = default_nvar, kwargs...)
+  c = [
+    1.715,
+    0.035,
+    4.0565,
+    10.0,
+    3000.0,
+    -0.063,
+    0.59553571e-2,
+    0.88392857,
+    -0.11756250,
+    1.10880000,
+    0.13035330,
+    -0.00660330,
+    0.66173269e-3,
+    0.17239878e-1,
+    -0.56595559e-2,
+    -0.19120592e-1,
+    0.56850750e2,
+    1.08702000,
+    0.32175000,
+    -0.03762000,
+    0.00619800,
+    0.24623121e4,
+    -0.25125634e2,
+    0.16118996e3,
+    5000.0,
+    -0.48951000e6,
+    0.44333333e2,
+    0.33000000,
+    0.02255600,
+    -0.00759500,
+    0.00061000,
+    -0.0005,
+    0.81967200,
+    0.81967200,
+    24500.0,
+    -250.0,
+    0.10204082e-1,
+    0.12244898e-4,
+    0.00006250,
+    0.00006250,
+    -0.00007625,
+    1.22,
+    1.0,
+    -1.0,
+  ]
 
-The Dembo geometric programming problem GP3.
-
-## Problem
-```
-    min  x₁ + x₂/x₁ + x₃/x₁² + x₄
-    s.t. x₃ - x₁³ = 0
-         x₂ - 2x₁² = 0
-         x₃ + 1/x₄ = 2
-```
-
-## Reference
-Dembo, Ron S. A set of geometric programming test problems and their solutions.
-Mathematical Programming 10.1 (1976): 192-213.
-"""
-function dembo_gp3()
   model = Model()
-  @variable(model, x[1:4] >= 0.001, start = [1.0, 2.0, 1.0, 1.0])
-  
-  @objective(model, Min, x[1] + x[2]/x[1] + x[3]/x[1]^2 + x[4])
-  
-  @constraint(model, x[3] - x[1]^3 == 0)
-  @constraint(model, x[2] - 2*x[1]^2 == 0)
-  @constraint(model, x[3] + 1/x[4] == 2)
-  
+  @variable(model, x[1:7])
+
+  lbs = [1.0, 1.0, 1.0, 85.0, 90.0, 3.0, 145.0]
+  ubs = [2000.0, 120.0, 5000.0, 93.0, 95.0, 12.0, 162.0]
+  x0 = [1745.0, 110.0, 3048.0, 89.0, 92.0, 8.0, 145.0]
+  for i in 1:7
+    set_lower_bound(x[i], lbs[i])
+    set_upper_bound(x[i], ubs[i])
+    set_start_value(x[i], x0[i])
+  end
+
+  @objective(model, Min, c[1] * x[1] + c[2] * x[1] * x[6] + c[3] * x[3] + c[4] * x[2] + c[5] + c[6] * x[3] * x[5])
+
+  @constraint(model, c[7] * x[2] + c[8] * x[3] / x[1] + c[9] * x[6] <= 0)
+  @constraint(model, c[10] * x[1] / x[3] + c[11] * x[1] * x[6] / x[3] + c[12] * x[1] * x[2] / x[3] <= 0)
+  @constraint(model, c[13] * x[2] + c[14] * x[5] + c[15] * x[4] + c[16] * x[6] <= 0)
+  @constraint(model, c[17] / x[5] + c[18] * x[6] / x[5] + c[19] * x[4] / x[5] + c[20] * x[2] / x[5] <= 0)
+  @constraint(model, c[21] * x[7] + c[22] * x[2] / (x[3] * x[4]) + c[23] * x[2] / x[3] <= 0)
+  @constraint(model, c[24] / x[7] + c[25] * x[2] / (x[3] * x[7]) + c[26] * x[2] / (x[3] * x[4] * x[7]) <= 0)
+  @constraint(model, c[27] / x[7] + c[28] * x[7] / x[5] <= 0)
+  @constraint(model, c[29] * x[5] + c[30] * x[7] <= 0)
+  @constraint(model, c[31] * x[3] + c[32] * x[1] <= 0)
+  @constraint(model, c[33] * x[1] / x[3] + c[34] / x[3] <= 0)
+  @constraint(model, c[35] * x[2] / (x[3] * x[4]) + c[36] * x[2] / x[3] <= 0)
+  @constraint(model, c[37] * x[4] + c[38] * x[3] * x[4] / x[2] <= 0)
+  @constraint(model, c[39] * x[1] * x[6] + c[40] * x[1] + c[41] * x[3] <= 0)
+  @constraint(model, c[42] * x[3] / x[1] + c[43] / x[1] + c[44] * x[6] <= 0)
+
   return model
 end

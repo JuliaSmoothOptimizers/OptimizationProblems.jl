@@ -1,0 +1,1008 @@
+ Mathematical Programming 10 (1976) 192-213.
+ North-Holland Publishing Company
+
+
+
+
+       A SET OF GEOMETRIC PROGRAMMING TEST PROBLEMS
+       AND THEIR SOLUTIONS *
+
+       Ron S. DEMBO * *
+       University of Waterloo, Waterloo, Ont., Canada
+
+       Received 26 July 1974
+       Revised manuscript received 4 February 1975
+
+
+           This paper attempts to provide a set of standard test examples for researchers work-
+       ing in the area of geometric programming and general nonlinear, continuous, nonconvex
+       programming algorithms. The examples consist partly of applications of nonlinear pro-
+       gramming that have appeared in the literature and partly of original geometric program-
+       ming applications. Solutions to all the problems are provided as well as the starting points
+       from which these solutions were computed. Other computationaUy important aspects
+       such as tolerances and degree of accuracy with which these problems were solved, are also
+       included.
+
+
+Introduction
+
+   For some time now there has been a need for a set of standard test
+problems that would provide a basis for the comparison of the relative
+efficiencies of various geometric programming algorithms. Standard test
+problems in areas such as integer programming [9] and general non-
+linear programming [4] have been available for a number o f years and
+have been used for comparison purposes. However, the sets of problems
+that are available lack information on computational accuracies and
+tolerances that are essential for the comparison of algorithm perform-
+ance. In this set of problems we have attempted to overcome this by
+specifying tolerances as well as the stopping criterion with which each
+optimal solution was calculated.
+   The problems we have assembled here consist partly of applications
+of nonlinear programming that have appeared in the literature and partly
+of original geometric programming applications. They may be solved by
+
+ * This work was supported in part by Canada Council Grant #$74-0148 and National Re-
+   search Council of Canada Grant #084-6319-32.
+** At present, Assistant Professor, Production and Management Science Area, Faculty of Busi-
+   ness, Mc. Master University, Hamilton, Ont.
+
+
+                                               192
+                R.S. Dembo / A set of geometric programming test problems    193
+
+
+
+any nonlinear programming method that can be used to solve continu-
+ous, nonlinear, inequality-constrained optimization problems.
+
+
+  Notation
+
+     The following notation is used consistently throughout this paper.
+  All problems are assumed to be of the form
+              minimize         go (x),                                        ( 1)
+              subject to       gg(x) ~< 1,          k = 1, ..., N K ,         (2)
+                               l i ~ X i <~ u i ,   i = 1, ..., N V A R ,     i3)
+where the functions gx(X) (k = 0, ..., NK) are signomial functions of the
+form
+                                 m
+
+             gk(x) = ~       cj il-la x~iJ .                                (4)
+                     je] k       =
+ The coefficients cj and exponents ai] are given real numbers and u i and
+li are given positive upper and lower bounds on the variable x i.
+     The problem constraints are divided into two classes. Signomial con-
+straints (2) and simple bounding constraints (3). The number of signo-
+mial constraints is given by NK and the number of variables by NVAR.
+The set Jx is used to label the terms appearing in the k th signomial con-
+straint. Terms are labeled consecutively starting with those appearing
+in the objective function go(x).
+     Since it is expected that the collection of problems presented here
+might be used for purposes of comparing various codes for geometric
+a n d general nonlinear programming, a distinction is made between two
+different types of bounding constraints (3). The reason for this is that
+for certain algorithms, convergence is contingent on the compactness
+of the feasible region of the problem at all stages of computation to-
+ward an optimal solution (see for example [8]). On the other hand,
+many algorithms (see for example [2]) do not have efficient mechanisms
+for handling simple bounding constraints and would therefore be heavily
+penalized if forced to include variable bounding constraints for every
+problem solved. We have attempted to overcome this difficulty in the
+following manner. Since all the problems presented here (with the ex-
+ception of Problem 8) are taken from practical applications of non-
+linear programming, the variable bounding constraints that are an inte-
+ 194                R.S. Dembo / A set of geometric programming test problems
+
+
+gral part of the system being modelled are distinguished from bounding
+constraints that are artificially imposed to guarantee compactness.
+   It is expected therefore, that when these problems are used for com-
+parative purposes, the bounds corresponding to the physical model o f
+the system will always be included as part o f the problem formulation
+(regardless of whether they are active at the optimal solution or not).
+For codes requiring all variables to be bounded from above and below,
+the variable bounds specified with each problem must be used in order
+to standardize results.
+   The total number of terms in a problem is denoted by NTERMS. For
+each problem this is computed as the total number of terms appearing
+in the objective function and signomial constraints plus the terms cor-
+responding to variable bounding constraints that result from the mathe-
+matical model of the system.
+   An important concept in geometric programming is the 'degrees of
+difficulty' (DD) of a problem. This is defined as:
+              DD = NTERMS - (NVAR + 1)
+ For each problem the value of DD is stated and is computed according
+to the above formula.
+    Lastly, since these problems are intended for providing a standard
+ for comparing the relative efficiency of various algorithms, some measure
+of the required accuracy of solution must be specified. We" do this by
+specifying 3 tolerances, EPSCON, EPSCGP and EPSLP; where EPSCON
+is a constraint tolerance, EPSCGP is a convergence tolerance and EPSLP
+is used to determine whether an element in the LP 1 tableau is essenti-
+ally zero or not. These tolerances are discussed in more detail below.
+   At some given solution 2, the constraints gk(x)<~ 1 are considered to
+be satisfied if and only if:
+(A)          gk(~) ~< 1 + EPSCON,                 k = 1, ..., NK.
+Since computation time is strongly dependent on the criterion used for
+deciding when to terminate an algorithm, we have specified the follow-
+ing termination criterion in an attempt to standardize results. Our cri-
+terion for primal-based algorithms is:
+                  gO(x i) _ gO(xi- 1)1
+(B-l)        II        - -
+                      gO(X i-l)
+                                     J ~< EPSCGP
+                                      I
+I The code used to solve these problems has as its core a linear programming algorithm.
+                 R.S. Dembo / A set o f geometric programming test problems            195
+
+
+where go(x i) is the objective function value of the primal problem at
+the i th iteration and [gl denotes the absolute value ofg. For dual-based
+algorithms, the tolerance EPSCGP should be used as follows:
+                go(X i) - v(~;)[
+(B-z)       I                       EPSCGP      o
+
+
+
+
+Here v(6 i) is the objective function value of the dual problem at the i th
+iteration.
+   A solution 2 (or 3) is considered optimal when both the above cri-
+terian (A) and (B) are satisfied
+
+
+Computation times
+   The solutions given here were all computed on an IBM 370/158 com-
+puter, using the code GGP written by the author and based on the algo-
+rithm described in [6,8 ]. In all cases double precision arithmetic was
+used and t h e tolerance EPSLP set to 10 -11 The computation times
+using GGP with 2 different sets of tolerances are given in Table 0.1.
+For comparison purposes a 'standardized' time is also quoted. The
+standardized time is the ratio of the CPU time in seconds required for
+Table 0.1
+Computation times using GGP
+
+Problem             EPSCON / as specified                  EPSCON = 0.001
+number              EPSCGP } in problem                    EPSCGP = 0.001
+
+                    CPU                Standardized        CPU                Standardized
+                    seconds            time                seconds            time
+
+1A                  6.950              0.2747              3.190              0.1261
+1B                  6.860              0.2711              2.870              0.1134
+2                   0.060              0.0024              0.063              0.0025
+3                   2.097              0.0829              0.993              0.0392
+4A                  7.099              0.2806              1.973              0.0780
+4B                  3.350              0.1324              1.973              0.0780
+4C                  0.540              0.0213              0.337              0.0133
+5                   3.176              0.1255              0.967              0.0382
+6                   8.286              0.3275              3.963              0A566
+7                   6.080              0.2403             11.209              0.4430
+8A                  2.413              0.0954              1.399              0.0553
+8B                  2.416              0.0955              1.399              0.0553
+8C                  2.003              0.0792              1.193              0.0472
+196          R.S. Dembo / A set of geometric programming test problems
+
+
+the solution of the problem, to the time taken to execute Colville's
+standard timing program [4]. For the above computer the execution of
+Colville's timing program required 25.30 seconds of CPU time.
+
+
+The problems
+
+   The problems documented here have been carefully selected from a
+large number of problems solved by the author over a number of years
+of computational trials with the code GGP [6,8 ].
+   Every effort has been made to compile as interesting a set of pro-
+blems as possible from the computational point of view, without resort-
+ing to artificially constructed problems. All the problems (with the ex-
+ception of Problem 8) are mathematical programming models of 'real-
+world' processes. They are for the main part taken from the field of
+optimal engineering design.
+
+Problem 1. Multiphase chemical equilibrium calculation
+  This problem is the geometric programming dual of the Gibbs free
+energy minimization model formulated by Dantzig, De Haven and Sams
+[5].
+   Chemical equilibrium problems form a very important class of dual
+geometric programming problems. Apart from their practical import-
+ance, they are also very interesting numerically because of the scaling
+difficulties they present.
+   The optimal dual variables and hence the optimal values of the cor-
+responding primal terms usually differ by many orders or magnitude re-
+sulting in the necessity for very accurate solution techniques. In actual
+fact in the particular application solved here, no more than estimates of
+orders o f magnitude can be obtained for some of the primal terms and
+their corresponding dual variables. This is because some of the primal
+terms are as small as 10 -22 at the optimum and in order for these terms
+to be significant we would require a constraint tolerance of 10 -22 or
+smaller, something which is computationally infeasible at present.
+   Two versions of this problem are included. The first (Problem 1A) is
+an unscaled version and the second (Problem 1B) has been scaled so that
+all the variables lie between 1 and 10 at the optimal solution. In both
+cases, because of the extremely large value of the objective function at
+the optimal solution, the objective function given here is actually the
+                    R.S. Dembo / A set of geometric programming test problems                    197
+
+
+original objective function to the one tenth power.
+   Statistics
+            NK               = 3,            DD              = 18,
+            NVAR             = 12,           EPSCON          = 10 -6 ,
+            NTERMS           = 31,           EPSCGP          = 10 -4 .
+
+    Objective function and constraints
+                         r, ~.a 11a,-a21a,.a31a,-a41a,.a51ya61 v.aTl "~r'a81 xa91Xalo,1val 1,1
+            go (X) = ~1"~1 "~2 " 3 "~4 ~5 ~6 ~7 ~8                             9  10 "*11
+
+            gl(x) = c2x 1 + c3x 2 + c4x 3 + CsX4X 5 ,
+
+            g Z ( x ) = c6x 1 + CvX2 + c8x 3 + e9x4x12 + c10x5x121 + CllX6X~ 1
+
+
+                         + Ca2X7X12 + Cl3X4X5 + c14X2XsX{21 + Cl5X2x4x5
+
+                         + c16x2x41xsx          2+   c17xloxd,
+            g 3 ( x ) ='C18X 1 + Cl9X 2 + C20X 3 + C21X4 + C22X5 + C23X 6 + C24X8
+
+
+                         + C25X4X5 + C26X2X5 + C27X2X4X5 + C28X2X41X5
+
+                         + C29X9 + C30XlX9 + C31Xll •
+
+   The objective function exponents ai, 1 (i = 1, ..., 12) and the term co-
+efficients c/ (j = 1, ..., 31) for Problems 1A and 1B, are given in Tables
+1.1 a n d !.2 respectively. An initial infeasible starting point, upper and
+lower bounds on the variables and the optimal solutions for Problems
+1A and 1B, are given in Table 1.3 and Table 1.4 respectively. All of the
+variable bounds shown in Tables 1.3 and 1.4 are artificially imposed.
+
+Table 1.1
+Objective function exponents, Problems 1A and 1B
+
+i           ai, 1                       i            ai. 1
+1          ~-0.001331720                7            -0.008092
+2           -0.002270927                8            -0.005
+3           -0.002485460                9            -0.000909
+4           -4.67                       10           -0.O0088
+5           -4.671973                   11           -0.00119
+6           -0.008140
+ 198             R.S. Dembo / A set of geometric programming test problems
+
+Table 1.2
+Term coefficients; Problems 1 A and 1B
+
+Term number                         Coefficient c]
+f                      Problem 1A                    Problem 1B
+
+  1                     1.0000000 E-70           1.00000000 E+5
+  2                    5.3637300 E 4             5.36737300 E-2
+ 3                     2.1863746 E 3             2.1863746 E-2
+ 4                     9.7733533 E 4             9.7733533 E-2
+ 5                     6.6940803 E 15            6.6940803 E-3
+ 6                     1,0                       1.0        E-6
+ 7                     1.0                       1.0        E-5
+ 8                     1.0                       1.0        E-6
+ 9                     1.0                       1.0        E-10
+10                     1.0                       1.0        E-8
+11                     1.0                       1.0        E-2
+12                     1.0                       1.0        E-4
+13                     1.0898645 E 17            1.0898645 E-1
+14                     1.6108052 E 9             1.6108052 E-4
+15                     t,0                       1.0        E-23
+16                     1.9304541 E-3             1.9304541 E-6
+17                     1.0                       1.0        E-3
+18                     1.0                       1.0        E-6
+19                     1.0                       1.0        E-5
+20                     1.0                       1.0        E-6
+21                     1.0                       1.0        E-9
+22                     1.0                       1.0        E-9
+23                     1.0                       1.0        E-3
+ 4                     1.0                       1.0        E-3
+25                     1.0898645 E 17            1.0898645 E-1
+26                     1.6108052 E 9             1.6108052 E-5
+27                     1.0                       1.0        E-23
+28                     1.9304541 E-3             1.9304541 E-8
+29                    'i.0                       1.0        E-5
+30                     1.1184059 E 7             1.1184059 E-4
+31                     1.0                       1.0        E-4
+
+
+Problem 2. Colville's test problem #3
+   This problem is taken from Colville's nonlinear programming study
+[4]. The problem has been included in this selection of problems be-
+cause of *aheapparent ease with which it was solved, despite the,fact that
+it has a relatively high degree of difficulty and contains both negative
+and positive terms. In fact, if the standardized times for this problem
+(see Table 0.1 ) are compared with those obtained by Colville in his study
+[4], it is seen that GGP solves this problem approximately 3 times
+faster than any of the codes in [4].
+                    R.S. Dembo / A set o f geometric programming test problems                199
+
+
+Table 1.3
+Starting values, variable bounds and optimal solution for Problem 1A
+
+Variable            Starting value       Upper bound       Lower bound           Optimal solution
+
+go(x)               1.El 1               1.El 1            1.E9                  4.8904620 E+9
+x1                  4.E-6                1.E-4             1.E-7                 2.5229712 E-6
+x2                  4.E-5                1.E-3             1.E-6                 2.5288262 E-5
+x3                  4.E-6                1.E-4             1.E-7                 7.6566135 E-6
+x4                  4.E-9                1.E-8             1,E-11                1.1853913 E-9
+xs                  4.E-9                1.E-6             1.E-9                 7.6971796 E-9
+x6                  4.E-3                1.E-1             1.E-4                 1.2919459 E-3
+x7                  4.E-3                1.E-1             1,E-4                 4.2615451 E-3
+x8                  4.E-3                1.E-1             1.E-4                 2.7863431 E-3
+x9                  4.E-5                1.E-3             1.E-6                 1.7093851 E-5
+XIO                 4.E4                 1.E-2             1.E-5                 2.0389545 E-4
+Xll                 4.E-4                1.E-2             I.E-5                 6.6285938 E-4
+x12                 4.0                  1.E+2             1.E-1                 6.5581875 E-1
+
+
+
+
+Table 1.4
+Starting values, variable bounds and optimal solution for Problem 1B
+
+Variable            Starting value       Upper bound       Lower bound           Optimal solution
+
+go(x)               10.0                  10.0             0.1                   3.1682133
+xa                   4.0                 100.0             0.1                   2.5179680
+x2                   4.0                 100.0             0.1                   2.5391937
+x3                   4.0                 100.0             0.1                   7.6570348
+x4                   4.0                 100.0             0.1                   1.2219265
+x5                   4.0                 100.0             0.1                   7.4670724
+x6                   4.0                 100.0             0.i                   1.2916003
+x7                   4.0                 100.0             0.1                   4.2830877
+xs                   4.0                 100.0             0.1                   2.7816976
+x9                   4.0                 100.0             0.1                   1.7870736
+xlo                  4.0                 100.0             0.1                   2.0016703
+xll                  4.0                 100.0             0.1                   6.4961066
+x 12                 4.0                 100.0             0.1                   6.44 96897
+
+
+       Statistics
+                NK             = 6,         DD          -- 2 6 ,
+                NVAR           = 5 ,.       EPSCON      = 10 - 5 ,
+                NTERMS         = 32 ,,      EPSCGP      = 10 - 4 .
+
+       Objective function and constraints
+                gO(X) = el x 2 + C2XlX 5 + c3x 1 + c4 ,
+    200             R.S. Dembo /A set of geometric programming test problems
+
+                 g l ( X ) = CsX3X5 + C6X2X5 + C7XlX 4 ,
+
+
+                 g 2 ( x ) = C8X2X5 + C9XIX4 + CloX3X 5 ,
+
+
+                 g 3 ( x ) = CllX21X51 + C12XlX51 "+ C13X21X2X51                 ,
+
+                 g 4 ( x ) = C14X2X5 + Cl5 X1X2 + C16X2 ,
+
+
+                 g 5 ( x ) = C17X31X51 + C18XlX51 + C19X4X51 ,
+
+
+                 g 6 ( x ) = C20X3X5 + C21XlX 3 + C22X3X4 •
+
+   The coefficients ¢1, " " , C22 are given in Table 2.1. A feasible starting
+point, upper and lower bounds on the problem variables and an optimal
+solution are given in Table 2.2.
+   The upper and lower bounds on the variables x 1.... , x 5 are all part
+of the original mathematical programming model given in [4].
+
+Table 2.1
+Coefficients for Problem 2
+
+j           ej                         /         cj                         j        ei
+1            5.35785470                 9           0.00009395              17         2275.132693
+2             0.83568910               10         -0.00033085               18       -0.26680980
+3             37.239239                11           1330.32937              19       -0.40583930
+4           -40792.1410                12         -0.42002610               20        0.00029955
+5             0.00002584               13         -0.30585975               21         0.00007992
+6           -0.00006663                14          0.00024186               22        0.00012157
+7           -0.00000734                15           0.00010159
+8            0.000853007               16          0.00007379
+
+
+Table 2.2
+Starting point, Variable bounds and an optimal solution for Problem 2
+
+Variable           Initial value (F)        Upper bound          Lower bound         Optimal solution
+
+go(x) -c4          15000.0                  20000.0              1000.0 '            10126.64252
+xl                    78.62                   102.0                78.0              78.0
+x2                    33.44                    45.0                33.0              33.0
+x3                    31.07                    45.0                27.0              29.99551065
+x4                    44.18                    45.0                27.0              45.0
+xs                    35.22                    45.0                27.0              36.77517397
+             R.S. Dembo / A set of geometric programming test problems   201
+
+Problem 3. Alkylation process optimization
+   This problem has been taken from Bracken and McCormick [3]. The
+original version of this problem contained some equality constraints re-
+sulting from mass balance considerations. These have been eliminated
+and the problem has been reformulated as a signomial optimization
+problem.
+   Statistics
+          NK     = 14,                 DD          = 50,
+          NVAR   = 7,                  E P S C O N = 1 0 - 5,
+          NTERMS = 5 8 ,               EPSCGP = 1 0 - 4 ,
+
+  Objective .function and constraints
+         go(X) = ClX 1 + C2X1X6 + C3X3 + C4X2 + C5 + C6X3X5 ,
+
+         gl(X)=C7X2 + C8XllX 3 + C9X6,
+
+         g 2 ( x ) -- CloX1X31 + CllXlX 3 l x 6 + C12XlX31X 2 ,
+
+         g 3 ( x ) = C13X2 + Cl4X 5 + Cl5X4 + C16X6 ,
+
+         g4(x) = Cl7X 5-1 + C18X51X6 + C19X4X51 + C20X51X2
+         gs(x) = C21X7 + C22XzX31X4 1 + C23XzX31 ,
+         g6(x) = C24X7 1 + C25 X2 X3 1X7 1 + C26 X 2 X3 1X4 1X7 1
+         g7 (x) = C27xfl + C28X51X7 ,
+         gs(x) = C29X5 + C30X7 ,
+         g9 (x) = C31X3 + C32X1 ,
+
+         gl0(X) = C33X1X3 1 + C34X31 ,
+         gll (x) = % x 2 x 3 1 x 4 1    + c36x2x31 ,
+
+         g12(x) = C37X4 + C38X21X3X4 ,
+    202             R.S. Dembo / A set of geometric programming test problems
+
+
+                g l 3 ( X ) = C39XlX 6 + C40X 1 + C41X3 ,
+
+
+                g l 4 ( X ) = C42X11X3 + C 4 3 X l I + C44X6 •
+
+The problem coefficients Cl, ..., c44 are given in Table 3.1. A feasible
+starting point, upper and lower bounds on the variables and an optimal
+solution are given in Table 3.2. All the bounding constraints on the vari-
+ables Xl, ..., x 7 are part of the model describing the alkylation process.
+
+
+
+Table 3.1
+Coefficients for Problem 3
+
+/         ~j                        J      ~j                        J    ~j
+ 1          1.715                   16     -0.19120592 E - 1         31    0.00061000
+ 2          0.035                   17       0.56850750 E+2          32   -0.0005
+ 3          4.0565                  18       1.08702000              33    0.81967200
+ 4          10.0                    19       0.32175000              34    0.81967200
+ 5          3000.0                  20     -0.03762000               35    24500.0
+ 6        -0.063                    21       0.00619800              36   -250.0
+ 7          0.59553571E-2           22       0.24623121E+4           37    0.10204082 E - 1
+ 8          0.88392857              23     -0.25125634 E+2           38    0.12244898 E - 4
+ 9        -0.11756250               24       0.16118996 E+ 3         39    0.00006250
+10          1.10880000              25       5000.0                  40    0.00006250
+11          0.13035330              26     -0.48951000 E+6           41   -0.00007625
+12        -0.00660330               27       0.44333333 E+2          42     1.22
+13          0.66173269 E - 3        28       0.33000000              43     1.0
+14          0.17239878 E - 1        29       0.02255600              44   -1.0
+15        -0.56595559 E - 2         30     -0.00759500
+
+
+
+
+Table 3.2
+Starting point, variable bounds and an optimal solution for Problem 3
+
+    Variable        Initial value        Upper bound        Lower bound         Optimal solution
+
+go(x)               2000.0               2000.0             1000.0              1227.1831610
+x1                  1745.0               2000.0                1.0              1698.5276698
+x2                   110.0                120.0                1.0                53.5257212
+xa                  3048.0               5000.0                1.0              3031.5798057
+x4                    89.0                 93.0               85.0                90.0909228
+xs                    92.0                 95.0               90.0                95.0
+x6                     8.0                 12.0                3.0                10.5192394
+x7                   145.0                162.0              145.0               153.5353546
+               R.S. Dembo /A set of geometric programming test problems         203
+
+Problem 4. Optimal reactor design
+   This problem is taken from Rijckaert [ 10]. Two formulations of the
+problem are given. The first (Problems 4A and 4B) has a signomial ob-
+jective function and posynomial constraints and is Rijckaert's original
+formulation [10]. The second formulation (Problem 4C) is a posyno-
+mial approximation of Problem 4A.
+    Despite the fact that this problem is 'smaller' than the previ9us one,
+it appears to require more time to reach an optimal solution (see Table
+ 0.1). This could be due to the fact that for this problem we start at an
+infeasible point whereas for Problem 3 we use a feasible starting point.
+    Another interesting aspect to the problem is the large difference in
+computation times between the posynomial version (Problem 4C) and
+signomial versions (Problems 4A and 4B) of the problem. This is unex-
+pected since Problems 4A and 4B are 'almost' prototype geometric pro-
+grams. That is, they have only 2 negative out of a total of 16 terms. One
+ explanation for this is the slow convergence of the iteration procedure
+ of Avriel and Williams [ 1 ]. upon which GGP is based.
+   Problem 4B is included to show that GGP requires one half the com-
+putation time to come within 99.9% the value of the optimal solution
+computed in Problem 4A.
+
+
+Problem 4A
+  Statistics
+          NK            = 4,         DD            = 7,
+          NVAR   = 8,                EPSCON   10 -5 ,
+          NTERMS = 16,               EPSCGP = 10 -4 ,
+
+  Objective function and constraints
+          gO(x) = 0 . 4 x 0"67 X70"67 + 0.4x20"67x8 0"67 + 10.0 --X 1 -- X2 ,
+
+          g l ( x ) = 0.0588X5X 7 + 0.1X 1 ,
+
+          g 2 ( x ) = O.0588x6x 8 + 0 . 1 x 1 + 0 . 1 x 2 ,
+
+          g 3 ( x ) = 4 x 3 x 5 1 + 2x30"71X51 + O.0588x31"3X 7 ,
+
+          g4(x) = 4x4x61 + 2x4°.71x61 + 0.0588x4a'3x 8 .
+204             R.S. Dembo / A set o f geometric programming test problems
+
+
+The variable bounds (all artificially imposed) are given by:
+             0.1 ~< xi<~ 10,           i=1,...,8,
+and the objective function go(X), is bounded (artificially) by
+             1.0 <<,go(X) <~ 4 . 2 .
+
+Problem 4B
+  Identical to 4A except for EPSCGP = 10-3
+
+Problem 4C
+  Statistics
+             NK     = 5,                DD     = 5,
+             NVAR   = 9,                EPSCON = 10 -5 ,
+             NTERMS = 15,               EPSCGP = 10 -4 .
+
+   Objective function and constraints
+             go(X) = x 0 ,
+
+             gl(x), g2(x), g3 (x), g4(x) as in Problem 4A,
+             g b ( x ) = ^u.l,+~+x
+                             . . . . ° 0313 0168 x 2
+                                        • Xl.      - 0 1•8 5 x 7
+                                                               -0.670 + 0.144x00"313
+
+
+                      XlO.502xo.485 x80.670 + 3.6xoO.313 XlO.502x2 0.185
+  An infeasible starting point and optimal solutions for Problems 4A,
+5B and 4C computed using this point are given in Table 4.1.
+
+Table 4.1
+Starting point and optimal solutions for Problems 4A, 4B and 4C
+
+Variable            Starting point                          Optimal solution
+                    (infeasible)        Problem 8A          Problem 4B          Problem 4C
+
+go(x) = Xo          4.2                 3.9516982           3.9561968           3.9520666
+xl                  6.0                 6.3450905           6.1016207           6.3658386
+x~                  3.0                 2.3427973           2.5741491           2.3317880
+x3                  0.4                 0.6701581           0.6765178           0.6725790
+x4                  0.2                 0.5966619           0.5959532           0.5935613
+xs                  6.0                 5.9528907           5.9935248           5.9494125
+x6                  6.0                 5.5291597           5.5315385           5.5272775
+x7                  1.0                 1.0441714           1.1061818           1.0388592
+x8                  0.5                 0.4036023           0.4071500           0.4007536
+                  R.S. Dembo / A set of geometric programming test problems     205
+
+
+Problem 5. Heat exchanger design
+   This p r o b l e m was first f o r m u l a t e d as a generalized geometric pro-
+gramming problem b y Avriel and Williams [ 1 ].
+     Statistics
+              NK           = 6,          DD              = 10,
+              NVAR         = 8,          EPSCON          = 10 -5 ,
+              NTERMS       = 19,         EPSCGP          = 10 -4 .
+
+     Objective function and constraints
+             go(X) = ClX 1 + C2X2 + C3X3 ,
+
+             g l ( x ) = c4x{lx4x61      + c5x61 + c6 x{lx61 ,
+
+              g 2 ( x ) = C7X2"1X5X71+ C8X4 X71 + C9X21X4 X71           ,
+
+              g 3 ( x ) = CloX31X81     + CllXsX81 + C12X31X5X8 1 ,
+
+              g 4 ( x ) = C13X 4 + Cl4X 6 ,
+
+
+              g S ( x ) = Cl5X 5 + c 1 6 x 7 + c17x4 ,
+
+
+              g 6 ( x ) = C18X8 + Cl9X 5 •
+
+The p r o b l e m coefficients c I , ..., c19 are given in Table 5.1.
+  An infeasible starting point, u p p e r and lower b o u n d s on the problem
+
+
+Table 5.1
+Coefficients for test problem 5
+
+
+
+ 1               1.0               11              1.0
+ 2               1.0               12         -2500.0
+ 3               1.0               13              0.0025
+ 4             833.33252           14              0.0025
+ 5             I00.0               15              0.0025
+ 6         -83333.333              16              0.0025
+ 7            1250.0               17            -0.0025
+ 8               1.0               18              0.01
+ 9          -1250.0                19            -0.01
+10        1250000.0
+206               R.S. Dembo / A set of geometric programming test problems
+
+Table 5.2
+Starting point, variable bounds and an optimal solution for Problem 5
+
+Variable          Initial value        Upper bound           Lower bound      Optimal solution
+                  (infeasible)
+
+go(x)             15000.0              20000.0               3000.0           7049.324305
+xl                 5000.0              10000.0                100.0            572.852745
+x2                 5000.0              10000.0               1000.0           1361.497867
+x3                 5000.0              10000.0               1000.0           5114.973425
+x4                  200.0               1000.0                 10.0            181.476181
+x5                  350.0               1000.0                 10.0            295.402778
+x6                  150.0               1000.0                 10.0            218.524281
+x7                  225.0               1000.0                 10.0            286.075426
+x8                  425.0               1000.0                 10.0            395.402602
+
+
+variables (all of which are artificially imposed) and an optimal solution
+to the problem are given in Table 5.2.
+
+Problem 6. A 3-stage membrane separation process
+   This problem is a mathematical programming model of a 3-stage
+membrane separation process. The derivation o f the model may be
+found in D e m b o [6].
+   This model is representative of a large number of chemical flow pro-
+cesses with many recycle streams. One o f the difficulties o f this sort
+of model is to simply compute a feasible solution.
+     Statistics
+             NK     = 13,                 DD            = 39,
+             NVAR   = 13 ,                EPSCON        = 10 -6 ,
+             NTERMS = 5 3 ,               EPSCGP        =10 -4.
+
+     Objective function and constraints
+             go(X) = ClX11 + c 2 x 1 2 + c3x13 ,
+
+             g l ( X ) = C4X8X~I 1 + C 5 X l X 8 X l l 1 ,
+
+
+             g 2 ( x ) = C6X9X121 + C7X2X9X121 ,
+
+
+             g 3 ( x ) = C8X10X131 + C9X3XloX131 ,
+
+
+             g 4 ( x ) = CloX2X5 1 + C11X2 + C12XlX5 1
+                 R.S. Dembo / A set of geometric programming test problems             207
+
+
+              g5 (x) = c13x3x6 1 + C14X3 + Cl5X~X6 1 ,
+
+              g 6 ( x ) = Cl6 X1X51X71X8 + c17x4 x 5 1 + c18x4 x 5 1 x 7 1 x 8
+
+
+              g 7 ( x ) = c19x2x9 + c20x5x 8 + c21x6 + c22x5 + c23xlx8 + c24x6x9        ;
+
+              g 8 ( x ) = C25X2 1X3 X9 lXl0 + C26 X2 1X6 + C27X91 + ¢28X9 IXl0
+
+                       + C29X21X6X9 1 ,
+
+              g 9 ( x ) = ¢30X2 1 + c31xl0 + ¢32x21x3Xlo ,
+
+
+              gl0(X ) = C33X2X 3 1 ,
+
+
+              g l l ( X ) = C34X1X2 1 ,
+
+
+              gl2(X) = C35X7 + C36X 8 ,
+
+              gl3(X) = C37XlX4 1 + C38Xl + C39X~X4 1 •
+
+The coefficients Cl, ..., c36 are given in Table 6.1.
+   An infeasible starting point, upper and lower bounds on the problem
+variables and an optimal solution are given in Table 6.2.
+   The following bounds are derived from the mathematical model of
+the 3-stage membrane separatior/process [6].
+Table 6.1
+Coefficients for Problem 6
+
+j         q                      j        ej                    j        ej
+ 1          1.0                  14         0.975000            27       500.0
+ 2          1.0                  15       -0.009750             28        -1.0
+ 3          1.0                  16         1.0                 29      -500.0
+ 4          1.262626             17         1.0                 30          0.9
+ 5        -1.231059              18       -1.0                  31          0.002
+ 6          1.262626             19         0.002               32        -0.002
+ 7        -1.231059              20         0.002               33          1.0
+ 8          1.262626             21         1.0                 34          1.0
+ 9        -1.231059              22         1.0                 35          0.002
+10          0.034750             23       -0.002                36        -0.002
+11          0.975000             24       -0.002                37          0.034750
+12        -0.009750              25         1.0                 38          0.975000
+13          0.034750             26         1.0                 39        -0.009750
+208              R.S. Dembo /A set of geometric programming test problems
+
+Table 6.2
+Starting point, variable bounds and an optimal solution for Problem 6
+
+Variable        Starting point          Upper bound             Lower bound           Optimal solution
+                (infeasible)
+
+go(x)         i': 250.0                  250.0                   50.0                  97.591034
+xx                  0.50                   1.0                    0.1                   0.803773
+x2                  0.80                   1.0                    0.1                   0.900000
+x3                  0.90                   1.0                    0.9                   0.900000
+x4                  0.10                   0.1                    0.0001                0.100000
+xs                  0.14                   0.9                    0.1                   0.190837
+x6                  0.50                   0.9                    0.1                   0.900000
+x7                489.0                 1000.0                    O.1                 574.099615
+x8                 80.0                 1000.0                    0.1                  74.099636
+x9                650.0                 1000.0                  500.0                 500.000000
+XIO               450.0                  500.0                    0.1                   0.100000
+xn                150.0                  150.0                    1.0                  20.239117
+x 12              150.0                  150.0                    0,0001               77.336450
+x13               150.0                  150.0                    0,0001                0.015467
+
+
+
+   Upper bounds on variables x 1, X2, X3, X4, X5, X6, X10.
+   Lower bounds        o n v a r i a b l e s x 1, x 2, x 3, x 5 , x 6, x 9, x l o .
+
+
+Problem 7. A 5-stage membrane separation process
+   This problem is essentially an extension o f the previous one and is
+also developed in detail in D e m b o [6].
+   Statistics
+             NK            = 19,            DD              = 68,
+             NVAR          = 16,            EPSCON          = 10 -5
+             NTERMS        = 85,            EPSCGP          = 10 -3 .
+
+   Objective function and constraints
+             go(X) = ClX12 + c2x13 + c3x14 + C4X15 + C5X16 + C6XlX12
+
+                       + C7X2X13 + C8X3X14 + 89X4X15 + CloX5X16 ,
+
+             g l ( X ) = C11X1X6 1 + C12Xl + C13X2X6 1 ,
+
+
+            g 2 ( x ) = C14X2X71 + C15X2 + C16X22X7 1 ,
+
+
+            g 3 ( x ) = ClwX3X8 1 + C18X3 + ClgX2X8 1 ,
+     R.S. Dembo / A set of geometric programming test problems   209
+
+ ga(X) = C20X4 X91 + C21X4 + C22X2X91 ,
+
+ g5(x) = C23XsX~oI + ¢24X5 + C25X25Xlo1 ,
+
+ g6(x) = ¢26 X6 X71 + C27Xl X71x~Ilx12 + C28X6 X71Xlll X12 ,
+
+ g7(x) = C29X7X81 + ¢30X7X81X12 + ¢31X2X81X13
+
+            + C32X13 + C33XlX81X12 ,
+
+g8(x) = C34X8 + C35X8X13 + C36X3X14 + C37X9 + C38X2X13
+
+            + C39 X9 X14 ,
+
+g9(x) = c40x31x9 + c41x31x4x~41x15 + c42x31XloX{41
+
+           + C43X31X9X141 + C44X31X8X141X15 ,
+
+glo(X) = C45X4 1X5 X~Ix16 + C46X4 1X10 + 1747X~ 1
+
+            + C48X151X16 + C49X41X10X{51 ,
+
+gll (X) = C50X4 1 + ¢51X16 + C52X41X5X16 ,
+
+gl2(X) = C53Xll + C54X12 ,
+
+g13 (X) = C55X~]1X12 ,
+
+gl4(X ) = C56X4 X51 ,
+
+g15(X) = C57X3X41 ,
+
+g16(X ) = ¢58X2X 31 ,
+
+g17(x) = c 5 9 x l x 2 1   ,
+
+g18(x) = c60xgX{o I ,
+
+g19(X ) = C61XSX91 .
+210               R,S. Dembo / A set of geometric programming test problems
+
+Table 7.1
+Coefficients for Problem 7
+
+J          ~                      J          ~                    J
+ 1           1.262626             22          -0.00975            43      -500,0
+ 2           1.262626             23            0.03475           44         -1,0
+ 3         ~ 1.262626             24            0.975             45           1.0
+ 4           1.262626             25          -0.00975            46           1.0
+ 5           1.262626             26            1.0               47        500.0
+ 6         -1.231060              27            1.0               48         -1.0
+ 7         -1.231060              28          -1.0                49      -500.0
+ 8         -1.231060              29            1.0               50           0.9
+ 9         -1.231060              30            0.002             51           0.002
+10         -1.231060              31            0.002             52         -0.002
+11           0.034750             32          -0.002              53           0.002
+12           0.975                33          -0.002              54         -0.002
+13         -0.00975               34            1.0               55           1.0
+14           0.034750             35            0.002             56           1.0
+15           0.975                36            0,002             57           1.0
+16         -0.00975               37            1,0               58           1.0
+17           0.03475              38          -0.002              59           1.0
+18           0.975                39          -0.002              60           1.0
+19         -0.00975               40            1.0               61           1.0
+20           0.03475              41            1.0
+21           0.975                42         500.0
+
+
+Table 7.2
+Starting point variable bounds and an optimal solution for Problem 7
+
+Variable         Starting point        Upper bound        Lower bound         Optimal solution
+                 (infeasible)
+
+go(x)            250,0                  250.0              50.0               174.788807
+xl                 0,8                     0,9              0.1                 0.8037724
+x2                 0.83                    0.9              0.1                 0.8175130
+x3                 0.85                    0.9              0.1                 0.9
+x4                 0.87                    0.9              0.1                 0.9
+xs                 0.90                    1.0              0.9                 0.9
+x6                 0.10                    0.1              0.0001              0.0999996
+x7                 0.12                    0.9              0.1                 0,1078842
+x8                 0.19                    0.9              0.1                 0.1908369
+x9                 0.25                    0.9              0.1                 0.1908369
+xto                0.29                    0.9              0.1                 0.1908369
+xll              512.0                 1000.0               1.0               505.664787
+x 12              13.1                  500.0               0.000001            5.6650580
+x13               71.8                  500.0               1.0                72.475185
+x14              640.0                 1000.0             500.0               500.0
+xls              650.0                 1000.0             500.0               500.0
+x16                5.7                   500.0              0.000001            0.000001
+                    R.S. Dembo / A set of geometric programming test problems                                211
+
+The coefficients c 1, ..., C61 are given in Table 7.1.
+   An infeasible starting point, upper and lower bounds on the problem
+variables and an optimal solution to the problem are given in Table 7.2.
+   The following bounds are derived from the mathematical model o f
+the 5-stage membrane separation process [6].
+   Upper bounds on variables x 1, x 2, x 3, X 4, X 5, X 6, X 7, X 8, X 9, XlO, X12,
+                                   X13, Xl6.
+   Lower bounds on variables x 1, x 2, x 3, x 4, x 5, x 7, x s , x 9, Xlo, X14, Xl5.
+
+
+P r o b l e m 8. B e c k a n d E c k e r ' s p r o b l e m
+
+   This problem is a p r o t o t y p e geometric programming problem taken
+from Beck and Ecker [2]. It has been included here for a number o f
+reasons. Firstly, it appears to be sensitive with respect to the exponent
+  in the first term of the objective function. Also, Beck and Ecker [2]
+report large variations in computation times for different ~, whereas
+this p h e n o m e n o n is not observed when the problem is solved using
+GGP.
+   Three versions of the problem have been included here, each identical
+except for the parameter a.
+   Statistics
+
+                NK     = 4,                     DD     = 10,
+                NVAR   = 7,                     EPSCON = 10 -6 ,
+                NTERMS -- 18,                   EPSCGP = 10 -4 .
+
+    Objective f u n c t i o n and constraints
+
+                go (x) = ClXlX21X2X63X~ + C 2 X l l X 2 2"'1"~3~41 1. ./-2 .1..-
+                                                                             ~~75
+
+                            + c3x12x2x41x52x6                     +,"~ 4 v~ 21 v~ 22 a~.3- l a .~5
+                                                                                                1/2~.-2 v
+                                                                                                    ~6 "~7
+
+                        ,-, v l / 2 v - l ~ - - 2 v " I - c 6 x ~ x 2 x 3 2 v l ' v 1/2
+               gl (X) = "5~1 ~3 ~6 ~7                                        "~6¢~7
+
+                            + C7 X 2 l x 3 X41/2 .,-2/3-vl/4
+                                                     ~6      ~7       '
+
+
+               g 2 ( x ) = C8Xll/2X2X3 l x 5 1 x 6 + C9 X 3 X41X51X2
+
+                               r    v-lvl/2v-2v-lvl/3
+                               ~10 ¢~1   ~2     ~4    ~5     ~6           '
+212                  R.S. Dembo /A set of geometric programming test problems
+
+                g 3 ( x ) = CllXlX33/2X5X61X~/3                    + C12X2X31/2X5x~lx7112
+
+                                                   ' 3 ~ 5 + C14X22X3X5X61X7
+                                  y - l . , .~ 2 ~,,.1/2~.
+                             +C13~'1                                                           ,
+                g 4 ( x ) = ,. ~ , - 2 v a , - l v l / 2 v l / 3   + C16xl/2~'2~ • y 1 / 3 ~ . - 2 / 3 v l / 4
+                            ~15"~1 ~ 2 ~ ' 4 ~'5 ~ 7                     1 ~ ' 2 " ' 3 J ' 4 ~'5       ~'7
+                                                                    p ~-2.~ ~1/2
+                             +C17X13X22X3X5                  X3/4 +~18~3  ~4"~7  •
+
+    The variable bounds (all artificial) are given by
+                  O.l<~x i < 1 0 ,                   i = 1 .... , 6 ,
+                0.01~<x 7 ~< 1 0 ,
+and the objective function is bounded (artificially) b y
+                100 ~< go(X) <. 3 0 0 0 .
+The problem coefficients e I .... , c18 are given in Table 8.1.
+   An infeasible starting point and the corresponding optimal solutions
+computed for a = - ~ (Problem 8A), ~ = ~ (Problem 8B), ~ = ~ (Pro-
+blem 8C) are given in Table 8.2.
+Table 8.1
+Coefficients for Problem 8
+
+i          c/                j             ~                 j
+1          10.0                  7         0.2                13         1.0
+2          15.0              8             1.3                14         0.65
+3          20.0              9             0.8                15         0.2
+4          25.0             10             3.1                16         0.3
+5           0.5             11             2.0                17         0.4
+6           0.7             12             0.1                18         0.5
+
+Table 8.2
+Starting point and optimal solutions for Problems 8A, 8B, 8C
+
+Variable            Starting value                                       Optimal solution
+                                                 Problem 8A              Problem 8B                Problem 8C
+
+g0~)                2500.0                       1809.7615               911.87957                 543.66638
+xx                     6.0                          2.8566276              3.8955214                 4.3919085
+x2                     6.0                          0.61083257             0.80868472                0.8546317
+x3                     6.0                          2.1503944              2.6626285                 2.8416293
+x4                     6.0                          4.7171337              4.2983005                 3.4013674
+xs                     6.0                          1.0002048              0.85357785                0.72275344
+x6                     6.0                          1.3487370              1,0953123                 0.87052969
+x7                     6.0                          0.03160686             0.02730898                0.02464651
+                  R.S. Dembo / A set o f geometric programming test problems                    213
+
+Acknowledgments
+
+   I would like to acknowledge the invaluable aid of Professor Mordecai
+Avriel in assisting with the formulation of some of the problems in this
+paper. I would also like to thank the Department of Chemical Engin-
+eering at the Technion and the Department of Management Sciences at
+the University of Waterloo for providing the computer time for this
+study.
+
+
+References
+
+  [ 1] M. Avriel and A.C. Williams, "An extension of geometric programming with applications
+       in engineering optimization", Journal of Engineering Mathematics 5 (3) (1971) 187--194.
+  [2] P.A. Beck and J.G. Ecker, "A modified concave simplex algorithm for geometric program-
+       ming", Journal o f Optimization Theory and Applications, to appear.
+ [3] J. Bracken and G.P. McCormick, "Selected applications in nonlinearprogramming" (Wiley,
+       New York, 1968) pp. 37-45.
+ [4] A.R. Colville, "A comparative study of nonlinear programming codes", IBM NYSC Rept.
+       320-2949 (1968).
+ [5] G.B. Dantzig, J.C. de Haven and C.P. Sams, in: Proceedings of the 4th Berkeley symposium
+       on mathematical statistics and probability (University of California Press, Berkeley, Calif.,
+       1960) pp. 181-196.
+ [6] R.S. Dembo, "Solution of complementary geometric programming problems", M.Sc.
+       Thesis, Technion, Haifa (1972).
+ [7] R.S. Dembo, " G G P - A program for solving generalized geometric programs- Users
+       Manual", Department of Chemical Engineering Rept. 72/59, Technion (1972).
+ [8] R.S. Dembo, M. Avriel and U. Passy, "An algorithm for the solution of generalized geo-
+       metric programs", International Journal for Numerical Methods in Engineering, to appear.
+ [9] J. Haldi, "25 integer programming test problems", Stanford University, Graduate School
+       of Business, Working Paper no. 43 (December 1964).
+[10] M.J. Rijckaert, "Engineering applications of geometric programming", in: M. Avriel, M.J.
+       Rijckaert and D.J. Wilde, eds., Optimization and design (Prentice Hall, Englewood Cliffs,
+       N.J., 1973)pp. 196-220.
+
