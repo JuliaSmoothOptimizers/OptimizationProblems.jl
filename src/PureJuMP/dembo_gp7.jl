@@ -3,6 +3,8 @@ export dembo_gp7
 """
     dembo_gp7()
 
+The Dembo geometric programming problem GP7.
+
 ## Problem
 ```
     min  x₁² + x₂² + x₃² + x₄²

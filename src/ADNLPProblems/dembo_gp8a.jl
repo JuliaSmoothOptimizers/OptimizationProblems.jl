@@ -1,22 +1,5 @@
 export dembo_gp8a
 
-"""
-    dembo_gp8a(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where T
-
-The Dembo geometric programming problem GP8a.
-
-```
-    min    70.5x₁ + 13.5x₂ + 56x₃ + 47x₄ + 50.5x₅ - 19x₆ - 15x₇
-    s.t.   x₁ + x₅ + x₆ - 0.5x₇ ≥ 1
-           x₁ + x₂ + x₃ + x₅ - x₇ ≥ 2
-           x₁ + 2x₂ + x₃ + x₄ - x₆ - 2x₇ ≥ 1
-           x₃ + 3x₄ + x₅ + 2x₆ ≥ 1
-```
-
-## Origin
-Dembo, Ron S. A set of geometric programming test problems and their solutions.
-Mathematical Programming 10.1 (1976): 192-213.
-"""
 function dembo_gp8a(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     return T(70.5)*x[1] + T(13.5)*x[2] + T(56)*x[3] + T(47)*x[4] + T(50.5)*x[5] - T(19)*x[6] - T(15)*x[7]

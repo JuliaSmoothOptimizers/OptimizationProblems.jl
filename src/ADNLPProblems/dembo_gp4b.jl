@@ -1,19 +1,5 @@
 export dembo_gp4b
 
-"""
-    dembo_gp4b(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where T
-
-The Dembo geometric programming problem GP4b.
-
-```
-    min   -(x₁x₂x₃x₄x₅)
-    s.t.  2x₁ + 3x₂ + x₃ + 4x₄ + x₅ = 20
-```
-
-## Origin
-Dembo, Ron S. A set of geometric programming test problems and their solutions.
-Mathematical Programming 10.1 (1976): 192-213.
-"""
 function dembo_gp4b(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where T
   x0 = ones(T, 5)
 

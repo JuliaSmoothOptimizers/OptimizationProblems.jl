@@ -3,6 +3,8 @@ export dembo_gp4a
 """
     dembo_gp4a()
 
+The Dembo geometric programming problem GP4a.
+
 ## Problem
 ```
     min  -(x₁x₂x₃x₄x₅)

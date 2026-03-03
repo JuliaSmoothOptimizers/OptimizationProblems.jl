@@ -1,19 +1,5 @@
 export dembo_gp1a
 
-"""
-    dembo_gp1a(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where T
-
-The Dembo geometric programming problem GP1a.
-
-```
-    min  exp(x₁) + exp(x₂)
-    s.t. x₁ + x₂ ≥ log(2)
-```
-
-## Origin
-Dembo, Ron S. A set of geometric programming test problems and their solutions.
-Mathematical Programming 10.1 (1976): 192-213.
-"""
 function dembo_gp1a(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   function f(x)
     return exp(x[1]) + exp(x[2])

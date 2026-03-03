@@ -3,6 +3,8 @@ export dembo_gp6
 """
     dembo_gp6()
 
+The Dembo geometric programming problem GP6.
+
 ## Problem
 ```
     min  x₁ + x₂ + x₃ + x₄

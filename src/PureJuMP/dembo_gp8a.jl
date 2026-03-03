@@ -3,6 +3,8 @@ export dembo_gp8a
 """
     dembo_gp8a()
 
+The Dembo geometric programming problem GP8a.
+
 ## Problem
 ```
     min    70.5x₁ + 13.5x₂ + 56x₃ + 47x₄ + 50.5x₅ - 19x₆ - 15x₇

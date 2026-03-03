@@ -3,6 +3,8 @@ export dembo_gp1b
 """
     dembo_gp1b()
 
+The Dembo geometric programming problem GP1b.
+
 ## Problem
 ```
     min  exp(x₁) + exp(x₂)
