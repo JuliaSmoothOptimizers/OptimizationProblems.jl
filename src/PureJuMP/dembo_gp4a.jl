@@ -14,7 +14,7 @@ export dembo_gp4a
 Dembo, Ron S. A set of geometric programming test problems and their solutions.
 Mathematical Programming 10.1 (1976): 192-213.
 """
-function dembo_gp4a()
+function dembo_gp4a(; n = nothing, kwargs...)
   model = Model()
   @variable(model, x[1:5] >= 0.001)
   

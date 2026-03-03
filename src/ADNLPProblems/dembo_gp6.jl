@@ -30,7 +30,7 @@ function dembo_gp6(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) 
   end
   
   x0 = T[1.0, 1.0, 1.0, 1.0]
-  lvar = T[eps(T), eps(T), eps(T), eps(T)]
+  lvar = T[1e-3, 1e-3, 1e-3, 1e-3]
   uvar = T[Inf, Inf, Inf, Inf]
   lcon = T[5.0, 0.0, 0.0]  # [linear constraint value, nonlinear constraint 1, nonlinear constraint 2]
   ucon = T[5.0, 0.0, 0.0]

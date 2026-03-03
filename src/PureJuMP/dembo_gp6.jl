@@ -15,7 +15,7 @@ export dembo_gp6
 Dembo, Ron S. A set of geometric programming test problems and their solutions.
 Mathematical Programming 10.1 (1976): 192-213.
 """
-function dembo_gp6()
+function dembo_gp6(; n = 4, kwargs...)
   model = Model()
   @variable(model, x[1:4] >= 0.001)
   

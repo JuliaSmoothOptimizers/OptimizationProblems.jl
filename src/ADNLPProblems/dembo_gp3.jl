@@ -30,5 +30,7 @@ function dembo_gp3(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) 
   x0 = T[1.0, 2.0, 1.0, 1.0]
   lcon = T[0.0, 0.0, 0.0]
   ucon = T[0.0, 0.0, 0.0]
-  return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon, name = "dembo_gp3"; kwargs...)
+  lvar = fill(T(0.001), 4)
+  uvar = fill(T(Inf), 4)
+  return ADNLPModels.ADNLPModel!(f, x0, c!, lcon, ucon; lvar = lvar, uvar = uvar, name = "dembo_gp3", kwargs...)
 end

@@ -18,7 +18,7 @@ Mathematical Programming 10.1 (1976): 192-213.
 """
 function dembo_gp1a()
   model = Model()
-  @variable(model, x[1:2])
+  @variable(model, x[1:2], start = 0.0)
   
   @objective(model, Min, exp(x[1]) + exp(x[2]))
   @constraint(model, x[1] + x[2] >= log(2))

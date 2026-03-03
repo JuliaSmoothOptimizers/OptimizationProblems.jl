@@ -14,7 +14,7 @@ export dembo_gp5
 Dembo, Ron S. A set of geometric programming test problems and their solutions.
 Mathematical Programming 10.1 (1976): 192-213.
 """
-function dembo_gp5()
+function dembo_gp5(; n = nothing, kwargs...)
   model = Model()
   @variable(model, x[1:3] >= 0.001)
   

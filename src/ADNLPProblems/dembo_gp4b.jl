@@ -30,6 +30,9 @@ function dembo_gp4b(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...)
     T[2; 3; 1; 4; 1], # coefficients
     T[20.0],
     T[20.0],
+    lvar = fill(T(0.001), 5),
+    uvar = fill(T(Inf), 5),
+    meta = Dict(:has_bounds => true),
     name = "dembo_gp4b"
   )
 end
