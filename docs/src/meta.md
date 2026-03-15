@@ -7,6 +7,7 @@ using OptimizationProblems
 ```
 
 Each problem has its own metadata structure, and there is a global metadata structure regrouping all the information.
+All meta fields must be accurate and complete including `nvar`, `ncon`, linear/nonlinear counts, feasibility, origin, objtype, contype and best-known bounds. Meta validation is enforced by the test suite. Incomplete or incorrect meta fields may cause solver failures or benchmarking errors.
 
 ## Problem's metadata
 
