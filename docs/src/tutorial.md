@@ -47,7 +47,7 @@ using OptimizationProblems, OptimizationProblems.ADNLPProblems
 problems = OptimizationProblems.meta[!, :name]
 length(problems)
 ```
-Similarly, to the PureJuMP models, it suffices to select any of this problem to get the model.
+Similarly, to the PureJuMP models, it suffices to select any of these problems to get the model.
 ``` @example ex2
 nlp = zangwil3()
 ```
@@ -62,8 +62,25 @@ One of the advantages of these problems is that they are type-stable. Indeed, on
 ``` @example ex2
 nlp16_12 = woods(n=12, type=Float16)
 ```
-Then, all the API will be compatible with the precised type.
+Then, all the API will be compatible with the specified type.
 ``` @example ex2
 using NLPModels
 obj(nlp16_12, zeros(Float16, 12))
 ```
+
+### Nonlinear Least Squares (NLS) Problems
+
+Some problems are classified as nonlinear least squares (NLS). These problems:
+- Have `:objtype` set to `:least_squares` in their meta data.
+- Use `ADNLSModels` for the ADNLPProblems implementation.
+- Provide a getter for the number of NLS equations, e.g., `get_lanczos1_nls_nequ()`.
+
+To list all NLS problems:
+```julia
+nls_problems = OptimizationProblems.meta[OptimizationProblems.meta.objtype .== :least_squares, :name]
+```
+To access the number of NLS equations for a problem:
+```julia
+OptimizationProblems.get_lanczos1_nls_nequ()
+```
+See existing NLS problems (e.g., `lanczos1`, `lanczos2`, `brownal`) for templates.
