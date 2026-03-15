@@ -17,7 +17,7 @@ OptimizationProblems.AMPGO02_meta
 ```
 See `? OptimizationProblems.meta` for more documentation on the various entries and their default values.
 
-This structre is completed by getters to access the number of variables, `get_nameoftheproblem_nvar`,the number of constraints, `get_nameoftheproblem_ncon`, the number of linear constraints, `get_nameoftheproblem_nlin`, the number of nonlinear constraints, `get_nameoftheproblem_nnln`, the number of equality constraints, `get_nameoftheproblem_nequ`, and the number of inequality constraints, `get_nameoftheproblem_nineq`.
+This structure is completed by getters to access the number of variables, `get_nameoftheproblem_nvar`, the number of constraints, `get_nameoftheproblem_ncon`, the number of linear constraints, `get_nameoftheproblem_nlin`, the number of nonlinear constraints, `get_nameoftheproblem_nnln`, the number of equality constraints, `get_nameoftheproblem_nequ`, and the number of inequality constraints, `get_nameoftheproblem_nineq`.
 ```@example 1
 OptimizationProblems.get_AMPGO02_nvar()
 ```
@@ -49,4 +49,15 @@ using ADNLPModels
 adproblems = (
   eval(Meta.parse("ADNLPProblems.$(pb[:name])()")) for pb in eachrow(names_pb_vars)
 )
+```
+
+### Nonlinear Least Squares (NLS) Problems
+
+Problems with `:objtype` set to `:least_squares` are nonlinear least squares (NLS) problems. For these, you can access the number of NLS equations using a getter like `get_problemname_nls_nequ()`.
+```@example 1
+OptimizationProblems.get_lanczos1_nls_nequ()
+```
+To filter all NLS problems in the metadata DataFrame:
+```@example 1
+nls_problems = OptimizationProblems.meta[OptimizationProblems.meta.objtype .== :least_squares, :name]
 ```

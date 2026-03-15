@@ -72,3 +72,12 @@ function function_name(; n::Int = default_nvar, type::Type{T} = Float64, kwargs.
   return nlp
 end
 ```
+
+### Nonlinear Least Squares (NLS) Problems
+
+If your problem is a nonlinear least squares (NLS), please follow these guidelines:
+* Use `ADNLSModels` for the ADNLPProblems implementation (see [ADNLPModels.jl](https://github.com/JuliaSmoothOptimizers/ADNLPModels.jl)).
+* Set the `:objtype` entry in the meta file to `:least_squares`.
+* Add a getter for the number of NLS equations, named `get_problemname_nls_nequ`.
+* Document the provenance and structure of the NLS problem in the `PureJuMP` file. Ensure the documentation and meta clarify that the problem is NLS and how to access it.
+* See existing NLS problems (e.g., `lanczos1`, `lanczos2`, `brownal`) for templates.
