@@ -7,16 +7,11 @@ using OptimizationProblems
 ```
 
 Each problem has its own metadata structure, and there is a global metadata structure regrouping all the information.
-
-> **Meta field completeness:**
-> All meta fields must be accurate and complete, including `nvar`, `ncon`, linear/nonlinear counts, bounds, minimize, feasibility ordering, origin, objtype, contype, and best-known bounds. Meta validation is enforced by the test suite. Incomplete or incorrect meta fields may cause solver failures or benchmarking errors.
+All meta fields must be accurate and complete including `nvar`, `ncon`, linear/nonlinear counts, feasibility, origin, objtype, contype and best-known bounds. Meta validation is enforced by the test suite. Incomplete or incorrect meta fields may cause solver failures or benchmarking errors.
 
 ## Problem's metadata
 
 Each problem's metadata is accessible with `OptimizationProblems.nameoftheproblem_meta` and regroups in a `Dict` most of the essential information regarding each problem.
-
-> **Meta validation:**
-> Meta fields are used for problem classification, filtering, and benchmarking. Ensure all fields are correct and consistent with the actual problem implementation. The test suite checks meta field accuracy.
 
 ```@example 1
 OptimizationProblems.AMPGO02_meta
