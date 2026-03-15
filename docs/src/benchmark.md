@@ -1,5 +1,7 @@
 # Run a benchmark with OptimizationProblems.jl
 
+> **Note:** When benchmarking, ensure that problems from ADNLP and PureJuMP implementations are strictly compatible (same initial point, bounds, constraints, and objective/constraint values within tolerance). Use meta fields for filtering and validation. Meta field completeness and accuracy are enforced by the test suite and are critical for reliable benchmarking.
+
 In this more advanced tutorial, we use the problems from `OptimizationProblems` to run a benchmark for unconstrained problems.
 The tutorial will use:
 - [JSOSolvers](https://github.com/JuliaSmoothOptimizers/JSOSolvers.jl): This package provides optimization solvers in pure Julia for unconstrained and bound-constrained optimization.
