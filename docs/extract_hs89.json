@@ -1,0 +1,21 @@
+{
+  "problem": "hs89",
+  "source": "Hock and Schittkowski, Problem 89",
+  "variables": ["x1", "x2", "x3"],
+  "bounds": {
+    "lvar": "none",
+    "uvar": "none",
+    "x0": "none"
+  },
+  "objective": "sum_{j=1}^{30} A_j * rho_j(x)\nwhere rho_j(x) = - (exp(-mu_j^2 * r) + 2*exp(-mu_j^2*(x2^2 + x3^2)) + 2*exp(-mu_j^2*x3^2) + 1) / mu_j^2\nr = x1^2 + x2^2 + x3^2\nA_j = 2*sin(mu_j)/(mu_j + sin(mu_j)*cos(mu_j))\nmu_j: first 30 positive roots of tan(mu) = mu",
+  "constraints": [
+    "c(x) = termA + termB - 2/15 = 0",
+    "termA = sum_{j=1}^{30} A_j^2 * rho_j(x)^2 * (sin(2*mu_j)/(2*mu_j) + 1)/2",
+    "termB = sum_{i=1}^{29} sum_{j=i+1}^{30} A_i * A_j * rho_i(x) * rho_j(x) * (sin(mu_i+mu_j)/(mu_i+mu_j) + sin(mu_i-mu_j)/(mu_i-mu_j))"
+  ],
+  "metadata": {
+    "classification": "QGR-P1-(1,...,6)",
+    "implementation": "AI/JSO, 03/2026"
+  },
+  "uncertainties": []
+}
