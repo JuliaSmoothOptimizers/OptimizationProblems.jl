@@ -159,10 +159,10 @@ function write_results_md(results)
     mdfile = joinpath(@__DIR__, "compare_ampl_nlp_results.md")
     open(mdfile, "w") do io
         println(io, "# AMPL-NLP vs OptimizationProblems.jl Comparison Results\n")
-        println(io, "| AMPL | IPOPT | AMPL obj value | OP obj@x0 | OP obj@sol | RelErr@x0 | RelErr@sol | Status |")
-        println(io, "|------|-------|----------------|-----------|------------|-----------|------------|--------|")
+        println(io, "| AMPL | IPOPT | AMPL obj value | OP obj@x0 | OP obj@sol | RelErr@x0 | RelErr@sol |")
+        println(io, "|------|-------|----------------|-----------|------------|-----------|------------|")
         for r in results
-            println(io, @sprintf("| %-6s | %-5s | %14.8g | %9.3g | %10.3g | %9.2e | %10.2e | %s |", r.AMPL, r.IPOPT, r.AMPL_OBJ, r.OP_OBJ_X0, r.OP_OBJ_SOL, r.RELERR_X0, r.RELERR_SOL, r.STATUS))
+            println(io, @sprintf("| %-6s | %-5s | %14.8g | %9.3g | %10.3g | %9.2e | %10.2e |", r.AMPL, r.IPOPT, r.AMPL_OBJ, r.OP_OBJ_X0, r.OP_OBJ_SOL, r.RELERR_X0, r.RELERR_SOL))
         end
     end
     println("Results written to compare_ampl_nlp_results.md")
