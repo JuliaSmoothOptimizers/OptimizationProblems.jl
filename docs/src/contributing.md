@@ -24,6 +24,7 @@ In both cases, the function must have the same name `problem_name` as the file.
 The documentation should be added to the file in the `PureJuMP` folder.
 * New problems can be scalable, see [ADNLPProblems/arglina.jl](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/arglina.jl) and [PureJuMP/arglina.jl](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/PureJuMP/arglina.jl) for examples. In that case, the first keyword parameter should be the number of variables `n::Int` and have the default value `default_nvar` (constant predefined in the module). If your problem has restrictions on the number of variables, e.g., `n` should be odd, or `n` should have the form `4k + 3`, then, instead of throwing errors when the restrictions are not satisfied, you should instead use the number of variables to be as close to `n` as possible. For example, if you want `n` odd and `n = 100` is passed, you can internally convert to `n = 99`. If you want `n = 4k + 3`, and `n = 100` is passed, then compute `k = round(Int, (n - 3) / 4)` and update `n`.
 * A first version of the `meta` can be generated using `generate_meta`. A `String` is returned that can be copy-pasted into the `Meta` folder, and then edited.
+
 ```julia
     using ADNLPModels, Distributed, NLPModels, NLPModelsJuMP, OptimizationProblems, Test
     include("test/utils.jl")
@@ -31,6 +32,8 @@ The documentation should be added to the file in the `PureJuMP` folder.
     # it must be exported.
     create_meta_files(String["catmix", "gasoil", "glider", "methanol", "pinene", "rocket", "steering"])
 ```
+
+* Problems modeled with `ADNLPModels` should be type-stable, i.e. they should all have keyword argument `type::Type{T} = Float64` where `T` is the type of the initial guess and the type used by the `NLPModel` API
 
 ## Templates for the new functions
 
@@ -75,8 +78,7 @@ end
 * Ensure all meta fields are accurate and complete.
 * For problem implementation in both ADNLP and PureJuMP, use the same initial point, variable bounds, constraint bounds and ensure objective and constraint values match within a relative tolerance.
 * The objective of implementations must be callable at the starting point and should not return NaN unless expected.
-* Problems modeled with `ADNLPModels` should be type-stable, i.e. they should all have keyword argument `type::Type{T} = Float64` where `T` is the type of the initial guess and the type used by the `NLPModel` API 
-and should support the `nls=true/false` keyword to allow both `ADNLPModel` and `ADNLSModel` instantiation from the same problem.
+* Problems modeled with `ADNLPModels` should support the `nls=true/false` keyword to allow both `ADNLPModel` and `ADNLSModel` instantiation from the same problem.
 * For least-squares problems, instantiate both `ADNLPModel` and `ADNLSModel` and ensure `residual!(nls, x, Fx)` is allocation-free with the objectives agree (or differ by a factor of 2 for LS).
 * For variable-size problems, verify that different values of `n` produce correct `nvar`, meta formulas predict actual values and instantiation works at various sizes.
 
