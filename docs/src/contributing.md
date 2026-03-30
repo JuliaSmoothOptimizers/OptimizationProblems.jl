@@ -33,7 +33,7 @@ The documentation should be added to the file in the `PureJuMP` folder.
     create_meta_files(String["catmix", "gasoil", "glider", "methanol", "pinene", "rocket", "steering"])
 ```
 
-* Problems modeled with `ADNLPModels` should be type-stable, i.e. they should all have keyword argument `type::Type{T} = Float64` where `T` is the type of the initial guess and the type used by the `NLPModel` API
+* Problems modeled with `ADNLPModels` should be type-stable, i.e. they should all have keyword argument `type::Type{T} = Float64` where `T` is the type of the initial guess and the type used by the `NLPModel` API.
 
 ## Templates for the new functions
 
@@ -96,7 +96,7 @@ end
 - [ ] Objective and constraint values agree within tolerance at test points.
 - [ ] Number of variables and constraints match.
 
-**Sanity & Robustness**
+**Sanity**
 - [ ] Objective is callable at the starting point and does not return NaN (unless documented).
 - [ ] Model instantiates without error for all supported types (Float32, Float64).
 - [ ] For scalable problems, changing n updates nvar and all related meta fields.
@@ -106,6 +106,6 @@ end
 - [ ] In-place nonlinear constraint evaluation (`nln!`) and least-squares residuals (`residual!`) are allocation-free.
 - [ ] For least-squares, objectives for NLP and NLS agree (or differ by a factor of 2, as appropriate).
 
-**Zero-Allocation & Performance**
+**Zero-Allocation**
 - [ ] All in-place APIs (constraints, residuals) are allocation-free (Julia ≥ 1.7).
 - [ ] No unnecessary allocations in tight loops or callbacks.
