@@ -71,9 +71,16 @@ obj(nlp16_12, zeros(Float16, 12))
 ### Nonlinear Least Squares (NLS) Problems
 
 Some problems are classified as nonlinear least squares (NLS). These problems:
-- Have `:objtype` set to `:least_squares` in their meta data.
-- Use `ADNLSModels` for the ADNLPProblems implementation.
-- Provide a getter for the number of NLS equations, e.g., `get_lanczos1_nls_nequ()`.
+- Provide both an `ADNLPModel` and an `ADNLSModel` implementation, and dispatch to one or the other using the `use_nls` keyword argument.
+- See [`arglina`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/arglina.jl) for a concrete example of this pattern.
+
+To obtain the least-squares model (`ADNLSModel`), use the `use_nls=true` keyword argument when constructing the problem:
+```julia
+# Standard nonlinear model (ADNLPModel)
+lanczos1_nlp = lanczos1()
+# Least-squares model (ADNLSModel)
+lanczos1_nls = lanczos1(use_nls=true)
+```
 
 To list all NLS problems:
 ```julia
@@ -83,4 +90,4 @@ To access the number of NLS equations for a problem:
 ```julia
 OptimizationProblems.get_lanczos1_nls_nequ()
 ```
-See existing NLS problems (e.g., `lanczos1`, `lanczos2`, `brownal`) for templates.
+See existing NLS problems (e.g., [`lanczos1`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/lanczos1.jl), [`lanczos2`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/lanczos2.jl), [`brownal`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/brownal.jl)) for templates.
