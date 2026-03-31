@@ -66,3 +66,12 @@ function chebyquad(
   x0 = [j / (n + 1) for j = 1:n]
   return ADNLPModels.ADNLSModel!(F!, x0, m, name = "chebyquad-nls"; kwargs...)
 end
+
+# Forwarding for positional signature with type::Type{T} for NLP
+function chebyquad(n::Int, m::Int, type::Type{T}, chebyshev, args...; kwargs..., ::Val{:nlp}) where {T}
+    chebyquad(n, m, Val(T), chebyshev, args...; kwargs..., Val(:nlp))
+end
+# Forwarding for positional signature with type::Type{T} for NLS
+function chebyquad(n::Int, m::Int, type::Type{T}, chebyshev, args...; kwargs..., ::Val{:nls}) where {T}
+    chebyquad(n, m, Val(T), chebyshev, args...; kwargs..., Val(:nls))
+end
