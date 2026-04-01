@@ -76,8 +76,8 @@ end
 ## Validating new problems
 
 * Ensure all meta fields are accurate and complete.
-* For problem implementation in both ADNLP and PureJuMP, use the same initial point, variable bounds, constraint bounds and ensure objective and constraint values match within a relative tolerance.
-* The objective of implementations must be callable at the starting point and should not return NaN unless expected.
+* For problem implementation in both ADNLPProblems and PureJuMP, use the same initial point, variable bounds, constraint bounds and ensure objective and constraint values match within a relative tolerance.
+* The objective of implementations must be callable at the starting point.
 * Problems modeled with `ADNLPModels` should support the `nls=true/false` keyword to allow both `ADNLPModel` and `ADNLSModel` instantiation from the same problem.
 * For least-squares problems, instantiate both `ADNLPModel` and `ADNLSModel` and ensure `residual!(nls, x, Fx)` is allocation-free with the objectives agree (or differ by a factor of 2 for LS).
 * For variable-size problems, verify that different values of `n` produce correct `nvar`, meta formulas predict actual values and instantiation works at various sizes.
@@ -107,5 +107,5 @@ end
 - [ ] For least-squares, objectives for NLP and NLS agree (or differ by a factor of 2, as appropriate).
 
 **Zero-Allocation**
-- [ ] All in-place APIs (constraints, residuals) are allocation-free (Julia ≥ 1.7).
+- [ ] All in-place APIs (constraints, residuals) are allocation-free.
 - [ ] No unnecessary allocations in tight loops or callbacks.
