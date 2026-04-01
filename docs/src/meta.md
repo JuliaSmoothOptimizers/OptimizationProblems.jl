@@ -51,9 +51,8 @@ adproblems = (
 )
 ```
 
-### Nonlinear Least Squares (NLS) Problems
-
-Problems with `:objtype` set to `:least_squares` are nonlinear least squares (NLS) problems. For these, you can access the number of NLS equations using a getter like `get_nameoftheproblem_nls_nequ()`.
+### Nonlinear Least Squares Problems (NLS) 
+Problems with `:objtype` set to `:least_squares` are nonlinear least squares problems (NLS). For these, you can access the number of NLS equations using a getter like `get_nameoftheproblem_nls_nequ()`.
 ```@example 1
 OptimizationProblems.get_lanczos1_nls_nequ()
 ```
