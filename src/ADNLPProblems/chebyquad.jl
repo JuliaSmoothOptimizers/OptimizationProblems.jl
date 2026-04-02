@@ -26,7 +26,7 @@ function chebyquad(
   ::Val{:nlp};
   n::Int = default_nvar,
   m::Int = n,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   chebyshev = Cheby,
   kwargs...,
 ) where {T}
@@ -48,7 +48,7 @@ function chebyquad(
   ::Val{:nls};
   n::Int = default_nvar,
   m::Int = n,
-  type::Val{T} = Val(Float64),
+  type::Type{T} = Float64,
   chebyshev = Cheby,
   kwargs...,
 ) where {T}
@@ -67,11 +67,3 @@ function chebyquad(
   return ADNLPModels.ADNLSModel!(F!, x0, m, name = "chebyquad-nls"; kwargs...)
 end
 
-# Forwarding for positional signature with type::Type{T} for NLP
-function chebyquad(n::Int, m::Int, type::Type{T}, chebyshev, args...; kwargs..., ::Val{:nlp}) where {T}
-    chebyquad(n, m, Val(T), chebyshev, args...; kwargs..., Val(:nlp))
-end
-# Forwarding for positional signature with type::Type{T} for NLS
-function chebyquad(n::Int, m::Int, type::Type{T}, chebyshev, args...; kwargs..., ::Val{:nls}) where {T}
-    chebyquad(n, m, Val(T), chebyshev, args...; kwargs..., Val(:nls))
-end
