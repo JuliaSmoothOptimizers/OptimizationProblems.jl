@@ -6,20 +6,19 @@ function chebyquad(; use_nls::Bool = false, kwargs...)
 end
 
 function Cheby(xj, i)
-    eps = 1e-12  # Small tolerance for floating-point/AD noise
-    xj_clamped = min(max(xj, -1), 1)
-    pos = xj >= 1 - eps
-    neg = xj <= -1 + eps
-    # Always clamp argument to acosh to at least 1 (or -1)
-    acosh_arg_pos = max(abs(xj), 1)
-    acosh_arg_neg = max(abs(xj), 1)
-    return ifelse(pos,
-        cosh(i * acosh(acosh_arg_pos)),
-        ifelse(neg,
-            (-1)^i * cosh(i * acosh(acosh_arg_neg)),
-            cos(i * acos(xj_clamped))
-        )
-    )
+    # Use standard Chebyshev definition with robust handling of tiny excursions:
+    #   T_i(x) = cos(i * acos(x))          for |x| ≤ 1
+    #   T_i(x) = cosh(i * acosh(x))        for x > 1
+    #   T_i(x) = (-1)^i * cosh(i * acosh(-x)) for x < -1
+    if xj > 1
+        return cosh(i * acosh(xj))
+    elseif xj < -1
+        return (-1)^i * cosh(i * acosh(-xj))
+    else
+        # Clamp only for acos to guard against tiny floating-point/AD excursions.
+        xj_clamped = min(max(xj, -1), 1)
+        return cos(i * acos(xj_clamped))
+    end
 end
 
 function chebyquad(

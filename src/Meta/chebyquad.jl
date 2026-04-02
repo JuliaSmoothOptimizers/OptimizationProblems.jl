@@ -23,4 +23,4 @@ get_chebyquad_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_chebyquad_nnln(; n::Integer = default_nvar, kwargs...) = 0
 get_chebyquad_nequ(; n::Integer = default_nvar, kwargs...) = 0
 get_chebyquad_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_chebyquad_nls_nequ(; n::Integer = default_nvar, m::Int = n, kwargs...) = m
+get_chebyquad_nls_nequ(; n::Integer = default_nvar, m::Int = n, kwargs...) = max(m, n)

@@ -1,5 +1,5 @@
 #
-#   The Chebychev quadrature problem in variable dimension, using the
+#   The Chebyshev quadrature problem in variable dimension, using the
 #   exact formula for the shifted Chebyshev polynomials.  This is a
 #   nonlinear least-squares problem with n groups. The Hessian is full.
 #
@@ -27,26 +27,38 @@ function chebyquad(args...; n::Int = default_nvar, m::Int = n, kwargs...)
     0.5 * sum(
       (
         1 / n * sum(
-          (ifelse(
-            x[j] ≥ 1,
-            cosh(2i * acosh(x[j])),
-            ifelse(x[j] ≤ -1, (-1)^(2i) * cosh(2i * acosh(-x[j])), cos(2i * acos(x[j]))),
-          )) for j = 1:n
+          (begin
+            # Use shifted Chebyshev argument t = 2x - 1
+            t = 2 * x[j] - 1
+            ifelse(
+              t ≥ 1,
+              cosh(2i * acosh(t)),
+              ifelse(
+                t ≤ -1,
+                (-1)^(2i) * cosh(2i * acosh(-t)),
+                cos(2i * acos(t)),
+              ),
+            )
+          end) for j = 1:n
         ) + 1 / ((2i)^2 - 1)
       )^2 for i = 1:Int(round(m / 2))
     ) +
     0.5 * sum(
       (
         1 / n * sum(
-          (ifelse(
-            x[j] ≥ 1,
-            cosh((2i - 1) * acosh(x[j])),
+          (begin
+            # Use shifted Chebyshev argument t = 2x - 1
+            t = 2 * x[j] - 1
             ifelse(
-              x[j] ≤ -1,
-              (-1)^(2i - 1) * cosh((2i - 1) * acosh(-x[j])),
-              cos((2i - 1) * acos(x[j])),
-            ),
-          )) for j = 1:n
+              t ≥ 1,
+              cosh((2i - 1) * acosh(t)),
+              ifelse(
+                t ≤ -1,
+                (-1)^(2i - 1) * cosh((2i - 1) * acosh(-t)),
+                cos((2i - 1) * acos(t)),
+              ),
+            )
+          end) for j = 1:n
         )
       )^2 for i = 1:(Int(round(m / 2)) + mod(n, 2))
     )
