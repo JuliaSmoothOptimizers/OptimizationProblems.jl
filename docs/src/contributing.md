@@ -72,20 +72,3 @@ function function_name(; n::Int = default_nvar, type::Type{T} = Float64, kwargs.
   return nlp
 end
 ```
-
-### Nonlinear Least Squares (NLS) Problems
-
-If your problem is a nonlinear least squares (NLS), please follow these guidelines:
-* Use `ADNLSModels` for the ADNLPProblems implementation (see [ADNLPModels.jl](https://github.com/JuliaSmoothOptimizers/ADNLPModels.jl)).
-* Set the `:objtype` entry in the meta file to `:least_squares`.
-* Add a getter for the number of NLS equations, named `get_problemname_nls_nequ`.
-* In the `PureJuMP` file, clearly document that the problem is a nonlinear least squares (NLS) problem and explain how users can construct both the standard and NLS variants.
-* Explicitly state that the NLS variant can be accessed by passing the keyword argument `use_nls=true` when constructing the problem, e.g.:
-  ```julia
-  # Standard model (ADNLPModel)
-  myprob_nlp = myprob()
-  # Least-squares model (ADNLSModel)
-  myprob_nls = myprob(use_nls=true)
-  ```
-* Make sure this information is also reflected in the meta file, so users and tools can easily discover the NLS capability.
-See existing NLS problems (e.g., [`lanczos1`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/lanczos1.jl), [`lanczos2`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/lanczos2.jl), [`brownal`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/brownal.jl)) for templates.
