@@ -34,6 +34,7 @@ The documentation should be added to the file in the `PureJuMP` folder.
 ```
 
 * Problems modeled with `ADNLPModels` should be type-stable, i.e. they should all have keyword argument `type::Type{T} = Float64` where `T` is the type of the initial guess and the type used by the `NLPModel` API.
+* In particular, the initial point `x0` should be a `Vector{T}`, the objective evaluation should return values of type `T`, and the `name` keyword should be passed to `ADNLPModel`/`ADNLSModel` with a meaningful problem name.
 
 ## Templates for the new functions
 
@@ -68,6 +69,7 @@ export function_name
 function function_name(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T} 
   # define f 
   # define x0
+  # ensure x0 isa Vector{T} and f(x) returns T
   # nlp = ADNLPModels.ADNLPModel(f, x0, name = "function_name"; kwargs...)
   return nlp
 end
@@ -76,11 +78,31 @@ end
 ## Validating new problems
 
 * Ensure all meta fields are accurate and complete.
-* For problem implementation in both ADNLPProblems and PureJuMP, use the same initial point, variable bounds, constraint bounds and ensure objective and constraint values match within a relative tolerance.
+* For implementations in both `ADNLPProblems` and `PureJuMP`, use the same initial point, variable bounds, constraint bounds and explicitly compare the two models to ensure objective and constraint values match within a relative tolerance.
 * The objective of implementations must be callable at the starting point.
-* Problems modeled with `ADNLPModels` should support the `nls=true/false` keyword to allow both `ADNLPModel` and `ADNLSModel` instantiation from the same problem.
+* For `ADNLPModels` problems, the objective should return values of type `T` from `type::Type{T}` and the initial point should be typed consistently (`x0::Vector{T}`).
+* Pass a meaningful `name` keyword to `ADNLPModel`/`ADNLSModel` constructors (typically matching the problem/function name).
+* For least-squares problems, support the `use_nls=true/false` keyword to allow both `ADNLPModel` and `ADNLSModel` instantiation from the same problem.
 * For least-squares problems, instantiate both `ADNLPModel` and `ADNLSModel` and ensure `residual!(nls, x, Fx)` is allocation-free and that the objectives agree (or differ by a factor of 2 for LS).
-* For variable-size problems, verify that different values of `n` produce correct `nvar`, meta formulas predict actual values and instantiation works at various sizes.
+* For constrained problems, ensure in-place constraint evaluations (e.g., `cons_nln!`) are allocation-free.
+* Objective evaluations should have minimal allocations (preferably zero allocations in hot paths).
+* For variable-size problems, validate at multiple sizes (for example `n = 5`, `n = default_nvar`, and a larger `n`) and check all of the following:
+  - model instantiation succeeds for each tested `n`;
+  - effective `nvar` matches the intended rule (including any internal adjustment such as odd `n` or `4k + 3` constraints);
+  - metadata formulas (`nvar`, `nnzh`, `nnzj`, etc.) match the instantiated model values.
+
+Optional (recommended): provide a local solver sanity check showing that a standard solver can solve the model from the provided starting point. This is not a hard requirement for CI or review.
+
+```julia
+using OptimizationProblems, OptimizationProblems.ADNLPProblems
+using NLPModelsIpopt
+
+nlp = problem_name()
+stats = ipopt(nlp)
+stats.status
+```
+
+For least-squares problems, you may also run the same check with `problem_name(use_nls=true)`.
 
 ### Nonlinear Least Squares (NLS) Problems
 
@@ -101,28 +123,36 @@ See existing NLS problems (e.g., [`lanczos1`](https://github.com/JuliaSmoothOpti
 
 ## Reviewer Checklist for New Problems
 
+- [ ] First check: the problem is added in exactly these three files with the same base name: `src/ADNLPProblems/problem_name.jl`, `src/PureJuMP/problem_name.jl`, and `src/Meta/problem_name.jl`.
+  Example: [`arglina` in ADNLPProblems](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/arglina.jl), [`arglina` in PureJuMP](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/PureJuMP/arglina.jl), and [`arglina` in Meta](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/Meta/arglina.jl).
+
 **Meta**
-- [ ] Every new problem (ADNLP or PureJuMP) is registered in Meta, with all fields (origin, objtype, contype, bounds, best-known, etc.) filled correctly.
+- [ ] The corresponding meta file exists (`src/Meta/problem_name.jl`), the problem name matches the AD and JuMP files, and `OptimizationProblems.meta` contains the problem entry.
+- [ ] All meta fields (origin, objtype, contype, bounds, best-known, etc.) are filled correctly.
 - [ ] Meta formulas for variable sizes match actual model behavior.
 
 **Definition**
 - [ ] No extra or spurious exports are introduced.
 - [ ] Model name matches the file and function name.
+- [ ] The implemented objective, constraints, and bounds match the mathematical problem definition from the cited reference/documentation.
 
 **Implementation**
-- [ ] Objective and constraint values agree within tolerance at test points.
+- [ ] Objective and constraint values agree (ADNLPProblems vs PureJuMP) within tolerance at test points.
 - [ ] Number of variables and constraints match.
+- [ ] For `type::Type{T}`, `x0 isa Vector{T}` and objective values are of type `T`.
+- [ ] `ADNLPModel`/`ADNLSModel` constructors receive a meaningful `name` keyword.
 
 **Sanity**
 - [ ] Objective is callable at the starting point and does not return NaN (unless documented).
 - [ ] Model instantiates without error for different types, e.g. Float32 and Float64.
-- [ ] For scalable problems, changing n updates nvar and all related meta fields.
+- [ ] For scalable problems, changing `n` updates `nvar` and all related meta fields, and the effective number of variables remains as close as possible to the requested `n` when internal adjustments are required.
+
+**Zero-Allocation**
+- [ ] All in-place APIs (constraints, residuals) are allocation-free.
+- [ ] No unnecessary allocations in tight loops or callbacks.
+- [ ] Objective evaluation has minimal allocations (ideally allocation-free in performance-critical paths).
 
 **Least-Squares & In-Place APIs**
 - [ ] If least-squares, ADNLP constructor supports `nls=true/false` for both ADNLPModel and ADNLSModel.
 - [ ] In-place nonlinear constraint evaluation (`cons_nln!(nlp, x, cx)`) and least-squares residuals (`residual!`) are allocation-free.
 - [ ] For least-squares, objectives for NLP and NLS agree (or differ by a factor of 2, as appropriate).
-
-**Zero-Allocation**
-- [ ] All in-place APIs (constraints, residuals) are allocation-free.
-- [ ] No unnecessary allocations in tight loops or callbacks.
