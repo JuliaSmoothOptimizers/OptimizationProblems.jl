@@ -72,19 +72,21 @@ obj(nlp16_12, zeros(Float16, 12))
 
 Some problems are classified as nonlinear least squares (NLS). These problems may provide both an `ADNLPModel` and an `ADNLSModel` implementation, and dispatch to one or the other using the `use_nls` keyword argument, see [`arglina`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/arglina.jl) for a concrete example of this pattern.
 
+Using `ADNLSModel` can be preferable when a solver exploits the least-squares structure directly (residual vector and Jacobian), which is often more efficient and numerically robust than treating the same problem as a generic nonlinear program (`ADNLPModel`).
+
 To obtain the least squares model (`ADNLSModel`), use the `use_nls=true` keyword argument when constructing the problem:
-```julia
-# Standard nonlinear model (ADNLPModel)
+``` @example ex2
 lanczos1_nlp = lanczos1()
-# Least-squares model (ADNLSModel)
 lanczos1_nls = lanczos1(use_nls=true)
+typeof(lanczos1_nlp)
+typeof(lanczos1_nls)
 ```
 
 To list all NLS problems:
-```julia
+``` @example ex2
 nls_problems = OptimizationProblems.meta[OptimizationProblems.meta.objtype .== :least_squares, :name]
 ```
 To access the number of NLS equations for a problem:
-```julia
+``` @example ex2
 OptimizationProblems.get_lanczos1_nls_nequ()
 ```
