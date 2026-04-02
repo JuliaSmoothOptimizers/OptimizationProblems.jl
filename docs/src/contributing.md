@@ -79,7 +79,7 @@ end
 * For problem implementation in both ADNLPProblems and PureJuMP, use the same initial point, variable bounds, constraint bounds and ensure objective and constraint values match within a relative tolerance.
 * The objective of implementations must be callable at the starting point.
 * Problems modeled with `ADNLPModels` should support the `nls=true/false` keyword to allow both `ADNLPModel` and `ADNLSModel` instantiation from the same problem.
-* For least-squares problems, instantiate both `ADNLPModel` and `ADNLSModel` and ensure `residual!(nls, x, Fx)` is allocation-free with the objectives agree (or differ by a factor of 2 for LS).
+* For least-squares problems, instantiate both `ADNLPModel` and `ADNLSModel` and ensure `residual!(nls, x, Fx)` is allocation-free and that the objectives agree (or differ by a factor of 2 for LS).
 * For variable-size problems, verify that different values of `n` produce correct `nvar`, meta formulas predict actual values and instantiation works at various sizes.
 
 ### Nonlinear Least Squares (NLS) Problems
@@ -115,12 +115,12 @@ See existing NLS problems (e.g., [`lanczos1`](https://github.com/JuliaSmoothOpti
 
 **Sanity**
 - [ ] Objective is callable at the starting point and does not return NaN (unless documented).
-- [ ] Model instantiates without error for all supported types (Float32, Float64).
+- [ ] Model instantiates without error for different types, e.g. Float32 and Float64.
 - [ ] For scalable problems, changing n updates nvar and all related meta fields.
 
 **Least-Squares & In-Place APIs**
 - [ ] If least-squares, ADNLP constructor supports `nls=true/false` for both ADNLPModel and ADNLSModel.
-- [ ] In-place nonlinear constraint evaluation (`nln!`) and least-squares residuals (`residual!`) are allocation-free.
+- [ ] In-place nonlinear constraint evaluation (`cons_nln!(nlp, x, cx)`) and least-squares residuals (`residual!`) are allocation-free.
 - [ ] For least-squares, objectives for NLP and NLS agree (or differ by a factor of 2, as appropriate).
 
 **Zero-Allocation**
