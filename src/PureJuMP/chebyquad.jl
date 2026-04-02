@@ -27,40 +27,32 @@ function chebyquad(args...; n::Int = default_nvar, m::Int = n, kwargs...)
     0.5 * sum(
       (
         1 / n * sum(
-          (begin
-            # Use shifted Chebyshev argument t = 2x - 1
-            t = 2 * x[j] - 1
+          ifelse(
+            2 * x[j] - 1 ≥ 1,
+            cosh(2i * acosh(2 * x[j] - 1)),
             ifelse(
-              t ≥ 1,
-              cosh(2i * acosh(t)),
-              ifelse(
-                t ≤ -1,
-                (-1)^(2i) * cosh(2i * acosh(-t)),
-                cos(2i * acos(t)),
-              ),
-            )
-          end) for j = 1:n
+              2 * x[j] - 1 ≤ -1,
+              (-1)^(2i) * cosh(2i * acosh(1 - 2 * x[j])),
+              cos(2i * acos(2 * x[j] - 1)),
+            ),
+          ) for j = 1:n
         ) + 1 / ((2i)^2 - 1)
-      )^2 for i = 1:Int(round(m / 2))
+      )^2 for i = 1:div(m, 2)
     ) +
     0.5 * sum(
       (
         1 / n * sum(
-          (begin
-            # Use shifted Chebyshev argument t = 2x - 1
-            t = 2 * x[j] - 1
+          ifelse(
+            2 * x[j] - 1 ≥ 1,
+            cosh((2i - 1) * acosh(2 * x[j] - 1)),
             ifelse(
-              t ≥ 1,
-              cosh((2i - 1) * acosh(t)),
-              ifelse(
-                t ≤ -1,
-                (-1)^(2i - 1) * cosh((2i - 1) * acosh(-t)),
-                cos((2i - 1) * acos(t)),
-              ),
-            )
-          end) for j = 1:n
+              2 * x[j] - 1 ≤ -1,
+              (-1)^(2i - 1) * cosh((2i - 1) * acosh(1 - 2 * x[j])),
+              cos((2i - 1) * acos(2 * x[j] - 1)),
+            ),
+          ) for j = 1:n
         )
-      )^2 for i = 1:(Int(round(m / 2)) + mod(n, 2))
+      )^2 for i = 1:div(m + 1, 2)
     )
   )
   return nlp
