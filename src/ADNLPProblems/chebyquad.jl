@@ -32,15 +32,18 @@ function chebyquad(
 ) where {T}
   m = max(m, n)
   function f(x; n = length(x), m = m, chebyshev = chebyshev)
-    return 0.5 * sum(
-      (1 / n * sum(chebyshev(x[j], 2i) for j = 1:n) + 1 / ((2i)^2 - 1))^2 for
+    inv_n = one(T) / n
+    half = one(T) / 2
+    return half * sum(
+      (inv_n * sum(chebyshev(x[j], 2i) for j = 1:n) + inv(T((2i)^2 - 1)))^2 for
       i = 1:Int(round(m / 2))
     ) +
-           0.5 * sum(
-      (1 / n * sum(chebyshev(x[j], 2i - 1) for j = 1:n))^2 for i = 1:(Int(round(m / 2)) + mod(n, 2))
+           half * sum(
+      (inv_n * sum(chebyshev(x[j], 2i - 1) for j = 1:n))^2 for i = 1:(Int(round(m / 2)) + mod(n, 2))
     )
   end
-  x0 = [j / (n + 1) for j = 1:n]
+  step = one(T) / (n + one(T))
+  x0 = [j * step for j = 1:n]
   return ADNLPModels.ADNLPModel(f, x0, name = "chebyquad"; kwargs...)
 end
 
@@ -54,16 +57,18 @@ function chebyquad(
 ) where {T}
   m = max(m, n)
   function F!(r, x; n = length(x), m = length(r), chebyshev = chebyshev)
+    inv_n = one(T) / n
     for i = 1:Int(round(m / 2))
-      r[2i] = 1 / n * sum(chebyshev(x[j], 2i) for j = 1:n) + 1 / ((2i)^2 - 1)
-      r[2i - 1] = 1 / n * sum(chebyshev(x[j], 2i - 1) for j = 1:n)
+      r[2i] = inv_n * sum(chebyshev(x[j], 2i) for j = 1:n) + inv(T((2i)^2 - 1))
+      r[2i - 1] = inv_n * sum(chebyshev(x[j], 2i - 1) for j = 1:n)
     end
     if mod(m, 2) == 1
-      r[m] = 1 / n * sum(chebyshev(x[j], m) for j = 1:n)
+      r[m] = inv_n * sum(chebyshev(x[j], m) for j = 1:n)
     end
     return r
   end
-  x0 = [j / (n + 1) for j = 1:n]
+  step = one(T) / (n + one(T))
+  x0 = [j * step for j = 1:n]
   return ADNLPModels.ADNLSModel!(F!, x0, m, name = "chebyquad-nls"; kwargs...)
 end
 
