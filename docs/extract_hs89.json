@@ -5,7 +5,7 @@
   "bounds": {
     "lvar": "none",
     "uvar": "none",
-    "x0": "none"
+    "x0": [0.0, 0.0, 0.0]
   },
   "objective": "sum_{j=1}^{30} A_j * rho_j(x)\nwhere rho_j(x) = - (exp(-mu_j^2 * r) + 2*exp(-mu_j^2*(x2^2 + x3^2)) + 2*exp(-mu_j^2*x3^2) + 1) / mu_j^2\nr = x1^2 + x2^2 + x3^2\nA_j = 2*sin(mu_j)/(mu_j + sin(mu_j)*cos(mu_j))\nmu_j: first 30 positive roots of tan(mu) = mu",
   "constraints": [

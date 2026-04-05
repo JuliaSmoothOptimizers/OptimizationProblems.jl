@@ -14,10 +14,8 @@
 export hs85
 
 "HS85 model"
-function hs85_jump()
-  m = Model(Ipopt.Optimizer)
-  set_attribute(m, "tol", 1e-10)
-  set_attribute(m, "print_level", 5)
+function hs85()
+  m = Model()
 
   # Decision variables
   @variable(m, 704.4148 ≤ x1 ≤ 906.3855)

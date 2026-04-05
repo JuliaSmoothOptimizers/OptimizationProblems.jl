@@ -21,8 +21,11 @@ function hs89_jump(
     "print_level" => 5,
     "max_iter" => 10000,
     "acceptable_tol" => 1e-8,
-  ),
+  );
+  n::Int = 3,
+  kwargs...,
 )
+  _ = n, kwargs
   model = Model(optimizer)
 
   # Apply solver-specific options
