@@ -95,7 +95,7 @@ function hs85(; type::Type{T} = Float64, kwargs...) where {T}
            T(0.1365)
   end
 
-  # Constraint function (48 inequalities, all of the form c(x) >= 0)
+  # Constraint function (38 nonlinear inequalities, all of the form c(x) >= 0)
   function c!(cx::AbstractVector{T}, x::AbstractVector{T})
     # All intermediates (identical to those used in objective)
     y1 = x[2] + x[3] + T(41.6)
@@ -171,21 +171,10 @@ function hs85(; type::Type{T} = Float64, kwargs...) where {T}
     cx[36] = y4 - (T(0.28) / T(0.72)) * y5
     cx[37] = T(21) - T(3496) * y2 / c12
     cx[38] = T(62212) / c17 - T(110.6) - y1
-    # 10 box constraints (5 lower, 5 upper)
-    cx[39] = x[1] - lvar[1]
-    cx[40] = x[2] - lvar[2]
-    cx[41] = x[3] - lvar[3]
-    cx[42] = x[4] - lvar[4]
-    cx[43] = x[5] - lvar[5]
-    cx[44] = uvar[1] - x[1]
-    cx[45] = uvar[2] - x[2]
-    cx[46] = uvar[3] - x[3]
-    cx[47] = uvar[4] - x[4]
-    cx[48] = uvar[5] - x[5]
     return cx
   end
   # Constraint bounds: all inequalities of the form c(x) >= 0
-  m = 48
+  m = 38
   cl = zeros(T, m)
   cu = fill(T(Inf), m)
   return ADNLPModels.ADNLPModel!(f, x0, lvar, uvar, c!, cl, cu; name = "hs85", kwargs...)

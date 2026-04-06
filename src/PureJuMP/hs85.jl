@@ -14,7 +14,7 @@
 export hs85
 
 "HS85 model"
-function hs85()
+function hs85(args...; kwargs...)
   m = Model()
 
   # Decision variables
@@ -100,10 +100,10 @@ function hs85()
     12146108,
   ]
 
+  y = Any[y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, y11, y12, y13, y14, y15, y16, y17]
   for i = 2:17
-    yi = Symbol("y$i")
-    @constraint(m, getfield(Main, yi) >= a[i])
-    @constraint(m, getfield(Main, yi) <= b[i])
+    @constraint(m, y[i] >= a[i])
+    @constraint(m, y[i] <= b[i])
   end
 
   # Other inequalities

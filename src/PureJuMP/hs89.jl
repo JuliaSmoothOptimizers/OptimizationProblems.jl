@@ -14,14 +14,17 @@
 export hs89
 
 "HS89 model"
-function hs89_jump(
-  optimizer = Ipopt.Optimizer,
-  optimizer_attributes = Dict(
-    "tol" => 1e-10,
+function hs89(
+  args...;
   optimizer = nothing,
   optimizer_attributes = nothing,
+  kwargs...,
 )
   model = optimizer === nothing ? Model() : Model(optimizer)
+
+  if optimizer !== nothing && optimizer_attributes === nothing
+    optimizer_attributes = Dict("tol" => 1e-10)
+  end
 
   # Apply solver-specific options only when an optimizer and attributes are provided
   if optimizer_attributes !== nothing
@@ -72,9 +75,6 @@ function hs89_jump(
   # Coefficients Aⱼ
   A = [2 * sin(mu[j]) / (mu[j] + sin(mu[j]) * cos(mu[j])) for j = 1:30]
 
-  # Precompute nothing — JuMP + AD will handle it
-
-  # Helper expressions for ρⱼ (makes model more readable)
   @expression(
     model,
     ρ[j = 1:30],
