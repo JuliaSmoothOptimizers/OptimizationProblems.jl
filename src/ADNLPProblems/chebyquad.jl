@@ -5,19 +5,22 @@ function chebyquad(; use_nls::Bool = false, kwargs...)
   return chebyquad(Val(model); kwargs...)
 end
 
-function Cheby(xj, i)
-    # Use standard Chebyshev definition with robust handling of tiny excursions:
-    #   T_i(x) = cos(i * acos(x))          for |x| ≤ 1
-    #   T_i(x) = cosh(i * acosh(x))        for x > 1
-    #   T_i(x) = (-1)^i * cosh(i * acosh(-x)) for x < -1
-    if xj > 1
-        return cosh(i * acosh(xj))
-    elseif xj < -1
-        return (-1)^i * cosh(i * acosh(-xj))
-    else
-        # Clamp only for acos to guard against tiny floating-point/AD excursions.
-      return cos(i * acos(min(max(xj, -1), 1)))
-    end
+function Cheby(xj, i::Integer)
+  # Evaluate T_i(x) via recurrence to avoid domain-branching and AD/tracer issues.
+  if i == 0
+    return one(xj)
+  elseif i == 1
+    return xj
+  end
+
+  tk_minus_1 = one(xj)
+  tk = xj
+  for _ = 2:i
+    tk_plus_1 = 2 * xj * tk - tk_minus_1
+    tk_minus_1 = tk
+    tk = tk_plus_1
+  end
+  return tk
 end
 
 function chebyquad(
