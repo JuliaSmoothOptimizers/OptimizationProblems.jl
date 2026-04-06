@@ -67,9 +67,8 @@ Next, we describe the `ADNLPProblems` file `function_name.jl`.
 export function_name
 
 function function_name(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T} 
-  # define f 
-  # define x0
-  # ensure x0 isa Vector{T} and f(x) returns T
+  # define f (ensure f(x0) is of type T)
+ # define x0 (ensure x0 isa Vector{T})
   # nlp = ADNLPModels.ADNLPModel(f, x0, name = "function_name"; kwargs...)
   return nlp
 end
@@ -78,20 +77,19 @@ end
 ## Validating new problems
 
 * Ensure all meta fields are accurate and complete.
-* For implementations in both `ADNLPProblems` and `PureJuMP`, use the same initial point, variable bounds, constraint bounds and explicitly compare the two models to ensure objective and constraint values match within a relative tolerance.
-* The objective of implementations must be callable at the starting point.
+* Implementations in `ADNLPProblems` and `PureJuMP` must use the same initial point, variable bounds, constraint bounds. The two models must have matching objective and constraint values match (within a relative tolerance).
+* The implemented objective function must be callable at the starting point.
 * For `ADNLPModels` problems, the objective should return values of type `T` from `type::Type{T}` and the initial point should be typed consistently (`x0::Vector{T}`).
-* Pass a meaningful `name` keyword to `ADNLPModel`/`ADNLSModel` constructors (typically matching the problem/function name).
+* Pass a meaningful `name` keyword to `ADNLPModel` constructors (typically matching the problem/function name).
 * For least-squares problems, support the `use_nls=true/false` keyword to allow both `ADNLPModel` and `ADNLSModel` instantiation from the same problem.
 * For least-squares problems, instantiate both `ADNLPModel` and `ADNLSModel` and ensure `residual!(nls, x, Fx)` is allocation-free and that the objectives agree (or differ by a factor of 2 for LS).
 * For constrained problems, ensure in-place constraint evaluations (e.g., `cons_nln!`) are allocation-free.
-* Objective evaluations should have minimal allocations (preferably zero allocations in hot paths).
+* Objective function evaluations should have minimal allocations.
 * For variable-size problems, validate at multiple sizes (for example `n = 5`, `n = default_nvar`, and a larger `n`) and check all of the following:
   - model instantiation succeeds for each tested `n`;
   - effective `nvar` matches the intended rule (including any internal adjustment such as odd `n` or `4k + 3` constraints);
   - metadata formulas (`nvar`, `nnzh`, `nnzj`, etc.) match the instantiated model values.
-
-Optional (recommended): provide a local solver sanity check showing that a standard solver can solve the model from the provided starting point. This is not a hard requirement for CI or review.
+* Optional (recommended): provide a local solver sanity check showing that a standard solver can solve the model from the provided starting point. This is not a hard requirement for CI or review.
 
 ```julia
 using OptimizationProblems, OptimizationProblems.ADNLPProblems
