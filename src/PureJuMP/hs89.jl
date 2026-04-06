@@ -18,19 +18,16 @@ function hs89_jump(
   optimizer = Ipopt.Optimizer,
   optimizer_attributes = Dict(
     "tol" => 1e-10,
-    "print_level" => 5,
-    "max_iter" => 10000,
-    "acceptable_tol" => 1e-8,
-  );
-  n::Int = 3,
-  kwargs...,
+  optimizer = nothing,
+  optimizer_attributes = nothing,
 )
-  _ = n, kwargs
-  model = Model(optimizer)
+  model = optimizer === nothing ? Model() : Model(optimizer)
 
-  # Apply solver-specific options
-  for (k, v) in optimizer_attributes
-    set_optimizer_attribute(model, k, v)
+  # Apply solver-specific options only when an optimizer and attributes are provided
+  if optimizer_attributes !== nothing
+    for (k, v) in optimizer_attributes
+      set_optimizer_attribute(model, k, v)
+    end
   end
 
   # Variables (no simple bounds in standard HS89, but loose ones help numerics)
