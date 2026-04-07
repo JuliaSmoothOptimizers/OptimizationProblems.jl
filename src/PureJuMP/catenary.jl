@@ -17,10 +17,10 @@
 export catenary
 
 function catenary(args...; n::Int = default_nvar, Bl = 1.0, FRACT = 0.6, kwargs...)
-  (n % 3 == 0) || @warn("catenary: number of variables adjusted to be a multiple of 3")
+  n_orig = n
   n = 3 * max(1, div(n, 3))
-  (n < 6) || @warn("catenary: number of variables adjusted to be greater or equal to 6")
   n = max(n, 6)
+  @adjust_nvar_warn("catenary", n_orig, n)
 
   ## Model Parameters
 

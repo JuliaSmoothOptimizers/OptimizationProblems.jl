@@ -21,8 +21,9 @@ export srosenbr
 
 "The separable extension of Rosenbrock's function 'n' "
 function srosenbr(args...; n::Int = default_nvar, kwargs...)
-  (n % 2 == 0) || @warn("srosenbr: number of variables adjusted to be even")
+  n_orig = n
   n = 2 * max(1, div(n, 2))
+  @adjust_nvar_warn("srosenbr", n_orig, n)
 
   x0 = ones(n)
   x0[2 * (collect(1:div(n, 2))) .- 1] .= -1.2

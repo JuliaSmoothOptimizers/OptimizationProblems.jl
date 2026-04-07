@@ -31,9 +31,10 @@ function dixmaanm(
   δ::Float64 = 0.125,
   kwargs...,
 )
-  (n % 3 == 0) || @warn("dixmaan: number of variables adjusted to be a multiple of 3")
+  n_orig = n
   m = max(1, div(n, 3))
   n = 3 * m
+  @adjust_nvar_warn("dixmaan", n_orig, n)
 
   nlp = Model()
 

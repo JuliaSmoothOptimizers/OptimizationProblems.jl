@@ -21,12 +21,12 @@
 export fminsrf2
 
 function fminsrf2(args...; n::Int = default_nvar, kwargs...)
-  n < 4 && @warn("fminsrf2: number of variables must be ≥ 4")
+  n_orig = n
   n = max(4, n)
 
   p = floor(Int, sqrt(n))
-  p * p != n && @warn("fminsrf2: number of variables adjusted from $n down to $(p*p)")
   n = p * p
+  @adjust_nvar_warn("fminsrf2", n_orig, n)
 
   h00 = 1.0
   slopej = 4.0

@@ -20,6 +20,14 @@ end
 
 using JuMP, LinearAlgebra, SpecialFunctions
 
+macro adjust_nvar_warn(problem_name, n_orig, n)
+  return quote
+    ($(esc(n)) == $(esc(n_orig))) ||
+      @warn(string($(esc(problem_name)), ": number of variables adjusted from ",
+                  $(esc(n_orig)), " to ", $(esc(n))))
+  end
+end
+
 path = dirname(@__FILE__)
 files = filter(x -> x[(end - 2):end] == ".jl", readdir(path))
 for file in files
