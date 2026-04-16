@@ -16,6 +16,10 @@ browngen1_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :literature,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 
 get_browngen1_nvar(; n::Integer = default_nvar, kwargs...) = max(n, 2)

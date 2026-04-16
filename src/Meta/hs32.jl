@@ -16,6 +16,10 @@ hs32_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs32_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs32_ncon(; n::Integer = default_nvar, kwargs...) = 2

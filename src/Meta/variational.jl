@@ -16,6 +16,10 @@ variational_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => false,
   :origin => :academic,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 
 get_variational_nvar(; n::Integer = default_nvar, kwargs...) = n

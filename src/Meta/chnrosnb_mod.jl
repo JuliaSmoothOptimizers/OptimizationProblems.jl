@@ -16,6 +16,10 @@ chnrosnb_mod_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_chnrosnb_mod_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_chnrosnb_mod_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -16,6 +16,10 @@ catmix_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_catmix_nvar(; n::Integer = default_nvar, kwargs...) = 23 * n + 2
 get_catmix_ncon(; n::Integer = default_nvar, kwargs...) = 20 * n + 2

@@ -16,6 +16,10 @@ dixon3dq_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_dixon3dq_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_dixon3dq_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -16,6 +16,10 @@ curly_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_curly_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_curly_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -16,6 +16,10 @@ hs80_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs80_nvar(; n::Integer = default_nvar, kwargs...) = 5
 get_hs80_ncon(; n::Integer = default_nvar, kwargs...) = 3

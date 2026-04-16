@@ -16,6 +16,10 @@ methanol_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_methanol_nvar(; n::Integer = default_nvar, kwargs...) = 30 * n + 5
 get_methanol_ncon(; n::Integer = default_nvar, kwargs...) = 30 * n + 0

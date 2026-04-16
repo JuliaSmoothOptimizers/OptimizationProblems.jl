@@ -16,6 +16,10 @@ mgh01feas_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_mgh01feas_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_mgh01feas_ncon(; n::Integer = default_nvar, kwargs...) = 2

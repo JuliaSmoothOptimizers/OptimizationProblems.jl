@@ -16,6 +16,10 @@ lincon_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_lincon_nvar(; n::Integer = default_nvar, kwargs...) = 15
 get_lincon_ncon(; n::Integer = default_nvar, kwargs...) = 11

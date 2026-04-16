@@ -16,6 +16,10 @@ hs219_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => true,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs219_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs219_ncon(; n::Integer = default_nvar, kwargs...) = 2

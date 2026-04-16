@@ -16,6 +16,10 @@ triangle_deer_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_triangle_deer_nvar(; n::Integer = default_nvar, kwargs...) = 2244
 get_triangle_deer_ncon(; n::Integer = default_nvar, kwargs...) = 1896

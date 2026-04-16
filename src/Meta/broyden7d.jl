@@ -16,6 +16,10 @@ broyden7d_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :literature,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 
 get_broyden7d_nvar(; n::Integer = default_nvar, kwargs...) = n

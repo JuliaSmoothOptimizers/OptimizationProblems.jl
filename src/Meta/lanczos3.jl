@@ -16,6 +16,10 @@ lanczos3_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_lanczos3_nvar(; n::Integer = default_nvar, kwargs...) = 6
 get_lanczos3_ncon(; n::Integer = default_nvar, kwargs...) = 0
