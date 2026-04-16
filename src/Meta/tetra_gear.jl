@@ -16,6 +16,10 @@ tetra_gear_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_tetra_gear_nvar(; n::Integer = default_nvar, kwargs...) = 2598
 get_tetra_gear_ncon(; n::Integer = default_nvar, kwargs...) = 3116

@@ -16,6 +16,10 @@ hs64_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs64_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs64_ncon(; n::Integer = default_nvar, kwargs...) = 1

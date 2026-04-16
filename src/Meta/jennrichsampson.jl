@@ -16,6 +16,10 @@ jennrichsampson_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_jennrichsampson_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_jennrichsampson_ncon(; n::Integer = default_nvar, kwargs...) = 0

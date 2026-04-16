@@ -16,6 +16,10 @@ tetra_foam5_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_tetra_foam5_nvar(; n::Integer = default_nvar, kwargs...) = 4011
 get_tetra_foam5_ncon(; n::Integer = default_nvar, kwargs...) = 4847

@@ -16,6 +16,10 @@ catenary_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :academic,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_catenary_nvar(; n::Integer = default_nvar, kwargs...) = max(6, 3 * max(1, div(n, 3)))
 get_catenary_ncon(; n::Integer = default_nvar, kwargs...) = max(2, max(1, div(n, 3))) - 1

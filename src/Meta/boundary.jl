@@ -16,6 +16,10 @@ boundary_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :academic,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 
 get_boundary_nvar(; n::Integer = default_nvar, kwargs...) = n

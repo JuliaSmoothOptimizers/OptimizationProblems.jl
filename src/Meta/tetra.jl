@@ -16,6 +16,10 @@ tetra_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_tetra_nvar(; n::Integer = default_nvar, kwargs...) = 15
 get_tetra_ncon(; n::Integer = default_nvar, kwargs...) = 4

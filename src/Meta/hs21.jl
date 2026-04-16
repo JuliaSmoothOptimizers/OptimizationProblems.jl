@@ -16,6 +16,10 @@ hs21_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs21_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs21_ncon(; n::Integer = default_nvar, kwargs...) = 1

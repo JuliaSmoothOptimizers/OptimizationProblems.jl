@@ -16,6 +16,10 @@ nelson_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => false,
   :origin => :real,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_nelson_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_nelson_ncon(; n::Integer = default_nvar, kwargs...) = 0

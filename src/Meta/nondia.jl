@@ -16,6 +16,10 @@ nondia_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_nondia_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_nondia_ncon(; n::Integer = default_nvar, kwargs...) = 0

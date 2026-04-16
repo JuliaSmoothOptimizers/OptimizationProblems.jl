@@ -16,6 +16,10 @@ hs112_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs112_nvar(; n::Integer = default_nvar, kwargs...) = 10
 get_hs112_ncon(; n::Integer = default_nvar, kwargs...) = 3

@@ -16,6 +16,10 @@ hs26_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs26_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs26_ncon(; n::Integer = default_nvar, kwargs...) = 1

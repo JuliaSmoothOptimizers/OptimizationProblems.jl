@@ -16,6 +16,10 @@ marine_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_marine_nvar(; n::Integer = default_nvar, nc::Int = 1, kwargs...) =
   8 + 7 + Int(round((n - 2 * 8 + 1) / (3 * 8 * nc + 8))) * (8 + 3 * 8 * nc)

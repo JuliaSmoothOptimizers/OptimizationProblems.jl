@@ -16,6 +16,10 @@ pinene_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_pinene_nvar(; n::Integer = default_nvar, kwargs...) = 50 * n + 5
 get_pinene_ncon(; n::Integer = default_nvar, kwargs...) = 50 * n + 0

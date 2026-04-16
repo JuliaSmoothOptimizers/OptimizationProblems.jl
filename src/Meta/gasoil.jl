@@ -16,6 +16,10 @@ gasoil_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_gasoil_nvar(; n::Integer = default_nvar, kwargs...) = 26 * n + 3
 get_gasoil_ncon(; n::Integer = default_nvar, kwargs...) = 26 * n + 0
