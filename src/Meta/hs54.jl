@@ -20,18 +20,18 @@ hs54_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 54.
 
-  Source:
+  classification GLR2-AN-6-1
+
+A. Montoison, Montreal, 05/2018.
+""",
+:origin_notes => raw"""
   Problem 54 in
   W. Hock and K. Schittkowski,
   Test examples for nonlinear programming codes,
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
-  classification GLR2-AN-6-1
-
-A. Montoison, Montreal, 05/2018.
 """,
-  :origin_notes => raw"""""",
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},

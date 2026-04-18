@@ -19,18 +19,18 @@ hs9_meta = Dict(
   :url => "",
   :notes => raw"""Hock and Schittkowski problem number 9.
 
-  Source:
+  classification OLR2-AN-2-1
+
+A. Cebola, Curitiba , 10/2016.
+""",
+:origin_notes => raw"""
   Problem 9 in
   W. Hock and K. Schittkowski,
   Test examples for nonlinear programming codes,
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
-  classification OLR2-AN-2-1
-
-A. Cebola, Curitiba , 10/2016.
 """,
-  :origin_notes => raw"""""",
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},

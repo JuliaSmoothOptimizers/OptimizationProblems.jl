@@ -19,18 +19,18 @@ hs2_meta = Dict(
   :url => "",
   :notes => raw"""
 Hock and Schittkowski problem number 2.
-  Source:
+  classification PBR2-AN-2-0
+
+A. Montoison, Montreal, 04/2018.  
+  """,
+:origin_notes => raw"""
   Problem 2 in
   W. Hock and K. Schittkowski,
   Test examples for nonlinear programming codes,
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
-  classification PBR2-AN-2-0
-
-A. Montoison, Montreal, 04/2018.  
-  """,
-  :origin_notes => raw"""""",
+""",
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},

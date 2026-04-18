@@ -17,9 +17,19 @@ hs6_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes =>
-    raw"""Hock and Schittkowski problem number 6.\n\n  Source:\n  Problem 6 in\n  W. Hock and K. Schittkowski,\n  Test examples for nonlinear programming codes,\n  Lectures Notes in Economics and Mathematical Systems 187,\n  Springer Verlag, Heidelberg, 1981.\n\n  classification QQR2-AN-2-1\n\nD. Orban, Montreal, 04/2016.\n""",
-  :origin_notes => raw"""""",
+  :notes => raw"""
+  classification QQR2-AN-2-1
+  
+  D. Orban, Montreal, 04/2016.
+""",
+  :origin_notes => raw"""
+  Problem 6 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+""",
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},

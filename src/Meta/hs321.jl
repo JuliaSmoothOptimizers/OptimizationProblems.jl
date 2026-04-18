@@ -20,18 +20,18 @@ hs321_meta = Dict(
   :notes => raw"""
 Schittkowski problem number 321.
 
-  Source:
+  classification QQR2-AN-2-1
+
+M. Gollier, Montréal, 05/2023
+""",
+:origin_notes => raw"""
   Problem 321 in
   Schittkowski, K. (1987). 
   More Test Examples for Nonlinear Programming Codes. 
   Lecture Notes in Economics and Mathematical Systems.
   doi:10.1007/978-3-642-61582-5
   
-  classification QQR2-AN-2-1
-
-M. Gollier, Montréal, 05/2023
 """,
-  :origin_notes => raw"""""",
   :reference => raw"""
 @book{Schittkowski1987,
   author    = {Schittkowski, Klaus},

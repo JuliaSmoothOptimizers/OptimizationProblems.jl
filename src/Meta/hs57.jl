@@ -17,9 +17,19 @@ hs57_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes =>
-    raw"""Hock and Schittkowski problem number 57.\n\n  Source:\n  Problem 57 in\n  W. Hock and K. Schittkowski,\n  Test examples for nonlinear programming codes,\n  Lectures Notes in Economics and Mathematical Systems 187,\n  Springer Verlag, Heidelberg, 1981.\n\n  classification SQR-AN-2-1\n\nA. Montoison, Montreal, 05/2018.\n""",
-  :origin_notes => raw"""""",
+  :notes => raw"""
+classification SQR-AN-2-1
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""
+  Problem 57 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+""",
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},

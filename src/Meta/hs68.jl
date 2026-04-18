@@ -19,13 +19,6 @@ hs68_meta = Dict(
   :url => "",
   :notes => raw"""Hock and Schittkowski problem number 68.
 
-  Source:
-  Problem 68 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
   classification GGR-P1-1
 
 Original source:
@@ -33,7 +26,14 @@ E. von Collani, Kostenoptimale Prufplane bei laufender
 Kontrolle eines normalverteilten Merkmals, Dissertation,
 Institut fur Angewandte Mathematik und Statistik, Universitat Wurzburg, 1978. 
 """,
-  :origin_notes => raw"""""",
+:origin_notes => raw"""
+  Problem 68 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+""",
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},

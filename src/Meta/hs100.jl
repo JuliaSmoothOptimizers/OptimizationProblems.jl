@@ -20,18 +20,18 @@ hs100_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 100.
 
-Source:
+classification PPR-AN-7-4
+
+A. Montoison, Montreal, 05/2018.
+""",
+:origin_notes => raw"""
 Problem 100 in
 W. Hock and K. Schittkowski,
 Test examples for nonlinear programming codes,
 Lectures Notes in Economics and Mathematical Systems 187,
 Springer Verlag, Heidelberg, 1981.
 
-classification PPR-AN-7-4
-
-A. Montoison, Montreal, 05/2018.
 """,
-  :origin_notes => raw"""""",
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},

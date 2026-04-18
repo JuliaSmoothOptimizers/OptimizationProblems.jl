@@ -20,18 +20,18 @@ hs106_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 106.
 
-Source:
+classification LQR-AN-8-6
+
+A. Montoison, Montreal, 05/2018.
+""",
+:origin_notes => raw"""
 Problem 106 in
 W. Hock and K. Schittkowski,
 Test examples for nonlinear programming codes,
 Lectures Notes in Economics and Mathematical Systems 187,
 Springer Verlag, Heidelberg, 1981.
 
-classification LQR-AN-8-6
-
-A. Montoison, Montreal, 05/2018.
 """,
-  :origin_notes => raw"""""",
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},

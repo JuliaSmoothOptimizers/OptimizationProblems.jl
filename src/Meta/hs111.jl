@@ -20,18 +20,18 @@ hs111_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 111.
 
-  Source:
+  classification OOR2-AN-10-3
+
+N. Antunes, Curitiba, 10/2016.
+""",
+:origin_notes => raw"""
   Problem 111 in
   W. Hock and K. Schittkowski,
   Test examples for nonlinear programming codes,
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
-  classification OOR2-AN-10-3
-
-N. Antunes, Curitiba, 10/2016.
 """,
-  :origin_notes => raw"""""",
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
