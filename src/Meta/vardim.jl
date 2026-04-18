@@ -16,6 +16,25 @@ vardim_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+   Variable dimension problem.
+   This problem is a sum of n+2 least-squares groups, the first n of
+   which have only a linear element.
+   It Hessian matrix is dense.
+
+   Source:  problem 25 in
+   J.J. More', B.S. Garbow and K.E. Hillstrom,
+   "Testing Unconstrained Optimization Software",
+   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
+   See also Buckley#72 (p.98).
+
+   classification  SUR2-AN-V-0
+
+  """,
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_vardim_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_vardim_ncon(; n::Integer = default_nvar, kwargs...) = 0

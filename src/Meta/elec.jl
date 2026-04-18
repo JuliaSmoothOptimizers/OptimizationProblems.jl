@@ -16,6 +16,20 @@ elec_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Given np electrons, find the equilibrium state distribution of minimal
+Columb potential of the electrons positioned on a conducting sphere
+
+This is problem 2 in the COPS (Version 3) collection of 
+E. Dolan and J. More'
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2004)
+
+classification OOR2-AN-V-V
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_elec_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(2, div(n, 3))
 get_elec_ncon(; n::Integer = default_nvar, kwargs...) = max(2, div(n, 3))

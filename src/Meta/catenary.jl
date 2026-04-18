@@ -16,6 +16,26 @@ catenary_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :academic,
+  :url => "",
+  :notes => raw"""
+The classical problem of the hanging catenary.  Here the catenary consists
+of N+1 beams of length BL, with the first beam fixed at the origin and
+the final bean fixed at a fraction FRACT of the total length of all
+beams.
+
+The problem is non-convex.
+
+Source: 
+K. Veselic,
+"De forma catenarum in campo gravitatis pendentium",
+Klasicna Gimnazija u Zagrebu, Zagreb, 1987.
+
+classification LQR2-AY-V-V
+
+M. Gollier, Montréal, 05/2023
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_catenary_nvar(; n::Integer = default_nvar, kwargs...) = max(6, 3 * max(1, div(n, 3)))
 get_catenary_ncon(; n::Integer = default_nvar, kwargs...) = max(2, max(1, div(n, 3))) - 1

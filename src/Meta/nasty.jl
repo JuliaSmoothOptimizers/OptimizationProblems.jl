@@ -16,6 +16,14 @@ nasty_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Nasty problem.
+Source: a very simple box-constrained quadratic
+classification QUR2-AN-2-0
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_nasty_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_nasty_ncon(; n::Integer = default_nvar, kwargs...) = 0

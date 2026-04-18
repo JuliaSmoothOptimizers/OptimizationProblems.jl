@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 25.
-#
-#   Source:
-#   Problem 25 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification SBR2-AN-3-0
-#
-# A. Montoison, Montreal, 04/2018.
-
 export hs25
 
 "HS25 model"

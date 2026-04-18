@@ -1,11 +1,3 @@
-#  Source:  Problem 17 in
-#   J.J. More', B.S. Garbow and K.E. Hillstrom,
-#   "Testing Unconstrained Optimization Software",
-#   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-#   See alos Buckley#32 (p. 77).
-
-#   classification NOR2-MN-5-33
 export osborne1
 
 function osborne1(args...; n::Int = default_nvar, kwargs...)

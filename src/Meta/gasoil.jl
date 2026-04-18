@@ -16,6 +16,17 @@ gasoil_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Catalytic Cracking of Gas Oil Problem
+Collocation formulation
+Michael Merritt - Summer 2000
+COPS 2.0 - September 2000
+COPS 3.0 - November 2002
+COPS 3.1 - March 2004
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_gasoil_nvar(; n::Integer = default_nvar, kwargs...) = 26 * n + 3
 get_gasoil_ncon(; n::Integer = default_nvar, kwargs...) = 26 * n + 0

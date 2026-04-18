@@ -16,6 +16,23 @@ hs32_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 32.
+
+  Source:
+  Problem 32 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification QPR2-AN-3-2
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs32_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs32_ncon(; n::Integer = default_nvar, kwargs...) = 2

@@ -16,6 +16,10 @@ rosenbrock_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_rosenbrock_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_rosenbrock_ncon(; n::Integer = default_nvar, kwargs...) = 0

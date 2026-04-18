@@ -25,6 +25,16 @@ structural_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+
+ JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
+ Introduction to Optimization class.
+ https://laurentlessard.com/teaching/524-intro-to-optimization/
+  
+  """,
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_structural_nvar(; n::Integer = default_nvar, kwargs...) =
   2 * Int(

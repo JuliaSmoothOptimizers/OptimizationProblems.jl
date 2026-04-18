@@ -16,6 +16,30 @@ srosenbr_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+   The separable extension of Rosenbrock's function.
+
+   Source:  problem 21 in
+   J.J. More', B.S. Garbow and K.E. Hillstrom,
+   "Testing Unconstrained Optimization Software",
+   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
+   classification SUR2-AN-V-0
+
+   Problem 55 in
+   L. Luksan, C. Matonoha and J. Vlcek
+   Modified CUTE problems for sparse unconstrained optimization,
+   Technical Report 1081,
+   Institute of Computer Science,
+   Academy of Science of the Czech Republic
+   http://www.cs.cas.cz/matonoha/download/V1081.pdf
+
+ J.-P. Dussault, Clermont-Ferrand 05/2016.
+  
+  """,
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_srosenbr_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_srosenbr_ncon(; n::Integer = default_nvar, kwargs...) = 0

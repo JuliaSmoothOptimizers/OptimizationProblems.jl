@@ -1,16 +1,3 @@
-#   Broyden tridiagonal problem in variable dimension.  This is a nonlinear
-#   least-squares problem with n groups.
-#
-#   Source: Problem 30 in
-#      J.J. More', B.S. Garbow and K.E. Hillstrom,
-#      "Testing Unconstrained Optimization Software",
-#      ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-#   Also problem 78 in 
-#      A.R. Buckley,
-#      "Test functions for unconstrained minimization",
-#      TR 1989CS-3, Mathematics, statistics and computing centre,
-#      Dalhousie University, Halifax (CDN), 1989.
-#
 export broyden3d
 
 function broyden3d(args...; n::Int = default_nvar, kwargs...)

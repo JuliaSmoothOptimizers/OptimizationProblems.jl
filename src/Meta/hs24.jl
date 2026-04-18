@@ -16,6 +16,23 @@ hs24_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 24.
+
+  Source:
+  Problem 24 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification PLR2-AN-2-3
+
+A. Montoison, Montreal, 04/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs24_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs24_ncon(; n::Integer = default_nvar, kwargs...) = 2

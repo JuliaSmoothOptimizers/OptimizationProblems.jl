@@ -16,6 +16,10 @@ triangle_turtle_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_triangle_turtle_nvar(; n::Integer = default_nvar, kwargs...) = 4444
 get_triangle_turtle_ncon(; n::Integer = default_nvar, kwargs...) = 4025

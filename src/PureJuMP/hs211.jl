@@ -1,12 +1,3 @@
-# Hock and Schittkowski problem number 211.
-#
-#   Source:
-#   Problem 211 in
-#   K. Schittkowski,
-#   More Test Examples for Nonlinear Programming Codes,
-#   Lectures Notes in Economics and Mathematical Systems 282,
-#   Springer Verlag, Heidelberg, 1987.
-#
 export hs211
 
 "HS211 model"

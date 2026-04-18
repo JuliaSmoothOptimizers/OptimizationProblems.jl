@@ -16,6 +16,18 @@ triangle_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+ Minimize the time taken for a robot arm to travel between two points.
+
+  This is problem 18 in the COPS (Version 3) collection of 
+   E. Dolan and J. More
+   see "Benchmarking Optimization Software with COPS"
+   Argonne National Labs Technical Report ANL/MCS-246 (2004)
+  
+  """,
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_triangle_nvar(; n::Integer = default_nvar, kwargs...) = 8
 get_triangle_ncon(; n::Integer = default_nvar, kwargs...) = 3

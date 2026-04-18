@@ -16,6 +16,23 @@ hs44_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 44.
+
+  Source:
+  Problem 44 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification QLR2-AN-4-6
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs44_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs44_ncon(; n::Integer = default_nvar, kwargs...) = 6

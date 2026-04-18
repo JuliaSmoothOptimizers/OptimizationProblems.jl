@@ -16,6 +16,16 @@ torsion_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+ Torsion problem
+ Liz Dolan - Summer 2000
+ Version 2.0 - October 2000
+ COPS 3.1 - March 2004
+  
+  """,
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_torsion_nvar(;
   n::Integer = default_nvar,

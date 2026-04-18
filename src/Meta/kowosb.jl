@@ -16,6 +16,16 @@ kowosb_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Source:  Problem 15 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+classification SUR2-MN-4-0
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_kowosb_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_kowosb_ncon(; n::Integer = default_nvar, kwargs...) = 0

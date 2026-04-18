@@ -1,8 +1,3 @@
-# Torsion problem
-# Liz Dolan - Summer 2000
-# Version 2.0 - October 2000
-# COPS 3.1 - March 2004
-
 export torsion
 
 function torsion(args...; n = default_nvar, kwargs...)

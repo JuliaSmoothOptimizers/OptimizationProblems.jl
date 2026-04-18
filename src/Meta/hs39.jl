@@ -16,6 +16,23 @@ hs39_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 39.
+
+  Source:
+  Problem 39 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification LOR2-AN-4-2
+
+D. Cabral, Curitiba, 10/2016.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs39_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs39_ncon(; n::Integer = default_nvar, kwargs...) = 2

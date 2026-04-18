@@ -16,6 +16,22 @@ hs9_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""Hock and Schittkowski problem number 9.
+
+  Source:
+  Problem 9 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification OLR2-AN-2-1
+
+A. Cebola, Curitiba , 10/2016.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs9_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs9_ncon(; n::Integer = default_nvar, kwargs...) = 1

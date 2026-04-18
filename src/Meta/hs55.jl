@@ -16,6 +16,23 @@ hs55_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 54.
+
+  Source:
+  Problem 55 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification GLR2-AN-6-1
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs55_nvar(; n::Integer = default_nvar, kwargs...) = 6
 get_hs55_ncon(; n::Integer = default_nvar, kwargs...) = 6

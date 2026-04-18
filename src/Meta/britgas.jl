@@ -16,6 +16,18 @@ britgas_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+#   A simple high pressure gas network problem for British Gas.
+#   Invented Data, but real network.
+#   23 node network, 8 hour operation.
+#   Source:
+#   N. Gould, private communication,March 1990.
+#   SIF input: N. Gould, March 1990.
+#   classification OOI2-RN-450-360
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_britgas_nvar(; n::Integer = default_nvar, kwargs...) = 450
 get_britgas_ncon(; n::Integer = default_nvar, kwargs...) = 360

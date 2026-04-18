@@ -16,6 +16,23 @@ polygon_meta = Dict(
   :is_feasible => false,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Find the polygon of maximal area, among polygons with nv sides and diameter d <= 1
+
+This is problem 1 in the COPS (Version 3) collection of 
+E. Dolan and J. More'
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2004)
+
+classification OOR2-AN-V-V
+
+The initial guess is inspired from https://vanderbei.princeton.edu/ampl/nlmodels/polygon/polygon2.mod
+
+See `polygon1`, `polygon2` and `polygon3` for similar variants.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_polygon_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
 get_polygon_ncon(; n::Integer = default_nvar, kwargs...) =

@@ -16,6 +16,15 @@ allinitu_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""
+Source:
+N. Gould, private communication.
+SIF input: Nick Gould, June 1990.
+classification OUR2-AY-4-0
+""",
+  :reference => raw"""""",
 )
 get_allinitu_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_allinitu_ncon(; n::Integer = default_nvar, kwargs...) = 0

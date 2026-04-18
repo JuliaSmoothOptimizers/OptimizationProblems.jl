@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 105.
-#
-#   Source:
-#   Problem 105 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#   
-#   classification GLR-AN-8-1
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs105
 
 "HS105 model"

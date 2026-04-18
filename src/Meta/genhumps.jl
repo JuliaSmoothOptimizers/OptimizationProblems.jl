@@ -16,6 +16,27 @@ genhumps_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Source:
+Ph. Toint, private communication, 1997.
+
+SDIF input: N. Gould and Ph. Toint, November 1997.
+
+problem 35 in
+L. Luksan, C. Matonoha and J. Vlcek
+Modified CUTE problems for sparse unconstrained optimization,
+Technical Report 1081,
+Institute of Computer Science,
+Academy of Science of the Czech Republic
+
+http://www.cs.cas.cz/matonoha/download/V1081.pdf
+
+classification SUR2-AN-V-0
+J.-P. Dussault, Rennes 09/2015.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_genhumps_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_genhumps_ncon(; n::Integer = default_nvar, kwargs...) = 0

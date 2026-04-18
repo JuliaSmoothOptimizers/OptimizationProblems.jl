@@ -16,6 +16,23 @@ hs23_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 23.
+
+  Source:
+  Problem 23 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification QQR2-AN-2-5
+
+A. Montoison, Montreal, 04/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs23_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs23_ncon(; n::Integer = default_nvar, kwargs...) = 5

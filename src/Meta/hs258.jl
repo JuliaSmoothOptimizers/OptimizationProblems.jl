@@ -16,6 +16,21 @@ hs258_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 258.
+
+  Source:
+  Problem 258 in
+  K. Schittkowski,
+  More Test Examples for Nonlinear Programming Codes,
+  Lectures Notes in Economics and Mathematical Systems 282,
+  Springer Verlag, Heidelberg, 1987.
+
+T. Migot, Montreal, 2023.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs258_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs258_ncon(; n::Integer = default_nvar, kwargs...) = 0

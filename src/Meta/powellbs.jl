@@ -16,6 +16,19 @@ powellbs_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Source: problem 3 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
+See also  Toint#34, Buckley#22 (p. 82).
+
+classification NOR2-AN-2-2
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_powellbs_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_powellbs_ncon(; n::Integer = default_nvar, kwargs...) = 0

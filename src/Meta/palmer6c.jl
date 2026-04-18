@@ -16,6 +16,21 @@ palmer6c_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+A linear least squares problem arising from chemical kinetics.
+
+model: H-N=C=Se TZVP+MP2
+fitting Y to A0 + A2 X**2 + A4 X**4 + A6 X**6 + A8 X**8 +
+           A10 X**10 + A12 X**12 + A14 X**14
+
+Source:
+M. Palmer, Edinburgh, private communication.
+
+classification QUR2-RN-8-0
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_palmer6c_nvar(; n::Integer = default_nvar, kwargs...) = 8
 get_palmer6c_ncon(; n::Integer = default_nvar, kwargs...) = 0

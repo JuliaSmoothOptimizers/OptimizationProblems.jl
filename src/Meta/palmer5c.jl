@@ -16,6 +16,22 @@ palmer5c_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+A linear least squares problem arising from chemical kinetics.
+
+model: H-N=C=Se TZVP+MP2
+fitting Y to A0 T_0 + A2 T_2 + A4 T_4 + A6 T_6 + A8 T_8 +
+           A10 T_10 + A12 T_12 + A14 T_14
+where T_i is the i-th (shifted) Chebyshev polynomial
+
+Source:
+M. Palmer, Edinburgh, private communication.
+
+classification QUR2-RN-6-0
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_palmer5c_nvar(; n::Integer = default_nvar, kwargs...) = 6
 get_palmer5c_ncon(; n::Integer = default_nvar, kwargs...) = 0

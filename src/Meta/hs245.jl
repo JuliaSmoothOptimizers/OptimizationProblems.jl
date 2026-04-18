@@ -16,6 +16,21 @@ hs245_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 245.
+
+  Source:
+  Problem 245 in
+  K. Schittkowski,
+  More Test Examples for Nonlinear Programming Codes,
+  Lectures Notes in Economics and Mathematical Systems 282,
+  Springer Verlag, Heidelberg, 1987.
+
+T. Migot, Montreal, 2023.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs245_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs245_ncon(; n::Integer = default_nvar, kwargs...) = 0

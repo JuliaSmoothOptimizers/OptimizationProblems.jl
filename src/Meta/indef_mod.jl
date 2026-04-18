@@ -16,6 +16,24 @@ indef_mod_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Problem 37 in
+L. Luksan, C. Matonoha and J. Vlcek
+Modified CUTE problems for sparse unconstrained optimization,
+Technical Report 1081,
+Institute of Computer Science,
+Academy of Science of the Czech Republic
+http://www.cs.cas.cz/matonoha/download/V1081.pdf
+
+based on the original problem by N. Gould
+
+classification OUR2-AN-V-0
+
+J.-P. Dussault, Clermont-Ferrand 05/2016.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_indef_mod_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_indef_mod_ncon(; n::Integer = default_nvar, kwargs...) = 0

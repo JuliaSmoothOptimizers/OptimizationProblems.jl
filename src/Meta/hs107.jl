@@ -16,6 +16,23 @@ hs107_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 107.
+
+Source:
+Problem 107 in
+W. Hock and K. Schittkowski,
+Test examples for nonlinear programming codes,
+Lectures Notes in Economics and Mathematical Systems 187,
+Springer Verlag, Heidelberg, 1981.
+
+classification PGR-AN-9-6
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs107_nvar(; n::Integer = default_nvar, kwargs...) = 9
 get_hs107_ncon(; n::Integer = default_nvar, kwargs...) = 6

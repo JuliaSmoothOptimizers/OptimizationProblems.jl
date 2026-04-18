@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 233.
-#
-#   Source:
-#   Problem 233 in
-#   K. Schittkowski,
-#   More Test Examples for Nonlinear Programming Codes,
-#   Lectures Notes in Economics and Mathematical Systems 282,
-#   Springer Verlag, Heidelberg, 1987.
-#
-#   
-#
-# T. Migot, Montreal, 2023.
-
 export hs233
 
 "HS233 model"

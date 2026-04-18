@@ -16,6 +16,42 @@ chwirut2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/chwirut2.dat
+
+NIST/ITL StRD
+Dataset Name:  Chwirut2          (Chwirut2.dat)
+
+File Format:   ASCII
+               Starting Values   (lines 41 to  43)
+               Certified Values  (lines 41 to  48)
+               Data              (lines 61 to 114)
+
+Procedure:     Nonlinear Least Squares Regression
+
+Description:   These data are the result of a NIST study involving
+               ultrasonic calibration.  The response variable is
+               ultrasonic response, and the predictor variable is
+               metal distance.
+
+Reference:     Chwirut, D., NIST (197?).  
+               Ultrasonic Reference Block Study. 
+
+Data:          1 Response  (y = ultrasonic response)
+               1 Predictor (x = metal distance)
+               54 Observations
+               Lower Level of Difficulty
+               Observed Data
+
+Model:         Exponential Class
+               3 Parameters (b1 to b3)
+
+               y = exp(-b1*x)/(b2+b3*x)  +  e
+T. Migot, Montreal, 2023.
+               """,
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_chwirut2_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_chwirut2_ncon(; n::Integer = default_nvar, kwargs...) = 0

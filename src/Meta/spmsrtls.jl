@@ -16,6 +16,31 @@ spmsrtls_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+   Liu and Nocedal tridiagonal matrix square root problem.
+
+   Source:  problem 151 (p. 93) in
+   A.R. Buckley,
+   "Test functions for unconstrained minimization",
+   TR 1989CS-3, Mathematics, statistics and computing centre,
+   Dalhousie University, Halifax (CDN), 1989.
+
+   See also
+
+   problem 54 in
+   L. Luksan, C. Matonoha and J. Vlcek
+   Modified CUTE problems for sparse unconstrained optimization,
+   Technical Report 1081,
+   Institute of Computer Science,
+   Academy of Science of the Czech Republic
+
+   http://www.cs.cas.cz/matonoha/download/V1081.pdf
+
+   classification SUR2-AN-V-V  
+  """,
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_spmsrtls_nvar(; n::Integer = default_nvar, kwargs...) = max(Int(round((n + 2) / 3)), 34) * 3 - 2
 get_spmsrtls_ncon(; n::Integer = default_nvar, kwargs...) = 0

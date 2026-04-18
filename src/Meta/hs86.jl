@@ -16,6 +16,22 @@ hs86_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""Hock and Schittkowski problem number 86.
+
+  Source:
+  Problem 86 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification PLR-AN-5-10
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs86_nvar(; n::Integer = default_nvar, kwargs...) = 5
 get_hs86_ncon(; n::Integer = default_nvar, kwargs...) = 10

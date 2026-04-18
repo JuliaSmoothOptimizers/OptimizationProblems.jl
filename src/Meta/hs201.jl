@@ -16,6 +16,19 @@ hs201_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 201.
+
+  Source:
+  Problem 201 in
+  K. Schittkowski,
+  More Test Examples for Nonlinear Programming Codes,
+  Lectures Notes in Economics and Mathematical Systems 282,
+  Springer Verlag, Heidelberg, 1987.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs201_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs201_ncon(; n::Integer = default_nvar, kwargs...) = 0

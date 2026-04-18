@@ -16,6 +16,15 @@ clnlbeam_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+The clnlbeam problem
+https://jump.dev/JuMP.jl/stable/tutorials/nonlinear/clnlbeam/
+
+Source: H. Maurer and H.D. Mittelman, "The non-linear beam via optimal control with bound state variables", Optimal Control Applications and Methods 12, pp. 19-31, 1991.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_clnlbeam_nvar(; n::Integer = default_nvar, kwargs...) = 3 * div(n - 3, 3) + 3
 get_clnlbeam_ncon(; n::Integer = default_nvar, kwargs...) = 2 * div(n - 3, 3)

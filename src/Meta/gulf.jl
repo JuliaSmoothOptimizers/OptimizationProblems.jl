@@ -16,6 +16,24 @@ gulf_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => false,
   :origin => :real,
+  :url => "",
+  :notes => raw"""
+The Gulf research and development function for m = 99. 
+
+Source: problem 11 in
+  J.J. More', B.S. Garbow and K.E. Hillstrom,
+  "Testing Unconstrained Optimization Software",
+  ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+Also problem 27 (p. 57) in
+  A.R. Buckley,
+  "Test functions for unconstrained minimization",
+  TR 1989CS-3, Mathematics, statistics and computing centre,
+  Dalhousie University, Halifax (CDN), 1989.
+
+SUR2-MN-3-0
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_gulf_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_gulf_ncon(; n::Integer = default_nvar, kwargs...) = 0

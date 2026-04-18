@@ -16,6 +16,21 @@ power_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+The Power problem by Oren.
+
+Source:
+S.S. Oren,
+Self-scaling variable metric algorithms,
+Part II: implementation and experiments"
+Management Science 20(5):863-874, 1974.
+See also Buckley#179 (p. 83)
+
+classification OUR2-AN-V-0
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_power_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_power_ncon(; n::Integer = default_nvar, kwargs...) = 0

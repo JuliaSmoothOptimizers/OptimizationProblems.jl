@@ -16,6 +16,17 @@ glider_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hang Glider Problem
+Trapezoidal formulation
+David Bortz - Summer 1998
+COPS 2.0 - September 2000
+COPS 3.0 - November 2002
+COPS 3.1 - March 2004
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_glider_nvar(; n::Integer = default_nvar, kwargs...) = 5 * n + 6
 get_glider_ncon(; n::Integer = default_nvar, kwargs...) = 4 * n + 7

@@ -16,6 +16,23 @@ hs105_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 105.
+
+Source:
+Problem 105 in
+W. Hock and K. Schittkowski,
+Test examples for nonlinear programming codes,
+Lectures Notes in Economics and Mathematical Systems 187,
+Springer Verlag, Heidelberg, 1981.
+
+classification GLR-AN-8-1
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs105_nvar(; n::Integer = default_nvar, kwargs...) = 8
 get_hs105_ncon(; n::Integer = default_nvar, kwargs...) = 1

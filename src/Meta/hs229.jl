@@ -16,6 +16,21 @@ hs229_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 229.
+
+  Source:
+  Problem 229 in
+  K. Schittkowski,
+  More Test Examples for Nonlinear Programming Codes,
+  Lectures Notes in Economics and Mathematical Systems 282,
+  Springer Verlag, Heidelberg, 1987.
+
+T. Migot, Montreal, 2023.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs229_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs229_ncon(; n::Integer = default_nvar, kwargs...) = 0

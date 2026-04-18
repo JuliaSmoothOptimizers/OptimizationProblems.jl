@@ -16,6 +16,30 @@ fminsrf2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Source: setting the boundary free in
+A Griewank and Ph. Toint,
+"Partitioned variable metric updates for large structured
+optimization problems",
+Numerische Mathematik 39:429-448, 1982.
+
+SIF input: Ph. Toint, November 1991.
+
+classification OUR2-MY-V-0
+
+Problem 33 in
+L. Luksan, C. Matonoha and J. Vlcek
+Modified CUTE problems for sparse unconstrained optimization,
+Technical Report 1081,
+Institute of Computer Science,
+Academy of Science of the Czech Republic
+
+http://www.cs.cas.cz/matonoha/download/V1081.pdf
+J.-P. Dussault, Rennes 09/2015.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_fminsrf2_nvar(; n::Integer = default_nvar, kwargs...) = 100
 get_fminsrf2_ncon(; n::Integer = default_nvar, kwargs...) = 0

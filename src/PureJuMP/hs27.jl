@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 27.
-#
-#   Source:
-#   Problem 27 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification SQR2-AN-3-1
-#
-# A. Cebola, Curitiba 10/2016.
-
 export hs27
 
 "HS27 Model"

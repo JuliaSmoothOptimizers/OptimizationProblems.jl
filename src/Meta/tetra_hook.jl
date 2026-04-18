@@ -16,6 +16,10 @@ tetra_hook_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_tetra_hook_nvar(; n::Integer = default_nvar, kwargs...) = 3570
 get_tetra_hook_ncon(; n::Integer = default_nvar, kwargs...) = 4675

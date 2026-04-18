@@ -1,15 +1,3 @@
-#  This is problem 8 in the COPS (Version 3) collection of
-#   E. Dolan and J. More
-#   see "Benchmarking Optimization Software with COPS"
-#   Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
-# Isomerization of Alpha-Pinene Problem
-# Collocation formulation
-# Alexander S. Bondarenko - Summer 1998
-# COPS 2.0 - September 2000
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export pinene
 
 function pinene(; n::Int = default_nvar, kwargs...)

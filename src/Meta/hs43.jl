@@ -16,6 +16,23 @@ hs43_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 43.
+
+  Source:
+  Problem 43 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification QQR2-AN-4-3
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs43_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs43_ncon(; n::Integer = default_nvar, kwargs...) = 3

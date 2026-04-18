@@ -16,6 +16,17 @@ polygon2_meta = Dict(
   :is_feasible => false,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Find the polygon of maximal area, among polygons with nv sides and diameter d <= 1
+Model 2: relative polar coordinates
+
+JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
+Introduction to Optimization class.
+https://laurentlessard.com/teaching/524-intro-to-optimization/
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_polygon2_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
 get_polygon2_ncon(; n::Integer = default_nvar, kwargs...) = 1

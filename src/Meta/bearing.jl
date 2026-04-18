@@ -16,6 +16,26 @@ bearing_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Given observations of ns stages of a bearing species over n timesteps, 
+minimize the loss between the observation and the computed law of paraneters : growth, mortality and number of specimens (g,m,x) 
+
+This is problem 16 in the COPS (Version 3) collection of 
+E. Dolan and J. More'
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2004)
+
+classification OOR2-AN-V-V
+
+Journal bearing problem
+Michael Merritt - Summer 2000
+COPS 2.0 - September 2000
+COPS 3.0 - November 2002
+COPS 3.1 - March 2004
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_bearing_nvar(;
   n::Integer = default_nvar,

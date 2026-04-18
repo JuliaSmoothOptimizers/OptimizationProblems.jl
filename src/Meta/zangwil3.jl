@@ -16,6 +16,22 @@ zangwil3_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+    Source: problem 1 in
+   P.T. Boggs and J.W. Tolle,
+   "A strategy for global convergence in a sequential
+    quadratic programming algorithm",
+   SINUM 26(3), pp. 600-623, 1989.
+
+   Problem from CUTE: https://github.com/mpf/Optimization-Test-Problems/blob/master/cute/zangwil3.mod
+
+   classification  NLR2-AN-3-3
+
+ A. Cebola, Paraná 10/2016. 
+  """,
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_zangwil3_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_zangwil3_ncon(; n::Integer = default_nvar, kwargs...) = 3

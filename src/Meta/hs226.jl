@@ -16,6 +16,21 @@ hs226_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 226.
+
+  Source:
+  Problem 226 in
+  K. Schittkowski,
+  More Test Examples for Nonlinear Programming Codes,
+  Lectures Notes in Economics and Mathematical Systems 282,
+  Springer Verlag, Heidelberg, 1987.
+
+T. Migot, Montreal, 2023.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs226_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs226_ncon(; n::Integer = default_nvar, kwargs...) = 2

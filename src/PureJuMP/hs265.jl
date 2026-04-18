@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 265.
-#
-#   Source:
-#   Problem 265 in
-#   K. Schittkowski,
-#   More Test Examples for Nonlinear Programming Codes,
-#   Lectures Notes in Economics and Mathematical Systems 282,
-#   Springer Verlag, Heidelberg, 1987.
-#
-#   
-#
-# T. Migot, Montreal, 2023.
-
 export hs265
 
 "HS265 model"

@@ -16,6 +16,21 @@ brownden_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Brown and Dennis function
+
+Source: Problem 16 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
+See also Buckley#30
+
+classification SUR2-AN-4-0
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_brownden_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_brownden_ncon(; n::Integer = default_nvar, kwargs...) = 0

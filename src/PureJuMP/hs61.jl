@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 61.
-#
-#   Source:
-#   Problem 61 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification QQR2-AN-3-2
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs61
 
 "HS61 model"

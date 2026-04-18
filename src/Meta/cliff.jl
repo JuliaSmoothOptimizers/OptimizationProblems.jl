@@ -16,6 +16,20 @@ cliff_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+The "cliff problem" in 2 variables
+
+Source:  problem 206 (p. 46) in
+A.R. Buckley,
+"Test functions for unconstrained minimization",
+TR 1989CS-3, Mathematics, statistics and computing centre,
+Dalhousie University, Halifax (CDN), 1989.
+
+classification OUR2-AN-2-0
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_cliff_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_cliff_ncon(; n::Integer = default_nvar, kwargs...) = 0

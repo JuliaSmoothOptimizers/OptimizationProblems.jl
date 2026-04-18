@@ -16,6 +16,20 @@ dqdrtic_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Diagonal quadratic problem
+
+Source: problem 22 in
+Ph. L. Toint,
+"Test problems for partially separable optimization and results
+for the routine PSPMIN",
+Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
+
+classification QUR2-AN-V-0
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_dqdrtic_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_dqdrtic_ncon(; n::Integer = default_nvar, kwargs...) = 0

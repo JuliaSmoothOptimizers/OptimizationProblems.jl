@@ -16,6 +16,11 @@ hs56_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes =>
+    raw"""Hock and Schittkowski problem number 56.\n\n  Source:\n  Problem 56 in\n  W. Hock and K. Schittkowski,\n  Test examples for nonlinear programming codes,\n  Lectures Notes in Economics and Mathematical Systems 187,\n  Springer Verlag, Heidelberg, 1981.\n\n  classification PGR2-AN-7-4\n\nA. Montoison, Montreal, 05/2018.\n""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs56_nvar(; n::Integer = default_nvar, kwargs...) = 7
 get_hs56_ncon(; n::Integer = default_nvar, kwargs...) = 4

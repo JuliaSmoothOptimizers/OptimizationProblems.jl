@@ -16,6 +16,21 @@ hs244_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 244.
+
+  Source:
+  Problem 244 in
+  K. Schittkowski,
+  More Test Examples for Nonlinear Programming Codes,
+  Lectures Notes in Economics and Mathematical Systems 282,
+  Springer Verlag, Heidelberg, 1987.
+
+T. Migot, Montreal, 2023.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs244_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs244_ncon(; n::Integer = default_nvar, kwargs...) = 0

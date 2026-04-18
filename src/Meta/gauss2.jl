@@ -16,6 +16,41 @@ gauss2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/gauss2.dat
+
+NIST/ITL StRD
+Dataset Name:  Gauss2            (Gauss2.dat)
+
+File Format:   ASCII
+               Starting Values   (lines 41 to  48)
+               Certified Values  (lines 41 to  53)
+               Data              (lines 61 to 310)
+
+Procedure:     Nonlinear Least Squares Regression
+
+Description:   The data are two slightly-blended Gaussians on a 
+               decaying exponential baseline plus normally 
+               distributed zero-mean noise with variance = 6.25. 
+
+Reference:     Rust, B., NIST (1996). 
+
+Data:          1 Response  (y)
+               1 Predictor (x)
+               250 Observations
+               Lower Level of Difficulty
+               Generated Data
+
+Model:         Exponential Class
+               8 Parameters (b1 to b8)
+
+               y = b1*exp( -b2*x ) + b3*exp( -(x-b4)**2 / b5**2 ) 
+                                   + b6*exp( -(x-b7)**2 / b8**2 ) + e
+T. Migot, Montreal, 2023.
+                                   """,
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_gauss2_nvar(; n::Integer = default_nvar, kwargs...) = 8
 get_gauss2_ncon(; n::Integer = default_nvar, kwargs...) = 0

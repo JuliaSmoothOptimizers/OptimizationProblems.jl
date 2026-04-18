@@ -16,6 +16,22 @@ hs8_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""Hock and Schittkowski problem number 8.
+
+  Source:
+  Problem 8 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification OOR2-AN-2-1
+
+D. Orban, Montreal, 04/2016.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs8_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs8_ncon(; n::Integer = default_nvar, kwargs...) = 2

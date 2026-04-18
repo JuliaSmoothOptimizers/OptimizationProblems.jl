@@ -16,6 +16,16 @@ NZF1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+"Philippe Toint (private communication)"
+
+classification SUR2-AN-V-0
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_NZF1_nvar(; n::Integer = default_nvar, kwargs...) = 13 * max(2, div(n, 13))
 get_NZF1_ncon(; n::Integer = default_nvar, kwargs...) = 0

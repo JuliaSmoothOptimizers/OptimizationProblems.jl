@@ -1,38 +1,3 @@
-
-#=
-https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/eckerle4.dat
-
-NIST/ITL StRD
-Dataset Name:  Eckerle4          (Eckerle4.dat)
-
-File Format:   ASCII
-               Starting Values   (lines 41 to 43)
-               Certified Values  (lines 41 to 48)
-               Data              (lines 61 to 95)
-
-Procedure:     Nonlinear Least Squares Regression
-
-Description:   These data are the result of a NIST study involving
-               circular interference transmittance.  The response
-               variable is transmittance, and the predictor variable
-               is wavelength.
-
-Reference:     Eckerle, K., NIST (197?).  
-               Circular Interference Transmittance Study.
-
-Data:          1 Response Variable  (y = transmittance)
-               1 Predictor Variable (x = wavelength)
-               35 Observations
-               Higher Level of Difficulty
-               Observed Data
-
-Model:         Exponential Class
-               3 Parameters (b1 to b3)
-
-               y = (b1/b2) * exp[-0.5*((x-b3)/b2)**2]  +  e
-=#
-# T. Migot, Montreal, 2023.
-
 export eckerle4
 
 function eckerle4(args...; kwargs...)

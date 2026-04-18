@@ -16,6 +16,18 @@ Duscube_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+A one dimensional optimization problem
+
+Problem found in
+http://www.dmi.usherb.ca/~dussault/ROP630E17/
+Jean_pierre Dussault
+
+S. Goyette, Sherbrooke 2016/2017
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_Duscube_nvar(; n::Integer = default_nvar, kwargs...) = 1
 get_Duscube_ncon(; n::Integer = default_nvar, kwargs...) = 0

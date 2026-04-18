@@ -16,6 +16,26 @@ cosine_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+# The cosine function.
+#
+#   Source: problem 6 in
+#   L. Luksan, C. Matonoha and J. Vlcek
+#   Modified CUTE problems for sparse unconstrained optimization,
+#   Technical Report 1081,
+#   Institute of Computer Science,
+#   Academy of Science of the Czech Republic
+#
+#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
+#
+#   classification OUR2-AN-V-0
+#
+# D. Orban, Montreal, 08/2015.
+ 
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_cosine_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_cosine_ncon(; n::Integer = default_nvar, kwargs...) = 0

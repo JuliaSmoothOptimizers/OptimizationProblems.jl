@@ -16,6 +16,24 @@ ncb20_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+A banded problem with semi-bandwidth 20.  This problem exhibits frequent
+negative curvature in the exact Hessian.
+Source:
+Ph. Toint, private communication, 1992.
+classification OUR2-AN-V-0
+Problem 40 in
+L. Luksan, C. Matonoha and J. Vlcek
+Modified CUTE problems for sparse unconstrained optimization,
+Technical Report 1081,
+Institute of Computer Science,
+Academy of Science of the Czech Republic
+http://www.cs.cas.cz/matonoha/download/V1081.pdf
+J.-P. Dussault, Clermont-Ferrand 05/2016.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_ncb20_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_ncb20_ncon(; n::Integer = default_nvar, kwargs...) = 0

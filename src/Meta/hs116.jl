@@ -16,6 +16,23 @@ hs116_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+Hock and Schittkowski problem number 116.
+
+  Source:
+  Problem 116 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+  
+  classification QGR-AN-13-14
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs116_nvar(; n::Integer = default_nvar, kwargs...) = 13
 get_hs116_ncon(; n::Integer = default_nvar, kwargs...) = 15

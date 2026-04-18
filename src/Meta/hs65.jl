@@ -16,6 +16,22 @@ hs65_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""Hock and Schittkowski problem number 65.
+
+  Source:
+  Problem 65 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification QQR2-AN-3-1
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""""",
+  :reference => raw"""""",
 )
 get_hs65_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs65_ncon(; n::Integer = default_nvar, kwargs...) = 1
