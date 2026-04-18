@@ -30,7 +30,17 @@ Argonne National Labs Technical Report ANL/MCS-246 (2004)
 classification OBR2-AN-V-V
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@techreport{DolanMore2004COPS,
+  author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},
+  title        = {Benchmarking Optimization Software with {COPS} 3.0},
+  institution  = {Argonne National Laboratory},
+  number       = {ANL/MCS-TM-273},
+    year         = {2004},
+  doi          = {10.2172/834714}
+  }
+    """,
+
 )
 get_minsurf_nvar(;
   n::Integer = default_nvar,

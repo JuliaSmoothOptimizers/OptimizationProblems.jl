@@ -17,17 +17,17 @@ gaussian_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""
-Source: Problem 9 in
+  :notes => raw"""""",
+  :origin_notes => raw"""
+Problem 9 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 
 See also Buckley#28
 
-classification SUR2-AN-3-0
-""",
-  :origin_notes => raw"""""",
+classification SUR2-AN-3-0  
+  """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},

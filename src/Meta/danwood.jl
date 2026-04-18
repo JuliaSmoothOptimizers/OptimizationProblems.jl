@@ -16,10 +16,8 @@ danwood_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/danwood.dat",
   :notes => raw"""
-  https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/danwood.dat
-
 NIST/ITL StRD
 Dataset Name:  DanWood           (DanWood.dat)
 
@@ -57,7 +55,17 @@ Model:         Miscellaneous Class
 T. Migot, Montreal, 2023.
   """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@book{DanielWood1980,
+  author    = {C. Daniel and F. S. Wood},
+  title     = {Fitting Equations to Data},
+  edition   = {Second},
+  publisher = {John Wiley and Sons},
+  address   = {New York, NY},
+  year      = {1980},
+  pages     = {428--431}
+}  
+  """,
 )
 get_danwood_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_danwood_ncon(; n::Integer = default_nvar, kwargs...) = 0

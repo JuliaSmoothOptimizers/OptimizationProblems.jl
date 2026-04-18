@@ -25,17 +25,24 @@ beams.
 
 The problem is non-convex.
 
-Source: 
-K. Veselic,
-"De forma catenarum in campo gravitatis pendentium",
-Klasicna Gimnazija u Zagrebu, Zagreb, 1987.
-
 classification LQR2-AY-V-V
 
 M. Gollier, Montréal, 05/2023
 """,
-  :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :origin_notes => raw"""
+K. Veselic,
+"De forma catenarum in campo gravitatis pendentium",
+Klasicna Gimnazija u Zagrebu, Zagreb, 1987.  
+  """,
+  :reference => raw"""
+@book{Veselic1987,
+  author    = {K. Veselic},
+  title     = {De forma catenarum in campo gravitatis pendentium},
+  publisher = {Klasična Gimnazija u Zagrebu},
+  address   = {Zagreb},
+  year      = {1987}
+}  
+  """,
 )
 get_catenary_nvar(; n::Integer = default_nvar, kwargs...) = max(6, 3 * max(1, div(n, 3)))
 get_catenary_ncon(; n::Integer = default_nvar, kwargs...) = max(2, max(1, div(n, 3))) - 1

@@ -32,7 +32,17 @@ There are N+1 values of each 9 variables
 x = [ρ, θ, φ, ρ_dot, θ_dot, φ_dot, ρ_acc, θ_acc, φ_acc, tf]
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@techreport{DolanMore2004COPS,
+  author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},
+  title        = {Benchmarking Optimization Software with {COPS} 3.0},
+  institution  = {Argonne National Laboratory},
+  number       = {ANL/MCS-TM-273},
+    year         = {2004},
+  doi          = {10.2172/834714}
+  }
+    """,
+
 )
 get_robotarm_nvar(; n::Integer = default_nvar, kwargs...) = 9 * (max(2, div(n, 9)) + 1) + 1
 get_robotarm_ncon(; n::Integer = default_nvar, kwargs...) =

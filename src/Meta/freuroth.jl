@@ -16,8 +16,12 @@ freuroth_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf",
   :notes => raw"""
+classification SUR2-AN-V-0
+J.-P. Dussault, Rennes 09/2015.
+""",
+  :origin_notes => raw"""
 Source: problem 2 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
@@ -33,14 +37,8 @@ L. Luksan, C. Matonoha and J. Vlcek
 Modified CUTE problems for sparse unconstrained optimization,
 Technical Report 1081,
 Institute of Computer Science,
-Academy of Science of the Czech Republic
-
-http://www.cs.cas.cz/matonoha/download/V1081.pdf
-
-classification SUR2-AN-V-0
-J.-P. Dussault, Rennes 09/2015.
-""",
-  :origin_notes => raw"""""",
+Academy of Science of the Czech Republic  
+  """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},

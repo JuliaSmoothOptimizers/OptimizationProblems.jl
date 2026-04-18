@@ -24,7 +24,16 @@ COPS 3.0 - November 2002
 COPS 3.1 - March 2004
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@techreport{DolanMore2004COPS,
+  author       = {Dolan, Elizabeth D. and Mor{\'e}, Jorge J.},
+  title        = {Benchmarking Optimization Software with {COPS} 3.0},
+  institution  = {Argonne National Laboratory},
+  number       = {ANL/MCS-TM-273},
+  year         = {2004},
+  doi          = {10.2172/834714}
+}  
+  """,
 )
 get_catmix_nvar(; n::Integer = default_nvar, kwargs...) = 23 * n + 2
 get_catmix_ncon(; n::Integer = default_nvar, kwargs...) = 20 * n + 2

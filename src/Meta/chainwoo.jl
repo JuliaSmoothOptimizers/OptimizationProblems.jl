@@ -51,7 +51,18 @@ Academy of Science of the Czech Republic
 https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@techreport{LuksanMatonohaVlcek2003,
+  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
+  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
+    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
+  number       = {1081},
+  year         = {2003},
+  address      = {Prague, Czech Republic},
+  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
+  }  
+  """,
+
 )
 get_chainwoo_nvar(; n::Integer = default_nvar, kwargs...) = 4 * max(1, div(n, 4))
 get_chainwoo_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -38,7 +38,18 @@ sinquad_meta = Dict(
   
   """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@techreport{LuksanMatonohaVlcek2003,
+  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
+  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
+    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
+  number       = {1081},
+  year         = {2003},
+  address      = {Prague, Czech Republic},
+  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
+  }  
+  """,
+
 )
 get_sinquad_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_sinquad_ncon(; n::Integer = default_nvar, kwargs...) = 0

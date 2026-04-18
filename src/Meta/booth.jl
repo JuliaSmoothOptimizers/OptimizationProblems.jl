@@ -18,16 +18,27 @@ booth_meta = Dict(
   :origin => :unknown,
   :url => "",
   :notes => raw"""
+SIF input: Ph. Toint, Dec 1989.
+classification NLR2-AN-2-2
+""",
+  :origin_notes => raw"""
 Source: Problem 36 in
 A.R. Buckley,
 "Test functions for unconstrained minimization",
 TR 1989CS-3, Mathematics, statistics and computing centre,
-Dalhousie University, Halifax (CDN), 1989.
-SIF input: Ph. Toint, Dec 1989.
-classification NLR2-AN-2-2
-""",
-  :origin_notes => raw"""""",
-  :reference => raw"""""",
+Dalhousie University, Halifax (CDN), 1989.  
+  """,
+  :reference => raw"""
+@techreport{Buckley1989,
+  author       = {Buckley, A. R.},
+  title        = {Test Functions for Unconstrained Minimization},
+  institution  = {Mathematics, Statistics and Computing Centre, Dalhousie University},
+  number       = {TR 1989CS-3},
+  year         = {1989},
+  address      = {Halifax, Canada}
+}
+  """,
+
 )
 get_booth_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_booth_ncon(; n::Integer = default_nvar, kwargs...) = 2

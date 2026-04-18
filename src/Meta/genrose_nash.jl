@@ -16,25 +16,9 @@ genrose_nash_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf",
   :notes => raw"""
 Generalized Rosenbrock function.
-
-Source: problem 4 in
-S. Nash,
-Newton-type minimization via the Lanczos process,
-SIAM J. Num. Anal. 21, 770-788, 1984,
-
-and
-
-problem 36 in
-L. Luksan, C. Matonoha and J. Vlcek
-Modified CUTE problems for sparse unconstrained optimization,
-Technical Report 1081,
-Institute of Computer Science,
-Academy of Science of the Czech Republic
-
-http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
 classification SUR2-AN-V-0
 
@@ -75,8 +59,33 @@ D. Orban, Montreal, 08/2015.
 #   https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization
 #
 """,
-  :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :origin_notes => raw"""
+Source: problem 4 in
+S. Nash,
+Newton-type minimization via the Lanczos process,
+SIAM J. Num. Anal. 21, 770-788, 1984,
+
+and
+
+problem 36 in
+L. Luksan, C. Matonoha and J. Vlcek
+Modified CUTE problems for sparse unconstrained optimization,
+Technical Report 1081,
+Institute of Computer Science,
+Academy of Science of the Czech Republic  
+  """,
+  :reference => raw"""
+@techreport{LuksanMatonohaVlcek2003,
+  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
+  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
+    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
+  number       = {1081},
+  year         = {2003},
+  address      = {Prague, Czech Republic},
+  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
+  }  
+  """,
+
 )
 get_genrose_nash_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_genrose_nash_ncon(; n::Integer = default_nvar, kwargs...) = 0

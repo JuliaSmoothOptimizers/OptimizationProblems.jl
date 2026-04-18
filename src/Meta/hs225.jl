@@ -30,7 +30,18 @@ Hock and Schittkowski problem number 225.
 T. Migot, Montreal, 2023.
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@book{Schittkowski1987,
+  author    = {Schittkowski, Klaus},
+  title     = {More Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {282},
+  publisher = {Springer-Verlag},
+  address   = {Heidelberg},
+  year      = {1987}
+}
+  """,
+
 )
 get_hs225_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs225_ncon(; n::Integer = default_nvar, kwargs...) = 5

@@ -20,16 +20,26 @@ dixon3dq_meta = Dict(
   :notes => raw"""
 Dixon's tridiagonal quadratic.
 
-Source: problem 156 (p. 51) in
+classification QUR2-AN-V-0
+""",
+  :origin_notes => raw"""
+Problem 156 (p. 51) in
 A.R. Buckley,
 "Test functions for unconstrained minimization",
 TR 1989CS-3, Mathematics, statistics and computing centre,
-Dalhousie University, Halifax (CDN), 1989.
+Dalhousie University, Halifax (CDN), 1989.  
+  """,
+  :reference => raw"""
+@techreport{Buckley1989,
+  author       = {Buckley, A. R.},
+  title        = {Test Functions for Unconstrained Minimization},
+  institution  = {Mathematics, Statistics and Computing Centre, Dalhousie University},
+  number       = {TR 1989CS-3},
+  year         = {1989},
+  address      = {Halifax, Canada}
+}
+  """,
 
-classification QUR2-AN-V-0
-""",
-  :origin_notes => raw"""""",
-  :reference => raw"""""",
 )
 get_dixon3dq_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_dixon3dq_ncon(; n::Integer = default_nvar, kwargs...) = 0

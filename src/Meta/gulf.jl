@@ -20,7 +20,10 @@ gulf_meta = Dict(
   :notes => raw"""
 The Gulf research and development function for m = 99. 
 
-Source: problem 11 in
+SUR2-MN-3-0
+""",
+  :origin_notes => raw"""
+Problem 11 in
   J.J. More', B.S. Garbow and K.E. Hillstrom,
   "Testing Unconstrained Optimization Software",
   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
@@ -28,11 +31,8 @@ Also problem 27 (p. 57) in
   A.R. Buckley,
   "Test functions for unconstrained minimization",
   TR 1989CS-3, Mathematics, statistics and computing centre,
-  Dalhousie University, Halifax (CDN), 1989.
-
-SUR2-MN-3-0
+  Dalhousie University, Halifax (CDN), 1989.  
 """,
-  :origin_notes => raw"""""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},

@@ -16,10 +16,8 @@ hahn1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/hahn1.dat",
   :notes => raw"""
-https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/hahn1.dat
-
 NIST/ITL StRD
 Dataset Name:  Hahn1             (Hahn1.dat)
 

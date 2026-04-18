@@ -31,7 +31,17 @@ channel_meta = Dict(
   
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@techreport{DolanMore2004COPS,
+  author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},
+  title        = {Benchmarking Optimization Software with {COPS} 3.0},
+  institution  = {Argonne National Laboratory},
+  number       = {ANL/MCS-TM-273},
+    year         = {2004},
+  doi          = {10.2172/834714}
+  }
+    """,
+
 )
 get_channel_nvar(; n::Integer = default_nvar, kwargs...) = 8 * max(2, div(n, 8))
 get_channel_ncon(; n::Integer = default_nvar, kwargs...) =

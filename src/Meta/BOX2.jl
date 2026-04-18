@@ -20,16 +20,26 @@ BOX2_meta = Dict(
   :notes => raw"""
 Box problem in 2 variables, obtained by fixing X3 = 1 in BOX2.
 
+classification SXR2-AN-3-0
+""",
+  :origin_notes => raw"""
 Source: Problem 11 in
 A.R. Buckley,
 "Test functions for unconstrained minimization",
 TR 1989CS-3, Mathematics, statistics and computing centre,
-Dalhousie University, Halifax (CDN), 1989.
+Dalhousie University, Halifax (CDN), 1989.  
+  """,
+  :reference => raw"""
+@techreport{Buckley1989,
+  author       = {Buckley, A. R.},
+  title        = {Test Functions for Unconstrained Minimization},
+  institution  = {Mathematics, Statistics and Computing Centre, Dalhousie University},
+  number       = {TR 1989CS-3},
+  year         = {1989},
+  address      = {Halifax, Canada}
+}
+  """,
 
-classification SXR2-AN-3-0
-""",
-  :origin_notes => raw"""""",
-  :reference => raw"""""",
 )
 get_BOX2_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_BOX2_ncon(; n::Integer = default_nvar, kwargs...) = 1

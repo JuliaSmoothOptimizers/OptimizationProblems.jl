@@ -29,7 +29,17 @@ Dalhousie University, Halifax (CDN), 1989.
 classification OUR2-AN-2-0
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@techreport{Buckley1989,
+  author       = {Buckley, A. R.},
+  title        = {Test Functions for Unconstrained Minimization},
+  institution  = {Mathematics, Statistics and Computing Centre, Dalhousie University},
+  number       = {TR 1989CS-3},
+  year         = {1989},
+  address      = {Halifax, Canada}
+}
+  """,
+
 )
 get_cliff_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_cliff_ncon(; n::Integer = default_nvar, kwargs...) = 0

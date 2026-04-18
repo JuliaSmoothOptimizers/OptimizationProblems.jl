@@ -18,11 +18,19 @@ controlinvestment_meta = Dict(
   :origin => :unknown,
   :url => "",
   :notes => raw"""
-Example 5.3, Dominique Orban, Computation Optimization and Control lecture notes at Polytechnique Montréal.
 This is a simple investment problem in optimistic market.
 """,
-  :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :origin_notes => raw"""
+Example 5.3, Dominique Orban, Computation Optimization and Control lecture notes at Polytechnique Montréal.  
+  """,
+  :reference => raw"""
+@misc{OrbanControlNotes,
+  author    = {Dominique Orban},
+  title     = {Computation Optimization and Control Lecture Notes},
+  howpublished = {Lecture notes, Polytechnique Montréal},
+  year      = {unpublished}
+}  
+  """,
 )
 get_controlinvestment_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
 get_controlinvestment_ncon(; n::Integer = default_nvar, kwargs...) = div(n, 2)

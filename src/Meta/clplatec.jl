@@ -29,12 +29,6 @@ upper right corner of the plate, and the rest on the upper left corner.
 The plate is clamped on its lower edge, by fixing the
 corresponding variables to zero.
 
-Source:
-J. Nocedal,
-"Solving large nonlinear systems of equations arising in mechanics",
-Proceedings of the Cocoyoc Numerical Analysis Conference, Mexico,
-pp. 132-141, 1981.
-
 classification OXR2-MN-V-0
 
 p is the number of points in one side of the unit square
@@ -42,8 +36,22 @@ The number of variables is p*p, of which (p-1)*(p-1) are free.
 
 Fixed variables have been eliminated from the objective function.
 """,
-  :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :origin_notes => raw"""
+J. Nocedal,
+"Solving large nonlinear systems of equations arising in mechanics",
+Proceedings of the Cocoyoc Numerical Analysis Conference, Mexico,
+pp. 132-141, 1981.  
+  """,
+  :reference => raw"""
+@inproceedings{Nocedal1981,
+  author    = {J. Nocedal},
+  title     = {Solving large nonlinear systems of equations arising in mechanics},
+  booktitle = {Proceedings of the Cocoyoc Numerical Analysis Conference},
+  address   = {Mexico},
+  pages     = {132--141},
+  year      = {1981}
+}  
+  """,
 )
 get_clplatec_nvar(; n::Integer = default_nvar, kwargs...) = floor(Int, sqrt(n))^2
 get_clplatec_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -31,7 +31,18 @@ hs9_meta = Dict(
 A. Cebola, Curitiba , 10/2016.
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+
 )
 get_hs9_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs9_ncon(; n::Integer = default_nvar, kwargs...) = 1

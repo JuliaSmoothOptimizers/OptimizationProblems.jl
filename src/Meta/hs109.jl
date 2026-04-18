@@ -32,7 +32,18 @@ Hock and Schittkowski problem number 109.
 A. Montoison, Montreal, 05/2018.
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+
 )
 get_hs109_nvar(; n::Integer = default_nvar, kwargs...) = 9
 get_hs109_ncon(; n::Integer = default_nvar, kwargs...) = 9

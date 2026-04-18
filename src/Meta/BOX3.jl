@@ -18,17 +18,17 @@ BOX3_meta = Dict(
   :origin => :unknown,
   :url => "",
   :notes => raw"""
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-3-0
+""",
+  :origin_notes => raw"""
 Source: problem 12 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 
-See also Buckley#BOX663
-SIF input: Ph. Toint, Dec 1989.
-
-classification SUR2-AN-3-0
-""",
-  :origin_notes => raw"""""",
+See also Buckley#BOX663  
+  """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},

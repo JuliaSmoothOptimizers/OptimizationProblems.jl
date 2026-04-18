@@ -31,7 +31,17 @@ COPS 3.0 - November 2002
 COPS 3.1 - March 2004
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@techreport{DolanMore2004COPS,
+  author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},
+  title        = {Benchmarking Optimization Software with {COPS} 3.0},
+  institution  = {Argonne National Laboratory},
+  number       = {ANL/MCS-TM-273},
+    year         = {2004},
+  doi          = {10.2172/834714}
+  }
+    """,
+
 )
 get_pinene_ncon(; n::Integer = default_nvar, kwargs...) = 50 * n + 0
 get_pinene_nlin(; n::Integer = default_nvar, kwargs...) = 35 * n + 0

@@ -40,7 +40,18 @@ spmsrtls_meta = Dict(
    classification SUR2-AN-V-V  
   """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@techreport{LuksanMatonohaVlcek2003,
+  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
+  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
+    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
+  number       = {1081},
+  year         = {2003},
+  address      = {Prague, Czech Republic},
+  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
+  }  
+  """,
+
 )
 get_spmsrtls_nvar(; n::Integer = default_nvar, kwargs...) = max(Int(round((n + 2) / 3)), 34) * 3 - 2
 get_spmsrtls_ncon(; n::Integer = default_nvar, kwargs...) = 0

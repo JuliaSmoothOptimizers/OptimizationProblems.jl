@@ -32,7 +32,17 @@ The initial guess is inspired from https://vanderbei.princeton.edu/ampl/nlmodels
 See `polygon1`, `polygon2` and `polygon3` for similar variants.
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@techreport{DolanMore2004COPS,
+  author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},
+  title        = {Benchmarking Optimization Software with {COPS} 3.0},
+  institution  = {Argonne National Laboratory},
+  number       = {ANL/MCS-TM-273},
+    year         = {2004},
+  doi          = {10.2172/834714}
+  }
+    """,
+
 )
 get_polygon_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
 get_polygon_ncon(; n::Integer = default_nvar, kwargs...) =
