@@ -8,9 +8,10 @@ function clplatec(;
   l = 0.01,
   kwargs...,
 ) where {T}
+  n_orig = n
   p = max(floor(Int, sqrt(n)), 3)
-  p * p != n && @warn("clplatec: number of variables adjusted from $n to $(p*p)")
   n = p * p
+  @adjust_nvar_warn("clplatec", n_orig, n)
 
   hp2 = 1 // 2 * p^2
   function f(x; p = p, hp2 = hp2, wght = wght, r = r, l = l)

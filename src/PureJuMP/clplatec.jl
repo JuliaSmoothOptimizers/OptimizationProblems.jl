@@ -33,9 +33,10 @@ function clplatec(
   l::Float64 = 0.01,
   kwargs...,
 )
+  n_orig = n
   p = floor(Int, sqrt(n))
-  p * p != n && @warn("clplatec: number of variables adjusted from $n down to $(p*p)")
   n = p * p
+  @adjust_nvar_warn("clplatec", n_orig, n)
 
   nlp = Model()
 

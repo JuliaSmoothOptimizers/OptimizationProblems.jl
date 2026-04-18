@@ -2,6 +2,23 @@ module OptimizationProblems
 
 using DataFrames
 
+_adjust_nvar_warn_message(problem_name, n_orig, n) =
+  string(problem_name, ": number of variables adjusted from ", n_orig, " to ", n)
+
+"""
+    @adjust_nvar_warn(problem_name, n_orig, n)
+
+Issue a warning if the number of variables was adjusted, showing both original and adjusted values.
+"""
+macro adjust_nvar_warn(problem_name, n_orig, n)
+  helper = GlobalRef(@__MODULE__, :_adjust_nvar_warn_message)
+  return quote
+    local _n_orig = $(esc(n_orig))
+    local _n = $(esc(n))
+    (_n == _n_orig) || @warn($helper($(esc(problem_name)), _n_orig, _n))
+  end
+end
+
 include("ADNLPProblems/ADNLPProblems.jl")
 include("PureJuMP/PureJuMP.jl")
 

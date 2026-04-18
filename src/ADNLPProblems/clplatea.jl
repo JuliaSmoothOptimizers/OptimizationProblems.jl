@@ -6,9 +6,10 @@ function clplatea(;
   wght = -0.1,
   kwargs...,
 ) where {T}
+  n_orig = n
   p = max(floor(Int, sqrt(n)), 3)
-  p * p != n && @warn("clplatea: number of variables adjusted from $n to $(p*p)")
   n = p * p
+  @adjust_nvar_warn("clplatea", n_orig, n)
   hp2 = (1 // 2) * p^2
   function f(x; p = p, hp2 = hp2, wght = wght)
     return (eltype(x)(wght) * x[p + (p - 1) * p]) +

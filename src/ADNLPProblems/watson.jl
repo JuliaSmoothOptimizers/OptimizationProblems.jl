@@ -6,7 +6,9 @@ function watson(; use_nls::Bool = false, kwargs...)
 end
 
 function watson(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  n_orig = n
   n = min(max(n, 2), 31)
+  @adjust_nvar_warn("watson", n_orig, n)
   function f(x; n = n)
     Ti = eltype(x)
     return 1 // 2 * sum(
@@ -31,7 +33,9 @@ function watson(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwa
 end
 
 function watson(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  n_orig = n
   n = min(max(n, 2), 31)
+  @adjust_nvar_warn("watson", n_orig, n)
   function F!(r, x; n = n)
     Ti = eltype(x)
     for i = 1:29
