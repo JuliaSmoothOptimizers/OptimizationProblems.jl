@@ -32,7 +32,18 @@ Also problem 78 in
   Dalhousie University, Halifax (CDN), 1989.
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@article{MoreGarbowHillstrom1981,
+  author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
+  title   = {Testing Unconstrained Optimization Software},
+  journal = {ACM Transactions on Mathematical Software},
+  year    = {1981},
+  volume  = {7},
+  number  = {1},
+  pages   = {17--41},
+  doi     = {10.1145/355934.355936}
+}  
+  """,
 )
 get_broyden3d_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_broyden3d_ncon(; n::Integer = default_nvar, kwargs...) = 0

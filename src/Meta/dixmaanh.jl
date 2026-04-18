@@ -40,7 +40,8 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 classification OUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
-""":origin_notes => raw"""""",
+""",
+  :origin_notes => raw"""""",
   :reference => raw"""""",
 )
 get_dixmaanh_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))

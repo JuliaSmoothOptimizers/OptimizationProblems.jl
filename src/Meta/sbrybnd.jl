@@ -45,7 +45,18 @@ comparing it against their brybnd that appears to be a typo)
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@article{MoreGarbowHillstrom1981,
+  author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
+  title   = {Testing Unconstrained Optimization Software},
+  journal = {ACM Transactions on Mathematical Software},
+  year    = {1981},
+  volume  = {7},
+  number  = {1},
+  pages   = {17--41},
+  doi     = {10.1145/355934.355936}
+}  
+  """,
 )
 get_sbrybnd_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_sbrybnd_ncon(; n::Integer = default_nvar, kwargs...) = 0

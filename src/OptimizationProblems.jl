@@ -49,6 +49,10 @@ const cols_names = [
   :is_feasible
   :defined_everywhere
   :origin
+  :url
+  :notes
+  :origin_notes
+  :reference
 ]
 
 const types = [
@@ -69,6 +73,10 @@ const types = [
   Union{Bool, Missing}
   Union{Bool, Missing}
   Symbol
+  String
+  String
+  String
+  String
 ]
 
 """
