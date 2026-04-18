@@ -19,22 +19,7 @@ function _ensure_data!(key::Symbol, relpath::AbstractString)
 end
 
 using JuMP, LinearAlgebra, SpecialFunctions
-
-_adjust_nvar_warn_message(problem_name, n_orig, n) =
-  string(problem_name, ": number of variables adjusted from ", n_orig, " to ", n)
-
-"""
-    @adjust_nvar_warn(problem_name, n_orig, n)
-
-Issue a warning if the number of variables was adjusted, showing both original and adjusted values.
-"""
-macro adjust_nvar_warn(problem_name, n_orig, n)
-  return quote
-    local _n_orig = $(esc(n_orig))
-    local _n = $(esc(n))
-    (_n == _n_orig) || @warn(_adjust_nvar_warn_message($(esc(problem_name)), _n_orig, _n))
-  end
-end
+import ..OptimizationProblems: @adjust_nvar_warn
 
 path = dirname(@__FILE__)
 files = filter(x -> x[(end - 2):end] == ".jl", readdir(path))

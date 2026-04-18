@@ -22,9 +22,13 @@ probes = @sync begin
 end
 @info "PureJuMP missing per worker" probes
 
-function _check_adjusted_warning(ctor, expected_msg::AbstractString, expected_nvar::Integer)
+function _check_adjusted_warning(ctor::Function, expected_msg::AbstractString, expected_nvar::Integer)
   nlp = @test_logs (:warn, expected_msg) ctor()
   @test nlp.meta.nvar == expected_nvar
+end
+
+function _check_adjusted_warning(expected_msg::AbstractString, expected_nvar::Integer, ctor::Function)
+  _check_adjusted_warning(ctor, expected_msg, expected_nvar)
 end
 
 @testset "Adjusted dimension warnings" begin
