@@ -17,7 +17,20 @@ hs28_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Hock and Schittkowski problem number 28.
+
+  Source:
+  Problem 28 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification QLR2-AN-3-1
+
+A. Montoison, Montreal, 04/2018.
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

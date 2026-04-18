@@ -17,7 +17,16 @@ tetra_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+ Minimize the sum of the inverse weighted mean ratio of the elements in a fixed–boundary
+ tetrahedral mesh by adjusting the locations of the free vertices.
+
+  This is problem 19 in the COPS (Version 3) collection of 
+   E. Dolan and J. More
+   see "Benchmarking Optimization Software with COPS"
+   Argonne National Labs Technical Report ANL/MCS-246 (2004)
+  
+  """,
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

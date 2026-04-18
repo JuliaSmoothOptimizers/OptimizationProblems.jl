@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 26.
-#
-#   Source:
-#   Problem 26 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification OOR2-AY-3-1
-#
-# A. Cebola, Curitiba 10/2016.
-
 export hs26
 
 "HS26 Model"

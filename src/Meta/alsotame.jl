@@ -18,8 +18,23 @@ alsotame_meta = Dict(
   :origin => :unknown,
   :url => "",
   :notes => raw"""""",
-  :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :origin_notes => raw"""
+Source:
+A.R. Conn, N. Gould and Ph.L. Toint,
+"The LANCELOT User's Manual",
+Dept of Maths, FUNDP, 1991.
+SIF input:  Ph. Toint, Jan 1991.
+classification OOR2-AN-2-1
+""",
+  :reference => raw"""
+@techreport{ConnGouldToint1991,
+  author    = {Conn, A. R. and Gould, N. I. M. and Toint, Ph. L.},
+  title     = {{The LANCELOT User's Manual}},
+  institution = {Department of Mathematics, FUNDP},
+  year      = {1991},
+  address   = {Namur, Belgium},
+  note      = {Technical report}
+}""",
 )
 get_alsotame_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_alsotame_ncon(; n::Integer = default_nvar, kwargs...) = 3

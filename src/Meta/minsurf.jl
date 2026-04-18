@@ -17,7 +17,18 @@ minsurf_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Minimal surface with obstacle problem
+
+Find the surface with minimal area, given boundary conditions,
+and above an obstacle.
+
+This is problem 17=the COPS (Version 3) collection of
+E. Dolan and J. More'
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2004)
+classification OBR2-AN-V-V
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 110.
-#
-#   Source:
-#   Problem 110 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#   
-#   classification GBR-AN-10-0
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs110
 
 "HS110 model"

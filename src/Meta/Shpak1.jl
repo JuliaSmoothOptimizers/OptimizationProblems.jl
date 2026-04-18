@@ -17,7 +17,16 @@ Shpak1_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+ first problem of
+ Global optimization in one-dimensional case
+ using analytically defined derivatives of
+ objective function
+
+A.Shpak
+
+Computer Science Journal of Moldova, vol.3, no.2(8), 1995
+  """,
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 258.
-#
-#   Source:
-#   Problem 258 in
-#   K. Schittkowski,
-#   More Test Examples for Nonlinear Programming Codes,
-#   Lectures Notes in Economics and Mathematical Systems 282,
-#   Springer Verlag, Heidelberg, 1987.
-#
-#   
-#
-# T. Migot, Montreal, 2023.
-
 export hs258
 
 "HS258 model: Powell's function"

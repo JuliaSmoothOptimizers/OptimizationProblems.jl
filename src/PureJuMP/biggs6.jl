@@ -1,15 +1,3 @@
-#   Source: problem 18 in
-#   J.J. More', B.S. Garbow and K.E. Hillstrom,
-#   "Testing Unconstrained Optimization Software",
-#   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-# Source: Problem 21 in
-#  A.R. Buckley,
-#   "Test functions for unconstrained minimization",
-#   TR 1989CS-3, Mathematics, statistics and computing centre,
-#   Dalhousie University, Halifax (CDN), 1989.
-
-# classification SUR2-AN-6-0
 export biggs6
 
 function biggs6(args...; n::Int = default_nvar, m::Int = 13, kwargs...)

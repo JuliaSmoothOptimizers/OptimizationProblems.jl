@@ -1,17 +1,3 @@
-#   Problem 37 in
-#   L. Luksan, C. Matonoha and J. Vlcek
-#   Modified CUTE problems for sparse unconstrained optimization,
-#   Technical Report 1081,
-#   Institute of Computer Science,
-#   Academy of Science of the Czech Republic
-#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
-#
-#   based on the original problem by N. Gould
-#
-#   classification OUR2-AN-V-0
-
-# J.-P. Dussault, Clermont-Ferrand 05/2016.
-
 export indef_mod
 
 function indef_mod(args...; n::Int = default_nvar, kwargs...)

@@ -17,7 +17,30 @@ liarwhd_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+G. Li,
+"The secant/finite difference algorithm for solving sparse
+nonlinear systems of equations",
+SIAM Journal on Optimization, (to appear), 1990.
+
+classification SUR2-AN-V-0
+
+This is a simplified version of problem NONDIA.
+
+Problem 38 in
+L. Luksan, C. Matonoha and J. Vlcek
+Modified CUTE problems for sparse unconstrained optimization,
+Technical Report 1081,
+Institute of Computer Science,
+Academy of Science of the Czech Republic
+http://www.cs.cas.cz/matonoha/download/V1081.pdf
+
+based on the original problem by N. Gould
+
+classification OUR2-AN-V-0
+
+J.-P. Dussault, Clermont-Ferrand 05/2016.
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

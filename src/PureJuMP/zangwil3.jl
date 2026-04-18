@@ -1,15 +1,3 @@
-#   Source: problem 1 in
-#   P.T. Boggs and J.W. Tolle,
-#   "A strategy for global convergence in a sequential
-#    quadratic programming algorithm",
-#   SINUM 26(3), pp. 600-623, 1989.
-#
-#   Problem from CUTE: https://github.com/mpf/Optimization-Test-Problems/blob/master/cute/zangwil3.mod
-#
-#   classification  NLR2-AN-3-3
-#
-# A. Cebola, Paraná 10/2016.
-
 export zangwil3
 
 "Zangwil3 Model"

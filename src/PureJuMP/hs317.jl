@@ -1,15 +1,3 @@
-# Schittkowski problem number 317.
-#
-#   Source:
-#   Problem 317 in
-#   Schittkowski, K. (1987). 
-#   More Test Examples for Nonlinear Programming Codes. 
-#   Lecture Notes in Economics and Mathematical Systems.
-#   doi:10.1007/978-3-642-61582-5
-#   
-#   classification QQR2-AN-2-1
-#
-#   M. Gollier, Montréal, 05/2023
 export hs317
 
 "HS317 model"

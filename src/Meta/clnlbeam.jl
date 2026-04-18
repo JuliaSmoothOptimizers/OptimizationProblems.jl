@@ -17,7 +17,12 @@ clnlbeam_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+The clnlbeam problem
+https://jump.dev/JuMP.jl/stable/tutorials/nonlinear/clnlbeam/
+
+Source: H. Maurer and H.D. Mittelman, "The non-linear beam via optimal control with bound state variables", Optimal Control Applications and Methods 12, pp. 19-31, 1991.
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

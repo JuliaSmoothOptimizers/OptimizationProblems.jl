@@ -17,7 +17,22 @@ chnrosnb_mod_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+# Chaineded Rosenbrock - modified function.
+
+#   problem 27 in
+#   L. Luksan, C. Matonoha and J. Vlcek
+#   Modified CUTE problems for sparse unconstrained optimization,
+#   Technical Report 1081,
+#   Institute of Computer Science,
+#   Academy of Science of the Czech Republic
+#
+#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
+#
+#   classification SUR2-AN-V-0
+#
+# J,-P, Dussault, Rennes 09/2015.
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

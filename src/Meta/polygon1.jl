@@ -17,7 +17,19 @@ polygon1_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Find the polygon of maximal area, among polygons with nv sides and diameter d <= 1
+
+JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
+Introduction to Optimization class.
+https://laurentlessard.com/teaching/524-intro-to-optimization/
+
+This implementation is similar to
+This is problem 1 in the COPS (Version 2) collection of 
+E. Dolan and J. More'
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2000)
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

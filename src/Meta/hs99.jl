@@ -17,7 +17,18 @@ hs99_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Hock and Schittkowski problem number 99.
+
+  Source:
+  Problem 99 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1991.
+  
+  classification PPR-AN-6-4
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

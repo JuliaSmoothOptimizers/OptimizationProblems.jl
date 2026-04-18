@@ -17,7 +17,14 @@ gasoil_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Catalytic Cracking of Gas Oil Problem
+Collocation formulation
+Michael Merritt - Summer 2000
+COPS 2.0 - September 2000
+COPS 3.0 - November 2002
+COPS 3.1 - March 2004
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

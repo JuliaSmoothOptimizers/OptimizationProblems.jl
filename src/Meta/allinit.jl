@@ -18,7 +18,11 @@ allinit_meta = Dict(
   :origin => :unknown,
   :url => "",
   :notes => raw"""""",
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+  Source: N. Gould, private communication.
+  SIF input: Nick Gould, June 1990.
+  classification OBR2-AY-4-0
+  """,
   :reference => raw"""""",
 )
 get_allinit_nvar(; n::Integer = default_nvar, kwargs...) = 4

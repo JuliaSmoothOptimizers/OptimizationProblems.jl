@@ -1,9 +1,3 @@
-# Goddard Rocket Problem
-# Trapezoidal formulation
-# COPS 2.0 - September 2000
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export rocket
 
 function rocket(; n::Int = default_nvar, kwargs...)

@@ -17,7 +17,18 @@ hs228_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Hock and Schittkowski problem number 228.
+
+  Source:
+  Problem 228 in
+  K. Schittkowski,
+  More Test Examples for Nonlinear Programming Codes,
+  Lectures Notes in Economics and Mathematical Systems 282,
+  Springer Verlag, Heidelberg, 1987.
+
+T. Migot, Montreal, 2023.
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

@@ -17,7 +17,19 @@ hs74_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""Hock and Schittkowski problem number 74.
+
+  Source:
+  Problem 74 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification PGR-AN-4-5
+
+A. Montoison, Montreal, 05/2018.
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

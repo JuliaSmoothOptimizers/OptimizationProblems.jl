@@ -17,7 +17,20 @@ bard_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Bard problem in 3 variables.
+This function is a nonlinear least squares with 15 groups.
+Each group has a linear and a nonlinear element.
+
+Source: Problem 8 in
+   J.J. More', B.S. Garbow and K.E. Hillstrom,
+   "Testing Unconstrained Optimization Software",
+   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
+See also Buckley#16
+
+classification SUR2-AN-3-0
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )
