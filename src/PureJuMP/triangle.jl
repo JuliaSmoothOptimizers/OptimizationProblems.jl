@@ -1,10 +1,3 @@
-# Minimize the time taken for a robot arm to travel between two points.
-
-#  This is problem 18 in the COPS (Version 3) collection of 
-#   E. Dolan and J. More
-#   see "Benchmarking Optimization Software with COPS"
-#   Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
 include("../../data/triangle.jl")
 export triangle
 

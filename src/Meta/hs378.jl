@@ -17,7 +17,20 @@ hs378_meta = Dict(
   :defined_everywhere => missing,
   :origin => :academic,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Schittkowski problem number 378.
+
+  Source:
+  Problem 378 in
+  Schittkowski, K. (1987). 
+  More Test Examples for Nonlinear Programming Codes. 
+  Lecture Notes in Economics and Mathematical Systems.
+  doi:10.1007/978-3-642-61582-5
+  
+  classification OOR2-AN-10-3
+
+M. Gollier, Montréal, 05/2023
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

@@ -1,14 +1,3 @@
-#   Brown and Dennis function
-#
-#   Source: Problem 16 in
-#   J.J. More', B.S. Garbow and K.E. Hillstrom,
-#   "Testing Unconstrained Optimization Software",
-#   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-#
-#   See also Buckley#30
-#
-#   classification SUR2-AN-4-0
-
 export brownden
 
 "Brown and Dennis function"

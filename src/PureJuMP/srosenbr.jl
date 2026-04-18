@@ -1,22 +1,3 @@
-#   The separable extension of Rosenbrock's function.
-
-#   Source:  problem 21 in
-#   J.J. More', B.S. Garbow and K.E. Hillstrom,
-#   "Testing Unconstrained Optimization Software",
-#   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-#   classification SUR2-AN-V-0
-
-#   Problem 55 in
-#   L. Luksan, C. Matonoha and J. Vlcek
-#   Modified CUTE problems for sparse unconstrained optimization,
-#   Technical Report 1081,
-#   Institute of Computer Science,
-#   Academy of Science of the Czech Republic
-#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
-#
-# J.-P. Dussault, Clermont-Ferrand 05/2016.
-
 export srosenbr
 
 "The separable extension of Rosenbrock's function 'n' "

@@ -17,7 +17,23 @@ tridia_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+   Shanno's TRIDIA quadratic tridiagonal problem.
+
+   Source: problem 8 in
+   Ph.L. Toint,
+   "Test problems for partially separable optimization and results
+   for the routine PSPMIN",
+   Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
+
+   See also Buckley#40 (p.96)
+
+   classification QUR2-AN-V-0
+
+   This problem is decomposed in n linear groups, the last n-1 of which
+   are 2 x 2 and singular.
+
+  """,
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

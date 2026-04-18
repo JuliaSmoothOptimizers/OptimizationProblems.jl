@@ -17,7 +17,8 @@ hs60_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes =>
+    raw"""Hock and Schittkowski problem number 60.\n\n  Source:\n  Problem 60 in\n  W. Hock and K. Schittkowski,\n  Test examples for nonlinear programming codes,\n  Lectures Notes in Economics and Mathematical Systems 187,\n  Springer Verlag, Heidelberg, 1981.\n\n  classification PPR2-AN-3-1\n\nA. Montoison, Montreal, 05/2018.\n""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

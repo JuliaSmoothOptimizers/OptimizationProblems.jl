@@ -17,7 +17,12 @@ jennrichsampson_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Source: problem 6 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

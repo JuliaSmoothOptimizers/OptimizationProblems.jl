@@ -17,7 +17,13 @@ rocket_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Goddard Rocket Problem
+Trapezoidal formulation
+COPS 2.0 - September 2000
+COPS 3.0 - November 2002
+COPS 3.1 - March 2004
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

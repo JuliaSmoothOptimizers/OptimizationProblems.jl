@@ -1,9 +1,3 @@
-# "Philippe Toint (private communication)"
-
-# classification SUR2-AN-V-0
-
-# A. Montoison, Montreal, 05/2018.
-
 export NZF1
 
 function NZF1(args...; n::Int = default_nvar, kwargs...)

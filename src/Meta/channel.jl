@@ -17,7 +17,19 @@ channel_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+# Flow in a Channel
+
+# Analyze the flow of a fluid during injection into a long vertical channel
+
+#   This is problem 7 in the COPS (Version 3) collection of 
+#   E. Dolan and J. More'
+#   see "Benchmarking Optimization Software with COPS"
+#   Argonne National Labs Technical Report ANL/MCS-246 (2004)
+
+#   classification OOR2-AN-V-V
+  
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

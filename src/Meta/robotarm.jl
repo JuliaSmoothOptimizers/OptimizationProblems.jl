@@ -17,7 +17,20 @@ robotarm_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Minimize the time taken for a robot arm to travel between two points.
+
+This is problem 8 in the COPS (Version 3) collection of 
+E. Dolan and J. More
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2004)
+
+classification OOR2-AN-V-V
+
+x : vector of variables, of the form : [ρ(t=t1); ρ(t=t2); ... ρ(t=tf), θ(t=t1), ..., then ρ_dot, ..., then ρ_acc, .. φ_acc, tf]
+There are N+1 values of each 9 variables 
+x = [ρ, θ, φ, ρ_dot, θ_dot, φ_dot, ρ_acc, θ_acc, φ_acc, tf]
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

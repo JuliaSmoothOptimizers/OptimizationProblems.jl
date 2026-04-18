@@ -17,7 +17,22 @@ hs69_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""Hock and Schittkowski problem number 69.
+
+  Source:
+  Problem 69 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+  classification GGR-P1-2
+
+Original source:
+E. von Collani, Kostenoptimale Prufplane bei laufender
+Kontrolle eines normalverteilten Merkmals, Dissertation,
+Institut fur Angewandte Mathematik und Statistik, Universitat Wurzburg, 1978.
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

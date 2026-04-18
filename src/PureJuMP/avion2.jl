@@ -11,7 +11,6 @@
 # granted, provided that the above copyright notice appear in all
 # copies and that the copyright notice and this
 # permission notice appear in all supporting documentation.
-#   classification OLR2-RN-49-15
 export avion2
 
 function avion2(; n::Int = default_nvar, kwargs...)

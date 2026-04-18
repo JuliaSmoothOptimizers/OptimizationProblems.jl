@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 222.
-#
-#   Source:
-#   Problem 222 in
-#   K. Schittkowski,
-#   More Test Examples for Nonlinear Programming Codes,
-#   Lectures Notes in Economics and Mathematical Systems 282,
-#   Springer Verlag, Heidelberg, 1987.
-#
-#   
-#
-# T. Migot, Montreal, 2023.
-
 export hs222
 
 "HS222 model"

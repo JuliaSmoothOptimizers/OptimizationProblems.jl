@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 263.
-#
-#   Source:
-#   Problem 263 in
-#   K. Schittkowski,
-#   More Test Examples for Nonlinear Programming Codes,
-#   Lectures Notes in Economics and Mathematical Systems 282,
-#   Springer Verlag, Heidelberg, 1987.
-#
-#   
-#
-# T. Migot, Montreal, 2023.
-
 export hs263
 
 "HS263 model"

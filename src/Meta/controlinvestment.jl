@@ -17,7 +17,10 @@ controlinvestment_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Example 5.3, Dominique Orban, Computation Optimization and Control lecture notes at Polytechnique Montréal.
+This is a simple investment problem in optimistic market.
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

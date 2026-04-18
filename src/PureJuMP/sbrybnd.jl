@@ -1,29 +1,3 @@
-#   Broyden banded system of nonlinear equations, considered in the
-#   least square sense.
-#   NB: scaled version of BRYBND
-
-#   Source: the *unscaled* version is problem 31 in
-#   J.J. More', B.S. Garbow and K.E. Hillstrom,
-#   "Testing Unconstrained Optimization Software",
-#   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-#   See also Buckley#73 (p. 41) and Toint#18
-
-#   classification SUR2-AN-V-0
-
-#   This scaled version is Problem 48 in
-#   L. Luksan, C. Matonoha and J. Vlcek
-#   Modified CUTE problems for sparse unconstrained optimization,
-#   Technical Report 1081,
-#   Institute of Computer Science,
-#   Academy of Science of the Czech Republic
-#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
-#
-# The terms in the sum should be squared --- corrected (it is not squared in Luksan, but
-# comparing it against their brybnd that appears to be a typo)
-#
-# J.-P. Dussault, Clermont-Ferrand 05/2016.
-
 export sbrybnd
 
 "Broyden banded system of nonlinear equations in size 'n' "

@@ -17,7 +17,78 @@ threepk_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+
+ Converted in Julia from https://github.com/mpf/Optimization-Test-Problems
+
+**************************
+ SET UP THE INITIAL DATA *
+**************************
+   Problem :
+   *********
+   A problem arising in the estimation of structured O/D matrix
+   Source:
+   M. Bierlaire, private communication
+   see also
+   M. Bierlaire and Ph. L. Toint,
+   MEUSE: an origin-destination estimator that exploits structure,
+   Transportation Research B, 29, 1, 47--60, 1995.
+   SIF input: Ph. Toint, Dec 1989, Corrected July 1993.
+   classification SUR2-MN-30-0
+ Parameters
+ Number of parking columns
+ Number of centroids
+ Gamma : general trust in the countings
+ Objective for fill-up coefficients
+ Inverse of the weights for fill-up coefficients
+ Number of available countings
+ Inverse of the weight on unknow cells
+ Trip ends
+ Some interesting values...
+ Countings
+ Inverse of the trusts in countings
+ Coefficients pour les parkings
+ O/D matrix
+ A priori information, but not parkings
+ Parking coefficients
+ Unknown parking entries
+ Countings
+ Parking columns
+ 1,0
+ 2,0
+ 3,0
+ 4,0
+ 5,0
+ 0,1
+ 2,1
+ 3,1
+ 4,1
+ 5,1
+ 0,2
+ 1,2
+ 3,2
+ 4,2
+ 5,2
+ Other columns
+ 0,3
+ 1,3
+ 2,3
+ 4,3
+ 5,3
+ 0,4
+ 1,4
+ 2,4
+ 3,4
+ 5,4
+ 0,5
+ 1,5
+ 2,5
+ 3,5
+ 4,5
+ Variance minimization
+ A priori information, but not parkings
+ Parking coefficients  
+  """,
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

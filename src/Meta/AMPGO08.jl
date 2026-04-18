@@ -16,10 +16,25 @@ AMPGO08_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
-  :notes => raw"""""",
-  :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :url => "http://infinity77.net/global_optimization/test_functions_1d.html#d-test-functions",
+  :notes => raw"""
+A one dimensional optimization problem
+""",
+  :origin_notes => raw"""
+Problem 8 in
+http://infinity77.net/global_optimization/test_functions_1d.html#d-test-functions
+Andrea Gavana
+S. Goyette, Sherbrooke 2016/2017
+""",
+  :reference => raw"""
+@misc{GavanaGOTestSuite,
+  author       = {Gavana, Andrea},
+  title        = {Global Optimization Benchmarks},
+  year         = {2013},
+  howpublished = {\url{http://infinity77.net/global_optimization/}},
+  note         = {Collection of benchmark functions and algorithm comparisons for global optimization (including AMPGO)}
+}
+""",
 )
 get_AMPGO08_nvar(; n::Integer = default_nvar, kwargs...) = 1
 get_AMPGO08_ncon(; n::Integer = default_nvar, kwargs...) = 0

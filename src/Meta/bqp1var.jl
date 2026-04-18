@@ -17,7 +17,11 @@ bqp1var_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Source: a one variable box-constrained quadratic
+SIF input: Nick Gould, March 1992
+classification QBR2-AN-1-0
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

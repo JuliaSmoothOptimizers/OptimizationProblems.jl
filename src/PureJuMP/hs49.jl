@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 49.
-#
-#   Source:
-#   Problem 49 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification PLR2-AN-5-2
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs49
 
 "HS49 model"

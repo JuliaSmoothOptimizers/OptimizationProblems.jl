@@ -1,4 +1,3 @@
-
 osborne1_meta = Dict(
   :nvar => 5,
   :variable_nvar => false,
@@ -18,7 +17,16 @@ osborne1_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Source:  Problem 17 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
+See alos Buckley#32 (p. 77).
+
+classification NOR2-MN-5-33
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

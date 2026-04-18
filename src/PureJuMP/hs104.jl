@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 104.
-#
-#   Source:
-#   Problem 104 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#   
-#   classification PPR-AN-8-6
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs104
 
 "HS104 model"

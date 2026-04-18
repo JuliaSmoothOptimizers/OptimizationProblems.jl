@@ -17,7 +17,31 @@ bdqrtic_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+A quartic with a banded Hessian of bandwidth 9
+
+Source:
+Problem 61 in
+A.R. Conn, N.I.M. Gould, M. Lescrenier and Ph.L. Toint,
+Performance of a multifrontal scheme for partially separable
+optimization,
+Report 88/4, Dept of Mathematics, FUNDP (Namur, B), 1988.
+
+See also
+
+problem 2 in
+L. Luksan, C. Matonoha and J. Vlcek
+Modified CUTE problems for sparse unconstrained optimization,
+Technical Report 1081,
+Institute of Computer Science,
+Academy of Science of the Czech Republic
+
+http://www.cs.cas.cz/matonoha/download/V1081.pdf
+
+classification SUR2-AN-V-0
+
+D. Orban, Montreal, 08/2015.
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

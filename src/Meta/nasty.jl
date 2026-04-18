@@ -17,7 +17,11 @@ nasty_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Nasty problem.
+Source: a very simple box-constrained quadratic
+classification QUR2-AN-2-0
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

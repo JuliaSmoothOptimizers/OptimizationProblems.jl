@@ -1,19 +1,3 @@
-#
-#   Watson problem in varaible dimension ( 2 <= n <= 31 ).
-#   This function is a nonlinear least squares with 31 groups. 
-#
-#   Source:  problem 20 in
-#      J.J. More', B.S. Garbow and K.E. Hillstrom,
-#      "Testing Unconstrained Optimization Software",
-#      ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-#   Also problem 128 (p. 100) in 
-#      A.R. Buckley,
-#      "Test functions for unconstrained minimization",
-#      TR 1989CS-3, Mathematics, statistics and computing centre,
-#      Dalhousie University, Halifax (CDN), 1989.
-#
-#   SUR2-AN-V-0
-
 export watson
 
 function watson(args...; n::Int = default_nvar, kwargs...)

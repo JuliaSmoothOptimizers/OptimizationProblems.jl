@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 16.
-#
-#   Source:
-#   Problem 16 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification SQR2-AN-2-2
-#
-# N. Antunes, Curitiba, 10/2016.
-
 export hs16
 
 "HS16 model"

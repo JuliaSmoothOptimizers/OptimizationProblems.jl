@@ -17,7 +17,20 @@ hs22_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+ Hock and Schittkowski problem number 22.
+
+   Source:
+   Problem 22 in
+   W. Hock and K. Schittkowski,
+   Test examples for nonlinear programming codes,
+   Lectures Notes in Economics and Mathematical Systems 187,
+   Springer Verlag, Heidelberg, 1981.
+
+   classification QQR2-AN-2-2
+
+ A. Montoison, Montreal, 04/2018.  
+  """,
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

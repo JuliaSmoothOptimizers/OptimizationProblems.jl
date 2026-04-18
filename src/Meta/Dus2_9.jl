@@ -17,7 +17,15 @@ Dus2_9_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+A one dimensional optimization problem
+
+Problem found in
+http://www.dmi.usherb.ca/~dussault/ROP630E17/
+Jean_pierre Dussault
+
+S. Goyette, Sherbrooke 2016/2017
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

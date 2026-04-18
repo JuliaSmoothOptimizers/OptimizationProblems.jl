@@ -1,9 +1,3 @@
-# Rocket Steering Problem
-# Trapezoidal formulation
-# COPS 2.0 - September 2000
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export steering
 
 function steering(; n::Int = default_nvar, kwargs...)

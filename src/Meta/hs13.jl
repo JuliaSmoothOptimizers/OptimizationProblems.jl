@@ -17,7 +17,20 @@ hs13_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+ Hock and Schittkowski problem number 13.
+
+   Source:
+   Problem 13 in
+   W. Hock and K. Schittkowski,
+   Test examples for nonlinear programming codes,
+   Lectures Notes in Economics and Mathematical Systems 187,
+   Springer Verlag, Heidelberg, 1981.
+
+   classification QQR2-AN-2-1
+
+ N. Antunes, Curitiba, 10/2016.  
+  """,
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

@@ -17,7 +17,12 @@ catmix_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Catalyst Mixing Problem
+Collocation formulation
+COPS 3.0 - November 2002
+COPS 3.1 - March 2004
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

@@ -1,10 +1,3 @@
-# A one dimensional optimization problem
-#
-# Problem found in
-# http://www.dmi.usherb.ca/~dussault/ROP630E17/
-# Jean_pierre Dussault
-#
-# S. Goyette, Sherbrooke 2016/2017
 export Dus2_9
 
 "Univariate multimodal minimization problem Dus2_9"

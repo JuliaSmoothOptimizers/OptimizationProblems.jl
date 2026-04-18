@@ -17,7 +17,18 @@ meyer3_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+Meyer function
+
+Source:  Problem 10 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
+See also Buckley #29 (p. 73).
+
+classification SUR2-RN-3-0
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

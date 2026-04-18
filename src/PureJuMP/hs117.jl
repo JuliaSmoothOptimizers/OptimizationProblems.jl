@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 117.
-#
-#   Source:
-#   Problem 117 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#   
-#   classification PQR-AN-15-5
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs117
 
 "HS117 model"
@@ -33,11 +20,13 @@ function hs117(args...; kwargs...)
 
   b = [-40, -2, -0.25, -4, -4, -1, -40, -60, 5, 1]
 
-  c = Float64[ 30 -20 -10  32 -10;
-              -20  39 -6  -31  32;
-              -10 -6   10 -6  -10;
-               32 -31 -6   39 -20;
-              -10  32 -10 -20  30]
+  c = Float64[
+    30 -20 -10 32 -10;
+    -20 39 -6 -31 32;
+    -10 -6 10 -6 -10;
+    32 -31 -6 39 -20;
+    -10 32 -10 -20 30
+  ]
 
   d = [4, 8, 10, 6, 2]
 

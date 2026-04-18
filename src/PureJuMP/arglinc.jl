@@ -1,14 +1,3 @@
-#   Linear function - rank 1, zero columns and rows
-#
-#   Source: Problem 34 in
-#   J.J. More', B.S. Garbow and K.E. Hillstrom,
-#   "Testing Unconstrained Optimization Software",
-#   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-#
-#   See also Buckley#101 (with different N and M)
-#
-#   classification SUR2-AN-V-0
-
 export arglinc
 
 "Linear function with `n` parameters and `m` observations - rank 1, zero columns and rows"

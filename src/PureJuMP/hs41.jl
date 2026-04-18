@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 41.
-#
-#   Source:
-#   Problem 41 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification PLR2-AN-4-1
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs41
 
 "HS41 model"

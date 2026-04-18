@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 12.
-#
-#   Source:
-#   Problem 12 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification QQR2-AN-2-1
-#
-# N. Antunes, Curitiba, 10/2016.
-
 export hs12
 
 "HS12 model"

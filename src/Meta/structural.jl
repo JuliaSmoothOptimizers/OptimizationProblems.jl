@@ -26,7 +26,13 @@ structural_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+
+ JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
+ Introduction to Optimization class.
+ https://laurentlessard.com/teaching/524-intro-to-optimization/
+  
+  """,
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )

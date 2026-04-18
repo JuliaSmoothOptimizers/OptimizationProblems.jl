@@ -17,7 +17,9 @@ avion2_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
+  :notes => raw"""
+classification OLR2-RN-49-15
+""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
 )
