@@ -23,6 +23,11 @@ using JuMP, LinearAlgebra, SpecialFunctions
 _adjust_nvar_warn_message(problem_name, n_orig, n) =
   string(problem_name, ": number of variables adjusted from ", n_orig, " to ", n)
 
+"""
+    @adjust_nvar_warn(problem_name, n_orig, n)
+
+Issue a warning if the number of variables was adjusted, showing both original and adjusted values.
+"""
 macro adjust_nvar_warn(problem_name, n_orig, n)
   return quote
     local _n_orig = $(esc(n_orig))

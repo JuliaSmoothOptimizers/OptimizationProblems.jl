@@ -28,6 +28,12 @@ function bearing(
   # nx > 0 # grid points in 1st direction
   # ny > 0 # grid points in 2nd direction
 
+  n_orig = n
+  nx = max(1, nx)
+  ny = max(1, ny)
+  n = (nx + 2) * (ny + 2)
+  @adjust_nvar_warn("bearing", n_orig, n)
+
   b = 10  # grid is (0,2*pi)x(0,2*b)
   e = 0.1 # eccentricity
 
