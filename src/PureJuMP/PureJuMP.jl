@@ -19,7 +19,7 @@ function _ensure_data!(key::Symbol, relpath::AbstractString)
 end
 
 using JuMP, LinearAlgebra, SpecialFunctions
-import ..: @adjust_nvar_warn
+import ..OptimizationProblems: @adjust_nvar_warn
 
 path = dirname(@__FILE__)
 files = filter(x -> x[(end - 2):end] == ".jl", readdir(path))

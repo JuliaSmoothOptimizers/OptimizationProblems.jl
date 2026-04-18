@@ -63,8 +63,14 @@ end
   _check_adjusted_warning("clplatea: number of variables adjusted from 5 to 4", 4) do
     MathOptNLPModel(PureJuMP.clplatea(n = 5))
   end
+  _check_adjusted_warning("clplateb: number of variables adjusted from 5 to 9", 9) do
+    ADNLPProblems.clplateb(n = 5)
+  end
   _check_adjusted_warning("clplateb: number of variables adjusted from 5 to 4", 4) do
     MathOptNLPModel(PureJuMP.clplateb(n = 5))
+  end
+  _check_adjusted_warning("clplatec: number of variables adjusted from 5 to 9", 9) do
+    ADNLPProblems.clplatec(n = 5)
   end
   _check_adjusted_warning("clplatec: number of variables adjusted from 5 to 4", 4) do
     MathOptNLPModel(PureJuMP.clplatec(n = 5))

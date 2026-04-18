@@ -1,7 +1,7 @@
 module ADNLPProblems
 
 using Requires
-import ..: @adjust_nvar_warn
+import ..OptimizationProblems: @adjust_nvar_warn
 
 const default_nvar = 100
 const data_path = joinpath(@__DIR__, "..", "..", "data")
