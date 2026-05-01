@@ -20,8 +20,8 @@ broydn7d_meta = Dict(
   :notes => raw"""
 A seven diagonal variant of the Broyden tridiagonal system,
 featuring a band far away from the diagonal.
-
-Source:
+""",
+  :origin_notes => raw"""
 Problem 3.4 in
 Ph. L. Toint,
 Some numerical results using a sparse matrix updating formula in
@@ -55,6 +55,7 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
 See also Buckley#84
 
+SIF input: Ph. Toint, Dec 1989.
 classification OUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
@@ -62,29 +63,17 @@ D. Orban, Montreal, 08/2015.
 # Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the original paper
 # (See issue #36)
 """,
-  :origin_notes => raw"""
-Problem :
-A seven diagonal variant of the Broyden tridiagonal system,
-featuring a band far away from the diagonal.
-Source:
-Ph.L. Toint,
-"Some numerical results using a sparse matrix updating formula in
-unconstrained optimization",
-Mathematics of Computation, vol. 32(114), pp. 839-852, 1978.
-See also Buckley#84
-SIF input: Ph. Toint, Dec 1989.
-classification OUR2-AN-V-0
-""",
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@article{Toint1978MathComp,
+  author  = {Toint, Ph. L.},
+  title   = {Some numerical results using a sparse matrix updating formula in unconstrained optimization},
+  journal = {Mathematics of Computation},
+  year    = {1978},
+  volume  = {32},
+  number  = {143},
+  pages   = {839--851},
+  doi     = {10.1090/s0025-5718-1978-0483452-7}
+}  
   """,
 
   :lib => "CUTEst:BROYDN7D, Luksan:3",

@@ -52,15 +52,14 @@ SIF input: Ph. Toint, Dec 1989.
 classification SUR2-AN-V-V
 """,
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@techreport{Buckley1989,
+  author      = {Buckley, A. G.},
+  title       = {Test functions for unconstrained minimization},
+  institution = {Computing Science Division, Dalhousie University},
+  address     = {Dalhousie, Canada},
+  number      = {CS-3},
+  year        = {1989}
+}  
   """,
 
   :lib => "CUTEst:SPMSRTLS, Luksan:54",

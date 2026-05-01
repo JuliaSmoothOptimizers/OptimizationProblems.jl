@@ -55,15 +55,15 @@ SIF input: Ph. Toint, Dec 1989.
 classification SUR2-AN-V-0
 """,
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@techreport{Shanno1978,
+  author      = {Shanno, D. F.},
+  title       = {On Variable Metric Methods for Sparse {Hessians} {II}: the New Method},
+  institution = {University of Arizona},
+  type        = {MIS Technical Report},
+  number      = {27},
+  address     = {Tucson, AZ},
+  year        = {1978}
+}  
   """,
 
   :lib => "CUTEst:NONDIA, Luksan:44",

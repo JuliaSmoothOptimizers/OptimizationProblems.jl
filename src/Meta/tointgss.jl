@@ -56,15 +56,13 @@ SIF input: Ph. Toint, Dec 1989, corrected Nick Gould, July 1993.
 classification OUR2-AY-V-0
 """,
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@techreport{Toint1983,
+  author      = {Ph. L. Toint},
+  title       = {Test problems for partially separable optimization and results for the routine PSPMIN},
+  institution = {Department of Mathematics, FUNDP (Namur, Belgium)},
+  number      = {Report 83/4},
+  year        = {1983}
+}  
   """,
 
   :lib => "CUTEst:TOINTGSS, Luksan:56",

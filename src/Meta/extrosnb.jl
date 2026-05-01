@@ -18,7 +18,10 @@ extrosnb_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/EXTROSNB.SIF",
   :notes => raw"""
-Source: problem 10 in
+The extended Rosenbrock function (nonseparable version).
+""",
+  :origin_notes => raw"""
+Problem 10 in
 Ph.L. Toint,
 "Test problems for partially separable optimization and results
 for the routine PSPMIN",
@@ -40,28 +43,14 @@ classification SUR2-AN-V-0
 
 J.-P. Dussault, Rennes 09/2015.
 """,
-  :origin_notes => raw"""
-Problem :
-The extended Rosenbrock function (nonseparable version).
-Source: problem 10 in
-Ph.L. Toint,
-"Test problems for partially separable optimization and results
-for the routine PSPMIN",
-Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
-See also Buckley#116.  Note that MGH#21 is the separable version.
-SIF input: Ph. Toint, Dec 1989.
-classification SUR2-AN-V-0
-""",
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@techreport{Toint1983,
+  author      = {Ph. L. Toint},
+  title       = {Test problems for partially separable optimization and results for the routine PSPMIN},
+  institution = {Department of Mathematics, FUNDP (Namur, Belgium)},
+  number      = {Report 83/4},
+  year        = {1983}
+}  
   """,
 
   :lib => "CUTEst:EXTROSNB, Luksan:29",

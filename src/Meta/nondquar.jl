@@ -56,15 +56,14 @@ SIF input: Ph. Toint, Dec 1989.
 classification OUR2-AN-V-0
 """,
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@techreport{ConnGouldLescrenierToint1988,
+  author      = {Conn, A. R. and Gould, N. I. M. and Lescrenier, M. and Toint, Ph. L.},
+  title       = {Performance of a multifrontal scheme for partially separable optimization},
+  institution = {Department of Mathematics, FUNDP},
+  address     = {Namur, Belgium},
+  number      = {Report 88/4},
+  year        = {1988}
+}  
   """,
 
   :lib => "CUTEst:NONDQUAR, Luksan:45",

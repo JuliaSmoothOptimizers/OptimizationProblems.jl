@@ -29,15 +29,15 @@ trig_meta = Dict(
   Academy of Science of the Czech Republic
 """,
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@techreport{LuksanMatonohaVlcek2010_sparse,
+  author      = {Luksan, Ladislav and Matonoha, Ctirad and Vlcek, Jan},
+  title       = {Sparse Test Problems for Unconstrained Optimization},
+  institution = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
+  number      = {V-1064},
+  year        = {2010},
+  address     = {Prague, Czech Republic},
+  url         = {https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization}
+}
   """,
   :lib => "LuksanSparse:9",
 )

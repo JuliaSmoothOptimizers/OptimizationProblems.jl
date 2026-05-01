@@ -52,15 +52,16 @@ SIF input: Ph. Toint, Aug 1990.
 classification SUR2-AN-V-0
 """,
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@article{Li1988SIAMJNA,
+  author  = {Li, Guangye},
+  title   = {The Secant/Finite Difference Algorithm for Solving Sparse Nonlinear Systems of Equations},
+  journal = {SIAM Journal on Numerical Analysis},
+  year    = {1988},
+  volume  = {25},
+  number  = {5},
+  pages   = {1181--1196},
+  doi     = {10.1137/0725067}
+}  
   """,
 
   :lib => "CUTEst:LIARWHD, Luksan:38",

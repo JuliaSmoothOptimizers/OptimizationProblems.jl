@@ -18,9 +18,9 @@ bdqrtic_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/BDQRTIC.SIF",
   :notes => raw"""
-A quartic with a banded Hessian of bandwidth 9
-
-Source:
+This problem is quartic and has a banded Hessian with bandwidth = 9
+""",
+  :origin_notes => raw"""
 Problem 61 in
 A.R. Conn, N.I.M. Gould, M. Lescrenier and Ph.L. Toint,
 Performance of a multifrontal scheme for partially separable
@@ -38,31 +38,20 @@ Academy of Science of the Czech Republic
 
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
+SIF input: Ph. Toint, Dec 1989.
 classification SUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 """,
-  :origin_notes => raw"""
-Problem :
-This problem is quartic and has a banded Hessian with bandwidth = 9
-Source: Problem 61 in
-A.R. Conn, N.I.M. Gould, M. Lescrenier and Ph.L. Toint,
-"Performance of a multifrontal scheme for partially separable
-optimization",
-Report 88/4, Dept of Mathematics, FUNDP (Namur, B), 1988.
-SIF input: Ph. Toint, Dec 1989.
-classification SUR2-AN-V-0
-""",
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@techreport{ConnGouldLescrenierToint1988,
+  author      = {Conn, A. R. and Gould, N. I. M. and Lescrenier, M. and Toint, Ph. L.},
+  title       = {Performance of a multifrontal scheme for partially separable optimization},
+  institution = {Department of Mathematics, FUNDP},
+  address     = {Namur, Belgium},
+  number      = {Report 88/4},
+  year        = {1988}
+}  
   """,
 
   :lib => "CUTEst:BDQRTIC, Luksan:2",

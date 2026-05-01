@@ -21,18 +21,15 @@ arwhead_meta = Dict(
 Arrow head problem.
 A quartic problem whose Hessian is an arrow-head (downwards) with
 diagonal central part and border-width of 1.
-
-classification OUR2-AN-V-0
-
-D. Orban, Montreal, 08/2015.
 """,
   :origin_notes => raw"""
-Source:
 Problem 55 in
 A.R. Conn, N.I.M. Gould, M. Lescrenier and Ph.L. Toint,
 Performance of a multifrontal scheme for partially separable
 optimization,
 Report 88/4, Dept of Mathematics, FUNDP (Namur, B), 1988.
+SIF input: Ph. Toint, Dec 1989.
+classification OUR2-AN-V-0
 
 See also
 
@@ -42,26 +39,17 @@ Modified CUTE problems for sparse unconstrained optimization,
 Technical Report 1081,
 Institute of Computer Science,
 Academy of Science of the Czech Republic
----
-Problem :
-A quartic problem whose Hessian is an arrow-head (downwards) with
-diagonal central part and border-width of 1.
-Source: Problem 55 in
-A.R. Conn, N.I.M. Gould, M. Lescrenier and Ph.L. Toint,
-"Performance of a multifrontal scheme for partially separable
-optimization",
-Report 88/4, Dept of Mathematics, FUNDP (Namur, B), 1988.
-SIF input: Ph. Toint, Dec 1989.
-classification OUR2-AN-V-0
+
+D. Orban, Montreal, 08/2015.
 """,
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-  institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic}
+@techreport{ConnGouldLescrenierToint1988,
+  author      = {Conn, A. R. and Gould, N. I. M. and Lescrenier, M. and Toint, Ph. L.},
+  title       = {Performance of a multifrontal scheme for partially separable optimization},
+  institution = {Department of Mathematics, FUNDP},
+  address     = {Namur, Belgium},
+  number      = {Report 88/4},
+  year        = {1988}
 }  
 """,
   :lib => "CUTEst:ARWHEAD, Luksan:1",

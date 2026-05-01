@@ -18,14 +18,29 @@ fletcbv2_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/FLETCBV2.SIF",
   :notes => raw"""
+Another Boundary Value problem.
 Source:  The first problem given by
+R. Fletcher,
+"An optimal positive definite update for sparse Hessian matrices"
+Numerical Analysis report NA/145, University of Dundee, 1992.
+but assuming that the 1/h**2 term should read h**2
+This is what Fletcher intended (private communication).
+The author comments: "The problem arises from discretizing the bvp
+x"=-2+sin x in [0,1]
+with x(0)=0, x(1)=1. This gives a symmetric system of equations,
+the residual vector of which is the gradient of the given function."
+He multiplies through by h^2 before integrating.
+""",
+  :origin_notes => raw"""
+The first problem given by
 R. Fletcher,
 "An optimal positive definite update for sparse Hessian matrices"
 Numerical Analysis report NA/145, University of Dundee, 1992.
 
 Scaled version.
 
-SIF input: Nick Gould, Oct 1992.
+SIF input: Nick Gould, Nov 1992.
+classification OUR2-AN-V-0
 
 problem 31 in
 L. Luksan, C. Matonoha and J. Vlcek
@@ -40,33 +55,15 @@ classification OUR2-AN-V-0
 
 J,-P, Dussault, Rennes 09/2015.
 """,
-  :origin_notes => raw"""
-Problem :
-Another Boundary Value problem.
-Source:  The first problem given by
-R. Fletcher,
-"An optimal positive definite update for sparse Hessian matrices"
-Numerical Analysis report NA/145, University of Dundee, 1992.
-but assuming that the 1/h**2 term should read h**2
-This is what Fletcher intended (private communication).
-The author comments: "The problem arises from discretizing the bvp
-x"=-2+sin x in [0,1]
-with x(0)=0, x(1)=1. This gives a symmetric system of equations,
-the residual vector of which is the gradient of the given function."
-He multiplies through by h^2 before integrating.
-SIF input: Nick Gould, Nov 1992.
-classification OUR2-AN-V-0
-""",
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@techreport{Fletcher1992,
+  author      = {Fletcher, R.},
+  title       = {An Optimal Positive Definite Update for Sparse {Hessian} Matrices},
+  institution = {University of Dundee},
+  type        = {Numerical Analysis Report},
+  number      = {NA/145},
+  year        = {1992}
+}  
   """,
 
   :lib => "CUTEst:FLETCBV2, Luksan:31",

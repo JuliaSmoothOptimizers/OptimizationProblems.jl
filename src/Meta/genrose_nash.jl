@@ -75,15 +75,16 @@ Institute of Computer Science,
 Academy of Science of the Czech Republic  
   """,
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@article{Nash1984SIAMNA,
+  author  = {Nash, Stephen G.},
+  title   = {Newton-Type Minimization via the {Lanczos} Method},
+  journal = {SIAM Journal on Numerical Analysis},
+  year    = {1984},
+  volume  = {21},
+  number  = {4},
+  pages   = {770--788},
+  doi     = {10.1137/0721052}
+}  
   """,
 
   :lib => "Luksan:36, LuksanSparse:1",

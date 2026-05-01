@@ -18,7 +18,19 @@ chainwoo_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/CHAINWOO.SIF",
   :notes => raw"""
-Source:  problem 8 in
+The chained Woods problem, a variant on Woods function
+This problem is a sum of n/2 sets of 6 terms, each of which is
+assigned its own group.  For a given set i, the groups are
+A(i), B(i), C(i), D(i), E(i) and F(i). Groups A(i) and C(i) contain 1
+nonlinear element each, denoted Y(i) and Z(i).
+The problem dimension is defined from the number of these sets.
+The number of problem variables is then 2 times + 2 as large
+This version uses a slightly unorthodox expression of Woods
+function as a sum of squares (see Buckley)
+""",
+  :origin_notes => raw"""
+Problem :
+Problem 8 in
 A. R. Conn, N. I. M. Gould and Ph. L. Toint,
 Testing a class of methods for solving minimization
 problems with simple bounds on their variables,
@@ -35,6 +47,7 @@ Academy of Science of the Czech Republic
 
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
+SIF input: Nick Gould and Ph. Toint, Dec 1995.
 classification SUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
@@ -50,35 +63,17 @@ Academy of Science of the Czech Republic
 
 https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization
 """,
-  :origin_notes => raw"""
-Problem :
-The chained Woods problem, a variant on Woods function
-This problem is a sum of n/2 sets of 6 terms, each of which is
-assigned its own group.  For a given set i, the groups are
-A(i), B(i), C(i), D(i), E(i) and F(i). Groups A(i) and C(i) contain 1
-nonlinear element each, denoted Y(i) and Z(i).
-The problem dimension is defined from the number of these sets.
-The number of problem variables is then 2 times + 2 as large
-This version uses a slightly unorthodox expression of Woods
-function as a sum of squares (see Buckley)
-Source:  problem 8 in
-A.R.Conn,N.I.M.Gould and Ph.L.Toint,
-"Testing a class of methods for solving minimization 
-problems with simple bounds on their variables, 
-Mathematics of Computation 50, pp 399-430, 1988.
-SIF input: Nick Gould and Ph. Toint, Dec 1995.
-classification SUR2-AN-V-0
-""",
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@article{ConnGouldToint1988MathComp,
+  author  = {Conn, Andrew R. and Gould, Nicholas I. M. and Toint, Philippe L.},
+  title   = {Testing a class of methods for solving minimization problems with simple bounds on the variables},
+  journal = {Mathematics of Computation},
+  year    = {1988},
+  volume  = {50},
+  number  = {182},
+  pages   = {399--430},
+  doi     = {10.1090/s0025-5718-1988-0929544-3}
+}  
   """,
 
   :lib => "CUTEst:CHAINWOO, Luksan:5, LuksanSparse:2",

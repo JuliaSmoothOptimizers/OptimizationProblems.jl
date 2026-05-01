@@ -18,9 +18,12 @@ eg2_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/EG2.SIF",
   :notes => raw"""
-A simple non convex problem with several local minima.
-
-Source: Section 1.2.4 of
+A simple nonlinear problem given as an example in Section 1.2.4 of
+the LANCELOT Manual.
+The problem is non convex and has several local minima.
+""",
+  :origin_notes => raw"""
+Section 1.2.4 of
 A. R. Conn, N. I. M. Gould and Ph. L. Toint,
 LANCELOT, A Fortran Package for Large-Scale Nonlinear Optimization
 (Release A)
@@ -37,33 +40,22 @@ Academy of Science of the Czech Republic
 
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
+SIF input: N. Gould and Ph. Toint, June 1994.
 classification OUR2-AN-1000-0
 
 D. Orban, Montreal, 08/2015.
 """,
-  :origin_notes => raw"""
-Problem:
-A simple nonlinear problem given as an example in Section 1.2.4 of
-the LANCELOT Manual.
-The problem is non convex and has several local minima.
-Source:
-A.R. Conn, N. Gould and Ph.L. Toint,
-"LANCELOT, A Fortran Package for Large-Scale Nonlinear Optimization
-(Release A)"
-Springer Verlag, 1992.
-SIF input: N. Gould and Ph. Toint, June 1994.
-classification OUR2-AN-1000-0
-""",
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@book{ConnGouldToint1992LANCELOT,
+  author    = {Conn, A. R. and Gould, N. I. M. and Toint, Ph. L.},
+  title     = {{LANCELOT}: a {Fortran} package for large-scale nonlinear optimization ({Release A})},
+  series    = {Springer Series in Computational Mathematics},
+  volume    = {17},
+  publisher = {Springer},
+  address   = {Heidelberg},
+  year      = {1992},
+  doi       = {10.1007/978-3-662-12211-2}
+}  
   """,
 
   :lib => "CUTEst:EG2, Luksan:25",

@@ -56,15 +56,16 @@ SIF input: Ph. Toint, Dec 1989.
 classification OUR2-AY-V-0
 """,
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@article{SchmidtVetters1970NM,
+  author  = {Schmidt, Jochen W. and Vetters, Klaus},
+  title   = {Ableitungsfreie {Verfahren} f{\"u}r nichtlineare {Optimierungsprobleme}},
+  journal = {Numerische Mathematik},
+  year    = {1970},
+  volume  = {15},
+  number  = {4},
+  pages   = {263--282},
+  doi     = {10.1007/BF02165118}
+}  
   """,
 
   :lib => "CUTEst:SCHMVETT, Luksan:49",

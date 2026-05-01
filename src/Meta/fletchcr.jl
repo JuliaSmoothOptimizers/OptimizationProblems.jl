@@ -18,6 +18,9 @@ fletchcr_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/FLETCHCR.SIF",
   :notes => raw"""
+The chained Rosenbrock function as given by Fletcher.
+""",
+  :origin_notes => raw"""
 Source:
 problem 32 in
 L. Luksan, C. Matonoha and J. Vlcek
@@ -50,26 +53,15 @@ classification OUR2-AN-V-0
 
 J.-P. Dussault, Rennes 09/2015.
 """,
-  :origin_notes => raw"""
-Problem :
-The chained Rosenbrock function as given by Fletcher.
-Source:  The second problem given by
-R. Fletcher,
-"An optimal positive definite update for sparse Hessian matrices"
-Numerical Analysis report NA/145, University of Dundee, 1992.
-SIF input: Nick Gould, Oct 1992.
-classification OUR2-AN-V-0
-""",
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2003,
-  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
-  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
-    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
-  number       = {1081},
-  year         = {2003},
-  address      = {Prague, Czech Republic},
-  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
-  }  
+@techreport{Fletcher1992,
+  author      = {Fletcher, R.},
+  title       = {An Optimal Positive Definite Update for Sparse {Hessian} Matrices},
+  institution = {University of Dundee},
+  type        = {Numerical Analysis Report},
+  number      = {NA/145},
+  year        = {1992}
+}  
   """,
 
   :lib => "CUTEst:FLETCHCR, Luksan:32",
