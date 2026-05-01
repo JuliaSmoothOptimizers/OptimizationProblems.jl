@@ -115,4 +115,8 @@ for name in cols_names, i = 1:number_of_problems
   meta[!, name][i] = eval(Meta.parse("$(split(files[i], ".")[1])_meta"))[name]
 end
 
+include("utils.jl")
+
+export export_bibtex
+
 end # module

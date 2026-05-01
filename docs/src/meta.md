@@ -60,3 +60,12 @@ To filter all NLS problems in the metadata DataFrame:
 ```@example 1
 nls_problems = OptimizationProblems.meta[OptimizationProblems.meta.objtype .== :least_squares, :name]
 ```
+
+## Problem'source information
+
+The following code will create a .bib file regrouping all the BibTex citations.
+```julia
+using OptimizationProblems
+export_bibtex()
+```
+Fields documenting the origin of the problem may be incomplete and any help is welcome.
