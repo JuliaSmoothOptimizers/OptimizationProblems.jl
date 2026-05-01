@@ -104,6 +104,10 @@ The following keys are valid:
   - `is_feasible::Union{Bool, Missing}`: true if problem is feasible
   - `defined_everywhere::Union{Bool, Missing}`: true if the objective is define for all values of the variables
   - `origin::Symbol`: origin of the problem, in [:academic, :modelling, :real, :unknown]
+  - `url::String`: URL where the problem can be found
+  - `notes::String`: any additional notes about the problem
+  - `origin_notes::String`: any additional notes about the origin of the problem
+  - `reference::String`: reference to the problem in bibtex format
 """
 const meta = DataFrame(cols_names .=> [Array{T}(undef, number_of_problems) for T in types])
 
