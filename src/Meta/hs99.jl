@@ -16,7 +16,7 @@ hs99_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS99.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 99.
 
@@ -29,6 +29,15 @@ Hock and Schittkowski problem number 99.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1991.
   
+---
+Problem :
+Source: problem 99 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: Ph. Toint, April 1991.
+classification OOR2-AN-7-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -42,6 +51,7 @@ Hock and Schittkowski problem number 99.
 }  
   """,
 
+  :lib => "CUTEst:HS99, HS:99",
 )
 get_hs99_nvar(; n::Integer = default_nvar, kwargs...) = 7
 get_hs99_ncon(; n::Integer = default_nvar, kwargs...) = 2

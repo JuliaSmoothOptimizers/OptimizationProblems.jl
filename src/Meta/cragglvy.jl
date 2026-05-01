@@ -16,7 +16,7 @@ cragglvy_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/CRAGGLVY.SIF",
   :notes => raw"""
 Extended Cragg and Levy problem.
 The Hessian matrix is 7-diagonal.
@@ -42,7 +42,20 @@ classification OUR2-AY-V-0
 
 D. Orban, Montreal, 08/2015.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Extended Cragg and Levy problem.
+This problem is a sum of m  sets of 5 groups,
+There are 2m+2 variables. The Hessian matrix is 7-diagonal.
+Source:  problem 32 in
+Ph. L. Toint,
+"Test problems for partially separable optimization and results
+for the routine PSPMIN",
+Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
+See  also Buckley#18
+SIF input: Ph. Toint, Dec 1989.
+classification OUR2-AY-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -55,6 +68,7 @@ D. Orban, Montreal, 08/2015.
   }  
   """,
 
+  :lib => "CUTEst:CRAGGLVY, Luksan:7",
 )
 get_cragglvy_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_cragglvy_ncon(; n::Integer = default_nvar, kwargs...) = 0

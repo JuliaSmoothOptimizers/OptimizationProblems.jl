@@ -16,7 +16,7 @@ glider_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/GLIDER.SIF",
   :notes => raw"""
 Hang Glider Problem
 Trapezoidal formulation
@@ -26,7 +26,17 @@ David Bortz - Summer 1998
 COPS 2.0 - September 2000
 COPS 3.0 - November 2002
 COPS 3.1 - March 2004  
-  """,
+  ---
+Problem :
+Maximize the final horizontal position of a hang glider in the presence
+of a thermal updraft.
+This is problem 11 in the COPS (Version 2) collection of 
+E. Dolan and J. More'
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2000)
+SIF input: Nick Gould, December 2000
+classification OOR2-AN-V-V
+""",
   :reference => raw"""
 @techreport{DolanMore2004COPS,
   author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},
@@ -38,6 +48,7 @@ COPS 3.1 - March 2004
   }
     """,
 
+  :lib => "CUTEst:GLIDER",
 )
 get_glider_nvar(; n::Integer = default_nvar, kwargs...) = 5 * n + 6
 get_glider_ncon(; n::Integer = default_nvar, kwargs...) = 4 * n + 7

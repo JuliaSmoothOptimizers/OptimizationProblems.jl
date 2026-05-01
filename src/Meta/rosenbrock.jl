@@ -20,6 +20,7 @@ rosenbrock_meta = Dict(
   :notes => raw"""""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
+  :lib => "",
 )
 get_rosenbrock_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_rosenbrock_ncon(; n::Integer = default_nvar, kwargs...) = 0

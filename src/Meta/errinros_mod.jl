@@ -16,7 +16,7 @@ errinros_mod_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf",
   :notes => raw"""
 Errin Rosenbrock - modified function.
 
@@ -46,6 +46,7 @@ J,-P, Dussault, Rennes 09/2015.
   }  
   """,
 
+  :lib => "Luksan:28",
 )
 get_errinros_mod_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_errinros_mod_ncon(; n::Integer = default_nvar, kwargs...) = 0

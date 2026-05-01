@@ -16,7 +16,7 @@ biggs6_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/BIGGS6.SIF",
   :notes => raw"""
 Source: problem 18 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
@@ -31,7 +31,17 @@ Dalhousie University, Halifax (CDN), 1989.
 
 classification SUR2-AN-6-0
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Biggs EXP problem in 6 variables
+Source: Problem 21 in
+A.R. Buckley,
+"Test functions for unconstrained minimization",
+TR 1989CS-3, Mathematics, statistics and computing centre,
+Dalhousie University, Halifax (CDN), 1989.
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-6-0
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -44,6 +54,7 @@ classification SUR2-AN-6-0
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:BIGGS6",
 )
 get_biggs6_nvar(; n::Integer = default_nvar, kwargs...) = 6
 get_biggs6_ncon(; n::Integer = default_nvar, kwargs...) = 0

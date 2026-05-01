@@ -16,7 +16,7 @@ genhumps_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf",
+  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf, https://bitbucket.org/optrove/sif/src/master/GENHUMPS.SIF",
   :notes => raw"""
 classification SUR2-AN-V-0
 J.-P. Dussault, Rennes 09/2015.
@@ -32,7 +32,17 @@ Modified CUTE problems for sparse unconstrained optimization,
 Technical Report 1081,
 Institute of Computer Science,
 Academy of Science of the Czech Republic  
-  """,
+  ---
+Problem :
+A multi-dimensional variant of HUMPS, a two dimensional function
+with a lot of humps. The density of humps increases with the
+parameter ZETA, making the problem more difficult.
+The problem is nonconvex.
+Source:
+Ph. Toint, private communication, 1997.
+SDIF input: N. Gould and Ph. Toint, November 1997.
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -45,6 +55,7 @@ Academy of Science of the Czech Republic
   }  
   """,
 
+  :lib => "CUTEst:GENHUMPS, Luksan:35",
 )
 get_genhumps_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_genhumps_ncon(; n::Integer = default_nvar, kwargs...) = 0

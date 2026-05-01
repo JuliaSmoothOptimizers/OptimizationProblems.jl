@@ -16,7 +16,7 @@ sparsine_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/SPARSINE.SIF",
   :notes => raw"""
    A sparse problem involving sine functions
 
@@ -33,7 +33,12 @@ sparsine_meta = Dict(
  J.-P. Dussault, Clermont-Ferrand 05/2016.
   
   """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+A sparse problem involving sine functions
+SIF input: Nick Gould, November 1995
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -46,6 +51,7 @@ sparsine_meta = Dict(
   }  
   """,
 
+  :lib => "CUTEst:SPARSINE, Luksan:52",
 )
 get_sparsine_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_sparsine_ncon(; n::Integer = default_nvar, kwargs...) = 0

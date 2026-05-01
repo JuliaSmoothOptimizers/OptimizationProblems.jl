@@ -35,6 +35,7 @@ S. Goyette, Sherbrooke 2016/2017
   note         = {Collection of benchmark functions and algorithm comparisons for global optimization (including AMPGO)}
 }
 """,
+  :lib => "AMPGO:15",
 )
 get_AMPGO15_nvar(; n::Integer = default_nvar, kwargs...) = 1
 get_AMPGO15_ncon(; n::Integer = default_nvar, kwargs...) = 0

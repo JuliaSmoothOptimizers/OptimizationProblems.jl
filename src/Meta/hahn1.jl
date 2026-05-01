@@ -16,7 +16,7 @@ hahn1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/hahn1.dat",
+  :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/hahn1.dat, https://bitbucket.org/optrove/sif/src/master/HAHN1.SIF",
   :notes => raw"""
 NIST/ITL StRD
 Dataset Name:  Hahn1             (Hahn1.dat)
@@ -50,8 +50,21 @@ Model:         Rational Class (cubic/cubic)
                    (1+b5*x+b6*x**2+b7*x**3)  +  e
 # T. Migot, Montreal, 2023.
                    """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+NIST Data fitting problem HAHN1 given as an inconsistent set of
+nonlinear equations.
+Fit: y = (b1 + b2*x + b3*x**2 + b4*x**3) / 
+(1 + b5*x + b6*x**2 + b7*x**3) + e
+Source:  Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Hahn, T., NIST (197?). 
+Copper Thermal Expansion Study.
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+classification NOR2-MN-7-37
+""",
   :reference => raw"""""",
+  :lib => "CUTEst:HAHN1, NIST:Hahn1",
 )
 get_hahn1_nvar(; n::Integer = default_nvar, kwargs...) = 7
 get_hahn1_ncon(; n::Integer = default_nvar, kwargs...) = 0

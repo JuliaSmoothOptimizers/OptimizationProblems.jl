@@ -16,7 +16,7 @@ brownal_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/BROWNAL.SIF",
   :notes => raw"""
 The Brown almost linear problem in variable dimension.  This is a nonlinear
 least-squares problems with n groups.
@@ -31,7 +31,20 @@ Alsso problem 79 in
   TR 1989CS-3, Mathematics, statistics and computing centre,
   Dalhousie University, Halifax (CDN), 1989.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Brown almost linear least squares problem.
+This problem is a sum of n least-squares groups, the last one of
+which has a nonlinear element.
+It Hessian matrix is dense.
+Source: Problem 27 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#79
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-V-0
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -44,6 +57,7 @@ Alsso problem 79 in
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:BROWNAL",
 )
 get_brownal_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_brownal_ncon(; n::Integer = default_nvar, kwargs...) = 0

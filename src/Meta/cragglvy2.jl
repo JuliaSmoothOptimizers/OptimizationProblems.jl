@@ -16,7 +16,7 @@ cragglvy2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization",
   :notes => raw"""
 Chained Cragg and Levy function
 
@@ -51,6 +51,7 @@ https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unco
   }
     """,
 
+  :lib => "LuksanSparse:4",
 )
 
 get_cragglvy2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

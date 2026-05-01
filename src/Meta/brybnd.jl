@@ -16,7 +16,7 @@ brybnd_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/BRYBND.SIF",
   :notes => raw"""
 Broyden banded system of nonlinear equations, considered in the
 least square sense.
@@ -60,7 +60,18 @@ D. Orban, Montreal, 08/2015.
 # Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the original paper
 # (See issue #36)
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Broyden banded system of nonlinear equations, considered in the
+least square sense.
+Source: problem 31 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#73 (p. 41) and Toint#18
+SDIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-V-0
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -73,6 +84,7 @@ D. Orban, Montreal, 08/2015.
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:BRYBND, Luksan:4",
 )
 get_brybnd_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_brybnd_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -20,6 +20,7 @@ mgh01feas_meta = Dict(
   :notes => raw"""""",
   :origin_notes => raw"""""",
   :reference => raw"""""",
+  :lib => "",
 )
 get_mgh01feas_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_mgh01feas_ncon(; n::Integer = default_nvar, kwargs...) = 2

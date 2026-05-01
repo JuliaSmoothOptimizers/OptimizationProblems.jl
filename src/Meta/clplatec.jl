@@ -16,7 +16,7 @@ clplatec_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/CLPLATEC.SIF",
   :notes => raw"""
 The clamped plate problem (Strang, Nocedal, Dax).
 The problem comes from the discretization the following problem
@@ -41,7 +41,24 @@ J. Nocedal,
 "Solving large nonlinear systems of equations arising in mechanics",
 Proceedings of the Cocoyoc Numerical Analysis Conference, Mexico,
 pp. 132-141, 1981.  
-  """,
+  ---
+Problem :
+The clamped plate problem (Strang, Nocedal, Dax)
+The problem comes from the discretization the following problem
+in mechanics:  a plate is clamped on one edge and loaded on the
+opposite side.  The plate is the unit square.
+In this version of the problem, part of the weight WGHT is put on the
+upper right corner of the plate, and the rest on the upper left corner.
+The plate is clamped on its lower edge, by fixing the
+corresponding variables to zero.
+Source:
+J. Nocedal,
+"Solving large nonlinear systems of equations arising in mechanics",
+Proceedings of the Cocoyoc Numerical Analysis Conference, Mexico,
+pp. 132-141, 1981.
+SIF input: Ph. Toint, Dec 1989.
+classification OXR2-MN-V-0
+""",
   :reference => raw"""
 @inproceedings{Nocedal1981,
   author    = {J. Nocedal},
@@ -52,6 +69,7 @@ pp. 132-141, 1981.
   year      = {1981}
 }  
   """,
+  :lib => "CUTEst:CLPLATEC",
 )
 get_clplatec_nvar(; n::Integer = default_nvar, kwargs...) = floor(Int, sqrt(n))^2
 get_clplatec_ncon(; n::Integer = default_nvar, kwargs...) = 0

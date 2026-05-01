@@ -16,7 +16,7 @@ fminsrf2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/FMINSRF2.SIF",
   :notes => raw"""
 Source: setting the boundary free in
 A Griewank and Ph. Toint,
@@ -38,7 +38,32 @@ Academy of Science of the Czech Republic
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 J.-P. Dussault, Rennes 09/2015.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The free boundary minimum surface problem.
+The problem comes from the discretization of the minimum surface
+problem on the unit square with "free boundary conditions"
+one must find the minumum surface over the unit square 
+(which is clearly 1.0).  Furthermore, the distance of the surface
+from zero at the centre of the unit square is also minimized.
+The unit square is discretized into (p-1)**2 little squares. The
+heights of the considered surface above the corners of these little
+squares are the problem variables,  There are p**2 of them.
+Given these heights, the area above a little square is
+approximated by the
+S(i,j) = sqrt( 1 + 0.5(p-1)**2 ( a(i,j) + b(i,j) ) ) / (p-1)**2
+where
+a(i,j) = x(i,j) - x(i+1,j+1)
+and
+b(i,j) = x(i+1,j) - x(i,j+1)
+Source: setting the boundary free in 
+A Griewank and Ph. Toint,
+"Partitioned variable metric updates for large structured
+optimization problems",
+Numerische Mathematik 39:429-448, 1982.
+SIF input: Ph. Toint, November 1991.
+classification OUR2-MY-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -51,6 +76,7 @@ J.-P. Dussault, Rennes 09/2015.
   }  
   """,
 
+  :lib => "CUTEst:FMINSRF2, Luksan:33",
 )
 get_fminsrf2_nvar(; n::Integer = default_nvar, kwargs...) = 100
 get_fminsrf2_ncon(; n::Integer = default_nvar, kwargs...) = 0

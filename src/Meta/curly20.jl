@@ -16,7 +16,7 @@ curly20_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/CURLY20.SIF",
   :notes => raw"""
 A banded function with semi-bandwidth b and
 negative curvature near the starting point.
@@ -40,7 +40,14 @@ classification SUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+A banded function with semi-bandwidth 20 and
+negative curvature near the starting point
+Source: Nick Gould
+SIF input: Nick Gould, September 1997.
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -53,6 +60,7 @@ D. Orban, Montreal, 08/2015.
   }  
   """,
 
+  :lib => "CUTEst:CURLY20",
 )
 get_curly20_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_curly20_ncon(; n::Integer = default_nvar, kwargs...) = 0

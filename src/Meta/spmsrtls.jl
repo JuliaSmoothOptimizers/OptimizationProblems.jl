@@ -16,7 +16,7 @@ spmsrtls_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/SPMSRTLS.SIF",
   :notes => raw"""
    Liu and Nocedal tridiagonal matrix square root problem.
 
@@ -39,7 +39,18 @@ spmsrtls_meta = Dict(
 
    classification SUR2-AN-V-V  
   """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Liu and Nocedal tridiagonal matrix square root problem.
+Source:  problem 151 (p. 93) in
+A.R. Buckley,
+"Test functions for unconstrained minimization",
+TR 1989CS-3, Mathematics, statistics and computing centre,
+Dalhousie University, Halifax (CDN), 1989.
+This is a least-squares variant of problem SPMSQRT.
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-V-V
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -52,6 +63,7 @@ spmsrtls_meta = Dict(
   }  
   """,
 
+  :lib => "CUTEst:SPMSRTLS, Luksan:54",
 )
 get_spmsrtls_nvar(; n::Integer = default_nvar, kwargs...) = max(Int(round((n + 2) / 3)), 34) * 3 - 2
 get_spmsrtls_ncon(; n::Integer = default_nvar, kwargs...) = 0

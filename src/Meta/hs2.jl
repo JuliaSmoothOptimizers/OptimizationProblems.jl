@@ -16,7 +16,7 @@ hs2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS2.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 2.
   classification PBR2-AN-2-0
@@ -30,6 +30,17 @@ A. Montoison, Montreal, 04/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+The ever famous 2 variables Rosenbrock "banana valley" problem
+with a single lower bound.
+Source: problem 2 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: A.R. Conn, March 1990.
+classification SBR2-AN-2-0
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -43,6 +54,7 @@ A. Montoison, Montreal, 04/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS2, HS:2",
 )
 get_hs2_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs2_ncon(; n::Integer = default_nvar, kwargs...) = 0

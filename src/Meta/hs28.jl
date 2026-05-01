@@ -16,7 +16,7 @@ hs28_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS28.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 28.
 
@@ -31,6 +31,15 @@ A. Montoison, Montreal, 04/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+Source: problem 28 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: A.R. Conn, April 1990
+classification SLR2-AY-3-1
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +53,7 @@ A. Montoison, Montreal, 04/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS28, HS:28",
 )
 get_hs28_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs28_ncon(; n::Integer = default_nvar, kwargs...) = 1

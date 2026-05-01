@@ -16,7 +16,7 @@ camshape_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/CAMSHAPE.SIF",
   :notes => raw"""
 Maximize the area of the valve opening for one rotation of a convex cam 
 with constraints on the curvature and on the radius of the cam
@@ -28,7 +28,17 @@ Argonne National Labs Technical Report ANL/MCS-246 (2004)
 
 classification LOR2-AN-V-V
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Maximize the area of the valve opening for one rotation of a convex cam 
+with constraints on the curvature and on the radius of the cam
+This is problem 4 in the COPS (Version 2) collection of 
+E. Dolan and J. More'
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2000)
+SIF input: Nick Gould, November 2000
+classification LOR2-AN-V-V
+""",
   :reference => raw"""
 @techreport{DolanMore2004COPS,
   author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},
@@ -40,6 +50,7 @@ classification LOR2-AN-V-V
   }
     """,
 
+  :lib => "CUTEst:CAMSHAPE, COPS:3",
 )
 get_camshape_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_camshape_ncon(; n::Integer = default_nvar, kwargs...) = 2 * n + 3

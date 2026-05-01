@@ -16,7 +16,7 @@ jennrichsampson_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://doi.org/10.1145/355934.355936",
   :notes => raw"""
 Source: problem 6 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
@@ -36,6 +36,7 @@ ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "MGH:6",
 )
 get_jennrichsampson_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_jennrichsampson_ncon(; n::Integer = default_nvar, kwargs...) = 0

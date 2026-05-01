@@ -16,7 +16,7 @@ meyer3_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/MEYER3.SIF",
   :notes => raw"""
 Meyer function
 
@@ -29,7 +29,20 @@ See also Buckley #29 (p. 73).
 
 classification SUR2-RN-3-0
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+A problem arising in the analysis of the resistance of a
+thermistor, as formulated by Meyer.
+This function  is a nonlinear least squares with 16 groups.  Each
+group has a nonlinear element.
+Source:  Problem 10 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley #29 (p. 73).
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-RN-3-0
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -42,6 +55,7 @@ classification SUR2-RN-3-0
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:MEYER3",
 )
 get_meyer3_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_meyer3_ncon(; n::Integer = default_nvar, kwargs...) = 0

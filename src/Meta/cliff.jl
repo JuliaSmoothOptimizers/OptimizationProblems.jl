@@ -16,7 +16,7 @@ cliff_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/CLIFF.SIF",
   :notes => raw"""
 The "cliff problem" in 2 variables
 
@@ -28,7 +28,17 @@ Dalhousie University, Halifax (CDN), 1989.
 
 classification OUR2-AN-2-0
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The "cliff problem" in 2 variables
+Source:  problem 206 (p. 46) in
+A.R. Buckley,
+"Test functions for unconstrained minimization",
+TR 1989CS-3, Mathematics, statistics and computing centre,
+Dalhousie University, Halifax (CDN), 1989.
+SIF input: Ph. Toint, Dec 1989.
+classification OUR2-AN-2-0
+""",
   :reference => raw"""
 @techreport{Buckley1989,
   author       = {Buckley, A. R.},
@@ -40,6 +50,7 @@ classification OUR2-AN-2-0
 }
   """,
 
+  :lib => "CUTEst:CLIFF",
 )
 get_cliff_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_cliff_ncon(; n::Integer = default_nvar, kwargs...) = 0

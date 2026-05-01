@@ -16,7 +16,7 @@ hs13_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS13.SIF",
   :notes => raw"""
  Hock and Schittkowski problem number 13.
 
@@ -31,6 +31,17 @@ hs13_meta = Dict(
    Lectures Notes in Economics and Mathematical Systems 187,
    Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+A problem in 2 variables where constraint qualification does not
+hold.
+Source: problem 13 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: A.R. Conn March 1990
+classification QOR2-AN-2-1
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +55,7 @@ hs13_meta = Dict(
 }  
   """,
 
+  :lib => "CUTEst:HS13, HS:13",
 )
 get_hs13_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs13_ncon(; n::Integer = default_nvar, kwargs...) = 1

@@ -16,7 +16,7 @@ hs23_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS23.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 23.
 
@@ -31,6 +31,15 @@ A. Montoison, Montreal, 04/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+Source: problem 23 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: A.R. Conn, April 1990
+classification QQR2-AN-2-5
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +53,7 @@ A. Montoison, Montreal, 04/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS23, HS:23",
 )
 get_hs23_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs23_ncon(; n::Integer = default_nvar, kwargs...) = 5

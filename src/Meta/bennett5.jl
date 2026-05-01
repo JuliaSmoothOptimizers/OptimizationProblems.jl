@@ -16,7 +16,7 @@ bennett5_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/BENNETT5.SIF",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/bennett5.dat
 
@@ -51,8 +51,20 @@ Model:         Miscellaneous Class
                y = b1 * (b2+x)**(-1/b3)  +  e
 T. Migot, Montreal, 2023.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+NIST Data fitting problem BENNETT5 given as an inconsistent set of
+nonlinear equations.
+Fit: y = b1 * (b2+x)**(-1/b3) + e
+Source:  Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference:	Bennett, L., L. Swartzendruber, H. Brown, NIST (1994).
+Superconductivity Magnetization Modeling.
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+classification NOR2-MN-3-154
+""",
   :reference => raw"""""",
+  :lib => "CUTEst:BENNETT5, NIST:Bennett5",
 )
 get_bennett5_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_bennett5_ncon(; n::Integer = default_nvar, kwargs...) = 0

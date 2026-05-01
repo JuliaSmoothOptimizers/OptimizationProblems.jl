@@ -16,7 +16,7 @@ integreq_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/INTEGREQ.SIF",
   :notes => raw"""
 The discrete integral problem.
 
@@ -32,7 +32,16 @@ Also problem 165 (p. 74) in
 
 classification NOR2-AN-V-V
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The discrete integral problem
+Source:  Problem 29 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+SIF input: Ph. Toint, Feb 1990.
+classification NOR2-AN-V-V
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -45,6 +54,7 @@ classification NOR2-AN-V-V
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:INTEGREQ",
 )
 get_integreq_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_integreq_ncon(; n::Integer = default_nvar, kwargs...) = 0

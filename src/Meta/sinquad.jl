@@ -16,7 +16,7 @@ sinquad_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/SINQUAD.SIF",
   :notes => raw"""
    Another function with nontrivial groups and
    repetitious elements.
@@ -37,7 +37,16 @@ sinquad_meta = Dict(
  J.-P. Dussault, Clermont-Ferrand 05/2016.
   
   """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Another function with nontrivial groups and
+repetitious elements.
+Source:
+N. Gould, private communication.
+SIF input: N. Gould, Dec 1989.
+incorrectly decoded version (see SINQUAD2 for correction)
+classification OUR2-AY-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -50,6 +59,7 @@ sinquad_meta = Dict(
   }  
   """,
 
+  :lib => "CUTEst:SINQUAD, Luksan:51",
 )
 get_sinquad_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_sinquad_ncon(; n::Integer = default_nvar, kwargs...) = 0

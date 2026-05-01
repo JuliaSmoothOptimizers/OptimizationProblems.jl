@@ -16,7 +16,7 @@ hs66_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS66.SIF",
   :notes => raw"""Hock and Schittkowski problem number 66.
 
   classification LGR2-AN-3-2
@@ -30,6 +30,15 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+Source: problem 66 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: B Baudson, March 1990.
+classification LOR2-AN-3-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -43,6 +52,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS66, HS:66",
 )
 get_hs66_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs66_ncon(; n::Integer = default_nvar, kwargs...) = 2

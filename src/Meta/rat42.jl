@@ -16,7 +16,7 @@ rat42_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/RAT42.SIF",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/rat42.dat
 
@@ -52,8 +52,21 @@ Model:         Exponential Class
 
 T. Migot, Montreal, 2023.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+NIST Data fitting problem RAT42 given as an inconsistent set of
+nonlinear equations.
+Fit: y = b1 / (1+exp[b2-b3*x])  +  e
+Source:  Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Ratkowsky, D.A. (1983).  
+Nonlinear Regression Modeling.
+New York, NY:  Marcel Dekker, pp. 61 and 88.
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+classification NOR2-MN-3-9
+""",
   :reference => raw"""""",
+  :lib => "CUTEst:RAT42, NIST:Rat42",
 )
 get_rat42_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_rat42_ncon(; n::Integer = default_nvar, kwargs...) = 0

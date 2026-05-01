@@ -16,7 +16,7 @@ freuroth_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf",
+  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf, https://bitbucket.org/optrove/sif/src/master/FREUROTH.SIF",
   :notes => raw"""
 classification SUR2-AN-V-0
 J.-P. Dussault, Rennes 09/2015.
@@ -38,7 +38,17 @@ Modified CUTE problems for sparse unconstrained optimization,
 Technical Report 1081,
 Institute of Computer Science,
 Academy of Science of the Czech Republic  
-  """,
+  ---
+Problem :
+The Freudentstein and Roth test problem
+Source: problem 2 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Toint#33, Buckley#24
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-V-0
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -51,6 +61,7 @@ Academy of Science of the Czech Republic
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:FREUROTH, Luksan:34",
 )
 get_freuroth_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_freuroth_ncon(; n::Integer = default_nvar, kwargs...) = 0

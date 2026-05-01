@@ -16,7 +16,7 @@ indef_mod_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf",
   :notes => raw"""
 Problem 37 in
 L. Luksan, C. Matonoha and J. Vlcek
@@ -44,6 +44,7 @@ J.-P. Dussault, Clermont-Ferrand 05/2016.
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
 }  
   """,
+  :lib => "Luksan:37",
 )
 get_indef_mod_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_indef_mod_ncon(; n::Integer = default_nvar, kwargs...) = 0

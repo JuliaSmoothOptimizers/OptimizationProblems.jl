@@ -16,7 +16,7 @@ engval1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/ENGVAL1.SIF",
   :notes => raw"""
 The ENGVAL1 problem.
 
@@ -41,7 +41,20 @@ classification OUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The ENGVAL1 problem.
+This problem is a sum of 2n-2 groups, n-1 of which contain 2 nonlinear
+elements.
+Source: problem 31 in
+Ph.L. Toint,
+"Test problems for partially separable optimization and results
+for the routine PSPMIN",
+Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
+See also Buckley#172 (p. 52)
+SIF input: Ph. Toint and N. Gould, Dec 1989.
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -54,6 +67,7 @@ D. Orban, Montreal, 08/2015.
   }  
   """,
 
+  :lib => "CUTEst:ENGVAL1, Luksan:26",
 )
 get_engval1_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_engval1_ncon(; n::Integer = default_nvar, kwargs...) = 0

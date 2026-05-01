@@ -16,7 +16,7 @@ hs95_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS95.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 95.
 
@@ -31,6 +31,15 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
   
+---
+Problem :
+Source: problem 95 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: Ph. Toint, April 1991.
+classification LQR2-AN-6-4
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +53,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS95, HS:95",
 )
 get_hs95_nvar(; n::Integer = default_nvar, kwargs...) = 6
 get_hs95_ncon(; n::Integer = default_nvar, kwargs...) = 4

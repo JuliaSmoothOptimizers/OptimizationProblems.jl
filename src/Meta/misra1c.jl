@@ -16,7 +16,7 @@ misra1c_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/MISRA1C.SIF",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/misra1c.dat
 
@@ -50,8 +50,20 @@ Model:         Miscellaneous Class
                y = b1 * (1-(1+2*b2*x)**(-.5))  +  e
 T. Migot, Montreal, 2023.
                """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+NIST Data fitting problem MISRA1C given as an inconsistent set of
+nonlinear equations.
+Fit: y = b1 * (1-(1+2*b2*x)**(-.5)) + e
+Source:  Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Misra, D., NIST (1978).  
+Dental Research Monomolecular Adsorption Study.
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+classification NOR2-MN-2-14
+""",
   :reference => raw"""""",
+  :lib => "CUTEst:MISRA1C, NIST:Misra1c",
 )
 get_misra1c_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_misra1c_ncon(; n::Integer = default_nvar, kwargs...) = 0

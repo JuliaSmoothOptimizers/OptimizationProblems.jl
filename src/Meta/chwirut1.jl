@@ -16,7 +16,7 @@ chwirut1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/CHWIRUT1.SIF",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/chwirut1.dat
 
@@ -50,8 +50,20 @@ Model:         Exponential Class
                y = exp[-b1*x]/(b2+b3*x)  +  e
 T. Migot, Montreal, 2023.
                """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+NIST Data fitting problem CHWIRUT1 given as an inconsistent set of
+nonlinear equations.
+Fit: y = exp[-b1*x]/(b2+b3*x) + e
+Source:  Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Chwirut, D., NIST (197?).  
+Ultrasonic Reference Block Study. 
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+classification NOR2-MN-3-214
+""",
   :reference => raw"""""",
+  :lib => "CUTEst:CHWIRUT1, NIST:Chwirut1",
 )
 get_chwirut1_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_chwirut1_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -16,7 +16,7 @@ arglinc_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "https://doi.org/10.1145/355934.355936",
+  :url => "https://doi.org/10.1145/355934.355936, https://bitbucket.org/optrove/sif/src/master/ARGLINC.SIF",
   :notes => raw"""
 Linear function - rank 1, zero columns and rows
 
@@ -29,6 +29,16 @@ J.J. More', B.S. Garbow and K.E. Hillstrom,
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 
 See also Buckley#101 (with different N and M)  
+---
+Problem :
+Variable dimension rank one linear problem, with zero rows and columns
+Source: Problem 34 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#101 (with different N and M)
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-V-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
@@ -42,6 +52,7 @@ See also Buckley#101 (with different N and M)
   doi     = {10.1145/355934.355936}
 }  
 """,
+  :lib => "CUTEst:ARGLINC",
 )
 get_arglinc_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_arglinc_ncon(; n::Integer = default_nvar, kwargs...) = 0

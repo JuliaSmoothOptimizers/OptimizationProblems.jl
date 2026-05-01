@@ -16,14 +16,24 @@ catmix_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/CATMIX.SIF",
   :notes => raw"""
 Catalyst Mixing Problem
 Collocation formulation
 COPS 3.0 - November 2002
 COPS 3.1 - March 2004
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Determine the optimal mixing policy of two catalysts along the
+length of a tubular plug flow reactor involving several reactions
+This is problem 14 in the COPS (Version 2) collection of 
+E. Dolan and J. More'
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2000)
+SIF input: Nick Gould, November 2000
+classification OOR2-AN-V-V
+""",
   :reference => raw"""
 @techreport{DolanMore2004COPS,
   author       = {Dolan, Elizabeth D. and Mor{\'e}, Jorge J.},
@@ -34,6 +44,7 @@ COPS 3.1 - March 2004
   doi          = {10.2172/834714}
 }  
   """,
+  :lib => "CUTEst:CATMIX",
 )
 get_catmix_nvar(; n::Integer = default_nvar, kwargs...) = 23 * n + 2
 get_catmix_ncon(; n::Integer = default_nvar, kwargs...) = 20 * n + 2

@@ -16,7 +16,7 @@ zangwil3_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/ZANGWIL3.SIF",
   :notes => raw"""
     Source: problem 1 in
    P.T. Boggs and J.W. Tolle,
@@ -30,8 +30,19 @@ zangwil3_meta = Dict(
 
  A. Cebola, Paraná 10/2016. 
   """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Zangwill's problem in 3 variables.
+Source:  problem 13 (p. 103) in
+A.R. Buckley,
+"Test functions for unconstrained minimization",
+TR 1989CS-3, Mathematics, statistics and computing centre,
+Dalhousie University, Halifax (CDN), 1989.
+SIF input: Ph. Toint, Dec 1989.
+classification NLR2-AN-3-3
+""",
   :reference => raw"""""",
+  :lib => "CUTEst:ZANGWIL3",
 )
 get_zangwil3_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_zangwil3_ncon(; n::Integer = default_nvar, kwargs...) = 3

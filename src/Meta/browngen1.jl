@@ -16,7 +16,7 @@ browngen1_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :literature,
-  :url => "",
+  :url => "https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization",
   :notes => raw"""
 Generalization of the Brown function 1
 
@@ -42,6 +42,7 @@ https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unco
   }
     """,
 
+  :lib => "LuksanSparse:12",
 )
 
 get_browngen1_nvar(; n::Integer = default_nvar, kwargs...) = max(n, 2)

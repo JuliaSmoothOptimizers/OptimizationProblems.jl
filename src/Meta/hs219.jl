@@ -16,7 +16,7 @@ hs219_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => true,
   :origin => :unknown,
-  :url => "",
+  :url => "http://dx.doi.org/10.1007/978-3-642-61582-5",
   :notes => raw"""
 Schittkowski problem number 219.
 
@@ -44,6 +44,7 @@ Solution is: (1, 1, 0, 0) with f(x^*) = -1
 }
   """,
 
+  :lib => "HS2:219",
 )
 get_hs219_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs219_ncon(; n::Integer = default_nvar, kwargs...) = 2

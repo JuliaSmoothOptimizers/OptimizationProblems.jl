@@ -16,7 +16,7 @@ minsurf_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/MINSURF.SIF",
   :notes => raw"""
 Minimal surface with obstacle problem
 
@@ -29,7 +29,14 @@ see "Benchmarking Optimization Software with COPS"
 Argonne National Labs Technical Report ANL/MCS-246 (2004)
 classification OBR2-AN-V-V
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Variable dimension full rank linear problem
+A version of the minimum surface problem
+on the unit square with simple boundary conditions.
+SIF input: Ph. Toint, Jan 1991.
+classification OXR2-MY-64-0
+""",
   :reference => raw"""
 @techreport{DolanMore2004COPS,
   author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},
@@ -41,6 +48,7 @@ classification OBR2-AN-V-V
   }
     """,
 
+  :lib => "CUTEst:MINSURF",
 )
 get_minsurf_nvar(;
   n::Integer = default_nvar,

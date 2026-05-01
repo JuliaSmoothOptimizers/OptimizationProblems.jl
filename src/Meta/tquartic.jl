@@ -16,7 +16,7 @@ tquartic_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/TQUARTIC.SIF",
   :notes => raw"""
    A quartic function with nontrivial groups and
    repetitious elements.
@@ -37,7 +37,15 @@ tquartic_meta = Dict(
  J.-P. Dussault, Clermont-Ferrand 05/2016.
   
   """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+A quartic function with nontrivial groups and
+repetitious elements.
+Source:
+Ph. Toint, private communication.
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -50,6 +58,7 @@ tquartic_meta = Dict(
   }  
   """,
 
+  :lib => "CUTEst:TQUARTIC, Luksan:57",
 )
 get_tquartic_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_tquartic_ncon(; n::Integer = default_nvar, kwargs...) = 0

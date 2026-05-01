@@ -16,7 +16,7 @@ hs45_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS45.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 45.
 
@@ -31,6 +31,15 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+Source: problem 45 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: Ph.L. Toint, October 1990.
+classification OBR2-AN-5-0
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +53,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS45, HS:45",
 )
 get_hs45_nvar(; n::Integer = default_nvar, kwargs...) = 5
 get_hs45_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -16,7 +16,7 @@ thurber_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/THURBER.SIF",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/thurber.dat
 
@@ -52,8 +52,21 @@ Model:         Rational Class (cubic/cubic)
 T. Migot, Montreal, 2023.
   
   """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+NIST Data fitting problem THURBER given as an inconsistent set of
+nonlinear equations.
+Fit: y = (b1 + b2*x + b3*x**2 + b4*x**3) / 
+(1 + b5*x + b6*x**2 + b7*x**3) + e
+Source:  Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Thurber, R., NIST (197?).  
+Semiconductor electron mobility modeling.
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+classification NOR2-MN-7-37
+""",
   :reference => raw"""""",
+  :lib => "CUTEst:THURBER, NIST:Thurber",
 )
 get_thurber_nvar(; n::Integer = default_nvar, kwargs...) = 7
 get_thurber_ncon(; n::Integer = default_nvar, kwargs...) = 0

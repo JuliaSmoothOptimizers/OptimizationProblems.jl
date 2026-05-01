@@ -16,7 +16,7 @@ hs235_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "http://dx.doi.org/10.1007/978-3-642-61582-5",
   :notes => raw"""
 Hock and Schittkowski problem number 235.
 
@@ -42,6 +42,7 @@ T. Migot, Montreal, 2023.
 }
   """,
 
+  :lib => "HS2:235",
 )
 get_hs235_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs235_ncon(; n::Integer = default_nvar, kwargs...) = 1

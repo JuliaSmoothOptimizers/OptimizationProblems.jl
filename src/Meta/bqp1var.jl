@@ -22,7 +22,12 @@ Source: a one variable box-constrained quadratic
 SIF input: Nick Gould, March 1992
 classification QBR2-AN-1-0
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Source: a one variable box-constrained quadratic
+SIF input: Nick Gould, March 1992
+classification QBR2-AN-1-0
+""",
   :reference => raw"""
 @article{Gould2015CUTEst,
   author    = {Nicholas I. M. Gould and Dominique Orban and Philippe L. Toint},
@@ -35,6 +40,7 @@ classification QBR2-AN-1-0
   doi       = {10.1145/2786885}
 }  
   """,
+  :lib => "CUTEst:BQP1VAR",
 )
 get_bqp1var_nvar(; n::Integer = default_nvar, kwargs...) = 1
 get_bqp1var_ncon(; n::Integer = default_nvar, kwargs...) = 1

@@ -16,10 +16,20 @@ tetra_duct15_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://doi.org/10.2172/834714",
   :notes => raw"""""",
   :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :reference => raw"""
+@techreport{DolanMore2004COPS,
+  author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},
+  title        = {Benchmarking Optimization Software with {COPS} 3.0},
+  institution  = {Argonne National Laboratory},
+  number       = {ANL/MCS-TM-273},
+    year         = {2004},
+  doi          = {10.2172/834714}
+  }
+    """,
+  :lib => "COPS:19",
 )
 get_tetra_duct15_nvar(; n::Integer = default_nvar, kwargs...) = 6417
 get_tetra_duct15_ncon(; n::Integer = default_nvar, kwargs...) = 9000

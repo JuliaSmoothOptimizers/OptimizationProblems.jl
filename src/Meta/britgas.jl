@@ -26,7 +26,16 @@ britgas_meta = Dict(
 #   SIF input: N. Gould, March 1990.
 #   classification OOI2-RN-450-360
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+A simple high pressure gas network problem for British Gas.
+Invented Data, but real network.
+23 node network, 8 hour operation.
+Source:
+N. Gould, private communication,March 1990.
+SIF input: N. Gould, March 1990.
+classification OOI2-RN-450-360
+""",
   :reference => raw"""
 @article{Gould2015CUTEst,
   author    = {Nicholas I. M. Gould and Dominique Orban and Philippe L. Toint},
@@ -39,6 +48,7 @@ britgas_meta = Dict(
   doi       = {10.1145/2786885}
 }  
   """,
+  :lib => "CUTEst:BRITGAS",
 )
 get_britgas_nvar(; n::Integer = default_nvar, kwargs...) = 450
 get_britgas_ncon(; n::Integer = default_nvar, kwargs...) = 360

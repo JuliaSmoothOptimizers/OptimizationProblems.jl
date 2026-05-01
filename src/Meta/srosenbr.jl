@@ -16,7 +16,7 @@ srosenbr_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/SROSENBR.SIF",
   :notes => raw"""
    The separable extension of Rosenbrock's function.
 
@@ -49,7 +49,17 @@ srosenbr_meta = Dict(
   pages   = {17--41},
   doi     = {10.1145/355934.355936}
 }  
-  """,
+  ---
+Problem :
+The separable extension of Rosenbrock's function.
+Source:  problem 21 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+SIF input: Ph. Toint, Dec 1989.
+added 2nd (correct) starting point, Dec 2024
+classification SUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -62,6 +72,7 @@ srosenbr_meta = Dict(
   }  
   """,
 
+  :lib => "CUTEst:SROSENBR, Luksan:55",
 )
 get_srosenbr_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_srosenbr_ncon(; n::Integer = default_nvar, kwargs...) = 0

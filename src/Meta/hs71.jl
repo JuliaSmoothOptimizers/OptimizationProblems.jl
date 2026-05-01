@@ -16,7 +16,7 @@ hs71_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS71.SIF",
   :notes => raw"""Hock and Schittkowski problem number 71.
 
   classification PPR2-AN-4-2
@@ -30,6 +30,15 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+Source: problem 71 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: B Baudson, Apr 1989.
+classification OOR2-AY-4-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -43,6 +52,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS71, HS:71",
 )
 get_hs71_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs71_ncon(; n::Integer = default_nvar, kwargs...) = 2

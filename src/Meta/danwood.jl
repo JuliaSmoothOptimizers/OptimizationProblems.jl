@@ -16,7 +16,7 @@ danwood_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/danwood.dat",
+  :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/danwood.dat, https://bitbucket.org/optrove/sif/src/master/DANWOOD.SIF",
   :notes => raw"""
 NIST/ITL StRD
 Dataset Name:  DanWood           (DanWood.dat)
@@ -54,7 +54,20 @@ Model:         Miscellaneous Class
 
 T. Migot, Montreal, 2023.
   """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+NIST Data fitting problem DANWOOD given as an inconsistent set of
+nonlinear equations (incorrect formulation). See DANIWOOS.SIF for
+the correct formulation
+Fit: y  = (b1*x)**b2  +  e
+Source:  Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Daniel, C. and F. S. Wood (1980).
+Fitting Equations to Data, Second Edition.
+New York, NY:  John Wiley and Sons, pp. 428-431.
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+classification NOR2-MN-2-6
+""",
   :reference => raw"""
 @book{DanielWood1980,
   author    = {C. Daniel and F. S. Wood},
@@ -66,6 +79,7 @@ T. Migot, Montreal, 2023.
   pages     = {428--431}
 }  
   """,
+  :lib => "CUTEst:DANWOOD, NIST:DanWood",
 )
 get_danwood_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_danwood_ncon(; n::Integer = default_nvar, kwargs...) = 0

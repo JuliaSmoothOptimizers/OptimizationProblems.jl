@@ -16,7 +16,7 @@ nondquar_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/NONDQUAR.SIF",
   :notes => raw"""
 A nondiagonal quartic test problem.
 
@@ -41,7 +41,20 @@ Academy of Science of the Czech Republic
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+A nondiagonal quartic test problem.
+This problem has an arrow-head type Hessian with a tridiagonal
+central part and a border of width 1.
+The Hessian is singular at the solution.
+Source: problem 57 in
+A.R. Conn, N.I.M. Gould, M. Lescrenier and Ph.L. Toint,
+"Performance of a multi-frontal scheme for partially separable
+optimization"
+Report 88/4, Dept of Mathematics, FUNDP (Namur, B), 1988.
+SIF input: Ph. Toint, Dec 1989.
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -54,6 +67,7 @@ J.-P. Dussault, Clermont-Ferrand 05/2016.
   }  
   """,
 
+  :lib => "CUTEst:NONDQUAR, Luksan:45",
 )
 get_nondquar_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_nondquar_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -16,7 +16,7 @@ hs25_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS25.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 25.
 
@@ -31,6 +31,16 @@ A. Montoison, Montreal, 04/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+A nonlinear least squares problem with bounds.
+Source: problem 25 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: J-M Collin, Mar 1990.
+classification SBR2-AN-3-0
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +54,7 @@ A. Montoison, Montreal, 04/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS25, HS:25",
 )
 get_hs25_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs25_ncon(; n::Integer = default_nvar, kwargs...) = 0

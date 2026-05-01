@@ -16,7 +16,7 @@ biggs5_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/BIGGS5.SIF",
   :notes => raw"""
 Biggs problem in 5 variables.
 This function is a nonlinear least squares with 13 groups.  It is a
@@ -34,7 +34,17 @@ Also problem 74 in
 
 classification SXR2-AN-6-0
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Biggs EXP problem in 5 variables
+Source: Problem 74 in
+A.R. Buckley,
+"Test functions for unconstrained minimization",
+TR 1989CS-3, Mathematics, statistics and computing centre,
+Dalhousie University, Halifax (CDN), 1989.
+SIF input: Ph. Toint, Dec 1989.
+classification SXR2-AN-6-0
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -47,6 +57,7 @@ classification SXR2-AN-6-0
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:BIGGS5",
 )
 get_biggs5_nvar(; n::Integer = default_nvar, kwargs...) = 6
 get_biggs5_ncon(; n::Integer = default_nvar, kwargs...) = 0

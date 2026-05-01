@@ -16,7 +16,7 @@ noncvxu2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/NONCVXU2.SIF",
   :notes => raw"""
 A nonconvex unconstrained function with a unique minimum value
 
@@ -31,7 +31,12 @@ Academy of Science of the Czech Republic
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+A nonconvex unconstrained function with a unique minimum value
+SIF input: Nick Gould, April 1996
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -44,6 +49,7 @@ J.-P. Dussault, Clermont-Ferrand 05/2016.
   }  
   """,
 
+  :lib => "CUTEst:NONCVXU2, Luksan:43",
 )
 get_noncvxu2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_noncvxu2_ncon(; n::Integer = default_nvar, kwargs...) = 0

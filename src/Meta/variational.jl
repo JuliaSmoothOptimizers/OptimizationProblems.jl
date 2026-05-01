@@ -16,7 +16,7 @@ variational_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => false,
   :origin => :academic,
-  :url => "",
+  :url => "https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization",
   :notes => raw"""
  Discretization of a variational problem
 
@@ -42,6 +42,7 @@ variational_meta = Dict(
   }
     """,
 
+  :lib => "LuksanSparse:15",
 )
 
 get_variational_nvar(; n::Integer = default_nvar, kwargs...) = n

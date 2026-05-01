@@ -16,7 +16,7 @@ arglina_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "https://doi.org/10.1145/355934.355936",
+  :url => "https://doi.org/10.1145/355934.355936, https://bitbucket.org/optrove/sif/src/master/ARGLINA.SIF",
   :notes => raw"""
 Linear function - full rank
 
@@ -29,6 +29,16 @@ J.J. More', B.S. Garbow and K.E. Hillstrom,
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 
 See also Buckley#80 (with different N and M)  
+---
+Problem :
+Variable dimension full rank linear problem
+Source: Problem 32 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#80 (with different N and M)
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-V-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
@@ -42,6 +52,7 @@ See also Buckley#80 (with different N and M)
   doi     = {10.1145/355934.355936}
 }  
 """,
+  :lib => "CUTEst:ARGLINA",
 )
 get_arglina_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_arglina_ncon(; n::Integer = default_nvar, kwargs...) = 0

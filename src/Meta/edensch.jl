@@ -16,7 +16,7 @@ edensch_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/EDENSCH.SIF",
   :notes => raw"""
 The extended Dennis and Schnabel problem, as defined by Li.
 
@@ -41,7 +41,18 @@ classification OUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The extended Dennis and Schnabel problem, as defined by Li.
+Source:
+G. Li,
+"The secant/finite difference algorithm for solving sparse
+nonlinear systems of equations",
+SIAM Journal on Optimization, (to appear), 1990.
+SIF input: Ph. Toint, Apr 1990.
+minor correction by Ph. Shott, January 1995.
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -54,6 +65,7 @@ D. Orban, Montreal, 08/2015.
   }  
   """,
 
+  :lib => "CUTEst:EDENSCH, Luksan:24",
 )
 get_edensch_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_edensch_ncon(; n::Integer = default_nvar, kwargs...) = 0

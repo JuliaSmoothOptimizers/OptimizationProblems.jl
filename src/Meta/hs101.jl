@@ -16,7 +16,7 @@ hs101_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS101.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 101.
 
@@ -31,6 +31,15 @@ Test examples for nonlinear programming codes,
 Lectures Notes in Economics and Mathematical Systems 187,
 Springer Verlag, Heidelberg, 1981.
 
+---
+Problem:
+Source: problem 101 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: N. Gould, December 1989.
+classification OOR2-AN-7-5
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +53,7 @@ Springer Verlag, Heidelberg, 1981.
 }  
   """,
 
+  :lib => "CUTEst:HS101, HS:101",
 )
 get_hs101_nvar(; n::Integer = default_nvar, kwargs...) = 7
 get_hs101_ncon(; n::Integer = default_nvar, kwargs...) = 5

@@ -16,7 +16,7 @@ hs69_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS69.SIF",
   :notes => raw"""Hock and Schittkowski problem number 69.
 
   classification GGR-P1-2
@@ -33,6 +33,16 @@ Institut fur Angewandte Mathematik und Statistik, Universitat Wurzburg, 1978.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+This is a cost optimal inspection plan.
+Source: problem 69 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: Nick Gould, August 1991.
+classification OOR2-MN-4-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -46,6 +56,7 @@ Institut fur Angewandte Mathematik und Statistik, Universitat Wurzburg, 1978.
 }  
   """,
 
+  :lib => "CUTEst:HS69, HS:69",
 )
 get_hs69_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs69_ncon(; n::Integer = default_nvar, kwargs...) = 2

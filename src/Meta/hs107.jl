@@ -16,7 +16,7 @@ hs107_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS107.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 107.
 
@@ -31,6 +31,19 @@ Test examples for nonlinear programming codes,
 Lectures Notes in Economics and Mathematical Systems 187,
 Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+A static power scheduling problem.
+There are note enough components for the starting point in the
+problem description in the source.  The initial value for X7 has
+been set to 1.0454, as for X5 and X6.
+Source: problem 107 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: Ph. Toint, April 1991.
+classification OOR2-MY-9-6
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +57,7 @@ Springer Verlag, Heidelberg, 1981.
 }  
   """,
 
+  :lib => "CUTEst:HS107, HS:107",
 )
 get_hs107_nvar(; n::Integer = default_nvar, kwargs...) = 9
 get_hs107_ncon(; n::Integer = default_nvar, kwargs...) = 6

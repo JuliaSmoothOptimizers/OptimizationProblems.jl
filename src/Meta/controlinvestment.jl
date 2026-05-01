@@ -31,6 +31,7 @@ Example 5.3, Dominique Orban, Computation Optimization and Control lecture notes
   year      = {unpublished}
 }  
   """,
+  :lib => "",
 )
 get_controlinvestment_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
 get_controlinvestment_ncon(; n::Integer = default_nvar, kwargs...) = div(n, 2)

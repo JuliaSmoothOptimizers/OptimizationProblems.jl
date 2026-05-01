@@ -16,7 +16,7 @@ broydn7d_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/BROYDN7D.SIF",
   :notes => raw"""
 A seven diagonal variant of the Broyden tridiagonal system,
 featuring a band far away from the diagonal.
@@ -62,7 +62,19 @@ D. Orban, Montreal, 08/2015.
 # Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the original paper
 # (See issue #36)
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+A seven diagonal variant of the Broyden tridiagonal system,
+featuring a band far away from the diagonal.
+Source:
+Ph.L. Toint,
+"Some numerical results using a sparse matrix updating formula in
+unconstrained optimization",
+Mathematics of Computation, vol. 32(114), pp. 839-852, 1978.
+See also Buckley#84
+SIF input: Ph. Toint, Dec 1989.
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -75,6 +87,7 @@ D. Orban, Montreal, 08/2015.
   }  
   """,
 
+  :lib => "CUTEst:BROYDN7D, Luksan:3",
 )
 get_broydn7d_nvar(; n::Integer = default_nvar, kwargs...) = 2 * max(1, div(n, 2))
 get_broydn7d_ncon(; n::Integer = default_nvar, kwargs...) = 0

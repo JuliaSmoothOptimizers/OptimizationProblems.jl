@@ -16,7 +16,7 @@ genrose_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/GENROSE.SIF",
   :notes => raw"""
 Generalized Rosenbrock function.
 
@@ -61,7 +61,17 @@ Technical Report 1081,
 Institute of Computer Science,
 Academy of Science of the Czech Republic
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The generalized Rosenbrock function.
+Source: problem 5 in
+S. Nash,
+"Newton-type minimization via the Lanczos process",
+SIAM J. Num. Anal. 21, 1984, 770-788.
+SIF input: Nick Gould, Oct 1992.
+minor correction by Ph. Shott, Jan 1995.
+classification SUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -74,6 +84,7 @@ Academy of Science of the Czech Republic
   }  
   """,
 
+  :lib => "CUTEst:GENROSE, Luksan:36",
 )
 get_genrose_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_genrose_ncon(; n::Integer = default_nvar, kwargs...) = 0

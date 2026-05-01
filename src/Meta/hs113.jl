@@ -16,7 +16,7 @@ hs113_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS113.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 113.
 
@@ -31,6 +31,15 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
   
+---
+Problem :
+Source: problem 80 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: J-M Collin, Mar 1990.
+classification QQR2-AN-10-8
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +53,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS113, HS:113",
 )
 get_hs113_nvar(; n::Integer = default_nvar, kwargs...) = 10
 get_hs113_ncon(; n::Integer = default_nvar, kwargs...) = 8

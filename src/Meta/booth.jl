@@ -16,7 +16,7 @@ booth_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/BOOTH.SIF",
   :notes => raw"""
 SIF input: Ph. Toint, Dec 1989.
 classification NLR2-AN-2-2
@@ -27,7 +27,17 @@ A.R. Buckley,
 "Test functions for unconstrained minimization",
 TR 1989CS-3, Mathematics, statistics and computing centre,
 Dalhousie University, Halifax (CDN), 1989.  
-  """,
+  ---
+Problem :
+Booth quadratic problem in 2 variables.
+Source: Problem 36 in
+A.R. Buckley,
+"Test functions for unconstrained minimization",
+TR 1989CS-3, Mathematics, statistics and computing centre,
+Dalhousie University, Halifax (CDN), 1989.
+SIF input: Ph. Toint, Dec 1989.
+classification NLR2-AN-2-2
+""",
   :reference => raw"""
 @techreport{Buckley1989,
   author       = {Buckley, A. R.},
@@ -39,6 +49,7 @@ Dalhousie University, Halifax (CDN), 1989.
 }
   """,
 
+  :lib => "CUTEst:BOOTH",
 )
 get_booth_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_booth_ncon(; n::Integer = default_nvar, kwargs...) = 2

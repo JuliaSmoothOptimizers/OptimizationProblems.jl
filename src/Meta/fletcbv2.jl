@@ -16,7 +16,7 @@ fletcbv2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/FLETCBV2.SIF",
   :notes => raw"""
 Source:  The first problem given by
 R. Fletcher,
@@ -40,7 +40,23 @@ classification OUR2-AN-V-0
 
 J,-P, Dussault, Rennes 09/2015.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Another Boundary Value problem.
+Source:  The first problem given by
+R. Fletcher,
+"An optimal positive definite update for sparse Hessian matrices"
+Numerical Analysis report NA/145, University of Dundee, 1992.
+but assuming that the 1/h**2 term should read h**2
+This is what Fletcher intended (private communication).
+The author comments: "The problem arises from discretizing the bvp
+x"=-2+sin x in [0,1]
+with x(0)=0, x(1)=1. This gives a symmetric system of equations,
+the residual vector of which is the gradient of the given function."
+He multiplies through by h^2 before integrating.
+SIF input: Nick Gould, Nov 1992.
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -53,6 +69,7 @@ J,-P, Dussault, Rennes 09/2015.
   }  
   """,
 
+  :lib => "CUTEst:FLETCBV2, Luksan:31",
 )
 get_fletcbv2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_fletcbv2_ncon(; n::Integer = default_nvar, kwargs...) = 0

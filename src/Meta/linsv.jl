@@ -16,10 +16,13 @@ linsv_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://github.com/JuliaSmoothOptimizers/NLPModelsTest.jl",
   :notes => raw"""""",
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+  Test problem used in NLPModelsTest.jl.
+  """,
   :reference => raw"""""",
+  :lib => "",
 )
 get_linsv_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_linsv_ncon(; n::Integer = default_nvar, kwargs...) = 2

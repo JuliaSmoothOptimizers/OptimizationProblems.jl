@@ -16,7 +16,7 @@ bdqrtic_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/BDQRTIC.SIF",
   :notes => raw"""
 A quartic with a banded Hessian of bandwidth 9
 
@@ -42,7 +42,17 @@ classification SUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+This problem is quartic and has a banded Hessian with bandwidth = 9
+Source: Problem 61 in
+A.R. Conn, N.I.M. Gould, M. Lescrenier and Ph.L. Toint,
+"Performance of a multifrontal scheme for partially separable
+optimization",
+Report 88/4, Dept of Mathematics, FUNDP (Namur, B), 1988.
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -55,6 +65,7 @@ D. Orban, Montreal, 08/2015.
   }  
   """,
 
+  :lib => "CUTEst:BDQRTIC, Luksan:2",
 )
 get_bdqrtic_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_bdqrtic_ncon(; n::Integer = default_nvar, kwargs...) = 0

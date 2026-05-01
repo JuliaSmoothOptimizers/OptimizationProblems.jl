@@ -16,7 +16,7 @@ ncb20b_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/NCB20B.SIF",
   :notes => raw"""
 A banded problem with semi-bandwidth 20.  This problem exhibits frequent
 negative curvature in the exact Hessian.  It is a simplified version of
@@ -33,7 +33,16 @@ Academy of Science of the Czech Republic
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+A banded problem with semi-bandwidth 20.  This problem exhibits frequent
+negative curvature in the exact Hessian.  It is a simplified version of
+problem NCB20.
+Source:
+Ph. Toint, private communication, 1993.
+SIF input: Ph. Toint, April 1993.
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -46,6 +55,7 @@ J.-P. Dussault, Clermont-Ferrand 05/2016.
   }  
   """,
 
+  :lib => "CUTEst:NCB20B, Luksan:41",
 )
 get_ncb20b_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_ncb20b_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -16,7 +16,7 @@ penalty3_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/PENALTY3.SIF",
   :notes => raw"""
 A penalty problem by Gill, Murray and Pitfield.
 It has a dense Hessian matrix.
@@ -38,7 +38,18 @@ Academy of Science of the Czech Republic
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+A penalty problem by Gill, Murray and Pitfield.
+It has a dense Hessian matrix.
+Source:  problem 114 (p. 81) in
+A.R. Buckley,
+"Test functions for unconstrained minimization",
+TR 1989CS-3, Mathematics, statistics and computing centre,
+Dalhousie University, Halifax (CDN), 1989.
+SIF input: Nick Gould, Dec 1990.
+classification OUR2-AY-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -51,6 +62,7 @@ J.-P. Dussault, Clermont-Ferrand 05/2016.
   }  
   """,
 
+  :lib => "CUTEst:PENALTY3, Luksan:46",
 )
 get_penalty3_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_penalty3_ncon(; n::Integer = default_nvar, kwargs...) = 0

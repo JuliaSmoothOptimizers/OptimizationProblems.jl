@@ -16,7 +16,7 @@ polygon1_meta = Dict(
   :is_feasible => false,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://doi.org/10.2172/834714",
   :notes => raw"""
 Find the polygon of maximal area, among polygons with nv sides and diameter d <= 1
 
@@ -42,6 +42,7 @@ Argonne National Labs Technical Report ANL/MCS-246 (2000)
   }
     """,
 
+  :lib => "",
 )
 get_polygon1_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
 get_polygon1_ncon(; n::Integer = default_nvar, kwargs...) = div(n, 2)

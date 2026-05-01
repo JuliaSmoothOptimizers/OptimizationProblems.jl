@@ -16,7 +16,7 @@ hs114_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS114.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 114.
 
@@ -31,6 +31,16 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
   
+---
+Problem :
+An alkylation process problem.
+Source: problem 114 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: J.M. Collin, Jan 1990.
+classification QOR2-MY-10-11
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +54,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS114, HS:114",
 )
 get_hs114_nvar(; n::Integer = default_nvar, kwargs...) = 10
 get_hs114_ncon(; n::Integer = default_nvar, kwargs...) = 11

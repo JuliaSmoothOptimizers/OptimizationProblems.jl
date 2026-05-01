@@ -16,12 +16,29 @@ avion2_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/AVION2.SIF",
   :notes => raw"""
 classification OLR2-RN-49-15
 """,
-  :origin_notes => raw"""""",
-  :reference => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Dassault France avion (airplane design) problem
+SIF input:  A. R. Conn, June 1993.
+classification OLR2-RN-49-15
+""",
+  :reference => raw"""
+@article{Gould2015CUTEst,
+  author  = {Gould, N. I. M. and Orban, D. and Toint, Ph. L.},
+  title   = {{CUTEst}: a Constrained and Unconstrained Testing Environment with safe threads for mathematical optimization},
+  journal = {Computational Optimization and Applications},
+  year    = {2015},
+  volume  = {60},
+  number  = {3},
+  pages   = {545--557},
+  doi     = {10.1007/s10589-014-9687-3}
+}
+""",
+  :lib => "CUTEst:AVION2",
 )
 get_avion2_nvar(; n::Integer = default_nvar, kwargs...) = 49
 get_avion2_ncon(; n::Integer = default_nvar, kwargs...) = 15

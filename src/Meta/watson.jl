@@ -16,7 +16,7 @@ watson_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/WATSON.SIF",
   :notes => raw"""
 
    Watson problem in varaible dimension ( 2 <= n <= 31 ).
@@ -34,7 +34,20 @@ watson_meta = Dict(
 
    SUR2-AN-V-0  
   """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Watson problem in 12 variables.
+This function  is a nonlinear least squares with 31 groups.  Each
+group has 1 nonlinear and 1 linear elements.
+Source:  problem 20 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#128 (p. 100).
+SIF input: Ph. Toint, Dec 1989.
+(bug fix July 2007)
+classification SUR2-AN-V-0
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -47,6 +60,7 @@ watson_meta = Dict(
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:WATSON",
 )
 get_watson_nvar(; n::Integer = default_nvar, kwargs...) = min(max(n, 2), 31)
 get_watson_ncon(; n::Integer = default_nvar, kwargs...) = 0

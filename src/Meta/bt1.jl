@@ -16,7 +16,7 @@ bt1_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/BT1.SIF",
   :notes => raw"""
 Source:  problem 13 (p. 103) in
 A.R. Buckley,
@@ -30,7 +30,16 @@ classification QQR2-AN-2-1
 
 A. Cebola, Curitiba 10/2016.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Source: problem 1 in
+P.T. Boggs and J.W. Tolle,
+"A strategy for global convergence in a sequential 
+quadratic programming algorithm",
+SINUM 26(3), pp. 600-623, 1989.
+SIF input: Ph. Toint, June 1993.
+classification QQR2-AN-2-1
+""",
   :reference => raw"""
 @techreport{Buckley1989,
   author       = {Buckley, A. R.},
@@ -42,6 +51,7 @@ A. Cebola, Curitiba 10/2016.
 }
   """,
 
+  :lib => "CUTEst:BT1",
 )
 get_bt1_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_bt1_ncon(; n::Integer = default_nvar, kwargs...) = 1

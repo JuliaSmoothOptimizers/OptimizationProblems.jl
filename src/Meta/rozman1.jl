@@ -16,7 +16,7 @@ rozman1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/rozman1.dat",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/rozman1.dat
 
@@ -53,6 +53,7 @@ Model:         Miscellaneous Class
 """,
   :origin_notes => raw"""""",
   :reference => raw"""""",
+  :lib => "NIST:Roszman1",
 )
 get_rozman1_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_rozman1_ncon(; n::Integer = default_nvar, kwargs...) = 0

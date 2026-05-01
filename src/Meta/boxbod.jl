@@ -16,7 +16,7 @@ boxbod_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/BOXBOD.SIF",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/boxbod.dat
 
@@ -51,8 +51,20 @@ Model:         Exponential Class
                y = b1*(1-exp[-b2*x])  +  e
 T. Migot, Montreal, 2023.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+NIST Data fitting problem BOXBOD given as an inconsistent set of 
+nonlinear equations
+Fit: y = b1*(1-exp[-b2*x]) + e
+Source:  Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Box, G. P., W. G. Hunter, and J. S. Hunter (1978).
+Statistics for Experimenters, New York, NY: Wiley, pp. 483-487.
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+classification NOR2-MN-2-6
+""",
   :reference => raw"""""",
+  :lib => "CUTEst:BOXBOD, NIST:BoxBOD",
 )
 get_boxbod_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_boxbod_ncon(; n::Integer = default_nvar, kwargs...) = 0

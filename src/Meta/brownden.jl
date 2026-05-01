@@ -16,7 +16,7 @@ brownden_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/BROWNDEN.SIF",
   :notes => raw"""
 Brown and Dennis function
 
@@ -29,7 +29,19 @@ See also Buckley#30
 
 classification SUR2-AN-4-0
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Brown and Dennis problem in 4 variables.
+This function  is a nonlinear least squares with 20 groups.  Each
+group has 2 nonlinear elements.
+Source: Problem 16 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#30
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-4-0
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -42,6 +54,7 @@ classification SUR2-AN-4-0
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:BROWNDEN",
 )
 get_brownden_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_brownden_ncon(; n::Integer = default_nvar, kwargs...) = 0

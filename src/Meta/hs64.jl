@@ -16,7 +16,7 @@ hs64_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS64.SIF",
   :notes => raw"""Hock and Schittkowski problem number 64.
 
   classification PPR2-AN-3-1
@@ -30,6 +30,15 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+Source: problem 64 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: N. Gould, Dec 1989.
+classification OOR2-AN-3-1
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -43,6 +52,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS64, HS:64",
 )
 get_hs64_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs64_ncon(; n::Integer = default_nvar, kwargs...) = 1

@@ -16,7 +16,7 @@ hs74_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS74.SIF",
   :notes => raw"""Hock and Schittkowski problem number 74.
 
   classification PGR-AN-4-5
@@ -30,6 +30,15 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+Source: problem 74 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: B Debarsy, Apr 1990.
+classification OOR2-AY-4-5
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -43,6 +52,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS74, HS:74",
 )
 get_hs74_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs74_ncon(; n::Integer = default_nvar, kwargs...) = 4

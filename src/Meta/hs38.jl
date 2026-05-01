@@ -16,7 +16,7 @@ hs38_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS38.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 38.
 
@@ -31,6 +31,16 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+Colville #4 test problem
+Source: problem 38 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: A.R. Conn, April 1990
+classification OBR2-AN-4-0
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +54,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS38, HS:38",
 )
 get_hs38_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs38_ncon(; n::Integer = default_nvar, kwargs...) = 0

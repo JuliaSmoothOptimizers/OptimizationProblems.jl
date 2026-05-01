@@ -16,7 +16,7 @@ triangle_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://doi.org/10.2172/834714",
   :notes => raw"""
  Minimize the time taken for a robot arm to travel between two points.
 
@@ -38,6 +38,7 @@ triangle_meta = Dict(
   }
     """,
 
+  :lib => "COPS:18",
 )
 get_triangle_nvar(; n::Integer = default_nvar, kwargs...) = 8
 get_triangle_ncon(; n::Integer = default_nvar, kwargs...) = 3

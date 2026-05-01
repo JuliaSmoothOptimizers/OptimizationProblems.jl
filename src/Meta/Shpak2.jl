@@ -31,6 +31,7 @@ Shpak2_meta = Dict(
   """,
   :origin_notes => raw"""""",
   :reference => raw"""""",
+  :lib => "",
 )
 get_Shpak2_nvar(; n::Integer = default_nvar, kwargs...) = 1
 get_Shpak2_ncon(; n::Integer = default_nvar, kwargs...) = 0

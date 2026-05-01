@@ -16,7 +16,7 @@ morebv_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/MOREBV.SIF",
   :notes => raw"""
 The Boundary Value problem.
 This is the nonlinear least-squares version without fixed variables.
@@ -40,7 +40,19 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The Boundary Value problem.
+This is the nonlinear least-squares version without fixed variables.
+Source:  problem 28 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#17 (p. 75).
+SIF input: Ph. Toint, Dec 1989 and Nick Gould, Oct 1992.
+correction by S. Gratton & Ph. Toint, May 2024
+classification SUR2-MN-V-0
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -53,6 +65,7 @@ J.-P. Dussault, Clermont-Ferrand 05/2016.
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:MOREBV, Luksan:39",
 )
 get_morebv_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_morebv_ncon(; n::Integer = default_nvar, kwargs...) = 0

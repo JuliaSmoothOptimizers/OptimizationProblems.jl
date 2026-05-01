@@ -31,6 +31,7 @@ Computer Science Journal of Moldova, vol.3, no.2(8), 1995
   """,
   :origin_notes => raw"""""",
   :reference => raw"""""",
+  :lib => "",
 )
 get_Shpak3_nvar(; n::Integer = default_nvar, kwargs...) = 1
 get_Shpak3_ncon(; n::Integer = default_nvar, kwargs...) = 0

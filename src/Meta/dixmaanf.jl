@@ -16,7 +16,7 @@ dixmaanf_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf",
+  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf, https://bitbucket.org/optrove/sif/src/master/DIXMAANF.SIF",
   :notes => raw"""
 The Dixon-Maany test problem (version E by default)
 
@@ -39,7 +39,19 @@ Technical Report 1081,
 Institute of Computer Science,
 Academy of Science of the Czech Republic
   
-  """,
+  ---
+Problem :
+The Dixon-Maany test problem (version F)
+Source:
+L.C.W. Dixon and Z. Maany,
+"A family of test problems with sparse Hessians for unconstrained
+optimization",
+TR 206, Numerical Optimization Centre, Hatfield Polytechnic, 1988.
+See also Buckley#221 (p. 49)
+SIF input: Ph. Toint, Dec 1989.
+correction by Ph. Shott, January 1995.
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{DixonMaany1988,
   author      = {L. C. W. Dixon and Z. Maany},
@@ -50,6 +62,7 @@ Academy of Science of the Czech Republic
 }
   """,
 
+  :lib => "CUTEst:DIXMAANF",
 )
 get_dixmaanf_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))
 get_dixmaanf_ncon(; n::Integer = default_nvar, kwargs...) = 0

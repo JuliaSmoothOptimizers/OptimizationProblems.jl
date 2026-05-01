@@ -16,7 +16,7 @@ fletchcr_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/FLETCHCR.SIF",
   :notes => raw"""
 Source:
 problem 32 in
@@ -50,7 +50,16 @@ classification OUR2-AN-V-0
 
 J.-P. Dussault, Rennes 09/2015.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The chained Rosenbrock function as given by Fletcher.
+Source:  The second problem given by
+R. Fletcher,
+"An optimal positive definite update for sparse Hessian matrices"
+Numerical Analysis report NA/145, University of Dundee, 1992.
+SIF input: Nick Gould, Oct 1992.
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -63,6 +72,7 @@ J.-P. Dussault, Rennes 09/2015.
   }  
   """,
 
+  :lib => "CUTEst:FLETCHCR, Luksan:32",
 )
 get_fletchcr_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_fletchcr_ncon(; n::Integer = default_nvar, kwargs...) = 0

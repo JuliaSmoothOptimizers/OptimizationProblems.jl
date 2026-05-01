@@ -34,6 +34,7 @@ note = {Course materials, University of Wisconsin–Madison},
 year = {2023}
 }  
   """,
+  :lib => "",
 )
 get_hovercraft1d_nvar(; n::Integer = default_nvar, kwargs...) = 3 * div(n, 3) - 1
 get_hovercraft1d_ncon(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 3) + 2

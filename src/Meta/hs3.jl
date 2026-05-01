@@ -16,7 +16,7 @@ hs3_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS3.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 3.
 
@@ -31,6 +31,15 @@ N. Antunes, Curitiba, 10/2016.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+Source: problem 3 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: A.R. Conn March 1990
+classification QBR2-AN-2-0
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +53,7 @@ N. Antunes, Curitiba, 10/2016.
 }  
   """,
 
+  :lib => "CUTEst:HS3, HS:3",
 )
 get_hs3_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs3_ncon(; n::Integer = default_nvar, kwargs...) = 0

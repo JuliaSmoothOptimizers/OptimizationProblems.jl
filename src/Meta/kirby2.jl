@@ -16,7 +16,7 @@ kirby2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/KIRBY2.SIF",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/kirby2.dat
 
@@ -50,8 +50,20 @@ Model:         Rational Class (quadratic/quadratic)
 
 T. Migot, Montreal, 2023.
                    """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+NIST Data fitting problem KIRBY2 given as an inconsistent set of
+nonlinear equations.
+Fit: y = (b1 + b2*x + b3*x**2) /(1 + b4*x + b5*x**2) + e
+Source:  Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Kirby, R., NIST (197?).  
+Scanning electron microscope line width standards.
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+classification NOR2-MN-5-151
+""",
   :reference => raw"""""",
+  :lib => "CUTEst:KIRBY2, NIST:Kirby2",
 )
 get_kirby2_nvar(; n::Integer = default_nvar, kwargs...) = 5
 get_kirby2_ncon(; n::Integer = default_nvar, kwargs...) = 0

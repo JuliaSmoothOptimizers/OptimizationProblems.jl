@@ -16,7 +16,7 @@ scosine_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/SCOSINE.SIF",
   :notes => raw"""
 Another function with nontrivial groups and
 repetitious elements.
@@ -40,7 +40,16 @@ J.-P. Dussault, Clermont-Ferrand 05/2016.
 Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the original paper
 (See issue #36)
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Another function with nontrivial groups and
+repetitious elements.
+NB: scaled version of COSINE
+Source:
+N. Gould, private communication.
+SIF input: N. Gould, Nov 1997
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -53,6 +62,7 @@ Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the or
   }  
   """,
 
+  :lib => "CUTEst:SCOSINE, Luksan:50",
 )
 get_scosine_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_scosine_ncon(; n::Integer = default_nvar, kwargs...) = 0

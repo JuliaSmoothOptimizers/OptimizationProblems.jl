@@ -16,7 +16,7 @@ broyden3d_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://doi.org/10.1145/355934.355936",
   :notes => raw"""
 Broyden tridiagonal problem in variable dimension.  This is a nonlinear
 least-squares problem with n groups.
@@ -44,6 +44,7 @@ Also problem 78 in
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "MGH:30",
 )
 get_broyden3d_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_broyden3d_ncon(; n::Integer = default_nvar, kwargs...) = 0

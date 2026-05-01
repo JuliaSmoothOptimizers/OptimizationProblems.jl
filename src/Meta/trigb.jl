@@ -16,7 +16,7 @@ trigb_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization",
   :notes => raw"""
   Banded trigonometric problem
   """,
@@ -39,6 +39,7 @@ trigb_meta = Dict(
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
+  :lib => "LuksanSparse:16",
 )
 
 get_trigb_nvar(; n::Integer = default_nvar, kwargs...) = n

@@ -16,7 +16,7 @@ enso_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/ENSO.SIF",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/enso.dat
 
@@ -57,8 +57,23 @@ Model:         Miscellaneous Class
                       + b5*cos( 2*pi*x/b4 ) + b6*sin( 2*pi*x/b4 )
                       + b8*cos( 2*pi*x/b7 ) + b9*sin( 2*pi*x/b7 )  + e
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+NIST Data fitting problem ENSO given as an inconsistent set of
+nonlinear equations.
+Fit: y = b1 + b2*cos( 2*pi*x/12 ) + b3*sin( 2*pi*x/12 ) 
++ b5*cos( 2*pi*x/b4 ) + b6*sin( 2*pi*x/b4 )
++ b8*cos( 2*pi*x/b7 ) + b9*sin( 2*pi*x/b7 ) + e
+Source:  Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Kahaner, D., C. Moler, and S. Nash, (1989). 
+Numerical Methods and Software.  
+Englewood Cliffs, NJ: Prentice Hall, pp. 441-445.
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+classification NOR2-MN-9-168
+""",
   :reference => raw"""""",
+  :lib => "CUTEst:ENSO, NIST:ENSO",
 )
 get_enso_nvar(; n::Integer = default_nvar, kwargs...) = 9
 get_enso_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -40,6 +40,7 @@ Academy of Science of the Czech Republic
   }
     """,
 
+  :lib => "LuksanSparse:6",
 )
 
 get_genbroydenb_nvar(; n::Integer = default_nvar, kwargs...) = n

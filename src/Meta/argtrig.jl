@@ -16,7 +16,7 @@ argtrig_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "https://doi.org/10.1145/355934.355936",
+  :url => "https://doi.org/10.1145/355934.355936, https://bitbucket.org/optrove/sif/src/master/ARGTRIG.SIF",
   :notes => raw"""
 Variable dimension trigonometric problem
 This problem is a sum of n least-squares groups, each of
@@ -34,6 +34,17 @@ classification NOR2-AN-V-V
     "Test functions for unconstrained minimization",
     TR 1989CS-3, Mathematics, statistics and computing centre,
     Dalhousie University, Halifax (CDN), 1989.
+---
+Problem :
+Variable dimension trigonometric problem
+This problem is a sum of n least-squares groups, each of
+which has n+1 nonlinear elements.  Its Hessian matrix is dense.
+Source:  Problem 26 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+SIF input: Ph. Toint, Dec 1989.
+classification NOR2-AN-V-V
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
@@ -47,6 +58,7 @@ classification NOR2-AN-V-V
   doi     = {10.1145/355934.355936}
 }  
 """,
+  :lib => "CUTEst:ARGTRIG",
 )
 get_argtrig_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_argtrig_ncon(; n::Integer = default_nvar, kwargs...) = 0

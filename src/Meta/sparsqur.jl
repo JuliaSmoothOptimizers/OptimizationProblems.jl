@@ -16,7 +16,7 @@ sparsqur_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/SPARSQUR.SIF",
   :notes => raw"""
    A sparse quartic problem
 
@@ -33,7 +33,12 @@ sparsqur_meta = Dict(
  J.-P. Dussault, Clermont-Ferrand 05/2016.
   
   """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+A sparse quartic problem
+SIF input: Nick Gould, November 1995
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -46,6 +51,7 @@ sparsqur_meta = Dict(
   }  
   """,
 
+  :lib => "CUTEst:SPARSQUR, Luksan:53",
 )
 get_sparsqur_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_sparsqur_ncon(; n::Integer = default_nvar, kwargs...) = 0

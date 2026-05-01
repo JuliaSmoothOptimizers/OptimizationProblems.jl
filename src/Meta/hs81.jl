@@ -16,7 +16,7 @@ hs81_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS81.SIF",
   :notes => raw"""Hock and Schittkowski problem number 81.
 
   classification GPR-AN-5-3
@@ -30,6 +30,15 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
+---
+Problem :
+Source: problem 80 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: B.Debarsy, Jan 1990.
+classification OOR2-AN-5-3
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -43,6 +52,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS81, HS:81",
 )
 get_hs81_nvar(; n::Integer = default_nvar, kwargs...) = 5
 get_hs81_ncon(; n::Integer = default_nvar, kwargs...) = 3

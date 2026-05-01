@@ -16,7 +16,7 @@ hs63_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS63.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 63.
 classification QQR2-AN-3-2
@@ -28,6 +28,15 @@ W. Hock and K. Schittkowski,
 Test examples for nonlinear programming codes,
 Lectures Notes in Economics and Mathematical Systems 187,
 Springer Verlag, Heidelberg, 1981.
+---
+Problem :
+Source: problem 63 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: J-M COLLIN, April 1990.
+classification QQR2-AY-3-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -41,6 +50,7 @@ Springer Verlag, Heidelberg, 1981.
 }  
   """,
 
+  :lib => "CUTEst:HS63, HS:63",
 )
 get_hs63_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs63_ncon(; n::Integer = default_nvar, kwargs...) = 2

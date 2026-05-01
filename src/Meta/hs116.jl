@@ -16,7 +16,7 @@ hs116_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS116.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 116.
 
@@ -31,6 +31,16 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
   
+---
+Problem :
+A 3 stage membrane separation model
+Source: problem 116 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: B. Debarsy, Feb 1990.
+classification LQR2-MN-13-14
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +54,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS116, HS:116",
 )
 get_hs116_nvar(; n::Integer = default_nvar, kwargs...) = 13
 get_hs116_ncon(; n::Integer = default_nvar, kwargs...) = 15

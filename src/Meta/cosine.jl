@@ -16,7 +16,7 @@ cosine_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/COSINE.SIF",
   :notes => raw"""
 # The cosine function.
 #
@@ -34,7 +34,15 @@ cosine_meta = Dict(
 # D. Orban, Montreal, 08/2015.
  
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Another function with nontrivial groups and
+repetitious elements.
+Source:
+N. Gould, private communication.
+SIF input: N. Gould, Jan 1996
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -47,6 +55,7 @@ cosine_meta = Dict(
   }  
   """,
 
+  :lib => "CUTEst:COSINE, Luksan:6",
 )
 get_cosine_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_cosine_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -16,7 +16,7 @@ nondia_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/NONDIA.SIF",
   :notes => raw"""
 The Shanno nondiagonal extension of Rosenbrock function.
 
@@ -42,7 +42,18 @@ J.-P. Dussault, Clermont-Ferrand 05/2016.
 Note: discrepancy with CUTEst appears to be a bug in CUTEst, this (now) matches the original paper
 (See issue #36)
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The Shanno nondiagonal extension of Rosenbrock function.
+Source:
+D. Shanno,
+" On Variable Metric Methods for Sparse Hessians II: the New
+Method",
+MIS Tech report 27, University of Arizona (Tucson, UK), 1978.
+See also Buckley #37 (p. 76) and Toint #15.
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -55,6 +66,7 @@ Note: discrepancy with CUTEst appears to be a bug in CUTEst, this (now) matches 
   }  
   """,
 
+  :lib => "CUTEst:NONDIA, Luksan:44",
 )
 get_nondia_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_nondia_ncon(; n::Integer = default_nvar, kwargs...) = 0

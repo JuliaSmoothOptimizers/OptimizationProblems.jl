@@ -16,7 +16,7 @@ hs378_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :academic,
-  :url => "",
+  :url => "http://dx.doi.org/10.1007/978-3-642-61582-5",
   :notes => raw"""
 Schittkowski problem number 378.
 
@@ -44,6 +44,7 @@ M. Gollier, Montréal, 05/2023
 }
   """,
 
+  :lib => "HS2:378",
 )
 get_hs378_nvar(; n::Integer = default_nvar, kwargs...) = 10
 get_hs378_ncon(; n::Integer = default_nvar, kwargs...) = 3

@@ -16,7 +16,7 @@ bearing_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://doi.org/10.2172/834714",
   :notes => raw"""
 Given observations of ns stages of a bearing species over n timesteps, 
 minimize the loss between the observation and the computed law of paraneters : growth, mortality and number of specimens (g,m,x) 
@@ -46,6 +46,7 @@ COPS 3.1 - March 2004
   }
     """,
 
+  :lib => "COPS:16",
 )
 get_bearing_nvar(;
   n::Integer = default_nvar,

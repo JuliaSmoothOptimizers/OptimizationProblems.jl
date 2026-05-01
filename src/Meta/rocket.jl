@@ -16,7 +16,7 @@ rocket_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/ROCKET.SIF",
   :notes => raw"""
 Goddard Rocket Problem
 Trapezoidal formulation
@@ -24,7 +24,18 @@ COPS 2.0 - September 2000
 COPS 3.0 - November 2002
 COPS 3.1 - March 2004
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+Maximize the final altitude of a vertically-lauched rocket, using
+the thrust as a control and given the initial mass, the fuel mass
+and the drag characteristics of the rocket.
+This is problem 10 in the COPS (Version 2) collection of 
+E. Dolan and J. More'
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2000)
+SIF input: Nick Gould, November 2000
+classification OOR2-AN-V-V
+""",
   :reference => raw"""
 @techreport{DolanMore2004COPS,
   author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},
@@ -36,6 +47,7 @@ COPS 3.1 - March 2004
   }
     """,
 
+  :lib => "CUTEst:ROCKET",
 )
 get_rocket_nvar(; n::Integer = default_nvar, kwargs...) = 4 * n + 5
 get_rocket_ncon(; n::Integer = default_nvar, kwargs...) = 3 * n + 4

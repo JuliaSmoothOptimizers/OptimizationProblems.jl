@@ -16,7 +16,7 @@ penalty2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/PENALTY2.SIF",
   :notes => raw"""
 Source:  Problem 24 in
 J.J. Moré, B.S. Garbow and K.E. Hillstrom,
@@ -28,7 +28,23 @@ See also Buckley#112 (p. 80)
 classification SUR2-AN-V-0
 J.-P. Dussault, Clermont-Ferrand 06/2016.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The second penalty function
+This is a nonlinear least-squares problem with M=2*N groups.
+Group 1 is linear.
+Groups 2 to N use 2 nonlinear elements.
+Groups N+1 to M-1 use 1 nonlinear element.
+Group M uses N nonlinear elements.
+The Hessian matrix is dense.
+Source:  Problem 24 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#112 (p. 80)
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-V-0
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -41,6 +57,7 @@ J.-P. Dussault, Clermont-Ferrand 06/2016.
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:PENALTY2",
 )
 get_penalty2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_penalty2_ncon(; n::Integer = default_nvar, kwargs...) = 0

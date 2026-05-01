@@ -16,7 +16,7 @@ curly_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf",
   :notes => raw"""
 A banded function with semi-bandwidth b and
 negative curvature near the starting point.
@@ -53,6 +53,7 @@ D. Orban, Montreal, 08/2015.
   }  
   """,
 
+  :lib => "",
 )
 get_curly_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_curly_ncon(; n::Integer = default_nvar, kwargs...) = 0

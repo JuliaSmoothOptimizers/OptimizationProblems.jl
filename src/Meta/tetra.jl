@@ -16,7 +16,7 @@ tetra_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://doi.org/10.2172/834714",
   :notes => raw"""
  Minimize the sum of the inverse weighted mean ratio of the elements in a fixed–boundary
  tetrahedral mesh by adjusting the locations of the free vertices.
@@ -39,6 +39,7 @@ tetra_meta = Dict(
   }
     """,
 
+  :lib => "COPS:19",
 )
 get_tetra_nvar(; n::Integer = default_nvar, kwargs...) = 15
 get_tetra_ncon(; n::Integer = default_nvar, kwargs...) = 4

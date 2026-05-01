@@ -28,6 +28,7 @@ http://www.dmi.usherb.ca/~dussault/ROP630E17/
 Jean_pierre Dussault  
   """,
   :reference => raw"""""",
+  :lib => "",
 )
 get_Dus2_3_nvar(; n::Integer = default_nvar, kwargs...) = 1
 get_Dus2_3_ncon(; n::Integer = default_nvar, kwargs...) = 0

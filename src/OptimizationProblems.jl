@@ -53,6 +53,7 @@ const cols_names = [
   :notes
   :origin_notes
   :reference
+  :lib
 ]
 
 const types = [
@@ -73,6 +74,7 @@ const types = [
   Union{Bool, Missing}
   Union{Bool, Missing}
   Symbol
+  String
   String
   String
   String
@@ -108,6 +110,7 @@ The following keys are valid:
   - `notes::String`: any additional notes about the problem
   - `origin_notes::String`: any additional notes about the origin of the problem
   - `reference::String`: reference to the problem in bibtex format
+  - `lib::String`: comma-separated list of external test-set memberships in `"Collection:ID"` format (e.g. `"CUTEst:HS1, HS:1"`); empty string if none known
 """
 const meta = DataFrame(cols_names .=> [Array{T}(undef, number_of_problems) for T in types])
 

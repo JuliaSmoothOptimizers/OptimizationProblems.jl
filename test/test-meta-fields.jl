@@ -56,3 +56,23 @@ end
   end
   @test isempty(invalid)
 end
+
+@testset "Meta fields: :lib format" begin
+  invalid = Tuple{String, String, String}[]
+  for row in eachrow(OptimizationProblems.meta)
+    isempty(row[:lib]) && continue
+    for entry in split(row[:lib], ",")
+      e = strip(entry)
+      m = match(r"^(\w+):\S+$", e)
+      if m === nothing
+        push!(invalid, (row[:name], e, "bad format (expected 'Collection:ID')"))
+      elseif !haskey(OptimizationProblems.LIB_REFERENCES, m.captures[1])
+        push!(invalid, (row[:name], e, "unknown collection '$(m.captures[1])'"))
+      end
+    end
+  end
+  for (name, entry, reason) in invalid
+    @error "Problem $name has invalid :lib entry '$entry': $reason"
+  end
+  @test isempty(invalid)
+end

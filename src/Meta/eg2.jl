@@ -16,7 +16,7 @@ eg2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/EG2.SIF",
   :notes => raw"""
 A simple non convex problem with several local minima.
 
@@ -41,7 +41,19 @@ classification OUR2-AN-1000-0
 
 D. Orban, Montreal, 08/2015.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem:
+A simple nonlinear problem given as an example in Section 1.2.4 of
+the LANCELOT Manual.
+The problem is non convex and has several local minima.
+Source:
+A.R. Conn, N. Gould and Ph.L. Toint,
+"LANCELOT, A Fortran Package for Large-Scale Nonlinear Optimization
+(Release A)"
+Springer Verlag, 1992.
+SIF input: N. Gould and Ph. Toint, June 1994.
+classification OUR2-AN-1000-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -54,6 +66,7 @@ D. Orban, Montreal, 08/2015.
   }  
   """,
 
+  :lib => "CUTEst:EG2, Luksan:25",
 )
 get_eg2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_eg2_ncon(; n::Integer = default_nvar, kwargs...) = 0

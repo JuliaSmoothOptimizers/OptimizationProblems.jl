@@ -16,7 +16,7 @@ mgh09_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/MGH09.SIF",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/mgh09.dat
 
@@ -56,7 +56,19 @@ Model:         Rational Class (linear/quadratic)
                y = b1*(x**2+x*b2) / (x**2+x*b3+b4)  +  e
 T. Migot, Montreal, 2023.
                """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+NIST Data fitting problem MGH09 given as an inconsistent set of
+nonlinear equations.
+Fit: y = b1*(x**2+x*b2) / (x**2+x*b3+b4) + e
+Source:  Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Kowalik, J.S., and M. R. Osborne, (1978).  
+Methods for Unconstrained Optimization Problems.  
+New York, NY:  Elsevier North-Holland.
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+classification NOR2-MN-4-11
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -69,6 +81,7 @@ T. Migot, Montreal, 2023.
   doi     = {10.1145/355934.355936}
 }  
   """,
+  :lib => "CUTEst:MGH09, MGH:9, NIST:MGH09",
 )
 get_mgh09_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_mgh09_ncon(; n::Integer = default_nvar, kwargs...) = 0

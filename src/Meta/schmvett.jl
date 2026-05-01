@@ -16,7 +16,7 @@ schmvett_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/SCHMVETT.SIF",
   :notes => raw"""
 The Schmidt and Vetters problem.
 
@@ -42,7 +42,19 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The Schmidt and Vetters problem.
+This problem has N-2 trivial groups, all of which have 3 nonlinear
+elements
+Source:
+J.W. Schmidt and K. Vetters,
+"Albeitungsfreie Verfahren fur Nichtlineare Optimierungsproblem",
+Numerische Mathematik 15:263-282, 1970.
+See also Toint#35 and Buckley#14 (p90)
+SIF input: Ph. Toint, Dec 1989.
+classification OUR2-AY-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -55,6 +67,7 @@ J.-P. Dussault, Clermont-Ferrand 05/2016.
   }  
   """,
 
+  :lib => "CUTEst:SCHMVETT, Luksan:49",
 )
 get_schmvett_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_schmvett_ncon(; n::Integer = default_nvar, kwargs...) = 0

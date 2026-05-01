@@ -16,7 +16,7 @@ extrosnb_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/EXTROSNB.SIF",
   :notes => raw"""
 Source: problem 10 in
 Ph.L. Toint,
@@ -40,7 +40,18 @@ classification SUR2-AN-V-0
 
 J.-P. Dussault, Rennes 09/2015.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+Problem :
+The extended Rosenbrock function (nonseparable version).
+Source: problem 10 in
+Ph.L. Toint,
+"Test problems for partially separable optimization and results
+for the routine PSPMIN",
+Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
+See also Buckley#116.  Note that MGH#21 is the separable version.
+SIF input: Ph. Toint, Dec 1989.
+classification SUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -53,6 +64,7 @@ J.-P. Dussault, Rennes 09/2015.
   }  
   """,
 
+  :lib => "CUTEst:EXTROSNB, Luksan:29",
 )
 get_extrosnb_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_extrosnb_ncon(; n::Integer = default_nvar, kwargs...) = 0

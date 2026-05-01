@@ -16,7 +16,7 @@ dqrtic_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf",
+  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf, https://bitbucket.org/optrove/sif/src/master/DQRTIC.SIF",
   :notes => raw"""
 Variable dimension diagonal quartic problem.
 
@@ -39,7 +39,17 @@ Modified CUTE problems for sparse unconstrained optimization,
 Technical Report 1081,
 Institute of Computer Science,
 Academy of Science of the Czech Republic  
-  """,
+  ---
+Problem :
+Variable dimension diagonal quartic problem.
+Source: problem 157 (p. 87) in
+A.R. Buckley,
+"Test functions for unconstrained minimization",
+TR 1989CS-3, Mathematics, statistics and computing centre,
+Dalhousie University, Halifax (CDN), 1989.
+SIF input: Ph. Toint, Dec 1989.
+classification OUR2-AN-V-0
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
@@ -52,6 +62,7 @@ Academy of Science of the Czech Republic
   }  
   """,
 
+  :lib => "CUTEst:DQRTIC, Luksan:23",
 )
 get_dqrtic_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_dqrtic_ncon(; n::Integer = default_nvar, kwargs...) = 0

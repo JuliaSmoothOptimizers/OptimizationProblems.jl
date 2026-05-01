@@ -16,7 +16,7 @@ aircrfta_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "https://www.osti.gov/biblio/6449249",
+  :url => "https://www.osti.gov/biblio/6449249, https://bitbucket.org/optrove/sif/src/master/AIRCRFTA.SIF",
   :notes => raw"""
 
 """,
@@ -27,6 +27,17 @@ J.J. More, A collection of nonlinear model problems,
 Proceedings of the AMS-SIAM Summer Seminar on the Computational.
 Solution of Nonlinear Systems of Equations, Colorado, 1988.
 Argonne National Laboratory MCS-P60-0289, 1989.
+---
+Problem :
+The aircraft stability problem by Rheinboldt, as a function
+of the elevator, aileron and rudder deflection controls.
+Source: Problem 9 in
+J.J. More',"A collection of nonlinear model problems"
+Proceedings of the AMS-SIAM Summer Seminar on the Computational
+Solution of Nonlinear Systems of Equations, Colorado, 1988.
+Argonne National Laboratory MCS-P60-0289, 1989.
+SIF input: Ph. Toint, Dec 1989.
+classification NOR2-RN-8-5
 """,
   :reference => raw"""
 @article{more1990collection,
@@ -39,6 +50,7 @@ Argonne National Laboratory MCS-P60-0289, 1989.
   publisher={American Mathematical Society}
 }
 """,
+  :lib => "CUTEst:AIRCRFTA",
 )
 get_aircrfta_nvar(; n::Integer = default_nvar, kwargs...) = 8
 get_aircrfta_ncon(; n::Integer = default_nvar, kwargs...) = 5

@@ -39,6 +39,7 @@ Toint trigonometric function
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
+  :lib => "LuksanSparse:10",
 )
 
 get_toint_nvar(; n::Integer = default_nvar, kwargs...) = n

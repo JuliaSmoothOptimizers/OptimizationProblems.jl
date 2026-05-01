@@ -26,6 +26,7 @@ A. Montoison, Montreal, 05/2018.
 """,
   :origin_notes => raw"""""",
   :reference => raw"""""",
+  :lib => "",
 )
 get_NZF1_nvar(; n::Integer = default_nvar, kwargs...) = 13 * max(2, div(n, 13))
 get_NZF1_ncon(; n::Integer = default_nvar, kwargs...) = 0

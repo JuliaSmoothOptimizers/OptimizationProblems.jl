@@ -16,7 +16,7 @@ hs93_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS93.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 93.
 
@@ -31,6 +31,16 @@ A. Montoison, Montreal, 05/2018.
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
   
+---
+Problem :
+A transformer design problem.
+Source: problem 93 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+SIF input: Nick Gould, August 1991.
+classification OOR2-MY-6-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
@@ -44,6 +54,7 @@ A. Montoison, Montreal, 05/2018.
 }  
   """,
 
+  :lib => "CUTEst:HS93, HS:93",
 )
 get_hs93_nvar(; n::Integer = default_nvar, kwargs...) = 6
 get_hs93_ncon(; n::Integer = default_nvar, kwargs...) = 2
