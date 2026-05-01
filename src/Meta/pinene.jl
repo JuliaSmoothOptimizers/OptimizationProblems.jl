@@ -41,8 +41,8 @@ COPS 3.1 - March 2004
   doi          = {10.2172/834714}
   }
     """,
-
 )
+get_pinene_nvar(; n::Integer = default_nvar, kwargs...) = 50 * n + 5
 get_pinene_ncon(; n::Integer = default_nvar, kwargs...) = 50 * n + 0
 get_pinene_nlin(; n::Integer = default_nvar, kwargs...) = 35 * n + 0
 get_pinene_nnln(; n::Integer = default_nvar, kwargs...) = 15 * n + 0

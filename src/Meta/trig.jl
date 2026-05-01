@@ -16,6 +16,29 @@ trig_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "",
+  :notes => raw"""
+  Another trigonometric function
+  """,
+  :origin_notes => raw"""
+  Problem 9 in
+  L. Luksan, C. Matonoha and J. Vlcek
+  Sparse Test Problems for Unconstrained Optimization,
+  Technical Report 1064,
+  Institute of Computer Science,
+  Academy of Science of the Czech Republic
+""",
+  :reference => raw"""
+@techreport{LuksanMatonohaVlcek2003,
+  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
+  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
+    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
+  number       = {1081},
+  year         = {2003},
+  address      = {Prague, Czech Republic},
+  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
+  }  
+  """,
 )
 
 get_trig_nvar(; n::Integer = default_nvar, kwargs...) = n
