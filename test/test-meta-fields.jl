@@ -1,11 +1,13 @@
 """
     is_valid_url(s) -> Bool
 
-Return `true` if `s` is a syntactically valid HTTP or HTTPS URL.
-No network request is made; only the structure of the string is checked.
+Return `true` if every comma-separated part of `s` is a syntactically valid
+HTTP or HTTPS URL.  A single URL (no commas) is the common case.
+No network request is made; only the structure of each part is checked.
 """
 function is_valid_url(s::String)
-  return match(r"^https?://[^\s/$.?#][^\s]*$"i, s) !== nothing
+  parts = strip.(split(s, ","))
+  return all(p -> match(r"^https?://[^\s/$.?#][^\s]*$"i, p) !== nothing, parts)
 end
 
 """
