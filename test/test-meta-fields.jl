@@ -1,5 +1,3 @@
-# Helpers - defined locally, not @everywhere (main-process only tests)
-
 """
     is_valid_url(s) -> Bool
 
