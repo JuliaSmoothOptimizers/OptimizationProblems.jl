@@ -29,8 +29,6 @@ M. Gollier, Montréal, 05/2023
   Schittkowski, K. (1987). 
   More Test Examples for Nonlinear Programming Codes. 
   Lecture Notes in Economics and Mathematical Systems.
-  doi:10.1007/978-3-642-61582-5
-  
 """,
   :reference => raw"""
 @book{Schittkowski1987,

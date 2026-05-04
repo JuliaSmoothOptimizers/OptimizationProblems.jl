@@ -19,15 +19,14 @@ hs201_meta = Dict(
   :url => "http://dx.doi.org/10.1007/978-3-642-61582-5",
   :notes => raw"""
 Hock and Schittkowski problem number 201.
-
-  Source:
+""",
+  :origin_notes => raw"""
   Problem 201 in
   K. Schittkowski,
   More Test Examples for Nonlinear Programming Codes,
   Lectures Notes in Economics and Mathematical Systems 282,
-  Springer Verlag, Heidelberg, 1987.
-""",
-  :origin_notes => raw"""""",
+  Springer Verlag, Heidelberg, 1987.  
+  """,
   :reference => raw"""
 @book{Schittkowski1987,
   author    = {Schittkowski, Klaus},

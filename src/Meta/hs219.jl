@@ -20,8 +20,6 @@ hs219_meta = Dict(
   :notes => raw"""
 Schittkowski problem number 219.
 
-  classification LPR-T1-1
-
 Solution is: (1, 1, 0, 0) with f(x^*) = -1
 """,
 :origin_notes => raw"""
@@ -30,7 +28,8 @@ Solution is: (1, 1, 0, 0) with f(x^*) = -1
   More Test Examples for Nonlinear Programming Codes. 
   Lecture Notes in Economics and Mathematical Systems.
   doi:10.1007/978-3-642-61582-5
-  
+
+  classification LPR-T1-1
 """,
   :reference => raw"""
 @book{Schittkowski1987,
