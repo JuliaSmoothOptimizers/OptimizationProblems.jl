@@ -18,15 +18,14 @@ triangle_meta = Dict(
   :origin => :unknown,
   :url => "https://doi.org/10.2172/834714",
   :notes => raw"""
- Minimize the time taken for a robot arm to travel between two points.
-
-  This is problem 18 in the COPS (Version 3) collection of 
-   E. Dolan and J. More
-   see "Benchmarking Optimization Software with COPS"
-   Argonne National Labs Technical Report ANL/MCS-246 (2004)
-  
-  """,
-  :origin_notes => raw"""""",
+Minimize the time taken for a robot arm to travel between two points.  
+""",
+  :origin_notes => raw"""
+This is problem 18 in the COPS (Version 3) collection of 
+E. Dolan and J. More
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2004)
+""",
   :reference => raw"""
 @techreport{DolanMore2004COPS,
   author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},

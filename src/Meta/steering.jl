@@ -19,20 +19,22 @@ steering_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/STEERING.SIF",
   :notes => raw"""
  Rocket Steering Problem
- Trapezoidal formulation
- COPS 2.0 - September 2000
- COPS 3.0 - November 2002
- COPS 3.1 - March 2004
-  
-  """,
-  :origin_notes => raw"""
-Problem :
-Minimize the time taken for a particle, acted upon by a thrust of     
+
+ Minimize the time taken for a particle, acted upon by a thrust of     
 constant magnitude, to achieve a given altitude and terminal velocity
+
+ Trapezoidal formulation
+ """,
+  :origin_notes => raw"""
 This is problem 9 in the COPS (Version 2) collection of 
 E. Dolan and J. More'
 see "Benchmarking Optimization Software with COPS"
 Argonne National Labs Technical Report ANL/MCS-246 (2000)
+
+COPS 2.0 - September 2000
+COPS 3.0 - November 2002
+COPS 3.1 - March 2004
+
 SIF input: Nick Gould, December 2000
 classification LOR2-AN-V-V
 """,
@@ -47,7 +49,7 @@ classification LOR2-AN-V-V
   }
     """,
 
-  :lib => "CUTEst:STEERING",
+  :lib => "CUTEst:STEERING, COPS:9",
 )
 get_steering_nvar(; n::Integer = default_nvar, kwargs...) = 5 * n + 6
 get_steering_ncon(; n::Integer = default_nvar, kwargs...) = 4 * n + 8

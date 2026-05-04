@@ -23,17 +23,17 @@ Minimal surface with obstacle problem
 Find the surface with minimal area, given boundary conditions,
 and above an obstacle.
 
+Variable dimension full rank linear problem
+A version of the minimum surface problem
+on the unit square with simple boundary conditions.
+""",
+  :origin_notes => raw"""
 This is problem 17=the COPS (Version 3) collection of
 E. Dolan and J. More'
 see "Benchmarking Optimization Software with COPS"
 Argonne National Labs Technical Report ANL/MCS-246 (2004)
 classification OBR2-AN-V-V
-""",
-  :origin_notes => raw"""
-Problem :
-Variable dimension full rank linear problem
-A version of the minimum surface problem
-on the unit square with simple boundary conditions.
+
 SIF input: Ph. Toint, Jan 1991.
 classification OXR2-MY-64-0
 """,
@@ -48,7 +48,7 @@ classification OXR2-MY-64-0
   }
     """,
 
-  :lib => "CUTEst:MINSURF",
+  :lib => "CUTEst:MINSURF, COPS:17",
 )
 get_minsurf_nvar(;
   n::Integer = default_nvar,

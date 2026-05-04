@@ -18,43 +18,23 @@ marine_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/MARINE.SIF",
   :notes => raw"""
- Given observations of ns stages of a marine species over n timesteps, 
- minimize the loss between the observation and the computed law of paraneters : growth, mortality and number of specimens (g,m,x) 
-
-   This is problem 6 in the COPS (Version 3) collection of 
-   E. Dolan and J. More'
-   see "Benchmarking Optimization Software with COPS"
-   Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
-   classification OOR2-AN-V-V
-
  Marine Population Dynamics Problem
  Collocation formulation
- Alexander S. Bondarenko - Summer 1998
- COPS 2.0 - September 2000
- COPS 3.0 - November 2002
- COPS 3.1 - March 2004  
+
+ Given observations of ns stages of a marine species over n timesteps, 
+ minimize the loss between the observation and the computed law of paraneters : growth, mortality and number of specimens (g,m,x) 
   """,
   :origin_notes => raw"""
-Problem :
-Given estimates of the abundance of the population of a marine
-spieces at each stage as a function of time, determine specific
-growth and mortality rates. Th emodel for the population dynamics
-of the n_e -stage population is 
-y_j' = g_j-1 y_j-1 - (m_j + g_j) y_j   (1 <= j <= n_e)
-where m_i and g_i are unknown mortality and growth rates at stage i
-with g_0 = 0 = g_n_e. This model assumes that the species eventually
-dies or grows into the next stage, with the implicit assumption that
-the species cannot skip a stage. Initial conditions for the differntial
-equation are unknown, since the stage abundance measurements at the
-initial time might also be contaminated with experimental error. The
-problem is to minimize the error between the observed and computed data,
-sum{i=1,nm} || y(tau_i,m,g) - z_i||^2
-where the z_i are stage abundance measurements.
-This is problem 6 in the COPS (Version 2) collection of 
+This is problem 6 in the COPS (Version 3) collection of 
 E. Dolan and J. More'
 see "Benchmarking Optimization Software with COPS"
-Argonne National Labs Technical Report ANL/MCS-246 (2000)
+Argonne National Labs Technical Report ANL/MCS-246 (2004)
+
+Alexander S. Bondarenko - Summer 1998
+COPS 2.0 - September 2000
+COPS 3.0 - November 2002
+COPS 3.1 - March 2004  
+
 SIF input: Nick Gould, November 2000
 classification OOR2-AN-V-V
 """,

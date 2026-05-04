@@ -18,20 +18,9 @@ pinene_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/PINENE.SIF",
   :notes => raw"""
-This is problem 5 in the COPS (Version 3) collection of
-  E. Dolan and J. More
-  see "Benchmarking Optimization Software with COPS"
-  Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
 Isomerization of Alpha-Pinene Problem
 Collocation formulation
-Alexander S. Bondarenko - Summer 1998
-COPS 2.0 - September 2000
-COPS 3.0 - November 2002
-COPS 3.1 - March 2004
-""",
-  :origin_notes => raw"""
-Problem :
+
 Determine the reaction coefficients in the thermal isometrization 
 of alpha-Pinene. The linear kinetic model is
 y_1' = - (theta_1 + theta_2) y_1
@@ -43,10 +32,18 @@ where the reaction coefficients theta_i are positive,
 with given initial conditions. The problem is to minimize
 sum{i=1,8} || y(tau_i,theta) - z_i||^2
 where the z_i are concentration measurements for y at times tau_i (i=1,8)
-This is problem 5 in the COPS (Version 2) collection of 
-E. Dolan and J. More'
+""",
+  :origin_notes => raw"""
+This is problem 5 in the COPS (Version 3) collection of
+E. Dolan and J. More
 see "Benchmarking Optimization Software with COPS"
-Argonne National Labs Technical Report ANL/MCS-246 (2000)
+Argonne National Labs Technical Report ANL/MCS-246 (2004)
+
+Alexander S. Bondarenko - Summer 1998
+COPS 2.0 - September 2000
+COPS 3.0 - November 2002
+COPS 3.1 - March 2004
+
 SIF input: Nick Gould, November 2000
 classification OOR2-AN-V-V
 """,
