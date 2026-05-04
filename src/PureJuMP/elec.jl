@@ -18,29 +18,29 @@ function elec(args...; n::Int = default_nvar, kwargs...)
 
   nlp = Model()
 
-  range0 = [i / n for i = 1:n]
+  range0 = [i / m for i = 1:m]
 
   θ0 = 2π .* range0
   ϕ0 = π .* range0
-  xini = [sin(θ0[i]) * cos(ϕ0[i]) for i = 1:n] # x coordinate
-  yini = [sin(θ0[i]) * sin(ϕ0[i]) for i = 1:n] # y coordinate 
-  zini = [cos(θ0[i]) for i = 1:n]            # z coordinate
+  xini = [sin(θ0[i]) * cos(ϕ0[i]) for i = 1:m] # x coordinate
+  yini = [sin(θ0[i]) * sin(ϕ0[i]) for i = 1:m] # y coordinate 
+  zini = [cos(θ0[i]) for i = 1:m]            # z coordinate
   x0 = [xini; yini; zini]
 
-  @variable(nlp, x[i = 1:(3n)], start = x0[i])
+  @variable(nlp, x[i = 1:(3m)], start = x0[i])
 
   @objective(
     nlp,
     Min,
     sum(
       sum(
-        1 / sqrt((x[j] - x[i])^2 + (x[n + j] - x[n + i])^2 + (x[2n + j] - x[2n + i])^2) for
-        j = (i + 1):n
-      ) for i = 1:(n - 1)
+        1 / sqrt((x[j] - x[i])^2 + (x[m + j] - x[m + i])^2 + (x[2m + j] - x[2m + i])^2) for
+        j = (i + 1):m
+      ) for i = 1:(m - 1)
     )
   )
 
-  @constraint(nlp, [k = 1:n], x[k]^2 + x[n + k]^2 + x[2n + k]^2 == 1)
+  @constraint(nlp, [k = 1:m], x[k]^2 + x[m + k]^2 + x[2m + k]^2 == 1)
 
   return nlp
 end

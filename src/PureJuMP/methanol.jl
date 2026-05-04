@@ -36,8 +36,8 @@ function methanol(args...; n::Int = default_nvar, kwargs...)
     1.122,
   ]
   tf = tau[nm]                   # ODEs defined in [0,tf]
-  n = 30 * n_orig + 5
-  @adjust_nvar_warn("methanol", n_orig, n)
+  n = n_orig
+  @adjust_nvar_warn("methanol", n_orig, 30 * n + 5)
   h = tf / n                    # uniform interval length
   t = [(i-1)*h for i = 1:(n + 1)]  # partition
   fact = [factorial(k) for k = 0:nc]
