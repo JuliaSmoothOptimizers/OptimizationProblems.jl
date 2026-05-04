@@ -36,7 +36,7 @@ function dixmaane(
   n_orig = n
   m = max(1, div(n, 3))
   n = 3 * m
-  @adjust_nvar_warn("dixmaan", n_orig, n)
+  @adjust_nvar_warn("dixmaane", n_orig, n)
 
   nlp = Model()
 

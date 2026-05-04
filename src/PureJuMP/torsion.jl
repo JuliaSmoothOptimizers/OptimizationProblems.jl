@@ -7,9 +7,12 @@ export torsion
 
 function torsion(args...; n = default_nvar, kwargs...)
   # number of variables is (nx + 1) x (ny + 1)
+  n_orig = n
   if !((:nx in keys(kwargs)) & (:ny in keys(kwargs)))
-    nx, ny = Int(round(sqrt(max(1, n - 2)))), Int(round(sqrt(max(1, n - 2))))
+    nx, ny = Int(round(sqrt(max(1, n_orig - 2)))), Int(round(sqrt(max(1, n_orig - 2))))
   end
+  nvars = (nx + 2) * (ny + 2)
+  @adjust_nvar_warn("torsion", n_orig, nvars)
   c = 5.0
   hx = 1.0 / (nx + 1.0)    # grid spacing
   hy = 1.0 / (ny + 1.0)    # grid spacing

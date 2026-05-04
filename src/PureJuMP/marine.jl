@@ -18,14 +18,17 @@
 export marine
 
 function marine(args...; n::Int = default_nvar, nc::Int = 1, kwargs...)
+  n_orig = n
   nlp = Model()
 
   nc = max(min(nc, 4), 1) # number of collocation points 
   ne = 8 # number of differential equations
   nm = 21 # number of measurements
 
-  n = max(n, 3 * ne * nc + ne + 2 * ne)
+  n = max(n_orig, 3 * ne * nc + ne + 2 * ne)
   nh = Int(round((n - 2 * ne + 1) / (3 * ne * nc + ne))) # number of partition intervals
+  n = 8 + 7 + nh * (8 + 3 * 8 * nc)
+  @adjust_nvar_warn("marine", n_orig, n)
 
   # roots of k-th degree Legendre polynomial
   rho = if nc == 1

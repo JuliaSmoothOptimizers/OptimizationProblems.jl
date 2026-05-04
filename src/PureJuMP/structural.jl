@@ -6,7 +6,8 @@
 export structural
 
 function structural(args...; n::Int = default_nvar, kwargs...)
-  n = max(n, 100)
+  n_orig = n
+  n = max(n_orig, 100)
 
   sub2ind(shape, a, b) = LinearIndices(shape)[CartesianIndex.(a, b)]
   Nx = min(Int(round(n^(1 / 3))), 6)
@@ -28,6 +29,9 @@ function structural(args...; n::Int = default_nvar, kwargs...)
   nodes = [kron(ones(Ny), collect(1:Nx)) kron(collect(1:Ny), ones(Nx))]
 
   M = Int(N * (N - 1) / 2)  # number of edges
+
+  nvars = 2 * M
+  @adjust_nvar_warn("structural", n_orig, nvars)
 
   # EDGES: columns are the indices of the nodes at either end
   edges = Array{Int}(zeros(M, 2))

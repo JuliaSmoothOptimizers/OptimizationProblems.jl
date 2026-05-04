@@ -6,9 +6,12 @@
 export hovercraft1d
 
 function hovercraft1d(args...; n::Int = default_nvar, kwargs...)
+  n_orig = n
   nlp = Model()
 
-  T = div(n, 3)           # length of time horizon
+  T = div(n_orig, 3)           # length of time horizon
+  n = 3 * T - 1
+  @adjust_nvar_warn("hovercraft1d", n_orig, n)
   @variable(nlp, x[1:T])    # resulting position
   @variable(nlp, v[1:T])    # resulting velocity
   @variable(nlp, u[1:(T - 1)])  # thruster input

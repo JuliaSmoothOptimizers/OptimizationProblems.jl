@@ -1,7 +1,10 @@
 export chain
 
 function chain(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  n_orig = n
   nh = max(2, div(n - 4, 4))
+  n = 4 * nh + 4
+  @adjust_nvar_warn("chain", n_orig, n)
 
   L = 4
   a = 1

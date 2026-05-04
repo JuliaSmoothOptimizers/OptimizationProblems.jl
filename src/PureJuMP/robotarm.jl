@@ -14,8 +14,11 @@
 export robotarm
 
 function robotarm(; n::Int = default_nvar, L = 4.5, kwargs...)
-  N = max(2, div(n, 9))
+  n_orig = n
+  N = max(2, div(n_orig, 9))
   n = N + 1
+  nvars = 9 * n + 1
+  @adjust_nvar_warn("robotarm", n_orig, nvars)
 
   nlp = Model()
 

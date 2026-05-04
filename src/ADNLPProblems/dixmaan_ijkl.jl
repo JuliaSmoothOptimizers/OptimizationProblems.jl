@@ -12,7 +12,7 @@ function dixmaani(;
   n_orig = n
   m = max(1, div(n, 3))
   n = 3 * m
-  @adjust_nvar_warn("dixmaan", n_orig, n)
+  @adjust_nvar_warn("dixmaani", n_orig, n)
   function f(x; n = length(x), α = α, β = β, γ = γ, δ = δ)
     return 1 +
            sum((i // n)^2 * α * x[i]^2 for i = 1:n) +

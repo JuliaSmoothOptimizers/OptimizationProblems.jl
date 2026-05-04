@@ -10,8 +10,11 @@ export robotarm
 #  classification OOR2-AN-V-V
 
 function robotarm(; n::Int = default_nvar, L = 4.5, type::Type{T} = Float64, kwargs...) where {T}
-  N = max(2, div(n, 9))
+  n_orig = n
+  N = max(2, div(n_orig, 9))
   n = N + 1
+  nvars = 9 * n + 1
+  @adjust_nvar_warn("robotarm", n_orig, nvars)
   L = T(L)
 
   # x : vector of variables, of the form : [ρ(t=t1); ρ(t=t2); ... ρ(t=tf), θ(t=t1), ..., then ρ_dot, ..., then ρ_acc, .. ϕ_acc, tf]
