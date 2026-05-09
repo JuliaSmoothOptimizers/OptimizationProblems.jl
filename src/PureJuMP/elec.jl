@@ -13,8 +13,8 @@ export elec
 function elec(args...; n::Int = default_nvar, kwargs...)
   n_orig = n
   m = max(2, div(n_orig, 3))
-  n = 3 * m
-  @adjust_nvar_warn("elec", n_orig, n)
+  n = m
+  @adjust_nvar_warn("elec", n_orig, 3 * n)
 
   nlp = Model()
 

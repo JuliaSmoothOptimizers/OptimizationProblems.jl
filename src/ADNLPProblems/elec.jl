@@ -3,8 +3,8 @@ export elec
 function elec(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   n_orig = n
   m = max(2, div(n_orig, 3))
-  n = 3 * m
-  @adjust_nvar_warn("elec", n_orig, n)
+  n = m
+  @adjust_nvar_warn("elec", n_orig, 3 * n)
   # Define the objective function to minimize
   function f(x; n = n)
     return sum(
