@@ -17,8 +17,8 @@ function elec(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
 
   # Define the constraints on these points (sum of the square of the coordinates = 1)
   function c!(cx, x; n = n)
-      for k = 1:n
-        cx[k] = x[k]^2 + x[n + k]^2 + x[2n + k]^2
+    for k = 1:n
+      cx[k] = x[k]^2 + x[n + k]^2 + x[2n + k]^2
     end
     return cx
   end
