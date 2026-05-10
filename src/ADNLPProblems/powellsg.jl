@@ -6,7 +6,7 @@ function powellsg(; use_nls::Bool = false, kwargs...)
 end
 
 function powellsg(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n = 4 * max(1, div(n, 4))
+  n = 4 * max(1, div(n, 4))  # number of variables adjusted to be a multiple of 4
   @adjust_nvar_warn("powellsg", n, n)
   function f(x; n = length(x))
     return sum(
