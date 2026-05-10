@@ -7,10 +7,8 @@
 export rocket
 
 function rocket(; n::Int = default_nvar, kwargs...)
-  n_orig = n
   h_0 = 1.0
-  nvars = 4 * n_orig + 5
-  @adjust_nvar_warn("rocket", n_orig, nvars)
+  @adjust_nvar_warn("rocket", n, 4 * n + 5)
   v_0 = 0.0
   m_0 = 1.0
   g_0 = 1.0
