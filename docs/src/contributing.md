@@ -105,7 +105,6 @@ For least-squares problems, you may also run the same check with `problem_name(u
 ### Nonlinear Least Squares (NLS) Problems
 
 If your problem is a nonlinear least squares (NLS), please follow these guidelines:
-* Use `ADNLSModels` for the ADNLPProblems implementation (see [ADNLPModels.jl documentation](https://jso.dev/ADNLPModels.jl/stable/)).
 * Set the `:objtype` entry in the meta file to `:least_squares`.
 * Add a getter for the number of NLS equations, named `get_problemname_nls_nequ`.
 * Support the `use_nls=true/false` keyword to allow both `ADNLPModel` and `ADNLSModel` instantiation from the same problem.
