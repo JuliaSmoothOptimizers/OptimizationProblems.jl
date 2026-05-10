@@ -20,7 +20,7 @@ Here is a to-do list, to help you add new problems:
     - `src/PureJuMP/problem_name.jl`
     - `src/Meta/problem_name.jl`
 In both cases, the function must have the same name `problem_name` as the file.
-The function should be exported from `src/ADNLPProblems/problem_name.jl` and `src/PureJuMP/problem_name.jl`. Do not add exports in `src/Meta/problem_name.jl`.
+The function should be only exported from `src/ADNLPProblems/problem_name.jl` and `src/PureJuMP/problem_name.jl`.
 * When submitting a problem, please pay particular attention to the documentation. We would like to gather as much information as possible on the provenance of problems, other problem sets where the problems are present, and general information on the problem. 
 The documentation should be added to the file in the `PureJuMP` folder.
 * New problems can be scalable, see [ADNLPProblems/arglina.jl](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/arglina.jl) and [PureJuMP/arglina.jl](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/PureJuMP/arglina.jl) for examples. In that case, the first keyword parameter should be the number of variables `n::Int` and have the default value `default_nvar` (constant predefined in the module). If your problem has restrictions on the number of variables, e.g., `n` should be odd, or `n` should have the form `4k + 3`, then, instead of throwing errors when the restrictions are not satisfied, you should instead use the number of variables to be as close to `n` as possible. For example, if you want `n` odd and `n = 100` is passed, you can internally convert to `n = 99`. If you want `n = 4k + 3`, and `n = 100` is passed, then compute `k = round(Int, (n - 3) / 4)` and update `n`. When such an internal adjustment is made, emit a warning indicating the requested `n` and the effective value used.
@@ -35,7 +35,7 @@ The documentation should be added to the file in the `PureJuMP` folder.
 ```
 
 * Problems modeled with `ADNLPModels` should be type-stable, i.e. they should all have keyword argument `type::Type{T} = Float64` where `T` is the type of the initial guess and the type used by the `NLPModel` API.
-* In particular, the initial point `x0` should be a `Vector{T}`, and the `name` keyword should be passed to `ADNLPModel`/`ADNLSModel` with a meaningful problem name.
+* The `name` keyword should be passed to `ADNLPModel`/`ADNLSModel` with a meaningful problem name.
 
 ## Templates for the new functions
 
@@ -69,7 +69,7 @@ export function_name
 
 function function_name(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T} 
   # define f (ensure f(x0) is of type T)
- # define x0 (ensure x0 isa Vector{T})
+  # define x0 (ensure x0 isa Vector{T})
   # nlp = ADNLPModels.ADNLPModel(f, x0, name = "function_name"; kwargs...)
   return nlp
 end
@@ -79,8 +79,8 @@ end
 
 * Ensure all meta fields are accurate and complete, e.g. `:origin`, `:objtype`, and `:name` in [`src/Meta/arglina.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/Meta/arglina.jl).
 * Implementations in `ADNLPProblems` and `PureJuMP` must use the same initial point, variable bounds, and constraint bounds; compare `arglina` in [`src/ADNLPProblems/arglina.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/arglina.jl) and [`src/PureJuMP/arglina.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/PureJuMP/arglina.jl).
-* The implemented objective function must be callable at the starting point, e.g. `obj(nlp, nlp.meta.x0)` in [`src/ADNLPProblems/lanczos1.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/lanczos1.jl).
-* For `ADNLPModels` problems, the objective should return values of type `T` from `type::Type{T}` and the initial point should be typed consistently (`x0::Vector{T}`), for example `Float32` in [`src/ADNLPProblems/brownal.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/brownal.jl).
+* The implemented objective function must be callable at the starting point.
+* For `ADNLPModels` problems, the objective should return values of type `T` from `type::Type{T}` and the initial point should be typed consistently (`x0::Vector{T}`).
 * Pass a meaningful `name` keyword to `ADNLPModel` constructors, for example `name = "arglina"` in [`src/ADNLPProblems/arglina.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/arglina.jl).
 * For constrained problems, ensure in-place constraint evaluations (e.g., `cons_nln!`) are allocation-free, for example the checks in [`test/test-utils.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/test/test-utils.jl).
 * Objective function evaluations should have minimal allocations, for example `@allocated obj(nlp, x0)` in the same test style used by [`test/test-utils.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/test/test-utils.jl).
@@ -89,7 +89,7 @@ end
   - effective `nvar` matches the intended rule (including any internal adjustment such as odd `n` or `4k + 3` constraints);
   - if `n` is internally adjusted, the effective value is the closest feasible one to the requested `n`, and a warning is emitted;
   - metadata formulas (`nvar`, `nnzh`, `nnzj`, etc.) match the instantiated model values.
-* Optional (recommended): provide a local solver sanity check showing that a standard solver can solve the model from the provided starting point, e.g. `ipopt(arglina())` or `ipopt(lanczos1())`.
+* Optional (recommended): provide a local solver sanity check showing that a standard solver can solve the model from the provided starting point, see example below.
 
 ```julia
 using OptimizationProblems, OptimizationProblems.ADNLPProblems
