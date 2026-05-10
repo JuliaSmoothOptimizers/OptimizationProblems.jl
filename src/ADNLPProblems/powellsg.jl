@@ -6,9 +6,7 @@ function powellsg(; use_nls::Bool = false, kwargs...)
 end
 
 function powellsg(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n_orig = n
-  n = 4 * max(1, div(n, 4))
-  @adjust_nvar_warn("powellsg", n_orig, n)
+  @adjust_nvar_warn("powellsg", n, 4 * max(1, div(n, 4)))
   function f(x; n = length(x))
     return sum(
       (x[j] + 10 * x[j + 1])^2 +
@@ -25,9 +23,7 @@ function powellsg(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
 end
 
 function powellsg(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n_orig = n
-  n = 4 * max(1, div(n, 4))
-  @adjust_nvar_warn("powellsg", n_orig, n)
+  @adjust_nvar_warn("powellsg", n, 4 * max(1, div(n, 4)))
   function F!(r, x; n = length(x))
     @inbounds for j = 1:4:n
       r[j] = x[j] + 10 * x[j + 1]
@@ -41,5 +37,5 @@ function powellsg(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
   x0[4 * (collect(1:div(n, 4))) .- 3] .= 3
   x0[4 * (collect(1:div(n, 4))) .- 2] .= -1
   x0[4 * (collect(1:div(n, 4)))] .= 1
-  return ADNLPModels.ADNLSModel!(F!, x0, n, name = "powellsg-nls"; kwargs...)
+  return ADNLPModels.ADNLSModel!(F!, x0, 4 * max(1, div(n, 4)), name = "powellsg-nls"; kwargs...)
 end

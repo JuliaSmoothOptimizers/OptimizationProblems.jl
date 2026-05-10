@@ -8,10 +8,9 @@ function catenary(
   FRACT = 0.6,
   kwargs...,
 ) where {T}
-  n_orig = n
   n = 3 * max(1, div(n, 3))
   n = max(n, 6)
-  @adjust_nvar_warn("catenary", n_orig, n)
+  @adjust_nvar_warn("catenary", n, n)
 
   ## Model Parameters
   N = div(n, 3) - 2

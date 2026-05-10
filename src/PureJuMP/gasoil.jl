@@ -10,8 +10,7 @@ export gasoil
 function gasoil(; n::Int = default_nvar, kwargs...)
   n_orig = n
   nc = 4        # number of collocation points
-  n = n_orig
-  @adjust_nvar_warn("gasoil", n_orig, 26 * n + 3)
+  @adjust_nvar_warn("gasoil", n_orig, 26 * n_orig + 3)
   ne = 2        # number of differential equations
   np = 3        # number of ODE parameters
   nm = 21       # number of measurements

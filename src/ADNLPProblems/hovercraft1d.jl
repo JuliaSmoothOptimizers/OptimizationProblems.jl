@@ -11,10 +11,8 @@ function hovercraft1d(
   type::Type{T} = Float64,
   kwargs...,
 ) where {T}
-  n_orig = n
-  N = div(n_orig, 3)
-  n = 3 * N - 1
-  @adjust_nvar_warn("hovercraft1d", n_orig, n)
+  N = div(n, 3)
+  @adjust_nvar_warn("hovercraft1d", n, 3 * N - 1)
   function f(y; N = N)
     @views x, v, u = y[1:N], y[(N + 1):(2 * N)], y[(2 * N + 1):end]
     return 1 // 2 * sum(u .^ 2)
@@ -75,10 +73,8 @@ function hovercraft1d(
   type::Type{T} = Float64,
   kwargs...,
 ) where {T}
-  n_orig = n
-  N = div(n_orig, 3)
-  n = 3 * N - 1
-  @adjust_nvar_warn("hovercraft1d", n_orig, n)
+  N = div(n, 3)
+  @adjust_nvar_warn("hovercraft1d", n, 3 * N - 1)
   function F!(r, y; N = N)
     @views x, v, u = y[1:N], y[(N + 1):(2 * N)], y[(2 * N + 1):end]
     r .= u

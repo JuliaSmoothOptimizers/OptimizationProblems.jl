@@ -6,10 +6,9 @@ function clplateb(;
   wght = -0.1,
   kwargs...,
 ) where {T}
-  n_orig = n
   p = max(floor(Int, sqrt(n)), 3)
   n = p * p
-  @adjust_nvar_warn("clplateb", n_orig, n)
+  @adjust_nvar_warn("clplateb", n, n)
   hp2 = 1 // 2 * p^2
   function f(x; p = p, hp2 = hp2, wght = wght)
     return sum(eltype(x)(wght) / (p - 1) * x[p + (j - 1) * p] for j = 1:p) +
