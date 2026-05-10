@@ -17,8 +17,8 @@
 export catenary
 
 function catenary(args...; n::Int = default_nvar, Bl = 1.0, FRACT = 0.6, kwargs...)
-  n = 3 * max(1, div(n, 3))
   n_org = n
+  n = 3 * max(1, div(n, 3))
   n = max(n, 6)
   @adjust_nvar_warn("catenary", n_org, n)
 
