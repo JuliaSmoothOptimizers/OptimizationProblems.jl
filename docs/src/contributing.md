@@ -83,13 +83,13 @@ end
 * For `ADNLPModels` problems, the objective should return values of type `T` from `type::Type{T}` and the initial point should be typed consistently (`x0::Vector{T}`).
 * Pass a meaningful `name` keyword to `ADNLPModel` constructors, for example `name = "arglina"` in [`src/ADNLPProblems/arglina.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/arglina.jl).
 * For constrained problems, ensure in-place constraint evaluations (e.g., `cons_nln!`) are allocation-free, for example the checks in [`test/test-utils.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/test/test-utils.jl).
-* Objective function evaluations should have minimal allocations, for example `@allocated obj(nlp, x0)` in the same test style used by [`test/test-utils.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/test/test-utils.jl).
+* Objective function evaluations should have minimal allocations.
 * For variable-size problems, validate at multiple sizes (for example `n = 5`, `n = default_nvar`, and a larger `n`) and check all of the following, e.g. [`arglina`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/arglina.jl) and [`test/test-scalable.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/test/test-scalable.jl):
   - model instantiation succeeds for each tested `n`;
   - effective `nvar` matches the intended rule (including any internal adjustment such as odd `n` or `4k + 3` constraints);
   - if `n` is internally adjusted, the effective value is the closest feasible one to the requested `n`, and a warning is emitted;
   - metadata formulas (`nvar`, `nnzh`, `nnzj`, etc.) match the instantiated model values.
-* Optional (recommended): provide a local solver sanity check showing that a standard solver can solve the model from the provided starting point, see example below.
+* Optional (recommended): provide in the PR a local solver sanity check showing that a standard solver can solve the model from the provided starting point, see example below.
 
 ```julia
 using OptimizationProblems, OptimizationProblems.ADNLPProblems
@@ -99,9 +99,6 @@ nlp = problem_name()
 stats = ipopt(nlp)
 stats.status
 ```
-
-For least-squares problems, you may also run the same check with `problem_name(use_nls=true)`.
-
 ### Nonlinear Least Squares (NLS) Problems
 
 If your problem is a nonlinear least squares (NLS), please follow these guidelines:
@@ -149,6 +146,6 @@ See existing NLS problems (e.g., [`lanczos1`](https://github.com/JuliaSmoothOpti
 - [ ] Objective evaluation has minimal allocations (ideally allocation-free in performance-critical paths).
 
 **Least-Squares & In-Place APIs**
-- [ ] If least-squares, ADNLP constructor supports `nls=true/false` for both ADNLPModel and ADNLSModel.
-- [ ] In-place nonlinear constraint evaluation (`cons_nln!(nlp, x, cx)`) and least-squares residuals (`residual!`) are allocation-free.
-- [ ] For least-squares, objectives for NLP and NLS agree (or differ by a factor of 2, as appropriate).
+- [ ] If least squares, ADNLP constructor supports `nls=true/false` for both ADNLPModel and ADNLSModel.
+- [ ] In-place nonlinear constraint evaluations (`cons_nln!(nlp, x, cx)`) and least squares residuals (`residual!`) are allocation-free.
+- [ ] For least squares problems, objectives for NLP and NLS must agree (or differ by a factor of 2, as appropriate).
