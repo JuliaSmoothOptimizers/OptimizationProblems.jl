@@ -7,10 +7,9 @@
 export NZF1
 
 function NZF1(args...; n::Int = default_nvar, kwargs...)
-  n_orig = n
   nbis = max(2, div(n, 13))
   n = 13 * nbis
-  @adjust_nvar_warn("NZF1", n_orig, n)
+  @adjust_nvar_warn("NZF1", n, n)
 
   l = div(n, 13)
 

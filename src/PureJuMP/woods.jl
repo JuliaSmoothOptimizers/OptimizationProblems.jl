@@ -39,9 +39,8 @@ export woods
 
 "The extended Woods problem `n` "
 function woods(args...; n::Int = default_nvar, kwargs...)
-  n_orig = n
   n = 4 * max(1, div(n, 4))
-  @adjust_nvar_warn("woods", n_orig, n)
+  @adjust_nvar_warn("woods", n, n)
 
   nlp = Model()
 

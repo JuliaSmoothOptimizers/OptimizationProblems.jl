@@ -13,10 +13,8 @@
 export chain
 
 function chain(args...; n::Int = default_nvar, kwargs...)
-  n_orig = n
   nh = max(2, div(n - 4, 4))
-  n = 4 * nh + 4
-  @adjust_nvar_warn("chain", n_orig, n)
+  @adjust_nvar_warn("chain", n, 4 * nh + 4)
 
   L = 4
   a = 1

@@ -26,10 +26,9 @@ export clplatea
 
 "The clamped plate problem (Strang, Nocedal, Dax)."
 function clplatea(args...; n::Int = default_nvar, wght::Float64 = -0.1, kwargs...)
-  n_orig = n
   p = floor(Int, sqrt(n))
   n = p * p
-  @adjust_nvar_warn("clplatea", n_orig, n)
+  @adjust_nvar_warn("clplatea", n, n)
 
   nlp = Model()
 

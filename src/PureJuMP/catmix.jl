@@ -6,10 +6,9 @@
 export catmix
 
 function catmix(args...; n::Int = default_nvar, kwargs...)
-  n_orig = n
   ne = 2
   nc = 3
-  @adjust_nvar_warn("catmix", n_orig, 23 * n_orig + 2)
+  @adjust_nvar_warn("catmix", n, 23 * n + 2)
 
   tf = 1
   h = tf / n   # Final time

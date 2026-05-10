@@ -21,10 +21,9 @@
 export spmsrtls
 
 function spmsrtls(args...; n::Int = default_nvar, kwargs...)
-  n_orig = n
   m = max(Int(round((n + 2) / 3)), 34)
   n = m * 3 - 2
-  @adjust_nvar_warn("spmsrtls", n_orig, n)
+  @adjust_nvar_warn("spmsrtls", n, n)
   p = [sin(i^2) for i = 1:n]
   x0 = [p[i] / 5 for i = 1:n]
 

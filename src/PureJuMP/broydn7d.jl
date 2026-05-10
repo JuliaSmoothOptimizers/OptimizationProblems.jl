@@ -46,10 +46,9 @@ export broydn7d
 
 "Broyden 7-diagonal model in size `n`"
 function broydn7d(args...; n::Int = default_nvar, p::Float64 = 7 / 3, kwargs...)
-  n_orig = n
   n2 = max(1, div(n, 2))
   n = 2 * n2
-  @adjust_nvar_warn("broydn7d", n_orig, n)
+  @adjust_nvar_warn("broydn7d", n, n)
 
   nlp = Model()
 
