@@ -24,7 +24,7 @@ function toint(args...; n::Int = default_nvar, kwargs...)
 
       jmin = max(1, i - 2)
       jmax = min(n, i + 2)
-      for j in jmin:jmax
+      for j = jmin:jmax
         aij = 5 * (1 + mod(i, 5) + mod(j, 5))
         bij = (i + j) // 10
         cj = 1 + j // 10
