@@ -6,8 +6,9 @@ function powellsg(; use_nls::Bool = false, kwargs...)
 end
 
 function powellsg(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  n_org = n
   n = 4 * max(1, div(n, 4))
-  @adjust_nvar_warn("powellsg", n, n)
+  @adjust_nvar_warn("powellsg", n_org, n)
   function f(x; n = length(x))
     return sum(
       (x[j] + 10 * x[j + 1])^2 +
@@ -24,8 +25,9 @@ function powellsg(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
 end
 
 function powellsg(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  n_org = n
   n = 4 * max(1, div(n, 4))
-  @adjust_nvar_warn("powellsg", n, n)
+  @adjust_nvar_warn("powellsg", n_org, n)
   function F!(r, x; n = length(x))
     @inbounds for j = 1:4:n
       r[j] = x[j] + 10 * x[j + 1]

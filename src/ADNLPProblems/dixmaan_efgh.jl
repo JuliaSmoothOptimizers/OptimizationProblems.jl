@@ -9,9 +9,10 @@ function dixmaane(;
   δ = 125 // 1000,
   kwargs...,
 ) where {T}
+  n_org = n
   m = max(1, div(n, 3))
   n = 3 * m
-  @adjust_nvar_warn("dixmaane", n, 3 * m)
+  @adjust_nvar_warn("dixmaane", n_org, n)
   function f(x; n = length(x), α = α, β = β, γ = γ, δ = δ)
     return 1 +
            sum(i // n * α * x[i]^2 for i = 1:n) +

@@ -6,9 +6,10 @@ function spmsrtls(; use_nls::Bool = false, kwargs...)
 end
 
 function spmsrtls(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  n_org = n
   m = max(Int(round((n + 2) / 3)), 34)
   n = m * 3 - 2
-  @adjust_nvar_warn("spmsrtls", n, n)
+  @adjust_nvar_warn("spmsrtls", n_org, n)
   p = [sin(i^2) for i = 1:n]
   x0 = T[p[i] / 5 for i = 1:n]
 
@@ -60,9 +61,10 @@ function spmsrtls(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
 end
 
 function spmsrtls(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  n_org = n
   m = max(Int(round((n + 2) / 3)), 34)
   n = m * 3 - 2
-  @adjust_nvar_warn("spmsrtls", n, n)
+  @adjust_nvar_warn("spmsrtls", n_org, n)
   p = [sin(i^2) for i = 1:n]
   x0 = T[p[i] / 5 for i = 1:n]
 

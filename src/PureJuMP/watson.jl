@@ -17,8 +17,9 @@
 export watson
 
 function watson(args...; n::Int = default_nvar, kwargs...)
+  n_org = n
   n = min(max(n, 2), 31)
-  @adjust_nvar_warn("watson", n, n)
+  @adjust_nvar_warn("watson", n_org, n)
   m = 31
 
   nlp = Model()

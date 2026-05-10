@@ -22,10 +22,11 @@ export fminsrf2
 
 function fminsrf2(args...; n::Int = default_nvar, kwargs...)
   n = max(4, n)
+  n_org = n
 
   p = floor(Int, sqrt(n))
   n = p * p
-  @adjust_nvar_warn("fminsrf2", n, n)
+  @adjust_nvar_warn("fminsrf2", n_org, n)
 
   h00 = 1.0
   slopej = 4.0

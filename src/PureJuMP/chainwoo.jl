@@ -35,8 +35,9 @@ export chainwoo
 
 "The chained Woods function in size `n`, a variant on the Woods function"
 function chainwoo(args...; n::Int = default_nvar, kwargs...)
+  n_org = n
   n = 4 * max(1, div(n, 4))
-  @adjust_nvar_warn("chainwoo", n, n)
+  @adjust_nvar_warn("chainwoo", n_org, n)
 
   nlp = Model()
 

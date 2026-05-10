@@ -31,9 +31,10 @@ function dixmaanm(
   δ::Float64 = 0.125,
   kwargs...,
 )
+  n_org = n
   m = max(1, div(n, 3))
   n = 3 * m
-  @adjust_nvar_warn("dixmaanm", n, n)
+  @adjust_nvar_warn("dixmaanm", n_org, n)
 
   nlp = Model()
 

@@ -6,9 +6,10 @@ function clplatea(;
   wght = -0.1,
   kwargs...,
 ) where {T}
+  n_org = n
   p = max(floor(Int, sqrt(n)), 3)
   n = p * p
-  @adjust_nvar_warn("clplatea", n, n)
+  @adjust_nvar_warn("clplatea", n_org, n)
   hp2 = (1 // 2) * p^2
   function f(x; p = p, hp2 = hp2, wght = wght)
     return (eltype(x)(wght) * x[p + (p - 1) * p]) +

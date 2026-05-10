@@ -8,9 +8,10 @@ function clplatec(;
   l = 0.01,
   kwargs...,
 ) where {T}
+  n_org = n
   p = max(floor(Int, sqrt(n)), 3)
   n = p * p
-  @adjust_nvar_warn("clplatec", n, n)
+  @adjust_nvar_warn("clplatec", n_org, n)
 
   hp2 = 1 // 2 * p^2
   function f(x; p = p, hp2 = hp2, wght = wght, r = r, l = l)
