@@ -1,8 +1,8 @@
 export fminsrf2
 
 function fminsrf2(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n = max(4, n)
   n_org = n
+  n = max(4, n)
 
   p = floor(Int, sqrt(n))
   n = p * p
