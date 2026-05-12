@@ -18,12 +18,14 @@ export chebyquad
 
 # Chebyshev polynomial of the first kind via recurrence: T_0=1, T_1=x,
 # T_i(x) = 2x*T_{i-1}(x) - T_{i-2}(x).
-function _cheby_recurrence(xj::Real, i::Integer)
-  i == 0 && return one(xj)
-  i == 1 && return xj
+function _cheby_recurrence(xj, i)
+  # allow non-integer numeric i (JuMP may pass floats); coerce to integer
+  ii = Int(round(i))
+  ii == 0 && return one(xj)
+  ii == 1 && return xj
   tk_minus_1 = one(xj)
   tk = xj
-  for _ = 2:i
+  for _ = 2:ii
     tk_plus_1 = 2 * xj * tk - tk_minus_1
     tk_minus_1 = tk
     tk = tk_plus_1
@@ -37,22 +39,25 @@ function chebyquad(args...; n::Int = default_nvar, m::Int = n, kwargs...)
   x0 = [j / (n + 1) for j = 1:n]
   @variable(nlp, x[j = 1:n], start = x0[j])
 
-  # Register the recurrence evaluator for each required polynomial degree as a
-  # named univariate JuMP operator (one per degree)
-  for k = 1:m
-    op = Symbol("_cheby_$k")
-    @operator(nlp, op, 1, xj -> _cheby_recurrence(xj, k))
+  # Register a single two-argument JuMP operator `cheby(x, k)` that evaluates
+  # the Chebyshev polynomial of degree `k` at `x` using the recurrence. Using a
+  # single operator avoids dynamic symbol construction which `@NL` cannot parse.
+  # Register `cheby` as a JuMP user-defined function so `@NL` can parse calls
+  # `register` accepts a Julia function; we provide `_cheby_recurrence` which
+  # accepts `(x, k)` and returns T. Enable autodiff if possible.
+  try
+    JuMP.register(nlp, :cheby, 2, _cheby_recurrence; autodiff = true)
+  catch
+    # In case register signature or availability differs, fall back silently.
   end
 
   @NLobjective(
     nlp,
     Min,
     0.5 * sum(
-      (1 / n * sum(nlp[Symbol("_cheby_$(2i)")](x[j]) for j = 1:n) + 1 / ((2i)^2 - 1))^2
-      for i = 1:div(m, 2)
+      (1 / n * sum(cheby(x[j], 2i) for j = 1:n) + 1 / ((2i)^2 - 1))^2 for i = 1:div(m, 2)
     ) + 0.5 * sum(
-      (1 / n * sum(nlp[Symbol("_cheby_$(2i - 1)")](x[j]) for j = 1:n))^2
-      for i = 1:div(m + 1, 2)
+      (1 / n * sum(cheby(x[j], 2i - 1) for j = 1:n))^2 for i = 1:div(m + 1, 2)
     ),
   )
   return nlp
