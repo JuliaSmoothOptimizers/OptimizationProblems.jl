@@ -16,8 +16,6 @@
 #   classification SBR2-AN-V-0
 export chebyquad
 
-# Chebyshev polynomial of the first kind via recurrence: T_0=1, T_1=x,
-# T_i(x) = 2x*T_{i-1}(x) - T_{i-2}(x).
 function _cheby_recurrence(xj, i)
   # allow non-integer numeric i (JuMP may pass floats); coerce to integer
   ii = Int(round(i))
@@ -39,12 +37,6 @@ function chebyquad(args...; n::Int = default_nvar, m::Int = n, kwargs...)
   x0 = [j / (n + 1) for j = 1:n]
   @variable(nlp, x[j = 1:n], start = x0[j])
 
-  # Register a single two-argument JuMP operator `cheby(x, k)` that evaluates
-  # the Chebyshev polynomial of degree `k` at `x` using the recurrence. Using a
-  # single operator avoids dynamic symbol construction which `@NL` cannot parse.
-  # Register `cheby` as a JuMP user-defined function so `@NL` can parse calls
-  # `register` accepts a Julia function; we provide `_cheby_recurrence` which
-  # accepts `(x, k)` and returns T. Enable autodiff if possible.
   try
     JuMP.register(nlp, :cheby, 2, _cheby_recurrence; autodiff = true)
   catch
