@@ -38,7 +38,6 @@ Problem 256 in
   year      = {1987}
 }
   """,
-
   :lib => "HS2:256",
 )
 get_hs256_nvar(; n::Integer = default_nvar, kwargs...) = 4

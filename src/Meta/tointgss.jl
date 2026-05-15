@@ -53,7 +53,6 @@ SIF input: Ph. Toint, Dec 1989, corrected Nick Gould, July 1993.
   year        = {1983}
 }  
   """,
-
   :lib => "CUTEst:TOINTGSS, Luksan:56",
 )
 get_tointgss_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

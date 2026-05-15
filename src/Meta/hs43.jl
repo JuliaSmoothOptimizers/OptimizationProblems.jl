@@ -26,15 +26,15 @@ classification QQR2-AN-4-3
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 43 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 43 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: A.R. Conn, April 1990
-""",
+  SIF input: A.R. Conn, April 1990
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -46,7 +46,6 @@ SIF input: A.R. Conn, April 1990
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS43, HS:43",
 )
 get_hs43_nvar(; n::Integer = default_nvar, kwargs...) = 4

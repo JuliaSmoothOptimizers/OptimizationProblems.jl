@@ -24,13 +24,13 @@ Schittkowski problem number 317.
 
 M. Gollier, Montréal, 05/2023
 """,
-:origin_notes => raw"""
-Problem 317 in
-  Schittkowski, K. (1987). 
-  More Test Examples for Nonlinear Programming Codes. 
-  Lecture Notes in Economics and Mathematical Systems.
-  doi:10.1007/978-3-642-61582-5
-""",
+  :origin_notes => raw"""
+  Problem 317 in
+    Schittkowski, K. (1987). 
+    More Test Examples for Nonlinear Programming Codes. 
+    Lecture Notes in Economics and Mathematical Systems.
+    doi:10.1007/978-3-642-61582-5
+  """,
   :reference => raw"""
 @book{Schittkowski1987,
   author    = {Schittkowski, Klaus},
@@ -42,7 +42,6 @@ Problem 317 in
   year      = {1987}
 }
   """,
-
   :lib => "HS2:317",
 )
 get_hs317_nvar(; n::Integer = default_nvar, kwargs...) = 2

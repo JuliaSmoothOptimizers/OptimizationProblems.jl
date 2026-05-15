@@ -17,14 +17,13 @@ hs56_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS56.SIF",
-  :notes =>
-    raw"""
-classification OOR2-AN-7-4
+  :notes => raw"""
+        classification OOR2-AN-7-4
 
-classification PGR2-AN-7-4
+        classification PGR2-AN-7-4
 
-A. Montoison, Montreal, 05/2018.
-""",
+        A. Montoison, Montreal, 05/2018.
+        """,
   :origin_notes => raw"""
 problem 56 in
 W. Hock and K. Schittkowski,
@@ -45,7 +44,6 @@ SIF input: A.R. Conn, April 1990
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS56, HS:56",
 )
 get_hs56_nvar(; n::Integer = default_nvar, kwargs...) = 7

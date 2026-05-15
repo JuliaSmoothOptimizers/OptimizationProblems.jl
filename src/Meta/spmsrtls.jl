@@ -42,7 +42,6 @@ SIF input: Ph. Toint, Dec 1989.
   year        = {1989}
 }  
   """,
-
   :lib => "CUTEst:SPMSRTLS, Luksan:54",
 )
 get_spmsrtls_nvar(; n::Integer = default_nvar, kwargs...) = max(Int(round((n + 2) / 3)), 34) * 3 - 2

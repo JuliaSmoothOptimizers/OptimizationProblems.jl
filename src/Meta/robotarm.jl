@@ -38,7 +38,6 @@ Argonne National Labs Technical Report ANL/MCS-246 (2004)
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "CUTEst:ROBOTARM, COPS:8",
 )
 get_robotarm_nvar(; n::Integer = default_nvar, kwargs...) = 9 * (max(2, div(n, 9)) + 1) + 1

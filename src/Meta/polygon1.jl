@@ -43,7 +43,6 @@ Argonne National Labs Technical Report ANL/MCS-246 (2000)
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "",
 )
 get_polygon1_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)

@@ -29,15 +29,15 @@ classification GBR-AN-10-0
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 110 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 110 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: A.R. Conn, Mar 1990.
-""",
+  SIF input: A.R. Conn, Mar 1990.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -49,7 +49,6 @@ SIF input: A.R. Conn, Mar 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS110, HS:110",
 )
 get_hs110_nvar(; n::Integer = default_nvar, kwargs...) = 10

@@ -54,7 +54,6 @@ SIF input: Ph. Toint, Dec 1989.
   year        = {1988}
 }  
   """,
-
   :lib => "CUTEst:NONDQUAR, Luksan:45",
 )
 get_nondquar_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

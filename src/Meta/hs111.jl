@@ -27,15 +27,15 @@ classification OOR2-AN-10-3
 
 N. Antunes, Curitiba, 10/2016.
 """,
-:origin_notes => raw"""
-problem 111 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 111 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: Nick Gould, August 1991.
-""",
+  SIF input: Nick Gould, August 1991.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -47,7 +47,6 @@ SIF input: Nick Gould, August 1991.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS111, HS:111",
 )
 get_hs111_nvar(; n::Integer = default_nvar, kwargs...) = 10

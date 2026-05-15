@@ -49,7 +49,6 @@ SIF input: Nick Gould, November 2000
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "CUTEst:MARINE, COPS:6",
 )
 get_marine_nvar(; n::Integer = default_nvar, nc::Int = 1, kwargs...) =

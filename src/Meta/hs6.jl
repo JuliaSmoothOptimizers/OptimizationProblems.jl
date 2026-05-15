@@ -42,7 +42,6 @@ SIF input: A.R. Conn March 1990
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS6, HS:6",
 )
 get_hs6_nvar(; n::Integer = default_nvar, kwargs...) = 2

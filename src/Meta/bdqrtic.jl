@@ -54,7 +54,6 @@ D. Orban, Montreal, 08/2015.
   year        = {1988}
 }  
   """,
-
   :lib => "CUTEst:BDQRTIC, Luksan:2",
 )
 get_bdqrtic_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

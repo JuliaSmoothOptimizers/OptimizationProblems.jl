@@ -47,7 +47,6 @@ chnrosnb_mod_meta = Dict(
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "Luksan:27",
 )
 get_chnrosnb_mod_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

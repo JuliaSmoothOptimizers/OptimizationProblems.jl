@@ -43,7 +43,6 @@ SIF input: Ph. Toint, Dec 1989.
   address      = {Halifax, Canada}
 }
   """,
-
   :lib => "CUTEst:BOOTH",
 )
 get_booth_nvar(; n::Integer = default_nvar, kwargs...) = 2

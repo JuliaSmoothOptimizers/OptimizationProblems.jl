@@ -47,7 +47,6 @@ J,-P, Dussault, Rennes 09/2015.
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "Luksan:28",
 )
 get_errinros_mod_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

@@ -49,7 +49,6 @@ SIF input: Ph. Toint, Jan 1991.
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "CUTEst:MINSURF, COPS:17",
 )
 get_minsurf_nvar(;

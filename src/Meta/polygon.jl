@@ -44,7 +44,6 @@ SIF input: Nick Gould, December 2000
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "CUTEst:POLYGON, COPS:1",
 )
 get_polygon_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)

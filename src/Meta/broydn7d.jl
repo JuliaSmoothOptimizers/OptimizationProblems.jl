@@ -76,7 +76,6 @@ D. Orban, Montreal, 08/2015.
   doi     = {10.1090/s0025-5718-1978-0483452-7}
 }  
   """,
-
   :lib => "CUTEst:BROYDN7D, Luksan:3",
 )
 get_broydn7d_nvar(; n::Integer = default_nvar, kwargs...) = 2 * max(1, div(n, 2))

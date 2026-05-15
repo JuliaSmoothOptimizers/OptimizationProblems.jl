@@ -43,7 +43,6 @@ Discretization of a variational problem
   url          = {https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization}
   }
     """,
-
   :lib => "LuksanSparse:15",
 )
 

@@ -49,7 +49,6 @@ SIF input: Ph. Toint, June 1993.
   address      = {Halifax, Canada}
 }
   """,
-
   :lib => "CUTEst:BT1",
 )
 get_bt1_nvar(; n::Integer = default_nvar, kwargs...) = 2

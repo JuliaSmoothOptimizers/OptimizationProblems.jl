@@ -49,7 +49,6 @@ SIF input: Nick Gould, Oct 1992.
   doi     = {10.1137/0721052}
 }  
   """,
-
   :lib => "CUTEst:GENROSE, Luksan:36",
 )
 get_genrose_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

@@ -36,7 +36,6 @@ Argonne National Labs Technical Report ANL/MCS-246 (2004)
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "COPS:18",
 )
 get_triangle_nvar(; n::Integer = default_nvar, kwargs...) = 8

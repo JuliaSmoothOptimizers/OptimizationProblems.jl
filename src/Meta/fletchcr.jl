@@ -62,7 +62,6 @@ J.-P. Dussault, Rennes 09/2015.
   year        = {1992}
 }  
   """,
-
   :lib => "CUTEst:FLETCHCR, Luksan:32",
 )
 get_fletchcr_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

@@ -38,7 +38,6 @@ Problem 232 in
   year      = {1987}
 }
   """,
-
   :lib => "HS2:232",
 )
 get_hs232_nvar(; n::Integer = default_nvar, kwargs...) = 2

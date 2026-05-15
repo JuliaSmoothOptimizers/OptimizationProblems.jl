@@ -27,7 +27,7 @@ end
 
   for prob_name in var_probs
     prob_sym = Symbol(prob_name)
-    
+
     get_nvar_func = getfield(OptimizationProblems, Symbol("get_", prob_name, "_nvar"))
 
     for n in (50, 100)
@@ -41,7 +41,7 @@ end
         constructor = getfield(mod, prob_sym)
         @test_logs (:warn, msg_re) constructor(; n = n)
       end
-      
+
       break
     end
   end

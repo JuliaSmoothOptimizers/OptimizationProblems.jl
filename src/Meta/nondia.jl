@@ -54,7 +54,6 @@ SIF input: Ph. Toint, Dec 1989.
   year        = {1978}
 }  
   """,
-
   :lib => "CUTEst:NONDIA, Luksan:44",
 )
 get_nondia_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

@@ -68,7 +68,6 @@ J.-P. Dussault, Rennes 09/2015.
   doi     = {10.1007/bf01399316}
 }  
   """,
-
   :lib => "CUTEst:FMINSRF2, Luksan:33",
 )
 get_fminsrf2_nvar(; n::Integer = default_nvar, kwargs...) = 100

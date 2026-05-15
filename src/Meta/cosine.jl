@@ -52,7 +52,6 @@ SIF input: N. Gould, Jan 1996
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "CUTEst:COSINE, Luksan:6",
 )
 get_cosine_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

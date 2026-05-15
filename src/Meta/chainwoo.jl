@@ -62,7 +62,6 @@ SIF input: Nick Gould and Ph. Toint, Dec 1995.
   doi     = {10.1090/s0025-5718-1988-0929544-3}
 }  
   """,
-
   :lib => "CUTEst:CHAINWOO, Luksan:5, LuksanSparse:2",
 )
 get_chainwoo_nvar(; n::Integer = default_nvar, kwargs...) = 4 * max(1, div(n, 4))

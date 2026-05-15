@@ -37,7 +37,6 @@ Argonne National Labs Technical Report ANL/MCS-246 (2004)
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "COPS:19",
 )
 get_tetra_nvar(; n::Integer = default_nvar, kwargs...) = 15

@@ -28,15 +28,15 @@ classification LQR-AN-8-6
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 106 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 106 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: J-M COLLIN.
-""",
+  SIF input: J-M COLLIN.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -48,7 +48,6 @@ SIF input: J-M COLLIN.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS106, HS:106",
 )
 get_hs106_nvar(; n::Integer = default_nvar, kwargs...) = 8

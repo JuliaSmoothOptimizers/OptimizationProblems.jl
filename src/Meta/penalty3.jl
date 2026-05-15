@@ -51,7 +51,6 @@ SIF input: Nick Gould, Dec 1990.
   year        = {1989}
 }  
   """,
-
   :lib => "CUTEst:PENALTY3, Luksan:46",
 )
 get_penalty3_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

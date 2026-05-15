@@ -43,7 +43,6 @@ SIF input: Nick Gould, November 2000
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "CUTEst:CHAIN, COPS:4",
 )
 get_chain_nvar(; n::Integer = default_nvar, kwargs...) = 4 * (max(2, div(n - 4, 4)) + 1)

@@ -26,15 +26,15 @@ classification PPR2-AN-3-1
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 64 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 64 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: N. Gould, Dec 1989.
-""",
+  SIF input: N. Gould, Dec 1989.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -46,7 +46,6 @@ SIF input: N. Gould, Dec 1989.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS64, HS:64",
 )
 get_hs64_nvar(; n::Integer = default_nvar, kwargs...) = 3

@@ -26,15 +26,15 @@ classification GLR-AN-8-1
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 105 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 105 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: Nick Gould, August 1991.
-""",
+  SIF input: Nick Gould, August 1991.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -46,7 +46,6 @@ SIF input: Nick Gould, August 1991.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS105, HS:105",
 )
 get_hs105_nvar(; n::Integer = default_nvar, kwargs...) = 8

@@ -56,7 +56,6 @@ SIF input: Nick Gould, November 2000
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "CUTEst:METHANOL, COPS:13",
 )
 get_methanol_nvar(; n::Integer = default_nvar, kwargs...) = 30 * n + 5

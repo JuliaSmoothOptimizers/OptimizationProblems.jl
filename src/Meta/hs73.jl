@@ -28,15 +28,15 @@ classification LGI-AN-4-3
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 73 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 73 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: B Debarsy, Apr 1990.
-""",
+  SIF input: B Debarsy, Apr 1990.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -48,7 +48,6 @@ SIF input: B Debarsy, Apr 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS73, HS:73",
 )
 get_hs73_nvar(; n::Integer = default_nvar, kwargs...) = 4

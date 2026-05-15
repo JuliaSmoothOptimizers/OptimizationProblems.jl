@@ -27,21 +27,21 @@ classification OLR2-MY-10-3
 
 N. Antunes, Curitiba, 10/2016.
 """,
-:origin_notes => raw"""
-Problem 112 in
+  :origin_notes => raw"""
+  Problem 112 in
+    W. Hock and K. Schittkowski,
+    Test examples for nonlinear programming codes,
+    Lectures Notes in Economics and Mathematical Systems 187,
+    Springer Verlag, Heidelberg, 1981.
+
+  problem 80 in
   W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-problem 80 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
-
-SIF input: A.R. Conn, Mar 1990.
-""",
+  SIF input: A.R. Conn, Mar 1990.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -53,7 +53,6 @@ SIF input: A.R. Conn, Mar 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS112, HS:112",
 )
 get_hs112_nvar(; n::Integer = default_nvar, kwargs...) = 10

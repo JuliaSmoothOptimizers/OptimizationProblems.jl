@@ -24,12 +24,12 @@ Schittkowski problem number 316.
 
 M. Gollier, Montréal, 05/2023
 """,
-:origin_notes => raw"""
-Problem 316 in
-  Schittkowski, K. (1987). 
-  More Test Examples for Nonlinear Programming Codes. 
-  Lecture Notes in Economics and Mathematical Systems.
-""",
+  :origin_notes => raw"""
+  Problem 316 in
+    Schittkowski, K. (1987). 
+    More Test Examples for Nonlinear Programming Codes. 
+    Lecture Notes in Economics and Mathematical Systems.
+  """,
   :reference => raw"""
 @book{Schittkowski1987,
   author    = {Schittkowski, Klaus},
@@ -41,7 +41,6 @@ Problem 316 in
   year      = {1987}
 }
   """,
-
   :lib => "HS2:316",
 )
 get_hs316_nvar(; n::Integer = default_nvar, kwargs...) = 2

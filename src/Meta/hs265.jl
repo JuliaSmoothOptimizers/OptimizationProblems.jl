@@ -38,7 +38,6 @@ Problem 265 in
   year      = {1987}
 }
   """,
-
   :lib => "HS2:265",
 )
 get_hs265_nvar(; n::Integer = default_nvar, kwargs...) = 4

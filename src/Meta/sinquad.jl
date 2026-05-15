@@ -49,7 +49,6 @@ SIF input: N. Gould, Dec 1989.
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "CUTEst:SINQUAD, Luksan:51",
 )
 get_sinquad_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

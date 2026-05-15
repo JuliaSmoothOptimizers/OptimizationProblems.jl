@@ -41,7 +41,6 @@ SIF input: Ph. Toint, March 1991.
   address      = {Halifax, Canada}
 }
   """,
-
   :lib => "CUTEst:QUARTC",
 )
 get_quartc_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

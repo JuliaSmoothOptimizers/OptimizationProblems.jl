@@ -55,7 +55,6 @@ SIF input: Ph. Toint, Dec 1989.
   doi     = {10.1007/BF02165118}
 }  
   """,
-
   :lib => "CUTEst:SCHMVETT, Luksan:49",
 )
 get_schmvett_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

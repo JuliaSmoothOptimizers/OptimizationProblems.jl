@@ -24,15 +24,15 @@ classification LQR2-AN-2-1
 
 N. Antunes, Curitiba, 10/2016.
 """,
-:origin_notes => raw"""
-problem 10 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 10 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: A.R. Conn March 1990
-""",
+  SIF input: A.R. Conn March 1990
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -44,7 +44,6 @@ SIF input: A.R. Conn March 1990
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS10, HS:10",
 )
 get_hs10_nvar(; n::Integer = default_nvar, kwargs...) = 2

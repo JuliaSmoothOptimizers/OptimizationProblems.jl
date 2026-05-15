@@ -28,15 +28,15 @@ classification SQR2-AN-4-1
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 70 incorrectly stated in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 70 incorrectly stated in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: Nick Gould, August 1991, modified May 2024
-""",
+  SIF input: Nick Gould, August 1991, modified May 2024
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -48,7 +48,6 @@ SIF input: Nick Gould, August 1991, modified May 2024
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS70, HS:70",
 )
 get_hs70_nvar(; n::Integer = default_nvar, kwargs...) = 4

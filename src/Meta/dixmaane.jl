@@ -48,7 +48,6 @@ Academy of Science of the Czech Republic
   year        = {1988}
 }
   """,
-
   :lib => "Luksan:11",
 )
 get_dixmaane_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))

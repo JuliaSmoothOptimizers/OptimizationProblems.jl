@@ -52,7 +52,6 @@ J.-P. Dussault, Rennes 09/2015.
   year        = {1983}
 }  
   """,
-
   :lib => "CUTEst:EXTROSNB, Luksan:29",
 )
 get_extrosnb_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

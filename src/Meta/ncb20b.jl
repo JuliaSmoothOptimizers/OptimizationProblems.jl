@@ -48,7 +48,6 @@ SIF input: Ph. Toint, April 1993.
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "CUTEst:NCB20B, Luksan:41",
 )
 get_ncb20b_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

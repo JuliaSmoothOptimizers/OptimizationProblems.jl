@@ -86,7 +86,6 @@ Academy of Science of the Czech Republic
   doi     = {10.1137/0721052}
 }  
   """,
-
   :lib => "Luksan:36, LuksanSparse:1",
 )
 get_genrose_nash_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

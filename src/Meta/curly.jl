@@ -54,7 +54,6 @@ D. Orban, Montreal, 08/2015.
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "",
 )
 get_curly_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

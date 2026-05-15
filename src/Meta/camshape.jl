@@ -41,7 +41,6 @@ SIF input: Nick Gould, November 2000
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "CUTEst:CAMSHAPE, COPS:3",
 )
 get_camshape_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

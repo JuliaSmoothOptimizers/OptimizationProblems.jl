@@ -49,7 +49,6 @@ SIF input: Ph. Toint, Dec 1989.
   year        = {1988}
 }
   """,
-
   :lib => "CUTEst:DIXMAANF,Luksan:12",
 )
 get_dixmaanf_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))

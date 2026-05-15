@@ -61,7 +61,6 @@ SIF input: Nick Gould, September 1997.
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "CUTEst:CURLY10",
 )
 get_curly10_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

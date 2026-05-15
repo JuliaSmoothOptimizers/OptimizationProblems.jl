@@ -45,7 +45,6 @@ SIF input: J-M COLLIN, April 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS63, HS:63",
 )
 get_hs63_nvar(; n::Integer = default_nvar, kwargs...) = 3
