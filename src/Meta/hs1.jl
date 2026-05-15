@@ -20,28 +20,21 @@ hs1_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 1.
 
+The ever famous 2 variables Rosenbrock "banana valley" problem
+with a single lower bound.
+
 classification SBR2-AN-2-0
 
 N. Antunes, Curitiba, 10/2016.
 """,
 :origin_notes => raw"""
-Problem 1 in
-W. Hock and K. Schittkowski,
-Test examples for nonlinear programming codes,
-Lectures Notes in Economics and Mathematical Systems 187,
-Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-The ever famous 2 variables Rosenbrock "banana valley" problem
-with a single lower bound.
-Source: problem 1 in
+problem 1 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, March 1990.
-classification SBR2-AN-2-0
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

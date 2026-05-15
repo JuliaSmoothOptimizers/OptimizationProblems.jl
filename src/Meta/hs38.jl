@@ -20,27 +20,22 @@ hs38_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 38.
 
-  classification PLR2-AN-4-0
+Colville #4 test problem
+
+classification OBR2-AN-4-0
+
+classification PLR2-AN-4-0
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 38 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Colville #4 test problem
-Source: problem 38 in
+problem 38 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, April 1990
-classification OBR2-AN-4-0
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

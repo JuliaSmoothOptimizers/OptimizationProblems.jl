@@ -18,12 +18,14 @@ jennrichsampson_meta = Dict(
   :origin => :unknown,
   :url => "https://doi.org/10.1145/355934.355936",
   :notes => raw"""
-Source: problem 6 in
+
+""",
+  :origin_notes => raw"""
+problem 6 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 """,
-  :origin_notes => raw"""""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},

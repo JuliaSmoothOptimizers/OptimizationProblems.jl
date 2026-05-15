@@ -18,10 +18,10 @@ trig_meta = Dict(
   :origin => :unknown,
   :url => "https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization",
   :notes => raw"""
-  Another trigonometric function
-  """,
+Another trigonometric function
+""",
   :origin_notes => raw"""
-  Problem 9 in
+Problem 9 in
   L. Luksan, C. Matonoha and J. Vlcek
   Sparse Test Problems for Unconstrained Optimization,
   Technical Report 1064,

@@ -17,10 +17,12 @@ lincon_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://github.com/JuliaSmoothOptimizers/NLPModelsTest.jl",
-  :notes => raw"""""",
+  :notes => raw"""
+
+""",
   :origin_notes => raw"""
-  Test problem used in NLPModelsTest.jl.
-  """,
+Test problem used in NLPModelsTest.jl.
+""",
   :reference => raw"""""",
   :lib => "",
 )

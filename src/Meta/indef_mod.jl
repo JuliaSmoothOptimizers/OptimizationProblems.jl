@@ -32,7 +32,9 @@ classification OUR2-AN-V-0
 
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},

@@ -18,9 +18,9 @@ sparsine_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/SPARSINE.SIF",
   :notes => raw"""
-   A sparse problem involving sine functions
+A sparse problem involving sine functions
 
-   classification OUR2-AN-V-0
+classification OUR2-AN-V-0
 
    Problem 52 in
    L. Luksan, C. Matonoha and J. Vlcek
@@ -31,13 +31,9 @@ sparsine_meta = Dict(
    http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
  J.-P. Dussault, Clermont-Ferrand 05/2016.
-  
-  """,
+""",
   :origin_notes => raw"""
-Problem :
-A sparse problem involving sine functions
 SIF input: Nick Gould, November 1995
-classification OUR2-AN-V-0
 """,
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,

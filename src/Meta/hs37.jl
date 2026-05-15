@@ -20,26 +20,20 @@ hs37_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 37.
 
-  classification PLR2-AN-3-2
+classification OLR2-AN-3-2
+
+classification PLR2-AN-3-2
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 37 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 37 in
+problem 37 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, April 1990
-classification OLR2-AN-3-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

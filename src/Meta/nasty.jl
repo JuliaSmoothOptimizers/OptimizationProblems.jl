@@ -19,10 +19,12 @@ nasty_meta = Dict(
   :url => "",
   :notes => raw"""
 Nasty problem.
-Source: a very simple box-constrained quadratic
+
 classification QUR2-AN-2-0
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+a very simple box-constrained quadratic
+""",
   :reference => raw"""""",
   :lib => "",
 )

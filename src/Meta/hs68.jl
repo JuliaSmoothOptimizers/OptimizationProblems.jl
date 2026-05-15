@@ -17,32 +17,28 @@ hs68_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS68.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 68.
+  :notes => raw"""
+Hock and Schittkowski problem number 68.
 
-  classification GGR-P1-1
+This is a cost optimal inspection plan.
 
+classification OOR2-MN-4-2
+
+classification GGR-P1-1
+""",
+:origin_notes => raw"""
 Original source:
 E. von Collani, Kostenoptimale Prufplane bei laufender
 Kontrolle eines normalverteilten Merkmals, Dissertation,
-Institut fur Angewandte Mathematik und Statistik, Universitat Wurzburg, 1978. 
-""",
-:origin_notes => raw"""
-  Problem 68 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
+Institut fur Angewandte Mathematik und Statistik, Universitat Wurzburg, 1978.
 
----
-Problem :
-This is a cost optimal inspection plan.
-Source: problem 68 in
+problem 68 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Nick Gould, August 1991.
-classification OOR2-MN-4-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

@@ -18,13 +18,10 @@ sinquad_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/SINQUAD.SIF",
   :notes => raw"""
-   Another function with nontrivial groups and
+Another function with nontrivial groups and
    repetitious elements.
 
-   Source:
-   N. Gould, private communication.
-
-   classification OUR2-AY-V-0
+classification OUR2-AY-V-0
 
    Problem 51 in
    L. Luksan, C. Matonoha and J. Vlcek
@@ -35,17 +32,11 @@ sinquad_meta = Dict(
    http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
  J.-P. Dussault, Clermont-Ferrand 05/2016.
-  
-  """,
+""",
   :origin_notes => raw"""
-Problem :
-Another function with nontrivial groups and
-repetitious elements.
-Source:
 N. Gould, private communication.
+
 SIF input: N. Gould, Dec 1989.
-incorrectly decoded version (see SINQUAD2 for correction)
-classification OUR2-AY-V-0
 """,
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,

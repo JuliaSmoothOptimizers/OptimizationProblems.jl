@@ -18,7 +18,12 @@ bt1_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/BT1.SIF",
   :notes => raw"""
-Source:  problem 13 (p. 103) in
+classification QQR2-AN-2-1
+
+A. Cebola, Curitiba 10/2016.
+""",
+  :origin_notes => raw"""
+problem 13 (p. 103) in
 A.R. Buckley,
 "Test functions for unconstrained minimization",
 TR 1989CS-3, Mathematics, statistics and computing centre,
@@ -26,19 +31,13 @@ Dalhousie University, Halifax (CDN), 1989.
 
 Problem from CUTE: https://github.com/mpf/Optimization-Test-Problems/blob/master/cute/bt1.mod
 
-classification QQR2-AN-2-1
-
-A. Cebola, Curitiba 10/2016.
-""",
-  :origin_notes => raw"""
-Problem :
-Source: problem 1 in
+problem 1 in
 P.T. Boggs and J.W. Tolle,
 "A strategy for global convergence in a sequential 
 quadratic programming algorithm",
 SINUM 26(3), pp. 600-623, 1989.
+
 SIF input: Ph. Toint, June 1993.
-classification QQR2-AN-2-1
 """,
   :reference => raw"""
 @techreport{Buckley1989,

@@ -37,8 +37,8 @@ L. Luksan, C. Matonoha and J. Vlcek
 Modified CUTE problems for sparse unconstrained optimization,
 Technical Report 1081,
 Institute of Computer Science,
-Academy of Science of the Czech Republic  
-  """,
+Academy of Science of the Czech Republic
+""",
   :reference => raw"""
 @techreport{DixonMaany1988,
   author      = {L. C. W. Dixon and Z. Maany},

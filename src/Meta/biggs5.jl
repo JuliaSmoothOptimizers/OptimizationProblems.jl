@@ -22,28 +22,23 @@ Biggs problem in 5 variables.
 This function is a nonlinear least squares with 13 groups.  It is a
 variation on the biggs6 problem where the 6-th variable is fixed to 3.
 
-Source: Inspited by problem 18 in
-  J.J. More', B.S. Garbow and K.E. Hillstrom,
-  "Testing Unconstrained Optimization Software",
-  ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-Also problem 74 in
-  A.R. Buckley,
-  "Test functions for unconstrained minimization",
-  TR 1989CS-3, Mathematics, statistics and computing centre,
-  Dalhousie University, Halifax (CDN), 1989.
+Biggs EXP problem in 5 variables
 
 classification SXR2-AN-6-0
 """,
   :origin_notes => raw"""
-Problem :
-Biggs EXP problem in 5 variables
-Source: Problem 74 in
+Inspited by problem 18 in
+  J.J. More', B.S. Garbow and K.E. Hillstrom,
+  "Testing Unconstrained Optimization Software",
+  ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
+Problem 74 in
 A.R. Buckley,
 "Test functions for unconstrained minimization",
 TR 1989CS-3, Mathematics, statistics and computing centre,
 Dalhousie University, Halifax (CDN), 1989.
+
 SIF input: Ph. Toint, Dec 1989.
-classification SXR2-AN-6-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

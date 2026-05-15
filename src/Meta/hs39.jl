@@ -20,26 +20,18 @@ hs39_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 39.
 
-  classification LOR2-AN-4-2
+classification LOR2-AN-4-2
 
 D. Cabral, Curitiba, 10/2016.
 """,
 :origin_notes => raw"""
-  Problem 39 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 39 in
+problem 39 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, April 1990
-classification LOR2-AN-4-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

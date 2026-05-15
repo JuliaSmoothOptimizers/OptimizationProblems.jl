@@ -27,10 +27,12 @@ structural_meta = Dict(
   :origin => :unknown,
   :url => "https://laurentlessard.com/teaching/524-intro-to-optimization/",
   :notes => raw"""
- JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
+JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
  Introduction to Optimization class.
-  """,
-  :origin_notes => raw"""""",
+""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""
 @misc{Lessard524,
   author       = {Lessard, Laurent},

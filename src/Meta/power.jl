@@ -19,6 +19,8 @@ power_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/POWER.SIF",
   :notes => raw"""
 The Power problem by Oren.
+
+classification OUR2-AN-V-0
 """,
   :origin_notes => raw"""
 S.S. Oren,
@@ -27,7 +29,6 @@ Part II: implementation and experiments"
 Management Science 20(5):863-874, 1974.
 See also Buckley#179 (p. 83)
 SIF input: Ph. Toint, Dec 1989.
-classification OUR2-AN-V-0
 """,
   :reference => raw"""
 @article{Oren1974,

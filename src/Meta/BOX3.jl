@@ -19,25 +19,19 @@ BOX3_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/BOX3.SIF",
   :notes => raw"""
 SIF input: Ph. Toint, Dec 1989.
+
+Box problem in 3 variables.
+
 classification SUR2-AN-3-0
 """,
   :origin_notes => raw"""
-Source: problem 12 in
-J.J. More', B.S. Garbow and K.E. Hillstrom,
-"Testing Unconstrained Optimization Software",
-ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-See also Buckley#BOX663  
-  ---
-Problem :
-Box problem in 3 variables.
-Source: Problem 12 in
+Problem 12 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 See also Buckley#BOX663
+
 SIF input: Ph. Toint, Dec 1989.
-classification SUR2-AN-3-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

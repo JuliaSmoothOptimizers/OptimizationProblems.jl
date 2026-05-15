@@ -17,21 +17,17 @@ hs87_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS87.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 87.
+  :notes => raw"""
+Hock and Schittkowski problem number 87.
 
-  classification PLR-AN-5-10
+Optimization of an electrical network (EDF) by P. Huard.
+
+classification OOI2-MN-6-4
+
+classification PLR-AN-5-10
 """,
 :origin_notes => raw"""
-  Problem 87 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Optimization of an electrical network (EDF) by P. Huard.
-Source: problem 87 in
+problem 87 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
@@ -42,8 +38,8 @@ McGraw-Hill, New-York, 1972, problem 15,
 and
 A.R. Colville, "A comparative study on nonlinear programming",
 IBM Scientific Center Report 320-2949, New York, 1968, problem 6.
+
 SIF input: Nick Gould, August 1991.
-classification OOI2-MN-6-4
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

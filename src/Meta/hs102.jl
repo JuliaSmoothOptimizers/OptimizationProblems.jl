@@ -20,26 +20,20 @@ hs102_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 102.
 
+classification OOR2-AN-7-5
+
 classification PPR-AN-7-6
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-Problem 102 in
-W. Hock and K. Schittkowski,
-Test examples for nonlinear programming codes,
-Lectures Notes in Economics and Mathematical Systems 187,
-Springer Verlag, Heidelberg, 1981.
-
----
-Problem:
-Source: problem 102 in
+problem 102 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: N. Gould, December 1989.
-classification OOR2-AN-7-5
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

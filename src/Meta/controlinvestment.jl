@@ -21,8 +21,8 @@ controlinvestment_meta = Dict(
 This is a simple investment problem in optimistic market.
 """,
   :origin_notes => raw"""
-Example 5.3, Dominique Orban, Computation Optimization and Control lecture notes at Polytechnique Montréal.  
-  """,
+Example 5.3, Dominique Orban, Computation Optimization and Control lecture notes at Polytechnique Montréal.
+""",
   :reference => raw"""
 @misc{OrbanControlNotes,
   author    = {Dominique Orban},

@@ -18,7 +18,7 @@ Shpak2_meta = Dict(
   :origin => :unknown,
   :url => "",
   :notes => raw"""
- Second problem of
+Second problem of
  Global optimization in one-dimensional case
  using analytically defined derivatives of
  objective function
@@ -27,9 +27,10 @@ Shpak2_meta = Dict(
 
  Computer Science Journal of Moldova, vol.3, no.2(8), 1995
  S. Goyette, Sherbrooke 2016/2017
-  
-  """,
-  :origin_notes => raw"""""",
+""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""""",
   :lib => "",
 )

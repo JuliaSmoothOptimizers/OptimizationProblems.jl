@@ -19,24 +19,20 @@ hs62_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/HS62.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 62.
+
+classification OLR2-AY-3-1
+
 classification GLR2-AN-3-1
 A. Montoison, Montreal, 05/2018.
 """,
   :origin_notes => raw"""
-Problem 62 in
-W. Hock and K. Schittkowski,
-Test examples for nonlinear programming codes,
-Lectures Notes in Economics and Mathematical Systems 187,
-Springer Verlag, Heidelberg, 1981.
----
-Problem :
-Source: problem 62 in
+problem 62 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: J-M Collin and Ph. Toint, April 1990.
-classification OLR2-AY-3-1
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

@@ -19,7 +19,11 @@ fletcbv2_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/FLETCBV2.SIF",
   :notes => raw"""
 Another Boundary Value problem.
-Source:  The first problem given by
+
+classification OUR2-AN-V-0
+""",
+  :origin_notes => raw"""
+The first problem given by
 R. Fletcher,
 "An optimal positive definite update for sparse Hessian matrices"
 Numerical Analysis report NA/145, University of Dundee, 1992.
@@ -30,17 +34,10 @@ x"=-2+sin x in [0,1]
 with x(0)=0, x(1)=1. This gives a symmetric system of equations,
 the residual vector of which is the gradient of the given function."
 He multiplies through by h^2 before integrating.
-""",
-  :origin_notes => raw"""
-The first problem given by
-R. Fletcher,
-"An optimal positive definite update for sparse Hessian matrices"
-Numerical Analysis report NA/145, University of Dundee, 1992.
 
 Scaled version.
 
 SIF input: Nick Gould, Nov 1992.
-classification OUR2-AN-V-0
 
 problem 31 in
 L. Luksan, C. Matonoha and J. Vlcek
@@ -50,8 +47,6 @@ Institute of Computer Science,
 Academy of Science of the Czech Republic
 
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
-
-classification OUR2-AN-V-0
 
 J,-P, Dussault, Rennes 09/2015.
 """,

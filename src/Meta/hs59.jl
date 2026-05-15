@@ -20,26 +20,20 @@ hs59_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 54.
 
-  classification GLR2-AN-6-1
+classification OQR2-AN-2-3
+
+classification GLR2-AN-6-1
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 59 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 59 (corrected) in
+problem 59 (corrected) in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn and Ph.L. Toint, November 1990.
-classification OQR2-AN-2-3
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

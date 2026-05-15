@@ -26,16 +26,18 @@ and above an obstacle.
 Variable dimension full rank linear problem
 A version of the minimum surface problem
 on the unit square with simple boundary conditions.
+
+classification OBR2-AN-V-V
+
+classification OXR2-MY-64-0
 """,
   :origin_notes => raw"""
 This is problem 17=the COPS (Version 3) collection of
 E. Dolan and J. More'
 see "Benchmarking Optimization Software with COPS"
 Argonne National Labs Technical Report ANL/MCS-246 (2004)
-classification OBR2-AN-V-V
 
 SIF input: Ph. Toint, Jan 1991.
-classification OXR2-MY-64-0
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

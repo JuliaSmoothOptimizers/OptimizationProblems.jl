@@ -55,22 +55,23 @@ Model:         Exponential Class
 
                y = b1 * exp[b2/(x+b3)]  +  e
 T. Migot, Montreal, 2023.
-               """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem MGH10 given as an inconsistent set of
 nonlinear equations.
 Fit: y = b1 * exp[b2/(x+b3)] + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-3-16
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Meyer, R. R. (1970).  
 Theoretical and computational aspects of nonlinear 
 regression.  In Nonlinear Programming, Rosen, 
 Mangasarian and Ritter (Eds).  
 New York, NY: Academic Press, pp. 465-486.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-correction by S. Gratton & Ph. Toint, May 2024
-classification NOR2-MN-3-16
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

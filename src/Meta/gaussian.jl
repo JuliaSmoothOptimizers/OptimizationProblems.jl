@@ -17,27 +17,20 @@ gaussian_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/GAUSSIAN.SIF",
-  :notes => raw"""""",
+  :notes => raw"""
+More''s gaussian problem in 3 variables. This is a nonlinear least-squares
+version of problem ARGAUSS.
+
+classification SUR2-AN-3-0
+""",
   :origin_notes => raw"""
 Problem 9 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
 See also Buckley#28
 
-classification SUR2-AN-3-0  
-  ---
-Problem :
-More''s gaussian problem in 3 variables. This is a nonlinear least-squares
-version of problem ARGAUSS.
-Source: Problem 9 in
-J.J. More', B.S. Garbow and K.E. Hillstrom,
-"Testing Unconstrained Optimization Software",
-ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-See also Buckley#28
 SIF input: Ph. Toint, Dec 1989.
-classification SUR2-AN-3-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

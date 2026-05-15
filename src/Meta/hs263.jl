@@ -21,12 +21,12 @@ hs263_meta = Dict(
 Hock and Schittkowski problem number 263.
 """,
   :origin_notes => raw"""
-  Problem 263 in
+Problem 263 in
   K. Schittkowski,
   More Test Examples for Nonlinear Programming Codes,
   Lectures Notes in Economics and Mathematical Systems 282,
-  Springer Verlag, Heidelberg, 1987.  
-  """,
+  Springer Verlag, Heidelberg, 1987.
+""",
   :reference => raw"""
 @book{Schittkowski1987,
   author    = {Schittkowski, Klaus},

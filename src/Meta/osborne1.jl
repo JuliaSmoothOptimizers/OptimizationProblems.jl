@@ -18,29 +18,21 @@ osborne1_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/OSBORNE1.SIF",
   :notes => raw"""
-Source:  Problem 17 in
-J.J. More', B.S. Garbow and K.E. Hillstrom,
-"Testing Unconstrained Optimization Software",
-ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-See alos Buckley#32 (p. 77).
-
-classification NOR2-MN-5-33
-""",
-  :origin_notes => raw"""
-Problem :
 Osborne first problem in 5 variables. This is a nonlinear equation version
 of problem OSBORNEA.
 This function  is a nonlinear least squares with 33 groups.  Each
 group has 2 nonlinear elements and one linear element.
-Source:  Problem 17 in
+
+classification NOR2-MN-5-33
+""",
+  :origin_notes => raw"""
+Problem 17 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 See alos Buckley#32 (p. 77).
+
 SIF input: Ph. Toint, Dec 1989.
-Modification as a set of nonlinear equations: Nick Gould, Oct 2015.
-classification NOR2-MN-5-33
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

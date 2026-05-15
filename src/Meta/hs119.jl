@@ -20,20 +20,14 @@ hs119_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 119.
 
-  classification PLR-AN-16-8
+classification OLR2-AN-16-8
+
+classification PLR-AN-16-8
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 119 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-  
----
-Problem :
-Source: problem 119 in
+problem 119 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
@@ -42,8 +36,8 @@ Original Source: problem 7 in
 A.R. Colville
 "A comparative study on nonlinear programming"
 IBM Scientific Center Report 320-2949, New York, 1968.
+
 SIF input: A.R. Conn, March 1991.
-classification OLR2-AN-16-8
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

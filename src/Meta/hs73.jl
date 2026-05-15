@@ -17,29 +17,25 @@ hs73_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS73.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 73.
+  :notes => raw"""
+Hock and Schittkowski problem number 73.
 
-  classification LGI-AN-4-3
+A cattle feed problem
+
+classification LOR2-MN-4-3
+
+classification LGI-AN-4-3
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 73 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-A cattle feed problem
-Source: problem 73 in
+problem 73 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: B Debarsy, Apr 1990.
-classification LOR2-MN-4-3
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

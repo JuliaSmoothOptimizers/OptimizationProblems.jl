@@ -49,19 +49,21 @@ Model:         Rational Class (cubic/cubic)
                y = (b1+b2*x+b3*x**2+b4*x**3) /
                    (1+b5*x+b6*x**2+b7*x**3)  +  e
 # T. Migot, Montreal, 2023.
-                   """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem HAHN1 given as an inconsistent set of
 nonlinear equations.
 Fit: y = (b1 + b2*x + b3*x**2 + b4*x**3) / 
 (1 + b5*x + b6*x**2 + b7*x**3) + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-7-37
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Hahn, T., NIST (197?). 
 Copper Thermal Expansion Study.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-7-37
 """,
   :reference => raw"""""",
   :lib => "CUTEst:HAHN1, NIST:Hahn1",

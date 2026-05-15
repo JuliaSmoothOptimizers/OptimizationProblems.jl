@@ -17,28 +17,23 @@ hs78_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS78.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 78.
+  :notes => raw"""
+Hock and Schittkowski problem number 78.
 
-  classification PPR-AN-5-3
+classification OOR2-AN-5-3
+
+classification PPR-AN-5-3
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 78 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 78 in
+problem 78 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: B.Debarsy, Jan 1990.
-classification OOR2-AN-5-3
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

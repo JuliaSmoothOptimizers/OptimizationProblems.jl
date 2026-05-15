@@ -20,26 +20,20 @@ hs108_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 108.
 
+classification QQR2-AY-9-13
+
 classification QQR-AN-9-13
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-Problem 108 in
-W. Hock and K. Schittkowski,
-Test examples for nonlinear programming codes,
-Lectures Notes in Economics and Mathematical Systems 187,
-Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 108 in
+problem 108 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: J-M Collin and Ph. Toint, Apr 1990.
-classification QQR2-AY-9-13
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

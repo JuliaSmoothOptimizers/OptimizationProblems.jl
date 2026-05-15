@@ -49,18 +49,20 @@ Model:         Miscellaneous Class
 
                y = b1 * (1-(1+2*b2*x)**(-.5))  +  e
 T. Migot, Montreal, 2023.
-               """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem MISRA1C given as an inconsistent set of
 nonlinear equations.
 Fit: y = b1 * (1-(1+2*b2*x)**(-.5)) + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-2-14
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Misra, D., NIST (1978).  
 Dental Research Monomolecular Adsorption Study.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-2-14
 """,
   :reference => raw"""""",
   :lib => "CUTEst:MISRA1C, NIST:Misra1c",

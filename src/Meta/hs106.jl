@@ -20,27 +20,22 @@ hs106_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 106.
 
+A heat exchanger design problem.
+
+classification LQR2-MN-8-6
+
 classification LQR-AN-8-6
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-Problem 106 in
-W. Hock and K. Schittkowski,
-Test examples for nonlinear programming codes,
-Lectures Notes in Economics and Mathematical Systems 187,
-Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-A heat exchanger design problem.
-Source: problem 106 in
+problem 106 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: J-M COLLIN.
-classification LQR2-MN-8-6
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

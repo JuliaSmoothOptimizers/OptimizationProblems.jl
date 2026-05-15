@@ -47,18 +47,20 @@ Data:          1 Response Variable  (y = transmittance)
 Model:         Exponential Class
                3 Parameters (b1 to b3)
 T. Migot, Montreal, 2023.
-               """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem ECKERLE4 given as an inconsistent set of
 nonlinear equations.
 Fit: y = (b1/b2) * exp[-0.5*((x-b3)/b2)**2] + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-3-35
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Eckerle, K., NIST (197?).  
 Circular Interference Transmittance Study.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-3-35
 """,
   :reference => raw"""""",
   :lib => "CUTEst:ECKERLE4, NIST:Eckerle4",

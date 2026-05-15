@@ -23,6 +23,8 @@ Trapezoidal formulation
 
 Maximize the final horizontal position of a hang glider in the presence
 of a thermal updraft.
+
+classification OOR2-AN-V-V
 """,
   :origin_notes => raw"""
 This is problem 11 in the COPS (Version 2) collection of 
@@ -33,10 +35,9 @@ Argonne National Labs Technical Report ANL/MCS-246 (2000)
 David Bortz - Summer 1998
 COPS 2.0 - September 2000
 COPS 3.0 - November 2002
-COPS 3.1 - March 2004  
+COPS 3.1 - March 2004
 
 SIF input: Nick Gould, December 2000
-classification OOR2-AN-V-V
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

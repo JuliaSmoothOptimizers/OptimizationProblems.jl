@@ -17,28 +17,23 @@ hs83_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS83.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 83.
+  :notes => raw"""
+Hock and Schittkowski problem number 83.
 
-  classification QQR-AN-5-3
+classification QQR2-AN-5-3
+
+classification QQR-AN-5-3
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 83 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 83 in
+problem 83 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: B Baudson, Apr 1989.
-classification QQR2-AN-5-3
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

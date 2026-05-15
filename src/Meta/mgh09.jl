@@ -55,19 +55,21 @@ Model:         Rational Class (linear/quadratic)
 
                y = b1*(x**2+x*b2) / (x**2+x*b3+b4)  +  e
 T. Migot, Montreal, 2023.
-               """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem MGH09 given as an inconsistent set of
 nonlinear equations.
 Fit: y = b1*(x**2+x*b2) / (x**2+x*b3+b4) + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-4-11
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Kowalik, J.S., and M. R. Osborne, (1978).  
 Methods for Unconstrained Optimization Problems.  
 New York, NY:  Elsevier North-Holland.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-4-11
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

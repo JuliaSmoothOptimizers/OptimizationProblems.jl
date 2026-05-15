@@ -20,26 +20,20 @@ hs118_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 118.
 
-  classification QLR-AN-15-17
+classification QLR2-AN-15-17
+
+classification QLR-AN-15-17
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 118 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-  
----
-Problem :
-Source: problem 118 in
+problem 118 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: B Baudson, Jan 1990.
-classification QLR2-AN-15-17
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

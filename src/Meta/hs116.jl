@@ -20,27 +20,22 @@ hs116_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 116.
 
-  classification QGR-AN-13-14
+A 3 stage membrane separation model
+
+classification LQR2-MN-13-14
+
+classification QGR-AN-13-14
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 116 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-  
----
-Problem :
-A 3 stage membrane separation model
-Source: problem 116 in
+problem 116 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: B. Debarsy, Feb 1990.
-classification LQR2-MN-13-14
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

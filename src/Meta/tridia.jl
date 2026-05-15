@@ -18,11 +18,13 @@ tridia_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/TRIDIA.SIF",
   :notes => raw"""
-   Shanno's TRIDIA quadratic tridiagonal problem.
+Shanno's TRIDIA quadratic tridiagonal problem.
 
    This problem is decomposed in n linear groups, the last n-1 of which
    are 2 x 2 and singular.
-  """,
+
+classification QUR2-AN-V-0
+""",
   :origin_notes => raw"""
 Problem 8 in
 Ph.L. Toint,
@@ -31,7 +33,6 @@ for the routine PSPMIN",
 Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
 See also Buckley#40 (p.96)
 SIF input: Ph. Toint, Dec 1989.
-classification QUR2-AN-V-0
 """,
   :reference => raw"""
 @techreport{Toint1983,

@@ -53,20 +53,22 @@ Model:         Miscellaneous Class
                y  = b1*x**b2  +  e
 
 T. Migot, Montreal, 2023.
-  """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem DANWOOD given as an inconsistent set of
 nonlinear equations (incorrect formulation). See DANIWOOS.SIF for
 the correct formulation
 Fit: y  = (b1*x)**b2  +  e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-2-6
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Daniel, C. and F. S. Wood (1980).
 Fitting Equations to Data, Second Edition.
 New York, NY:  John Wiley and Sons, pp. 428-431.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-2-6
 """,
   :reference => raw"""
 @book{DanielWood1980,

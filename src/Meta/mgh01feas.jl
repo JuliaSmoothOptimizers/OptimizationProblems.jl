@@ -17,8 +17,12 @@ mgh01feas_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "",
-  :notes => raw"""""",
-  :origin_notes => raw"""""",
+  :notes => raw"""
+
+""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""""",
   :lib => "",
 )

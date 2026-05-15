@@ -60,7 +60,7 @@ D. Orban, Montreal, 08/2015.
 #
 """,
   :origin_notes => raw"""
-Source: problem 4 in
+problem 4 in
 S. Nash,
 Newton-type minimization via the Lanczos process,
 SIAM J. Num. Anal. 21, 770-788, 1984,
@@ -72,8 +72,8 @@ L. Luksan, C. Matonoha and J. Vlcek
 Modified CUTE problems for sparse unconstrained optimization,
 Technical Report 1081,
 Institute of Computer Science,
-Academy of Science of the Czech Republic  
-  """,
+Academy of Science of the Czech Republic
+""",
   :reference => raw"""
 @article{Nash1984SIAMNA,
   author  = {Nash, Stephen G.},

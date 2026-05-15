@@ -50,18 +50,20 @@ Model:         Exponential Class
 
                y = b1*exp(-b2*x) + b3*exp(-b4*x) + b5*exp(-b6*x)  +  e
 T. Migot, Montreal, 2023.
-               """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem LANCZOS2 given as an inconsistent set of
 nonlinear equations.
 Fit: y = b1*exp(-b2*x) + b3*exp(-b4*x) + b5*exp(-b6*x) + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-6-24
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Lanczos, C. (1956).
 Applied Analysis. Englewood Cliffs, NJ:  Prentice Hall, pp. 272-280.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-6-24
 """,
   :reference => raw"""""",
   :lib => "CUTEst:LANCZOS2, NIST:Lanczos2",

@@ -42,14 +42,12 @@ classification OUR2-AN-V-0
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
   :origin_notes => raw"""
-Problem :
-Source:
 G. Li,
 "The secant/finite difference algorithm for solving sparse
 nonlinear systems of equations",
 SIAM Journal on Optimization, (to appear), 1990.
+
 SIF input: Ph. Toint, Aug 1990.
-classification SUR2-AN-V-0
 """,
   :reference => raw"""
 @article{Li1988SIAMJNA,

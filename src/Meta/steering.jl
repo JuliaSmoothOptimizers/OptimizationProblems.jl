@@ -18,13 +18,15 @@ steering_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/STEERING.SIF",
   :notes => raw"""
- Rocket Steering Problem
+Rocket Steering Problem
 
  Minimize the time taken for a particle, acted upon by a thrust of     
 constant magnitude, to achieve a given altitude and terminal velocity
 
  Trapezoidal formulation
- """,
+
+classification LOR2-AN-V-V
+""",
   :origin_notes => raw"""
 This is problem 9 in the COPS (Version 2) collection of 
 E. Dolan and J. More'
@@ -36,7 +38,6 @@ COPS 3.0 - November 2002
 COPS 3.1 - March 2004
 
 SIF input: Nick Gould, December 2000
-classification LOR2-AN-V-V
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

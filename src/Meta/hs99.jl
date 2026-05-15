@@ -20,24 +20,18 @@ hs99_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 99.
 
-  classification PPR-AN-6-4
+classification OOR2-AN-7-2
+
+classification PPR-AN-6-4
 """,
 :origin_notes => raw"""
-  Problem 99 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1991.
-  
----
-Problem :
-Source: problem 99 in
+problem 99 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Ph. Toint, April 1991.
-classification OOR2-AN-7-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

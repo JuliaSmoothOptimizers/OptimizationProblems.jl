@@ -18,7 +18,7 @@ vibrbeam_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/VIBRBEAM.SIF",
   :notes => raw"""
-   A nonlinear least-squares problem arising from laser-Doppler
+A nonlinear least-squares problem arising from laser-Doppler
    measurements of a vibrating beam.  The data correspond to a simulated
    experiment where two laser-Doppler velocimeters take measurements
    at random points along the centreline of the beam.  These measurements
@@ -32,14 +32,15 @@ vibrbeam_meta = Dict(
            <---- magnitude ----->       <------ phase ----->
 
    in the least-squares sense.
-  """,
+
+classification  SUR2-MN-8-0
+""",
   :origin_notes => raw"""
 A modification of an exercize for L. Watson course on LANCELOT in
 the Spring 1993. Compared to the original proposal, the unnecessary
 elements were removed as well as an unnecessary constraint on the phase.
 SIF input: Ph. L. Toint, May 1993, based on a proposal by
 D. E. Montgomery, Virginia Tech., April 1993.
-classification  SUR2-MN-8-0
 """,
   :reference => raw"""
 @article{Gould2015CUTEst,

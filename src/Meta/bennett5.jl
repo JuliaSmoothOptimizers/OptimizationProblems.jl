@@ -50,18 +50,20 @@ Model:         Miscellaneous Class
 
                y = b1 * (b2+x)**(-1/b3)  +  e
 T. Migot, Montreal, 2023.
-""",
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem BENNETT5 given as an inconsistent set of
 nonlinear equations.
 Fit: y = b1 * (b2+x)**(-1/b3) + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-3-154
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference:	Bennett, L., L. Swartzendruber, H. Brown, NIST (1994).
 Superconductivity Magnetization Modeling.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-3-154
 """,
   :reference => raw"""""",
   :lib => "CUTEst:BENNETT5, NIST:Bennett5",

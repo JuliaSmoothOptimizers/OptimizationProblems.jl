@@ -20,27 +20,20 @@ hs50_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 50.
 
-  classification PLR2-AN-5-3
+classification OLR2-AY-5-3
+
+classification PLR2-AN-5-3
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 50 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 50 in
+problem 50 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, April 1990
-updated to improve numerics, Nick Gould, Oct 2003
-classification OLR2-AY-5-3
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

@@ -32,6 +32,8 @@ where the reaction coefficients theta_i are positive,
 with given initial conditions. The problem is to minimize
 sum{i=1,8} || y(tau_i,theta) - z_i||^2
 where the z_i are concentration measurements for y at times tau_i (i=1,8)
+
+classification OOR2-AN-V-V
 """,
   :origin_notes => raw"""
 This is problem 5 in the COPS (Version 3) collection of
@@ -45,7 +47,6 @@ COPS 3.0 - November 2002
 COPS 3.1 - March 2004
 
 SIF input: Nick Gould, November 2000
-classification OOR2-AN-V-V
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

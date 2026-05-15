@@ -34,6 +34,8 @@ where
 a(i,j) = x(i,j) - x(i+1,j+1)
 and
 b(i,j) = x(i+1,j) - x(i,j+1)
+
+classification OUR2-MY-V-0
 """,
   :origin_notes => raw"""
 Setting the boundary free in
@@ -43,8 +45,6 @@ optimization problems",
 Numerische Mathematik 39:429-448, 1982.
 
 SIF input: Ph. Toint, November 1991.
-
-classification OUR2-MY-V-0
 
 Problem 33 in
 L. Luksan, C. Matonoha and J. Vlcek

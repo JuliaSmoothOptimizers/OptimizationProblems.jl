@@ -20,26 +20,26 @@ hs109_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 109.
 
-  classification PGR-AN-9-10
+classification OOR2-AY-9-10
+
+classification PGR-AN-9-10
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 109 in
+Problem 109 in
   W. Hock and K. Schittkowski,
   Test examples for nonlinear programming codes,
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
-  
----
-Problem :
-Source: problem 80 in
+
+problem 80 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, June 1990.
-classification OOR2-AY-9-10
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

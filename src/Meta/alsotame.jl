@@ -17,23 +17,17 @@ alsotame_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/ALSOTAME.SIF",
-  :notes => raw"""""",
-  :origin_notes => raw"""
-Source:
-A.R. Conn, N. Gould and Ph.L. Toint,
-"The LANCELOT User's Manual",
-Dept of Maths, FUNDP, 1991.
-SIF input:  Ph. Toint, Jan 1991.
-classification OOR2-AN-2-1
----
-Problem :
+  :notes => raw"""
 Another simple constrained  problem
-Source:
+
+classification OOR2-AN-2-1
+""",
+  :origin_notes => raw"""
 A.R. Conn, N. Gould and Ph.L. Toint,
 "The LANCELOT User's Manual",
 Dept of Maths, FUNDP, 1991.
+
 SIF input:  Ph. Toint, Jan 1991.
-classification OOR2-AN-2-1
 """,
   :reference => raw"""
 @techreport{ConnGouldToint1991,

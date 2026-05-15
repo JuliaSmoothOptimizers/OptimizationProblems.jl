@@ -19,9 +19,10 @@ fletchcr_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/FLETCHCR.SIF",
   :notes => raw"""
 The chained Rosenbrock function as given by Fletcher.
+
+classification OUR2-AN-V-0
 """,
   :origin_notes => raw"""
-Source:
 problem 32 in
 L. Luksan, C. Matonoha and J. Vlcek
 Modified CUTE problems for sparse unconstrained optimization,
@@ -37,19 +38,17 @@ CUTEst cites
   "An optimal positive definite update for sparse Hessian matrices"
   Numerical Analysis report NA/145, University of Dundee, 1992.
 
-  Scaled version.
+Scaled version.
 
-  SIF input: Nick Gould, Oct 1992.
+SIF input: Nick Gould, Oct 1992.
 
 as source for this problem.
 It is possible that Fletcher may have used this problem in his
 technical report, but the published version of his report
 
-  SIAM J. Optimization, 5(1), pp 192-218, 1995
+SIAM J. Optimization, 5(1), pp 192-218, 1995
 
 uses the chained Rosenbrock problem, not the one below.
-
-classification OUR2-AN-V-0
 
 J.-P. Dussault, Rennes 09/2015.
 """,

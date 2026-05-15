@@ -21,12 +21,6 @@ penalty3_meta = Dict(
 A penalty problem by Gill, Murray and Pitfield.
 It has a dense Hessian matrix.
 
-Source:  problem 114 (p. 81) in
-A.R. Buckley,
-"Test functions for unconstrained minimization",
-TR 1989CS-3, Mathematics, statistics and computing centre,
-Dalhousie University, Halifax (CDN), 1989.
-
 classification OUR2-AY-V-0
 
 Problem 46 in
@@ -39,16 +33,13 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
   :origin_notes => raw"""
-Problem :
-A penalty problem by Gill, Murray and Pitfield.
-It has a dense Hessian matrix.
-Source:  problem 114 (p. 81) in
+problem 114 (p. 81) in
 A.R. Buckley,
 "Test functions for unconstrained minimization",
 TR 1989CS-3, Mathematics, statistics and computing centre,
 Dalhousie University, Halifax (CDN), 1989.
+
 SIF input: Nick Gould, Dec 1990.
-classification OUR2-AY-V-0
 """,
   :reference => raw"""
 @techreport{Buckley1989,

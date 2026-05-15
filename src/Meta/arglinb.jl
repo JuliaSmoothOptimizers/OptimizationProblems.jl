@@ -23,22 +23,13 @@ Linear function - rank 1
 classification SUR2-AN-V-0
 """,
   :origin_notes => raw"""
-Source: Problem 33 in
+Problem 33 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#93 (with different N and M)
 
-See also Buckley#93 (with different N and M)
----
-Problem :
-Variable dimension rank one linear problem
-Source: Problem 33 in
-J.J. More', B.S. Garbow and K.E. Hillstrom,
-"Testing Unconstrained Optimization Software",
-ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-See also Buckley#93 (with different N and M)
 SIF input: Ph. Toint, Dec 1989.
-classification SUR2-AN-V-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

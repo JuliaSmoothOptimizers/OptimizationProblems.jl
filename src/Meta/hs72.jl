@@ -17,29 +17,25 @@ hs72_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS72.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 72.
+  :notes => raw"""
+Hock and Schittkowski problem number 72.
 
-  classification LPR2-AN-4-2
+An optimal sample sizing problem.
+
+classification LOR2-MN-4-2
+
+classification LPR2-AN-4-2
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 72 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-An optimal sample sizing problem.
-Source: problem 72 in
+problem 72 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, March 1990.
-classification LOR2-MN-4-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

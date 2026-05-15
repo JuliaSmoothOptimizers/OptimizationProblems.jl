@@ -19,18 +19,18 @@ threepk_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/3PK.SIF",
   :notes => raw"""
 A problem arising in the estimation of structured O/D matrix
-  """,
+""",
   :origin_notes => raw"""
- Converted in Julia from https://github.com/mpf/Optimization-Test-Problems
+Converted in Julia from https://github.com/mpf/Optimization-Test-Problems
 
-   M. Bierlaire, private communication
+M. Bierlaire, private communication
    see also
    M. Bierlaire and Ph. L. Toint,
    MEUSE: an origin-destination estimator that exploits structure,
    Transportation Research B, 29, 1, 47--60, 1995.
    SIF input: Ph. Toint, Dec 1989, Corrected July 1993.
-   classification SUR2-MN-30-0  
-  """,
+   classification SUR2-MN-30-0
+""",
   :reference => raw"""
 @article{Bierlaire1995,
   title = {Meuse: An origin-destination matrix estimator that exploits structure},

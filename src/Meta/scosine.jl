@@ -22,9 +22,6 @@ Another function with nontrivial groups and
 repetitious elements.
 NB: scaled version of COSINE
 
-Source:
-N. Gould, private communication.
-
 classification OUR2-AN-V-0
 
 Problem 50 in
@@ -41,14 +38,9 @@ Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the or
 (See issue #36)
 """,
   :origin_notes => raw"""
-Problem :
-Another function with nontrivial groups and
-repetitious elements.
-NB: scaled version of COSINE
-Source:
 N. Gould, private communication.
+
 SIF input: N. Gould, Nov 1997
-classification OUR2-AN-V-0
 """,
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,

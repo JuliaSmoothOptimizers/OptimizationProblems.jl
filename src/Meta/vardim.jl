@@ -18,11 +18,13 @@ vardim_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/VARDIM.SIF",
   :notes => raw"""
-   Variable dimension problem.
+Variable dimension problem.
    This problem is a sum of n+2 least-squares groups, the first n of
    which have only a linear element.
    It Hessian matrix is dense.
-  """,
+
+classification  OUR2-AN-V-0
+""",
   :origin_notes => raw"""
 Problem 25 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
@@ -30,7 +32,6 @@ J.J. More', B.S. Garbow and K.E. Hillstrom,
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 See also Buckley#72 (p.98).
 SIF input: Ph. Toint, Dec 1989.
-classification  OUR2-AN-V-0
 """,
   :reference => raw"""""",
   :lib => "CUTEst:VARDIM",

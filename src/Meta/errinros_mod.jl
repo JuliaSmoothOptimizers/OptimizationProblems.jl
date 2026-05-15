@@ -33,7 +33,9 @@ classification SUR2-AN-V-0
 
 J,-P, Dussault, Rennes 09/2015.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},

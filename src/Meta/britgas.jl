@@ -18,23 +18,16 @@ britgas_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/BRITGAS.SIF",
   :notes => raw"""
-#   A simple high pressure gas network problem for British Gas.
-#   Invented Data, but real network.
-#   23 node network, 8 hour operation.
-#   Source:
-#   N. Gould, private communication,March 1990.
-#   SIF input: N. Gould, March 1990.
-#   classification OOI2-RN-450-360
-""",
-  :origin_notes => raw"""
-Problem :
 A simple high pressure gas network problem for British Gas.
 Invented Data, but real network.
 23 node network, 8 hour operation.
-Source:
-N. Gould, private communication,March 1990.
-SIF input: N. Gould, March 1990.
+
 classification OOI2-RN-450-360
+""",
+  :origin_notes => raw"""
+N. Gould, private communication,March 1990.
+
+SIF input: N. Gould, March 1990.
 """,
   :reference => raw"""
 @article{Gould2015CUTEst,

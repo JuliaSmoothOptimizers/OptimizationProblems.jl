@@ -20,26 +20,20 @@ hs104_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 104.
 
+classification OOR2-AN-8-5
+
 classification PPR-AN-8-6
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-Problem 104 in
-W. Hock and K. Schittkowski,
-Test examples for nonlinear programming codes,
-Lectures Notes in Economics and Mathematical Systems 187,
-Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 104 in
+problem 104 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Nick Gould, August 1991.
-classification OOR2-AN-8-5
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

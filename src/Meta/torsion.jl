@@ -18,13 +18,13 @@ torsion_meta = Dict(
   :origin => :unknown,
   :url => "https://doi.org/10.2172/834714",
   :notes => raw"""
- Torsion problem
-  """,
+Torsion problem
+""",
   :origin_notes => raw"""
- Liz Dolan - Summer 2000
+Liz Dolan - Summer 2000
  Version 2.0 - October 2000
- COPS 3.1 - March 2004  
-  """,
+ COPS 3.1 - March 2004
+""",
   :reference => raw"""
 @techreport{DolanMore2004COPS,
   author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},

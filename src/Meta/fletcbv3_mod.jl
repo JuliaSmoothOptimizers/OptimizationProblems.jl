@@ -18,7 +18,12 @@ fletcbv3_mod_meta = Dict(
   :origin => :unknown,
   :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf",
   :notes => raw"""
-Source:  The first problem given by
+classification OUR2-AN-V-0
+
+J.-P. Dussault, Rennes 09/2015.
+""",
+  :origin_notes => raw"""
+The first problem given by
 R. Fletcher,
 "An optimal positive definite update for sparse Hessian matrices"
 Numerical Analysis report NA/145, University of Dundee, 1992.
@@ -35,12 +40,7 @@ Institute of Computer Science,
 Academy of Science of the Czech Republic
 
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
-
-classification OUR2-AN-V-0
-
-J.-P. Dussault, Rennes 09/2015.
 """,
-  :origin_notes => raw"""""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,
   author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},

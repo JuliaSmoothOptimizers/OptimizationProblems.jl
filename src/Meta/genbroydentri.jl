@@ -27,8 +27,8 @@ L. Luksan, C. Matonoha and J. Vlcek
 Sparse Test Problems for Unconstrained Optimization,
 Technical Report 1064,
 Institute of Computer Science,
-Academy of Science of the Czech Republic  
-  """,
+Academy of Science of the Czech Republic
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2010_sparse,
   author       = {Luksan, Ladislav and Matonoha, Ctirad and Vlcek, Jan},

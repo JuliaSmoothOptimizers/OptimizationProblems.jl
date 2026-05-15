@@ -50,18 +50,20 @@ Model:         Exponential Class
                y = b1*(1-exp[-b2*x])  +  e
 
 T. Migot, Montreal, 2023.
-  """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem MISRA1A given as an inconsistent set of 
 nonlinear equations
 Fit: y = b1*(1-exp[-b2*x]) + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-2-14
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Misra, D., NIST (1978).  
 Dental Research Monomolecular Adsorption Study.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-2-14
 """,
   :reference => raw"""""",
   :lib => "CUTEst:MISRA1A, NIST:misra1a",

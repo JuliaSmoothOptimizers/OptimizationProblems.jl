@@ -18,18 +18,12 @@ tointgss_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/TOINTGSS.SIF",
   :notes => raw"""
-   Toint's Gaussian problem.
+Toint's Gaussian problem.
 
    This problem has N-2 trivial groups, all of which have 1 nonlinear
    element
 
-   Source: problem 21 in
-   Ph.L. Toint,
-   "Test problems for partially separable optimization and results
-   for the routine PSPMIN",
-   Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
-
-   classification OUR2-AY-V-0
+classification OUR2-AY-V-0
 
    Problem 56 in
    L. Luksan, C. Matonoha and J. Vlcek
@@ -40,20 +34,15 @@ tointgss_meta = Dict(
    http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
  J.-P. Dussault, Clermont-Ferrand 05/2016.
-  
-  """,
+""",
   :origin_notes => raw"""
-Problem :
-Toint's Gaussian problem.
-This problem has N-2 trivial groups, all of which have 1 nonlinear
-element
-Source: problem 21 in
+problem 21 in
 Ph.L. Toint,
 "Test problems for partially separable optimization and results
 for the routine PSPMIN",
 Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
+
 SIF input: Ph. Toint, Dec 1989, corrected Nick Gould, July 1993.
-classification OUR2-AY-V-0
 """,
   :reference => raw"""
 @techreport{Toint1983,

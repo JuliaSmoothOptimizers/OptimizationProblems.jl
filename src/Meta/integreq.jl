@@ -20,27 +20,21 @@ integreq_meta = Dict(
   :notes => raw"""
 The discrete integral problem.
 
-Source: problem 29 in
-   J.J. More, B.S. Garbow and K.E. Hillstrom,
-   "Testing Unconstrained Optimization Software",
-   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-Also problem 165 (p. 74) in
+classification NOR2-AN-V-V
+""",
+  :origin_notes => raw"""
+problem 165 (p. 74) in
    A.R. Buckley,
    "Test functions for unconstrained minimization",
    TR 1989CS-3, Mathematics, statistics and computing centre,
    Dalhousie University, Halifax (CDN), 1989.
 
-classification NOR2-AN-V-V
-""",
-  :origin_notes => raw"""
-Problem :
-The discrete integral problem
-Source:  Problem 29 in
+Problem 29 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
 SIF input: Ph. Toint, Feb 1990.
-classification NOR2-AN-V-V
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

@@ -28,6 +28,8 @@ y_2' = theta_1 y_1^2 + theta_2 y_2
 with given initial conditions. The problem is to minimize
 sum{i=1,20} || y(tau_i,theta) - z_i||^2
 where the z_i are concentration measurements for y at times tau_i (i=1,20)
+
+classification OOR2-AN-V-V
 """,
   :origin_notes => raw"""
 This is problem 12 in the COPS (Version 2) collection of 
@@ -38,10 +40,9 @@ Argonne National Labs Technical Report ANL/MCS-246 (2000)
 Michael Merritt - Summer 2000
 COPS 2.0 - September 2000
 COPS 3.0 - November 2002
-COPS 3.1 - March 2004  
+COPS 3.1 - March 2004
 
 SIF input: Nick Gould, November 2000
-classification OOR2-AN-V-V
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

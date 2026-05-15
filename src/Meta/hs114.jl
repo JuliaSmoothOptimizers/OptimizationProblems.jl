@@ -20,27 +20,22 @@ hs114_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 114.
 
-  classification QGR-AN-10-11
+An alkylation process problem.
+
+classification QOR2-MY-10-11
+
+classification QGR-AN-10-11
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 114 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-  
----
-Problem :
-An alkylation process problem.
-Source: problem 114 in
+problem 114 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: J.M. Collin, Jan 1990.
-classification QOR2-MY-10-11
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

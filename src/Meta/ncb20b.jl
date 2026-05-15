@@ -21,8 +21,7 @@ ncb20b_meta = Dict(
 A banded problem with semi-bandwidth 20.  This problem exhibits frequent
 negative curvature in the exact Hessian.  It is a simplified version of
 problem NCB20.
-Source:
-Ph. Toint, private communication, 1992.
+
 classification OUR2-AN-V-0
 Problem 41 in
 L. Luksan, C. Matonoha and J. Vlcek
@@ -34,14 +33,9 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
   :origin_notes => raw"""
-Problem :
-A banded problem with semi-bandwidth 20.  This problem exhibits frequent
-negative curvature in the exact Hessian.  It is a simplified version of
-problem NCB20.
-Source:
 Ph. Toint, private communication, 1993.
+
 SIF input: Ph. Toint, April 1993.
-classification OUR2-AN-V-0
 """,
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,

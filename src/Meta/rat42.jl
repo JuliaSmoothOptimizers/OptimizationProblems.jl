@@ -51,19 +51,21 @@ Model:         Exponential Class
                y = b1 / (1+exp[b2-b3*x])  +  e
 
 T. Migot, Montreal, 2023.
-""",
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem RAT42 given as an inconsistent set of
 nonlinear equations.
 Fit: y = b1 / (1+exp[b2-b3*x])  +  e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-3-9
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Ratkowsky, D.A. (1983).  
 Nonlinear Regression Modeling.
 New York, NY:  Marcel Dekker, pp. 61 and 88.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-3-9
 """,
   :reference => raw"""""",
   :lib => "CUTEst:RAT42, NIST:Rat42",

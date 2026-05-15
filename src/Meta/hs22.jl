@@ -18,28 +18,20 @@ hs22_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS22.SIF",
   :notes => raw"""
- Hock and Schittkowski problem number 22.
+Hock and Schittkowski problem number 22.
 
-   classification QQR2-AN-2-2
+classification QQR2-AN-2-2
 
- A. Montoison, Montreal, 04/2018.  
-  """,
+ A. Montoison, Montreal, 04/2018.
+""",
 :origin_notes => raw"""
-   Problem 22 in
-   W. Hock and K. Schittkowski,
-   Test examples for nonlinear programming codes,
-   Lectures Notes in Economics and Mathematical Systems 187,
-   Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 22 in
+problem 22 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, April 1990
-classification QQR2-AN-2-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

@@ -18,23 +18,19 @@ kowosb_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/KOWOSB.SIF",
   :notes => raw"""
-Source:  Problem 15 in
-J.J. More', B.S. Garbow and K.E. Hillstrom,
-"Testing Unconstrained Optimization Software",
-ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-classification SUR2-MN-4-0
-""",
-  :origin_notes => raw"""
-Problem :
 A problem arising in the analysis of kinetic data for an enzyme
 reaction, known under the name of Kowalik and Osborne problem
 in 4 variables.
-Source:  Problem 15 in
+
+classification SUR2-MN-4-0
+""",
+  :origin_notes => raw"""
+Problem 15 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
 SIF input: Ph. Toint, Dec 1989.
-classification SUR2-MN-4-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

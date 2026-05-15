@@ -51,7 +51,9 @@ Model:         Miscellaneous Class
                pi = 3.141592653589793238462643383279E0
                y =  b1 - b2*x - arctan[b3/(x-b4)]/pi  +  e
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""""",
   :lib => "NIST:Roszman1",
 )

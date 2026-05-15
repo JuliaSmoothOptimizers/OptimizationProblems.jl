@@ -25,7 +25,7 @@ tetrahedral mesh by adjusting the locations of the free vertices.
 This is problem 19 in the COPS (Version 3) collection of 
 E. Dolan and J. More
 see "Benchmarking Optimization Software with COPS"
-Argonne National Labs Technical Report ANL/MCS-246 (2004)  
+Argonne National Labs Technical Report ANL/MCS-246 (2004)
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

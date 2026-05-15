@@ -48,18 +48,20 @@ Model:         Exponential Class
                y = b1*exp( -b2*x ) + b3*exp( -(x-b4)**2 / b5**2 )
                                    + b6*exp( -(x-b7)**2 / b8**2 ) + e
 T. Migot, Montreal, 2023.
-                                   """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem GAUSS1 given as an inconsistent set of
 nonlinear equations.
 Fit: y = b1*exp( -b2*x ) + b3*exp( -(x-b4)**2 / b5**2 )
 + b6*exp( -(x-b7)**2 / b8**2 ) + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-8-250
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Rust, B., NIST (1996).
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-8-250
 """,
   :reference => raw"""""",
   :lib => "CUTEst:GAUSS1, NIST:Gauss1",

@@ -17,28 +17,21 @@ hs9_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS9.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 9.
+  :notes => raw"""
+Hock and Schittkowski problem number 9.
 
-  classification OLR2-AN-2-1
+classification OLR2-AN-2-1
 
 A. Cebola, Curitiba , 10/2016.
 """,
 :origin_notes => raw"""
-  Problem 9 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 9 in
+problem 9 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn March 1990
-classification OLR2-AN-2-1
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

@@ -36,17 +36,19 @@ Academy of Science of the Czech Republic
 
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
+A banded function with semi-bandwidth 20 and
+negative curvature near the starting point
+
+classification OUR2-AN-V-0
+
 classification SUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 """,
   :origin_notes => raw"""
-Problem :
-A banded function with semi-bandwidth 20 and
-negative curvature near the starting point
-Source: Nick Gould
+Nick Gould
+
 SIF input: Nick Gould, September 1997.
-classification OUR2-AN-V-0
 """,
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,

@@ -20,26 +20,18 @@ hs40_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 40.
 
-  classification OOR2-AN-4-3
+classification OOR2-AN-4-3
 
 D. Cabral, Curitiba, 10/2016.
 """,
 :origin_notes => raw"""
-  Problem 40 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 40 in
+problem 40 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, April 1990
-classification OOR2-AN-4-3
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

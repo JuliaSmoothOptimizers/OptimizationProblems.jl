@@ -21,7 +21,7 @@ toint_meta = Dict(
 Toint trigonometric function
 """,
   :origin_notes => raw"""
-  Problem 10 in
+Problem 10 in
   L. Luksan, C. Matonoha and J. Vlcek
   Sparse Test Problems for Unconstrained Optimization,
   Technical Report 1064,

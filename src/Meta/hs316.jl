@@ -25,7 +25,7 @@ Schittkowski problem number 316.
 M. Gollier, Montréal, 05/2023
 """,
 :origin_notes => raw"""
-  Problem 316 in
+Problem 316 in
   Schittkowski, K. (1987). 
   More Test Examples for Nonlinear Programming Codes. 
   Lecture Notes in Economics and Mathematical Systems.

@@ -18,25 +18,20 @@ argauss_meta = Dict(
   :origin => :unknown,
   :url => "https://doi.org/10.1145/355934.355936, https://bitbucket.org/optrove/sif/src/master/ARGAUSS.SIF",
   :notes => raw"""
-  SIF input: Ph. Toint, Dec 1989.
-  classification NOR2-AN-3-15
+SIF input: Ph. Toint, Dec 1989.
+
+More''s gaussian problem in 3 variables
+
+classification NOR2-AN-3-15
 """,
   :origin_notes => raw"""
-Source: Problem 9 in
-  J.J. More', B.S. Garbow and K.E. Hillstrom,
-  "Testing Unconstrained Optimization Software",
-  ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-  See also Buckley#28  
----
-Problem :
-More''s gaussian problem in 3 variables
-Source: Problem 9 in
+Problem 9 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 See also Buckley#28
+
 SIF input: Ph. Toint, Dec 1989.
-classification NOR2-AN-3-15
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

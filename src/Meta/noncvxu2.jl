@@ -32,10 +32,7 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
   :origin_notes => raw"""
-Problem :
-A nonconvex unconstrained function with a unique minimum value
 SIF input: Nick Gould, April 1996
-classification OUR2-AN-V-0
 """,
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,

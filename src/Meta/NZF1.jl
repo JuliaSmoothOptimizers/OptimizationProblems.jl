@@ -24,7 +24,9 @@ classification SUR2-AN-V-0
 
 A. Montoison, Montreal, 05/2018.
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""""",
   :lib => "",
 )

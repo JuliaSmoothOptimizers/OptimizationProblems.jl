@@ -18,7 +18,7 @@ variational_meta = Dict(
   :origin => :academic,
   :url => "https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization",
   :notes => raw"""
- Discretization of a variational problem
+Discretization of a variational problem
 
    Problem 15 in
    L. Luksan, C. Matonoha and J. Vlcek
@@ -27,9 +27,11 @@ variational_meta = Dict(
    Institute of Computer Science,
    Academy of Science of the Czech Republic
 
-   https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization  
-  """,
-  :origin_notes => raw"""""",
+   https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization
+""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2010_sparse,
   author       = {Luksan, Ladislav and Matonoha, Ctirad and Vlcek, Jan},

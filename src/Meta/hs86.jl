@@ -17,28 +17,23 @@ hs86_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS86.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 86.
+  :notes => raw"""
+Hock and Schittkowski problem number 86.
 
-  classification PLR-AN-5-10
+classification OLR2-AN-5-10
+
+classification PLR-AN-5-10
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 86 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 86 in
+problem 86 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Nick Gould, August 1991.
-classification OLR2-AN-5-10
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

@@ -21,6 +21,8 @@ engval1_meta = Dict(
 The ENGVAL1 problem.
 This problem is a sum of 2n-2 groups, n-1 of which contain 2 nonlinear
 elements.
+
+classification OUR2-AN-V-0
 """,
   :origin_notes => raw"""
 Problem 31 in
@@ -43,7 +45,6 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 See also Buckley#172 (p. 52)
 
 SIF input: Ph. Toint and N. Gould, Dec 1989.
-classification OUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 """,

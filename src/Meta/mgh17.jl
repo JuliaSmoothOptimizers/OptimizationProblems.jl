@@ -55,20 +55,22 @@ Model:         Exponential Class
 
                y = b1 + b2*exp[-x*b4] + b3*exp[-x*b5]  +  e
 T. Migot, Montreal, 2023.
-               """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem MGH17 given as an inconsistent set of
 nonlinear equations.
 Fit: y = b1 + b2*exp[-x*b4] + b3*exp[-x*b5] + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-5-33
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Osborne, M. R. (1972).  
 Some aspects of nonlinear least squares calculations.  
 In Numerical Methods for Nonlinear Optimization, Lootsma (Ed).  
 New York, NY:  Academic Press, pp. 171-189.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-5-33
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

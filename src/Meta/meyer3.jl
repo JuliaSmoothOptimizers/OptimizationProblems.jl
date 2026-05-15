@@ -20,28 +20,16 @@ meyer3_meta = Dict(
   :notes => raw"""
 Meyer function
 
-Source:  Problem 10 in
-J.J. More', B.S. Garbow and K.E. Hillstrom,
-"Testing Unconstrained Optimization Software",
-ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-See also Buckley #29 (p. 73).
-
 classification SUR2-RN-3-0
 """,
   :origin_notes => raw"""
-Problem :
-A problem arising in the analysis of the resistance of a
-thermistor, as formulated by Meyer.
-This function  is a nonlinear least squares with 16 groups.  Each
-group has a nonlinear element.
-Source:  Problem 10 in
+Problem 10 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 See also Buckley #29 (p. 73).
+
 SIF input: Ph. Toint, Dec 1989.
-classification SUR2-RN-3-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

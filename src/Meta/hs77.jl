@@ -17,28 +17,23 @@ hs77_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS77.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 77.
+  :notes => raw"""
+Hock and Schittkowski problem number 77.
 
-  classification PGR-AN-5-2
+classification OOR2-AY-5-2
+
+classification PGR-AN-5-2
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 77 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 77 in
+problem 77 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A. Conn and Ph. Toint, March 1991
-classification OOR2-AY-5-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

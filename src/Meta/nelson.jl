@@ -55,19 +55,21 @@ Model:         Exponential Class
                log[y] = b1 - b2*x1 * exp[-b3*x2]  +  e
 
 T. Migot, Montreal, 2023.
-""",
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem NELSON given as an inconsistent set of
 nonlinear equations.
 Fit: log[y] = b1 - b2*x1 * exp[-b3*x2] + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-3-128
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Nelson, W. (1981).  
 Analysis of Performance-Degradation Data.  
 IEEE Transactions on Reliability. Vol. 2, R-30, No. 2, pp. 149-155.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-3-128
 """,
   :reference => raw"""""",
   :lib => "CUTEst:NELSON, NIST:Nelson",

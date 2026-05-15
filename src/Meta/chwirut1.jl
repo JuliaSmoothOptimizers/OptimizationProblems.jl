@@ -49,18 +49,20 @@ Model:         Exponential Class
 
                y = exp[-b1*x]/(b2+b3*x)  +  e
 T. Migot, Montreal, 2023.
-               """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem CHWIRUT1 given as an inconsistent set of
 nonlinear equations.
 Fit: y = exp[-b1*x]/(b2+b3*x) + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-3-214
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Chwirut, D., NIST (197?).  
-Ultrasonic Reference Block Study. 
+Ultrasonic Reference Block Study.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-3-214
 """,
   :reference => raw"""""",
   :lib => "CUTEst:CHWIRUT1, NIST:Chwirut1",

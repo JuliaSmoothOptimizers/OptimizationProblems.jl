@@ -20,14 +20,6 @@ nondia_meta = Dict(
   :notes => raw"""
 The Shanno nondiagonal extension of Rosenbrock function.
 
-Source:
-D. Shanno,
-" On Variable Metric Methods for Sparse Hessians II: the New
-Method",
-MIS Tech report 27, University of Arizona (Tucson, UK), 1978.
-
-See also Buckley #37 (p. 76) and Toint #15.
-
 classification SUR2-AN-V-0
 
 Problem 44 in
@@ -43,16 +35,13 @@ Note: discrepancy with CUTEst appears to be a bug in CUTEst, this (now) matches 
 (See issue #36)
 """,
   :origin_notes => raw"""
-Problem :
-The Shanno nondiagonal extension of Rosenbrock function.
-Source:
 D. Shanno,
 " On Variable Metric Methods for Sparse Hessians II: the New
 Method",
 MIS Tech report 27, University of Arizona (Tucson, UK), 1978.
 See also Buckley #37 (p. 76) and Toint #15.
+
 SIF input: Ph. Toint, Dec 1989.
-classification SUR2-AN-V-0
 """,
   :reference => raw"""
 @techreport{Shanno1978,

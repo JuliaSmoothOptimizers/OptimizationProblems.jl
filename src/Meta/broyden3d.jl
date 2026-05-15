@@ -20,8 +20,9 @@ broyden3d_meta = Dict(
   :notes => raw"""
 Broyden tridiagonal problem in variable dimension.  This is a nonlinear
 least-squares problem with n groups.
-
-Source: Problem 30 in
+""",
+  :origin_notes => raw"""
+Problem 30 in
   J.J. More', B.S. Garbow and K.E. Hillstrom,
   "Testing Unconstrained Optimization Software",
   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
@@ -31,7 +32,6 @@ Also problem 78 in
   TR 1989CS-3, Mathematics, statistics and computing centre,
   Dalhousie University, Halifax (CDN), 1989.
 """,
-  :origin_notes => raw"""""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},

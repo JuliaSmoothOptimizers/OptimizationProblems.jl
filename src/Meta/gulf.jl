@@ -21,30 +21,28 @@ gulf_meta = Dict(
 The Gulf research and development function for m = 99. 
 
 SUR2-MN-3-0
-""",
-  :origin_notes => raw"""
-Problem 11 in
-  J.J. More', B.S. Garbow and K.E. Hillstrom,
-  "Testing Unconstrained Optimization Software",
-  ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-Also problem 27 (p. 57) in
-  A.R. Buckley,
-  "Test functions for unconstrained minimization",
-  TR 1989CS-3, Mathematics, statistics and computing centre,
-  Dalhousie University, Halifax (CDN), 1989.  
----
-Problem :
+
 The Gulf RD test problem in 3 variables.
 This function  is a nonlinear least squares with 99 groups.  Each
 group has a nonlinear element of exponential type.
 The number of groups may be varied, but must be larger or equal to 3
-Source: problem 11 in
+
+classification SUR2-MN-3-0
+""",
+  :origin_notes => raw"""
+problem 27 (p. 57) in
+  A.R. Buckley,
+  "Test functions for unconstrained minimization",
+  TR 1989CS-3, Mathematics, statistics and computing centre,
+  Dalhousie University, Halifax (CDN), 1989.
+
+problem 11 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 See also Buckley#27
+
 SIF input: Ph. Toint, Dec 1989.
-classification SUR2-MN-3-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

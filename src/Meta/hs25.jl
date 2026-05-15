@@ -20,27 +20,20 @@ hs25_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 25.
 
-  classification SBR2-AN-3-0
+A nonlinear least squares problem with bounds.
+
+classification SBR2-AN-3-0
 
 A. Montoison, Montreal, 04/2018.
 """,
 :origin_notes => raw"""
-  Problem 25 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-A nonlinear least squares problem with bounds.
-Source: problem 25 in
+problem 25 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: J-M Collin, Mar 1990.
-classification SBR2-AN-3-0
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

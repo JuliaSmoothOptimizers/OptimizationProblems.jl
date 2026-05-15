@@ -20,28 +20,20 @@ hs43_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 43.
 
-  classification QQR2-AN-4-3
+The Rosen-Suzuki test problem.
+
+classification QQR2-AN-4-3
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 43 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-The Rosen-Suzuki test problem.
-Source: problem 43 in
+problem 43 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, April 1990
-minor correction by Ph. Shott, Jan 1995.
-classification QQR2-AN-4-3
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

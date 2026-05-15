@@ -19,24 +19,18 @@ hs61_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/HS61.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 61.
+
 classification QQR2-AN-3-2
 A. Montoison, Montreal, 05/2018.
 """,
   :origin_notes => raw"""
-Problem 61 in
-W. Hock and K. Schittkowski,
-Test examples for nonlinear programming codes,
-Lectures Notes in Economics and Mathematical Systems 187,
-Springer Verlag, Heidelberg, 1981.
-  ---
-Problem :
-Source: problem 61 in
+problem 61 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Ph.L. Toint, November 1990.
-classification QQR2-AN-3-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

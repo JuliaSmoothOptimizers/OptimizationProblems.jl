@@ -18,7 +18,7 @@ Shpak5_meta = Dict(
   :origin => :unknown,
   :url => "",
   :notes => raw"""
- fifth problem of
+fifth problem of
  Global optimization in one-dimensional case
  using analytically defined derivatives of
  objective function
@@ -28,9 +28,10 @@ Shpak5_meta = Dict(
  Computer Science Journal of Moldova, vol.3, no.2(8), 1995
 
  S. Goyette, Sherbrooke 2016/2017
-  
-  """,
-  :origin_notes => raw"""""",
+""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""""",
   :lib => "",
 )

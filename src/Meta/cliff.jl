@@ -20,24 +20,16 @@ cliff_meta = Dict(
   :notes => raw"""
 The "cliff problem" in 2 variables
 
-Source:  problem 206 (p. 46) in
+classification OUR2-AN-2-0
+""",
+  :origin_notes => raw"""
+problem 206 (p. 46) in
 A.R. Buckley,
 "Test functions for unconstrained minimization",
 TR 1989CS-3, Mathematics, statistics and computing centre,
 Dalhousie University, Halifax (CDN), 1989.
 
-classification OUR2-AN-2-0
-""",
-  :origin_notes => raw"""
-Problem :
-The "cliff problem" in 2 variables
-Source:  problem 206 (p. 46) in
-A.R. Buckley,
-"Test functions for unconstrained minimization",
-TR 1989CS-3, Mathematics, statistics and computing centre,
-Dalhousie University, Halifax (CDN), 1989.
 SIF input: Ph. Toint, Dec 1989.
-classification OUR2-AN-2-0
 """,
   :reference => raw"""
 @techreport{Buckley1989,

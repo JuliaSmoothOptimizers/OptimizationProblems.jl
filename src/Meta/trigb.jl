@@ -18,10 +18,10 @@ trigb_meta = Dict(
   :origin => :unknown,
   :url => "https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization",
   :notes => raw"""
-  Banded trigonometric problem
-  """,
+Banded trigonometric problem
+""",
   :origin_notes => raw"""
-  Problem 16 in
+Problem 16 in
   L. Luksan, C. Matonoha and J. Vlcek
   Sparse Test Problems for Unconstrained Optimization,
   Technical Report 1064,

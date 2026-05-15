@@ -19,9 +19,10 @@ edensch_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/EDENSCH.SIF",
   :notes => raw"""
 The extended Dennis and Schnabel problem, as defined by Li.
+
+classification OUR2-AN-V-0
 """,
   :origin_notes => raw"""
-Source:
 G. Li,
 The secant/finite difference algorithm for solving sparse
 nonlinear systems of equations,
@@ -40,7 +41,6 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
 SIF input: Ph. Toint, Apr 1990.
 minor correction by Ph. Shott, January 1995.
-classification OUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 """,

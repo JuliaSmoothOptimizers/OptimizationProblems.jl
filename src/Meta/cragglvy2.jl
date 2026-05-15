@@ -38,7 +38,9 @@ Academy of Science of the Czech Republic
 
 https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2010_sparse,
   author       = {Luksan, Ladislav and Matonoha, Ctirad and Vlcek, Jan},

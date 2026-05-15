@@ -26,6 +26,8 @@ u'''' = R (u'u'' - u u''') t in [0,1]
 u(0) = 0, u(1) = 1, u'(0) = 0 = u'(1)
 where u is the potential function, u' is the tangential velocity of
 the field, and R is the Reynold's number
+
+classification NOR2-AN-V-V
 """,
   :origin_notes => raw"""
 This is problem 7 in the COPS (Version 3) collection of 
@@ -34,7 +36,6 @@ see "Benchmarking Optimization Software with COPS"
 Argonne National Labs Technical Report ANL/MCS-246 (2004)
 
 SIF input: Nick Gould, November 2000
-classification NOR2-AN-V-V
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

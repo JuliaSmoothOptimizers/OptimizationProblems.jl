@@ -17,13 +17,15 @@ helical_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://doi.org/10.1145/355934.355936",
-  :notes => raw"""""",
+  :notes => raw"""
+
+""",
   :origin_notes => raw"""
-Source: problem 7 in
+problem 7 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
-ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.  
-  """,
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+""",
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},

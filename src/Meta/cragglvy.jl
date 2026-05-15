@@ -21,6 +21,8 @@ cragglvy_meta = Dict(
 Extended Cragg and Levy problem.
 This problem is a sum of m  sets of 5 groups,
 There are 2m+2 variables. The Hessian matrix is 7-diagonal.
+
+classification OUR2-AY-V-0
 """,
   :origin_notes => raw"""
 Problem 32 in
@@ -30,8 +32,6 @@ for the routine PSPMIN,
 Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
 
 See  also Buckley#18
-
-See also
 
 problem 7 in
 L. Luksan, C. Matonoha and J. Vlcek
@@ -43,7 +43,6 @@ Academy of Science of the Czech Republic
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
 SIF input: Ph. Toint, Dec 1989.
-classification OUR2-AY-V-0
 
 D. Orban, Montreal, 08/2015.
 """,

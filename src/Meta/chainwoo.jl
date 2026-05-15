@@ -27,9 +27,7 @@ The problem dimension is defined from the number of these sets.
 The number of problem variables is then 2 times + 2 as large
 This version uses a slightly unorthodox expression of Woods
 function as a sum of squares (see Buckley)
-""",
-  :origin_notes => raw"""
-Problem :
+
 Problem 8 in
 A. R. Conn, N. I. M. Gould and Ph. L. Toint,
 Testing a class of methods for solving minimization
@@ -47,21 +45,10 @@ Academy of Science of the Czech Republic
 
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
-SIF input: Nick Gould and Ph. Toint, Dec 1995.
 classification SUR2-AN-V-0
-
-D. Orban, Montreal, 08/2015.
-
-Difference with the following is the initial guess.
-
-Problem 2 in
-L. Luksan, C. Matonoha and J. Vlcek
-Sparse Test Problems for Unconstrained Optimization,
-Technical Report 1064,
-Institute of Computer Science,
-Academy of Science of the Czech Republic
-
-https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization
+""",
+  :origin_notes => raw"""
+SIF input: Nick Gould and Ph. Toint, Dec 1995.
 """,
   :reference => raw"""
 @article{ConnGouldToint1988MathComp,

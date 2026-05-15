@@ -17,28 +17,23 @@ hs8_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS8.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 8.
+  :notes => raw"""
+Hock and Schittkowski problem number 8.
 
-  classification OOR2-AN-2-1
+classification CQR2-AN-2-2
+
+classification OOR2-AN-2-1
 
 D. Orban, Montreal, 04/2016.
 """,
 :origin_notes => raw"""
-  Problem 8 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 8 in
+problem 8 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn March 1990
-classification CQR2-AN-2-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

@@ -18,13 +18,12 @@ avion2_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/AVION2.SIF",
   :notes => raw"""
+Dassault France avion (airplane design) problem
+
 classification OLR2-RN-49-15
 """,
   :origin_notes => raw"""
-Problem :
-Dassault France avion (airplane design) problem
 SIF input:  A. R. Conn, June 1993.
-classification OLR2-RN-49-15
 """,
   :reference => raw"""
 @article{Gould2015CUTEst,

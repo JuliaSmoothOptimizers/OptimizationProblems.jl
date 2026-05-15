@@ -17,28 +17,29 @@ hs81_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS81.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 81.
+  :notes => raw"""
+Hock and Schittkowski problem number 81.
 
-  classification GPR-AN-5-3
+classification OOR2-AN-5-3
+
+classification GPR-AN-5-3
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 81 in
+Problem 81 in
   W. Hock and K. Schittkowski,
   Test examples for nonlinear programming codes,
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
 
----
-Problem :
-Source: problem 80 in
+problem 80 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: B.Debarsy, Jan 1990.
-classification OOR2-AN-5-3
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

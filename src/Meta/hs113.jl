@@ -20,26 +20,26 @@ hs113_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 113.
 
-  classification QQR-AN-10-8
+classification QQR2-AN-10-8
+
+classification QQR-AN-10-8
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 113 in
+Problem 113 in
   W. Hock and K. Schittkowski,
   Test examples for nonlinear programming codes,
   Lectures Notes in Economics and Mathematical Systems 187,
   Springer Verlag, Heidelberg, 1981.
-  
----
-Problem :
-Source: problem 80 in
+
+problem 80 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: J-M Collin, Mar 1990.
-classification QQR2-AN-10-8
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

@@ -21,25 +21,12 @@ dixmaann_meta = Dict(
 The Dixon-Maany test problem (version M by default)
 
 D. Orban, Montreal, 08/2015.
+
+classification OUR2-AN-V-0
 """,
   :origin_notes => raw"""
-L. C. W. Dixon and Z. Maany,
-A family of test problems with sparse Hessians for unconstrained
-optimization,
-TR 206, Numerical Optimization Centre, Hatfield Polytechnic, 1988.
-
 See also
 
-problems 19, 20, 21, 22 in
-L. Luksan, C. Matonoha and J. Vlcek
-Modified CUTE problems for sparse unconstrained optimization,
-Technical Report 1081,
-Institute of Computer Science,
-Academy of Science of the Czech Republic  
-  ---
-Problem :
-A variant on the Dixon-Maany test problem (version I)
-Source:
 L. Luksan, C. Matonoha and J. Vlcek  
 Modified CUTE problems for sparse unconstraoined optimization
 Technical Report 1081
@@ -50,10 +37,8 @@ L.C.W. Dixon and Z. Maany,
 "A family of test problems with sparse Hessians for unconstrained
 optimization",
 TR 206, Numerical Optimization Centre, Hatfield Polytechnic, 1988.
+
 SIF input: Ph. Toint, Dec 1989.
-correction by Ph. Shott, January 1995.
-this version Nick Gould, June, 2013
-classification OUR2-AN-V-0
 """,
   :reference => raw"""
 @techreport{DixonMaany1988,

@@ -20,26 +20,20 @@ hs45_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 45.
 
-  classification PBR2-AN-5-0
+classification OBR2-AN-5-0
+
+classification PBR2-AN-5-0
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 45 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 45 in
+problem 45 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Ph.L. Toint, October 1990.
-classification OBR2-AN-5-0
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

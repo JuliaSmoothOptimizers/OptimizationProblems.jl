@@ -18,7 +18,7 @@ triangle_meta = Dict(
   :origin => :unknown,
   :url => "https://doi.org/10.2172/834714",
   :notes => raw"""
-Minimize the time taken for a robot arm to travel between two points.  
+Minimize the time taken for a robot arm to travel between two points.
 """,
   :origin_notes => raw"""
 This is problem 18 in the COPS (Version 3) collection of 

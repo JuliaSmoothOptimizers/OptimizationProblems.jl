@@ -17,20 +17,16 @@ allinitc_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/ALLINITC.SIF",
-  :notes => raw"""""",
-  :origin_notes => raw"""
-Source:
-N. Gould: private communication.
-SIF input: Nick Gould, June 1990.
-classification OOR2-AY-4-1
----
-Problem :
+  :notes => raw"""
 A problem with "all in it". Intended to verify that changes
 to LANCELOT are safe.
-Source:
-N. Gould: private communication.
-SIF input: Nick Gould, June 1990.
+
 classification OOR2-AY-4-1
+""",
+  :origin_notes => raw"""
+N. Gould: private communication.
+
+SIF input: Nick Gould, June 1990.
 """,
   :reference => raw"""
 @article{Gould2015CUTEst,

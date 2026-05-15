@@ -20,27 +20,16 @@ brownden_meta = Dict(
   :notes => raw"""
 Brown and Dennis function
 
-Source: Problem 16 in
-J.J. More', B.S. Garbow and K.E. Hillstrom,
-"Testing Unconstrained Optimization Software",
-ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-See also Buckley#30
-
 classification SUR2-AN-4-0
 """,
   :origin_notes => raw"""
-Problem :
-Brown and Dennis problem in 4 variables.
-This function  is a nonlinear least squares with 20 groups.  Each
-group has 2 nonlinear elements.
-Source: Problem 16 in
+Problem 16 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 See also Buckley#30
+
 SIF input: Ph. Toint, Dec 1989.
-classification SUR2-AN-4-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

@@ -19,14 +19,14 @@ robotarm_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/ROBOTARM.SIF",
   :notes => raw"""
 Minimize the time taken for a robot arm to travel between two points.
+
+classification OOR2-AN-V-V
 """,
   :origin_notes => raw"""
 This is problem 8 in the COPS (Version 3) collection of 
 E. Dolan and J. More
 see "Benchmarking Optimization Software with COPS"
 Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
-classification OOR2-AN-V-V
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

@@ -21,13 +21,6 @@ morebv_meta = Dict(
 The Boundary Value problem.
 This is the nonlinear least-squares version without fixed variables.
 
-Source:  problem 28 in
-J.J. More', B.S. Garbow and K.E. Hillstrom,
-"Testing Unconstrained Optimization Software",
-ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-See also Buckley#17 (p. 75).
-
 classification SUR2-MN-V-0
 
 Problem 39 in
@@ -41,17 +34,13 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 """,
   :origin_notes => raw"""
-Problem :
-The Boundary Value problem.
-This is the nonlinear least-squares version without fixed variables.
-Source:  problem 28 in
+problem 28 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 See also Buckley#17 (p. 75).
+
 SIF input: Ph. Toint, Dec 1989 and Nick Gould, Oct 1992.
-correction by S. Gratton & Ph. Toint, May 2024
-classification SUR2-MN-V-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

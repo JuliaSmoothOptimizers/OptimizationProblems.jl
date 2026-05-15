@@ -18,14 +18,9 @@ srosenbr_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/SROSENBR.SIF",
   :notes => raw"""
-   The separable extension of Rosenbrock's function.
+The separable extension of Rosenbrock's function.
 
-   Source:  problem 21 in
-   J.J. More', B.S. Garbow and K.E. Hillstrom,
-   "Testing Unconstrained Optimization Software",
-   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-   classification SUR2-AN-V-0
+classification SUR2-AN-V-0
 
    Problem 55 in
    L. Luksan, C. Matonoha and J. Vlcek
@@ -36,8 +31,7 @@ srosenbr_meta = Dict(
    http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
  J.-P. Dussault, Clermont-Ferrand 05/2016.
-  
-  """,
+""",
   :origin_notes => raw"""
 @article{MoreGarbowHillstrom1981,
   author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
@@ -48,17 +42,14 @@ srosenbr_meta = Dict(
   number  = {1},
   pages   = {17--41},
   doi     = {10.1145/355934.355936}
-}  
-  ---
-Problem :
-The separable extension of Rosenbrock's function.
-Source:  problem 21 in
+}
+
+problem 21 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
 SIF input: Ph. Toint, Dec 1989.
-added 2nd (correct) starting point, Dec 2024
-classification SUR2-AN-V-0
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

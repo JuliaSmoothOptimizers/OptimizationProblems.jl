@@ -21,6 +21,8 @@ eg2_meta = Dict(
 A simple nonlinear problem given as an example in Section 1.2.4 of
 the LANCELOT Manual.
 The problem is non convex and has several local minima.
+
+classification OUR2-AN-1000-0
 """,
   :origin_notes => raw"""
 Section 1.2.4 of
@@ -41,7 +43,6 @@ Academy of Science of the Czech Republic
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
 SIF input: N. Gould and Ph. Toint, June 1994.
-classification OUR2-AN-1000-0
 
 D. Orban, Montreal, 08/2015.
 """,

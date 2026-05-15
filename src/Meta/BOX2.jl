@@ -23,21 +23,13 @@ Box problem in 2 variables, obtained by fixing X3 = 1 in BOX2.
 classification SXR2-AN-3-0
 """,
   :origin_notes => raw"""
-Source: Problem 11 in
-A.R. Buckley,
-"Test functions for unconstrained minimization",
-TR 1989CS-3, Mathematics, statistics and computing centre,
-Dalhousie University, Halifax (CDN), 1989.  
-  ---
-Problem :
-Box problem in 2 variables, obtained by fixing X3 = 1 in BOX3.
-Source: Problem 11 in
+Problem 11 in
 A.R. Buckley,
 "Test functions for unconstrained minimization",
 TR 1989CS-3, Mathematics, statistics and computing centre,
 Dalhousie University, Halifax (CDN), 1989.
+
 SIF input: Ph. Toint, Dec 1989.
-classification SXR2-AN-3-0
 """,
   :reference => raw"""
 @techreport{Buckley1989,

@@ -19,6 +19,8 @@ extrosnb_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/EXTROSNB.SIF",
   :notes => raw"""
 The extended Rosenbrock function (nonseparable version).
+
+classification SUR2-AN-V-0
 """,
   :origin_notes => raw"""
 Problem 10 in
@@ -38,8 +40,6 @@ Institute of Computer Science,
 Academy of Science of the Czech Republic
 
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
-
-classification SUR2-AN-V-0
 
 J.-P. Dussault, Rennes 09/2015.
 """,

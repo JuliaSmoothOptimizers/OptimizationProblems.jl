@@ -20,28 +20,21 @@ hs111_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 111.
 
-  classification OOR2-AN-10-3
+This problem is a chemical equilibrium problem involving 3 linear
+equality constraints.
+
+classification OOR2-AN-10-3
 
 N. Antunes, Curitiba, 10/2016.
 """,
 :origin_notes => raw"""
-  Problem 111 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-This problem is a chemical equilibrium problem involving 3 linear
-equality constraints.
-Source: problem 111 in
+problem 111 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Nick Gould, August 1991.
-classification OOR2-AN-10-3
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

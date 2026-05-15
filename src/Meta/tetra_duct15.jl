@@ -17,8 +17,12 @@ tetra_duct15_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://doi.org/10.2172/834714",
-  :notes => raw"""""",
-  :origin_notes => raw"""""",
+  :notes => raw"""
+
+""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""
 @techreport{DolanMore2004COPS,
   author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},

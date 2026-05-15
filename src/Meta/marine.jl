@@ -18,12 +18,14 @@ marine_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/MARINE.SIF",
   :notes => raw"""
- Marine Population Dynamics Problem
+Marine Population Dynamics Problem
  Collocation formulation
 
  Given observations of ns stages of a marine species over n timesteps, 
- minimize the loss between the observation and the computed law of paraneters : growth, mortality and number of specimens (g,m,x) 
-  """,
+ minimize the loss between the observation and the computed law of paraneters : growth, mortality and number of specimens (g,m,x)
+
+classification OOR2-AN-V-V
+""",
   :origin_notes => raw"""
 This is problem 6 in the COPS (Version 3) collection of 
 E. Dolan and J. More'
@@ -33,10 +35,9 @@ Argonne National Labs Technical Report ANL/MCS-246 (2004)
 Alexander S. Bondarenko - Summer 1998
 COPS 2.0 - September 2000
 COPS 3.0 - November 2002
-COPS 3.1 - March 2004  
+COPS 3.1 - March 2004
 
 SIF input: Nick Gould, November 2000
-classification OOR2-AN-V-V
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

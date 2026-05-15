@@ -18,15 +18,12 @@ bqp1var_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/BQP1VAR.SIF",
   :notes => raw"""
-Source: a one variable box-constrained quadratic
-SIF input: Nick Gould, March 1992
 classification QBR2-AN-1-0
 """,
   :origin_notes => raw"""
-Problem :
-Source: a one variable box-constrained quadratic
+a one variable box-constrained quadratic
+
 SIF input: Nick Gould, March 1992
-classification QBR2-AN-1-0
 """,
   :reference => raw"""
 @article{Gould2015CUTEst,

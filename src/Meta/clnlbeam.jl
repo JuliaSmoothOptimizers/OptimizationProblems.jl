@@ -20,21 +20,20 @@ clnlbeam_meta = Dict(
   :notes => raw"""
 The clnlbeam problem
 https://jump.dev/JuMP.jl/stable/tutorials/nonlinear/clnlbeam/
-""",
-  :origin_notes => raw"""
-H. Maurer and H.D. Mittelman, "The non-linear beam via optimal control with bound state variables", Optimal Control Applications and Methods 12, pp. 19-31, 1991.  
----
-Problem :
+
 An optimal control version of the CLamped NonLinear BEAM problem.
 The energy of a beam of length 1 compressed by a force P is to be
 minimized.  The control variable is the derivative of the deflection angle.
 The problem is discretized using the trapezoidal rule. It is non-convex.
-Source:
+
+classification  OOR2-MN-V-V
+""",
+  :origin_notes => raw"""
 H. Maurer and H.D. Mittelman,
 "The non-linear beam via optimal control with bound state variables",
 Optimal Control Applications and Methods 12, pp. 19-31, 1991.
+
 SIF input: Ph. Toint, Nov 1993.
-classification  OOR2-MN-V-V
 """,
   :reference => raw"""
 @article{MaurerMittelmann1991,

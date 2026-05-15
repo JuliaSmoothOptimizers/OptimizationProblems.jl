@@ -20,27 +20,20 @@ hs105_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 105.
 
+classification OLR2-AY-8-1
+
 classification GLR-AN-8-1
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-Problem 105 in
-W. Hock and K. Schittkowski,
-Test examples for nonlinear programming codes,
-Lectures Notes in Economics and Mathematical Systems 187,
-Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 105 in
+problem 105 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Nick Gould, August 1991.
-bug correction (line 351) Ph. Toint, May 2024
-classification OLR2-AY-8-1
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

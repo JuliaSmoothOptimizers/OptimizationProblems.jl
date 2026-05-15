@@ -23,6 +23,8 @@ Collocation formulation
 
 Determine the optimal mixing policy of two catalysts along the
 length of a tubular plug flow reactor involving several reactions
+
+classification OOR2-AN-V-V
 """,
   :origin_notes => raw"""
 This is problem 14 in the COPS (Version 2) collection of 
@@ -34,7 +36,6 @@ COPS 3.0 - November 2002
 COPS 3.1 - March 2004
 
 SIF input: Nick Gould, November 2000
-classification OOR2-AN-V-V
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

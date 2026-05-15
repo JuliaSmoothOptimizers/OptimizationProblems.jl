@@ -20,28 +20,23 @@ hs110_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 110.
 
-  classification GBR-AN-10-0
+This problem is a sum of 2n+1 groups, 2n of which contain 1 linear
+element and the other one contains n elements.
+
+classification SBR2-AN-V-0
+
+classification GBR-AN-10-0
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 110 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-  
----
-Problem :
-This problem is a sum of 2n+1 groups, 2n of which contain 1 linear
-element and the other one contains n elements.
-Source: problem 110 in
+problem 110 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, Mar 1990.
-classification SBR2-AN-V-0
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

@@ -20,26 +20,18 @@ hs44_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 44.
 
-  classification QLR2-AN-4-6
+classification QLR2-AN-4-6
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 44 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 44 in
+problem 44 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Ph.L. Toint, October 1990.
-classification QLR2-AN-4-6
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

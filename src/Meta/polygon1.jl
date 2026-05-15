@@ -30,7 +30,9 @@ E. Dolan and J. More'
 see "Benchmarking Optimization Software with COPS"
 Argonne National Labs Technical Report ANL/MCS-246 (2000)
 """,
-  :origin_notes => raw"""""",
+  :origin_notes => raw"""
+
+""",
   :reference => raw"""
 @techreport{DolanMore2004COPS,
   author       = {Dolan, Elizabeth D. and Mor{'e}, Jorge J.},

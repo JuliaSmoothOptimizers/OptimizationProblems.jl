@@ -20,26 +20,18 @@ hs4_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 4.
 
-  classification OBR2-AN-2-0
+classification OBR2-AN-2-0
 
 N. Antunes, Curitiba, 10/2016.
 """,
 :origin_notes => raw"""
-  Problem 4 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 4 in
+problem 4 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn March 1990
-classification OBR2-AN-2-0
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

@@ -18,9 +18,9 @@ sparsqur_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/SPARSQUR.SIF",
   :notes => raw"""
-   A sparse quartic problem
+A sparse quartic problem
 
-   classification OUR2-AN-V-0
+classification OUR2-AN-V-0
 
    Problem 53 in
    L. Luksan, C. Matonoha and J. Vlcek
@@ -31,13 +31,9 @@ sparsqur_meta = Dict(
    http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
  J.-P. Dussault, Clermont-Ferrand 05/2016.
-  
-  """,
+""",
   :origin_notes => raw"""
-Problem :
-A sparse quartic problem
 SIF input: Nick Gould, November 1995
-classification OUR2-AN-V-0
 """,
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,

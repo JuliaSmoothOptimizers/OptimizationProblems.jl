@@ -18,28 +18,21 @@ powellbs_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/POWELLBS.SIF",
   :notes => raw"""
-Source: problem 3 in
-J.J. More', B.S. Garbow and K.E. Hillstrom,
-"Testing Unconstrained Optimization Software",
-ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-See also  Toint#34, Buckley#22 (p. 82).
-
-classification NOR2-AN-2-2
-""",
-  :origin_notes => raw"""
-Problem :
 Powell badly scaled problem.
 This problem is a sum of n-1 sets of 2 groups, both involving
 nonlinear elements and being of the least square type.
 It Hessian matrix is tridiagonal.
-Source:  Problem 3 in
+
+classification NOR2-AN-2-2
+""",
+  :origin_notes => raw"""
+Problem 3 in
 J.J. More', B.S. Garbow and K.E. Hillstrom,
 "Testing Unconstrained Optimization Software",
 ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
 See also  Toint#34, Buckley#22 (p. 82).
+
 SIF input: Ph. Toint, Dec 1989.
-classification NOR2-AN-2-2
 """,
   :reference => raw"""
 @article{MoreGarbowHillstrom1981,

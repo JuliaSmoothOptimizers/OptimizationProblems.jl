@@ -23,8 +23,8 @@ Model 3: rectangular coordinates
 """,
   :origin_notes => raw"""
 JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
-Introduction to Optimization class.  
-  """,
+Introduction to Optimization class.
+""",
   :reference => raw"""
 @misc{Lessard524,
   author       = {Lessard, Laurent},

@@ -20,6 +20,8 @@ broydn7d_meta = Dict(
   :notes => raw"""
 A seven diagonal variant of the Broyden tridiagonal system,
 featuring a band far away from the diagonal.
+
+classification OUR2-AN-V-0
 """,
   :origin_notes => raw"""
 Problem 3.4 in
@@ -56,7 +58,6 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 See also Buckley#84
 
 SIF input: Ph. Toint, Dec 1989.
-classification OUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 

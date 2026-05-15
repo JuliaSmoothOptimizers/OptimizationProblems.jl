@@ -17,28 +17,23 @@ hs64_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS64.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 64.
+  :notes => raw"""
+Hock and Schittkowski problem number 64.
 
-  classification PPR2-AN-3-1
+classification OOR2-AN-3-1
+
+classification PPR2-AN-3-1
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 64 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 64 in
+problem 64 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: N. Gould, Dec 1989.
-classification OOR2-AN-3-1
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

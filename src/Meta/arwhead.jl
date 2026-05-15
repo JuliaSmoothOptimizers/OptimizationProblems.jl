@@ -21,6 +21,8 @@ arwhead_meta = Dict(
 Arrow head problem.
 A quartic problem whose Hessian is an arrow-head (downwards) with
 diagonal central part and border-width of 1.
+
+classification OUR2-AN-V-0
 """,
   :origin_notes => raw"""
 Problem 55 in
@@ -29,7 +31,6 @@ Performance of a multifrontal scheme for partially separable
 optimization,
 Report 88/4, Dept of Mathematics, FUNDP (Namur, B), 1988.
 SIF input: Ph. Toint, Dec 1989.
-classification OUR2-AN-V-0
 
 See also
 

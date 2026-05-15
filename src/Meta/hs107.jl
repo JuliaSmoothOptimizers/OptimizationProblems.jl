@@ -20,30 +20,25 @@ hs107_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 107.
 
+A static power scheduling problem.
+There are note enough components for the starting point in the
+problem description in the source.  The initial value for X7 has
+been set to 1.0454, as for X5 and X6.
+
+classification OOR2-MY-9-6
+
 classification PGR-AN-9-6
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-Problem 107 in
-W. Hock and K. Schittkowski,
-Test examples for nonlinear programming codes,
-Lectures Notes in Economics and Mathematical Systems 187,
-Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-A static power scheduling problem.
-There are note enough components for the starting point in the
-problem description in the source.  The initial value for X7 has
-been set to 1.0454, as for X5 and X6.
-Source: problem 107 in
+problem 107 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Ph. Toint, April 1991.
-classification OOR2-MY-9-6
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

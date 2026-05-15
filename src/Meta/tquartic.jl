@@ -18,13 +18,10 @@ tquartic_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/TQUARTIC.SIF",
   :notes => raw"""
-   A quartic function with nontrivial groups and
+A quartic function with nontrivial groups and
    repetitious elements.
 
-   Source:
-   Ph. Toint, private communication.
-
-   classification SUR2-AN-V-0#
+classification SUR2-AN-V-0#
 
    Problem 57 in
    L. Luksan, C. Matonoha and J. Vlcek
@@ -35,16 +32,11 @@ tquartic_meta = Dict(
    http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
  J.-P. Dussault, Clermont-Ferrand 05/2016.
-  
-  """,
+""",
   :origin_notes => raw"""
-Problem :
-A quartic function with nontrivial groups and
-repetitious elements.
-Source:
 Ph. Toint, private communication.
+
 SIF input: Ph. Toint, Dec 1989.
-classification SUR2-AN-V-0
 """,
   :reference => raw"""
 @techreport{LuksanMatonohaVlcek2003,

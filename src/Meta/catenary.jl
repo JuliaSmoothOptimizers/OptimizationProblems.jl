@@ -32,21 +32,9 @@ M. Gollier, Montréal, 05/2023
   :origin_notes => raw"""
 K. Veselic,
 "De forma catenarum in campo gravitatis pendentium",
-Klasicna Gimnazija u Zagrebu, Zagreb, 1987.  
-  ---
-Problem:
-An erroneous but interesting version of the classical problem of the hanging
-catenary.  Here the catenary consists of N+1 beams of length BL,
-with the first beam fixed at the origin and the final bean fixed
-at a fraction FRACT of the total length of all beams.
-The correct version of the same problem is given by problem CATENA.SIF
-The problem is non-convex.
-Source: 
-K. Veselic,
-"De forma catenarum in campo gravitatis pendentium",
 Klasicna Gimnazija u Zagrebu, Zagreb, 1987.
+
 SIF input: Ph. L. Toint, May 1993.
-classification LQR2-AY-V-V
 """,
   :reference => raw"""
 @book{Veselic1987,

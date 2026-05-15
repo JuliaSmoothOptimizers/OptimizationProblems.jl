@@ -49,18 +49,20 @@ Model:         Rational Class (quadratic/quadratic)
                    (1 + b4*x + b5*x**2)  +  e
 
 T. Migot, Montreal, 2023.
-                   """,
-  :origin_notes => raw"""
-Problem :
+
 NIST Data fitting problem KIRBY2 given as an inconsistent set of
 nonlinear equations.
 Fit: y = (b1 + b2*x + b3*x**2) /(1 + b4*x + b5*x**2) + e
-Source:  Problem from the NIST nonlinear regression test set
+
+classification NOR2-MN-5-151
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
 http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
 Reference: Kirby, R., NIST (197?).  
 Scanning electron microscope line width standards.
+
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
-classification NOR2-MN-5-151
 """,
   :reference => raw"""""",
   :lib => "CUTEst:KIRBY2, NIST:Kirby2",

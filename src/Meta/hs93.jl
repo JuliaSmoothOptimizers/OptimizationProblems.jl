@@ -20,27 +20,22 @@ hs93_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 93.
 
-  classification PPR-AN-6-2
+A transformer design problem.
+
+classification OOR2-MY-6-2
+
+classification PPR-AN-6-2
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 93 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-  
----
-Problem :
-A transformer design problem.
-Source: problem 93 in
+problem 93 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Nick Gould, August 1991.
-classification OOR2-MY-6-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

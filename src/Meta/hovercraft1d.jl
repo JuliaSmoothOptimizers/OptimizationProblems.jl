@@ -17,14 +17,16 @@ hovercraft1d_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://laurentlessard.com/teaching/524-intro-to-optimization/",
-  :notes => raw"""""",
+  :notes => raw"""
+
+""",
   :origin_notes => raw"""
 JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
 Introduction to Optimization class.
 
 Hovercraft 1D example
-https://laurentlessard.com/teaching/524-intro-to-optimization/  
-  """,
+https://laurentlessard.com/teaching/524-intro-to-optimization/
+""",
   :reference => raw"""
 @misc{lessard524,
 author = {Laurent Lessard},

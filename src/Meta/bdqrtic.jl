@@ -19,6 +19,8 @@ bdqrtic_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/BDQRTIC.SIF",
   :notes => raw"""
 This problem is quartic and has a banded Hessian with bandwidth = 9
+
+classification SUR2-AN-V-0
 """,
   :origin_notes => raw"""
 Problem 61 in
@@ -39,7 +41,6 @@ Academy of Science of the Czech Republic
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
 SIF input: Ph. Toint, Dec 1989.
-classification SUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 """,

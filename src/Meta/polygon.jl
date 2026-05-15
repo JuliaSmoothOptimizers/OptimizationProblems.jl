@@ -23,6 +23,8 @@ Find the polygon of maximal area, among polygons with nv sides and diameter d <=
 The initial guess is inspired from https://vanderbei.princeton.edu/ampl/nlmodels/polygon/polygon2.mod
 
 See `polygon1`, `polygon2` and `polygon3` for similar variants.
+
+classification OOR2-AN-V-V
 """,
   :origin_notes => raw"""
 This is problem 1 in the COPS (Version 3) collection of 
@@ -31,7 +33,6 @@ see "Benchmarking Optimization Software with COPS"
 Argonne National Labs Technical Report ANL/MCS-246 (2004)
 
 SIF input: Nick Gould, December 2000
-classification OOR2-AN-V-V
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

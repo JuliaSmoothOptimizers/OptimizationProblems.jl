@@ -19,6 +19,8 @@ dqrtic_meta = Dict(
   :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf, https://bitbucket.org/optrove/sif/src/master/DQRTIC.SIF",
   :notes => raw"""
 Variable dimension diagonal quartic problem.
+
+classification OUR2-AN-V-0
 """,
   :origin_notes => raw"""
 Problem 157 (p. 87) in
@@ -34,10 +36,9 @@ L. Luksan, C. Matonoha and J. Vlcek
 Modified CUTE problems for sparse unconstrained optimization,
 Technical Report 1081,
 Institute of Computer Science,
-Academy of Science of the Czech Republic  
+Academy of Science of the Czech Republic
 
 SIF input: Ph. Toint, Dec 1989.
-classification OUR2-AN-V-0
 
 D. Orban, Montreal, 08/2015.
 """,

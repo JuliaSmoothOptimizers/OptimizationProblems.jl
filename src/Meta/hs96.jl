@@ -20,26 +20,20 @@ hs96_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 96.
 
-  classification PPR-AN-6-4
+classification LQR2-AN-6-4
+
+classification PPR-AN-6-4
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 96 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-  
----
-Problem :
-Source: problem 96 in
+problem 96 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: Ph. Toint, April 1991.
-classification LQR2-AN-6-4
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

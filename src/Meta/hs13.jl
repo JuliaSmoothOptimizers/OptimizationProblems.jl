@@ -18,30 +18,25 @@ hs13_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS13.SIF",
   :notes => raw"""
- Hock and Schittkowski problem number 13.
+Hock and Schittkowski problem number 13.
 
-   classification QQR2-AN-2-1
-
- N. Antunes, Curitiba, 10/2016.  
-  """,
-:origin_notes => raw"""
-   Problem 13 in
-   W. Hock and K. Schittkowski,
-   Test examples for nonlinear programming codes,
-   Lectures Notes in Economics and Mathematical Systems 187,
-   Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
 A problem in 2 variables where constraint qualification does not
 hold.
-Source: problem 13 in
+
+classification QOR2-AN-2-1
+
+classification QQR2-AN-2-1
+
+ N. Antunes, Curitiba, 10/2016.
+""",
+:origin_notes => raw"""
+problem 13 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn March 1990
-classification QOR2-AN-2-1
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

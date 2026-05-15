@@ -18,26 +18,18 @@ hs6_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS6.SIF",
   :notes => raw"""
-  classification QQR2-AN-2-1
+classification QQR2-AN-2-1
   
   D. Orban, Montreal, 04/2016.
 """,
   :origin_notes => raw"""
-  Problem 6 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 6 in
+problem 6 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn March 1990
-classification QQR2-AN-2-1
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

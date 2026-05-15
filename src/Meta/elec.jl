@@ -20,6 +20,8 @@ elec_meta = Dict(
   :notes => raw"""
 Given np electrons, find the equilibrium state distribution of minimal
 Columb potential of the electrons positioned on a conducting sphere
+
+classification OOR2-AN-V-V
 """,
   :origin_notes => raw"""
 This is problem 2 in the COPS (Version 3) collection of 
@@ -28,7 +30,6 @@ see "Benchmarking Optimization Software with COPS"
 Argonne National Labs Technical Report ANL/MCS-246 (2004)
 
 SIF input: Nick Gould, November 2000
-classification OOR2-AN-V-V
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

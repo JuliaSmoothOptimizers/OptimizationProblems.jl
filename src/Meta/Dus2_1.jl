@@ -25,8 +25,8 @@ S. Goyette, Sherbrooke 2016/2017
   :origin_notes => raw"""
 Problem found in
 http://www.dmi.usherb.ca/~dussault/ROP630E17/
-Jean_pierre Dussault  
-  """,
+Jean_pierre Dussault
+""",
   :reference => raw"""""",
   :lib => "",
 )

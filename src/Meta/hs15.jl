@@ -18,28 +18,20 @@ hs15_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS15.SIF",
   :notes => raw"""
- Hock and Schittkowski problem number 15.
+Hock and Schittkowski problem number 15.
 
-   classification SQR2-AN-2-2
+classification SQR2-AN-2-2
 
  N. Antunes, Curitiba, 10/2016.
-  """,
+""",
 :origin_notes => raw"""
-   Problem 15 in
-   W. Hock and K. Schittkowski,
-   Test examples for nonlinear programming codes,
-   Lectures Notes in Economics and Mathematical Systems 187,
-   Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 15 in
+problem 15 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn March 1990
-classification SQR2-AN-2-2
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,

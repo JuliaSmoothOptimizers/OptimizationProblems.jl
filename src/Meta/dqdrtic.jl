@@ -23,21 +23,13 @@ Diagonal quadratic problem
 classification QUR2-AN-V-0
 """,
   :origin_notes => raw"""
-Problem 22 in
-Ph. L. Toint,
-"Test problems for partially separable optimization and results
-for the routine PSPMIN",
-Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.  
-  ---
-Problem :
-A simple diagonal quadratic.
-Source: problem 22 in
+problem 22 in
 Ph. L. Toint,
 "Test problems for partially separable optimization and results
 for the routine PSPMIN",
 Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
+
 SIF input: Ph. Toint, Dec 1989.
-classification QUR2-AN-V-0
 """,
   :reference => raw"""
 @techreport{Toint1983,

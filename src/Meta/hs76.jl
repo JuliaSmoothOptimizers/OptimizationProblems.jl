@@ -17,28 +17,23 @@ hs76_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS76.SIF",
-  :notes => raw"""Hock and Schittkowski problem number 76.
+  :notes => raw"""
+Hock and Schittkowski problem number 76.
 
-  classification QLR-AN-4-3
+classification QLR2-AN-4-3
+
+classification QLR-AN-4-3
 
 A. Montoison, Montreal, 05/2018.
 """,
 :origin_notes => raw"""
-  Problem 76 in
-  W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
-
----
-Problem :
-Source: problem 76 in
+problem 76 in
 W. Hock and K. Schittkowski,
 "Test examples for nonlinear programming codes",
 Lectures Notes in Economics and Mathematical Systems 187, Springer
 Verlag, Heidelberg, 1981.
+
 SIF input: A.R. Conn, March 1991.
-classification QLR2-AN-4-3
 """,
   :reference => raw"""
 @book{HockSchittkowski1981,
