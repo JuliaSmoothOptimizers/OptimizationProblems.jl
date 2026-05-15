@@ -1,25 +1,3 @@
-#   Source:  The first problem given by
-#   R. Fletcher,
-#   "An optimal positive definite update for sparse Hessian matrices"
-#   Numerical Analysis report NA/145, University of Dundee, 1992.
-
-#   Scaled version.
-
-#   SIF input: Nick Gould, Oct 1992.
-
-#   problem 31 in
-#   L. Luksan, C. Matonoha and J. Vlcek
-#   Modified CUTE problems for sparse unconstrained optimization,
-#   Technical Report 1081,
-#   Institute of Computer Science,
-#   Academy of Science of the Czech Republic
-#
-#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
-#
-#   classification OUR2-AN-V-0
-#
-# J,-P, Dussault, Rennes 09/2015.
-
 export fletcbv2
 
 function fletcbv2(args...; n::Int = default_nvar, kwargs...)

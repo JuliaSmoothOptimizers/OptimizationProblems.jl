@@ -16,6 +16,26 @@ rosenbrock_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://doi.org/10.1093/comjnl/3.3.175",
+  :notes => raw"""
+
+""",
+  :origin_notes => raw"""
+
+""",
+  :reference => raw"""
+@article{Rosenbrock1960,
+  author  = {Rosenbrock, H. H.},
+  title   = {An Automatic Method for Finding the Greatest or Least Value of a Function},
+  journal = {The Computer Journal},
+  year    = {1960},
+  volume  = {3},
+  number  = {3},
+  pages   = {175--184},
+  doi     = {10.1093/comjnl/3.3.175}
+}
+""",
+  :lib => "",
 )
 get_rosenbrock_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_rosenbrock_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -2,3 +2,5 @@
 *.jl.*.cov
 *.jl.mem
 Manifest.toml
+*.bib
+*/settings.local.json

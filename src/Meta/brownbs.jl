@@ -16,6 +16,39 @@ brownbs_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/BROWNBS.SIF",
+  :notes => raw"""
+Brown badly scaled problem in 2 variables.
+This problem is a sum of n-1 sets of 3 groups, one of then involving
+a nonlinear element and all being of the least square type.
+It Hessian matrix is tridiagonal.
+
+classification SUR2-AN-2-0
+
+A. Cebola, Curitiba 10/2016.
+""",
+  :origin_notes => raw"""
+Problem 4 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#25
+
+SIF input: Ph. Toint, Dec 1989.
+""",
+  :reference => raw"""
+@article{MoreGarbowHillstrom1981,
+  author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
+  title   = {Testing Unconstrained Optimization Software},
+  journal = {ACM Transactions on Mathematical Software},
+  year    = {1981},
+  volume  = {7},
+  number  = {1},
+  pages   = {17--41},
+  doi     = {10.1145/355934.355936}
+}  
+  """,
+  :lib => "CUTEst:BROWNBS",
 )
 get_brownbs_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_brownbs_ncon(; n::Integer = default_nvar, kwargs...) = 0

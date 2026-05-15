@@ -16,6 +16,31 @@ allinit_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/ALLINIT.SIF",
+  :notes => raw"""
+A problem with "all in it". Intended to verify that changes
+to LANCELOT are safe.
+
+classification OBR2-AY-4-0
+""",
+  :origin_notes => raw"""
+N. Gould, private communication.
+
+SIF input: Nick Gould, June 1990.
+""",
+  :reference => raw"""
+@article{Gould2015CUTEst,
+  author  = {Gould, N. I. M. and Orban, D. and Toint, Ph. L.},
+  title   = {{CUTEst}: a Constrained and Unconstrained Testing Environment with safe threads for mathematical optimization},
+  journal = {Computational Optimization and Applications},
+  year    = {2015},
+  volume  = {60},
+  number  = {3},
+  pages   = {545--557},
+  doi     = {10.1007/s10589-014-9687-3}
+}
+""",
+  :lib => "CUTEst:ALLINIT",
 )
 get_allinit_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_allinit_ncon(; n::Integer = default_nvar, kwargs...) = 3

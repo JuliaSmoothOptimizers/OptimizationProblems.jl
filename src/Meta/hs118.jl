@@ -16,6 +16,38 @@ hs118_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS118.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 118.
+
+classification QLR2-AN-15-17
+
+classification QLR-AN-15-17
+
+A. Montoison, Montreal, 05/2018.
+""",
+:origin_notes => raw"""
+problem 118 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+
+SIF input: B Baudson, Jan 1990.
+""",
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+
+  :lib => "CUTEst:HS118, HS:118",
 )
 get_hs118_nvar(; n::Integer = default_nvar, kwargs...) = 15
 get_hs118_ncon(; n::Integer = default_nvar, kwargs...) = 17

@@ -16,6 +16,40 @@ hs70_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS70.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 70.
+
+This problem arises in water flow routing.
+
+classification SQR2-MN-4-1
+
+classification SQR2-AN-4-1
+
+A. Montoison, Montreal, 05/2018.
+""",
+:origin_notes => raw"""
+problem 70 incorrectly stated in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+
+SIF input: Nick Gould, August 1991, modified May 2024
+""",
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+
+  :lib => "CUTEst:HS70, HS:70",
 )
 get_hs70_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs70_ncon(; n::Integer = default_nvar, kwargs...) = 1

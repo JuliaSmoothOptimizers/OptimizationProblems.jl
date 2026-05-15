@@ -16,6 +16,46 @@ bdqrtic_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/BDQRTIC.SIF",
+  :notes => raw"""
+This problem is quartic and has a banded Hessian with bandwidth = 9
+
+classification SUR2-AN-V-0
+""",
+  :origin_notes => raw"""
+Problem 61 in
+A.R. Conn, N.I.M. Gould, M. Lescrenier and Ph.L. Toint,
+Performance of a multifrontal scheme for partially separable
+optimization,
+Report 88/4, Dept of Mathematics, FUNDP (Namur, B), 1988.
+
+See also
+
+problem 2 in
+L. Luksan, C. Matonoha and J. Vlcek
+Modified CUTE problems for sparse unconstrained optimization,
+Technical Report 1081,
+Institute of Computer Science,
+Academy of Science of the Czech Republic
+
+http://www.cs.cas.cz/matonoha/download/V1081.pdf
+
+SIF input: Ph. Toint, Dec 1989.
+
+D. Orban, Montreal, 08/2015.
+""",
+  :reference => raw"""
+@techreport{ConnGouldLescrenierToint1988,
+  author      = {Conn, A. R. and Gould, N. I. M. and Lescrenier, M. and Toint, Ph. L.},
+  title       = {Performance of a multifrontal scheme for partially separable optimization},
+  institution = {Department of Mathematics, FUNDP},
+  address     = {Namur, Belgium},
+  number      = {Report 88/4},
+  year        = {1988}
+}  
+  """,
+
+  :lib => "CUTEst:BDQRTIC, Luksan:2",
 )
 get_bdqrtic_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_bdqrtic_ncon(; n::Integer = default_nvar, kwargs...) = 0

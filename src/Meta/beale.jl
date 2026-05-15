@@ -16,6 +16,36 @@ beale_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/BEALE.SIF",
+  :notes => raw"""
+Beale problem in 2 variables
+
+classification SUR2-AN-2-0
+
+A. Cebola, Curitiba 10/2016.
+""",
+  :origin_notes => raw"""
+Problem 5 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#89.
+
+SIF input: Ph. Toint, Dec 1989.
+""",
+  :reference => raw"""
+@article{MoreGarbowHillstrom1981,
+  author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
+  title   = {Testing Unconstrained Optimization Software},
+  journal = {ACM Transactions on Mathematical Software},
+  year    = {1981},
+  volume  = {7},
+  number  = {1},
+  pages   = {17--41},
+  doi     = {10.1145/355934.355936}
+}  
+  """,
+  :lib => "CUTEst:BEALE",
 )
 get_beale_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_beale_ncon(; n::Integer = default_nvar, kwargs...) = 0

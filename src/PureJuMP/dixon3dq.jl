@@ -1,13 +1,3 @@
-#   Dixon's tridiagonal quadratic.
-#
-#   Source: problem 156 (p. 51) in
-#   A.R. Buckley,
-#   "Test functions for unconstrained minimization",
-#   TR 1989CS-3, Mathematics, statistics and computing centre,
-#   Dalhousie University, Halifax (CDN), 1989.
-#
-#   classification QUR2-AN-V-0
-
 export dixon3dq
 
 "Dixon's tridiagonal quadratic."

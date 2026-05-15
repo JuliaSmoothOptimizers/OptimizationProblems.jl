@@ -16,6 +16,62 @@ gauss1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/GAUSS1.SIF",
+  :notes => raw"""
+https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/gauss1.dat
+
+NIST/ITL StRD
+Dataset Name:  Gauss1            (Gauss1.dat)
+
+File Format:   ASCII
+               Starting Values   (lines 41 to  48)
+               Certified Values  (lines 41 to  53)
+               Data              (lines 61 to 310)
+
+Procedure:     Nonlinear Least Squares Regression
+
+Description:   The data are two well-separated Gaussians on a 
+               decaying exponential baseline plus normally 
+               distributed zero-mean noise with variance = 6.25.
+
+Reference:     Rust, B., NIST (1996).
+
+Data:          1 Response  (y)
+               1 Predictor (x)
+               250 Observations
+               Lower Level of Difficulty
+               Generated Data
+
+Model:         Exponential Class
+               8 Parameters (b1 to b8) 
+
+               y = b1*exp( -b2*x ) + b3*exp( -(x-b4)**2 / b5**2 )
+                                   + b6*exp( -(x-b7)**2 / b8**2 ) + e
+T. Migot, Montreal, 2023.
+
+NIST Data fitting problem GAUSS1 given as an inconsistent set of
+nonlinear equations.
+Fit: y = b1*exp( -b2*x ) + b3*exp( -(x-b4)**2 / b5**2 )
++ b6*exp( -(x-b7)**2 / b8**2 ) + e
+
+classification NOR2-MN-8-250
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Rust, B., NIST (1996).
+
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+""",
+  :reference => raw"""
+@misc{NISTStRD,
+  author       = {{National Institute of Standards and Technology}},
+  title        = {{NIST/ITL StRD}: Nonlinear Regression Reference Datasets},
+  howpublished = {\url{https://www.itl.nist.gov/div898/strd/nls/nls_main.shtml}},
+  year         = {1997}
+}
+""",
+  :lib => "CUTEst:GAUSS1, NIST:Gauss1",
 )
 get_gauss1_nvar(; n::Integer = default_nvar, kwargs...) = 8
 get_gauss1_ncon(; n::Integer = default_nvar, kwargs...) = 0

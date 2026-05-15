@@ -16,6 +16,27 @@ hovercraft1d_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://laurentlessard.com/teaching/524-intro-to-optimization/",
+  :notes => raw"""
+
+""",
+  :origin_notes => raw"""
+JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
+Introduction to Optimization class.
+
+Hovercraft 1D example
+https://laurentlessard.com/teaching/524-intro-to-optimization/
+""",
+  :reference => raw"""
+@misc{Lessard524,
+  author       = {Lessard, Laurent},
+  title        = {Introduction to Optimization, {CS/ECE/ISyE} 524},
+  howpublished = {Lecture notes, University of Wisconsin--Madison},
+  url          = {https://laurentlessard.com/teaching/524-intro-to-optimization/},
+  year         = {2023}
+}
+""",
+  :lib => "",
 )
 get_hovercraft1d_nvar(; n::Integer = default_nvar, kwargs...) = 3 * div(n, 3) - 1
 get_hovercraft1d_ncon(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 3) + 2

@@ -16,6 +16,27 @@ Dus2_3_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "http://www.dmi.usherb.ca/~dussault/ROP630E17/",
+  :notes => raw"""
+A one dimensional optimization problem
+
+S. Goyette, Sherbrooke 2016/2017
+""",
+  :origin_notes => raw"""
+Problem found in
+http://www.dmi.usherb.ca/~dussault/ROP630E17/
+Jean_pierre Dussault
+""",
+  :reference => raw"""
+@misc{Dussault2017,
+  author       = {Dussault, Jean-Pierre},
+  title        = {Optimization Test Problems},
+  howpublished = {\url{http://www.dmi.usherb.ca/~dussault/ROP630E17/}},
+  year         = {2017},
+  note         = {Universit{\'e} de Sherbrooke}
+}
+""",
+  :lib => "",
 )
 get_Dus2_3_nvar(; n::Integer = default_nvar, kwargs...) = 1
 get_Dus2_3_ncon(; n::Integer = default_nvar, kwargs...) = 0

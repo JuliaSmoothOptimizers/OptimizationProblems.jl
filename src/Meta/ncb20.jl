@@ -16,6 +16,39 @@ ncb20_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/NCB20.SIF",
+  :notes => raw"""
+A banded problem with semi-bandwidth 20.  This problem exhibits frequent
+negative curvature in the exact Hessian.
+
+classification OUR2-AN-V-0
+Problem 40 in
+L. Luksan, C. Matonoha and J. Vlcek
+Modified CUTE problems for sparse unconstrained optimization,
+Technical Report 1081,
+Institute of Computer Science,
+Academy of Science of the Czech Republic
+http://www.cs.cas.cz/matonoha/download/V1081.pdf
+J.-P. Dussault, Clermont-Ferrand 05/2016.
+""",
+  :origin_notes => raw"""
+Ph. Toint, private communication, 1992.
+
+SIF input: Ph. Toint, October 1992.
+""",
+  :reference => raw"""
+@techreport{LuksanMatonohaVlcek2003,
+  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
+  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
+    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
+  number       = {1081},
+  year         = {2003},
+  address      = {Prague, Czech Republic},
+  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
+  }  
+  """,
+
+  :lib => "CUTEst:NCB20, Luksan:40",
 )
 get_ncb20_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_ncb20_ncon(; n::Integer = default_nvar, kwargs...) = 0

@@ -1,11 +1,3 @@
-#   Source: Problem 9 in
-#   J.J. More', B.S. Garbow and K.E. Hillstrom,
-#   "Testing Unconstrained Optimization Software",
-#   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-#   See also Buckley#28
-
-#   classification SUR2-AN-3-0
 export gaussian
 
 function gaussian(args...; n::Int = default_nvar, kwargs...)

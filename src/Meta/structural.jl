@@ -25,6 +25,23 @@ structural_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://laurentlessard.com/teaching/524-intro-to-optimization/",
+  :notes => raw"""
+JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
+ Introduction to Optimization class.
+""",
+  :origin_notes => raw"""
+
+""",
+  :reference => raw"""
+@misc{Lessard524,
+  author       = {Lessard, Laurent},
+  title        = {Introduction to Optimization, {CS/ECE/ISyE} 524},
+  howpublished = {Lecture notes, University of Wisconsin--Madison},
+  url          = {https://laurentlessard.com/teaching/524-intro-to-optimization/},
+}
+""",
+  :lib => "",
 )
 get_structural_nvar(; n::Integer = default_nvar, kwargs...) =
   2 * Int(

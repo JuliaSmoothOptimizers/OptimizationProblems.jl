@@ -1,17 +1,3 @@
-#   A sparse problem involving sine functions
-
-#   classification OUR2-AN-V-0
-
-#   Problem 52 in
-#   L. Luksan, C. Matonoha and J. Vlcek
-#   Modified CUTE problems for sparse unconstrained optimization,
-#   Technical Report 1081,
-#   Institute of Computer Science,
-#   Academy of Science of the Czech Republic
-#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
-#
-# J.-P. Dussault, Clermont-Ferrand 05/2016.
-
 export sparsine
 
 "A sparse problem involving sine functions in size 'n' "

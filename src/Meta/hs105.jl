@@ -16,6 +16,38 @@ hs105_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS105.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 105.
+
+classification OLR2-AY-8-1
+
+classification GLR-AN-8-1
+
+A. Montoison, Montreal, 05/2018.
+""",
+:origin_notes => raw"""
+problem 105 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+
+SIF input: Nick Gould, August 1991.
+""",
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+
+  :lib => "CUTEst:HS105, HS:105",
 )
 get_hs105_nvar(; n::Integer = default_nvar, kwargs...) = 8
 get_hs105_ncon(; n::Integer = default_nvar, kwargs...) = 1

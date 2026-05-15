@@ -16,6 +16,38 @@ hs108_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS108.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 108.
+
+classification QQR2-AY-9-13
+
+classification QQR-AN-9-13
+
+A. Montoison, Montreal, 05/2018.
+""",
+:origin_notes => raw"""
+problem 108 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+
+SIF input: J-M Collin and Ph. Toint, Apr 1990.
+""",
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+
+  :lib => "CUTEst:HS108, HS:108",
 )
 get_hs108_nvar(; n::Integer = default_nvar, kwargs...) = 9
 get_hs108_ncon(; n::Integer = default_nvar, kwargs...) = 12

@@ -16,6 +16,36 @@ hs14_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS14.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 14.
+
+classification SQR2-AN-2-2
+
+ N. Antunes, Curitiba, 10/2016.
+""",
+:origin_notes => raw"""
+problem 14 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+
+SIF input: A.R. Conn March 1990
+""",
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+
+  :lib => "CUTEst:HS14, HS:14",
 )
 get_hs14_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs14_ncon(; n::Integer = default_nvar, kwargs...) = 2

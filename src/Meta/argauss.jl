@@ -16,6 +16,36 @@ argauss_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://doi.org/10.1145/355934.355936, https://bitbucket.org/optrove/sif/src/master/ARGAUSS.SIF",
+  :notes => raw"""
+SIF input: Ph. Toint, Dec 1989.
+
+More''s gaussian problem in 3 variables
+
+classification NOR2-AN-3-15
+""",
+  :origin_notes => raw"""
+Problem 9 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#28
+
+SIF input: Ph. Toint, Dec 1989.
+""",
+  :reference => raw"""
+@article{MoreGarbowHillstrom1981,
+  author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
+  title   = {Testing Unconstrained Optimization Software},
+  journal = {ACM Transactions on Mathematical Software},
+  year    = {1981},
+  volume  = {7},
+  number  = {1},
+  pages   = {17--41},
+  doi     = {10.1145/355934.355936}
+}  
+""",
+  :lib => "CUTEst:ARGAUSS",
 )
 get_argauss_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_argauss_ncon(; n::Integer = default_nvar, kwargs...) = 15

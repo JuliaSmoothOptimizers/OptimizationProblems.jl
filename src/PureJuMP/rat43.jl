@@ -1,39 +1,3 @@
-
-#=
-https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/rat43.dat
-
-NIST/ITL StRD
-Dataset Name:  Rat43             (Rat43.dat)
-
-File Format:   ASCII
-               Starting Values   (lines 41 to 44)
-               Certified Values  (lines 41 to 49)
-               Data              (lines 61 to 75)
-
-Procedure:     Nonlinear Least Squares Regression
-
-Description:   This model and data are an example of fitting  
-               sigmoidal growth curves taken from Ratkowsky (1983).  
-               The response variable is the dry weight of onion bulbs 
-               and tops, and the predictor variable is growing time. 
-
-Reference:     Ratkowsky, D.A. (1983).  
-               Nonlinear Regression Modeling.
-               New York, NY:  Marcel Dekker, pp. 62 and 88.
-
-Data:          1 Response  (y = onion bulb dry weight)
-               1 Predictor (x = growing time)
-               15 Observations
-               Higher Level of Difficulty
-               Observed Data
-
-Model:         Exponential Class
-               4 Parameters (b1 to b4)
-
-               y = b1 / ((1+exp[b2-b3*x])**(1/b4))  +  e
-=#
-# T. Migot, Montreal, 2023.
-
 export rat43
 
 function rat43(args...; kwargs...)

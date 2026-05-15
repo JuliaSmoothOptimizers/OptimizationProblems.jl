@@ -16,6 +16,44 @@ hs109_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS109.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 109.
+
+classification OOR2-AY-9-10
+
+classification PGR-AN-9-10
+
+A. Montoison, Montreal, 05/2018.
+""",
+:origin_notes => raw"""
+Problem 109 in
+  W. Hock and K. Schittkowski,
+  Test examples for nonlinear programming codes,
+  Lectures Notes in Economics and Mathematical Systems 187,
+  Springer Verlag, Heidelberg, 1981.
+
+problem 80 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+
+SIF input: A.R. Conn, June 1990.
+""",
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+
+  :lib => "CUTEst:HS109, HS:109",
 )
 get_hs109_nvar(; n::Integer = default_nvar, kwargs...) = 9
 get_hs109_ncon(; n::Integer = default_nvar, kwargs...) = 9

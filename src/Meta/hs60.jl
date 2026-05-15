@@ -16,6 +16,39 @@ hs60_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS60.SIF",
+  :notes =>
+    raw"""
+Hock and Schittkowski problem number 60.
+
+classification OOR2-AY-3-1
+
+classification PPR2-AN-3-1
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""
+problem 60 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+
+SIF input: J-M Collin, April 1990.
+""",
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+
+  :lib => "CUTEst:HS60, HS:60",
 )
 get_hs60_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_hs60_ncon(; n::Integer = default_nvar, kwargs...) = 1

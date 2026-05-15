@@ -1,27 +1,3 @@
-#   The clamped plate problem (Strang, Nocedal, Dax).
-#   The problem comes from the discretization the following problem
-#   in mechanics:  a plate is clamped on one edge and loaded on the
-#   opposite side.  The plate is the unit square.
-#
-#   In this version of the problem, part of the weight wght is put on the
-#   upper right corner of the plate, and the rest on the upper left corner.
-#
-#   The plate is clamped on its lower edge, by fixing the
-#   corresponding variables to zero.
-#
-#   Source:
-#   J. Nocedal,
-#   "Solving large nonlinear systems of equations arising in mechanics",
-#   Proceedings of the Cocoyoc Numerical Analysis Conference, Mexico,
-#   pp. 132-141, 1981.
-#
-#   classification OXR2-MN-V-0
-#
-#   p is the number of points in one side of the unit square
-#   The number of variables is p*p, of which (p-1)*(p-1) are free.
-#
-#   Fixed variables have been eliminated from the objective function.
-
 export clplatec
 
 "The clamped plate problem (Strang, Nocedal, Dax)."

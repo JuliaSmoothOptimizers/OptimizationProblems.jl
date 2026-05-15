@@ -16,6 +16,38 @@ hs53_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS53.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 53.
+
+classification QLR2-AY-5-3
+
+classification QLR2-AN-5-3
+
+A. Montoison, Montreal, 05/2018.
+""",
+:origin_notes => raw"""
+problem 53 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+
+SIF input: A.R. Conn, April 1990
+""",
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+
+  :lib => "CUTEst:HS53, HS:53",
 )
 get_hs53_nvar(; n::Integer = default_nvar, kwargs...) = 5
 get_hs53_ncon(; n::Integer = default_nvar, kwargs...) = 3

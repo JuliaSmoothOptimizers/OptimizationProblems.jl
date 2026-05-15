@@ -49,6 +49,11 @@ const cols_names = [
   :is_feasible
   :defined_everywhere
   :origin
+  :url
+  :notes
+  :origin_notes
+  :reference
+  :lib
 ]
 
 const types = [
@@ -69,6 +74,11 @@ const types = [
   Union{Bool, Missing}
   Union{Bool, Missing}
   Symbol
+  String
+  String
+  String
+  String
+  String
 ]
 
 """
@@ -96,11 +106,20 @@ The following keys are valid:
   - `is_feasible::Union{Bool, Missing}`: true if problem is feasible
   - `defined_everywhere::Union{Bool, Missing}`: true if the objective is define for all values of the variables
   - `origin::Symbol`: origin of the problem, in [:academic, :modelling, :real, :unknown]
+  - `url::String`: URL where the problem can be found
+  - `notes::String`: any additional notes about the problem
+  - `origin_notes::String`: any additional notes about the origin of the problem
+  - `reference::String`: reference to the problem in bibtex format
+  - `lib::String`: comma-separated list of external test-set memberships in `"Collection:ID"` format (e.g. `"CUTEst:HS1, HS:1"`); empty string if none known
 """
 const meta = DataFrame(cols_names .=> [Array{T}(undef, number_of_problems) for T in types])
 
 for name in cols_names, i = 1:number_of_problems
   meta[!, name][i] = eval(Meta.parse("$(split(files[i], ".")[1])_meta"))[name]
 end
+
+include("utils.jl")
+
+export export_bibtex
 
 end # module

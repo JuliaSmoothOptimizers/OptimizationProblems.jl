@@ -16,6 +16,41 @@ bard_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/BARD.SIF",
+  :notes => raw"""
+Bard problem in 3 variables.
+This function is a nonlinear least squares with 15 groups.
+Each group has a linear and a nonlinear element.
+
+classification SUR2-AN-3-0
+""",
+  :origin_notes => raw"""
+Problem 8 in
+   J.J. More', B.S. Garbow and K.E. Hillstrom,
+   "Testing Unconstrained Optimization Software",
+   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+
+Problem 3 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#16.
+
+SIF input: Ph. Toint, Dec 1989.
+""",
+  :reference => raw"""
+@article{MoreGarbowHillstrom1981,
+  author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
+  title   = {Testing Unconstrained Optimization Software},
+  journal = {ACM Transactions on Mathematical Software},
+  year    = {1981},
+  volume  = {7},
+  number  = {1},
+  pages   = {17--41},
+  doi     = {10.1145/355934.355936}
+}  
+  """,
+  :lib => "CUTEst:BARD",
 )
 get_bard_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_bard_ncon(; n::Integer = default_nvar, kwargs...) = 0

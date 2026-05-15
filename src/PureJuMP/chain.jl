@@ -1,15 +1,3 @@
-# Hanging Chain
-
-# Find the chain (of uniform density) of length L suspended between two points with minimal
-# potential energy.
-
-#   This is problem 4 in the COPS (Version 3) collection of 
-#   E. Dolan and J. More'
-#   see "Benchmarking Optimization Software with COPS"
-#   Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
-#   classification OOR2-AN-V-V
-
 export chain
 
 function chain(args...; n::Int = default_nvar, kwargs...)

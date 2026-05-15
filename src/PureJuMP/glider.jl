@@ -1,10 +1,3 @@
-# Hang Glider Problem
-# Trapezoidal formulation
-# David Bortz - Summer 1998
-# COPS 2.0 - September 2000
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export glider
 
 function glider(; n::Int = default_nvar, kwargs...)

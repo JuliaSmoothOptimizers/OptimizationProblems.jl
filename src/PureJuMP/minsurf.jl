@@ -1,14 +1,3 @@
-# Minimal surface with obstacle problem
-
-#  Find the surface with minimal area, given boundary conditions,
-#  and above an obstacle.
-
-#  This is problem 17=the COPS (Version 3) collection of
-#  E. Dolan and J. More'
-#  see "Benchmarking Optimization Software with COPS"
-#  Argonne National Labs Technical Report ANL/MCS-246 (2004)
-#  classification OBR2-AN-V-V
-
 export minsurf
 
 function minsurf(args...; n = default_nvar, kwargs...)

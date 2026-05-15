@@ -16,6 +16,76 @@ mgh10_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => false,
   :origin => :academic,
+  :url => "https://bitbucket.org/optrove/sif/src/master/MGH10.SIF",
+  :notes => raw"""
+https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/mgh10.dat
+
+NIST/ITL StRD
+Dataset Name:  MGH10             (MGH10.dat)
+
+File Format:   ASCII
+               Starting Values   (lines 41 to 43)
+               Certified Values  (lines 41 to 48)
+               Data              (lines 61 to 76)
+
+Procedure:     Nonlinear Least Squares Regression
+
+Description:   This problem was found to be difficult for some very
+               good algorithms.
+
+               See More, J. J., Garbow, B. S., and Hillstrom, K. E. 
+               (1981).  Testing unconstrained optimization software.
+               ACM Transactions on Mathematical Software. 7(1): 
+               pp. 17-41.
+
+Reference:     Meyer, R. R. (1970).  
+               Theoretical and computational aspects of nonlinear 
+               regression.  In Nonlinear Programming, Rosen, 
+               Mangasarian and Ritter (Eds).  
+               New York, NY: Academic Press, pp. 465-486.
+
+Data:          1 Response  (y)
+               1 Predictor (x)
+               16 Observations
+               Higher Level of Difficulty
+               Generated Data
+
+Model:         Exponential Class
+               3 Parameters (b1 to b3)
+
+               y = b1 * exp[b2/(x+b3)]  +  e
+T. Migot, Montreal, 2023.
+
+NIST Data fitting problem MGH10 given as an inconsistent set of
+nonlinear equations.
+Fit: y = b1 * exp[b2/(x+b3)] + e
+
+classification NOR2-MN-3-16
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Meyer, R. R. (1970).  
+Theoretical and computational aspects of nonlinear 
+regression.  In Nonlinear Programming, Rosen, 
+Mangasarian and Ritter (Eds).  
+New York, NY: Academic Press, pp. 465-486.
+
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+""",
+  :reference => raw"""
+@article{MoreGarbowHillstrom1981,
+  author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
+  title   = {Testing Unconstrained Optimization Software},
+  journal = {ACM Transactions on Mathematical Software},
+  year    = {1981},
+  volume  = {7},
+  number  = {1},
+  pages   = {17--41},
+  doi     = {10.1145/355934.355936}
+}  
+  """,
+  :lib => "CUTEst:MGH10, MGH:10, NIST:MGH10",
 )
 get_mgh10_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_mgh10_ncon(; n::Integer = default_nvar, kwargs...) = 0

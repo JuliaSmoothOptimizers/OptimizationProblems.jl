@@ -1,8 +1,3 @@
-# Catalyst Mixing Problem
-# Collocation formulation
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export catmix
 
 function catmix(args...; n::Int = default_nvar, kwargs...)
