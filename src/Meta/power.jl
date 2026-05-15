@@ -40,12 +40,12 @@ SIF input: Ph. Toint, Dec 1989.
   number = {5},
   journal = {Management Science},
   publisher = {Institute for Operations Research and the Management Sciences (INFORMS)},
-  author = {Oren,  Shmuel S.},
-  year = {1974},
-  month = Jan,
-  pages = {863–874}
-}  
-  """,
+  author  = {Oren, Shmuel S.},
+  year    = {1974},
+  month   = jan,
+  pages   = {863--874}
+}
+""",
   :lib => "CUTEst:POWER",
 )
 get_power_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

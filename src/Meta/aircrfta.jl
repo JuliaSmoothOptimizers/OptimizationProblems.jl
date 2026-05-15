@@ -33,14 +33,14 @@ Argonne National Laboratory MCS-P60-0289, 1989.
 SIF input: Ph. Toint, Dec 1989.
 """,
   :reference => raw"""
-@article{more1990collection,
-  title={A collection of nonlinear model problems. Computational Solution of Nonlinear Systems of Equations},
-  author={Mor{\'e}, Jorge J.},
-  journal={Lectures in Applied Mathematics},
-  volume={26},
-  pages={723--762},
-  year={1990},
-  publisher={American Mathematical Society}
+@article{More1990,
+  title     = {A collection of nonlinear model problems. Computational Solution of Nonlinear Systems of Equations},
+  author    = {Mor{\'e}, Jorge J.},
+  journal   = {Lectures in Applied Mathematics},
+  volume    = {26},
+  pages     = {723--762},
+  year      = {1990},
+  publisher = {American Mathematical Society}
 }
 """,
   :lib => "CUTEst:AIRCRFTA",

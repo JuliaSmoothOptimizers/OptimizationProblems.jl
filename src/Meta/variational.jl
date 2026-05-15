@@ -33,7 +33,7 @@ Discretization of a variational problem
 
 """,
   :reference => raw"""
-@techreport{LuksanMatonohaVlcek2010_sparse,
+@techreport{LuksanMatonohaVlcek2010Sparse,
   author       = {Luksan, Ladislav and Matonoha, Ctirad and Vlcek, Jan},
   title        = {Sparse Test Problems for Unconstrained Optimization},
   institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},

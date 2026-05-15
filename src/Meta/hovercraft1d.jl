@@ -28,14 +28,14 @@ Hovercraft 1D example
 https://laurentlessard.com/teaching/524-intro-to-optimization/
 """,
   :reference => raw"""
-@misc{lessard524,
-author = {Laurent Lessard},
-title = {CS/ECE/ISyE 524, Introduction to Optimization class},
-howpublished = {\url{https://laurentlessard.com/teaching/524-intro-to-optimization/}},
-note = {Course materials, University of Wisconsin–Madison},
-year = {2023}
-}  
-  """,
+@misc{Lessard524,
+  author       = {Lessard, Laurent},
+  title        = {Introduction to Optimization, {CS/ECE/ISyE} 524},
+  howpublished = {Lecture notes, University of Wisconsin--Madison},
+  url          = {https://laurentlessard.com/teaching/524-intro-to-optimization/},
+  year         = {2023}
+}
+""",
   :lib => "",
 )
 get_hovercraft1d_nvar(; n::Integer = default_nvar, kwargs...) = 3 * div(n, 3) - 1

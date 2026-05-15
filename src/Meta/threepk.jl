@@ -41,12 +41,12 @@ M. Bierlaire, private communication
   number = {1},
   journal = {Transportation Research Part B: Methodological},
   publisher = {Elsevier BV},
-  author = {Bierlaire,  M and Toint,  Ph.L},
-  year = {1995},
-  month = Feb,
-  pages = {47–60}
-}  
-  """,
+  author  = {Bierlaire, M. and Toint, Ph.L.},
+  year    = {1995},
+  month   = feb,
+  pages   = {47--60}
+}
+""",
   :lib => "CUTEst:3PK",
 )
 get_threepk_nvar(; n::Integer = default_nvar, kwargs...) = 30
