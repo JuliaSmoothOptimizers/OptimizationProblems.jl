@@ -25,6 +25,7 @@ function pinene(; n::Int = default_nvar, kwargs...)
   # times at which observations made
   tau = [1230.0, 3060.0, 4920.0, 7800.0, 10680.0, 15030.0, 22620.0, 36420.0]
   tf = tau[nm]                       # ODEs defined in [0,tf]
+  @adjust_nvar_warn("pinene", n, 50 * n + 5)
   h = tf / n                        # uniform interval length
   t = [(i-1)*h for i = 1:(n + 1)]      # partition
 

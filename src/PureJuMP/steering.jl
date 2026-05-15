@@ -8,6 +8,7 @@ export steering
 
 function steering(; n::Int = default_nvar, kwargs...)
   a = 100.0  # Magnitude of force.
+  @adjust_nvar_warn("steering", n, 5 * n + 6)
   # Bounds on the control
   u_min, u_max = -pi/2.0, pi/2.0
   xs = zeros(4)

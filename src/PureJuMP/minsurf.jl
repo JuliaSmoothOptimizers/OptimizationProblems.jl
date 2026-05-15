@@ -16,6 +16,7 @@ function minsurf(args...; n = default_nvar, kwargs...)
   if !((:nx in keys(kwargs)) & (:ny in keys(kwargs)))
     nx, ny = Int(round(sqrt(max(1, n - 2)))), Int(round(sqrt(max(1, n - 2))))
   end
+  @adjust_nvar_warn("minsurf", n, (nx + 2) * (ny + 2))
   x_mesh = LinRange(0, 1, nx + 2) # coordinates of the mesh points x
 
   v0 = zeros(nx + 2, ny + 2) # Surface matrix initialization

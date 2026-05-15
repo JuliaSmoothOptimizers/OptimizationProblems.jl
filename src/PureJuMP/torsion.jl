@@ -10,6 +10,7 @@ function torsion(args...; n = default_nvar, kwargs...)
   if !((:nx in keys(kwargs)) & (:ny in keys(kwargs)))
     nx, ny = Int(round(sqrt(max(1, n - 2)))), Int(round(sqrt(max(1, n - 2))))
   end
+  @adjust_nvar_warn("torsion", n, (nx + 2) * (ny + 2))
   c = 5.0
   hx = 1.0 / (nx + 1.0)    # grid spacing
   hy = 1.0 / (ny + 1.0)    # grid spacing

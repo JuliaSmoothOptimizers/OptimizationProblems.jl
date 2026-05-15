@@ -9,6 +9,7 @@ export glider
 
 function glider(; n::Int = default_nvar, kwargs...)
   # Design parameters
+  @adjust_nvar_warn("glider", n, 5 * n + 6)
   x_0 = 0.0
   y_0 = 1000.0
   y_f = 900.0

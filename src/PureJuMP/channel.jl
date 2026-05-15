@@ -13,6 +13,7 @@ export channel
 
 function channel(args...; n::Int = default_nvar, kwargs...)
   nh = max(2, div(n, 8))
+  @adjust_nvar_warn("channel", n, 8 * nh)
 
   nc = 4
   nd = 4

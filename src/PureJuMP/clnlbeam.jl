@@ -15,6 +15,7 @@ export clnlbeam
 "The clnlbeam problem in size `n`"
 function clnlbeam(args...; n::Int = default_nvar, kwargs...)
   N = div(n - 3, 3)
+  @adjust_nvar_warn("clnlbeam", n, 3 * N + 3)
   h = 1 / N
   alpha = 350
   model = Model()
