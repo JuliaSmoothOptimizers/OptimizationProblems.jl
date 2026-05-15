@@ -26,7 +26,7 @@ classification QUR2-AN-2-0
 a very simple box-constrained quadratic
 """,
   :reference => raw"""""",
-  :lib => "",
+  :lib => "CUTEst:NASTY",
 )
 get_nasty_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_nasty_ncon(; n::Integer = default_nvar, kwargs...) = 0

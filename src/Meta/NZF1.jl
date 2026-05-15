@@ -40,7 +40,7 @@ A. Montoison, Montreal, 05/2018.
   author = {Price,  C. J. and Toint,  PH. L.},
   year = {2006},
   month = June,
-  pages = {479–491}
+  pages = {479--491}
 }  
   """,
   :lib => "",

@@ -28,7 +28,7 @@ Example 5.3, Dominique Orban, Computation Optimization and Control lecture notes
   author    = {Dominique Orban},
   title     = {Computation Optimization and Control Lecture Notes},
   howpublished = {Lecture notes, Polytechnique Montréal},
-  year      = {unpublished}
+  year      = {2022}
 }  
   """,
   :lib => "",
