@@ -50,7 +50,7 @@ SIF input: Ph. Toint, Dec 1989.
 }
   """,
 
-  :lib => "CUTEst:DIXMAANH",
+  :lib => "CUTEst:DIXMAANH,Luksan:14",
 )
 get_dixmaanh_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))
 get_dixmaanh_ncon(; n::Integer = default_nvar, kwargs...) = 0

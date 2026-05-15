@@ -47,7 +47,7 @@ Academy of Science of the Czech Republic
 }
   """,
 
-  :lib => "",
+  :lib => "Luksan:19",
 )
 get_dixmaanm_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))
 get_dixmaanm_ncon(; n::Integer = default_nvar, kwargs...) = 0

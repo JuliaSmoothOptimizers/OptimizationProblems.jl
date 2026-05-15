@@ -50,7 +50,7 @@ SIF input: Ph. Toint, Dec 1989.
 }
   """,
 
-  :lib => "CUTEst:DIXMAANP",
+  :lib => "CUTEst:DIXMAANP,Luksan:22",
 )
 get_dixmaanp_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))
 get_dixmaanp_ncon(; n::Integer = default_nvar, kwargs...) = 0
