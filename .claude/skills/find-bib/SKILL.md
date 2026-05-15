@@ -51,8 +51,12 @@ If a DOI was found (say `10.1145/355934.355936`), try these endpoints in order:
 1. **CrossRef** (primary): `https://api.crossref.org/works/10.1145/355934.355936/transform/application/x-bibtex`
 2. **doi2bib.org** (fallback): `https://www.doi2bib.org/bib/10.1145/355934.355936`
 
-The response is plain-text BibTeX — use it as-is (clean up whitespace if needed).
-If both fail or return an error, fall through to Step 4.
+The response is plain-text BibTeX — clean up whitespace if needed, then apply these normalizations:
+
+- **Citation key**: CrossRef often returns auto-generated keys like `More_1981` or `more1981testingunconstrained`. Always rename the key to the `Author1Author2YYYY` format described in Step 4 (e.g. `MoreGarbowHillstrom1981`).
+- **`pages` field**: normalize to BibTeX double-hyphen. Replace Unicode en-dash `–` or a single hyphen `-` between page numbers with `--` (e.g. `175--184`).
+
+If both endpoints fail or return an error, fall through to Step 4.
 
 ### Step 4 — Construct BibTeX manually (fallback)
 
@@ -67,7 +71,9 @@ Choose the entry type:
 | `@techreport` | institutional or technical report |
 | `@misc` | dataset, software, website, or unclear |
 
-**Citation key format:** `Author1Author2YYYY` using last names only (e.g. `MoreGarbowHillstrom1981`, `HockSchittkowski1981`). For a single author: `AuthorYYYY`.
+**Citation key format:** `Author1Author2YYYY` using last names only (e.g. `MoreGarbowHillstrom1981`, `HockSchittkowski1981`). For a single author: `AuthorYYYY`. For institutional authors use a compact CamelCase form (e.g. `NISTStRD`).
+
+**`pages` field:** always use double-hyphen: `175--184`. Convert Unicode en-dash `–`, em-dash `—`, or single hyphen `-` between page numbers to `--`.
 
 **LaTeX encoding for special characters:** `Mor{\'e}`, `{\'E}`, etc.
 
@@ -112,7 +118,7 @@ Show three things:
 ### Step 6 — Suggest next steps
 
 - List any fields marked `% UNVERIFIED` that the user should check manually.
-- If a DOI was found and the file's `:url` field does not already contain it, suggest adding `https://doi.org/<DOI>` to `:url`.
+- If a DOI was found and the file's `:url` field does not already contain it, suggest adding `https://doi.org/<DOI>` to `:url`. The `:url` field supports multiple URLs as a **comma-separated string**. If a URL is already present, append the new one: `"https://existing.url, https://doi.org/<DOI>"`.
 - If the problem name was given, name the exact file to edit: `src/Meta/<name>.jl`.
 
 ---
