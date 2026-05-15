@@ -35,7 +35,7 @@ SIF input: Ph. Toint, Dec 1989.
   title = {Self-Scaling Variable Metric (SSVM) Algorithms: Part II: Implementation and Experiments},
   volume = {20},
   ISSN = {1526-5501},
-  url = {http://dx.doi.org/10.1287/mnsc.20.5.863},
+  url = {https://doi.org/10.1287/mnsc.20.5.863},
   DOI = {10.1287/mnsc.20.5.863},
   number = {5},
   journal = {Management Science},

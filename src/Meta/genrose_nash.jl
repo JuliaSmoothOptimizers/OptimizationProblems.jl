@@ -29,7 +29,7 @@ H. H. Rosenbrock,
 An automatic method for finding the greatest or least value
 of a function
 The Computer Journal 3: 175–184, 1960.
-https://dx.doi.org/10.1093%2Fcomjnl%2F3.3.175
+https://doi.org/10.1093/comjnl/3.3.175
 
 D. Orban, Montreal, 08/2015.
 

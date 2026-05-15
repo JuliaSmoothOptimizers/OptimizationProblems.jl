@@ -32,7 +32,7 @@ A. Montoison, Montreal, 05/2018.
   title = {Exploiting problem structure in pattern search methods for unconstrained optimization},
   volume = {21},
   ISSN = {1029-4937},
-  url = {http://dx.doi.org/10.1080/10556780500137116},
+  url = {https://doi.org/10.1080/10556780500137116},
   DOI = {10.1080/10556780500137116},
   number = {3},
   journal = {Optimization Methods and Software},

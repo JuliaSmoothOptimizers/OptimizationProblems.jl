@@ -29,7 +29,7 @@ Ph. L. Toint,
 Some numerical results using a sparse matrix updating formula in
 unconstrained optimization,
 Mathematics of Computation, vol. 32(114), pp. 839-852, 1978.
-http://dx.doi.org/10.1090/S0025-5718-1978-0483452-7
+https://doi.org/10.1090/S0025-5718-1978-0483452-7
 
 From the paper,
 
@@ -42,7 +42,7 @@ L. K. Schubert,
 Modification of a quasi-Newton method for nonlinear equations
 with a sparse Jacobian,
 Mathematics of Computation, vol. 24, pp. 27-30, 1970.
-http://dx.doi.org/10.1090/S0025-5718-1970-0258276-9#sthash.yOkQUwXA.dpuf
+https://doi.org/10.1090/S0025-5718-1970-0258276-9#sthash.yOkQUwXA.dpuf
 
 See also, with a slight variation in the formulation,
 

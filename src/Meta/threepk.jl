@@ -36,7 +36,7 @@ M. Bierlaire, private communication
   title = {Meuse: An origin-destination matrix estimator that exploits structure},
   volume = {29},
   ISSN = {0191-2615},
-  url = {http://dx.doi.org/10.1016/0191-2615(94)00025-U},
+  url = {https://doi.org/10.1016/0191-2615(94)00025-U},
   DOI = {10.1016/0191-2615(94)00025-u},
   number = {1},
   journal = {Transportation Research Part B: Methodological},
