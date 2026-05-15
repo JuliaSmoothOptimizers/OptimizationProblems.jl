@@ -65,7 +65,15 @@ Statistics for Experimenters, New York, NY: Wiley, pp. 483-487.
 
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
-  :reference => raw"""""",
+  :reference => raw"""
+@book{BoxHunterHunter1978,
+  author    = {Box, George E. P. and Hunter, William G. and Hunter, J. Stuart},
+  title     = {Statistics for Experimenters: An Introduction to Design, Data Analysis, and Model Building},
+  publisher = {John Wiley \& Sons},
+  address   = {New York},
+  year      = {1978}
+}
+""",
   :lib => "CUTEst:BOXBOD, NIST:BoxBOD",
 )
 get_boxbod_nvar(; n::Integer = default_nvar, kwargs...) = 2

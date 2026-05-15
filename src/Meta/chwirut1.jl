@@ -64,7 +64,14 @@ Ultrasonic Reference Block Study.
 
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
-  :reference => raw"""""",
+  :reference => raw"""
+@misc{NISTStRD,
+  author       = {{National Institute of Standards and Technology}},
+  title        = {{NIST/ITL StRD}: Nonlinear Regression Reference Datasets},
+  howpublished = {\url{https://www.itl.nist.gov/div898/strd/nls/nls_main.shtml}},
+  year         = {1997}
+}
+""",
   :lib => "CUTEst:CHWIRUT1, NIST:Chwirut1",
 )
 get_chwirut1_nvar(; n::Integer = default_nvar, kwargs...) = 3

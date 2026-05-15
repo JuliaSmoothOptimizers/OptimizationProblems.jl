@@ -54,7 +54,14 @@ Model:         Miscellaneous Class
   :origin_notes => raw"""
 
 """,
-  :reference => raw"""""",
+  :reference => raw"""
+@misc{NISTStRD,
+  author       = {{National Institute of Standards and Technology}},
+  title        = {{NIST/ITL StRD}: Nonlinear Regression Reference Datasets},
+  howpublished = {\url{https://www.itl.nist.gov/div898/strd/nls/nls_main.shtml}},
+  year         = {1997}
+}
+""",
   :lib => "NIST:Roszman1",
 )
 get_rozman1_nvar(; n::Integer = default_nvar, kwargs...) = 4

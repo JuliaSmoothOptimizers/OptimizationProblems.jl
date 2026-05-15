@@ -16,7 +16,7 @@ Shpak4_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
-  :url => "",
+  :url => "http://www.math.md/publications/csjm/issues/v3-n2/7902/",
   :notes => raw"""
 4th problem of
  Global optimization in one-dimensional case
@@ -32,7 +32,18 @@ Shpak4_meta = Dict(
   :origin_notes => raw"""
 
 """,
-  :reference => raw"""""",
+  :reference => raw"""
+@article{Shpak1995,
+  author  = {Shpak, Alexander},
+  title   = {Global Optimization in One-Dimensional Case Using Analytically Defined Derivatives of Objective Function},
+  journal = {Computer Science Journal of Moldova},
+  year    = {1995},
+  volume  = {3},
+  number  = {2},
+  pages   = {168--184},
+  url     = {http://www.math.md/publications/csjm/issues/v3-n2/7902/}
+}
+""",
   :lib => "",
 )
 get_Shpak4_nvar(; n::Integer = default_nvar, kwargs...) = 1

@@ -64,7 +64,15 @@ Applied Analysis. Englewood Cliffs, NJ:  Prentice Hall, pp. 272-280.
 
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
-  :reference => raw"""""",
+  :reference => raw"""
+@book{Lanczos1956,
+  author    = {Lanczos, Cornelius},
+  title     = {Applied Analysis},
+  publisher = {Prentice Hall},
+  address   = {Englewood Cliffs, NJ},
+  year      = {1956}
+}
+""",
   :lib => "CUTEst:LANCZOS1, NIST:lanczos1",
 )
 get_lanczos1_nvar(; n::Integer = default_nvar, kwargs...) = 6

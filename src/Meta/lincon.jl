@@ -23,7 +23,14 @@ lincon_meta = Dict(
   :origin_notes => raw"""
 Test problem used in NLPModelsTest.jl.
 """,
-  :reference => raw"""""",
+  :reference => raw"""
+@misc{NLPModelsTestjl,
+  author       = {{JuliaSmoothOptimizers}},
+  title        = {{NLPModelsTest.jl}: Tests for Nonlinear Programming Models},
+  howpublished = {\url{https://github.com/JuliaSmoothOptimizers/NLPModelsTest.jl}},
+  year         = {2020}
+}
+""",
   :lib => "",
 )
 get_lincon_nvar(; n::Integer = default_nvar, kwargs...) = 15

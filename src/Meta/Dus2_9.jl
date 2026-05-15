@@ -27,7 +27,15 @@ Problem found in
 http://www.dmi.usherb.ca/~dussault/ROP630E17/
 Jean_pierre Dussault
 """,
-  :reference => raw"""""",
+  :reference => raw"""
+@misc{Dussault2017,
+  author       = {Dussault, Jean-Pierre},
+  title        = {Optimization Test Problems},
+  howpublished = {\url{http://www.dmi.usherb.ca/~dussault/ROP630E17/}},
+  year         = {2017},
+  note         = {Universit{\'e} de Sherbrooke}
+}
+""",
   :lib => "",
 )
 get_Dus2_9_nvar(; n::Integer = default_nvar, kwargs...) = 1

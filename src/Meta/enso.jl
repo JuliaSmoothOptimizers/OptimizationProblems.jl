@@ -74,7 +74,15 @@ Englewood Cliffs, NJ: Prentice Hall, pp. 441-445.
 
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
-  :reference => raw"""""",
+  :reference => raw"""
+@book{KahanerMolerNash1989,
+  author    = {Kahaner, David and Moler, Cleve and Nash, Stephen},
+  title     = {Numerical Methods and Software},
+  publisher = {Prentice Hall},
+  address   = {Englewood Cliffs, NJ},
+  year      = {1989}
+}
+""",
   :lib => "CUTEst:ENSO, NIST:ENSO",
 )
 get_enso_nvar(; n::Integer = default_nvar, kwargs...) = 9

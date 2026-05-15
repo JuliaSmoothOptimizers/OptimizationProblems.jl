@@ -71,7 +71,18 @@ IEEE Transactions on Reliability. Vol. 2, R-30, No. 2, pp. 149-155.
 
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
-  :reference => raw"""""",
+  :reference => raw"""
+@article{Nelson1981,
+  author  = {Nelson, Wayne},
+  title   = {Analysis of Performance-Degradation Data from Accelerated Tests},
+  journal = {IEEE Transactions on Reliability},
+  year    = {1981},
+  volume  = {R-30},
+  number  = {2},
+  pages   = {149--155},
+  doi     = {10.1109/TR.1981.5221010}
+}
+""",
   :lib => "CUTEst:NELSON, NIST:Nelson",
 )
 get_nelson_nvar(; n::Integer = default_nvar, kwargs...) = 3

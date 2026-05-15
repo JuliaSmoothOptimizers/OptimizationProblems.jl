@@ -22,8 +22,6 @@ Zangwill's problem in 3 variables.
 
 classification NLR2-AN-3-3
 
-classification  NLR2-AN-3-3
-
  A. Cebola, Paraná 10/2016.
 """,
   :origin_notes => raw"""
@@ -43,7 +41,18 @@ Dalhousie University, Halifax (CDN), 1989.
 
 SIF input: Ph. Toint, Dec 1989.
 """,
-  :reference => raw"""""",
+  :reference => raw"""
+@article{BoggsTolle1989,
+  author  = {Boggs, Paul T. and Tolle, Jon W.},
+  title   = {A Strategy for Global Convergence in a Sequential Quadratic Programming Algorithm},
+  journal = {SIAM Journal on Numerical Analysis},
+  year    = {1989},
+  volume  = {26},
+  number  = {3},
+  pages   = {600--623},
+  doi     = {10.1137/0726036}
+}
+""",
   :lib => "CUTEst:ZANGWIL3",
 )
 get_zangwil3_nvar(; n::Integer = default_nvar, kwargs...) = 3

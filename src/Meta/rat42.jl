@@ -67,7 +67,15 @@ New York, NY:  Marcel Dekker, pp. 61 and 88.
 
 SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
-  :reference => raw"""""",
+  :reference => raw"""
+@book{Ratkowsky1983,
+  author    = {Ratkowsky, David A.},
+  title     = {Nonlinear Regression Modeling: A Unified Practical Approach},
+  publisher = {Marcel Dekker},
+  address   = {New York},
+  year      = {1983}
+}
+""",
   :lib => "CUTEst:RAT42, NIST:Rat42",
 )
 get_rat42_nvar(; n::Integer = default_nvar, kwargs...) = 3
