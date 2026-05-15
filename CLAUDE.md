@@ -10,7 +10,7 @@
 using OptimizationProblems
 # Filter unconstrained problems with ≤ 50 variables
 df = OptimizationProblems.meta
-df[df.ncon .== 0 .&& df.nvar .≤ 50, :]
+df[(df.ncon .== 0) .& (df.nvar .≤ 50), :]
 ```
 
 ---
@@ -39,7 +39,7 @@ data/                          # .jld2 data files for mesh-heavy problems
 
 ## Three-File Pattern
 
-Every problem `<name>` requires exactly three files sharing the same base name.
+New problems should provide exactly three files sharing the same base name. (Some existing problems are JuMP-only and lack an `ADNLPProblems` file; a few files also define multiple problems — see `triangle.jl` — but these are legacy exceptions.)
 
 ### `src/ADNLPProblems/<name>.jl`
 
@@ -114,7 +114,7 @@ Metadata dictionary. Does **not** export the problem function.
 
 Problems that accept a variable size use `n::Int = default_nvar` (default = 100).
 
-- Clamp invalid `n` silently with `@warn`, never throw an error: `n = max(2, n)`
+- Adjust invalid `n` to the closest valid value silently with `@warn`, never throw an error. The exact adjustment depends on the problem's constraints on `n` (minimum size, divisibility, parity, etc.).
 - Export getter functions for the Meta file: `get_<name>_nvar`, `get_<name>_ncon`, `get_<name>_nlin`, `get_<name>_nnln`, `get_<name>_nequ`, `get_<name>_nineq`
 - Reference: `src/ADNLPProblems/arglina.jl`, `src/PureJuMP/arglina.jl`, `src/Meta/arglina.jl`
 
@@ -164,7 +164,7 @@ Key test files:
 | `test/test-defined-problems.jl` | Verifies all meta entries have working implementations |
 | `test/test-scalable.jl` | Validates scalable problem sizing and getter formulas |
 | `test/test-in-place-residual.jl` | Allocation checks for NLS residuals |
-| `test/test-utils.jl` | Helpers: `generate_meta()`, `test_multi_precision()` |
+| `test/utils.jl` | Helpers: `generate_meta()`, `test_multi_precision()` |
 
 **Always test:**
 - Multiple sizes for scalable problems: `n = 5`, `n = default_nvar`, large `n`
