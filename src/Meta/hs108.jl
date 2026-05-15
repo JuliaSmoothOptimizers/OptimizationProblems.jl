@@ -26,15 +26,15 @@ classification QQR-AN-9-13
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 108 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 108 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: J-M Collin and Ph. Toint, Apr 1990.
-""",
+  SIF input: J-M Collin and Ph. Toint, Apr 1990.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -46,7 +46,6 @@ SIF input: J-M Collin and Ph. Toint, Apr 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS108, HS:108",
 )
 get_hs108_nvar(; n::Integer = default_nvar, kwargs...) = 9

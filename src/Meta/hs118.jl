@@ -26,15 +26,15 @@ classification QLR-AN-15-17
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 118 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 118 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: B Baudson, Jan 1990.
-""",
+  SIF input: B Baudson, Jan 1990.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -46,7 +46,6 @@ SIF input: B Baudson, Jan 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS118, HS:118",
 )
 get_hs118_nvar(; n::Integer = default_nvar, kwargs...) = 15

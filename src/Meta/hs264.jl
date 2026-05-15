@@ -38,7 +38,6 @@ Problem 264 in
   year      = {1987}
 }
   """,
-
   :lib => "HS2:264",
 )
 get_hs264_nvar(; n::Integer = default_nvar, kwargs...) = 4

@@ -26,21 +26,21 @@ classification QQR-AN-10-8
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-Problem 113 in
+  :origin_notes => raw"""
+  Problem 113 in
+    W. Hock and K. Schittkowski,
+    Test examples for nonlinear programming codes,
+    Lectures Notes in Economics and Mathematical Systems 187,
+    Springer Verlag, Heidelberg, 1981.
+
+  problem 80 in
   W. Hock and K. Schittkowski,
-  Test examples for nonlinear programming codes,
-  Lectures Notes in Economics and Mathematical Systems 187,
-  Springer Verlag, Heidelberg, 1981.
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-problem 80 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
-
-SIF input: J-M Collin, Mar 1990.
-""",
+  SIF input: J-M Collin, Mar 1990.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -52,7 +52,6 @@ SIF input: J-M Collin, Mar 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS113, HS:113",
 )
 get_hs113_nvar(; n::Integer = default_nvar, kwargs...) = 10

@@ -38,7 +38,6 @@ Problem 255 in
   year      = {1987}
 }
   """,
-
   :lib => "HS2:255",
 )
 get_hs255_nvar(; n::Integer = default_nvar, kwargs...) = 4

@@ -24,15 +24,15 @@ classification OOR2-AN-7-2
 
 classification PPR-AN-6-4
 """,
-:origin_notes => raw"""
-problem 99 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 99 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: Ph. Toint, April 1991.
-""",
+  SIF input: Ph. Toint, April 1991.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -44,7 +44,6 @@ SIF input: Ph. Toint, April 1991.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS99, HS:99",
 )
 get_hs99_nvar(; n::Integer = default_nvar, kwargs...) = 7

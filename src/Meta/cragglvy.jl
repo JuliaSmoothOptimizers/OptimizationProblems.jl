@@ -55,7 +55,6 @@ D. Orban, Montreal, 08/2015.
   year        = {1983}
 }  
   """,
-
   :lib => "CUTEst:CRAGGLVY, Luksan:7",
 )
 get_cragglvy_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

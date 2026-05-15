@@ -63,7 +63,6 @@ SIF input: Ph. Toint, Dec 1989.
   doi     = {10.1145/355934.355936}
 }  
   """,
-
   :lib => "CUTEst:SROSENBR, Luksan:55",
 )
 get_srosenbr_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

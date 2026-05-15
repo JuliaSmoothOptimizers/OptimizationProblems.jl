@@ -28,15 +28,15 @@ classification QGR-AN-13-14
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 116 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 116 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: B. Debarsy, Feb 1990.
-""",
+  SIF input: B. Debarsy, Feb 1990.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -48,7 +48,6 @@ SIF input: B. Debarsy, Feb 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS116, HS:116",
 )
 get_hs116_nvar(; n::Integer = default_nvar, kwargs...) = 13

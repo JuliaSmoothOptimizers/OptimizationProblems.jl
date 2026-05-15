@@ -43,7 +43,6 @@ SIF input: Ph.L. Toint, November 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS61, HS:61",
 )
 get_hs61_nvar(; n::Integer = default_nvar, kwargs...) = 3

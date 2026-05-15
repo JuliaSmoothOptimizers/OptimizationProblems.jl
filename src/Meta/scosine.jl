@@ -53,7 +53,6 @@ SIF input: N. Gould, Nov 1997
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "CUTEst:SCOSINE, Luksan:50",
 )
 get_scosine_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

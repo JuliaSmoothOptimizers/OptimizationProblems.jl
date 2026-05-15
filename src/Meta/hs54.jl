@@ -26,16 +26,16 @@ classification GLR2-AN-6-1
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 54, incorrectly stated in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
-Betts problem 11.7, JOTA 21, 1977, pp.137-174.
+  :origin_notes => raw"""
+  problem 54, incorrectly stated in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
+  Betts problem 11.7, JOTA 21, 1977, pp.137-174.
 
-SIF input: A.R. Conn, April 1990 and Nick Gould, October 1990
-""",
+  SIF input: A.R. Conn, April 1990 and Nick Gould, October 1990
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -47,7 +47,6 @@ SIF input: A.R. Conn, April 1990 and Nick Gould, October 1990
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS54, HS:54",
 )
 get_hs54_nvar(; n::Integer = default_nvar, kwargs...) = 6

@@ -41,7 +41,6 @@ SIF input: Nick Gould, November 2000
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "CUTEst:ELEC, COPS:2",
 )
 get_elec_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(2, div(n, 3))

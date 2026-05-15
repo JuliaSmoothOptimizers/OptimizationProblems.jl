@@ -49,7 +49,6 @@ SIF input: Nick Gould, December 2000
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "CUTEst:GLIDER, COPS:11",
 )
 get_glider_nvar(; n::Integer = default_nvar, kwargs...) = 5 * n + 6

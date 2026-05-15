@@ -49,7 +49,6 @@ SIF input: Ph. Toint, Dec 1989.
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "CUTEst:TQUARTIC, Luksan:57",
 )
 get_tquartic_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

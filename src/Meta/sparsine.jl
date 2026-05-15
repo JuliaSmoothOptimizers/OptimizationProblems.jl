@@ -46,7 +46,6 @@ SIF input: Nick Gould, November 1995
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "CUTEst:SPARSINE, Luksan:52",
 )
 get_sparsine_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

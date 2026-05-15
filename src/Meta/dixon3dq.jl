@@ -41,7 +41,6 @@ SIF input: Ph. Toint, Dec 1989.
   address      = {Halifax, Canada}
 }
   """,
-
   :lib => "CUTEst:DIXON3DQ",
 )
 get_dixon3dq_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

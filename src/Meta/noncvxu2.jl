@@ -45,7 +45,6 @@ SIF input: Nick Gould, April 1996
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "CUTEst:NONCVXU2, Luksan:43",
 )
 get_noncvxu2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

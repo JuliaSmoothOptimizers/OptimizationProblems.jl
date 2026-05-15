@@ -38,7 +38,6 @@ Problem 250 in
   year      = {1987}
 }
   """,
-
   :lib => "HS2:250",
 )
 get_hs250_nvar(; n::Integer = default_nvar, kwargs...) = 3

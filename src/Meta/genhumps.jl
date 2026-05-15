@@ -50,7 +50,6 @@ SDIF input: N. Gould and Ph. Toint, November 1997.
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-
   :lib => "CUTEst:GENHUMPS, Luksan:35",
 )
 get_genhumps_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

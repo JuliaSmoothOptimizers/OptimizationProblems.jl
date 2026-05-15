@@ -58,7 +58,6 @@ D. Orban, Montreal, 08/2015.
   doi       = {10.1007/978-3-662-12211-2}
 }  
   """,
-
   :lib => "CUTEst:EG2, Luksan:25",
 )
 get_eg2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

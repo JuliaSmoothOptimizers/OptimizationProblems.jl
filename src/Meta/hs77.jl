@@ -26,15 +26,15 @@ classification PGR-AN-5-2
 
 A. Montoison, Montreal, 05/2018.
 """,
-:origin_notes => raw"""
-problem 77 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 77 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: A. Conn and Ph. Toint, March 1991
-""",
+  SIF input: A. Conn and Ph. Toint, March 1991
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -46,7 +46,6 @@ SIF input: A. Conn and Ph. Toint, March 1991
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS77, HS:77",
 )
 get_hs77_nvar(; n::Integer = default_nvar, kwargs...) = 5

@@ -37,8 +37,8 @@ end
 
 @testset "Meta fields: :url format" begin
   invalid = [
-    (row[:name], row[:url]) for row in eachrow(OptimizationProblems.meta) if
-    !isempty(row[:url]) && !is_valid_url(row[:url])
+    (row[:name], row[:url]) for
+    row in eachrow(OptimizationProblems.meta) if !isempty(row[:url]) && !is_valid_url(row[:url])
   ]
   for (name, url) in invalid
     @error "Problem $name has an invalid :url format: $url"

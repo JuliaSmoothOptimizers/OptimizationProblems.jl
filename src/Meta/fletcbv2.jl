@@ -60,7 +60,6 @@ J,-P, Dussault, Rennes 09/2015.
   year        = {1992}
 }  
   """,
-
   :lib => "CUTEst:FLETCBV2, Luksan:31",
 )
 get_fletcbv2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

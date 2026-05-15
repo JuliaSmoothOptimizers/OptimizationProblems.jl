@@ -45,7 +45,6 @@ COPS 3.1 - March 2004
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "COPS:16",
 )
 get_bearing_nvar(;

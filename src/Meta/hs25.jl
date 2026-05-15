@@ -26,15 +26,15 @@ classification SBR2-AN-3-0
 
 A. Montoison, Montreal, 04/2018.
 """,
-:origin_notes => raw"""
-problem 25 in
-W. Hock and K. Schittkowski,
-"Test examples for nonlinear programming codes",
-Lectures Notes in Economics and Mathematical Systems 187, Springer
-Verlag, Heidelberg, 1981.
+  :origin_notes => raw"""
+  problem 25 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
 
-SIF input: J-M Collin, Mar 1990.
-""",
+  SIF input: J-M Collin, Mar 1990.
+  """,
   :reference => raw"""
 @book{HockSchittkowski1981,
   author    = {Hock, W. and Schittkowski, K.},
@@ -46,7 +46,6 @@ SIF input: J-M Collin, Mar 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS25, HS:25",
 )
 get_hs25_nvar(; n::Integer = default_nvar, kwargs...) = 3

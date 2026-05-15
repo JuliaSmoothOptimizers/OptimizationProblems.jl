@@ -56,7 +56,6 @@ D. Orban, Montreal, 08/2015.
   doi     = {10.1137/0725067}
 }  
   """,
-
   :lib => "CUTEst:EDENSCH, Luksan:24",
 )
 get_edensch_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

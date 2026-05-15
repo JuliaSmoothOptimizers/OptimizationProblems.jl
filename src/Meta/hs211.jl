@@ -38,7 +38,6 @@ Problem 211 in
   year      = {1987}
 }
   """,
-
   :lib => "HS2:211",
 )
 get_hs211_nvar(; n::Integer = default_nvar, kwargs...) = 2

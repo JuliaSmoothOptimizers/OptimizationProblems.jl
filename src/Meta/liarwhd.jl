@@ -61,7 +61,6 @@ SIF input: Ph. Toint, Aug 1990.
   doi     = {10.1137/0725067}
 }  
   """,
-
   :lib => "CUTEst:LIARWHD, Luksan:38",
 )
 get_liarwhd_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

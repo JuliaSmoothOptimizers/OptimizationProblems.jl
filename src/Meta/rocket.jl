@@ -49,7 +49,6 @@ SIF input: Nick Gould, November 2000
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "CUTEst:ROCKET, COPS:10",
 )
 get_rocket_nvar(; n::Integer = default_nvar, kwargs...) = 4 * n + 5

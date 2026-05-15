@@ -17,16 +17,15 @@ hs60_meta = Dict(
   :defined_everywhere => missing,
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS60.SIF",
-  :notes =>
-    raw"""
-Hock and Schittkowski problem number 60.
+  :notes => raw"""
+        Hock and Schittkowski problem number 60.
 
-classification OOR2-AY-3-1
+        classification OOR2-AY-3-1
 
-classification PPR2-AN-3-1
+        classification PPR2-AN-3-1
 
-A. Montoison, Montreal, 05/2018.
-""",
+        A. Montoison, Montreal, 05/2018.
+        """,
   :origin_notes => raw"""
 problem 60 in
 W. Hock and K. Schittkowski,
@@ -47,7 +46,6 @@ SIF input: J-M Collin, April 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS60, HS:60",
 )
 get_hs60_nvar(; n::Integer = default_nvar, kwargs...) = 3

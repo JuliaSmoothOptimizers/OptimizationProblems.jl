@@ -57,7 +57,6 @@ D. Orban, Montreal, 08/2015.
   year        = {1983}
 }  
   """,
-
   :lib => "CUTEst:ENGVAL1, Luksan:26",
 )
 get_engval1_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0

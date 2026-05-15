@@ -54,7 +54,6 @@ SIF input: Nick Gould, November 2000
   doi          = {10.2172/834714}
   }
     """,
-
   :lib => "CUTEst:GASOIL, COPS:12",
 )
 get_gasoil_nvar(; n::Integer = default_nvar, kwargs...) = 26 * n + 3

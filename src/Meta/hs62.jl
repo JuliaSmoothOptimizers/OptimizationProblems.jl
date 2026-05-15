@@ -45,7 +45,6 @@ SIF input: J-M Collin and Ph. Toint, April 1990.
   year      = {1981}
 }  
   """,
-
   :lib => "CUTEst:HS62, HS:62",
 )
 get_hs62_nvar(; n::Integer = default_nvar, kwargs...) = 3

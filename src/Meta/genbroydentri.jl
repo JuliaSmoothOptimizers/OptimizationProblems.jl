@@ -40,7 +40,6 @@ Academy of Science of the Czech Republic
   url          = {https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization}
   }
     """,
-
   :lib => "LuksanSparse:5",
 )
 
