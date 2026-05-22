@@ -85,13 +85,13 @@ Scan the text of `src/Meta/<name>.jl` and collect findings under three severity 
 1. `best_known_lower_bound <= best_known_upper_bound` — check only when both are finite numeric literals in the text.
 2. `has_equalities_only` and `has_inequalities_only` cannot both be `true`.
 3. If `:ncon => 0`: `:has_equalities_only` and `:has_inequalities_only` must both be `false`.
-4. If `:ncon => 0`: the formula in each of `get_<name>_nlin`, `get_<name>_nnln`, `get_<name>_nequ`, `get_<name>_nineq` must be the literal `0`.
+4. If `:ncon => 0`: the return value of each of `get_<name>_nlin`, `get_<name>_nnln`, `get_<name>_nequ`, `get_<name>_nineq` must be the literal `0`. To check this, extract the full getter definition — from the line containing `get_<name>_nlin` up to and including its closing `end` (for `function` form) or the `= expr` part (for one-liner form). The signature may span multiple lines (extra kwargs like `nc`, `nx`, `ny` before `kwargs...` are allowed); do **not** assume `= 0` immediately follows the closing `)` of the signature on the same line.
 5. If `:contype => :unconstrained`: `:ncon` must be `0` (rules 3–4 follow).
 6. If `:contype => :unconstrained`: `:has_equalities_only` and `:has_inequalities_only` must both be `false`.
-7. If `:variable_nvar => false`: the formula of `get_<name>_nvar` must be a plain integer (must not reference `n`).
-8. If `:variable_nvar => true`: the formula of `get_<name>_nvar` must reference `n`.
-9. If `:variable_ncon => false`: the formula of `get_<name>_ncon` must be a plain integer (must not reference `n`).
-10. If `:variable_ncon => true`: the formula of `get_<name>_ncon` must reference `n`.
+7. If `:variable_nvar => false`: the body of `get_<name>_nvar` must not reference `n`. Extract the full getter body (spanning multiple lines if needed — the body ends at the next blank line or the next `get_` definition) and check that `\bn\b` does not appear in the return expression.
+8. If `:variable_nvar => true`: the body of `get_<name>_nvar` must reference `n`. Use the same multiline extraction as rule 7.
+9. If `:variable_ncon => false`: the body of `get_<name>_ncon` must not reference `n` (same multiline extraction).
+10. If `:variable_ncon => true`: the body of `get_<name>_ncon` must reference `n` (same multiline extraction).
 
 #### Documentation quality (→ Warning)
 
@@ -134,6 +134,7 @@ meta = OptimizationProblems.eval(Symbol(name, :_meta))
 nlp = nothing
 model_source = \"none\"
 try
+  global nlp, model_source
   if Symbol(name) in names(ADNLPProblems, all=false)
     nlp = ADNLPProblems.eval(Symbol(name))()
     model_source = \"ADNLPProblems\"
