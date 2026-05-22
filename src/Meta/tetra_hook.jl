@@ -18,10 +18,18 @@ tetra_hook_meta = Dict(
   :origin => :unknown,
   :url => "https://doi.org/10.2172/834714",
   :notes => raw"""
+Minimize the sum of the inverse weighted mean ratio of the elements in a fixed–boundary
+tetrahedral mesh by adjusting the locations of the free vertices.
 
+Instance using the `hook` mesh.
 """,
   :origin_notes => raw"""
+This is problem 19 in the COPS (Version 3) collection of
+E. Dolan and J. More
+see "Benchmarking Optimization Software with COPS"
+Argonne National Labs Technical Report ANL/MCS-246 (2004)
 
+Instance using the `hook` mesh.
 """,
   :reference => raw"""
 @techreport{DolanMore2004COPS,

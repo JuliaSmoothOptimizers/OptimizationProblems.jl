@@ -51,7 +51,7 @@ Scan the text of `src/Meta/<name>.jl` and collect findings under three severity 
 - [ ] All six base getter functions are present (required for **all** problems, not only scalable ones):
   `get_<name>_nvar`, `get_<name>_ncon`, `get_<name>_nlin`, `get_<name>_nnln`, `get_<name>_nequ`, `get_<name>_nineq`
 - [ ] If `:objtype => :least_squares`, then `get_<name>_nls_nequ` is also present.
-- [ ] Each getter — including `get_<name>_nls_nequ` when present — uses the signature `(; n::Integer = default_nvar, kwargs...)`.
+- [ ] Each getter — including `get_<name>_nls_nequ` when present — has `n::Integer = default_nvar` as its first keyword argument and ends with `kwargs...`. Additional named keyword arguments with defaults (e.g. `nx`, `ny`, `nc`, `m`) are permitted between `n` and `kwargs...`.
 
 #### Field values (→ Error)
 

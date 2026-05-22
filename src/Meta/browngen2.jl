@@ -15,7 +15,7 @@ browngen2_meta = Dict(
   :best_known_upper_bound => Inf,
   :is_feasible => missing,
   :defined_everywhere => missing,
-  :origin => :literature,
+  :origin => :academic,
   :url => "https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization",
   :notes => raw"""
 Generalization of the Brown function 2
