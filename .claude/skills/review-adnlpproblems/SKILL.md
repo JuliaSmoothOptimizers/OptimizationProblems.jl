@@ -47,8 +47,8 @@ Scan the text of `src/ADNLPProblems/<name>.jl` and collect findings.
 
 #### Structural (→ Error)
 
-- [ ] The file contains `export <name>` exactly once, where `<name>` matches the filename base.
-- [ ] No other `export` statements appear in the file.
+- [ ] The file contains exactly one `export` statement.
+- [ ] All exported symbols are functions defined in this file (a single `export` may list multiple names, e.g. `export genrose, rosenbrock`, as long as every name is defined here).
 - [ ] At least one function is named `<name>` (matches filename base).
 - [ ] **NLS dispatch pattern** (only if NLS detected): the file defines all three of:
   1. `function <name>(; use_nls::Bool = false, kwargs...)` — dispatcher
@@ -90,6 +90,8 @@ Do not report type annotation findings from static analysis as errors. Rely excl
 
 - [ ] If the body modifies `n` (has n-adjustment), `@adjust_nvar_warn` is called with the problem name as a string literal and the original and adjusted `n`. Signature: `@adjust_nvar_warn("<name>", n_orig, n)`.
 - [ ] If the body modifies `n`, the original value is saved first (e.g., `n_org = n`) so the macro can compare them.
+
+  The old pattern `n < X && @warn("..."); n = max(X, n)` must be replaced: remove the `@warn` line and add `n_org = n` before the adjustment and `@adjust_nvar_warn("<name>", n_org, n)` after it.
 
 #### Objective type stability (→ Warning)
 
@@ -172,7 +174,7 @@ end
 if nlp.meta.nnln > 0 && nlp isa ADNLPModels.AbstractADNLPModel
   x = nlp.meta.x0; cx = similar(x, nlp.meta.nnln)
   try
-    cons_nln!(nlp, x, cx)
+    cons_nln!(nlp, x, cx); cons_nln!(nlp, x, cx)  # two warm-ups to clear JIT
     alloc = @allocated cons_nln!(nlp, x, cx)
     println(alloc == 0 ? \"OK cons_nln_alloc\" : \"FAIL cons_nln_alloc: \$(alloc) bytes\")
   catch e
@@ -191,7 +193,7 @@ try
   println(nlp.meta.x0 == nls.meta.x0 ? \"OK nls_x0_matches\" : \"FAIL nls_x0_matches\")
   x = nls.meta.x0; Fx = similar(x, nls.nls_meta.nequ)
   try
-    residual!(nls, x, Fx)
+    residual!(nls, x, Fx); residual!(nls, x, Fx)  # two warm-ups to clear JIT
     alloc = @allocated residual!(nls, x, Fx)
     println(alloc == 0 ? \"OK residual_alloc\" : \"FAIL residual_alloc: \$(alloc) bytes\")
   catch e
@@ -232,16 +234,16 @@ Interpret the output:
 | `OK cons_eltype_f32` | No finding |
 | `FAIL cons_eltype_f32: X` | Error: constraint values have element type `X` instead of `Float32` |
 | `OK cons_nln_alloc` | No finding |
-| `FAIL cons_nln_alloc: N bytes` | Error: `cons_nln!` allocates `N` bytes — constraint closure is not allocation-free |
+| `FAIL cons_nln_alloc: N bytes` | Error: `cons_nln!` allocates `N` bytes — constraint closure is not allocation-free. Common cause: array slices without `@views` inside `c!` (e.g. `r, θ = y[1:N], y[N+1:end]`). |
 | `FAIL cons_nln_eval: ...` | Error: `cons_nln!` throws |
 | `OK nls_dispatch` | No finding; note in report that NLS is supported |
 | `FAIL nls_name: got X` | Error: NLS variant passes wrong `name` keyword |
 | `FAIL nls_x0_matches` | Error: NLS and NLP starting points differ |
 | `OK residual_alloc` | No finding |
-| `FAIL residual_alloc: N bytes` | Error: `residual!` allocates `N` bytes — residual closure is not allocation-free |
+| `FAIL residual_alloc: N bytes` | Error: `residual!` allocates `N` bytes — residual closure is not allocation-free. Common cause: keyword default args that construct typed arrays on each call, e.g. `function F!(r, x; X = Ti.(X)) where {Ti}` — fix by using positional defaults `function F!(r, x, X = X)` with `Ti = eltype(x)` inside. |
 | `FAIL residual_eval: ...` | Error: `residual!` throws |
 | `OK nls_nlp_obj_agree` | No finding |
-| `FAIL nls_nlp_obj_agree: nlp=X nls=Y` | Error: NLP and NLS objectives disagree at `x0` (neither equal nor in 2:1 ratio) |
+| `FAIL nls_nlp_obj_agree: nlp=X nls=Y` | Error: NLP and NLS objectives disagree at `x0` (neither equal nor in 2:1 ratio). The 2:1 ratio is accepted because some NLP formulations use `1//2 * ‖F‖²` while the NLS `obj` returns `‖F‖²` without the half. |
 | `INFO nls_not_supported` | Info: `use_nls = true` not accepted — problem has no NLS variant |
 
 ### Step 5 — Report
