@@ -21,6 +21,7 @@ Here is a to-do list, to help you add new problems:
     - `src/Meta/problem_name.jl`
 In both cases, the function must have the same name `problem_name` as the file.
 The function should be only exported from `src/ADNLPProblems/problem_name.jl` and `src/PureJuMP/problem_name.jl`.
+* Every meta file must define six getter functions, regardless of whether the problem is scalable: `get_problem_name_nvar`, `get_problem_name_ncon`, `get_problem_name_nlin`, `get_problem_name_nnln`, `get_problem_name_nequ`, and `get_problem_name_nineq`. See [`src/Meta/arglina.jl`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/Meta/arglina.jl) for an example.
 * When submitting a problem, please pay particular attention to the documentation. We would like to gather as much information as possible on the provenance of problems, other problem sets where the problems are present, and general information on the problem. 
 The documentation should be added to the corresponding fields in the `Meta` folder.
 * New problems can be scalable, see [ADNLPProblems/arglina.jl](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/arglina.jl) and [PureJuMP/arglina.jl](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/PureJuMP/arglina.jl) for examples. In that case, the first keyword parameter should be the number of variables `n::Int` and have the default value `default_nvar` (constant predefined in the module). If your problem has restrictions on the number of variables, e.g., `n` should be odd, or `n` should have the form `4k + 3`, then, instead of throwing errors when the restrictions are not satisfied, you should instead use the number of variables to be as close to `n` as possible. For example, if you want `n` odd and `n = 100` is passed, you can internally convert to `n = 99`. If you want `n = 4k + 3`, and `n = 100` is passed, then compute `k = round(Int, (n - 3) / 4)` and update `n`.
@@ -41,21 +42,10 @@ The documentation should be added to the corresponding fields in the `Meta` fold
 
 In order to standardize the new functions, we offer here a template for both AD and JuMP models.
 
-First, we describe the `PureJuMP` file `function_name.jl`. This file contains the documentation on the problem.
+First, we describe the `PureJuMP` file `function_name.jl`. Problem documentation (provenance, references, notes) belongs in the corresponding `src/Meta/function_name.jl` file.
 ```
-# Full name of the problem (while function_name could be an abbreviation)
-#
-# Source of the problem
-# Don't hesitate to put more than one source if it is mentioned elsewhere
-#
-# CUTEst classification (if available)
-#
-# other information related to the problem
-#
-
 export function_name
 
-"A short docstring on the problem"
 function function_name(; n::Int = default_nvar, kwargs...)
   nlp = Model()
   # define the model: TODO
@@ -120,6 +110,7 @@ See existing NLS problems (e.g., [`lanczos1`](https://github.com/JuliaSmoothOpti
 **Meta**
 - [ ] The corresponding meta file exists (`src/Meta/problem_name.jl`), the problem name matches the AD and JuMP files, and `OptimizationProblems.meta` contains the problem entry.
 - [ ] All meta fields (origin, objtype, contype, bounds, best-known, etc.) are filled correctly.
+- [ ] All six getter functions (`get_<name>_nvar`, `get_<name>_ncon`, `get_<name>_nlin`, `get_<name>_nnln`, `get_<name>_nequ`, `get_<name>_nineq`) are defined in the meta file (required for every problem, not only scalable ones).
 - [ ] The problem origin/provenance is clearly documented and consistent between the `PureJuMP` problem documentation and the `:origin` meta entry.
 - [ ] Meta formulas for variable sizes match actual model behavior.
 
