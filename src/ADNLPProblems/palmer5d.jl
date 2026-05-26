@@ -73,12 +73,13 @@ function palmer5d(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
     62.822177,
     77.719674,
   ]
-  function F!(r::AbstractVector{Ti}, x; X = Ti.(X), Y = Ti.(Y)) where {Ti}
-    for i = 1:12
-      r[i] = Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:4)
+  function F!(r, x, X = X, Y = Y)
+    Ti = eltype(x)
+    for i = 1:length(r)
+      r[i] = Ti(Y[i]) - sum(x[j] * Ti(X[i])^(2 * j - 2) for j = 1:4)
     end
     return r
   end
   x0 = ones(T, 4)
-  return ADNLPModels.ADNLSModel!(F!, x0, 12, name = "palmer5d"; kwargs...)
+  return ADNLPModels.ADNLSModel!(F!, x0, 12, name = "palmer5d-nls"; kwargs...)
 end

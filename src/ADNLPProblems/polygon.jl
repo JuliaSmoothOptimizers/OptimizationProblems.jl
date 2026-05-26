@@ -6,8 +6,8 @@ function polygon(args...; n::Int = default_nvar, type::Type{T} = Float64, kwargs
     @views r, θ = y[1:N], y[(N + 1):end]
     return -1 // 2 * sum(r[i] * r[i + 1] * sin(θ[i + 1] - θ[i]) for i = 1:(N - 1))
   end
-  function c!(ci, y::V) where {V}
-    r, θ = y[1:N], y[(N + 1):end]
+  function c!(ci, y)
+    @views r, θ = y[1:N], y[(N + 1):end]
     k = 1
     for i = 1:(N - 1), j = (i + 1):N
       ci[k] = r[i]^2 + r[j]^2 - 2 * r[i] * r[j] * cos(θ[i] - θ[j]) - 1
