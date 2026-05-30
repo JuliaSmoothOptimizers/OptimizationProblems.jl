@@ -13,6 +13,7 @@
     end
   catch e
     @warn "Skipping $(item.name) due to error" err
+    @test !isnothing(err)
     @test_skip "Skipped $(item.name) due to $(typeof(err))"
   end
 end
