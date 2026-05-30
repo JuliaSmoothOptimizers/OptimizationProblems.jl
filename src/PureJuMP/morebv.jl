@@ -3,8 +3,9 @@ export morebv
 function morebv(args...; n::Int = default_nvar, kwargs...)
 
   # indices in Luksan go from 0 to n+1
-  n < 2 && @warn("morebv: number of variables must be ≥ 4")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("morebv", n_orig, n)
 
   h = 1.0 / (n + 1)
 

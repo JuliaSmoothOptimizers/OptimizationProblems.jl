@@ -1,6 +1,6 @@
 export nazareth
 
-function nazareth(; n::Int = default_nvar)
+function nazareth(; n::Int = default_nvar, kwargs...)
   nh = div(n, 2)
 
   nlp = Model()

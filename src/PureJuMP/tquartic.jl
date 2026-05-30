@@ -2,8 +2,9 @@ export tquartic
 
 "A quartic function with nontrivial groups and repetitious elements in size 'n' "
 function tquartic(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("tquartic: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("tquartic", n_orig, n)
 
   nlp = Model()
 

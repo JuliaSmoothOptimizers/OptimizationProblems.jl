@@ -1,8 +1,9 @@
 export noncvxun
 
 function noncvxun(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("noncvxun: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("noncvxun", n_orig, n)
 
   nlp = Model()
   @variable(nlp, x[i = 1:n], start = i)

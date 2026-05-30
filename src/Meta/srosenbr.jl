@@ -65,7 +65,7 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:SROSENBR, Luksan:55",
 )
-get_srosenbr_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_srosenbr_nvar(; n::Integer = default_nvar, kwargs...) = 2 * max(1, div(n, 2))
 get_srosenbr_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_srosenbr_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_srosenbr_nnln(; n::Integer = default_nvar, kwargs...) = 0

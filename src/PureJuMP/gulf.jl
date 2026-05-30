@@ -1,13 +1,12 @@
 export gulf
 
-"Linear function with `n` parameters and `m` observations  - full rank"
-function gulf(args...; n::Int = default_nvar, m::Int = 100, kwargs...)
-  n = 3
+"Linear function with `3` parameters and `m` observations  - full rank"
+function gulf(args...; m::Int = 100, kwargs...)
   m = min(m, 100)
 
   nlp = Model()
 
-  @variable(nlp, x[j = 1:n])
+  @variable(nlp, x[j = 1:3])
   set_start_value.(x, [5, 2.5, 0.15])
 
   @objective(

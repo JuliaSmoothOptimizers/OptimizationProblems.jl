@@ -1,8 +1,9 @@
 export indef_mod
 
 function indef_mod(args...; n::Int = default_nvar, kwargs...)
-  n < 3 && @warn("indef_mod: number of variables must be ≥ 4")
+  n_orig = n
   n = max(3, n)
+  @adjust_nvar_warn("indef_mod", n_orig, n)
 
   nlp = Model()
 

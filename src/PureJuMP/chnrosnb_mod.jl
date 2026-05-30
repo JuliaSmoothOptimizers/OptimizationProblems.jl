@@ -1,8 +1,9 @@
 export chnrosnb_mod
 
 function chnrosnb_mod(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("chnrosnb: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("chnrosnb_mod", n_orig, n)
 
   nlp = Model()
 

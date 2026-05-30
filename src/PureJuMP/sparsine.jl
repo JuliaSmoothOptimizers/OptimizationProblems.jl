@@ -2,8 +2,9 @@ export sparsine
 
 "A sparse problem involving sine functions in size 'n' "
 function sparsine(args...; n::Int = default_nvar, kwargs...)
-  n < 10 && @warn("sparsine: number of variables must be ≥ 10")
+  n_orig = n
   n = max(10, n)
+  @adjust_nvar_warn("sparsine", n_orig, n)
 
   nlp = Model()
 

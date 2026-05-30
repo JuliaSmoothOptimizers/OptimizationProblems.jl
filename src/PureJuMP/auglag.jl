@@ -1,6 +1,6 @@
 export auglag
 
-function auglag(; n::Int = default_nvar)
+function auglag(; n::Int = default_nvar, kwargs...)
   λ₁ = -0.002008
   λ₂ = -0.001900
   λ₃ = -0.000261

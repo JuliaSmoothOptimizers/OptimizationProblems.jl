@@ -1,8 +1,9 @@
 export liarwhd
 
 function liarwhd(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("liarwhd: number of variables must be ≥ 4")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("liarwhd", n_orig, n)
 
   nlp = Model()
 

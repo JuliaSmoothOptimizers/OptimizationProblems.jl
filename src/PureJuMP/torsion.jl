@@ -1,6 +1,6 @@
 export torsion
 
-function torsion(args...; n = default_nvar, kwargs...)
+function torsion(args...; n::Int = default_nvar, kwargs...)
   # number of variables is (nx + 1) x (ny + 1)
   if !((:nx in keys(kwargs)) & (:ny in keys(kwargs)))
     nx, ny = Int(round(sqrt(max(1, n - 2)))), Int(round(sqrt(max(1, n - 2))))

@@ -1,6 +1,6 @@
 export minsurf
 
-function minsurf(args...; n = default_nvar, kwargs...)
+function minsurf(args...; n::Int = default_nvar, kwargs...)
   # number of variables is (nx + 2) x (ny + 2)
   if !((:nx in keys(kwargs)) & (:ny in keys(kwargs)))
     nx, ny = Int(round(sqrt(max(1, n - 2)))), Int(round(sqrt(max(1, n - 2))))

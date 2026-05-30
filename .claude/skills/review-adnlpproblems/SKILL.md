@@ -101,7 +101,7 @@ Do not report type annotation findings from static analysis as errors. Rely excl
 
 #### Documentation (→ Warning)
 
-- [ ] The file has no docstring or comment describing the problem. PureJuMP carries the docstring; ADNLPProblems does not need one. This is Info, not a Warning.
+- [ ] The file has no docstring or comment describing the problem. Problem documentation (provenance, references, notes) belongs in `src/Meta/<name>.jl`; neither ADNLPProblems nor PureJuMP files are expected to carry a docstring. This is Info, not a Warning.
 
 ### Step 4 — Dynamic analysis (run Julia)
 

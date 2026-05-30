@@ -2,8 +2,9 @@ export sbrybnd
 
 "Broyden banded system of nonlinear equations in size 'n' "
 function sbrybnd(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("sbrybnd: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("sbrybnd", n_orig, n)
 
   nlp = Model()
   p = zeros(n)

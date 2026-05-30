@@ -2,8 +2,9 @@ export arwhead
 
 "Arrow head model in size `n`"
 function arwhead(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("arwhead: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("arwhead", n_orig, n)
 
   nlp = Model()
 

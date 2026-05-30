@@ -2,8 +2,9 @@ export brownden
 
 "Brown and Dennis function"
 function brownden(args...; n::Int = default_nvar, kwargs...)
-  n < 4 && @warn("brownden: must have n ≥ 4")
+  n_orig = n
   n = max(n, 4)
+  @adjust_nvar_warn("brownden", n_orig, n)
 
   nlp = Model()
 

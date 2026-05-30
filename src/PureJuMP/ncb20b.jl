@@ -3,8 +3,9 @@ export ncb20b
 function ncb20b(args...; n::Int = default_nvar, kwargs...)
 
   # indices in Luksan go from 0 to n+1
-  n < 20 && @warn("ncb20b: number of variables must be ≥ 20")
+  n_orig = n
   n = max(20, n)
+  @adjust_nvar_warn("ncb20b", n_orig, n)
 
   x0 = zeros(n)
 

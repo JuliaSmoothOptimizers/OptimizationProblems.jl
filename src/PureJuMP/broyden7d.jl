@@ -1,6 +1,6 @@
 export broyden7d
 
-function broyden7d(; n::Int = default_nvar)
+function broyden7d(; n::Int = default_nvar, kwargs...)
   p = 7 / 3
   nh = div(n, 2)
   nlp = Model()

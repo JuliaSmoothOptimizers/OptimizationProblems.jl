@@ -1,8 +1,9 @@
 export fletcbv2
 
 function fletcbv2(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("fletcbv2: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("fletcbv2", n_orig, n)
 
   nlp = Model()
 

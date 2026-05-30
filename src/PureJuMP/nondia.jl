@@ -1,8 +1,9 @@
 export nondia
 
 function nondia(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("nondia: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("nondia", n_orig, n)
 
   nlp = Model()
   @variable(nlp, x[i = 1:n], start = -1.0)
