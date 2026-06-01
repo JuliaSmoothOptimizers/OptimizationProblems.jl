@@ -41,6 +41,7 @@ Apply these before reporting any finding:
 | Residual allocation (known allocators) | Names starting with `"palmer"` or equal to `"watson"` | Downgrade `AD:FAIL residual_alloc` from Error → Info |
 | JuMP-only (no ADNLPProblems) | `catmix`, `gasoil`, `glider`, `methanol`, `minsurf`, `pinene`, `rocket`, `steering`, `torsion` | Missing ADNLP file → Info (not Error); all AD checks and cross-checks skipped |
 | AD-only (no PureJuMP) | `curly10`, `curly20`, `curly30` | Missing JuMP file → Info; JU checks and cross-checks skipped |
+| `:is_feasible => true` with infeasible x0 | Many constrained HS problems (`hs68`, `hs69`, `hs87`, `hs219`–`hs265`, `hs316`–`hs378`) | **Not a bug.** `:is_feasible` records problem-level feasibility ("a feasible solution exists"), not point-level ("x0 is feasible"). `CROSS:INFO meta_is_feasible` is the correct outcome when x0 is infeasible but the flag is `true`. |
 
 ---
 
@@ -81,12 +82,25 @@ Apply the per-file rules by reference to the per-category skills:
 
 - **ADNLPProblems file** (if present): apply every rule from `review-adnlpproblems` Step 3
   (structural, signature, constructor `!`-suffix, type stability warnings, n-adjustment, objective literals).
+  Additionally flag:
+  - **Warning:** `sum(expr for i = 1:N)` without `init` in a scalable problem where `N` can be 0
+    (e.g., `N = div(n, k) - c` with small `n`). Julia throws `ArgumentError: reducing over empty
+    collection` when the range is empty. Fix: add `; init = zero(T)`.
+  - **Warning:** n-adjustment guard present in ADNLPProblems (e.g., `p = max(floor(Int, sqrt(n)), 3)`)
+    but the corresponding PureJuMP and Meta getter use the unguarded formula. The `compat_n5_*` dynamic
+    checks will catch this, but flag it during static read if the formulas visibly differ.
 
 - **PureJuMP file** (if present): apply every rule from `review-purejump` Step 3
   (structural, start values, signature, n-adjustment, noteworthy patterns).
 
 - **Meta file** (if present): apply every rule from `review-meta` Step 3
   (structural, field values, logical consistency, documentation quality, noteworthy).
+  Additionally flag:
+  - **Warning:** `:is_feasible => false` — this is almost always wrong unless the problem has
+    provably contradictory bounds or constraints (an empty feasible set). If the feasible set is
+    simply non-empty but x0 is not feasible, the correct value is `missing` (unknown) or `true`
+    (if a feasible point is known). `false` asserts the problem is infeasible; only use it when
+    that is explicitly verified.
 
 Collect findings per-file under the three severity tiers (Error / Warning / Info).
 
@@ -450,13 +464,30 @@ if nlp_ad !== nothing && nlp_jump !== nothing && meta !== nothing
       missing
     end
   end
+  # :is_feasible is PROBLEM-LEVEL ("a feasible solution exists"), not POINT-LEVEL ("x0 is feasible").
+  # feasible_actual=true  → x0 satisfies all constraints and bounds
+  # feasible_actual=false → bounds are contradictory (empty feasible set)
+  # feasible_actual=missing → x0 is not feasible, but the feasible set may still be non-empty
   mf = meta[:is_feasible]
   if ismissing(mf)
     println(\"CROSS:INFO meta_is_feasible: meta=missing actual=\$(feasible_actual)\")
-  elseif mf === feasible_actual
+  elseif mf == true && feasible_actual == true
     println(\"CROSS:OK meta_is_feasible\")
-  else
-    println(\"CROSS:FAIL meta_is_feasible: meta=\$(mf) actual=\$(feasible_actual)\")
+  elseif mf == true && ismissing(feasible_actual)
+    # x0 is not feasible, but :is_feasible=true just means the problem has at least one feasible
+    # solution somewhere — cannot be refuted by x0 alone. This is expected and correct.
+    println(\"CROSS:INFO meta_is_feasible: meta=true, x0 not feasible (problem-level claim cannot be refuted from x0 alone)\")
+  elseif mf == true && feasible_actual == false
+    # bounds are contradictory → problem is provably infeasible, meta claims feasible
+    println(\"CROSS:FAIL meta_is_feasible: meta=true but variable or constraint bounds are contradictory (empty feasible set)\")
+  elseif mf == false && feasible_actual == true
+    # x0 satisfies all constraints → clear contradiction with :is_feasible=false
+    println(\"CROSS:FAIL meta_is_feasible: meta=false but x0 satisfies all constraints and bounds\")
+  elseif mf == false && feasible_actual == false
+    println(\"CROSS:OK meta_is_feasible\")
+  elseif mf == false && ismissing(feasible_actual)
+    # x0 not feasible, consistent with false, but can't confirm the problem is infeasible from x0 alone
+    println(\"CROSS:WARN meta_is_feasible: meta=false but feasibility undetermined from x0 alone (consider changing to missing)\")
   end
 
   # --- compat_obj_rand / compat_cons_rand ---
@@ -642,7 +673,10 @@ end  # end Block C
 | `CROSS:FAIL meta_objtype_nls: ...` | Error: `:least_squares` but `use_nls=true` fails |
 | `CROSS:INFO meta_objtype_nls: objtype=X` | Info: not a least-squares problem |
 | `CROSS:OK meta_is_feasible` | No finding |
-| `CROSS:FAIL meta_is_feasible: meta=X actual=Y` | Error: `:is_feasible` flag wrong |
+| `CROSS:INFO meta_is_feasible: meta=true, x0 not feasible ...` | Info: expected for problems where x0 is not feasible but a feasible solution is known to exist elsewhere |
+| `CROSS:FAIL meta_is_feasible: meta=true but ... contradictory` | Error: bounds are contradictory (provably empty feasible set) yet meta claims feasible |
+| `CROSS:FAIL meta_is_feasible: meta=false but x0 satisfies ...` | Error: x0 is feasible yet meta claims infeasible |
+| `CROSS:WARN meta_is_feasible: meta=false but feasibility undetermined ...` | Warning: `:is_feasible => false` asserts infeasibility but x0 being infeasible doesn't prove it — consider `missing` |
 | `CROSS:INFO meta_is_feasible: meta=missing ...` | Info: feasibility documented as unknown |
 | `CROSS:OK compat_obj_rand` | No finding |
 | `CROSS:FAIL compat_obj_rand: ad=X jump=Y` | Error (Info for triangle_pacman/deer): objectives differ at random point |
