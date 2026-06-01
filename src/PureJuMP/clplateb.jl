@@ -3,7 +3,7 @@ export clplateb
 "The clamped plate problem (Strang, Nocedal, Dax)."
 function clplateb(args...; n::Int = default_nvar, wght::Float64 = -0.1, kwargs...)
   n_org = n
-  p = floor(Int, sqrt(n))
+  p = max(floor(Int, sqrt(n)), 3)
   n = p * p
   @adjust_nvar_warn("clplateb", n_org, n)
 

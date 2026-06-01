@@ -10,7 +10,7 @@ function clplatec(
   kwargs...,
 )
   n_org = n
-  p = floor(Int, sqrt(n))
+  p = max(floor(Int, sqrt(n)), 3)
   n = p * p
   @adjust_nvar_warn("clplatec", n_org, n)
 
