@@ -1,8 +1,10 @@
 export clnlbeam
 
 function clnlbeam(args...; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  n_org = n
+  n = max(n, 6)
   N = div(n - 3, 3)
-  @adjust_nvar_warn("clnlbeam", n, 3 * N + 3)
+  @adjust_nvar_warn("clnlbeam", n_org, 3 * N + 3)
   h = 1 // N
   alpha = 350
   function f(y; N = N, h = h, alpha = alpha)
