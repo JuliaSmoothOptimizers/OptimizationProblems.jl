@@ -12,9 +12,8 @@
 export arglina
 
 "Linear function with `n` parameters and `m` observations  - full rank"
-function arglina(args...; n::Int = default_nvar, m::Int = 2n, kwargs...)
-  m < n && @warn("arglina: must have m ≥ n")
-  m = max(m, n)
+function arglina(args...; n::Int = default_nvar, kwargs...)
+  m = 2 * n
 
   nlp = Model()
 

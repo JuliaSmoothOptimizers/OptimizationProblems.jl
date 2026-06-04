@@ -12,9 +12,8 @@
 export arglinc
 
 "Linear function with `n` parameters and `m` observations - rank 1, zero columns and rows"
-function arglinc(args...; n::Int = default_nvar, m::Int = 2n, kwargs...)
-  m < n && @warn("arglinc: must have m ≥ n")
-  m = max(m, n)
+function arglinc(args...; n::Int = default_nvar, kwargs...)
+  m = 2 * n
 
   nlp = Model()
 
