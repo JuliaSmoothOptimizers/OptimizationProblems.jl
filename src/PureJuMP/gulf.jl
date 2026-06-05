@@ -1,6 +1,6 @@
 export gulf
 
-"Linear function with `3` parameters and `m` observations  - full rank"
+"Nonlinear least-squares function with `3` parameters and `m` observations  - full rank"
 function gulf(args...; m::Int = 100, kwargs...)
   m = min(m, 100)
 

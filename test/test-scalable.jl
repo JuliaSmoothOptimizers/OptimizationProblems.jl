@@ -11,7 +11,7 @@
       # test that the problem is actually scalable
       @test n11 != item.nvar
     end
-  catch e
+  catch err
     @warn "Skipping $(item.name) due to error" err
     @test !isnothing(err)
     @test_skip "Skipped $(item.name) due to $(typeof(err))"
