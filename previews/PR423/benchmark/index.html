@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Benchmark · OptimizationProblems.jl</title><meta name="title" content="Benchmark · OptimizationProblems.jl"/><meta property="og:title" content="Benchmark · OptimizationProblems.jl"/><meta property="twitter:title" content="Benchmark · OptimizationProblems.jl"/><meta name="description" content="Documentation for OptimizationProblems.jl."/><meta property="og:description" content="Documentation for OptimizationProblems.jl."/><meta property="twitter:description" content="Documentation for OptimizationProblems.jl."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script><link href="../assets/style.css" rel="stylesheet" type="text/css"/></head><body><div id="documenter"><nav class="docs-sidebar"><a class="docs-logo" href="../"><img src="../assets/logo.png" alt="OptimizationProblems.jl logo"/></a><div class="docs-package-name"><span class="docs-autofit"><a href="../">OptimizationProblems.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Home</a></li><li><a class="tocitem" href="../tutorial/">Tutorial</a></li><li><a class="tocitem" href="../meta/">Problem classification</a></li><li class="is-active"><a class="tocitem" href>Benchmark</a></li><li><a class="tocitem" href="../reference/">Reference</a></li><li><a class="tocitem" href="../contributing/">Contributing</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Benchmark</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Benchmark</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/docs/src/benchmark.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Run-a-benchmark-with-OptimizationProblems.jl"><a class="docs-heading-anchor" href="#Run-a-benchmark-with-OptimizationProblems.jl">Run a benchmark with OptimizationProblems.jl</a><a id="Run-a-benchmark-with-OptimizationProblems.jl-1"></a><a class="docs-heading-anchor-permalink" href="#Run-a-benchmark-with-OptimizationProblems.jl" title="Permalink"></a></h1><p>In this more advanced tutorial, we use the problems from <code>OptimizationProblems</code> to run a benchmark for unconstrained problems. The tutorial will use:</p><ul><li><a href="https://github.com/JuliaSmoothOptimizers/JSOSolvers.jl">JSOSolvers</a>: This package provides optimization solvers in pure Julia for unconstrained and bound-constrained optimization.</li><li><a href="https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl">NLPModelsJuMP</a>: This package convert JuMP model in <code>NLPModel</code> format.</li><li><a href="https://github.com/JuliaSmoothOptimizers/SolverBenchmark.jl">SolverBenchmark</a>: This package provides general tools for benchmarking solvers.</li></ul><pre><code class="language-julia hljs">using JSOSolvers, NLPModels, NLPModelsJuMP, OptimizationProblems, SolverBenchmark
+using OptimizationProblems.PureJuMP</code></pre><p>We select the problems from <code>PureJuMP</code> submodule of <code>OptimizationProblems</code> converted in <a href="https://github.com/JuliaSmoothOptimizers/NLPModels.jl">NLPModels</a> using <a href="https://github.com/JuliaSmoothOptimizers/NLPModelsJuMP.jl">NLPModelsJuMP</a>.</p><pre><code class="language-julia hljs">problems = (MathOptNLPModel(OptimizationProblems.PureJuMP.eval(Meta.parse(problem))(), name=problem) for problem ∈ OptimizationProblems.meta[!, :name])</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Base.Generator{Vector{String}, Main.var&quot;#2#3&quot;}(Main.var&quot;#2#3&quot;(), [&quot;AMPGO02&quot;, &quot;AMPGO03&quot;, &quot;AMPGO04&quot;, &quot;AMPGO05&quot;, &quot;AMPGO06&quot;, &quot;AMPGO07&quot;, &quot;AMPGO08&quot;, &quot;AMPGO09&quot;, &quot;AMPGO10&quot;, &quot;AMPGO11&quot;  …  &quot;triangle_turtle&quot;, &quot;tridia&quot;, &quot;trig&quot;, &quot;trigb&quot;, &quot;vardim&quot;, &quot;variational&quot;, &quot;vibrbeam&quot;, &quot;watson&quot;, &quot;woods&quot;, &quot;zangwil3&quot;])</code></pre><p>The same can be achieved using <code>OptimizationProblems.ADNLPProblems</code> instead of <code>OptimizationProblems.PureJuMP</code> as follows:</p><pre><code class="language-julia hljs">using ADNLPModels
+using OptimizationProblems.ADNLPProblems
+ad_problems = (OptimizationProblems.ADNLPProblems.eval(Meta.parse(problem))() for problem ∈ OptimizationProblems.meta[!, :name])</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Base.Generator{Vector{String}, Main.var&quot;#5#6&quot;}(Main.var&quot;#5#6&quot;(), [&quot;AMPGO02&quot;, &quot;AMPGO03&quot;, &quot;AMPGO04&quot;, &quot;AMPGO05&quot;, &quot;AMPGO06&quot;, &quot;AMPGO07&quot;, &quot;AMPGO08&quot;, &quot;AMPGO09&quot;, &quot;AMPGO10&quot;, &quot;AMPGO11&quot;  …  &quot;triangle_turtle&quot;, &quot;tridia&quot;, &quot;trig&quot;, &quot;trigb&quot;, &quot;vardim&quot;, &quot;variational&quot;, &quot;vibrbeam&quot;, &quot;watson&quot;, &quot;woods&quot;, &quot;zangwil3&quot;])</code></pre><p>We also define a dictionary of solvers that will be used for our benchmark. We consider here <code>JSOSolvers.lbfgs</code> and <code>JSOSolvers.trunk</code>.</p><pre><code class="language-julia hljs">solvers = Dict(
+  :lbfgs =&gt; model -&gt; lbfgs(model, mem=5, atol=1e-5, rtol=0.0),
+  :trunk =&gt; model -&gt; trunk(model, atol=1e-5, rtol=0.0),
+)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Symbol, Function} with 2 entries:
+  :trunk =&gt; #11
+  :lbfgs =&gt; #9</code></pre><p>The function <code>SolverBenchmark.bmak_solvers</code> will run all the problems on the specified solvers and store the results in a <code>DataFrame</code>. At this stage, we discard the problems that have constraints or bounds using <code>!unconstrained(prob)</code>, and those that are too large or too small with <code>get_nvar(prob) &gt; 100 || get_nvar(prob) &lt; 5</code>.</p><pre><code class="language-julia hljs">stats = bmark_solvers(
+  solvers, problems,
+  skipif=prob -&gt; (!unconstrained(prob) || get_nvar(prob) &gt; 100 || get_nvar(prob) &lt; 5),
+)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">Dict{Symbol, DataFrames.DataFrame} with 2 entries:
+  :trunk =&gt; <span class="sgr1">117×40 DataFrame</span>…
+  :lbfgs =&gt; <span class="sgr1">117×40 DataFrame</span>…</code></pre><p>We can explore the results solver by solver in <code>stats[:lbfgs]</code> and <code>stats[:trunk]</code>, or get a profile wall using <code>SolverBenchmark.profile_solvers</code>.</p><pre><code class="language-julia hljs">cols = [:id, :name, :nvar, :objective, :dual_feas, :neval_obj, :neval_grad, :neval_hess, :iter, :elapsed_time, :status]
+header = Dict(
+  :nvar =&gt; &quot;n&quot;,
+  :objective =&gt; &quot;f(x)&quot;,
+  :dual_feas =&gt; &quot;‖∇f(x)‖&quot;,
+  :neval_obj =&gt; &quot;# f&quot;,
+  :neval_grad =&gt; &quot;# ∇f&quot;,
+  :neval_hess =&gt; &quot;# ∇²f&quot;,
+  :elapsed_time =&gt; &quot;t&quot;,
+)
+
+for solver ∈ keys(solvers)
+  pretty_stats(stats[solver][!, cols], hdr_override=header)
+end</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">┌────────┬───────────────┬────────┬───────────┬───────────┬────────┬────────┬────────┬────────┬───────────┬───────────┐
+│<span class="sgr1">     id │          name │      n │      f(x) │   ‖∇f(x)‖ │    # f │   # ∇f │  # ∇²f │   iter │         t │    status │
+├────────┼───────────────┼────────┼───────────┼───────────┼────────┼────────┼────────┼────────┼───────────┼───────────┤
+│     25 │          NZF1 │     91 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     38 │       arglina │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     39 │       arglinb │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     40 │       arglinc │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     41 │       argtrig │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     42 │       arwhead │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     43 │        auglag │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     46 │       bdqrtic │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     51 │        biggs6 │      6 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     53 │      boundary │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     57 │       brownal │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     60 │     browngen1 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     61 │     browngen2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     62 │     broyden3d │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     63 │     broyden7d │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     64 │      broydn7d │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     65 │        brybnd │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     71 │      chainwoo │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     73 │  chnrosnb_mod │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     78 │      clplatea │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     79 │      clplateb │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     80 │      clplatec │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     82 │        cosine │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     83 │      cragglvy │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     84 │     cragglvy2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     85 │         curly │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     86 │       curly10 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     87 │       curly20 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     88 │       curly30 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     90 │      dixmaane │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     91 │      dixmaanf │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     92 │      dixmaang │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     93 │      dixmaanh │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     94 │      dixmaani │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     95 │      dixmaanj │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     96 │      dixmaank │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     97 │      dixmaanl │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     98 │      dixmaanm │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     99 │      dixmaann │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    100 │      dixmaano │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    101 │      dixmaanp │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    102 │      dixon3dq │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    103 │       dqdrtic │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    104 │        dqrtic │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    106 │       edensch │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    107 │           eg2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    109 │       engval1 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    110 │          enso │      9 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    111 │  errinros_mod │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    112 │      extrosnb │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    113 │      fletcbv2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    114 │  fletcbv3_mod │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    115 │      fletchcr │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    116 │      fminsrf2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    117 │      freuroth │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    119 │        gauss1 │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    120 │        gauss2 │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    121 │        gauss3 │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    123 │   genbroydenb │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    124 │ genbroydentri │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    125 │      genhumps │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    126 │       genrose │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    127 │  genrose_nash │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    130 │         hahn1 │      7 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    297 │     indef_mod │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    298 │      integreq │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    300 │        kirby2 │      5 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    302 │      lanczos1 │      6 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    303 │      lanczos2 │      6 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    304 │      lanczos3 │      6 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    305 │       liarwhd │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    314 │         mgh17 │      5 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    320 │        morebv │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    322 │      nazareth │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    323 │         ncb20 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    324 │        ncb20b │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    326 │      noncvxu2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    327 │      noncvxun │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    328 │        nondia │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    329 │      nondquar │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    330 │      osborne1 │      5 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    331 │      osborne2 │     11 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    332 │      palmer1c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    333 │      palmer1d │      7 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    334 │      palmer2c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    335 │      palmer3c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    336 │      palmer4c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    337 │      palmer5c │      6 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    339 │      palmer6c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    340 │      palmer7c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    341 │      palmer8c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    342 │      penalty1 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    343 │      penalty2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    344 │      penalty3 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    351 │      powellsg │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    352 │         power │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    353 │        quartc │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    360 │       sbrybnd │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    361 │      schmvett │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    362 │       scosine │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    363 │       sinquad │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    364 │      sparsine │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    365 │      sparsqur │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    366 │      spmsrtls │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    367 │      srosenbr │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    378 │       thurber │      7 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    379 │         toint │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    380 │      tointgss │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    382 │      tquartic │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    387 │        tridia │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    388 │          trig │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    389 │         trigb │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    390 │        vardim │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    391 │   variational │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    392 │      vibrbeam │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    393 │        watson │     31 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    394 │         woods │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+└────────┴───────────────┴────────┴───────────┴───────────┴────────┴────────┴────────┴────────┴───────────┴───────────┘
+┌────────┬───────────────┬────────┬───────────┬───────────┬────────┬────────┬────────┬────────┬───────────┬───────────┐
+│     id │          name │      n │      f(x) │   ‖∇f(x)‖ │    # f │   # ∇f │  # ∇²f │   iter │         t │    status │
+├────────┼───────────────┼────────┼───────────┼───────────┼────────┼────────┼────────┼────────┼───────────┼───────────┤
+│     25 │          NZF1 │     91 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     38 │       arglina │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     39 │       arglinb │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     40 │       arglinc │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     41 │       argtrig │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     42 │       arwhead │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     43 │        auglag │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     46 │       bdqrtic │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     51 │        biggs6 │      6 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     53 │      boundary │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     57 │       brownal │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     60 │     browngen1 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     61 │     browngen2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     62 │     broyden3d │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     63 │     broyden7d │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     64 │      broydn7d │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     65 │        brybnd │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     71 │      chainwoo │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     73 │  chnrosnb_mod │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     78 │      clplatea │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     79 │      clplateb │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     80 │      clplatec │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     82 │        cosine │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     83 │      cragglvy │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     84 │     cragglvy2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     85 │         curly │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     86 │       curly10 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     87 │       curly20 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     88 │       curly30 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     90 │      dixmaane │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     91 │      dixmaanf │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     92 │      dixmaang │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     93 │      dixmaanh │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     94 │      dixmaani │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     95 │      dixmaanj │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     96 │      dixmaank │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     97 │      dixmaanl │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     98 │      dixmaanm │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│     99 │      dixmaann │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    100 │      dixmaano │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    101 │      dixmaanp │     99 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    102 │      dixon3dq │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    103 │       dqdrtic │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    104 │        dqrtic │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    106 │       edensch │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    107 │           eg2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    109 │       engval1 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    110 │          enso │      9 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    111 │  errinros_mod │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    112 │      extrosnb │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    113 │      fletcbv2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    114 │  fletcbv3_mod │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    115 │      fletchcr │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    116 │      fminsrf2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    117 │      freuroth │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    119 │        gauss1 │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    120 │        gauss2 │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    121 │        gauss3 │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    123 │   genbroydenb │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    124 │ genbroydentri │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    125 │      genhumps │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    126 │       genrose │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    127 │  genrose_nash │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    130 │         hahn1 │      7 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    297 │     indef_mod │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    298 │      integreq │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    300 │        kirby2 │      5 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    302 │      lanczos1 │      6 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    303 │      lanczos2 │      6 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    304 │      lanczos3 │      6 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    305 │       liarwhd │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    314 │         mgh17 │      5 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    320 │        morebv │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    322 │      nazareth │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    323 │         ncb20 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    324 │        ncb20b │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    326 │      noncvxu2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    327 │      noncvxun │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    328 │        nondia │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    329 │      nondquar │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    330 │      osborne1 │      5 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    331 │      osborne2 │     11 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    332 │      palmer1c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    333 │      palmer1d │      7 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    334 │      palmer2c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    335 │      palmer3c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    336 │      palmer4c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    337 │      palmer5c │      6 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    339 │      palmer6c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    340 │      palmer7c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    341 │      palmer8c │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    342 │      penalty1 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    343 │      penalty2 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    344 │      penalty3 │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    351 │      powellsg │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    352 │         power │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    353 │        quartc │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    360 │       sbrybnd │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    361 │      schmvett │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    362 │       scosine │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    363 │       sinquad │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    364 │      sparsine │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    365 │      sparsqur │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    366 │      spmsrtls │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    367 │      srosenbr │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    378 │       thurber │      7 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    379 │         toint │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    380 │      tointgss │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    382 │      tquartic │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    387 │        tridia │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    388 │          trig │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    389 │         trigb │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    390 │        vardim │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    391 │   variational │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    392 │      vibrbeam │      8 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    393 │        watson │     31 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+│    394 │         woods │    100 │       Inf │       Inf │      0 │      0 │      0 │      0 │       Inf │ exception │
+└────────┴───────────────┴────────┴───────────┴───────────┴────────┴────────┴────────┴────────┴───────────┴───────────┘</span></code></pre><pre><code class="language-julia hljs">first_order(df) = df.status .== :first_order
+unbounded(df) = df.status .== :unbounded
+solved(df) = first_order(df) .| unbounded(df)
+costnames = [&quot;time&quot;, &quot;obj + grad + hess&quot;]
+costs = [
+  df -&gt; .!solved(df) .* Inf .+ df.elapsed_time,
+  df -&gt; .!solved(df) .* Inf .+ df.neval_obj .+ df.neval_grad .+ df.neval_hess,
+]
+
+using Plots
+gr()
+
+profile_solvers(stats, costs, costnames)</code></pre><img src="aab2c9b7.svg" alt="Example block output"/><p>It is also possible to select problems when initializing the problem list by filtering <code>OptimizationProblems.meta</code>:</p><pre><code class="nohighlight hljs">meta = OptimizationProblems.meta
+problem_list = meta[(meta.ncon .== 0) .&amp; .!meta.has_bounds .&amp; (5 .&lt;= meta.nvar .&lt;= 100), :name]
+problems = (MathOptNLPModel(eval(Meta.parse(problem))(), name=problem) for problem ∈ problem_list)</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../meta/">« Problem classification</a><a class="docs-footer-nextpage" href="../reference/">Reference »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Friday 5 June 2026 11:31">Friday 5 June 2026</span>. Using Julia version 1.12.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
