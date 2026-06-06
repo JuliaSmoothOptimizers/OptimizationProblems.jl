@@ -1,8 +1,10 @@
 export browngen2
 
-function browngen2(; n::Int = default_nvar)
+function browngen2(; n::Int = default_nvar, kwargs...)
   nlp = Model()
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("browngen2", n_orig, n)
   @variable(nlp, x[1:n])
   for i = 1:n
     set_start_value(x[i], isodd(i) ? -1.0 : 1.0)

@@ -2,8 +2,9 @@ export sinquad
 
 "Another function with nontrivial groups and repetitious elements in size 'n' "
 function sinquad(args...; n::Int = default_nvar, kwargs...)
-  n < 3 && @warn("sinquad: number of variables must be ≥ 3")
+  n_orig = n
   n = max(3, n)
+  @adjust_nvar_warn("sinquad", n_orig, n)
 
   nlp = Model()
 

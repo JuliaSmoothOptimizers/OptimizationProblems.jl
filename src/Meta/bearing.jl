@@ -52,7 +52,7 @@ get_bearing_nvar(;
   nx::Int = Int(round(sqrt(max(n, 1)))) - 2,
   ny::Int = Int(round(sqrt(max(n, 1)))) - 2,
   kwargs...,
-) = (nx + 2) * (ny + 2)
+) = (max(1, nx) + 2) * (max(1, ny) + 2)
 get_bearing_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_bearing_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_bearing_nnln(; n::Integer = default_nvar, kwargs...) = 0

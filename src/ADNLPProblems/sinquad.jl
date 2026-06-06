@@ -1,8 +1,9 @@
 export sinquad
 
 function sinquad(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 3 && @warn("sinquad: number of variables must be ≥ 3")
+  n_org = n
   n = max(3, n)
+  @adjust_nvar_warn("sinquad", n_org, n)
   function f(x; n = length(x))
     return (x[1] - 1)^4 +
            (x[n]^2 - x[1]^2)^2 +

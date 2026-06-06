@@ -165,9 +165,10 @@ function palmer1c(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
     108.18086,
     92.733676,
   ]
-  function F!(r::AbstractVector{Ti}, x; X = Ti.(X), Y = Ti.(Y)) where {Ti}
-    for i = 1:35
-      r[i] = Y[i] - sum(x[j] * X[i]^(2 * j - 2) for j = 1:8)
+  function F!(r, x, X = X, Y = Y)
+    Ti = eltype(x)
+    for i = 1:length(r)
+      r[i] = Ti(Y[i]) - sum(x[j] * Ti(X[i])^(2 * j - 2) for j = 1:8)
     end
     return r
   end

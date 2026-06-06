@@ -81,5 +81,5 @@ function nazareth(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
     end
     return r
   end
-  return ADNLPModels.ADNLSModel!(F!, x0, n, name = "nazareth"; kwargs...)
+  return ADNLPModels.ADNLSModel!(F!, x0, n, name = "nazareth-nls"; kwargs...)
 end

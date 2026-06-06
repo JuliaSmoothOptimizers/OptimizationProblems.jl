@@ -1,8 +1,9 @@
 export tointgss
 
 function tointgss(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 3 && @warn("tointgss: number of variables must be ≥ 3")
+  n_org = n
   n = max(3, n)
+  @adjust_nvar_warn("tointgss", n_org, n)
   function f(x; n = length(x))
     return sum(
       ((10 // (n + 2)) + x[i + 2]^2) * (2 - exp(-(x[i] - x[i + 1])^2 / (1 // 10 + x[i + 2]^2))) for

@@ -1,8 +1,9 @@
 export errinros_mod
 
 function errinros_mod(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("errinros_mod: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("errinros_mod", n_orig, n)
 
   nlp = Model()
 

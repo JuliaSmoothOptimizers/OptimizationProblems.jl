@@ -2,8 +2,9 @@ export genrose_nash
 
 "Nash's variant of `genrose()` in size `n`"
 function genrose_nash(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("genrose_nash: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("genrose_nash", n_orig, n)
 
   nlp = Model()
 

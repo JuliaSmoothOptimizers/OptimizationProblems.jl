@@ -2,8 +2,9 @@ export eg2
 
 "model in size `n`"
 function eg2(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("eg2: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("eg2", n_orig, n)
 
   nlp = Model()
 

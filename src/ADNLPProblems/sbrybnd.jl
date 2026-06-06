@@ -6,8 +6,9 @@ function sbrybnd(; use_nls::Bool = false, kwargs...)
 end
 
 function sbrybnd(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("sbrybnd: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("sbrybnd", n_org, n)
   p = [exp(6 * (i - 1) / (n - 1)) for i = 1:n]
   J = [[max(1, i - 5):(i - 1); (i + 1):min(n, i + 1)] for i = 1:n]
 
@@ -24,8 +25,9 @@ function sbrybnd(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kw
 end
 
 function sbrybnd(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("sbrybnd: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("sbrybnd", n_org, n)
   p = [exp(6 * (i - 1) / (n - 1)) for i = 1:n]
   J = [[max(1, i - 5):(i - 1); (i + 1):min(n, i + 1)] for i = 1:n]
 

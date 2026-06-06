@@ -50,7 +50,7 @@ SIF input: Ph. Toint, April 1993.
   """,
   :lib => "CUTEst:NCB20B, Luksan:41",
 )
-get_ncb20b_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_ncb20b_nvar(; n::Integer = default_nvar, kwargs...) = max(20, n)
 get_ncb20b_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_ncb20b_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_ncb20b_nnln(; n::Integer = default_nvar, kwargs...) = 0

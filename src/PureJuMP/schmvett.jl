@@ -2,8 +2,9 @@ export schmvett
 
 "Another function with nontrivial groups and repetitious elements in size 'n' "
 function schmvett(args...; n::Int = default_nvar, kwargs...)
-  n < 3 && @warn("schmvett: number of variables must be ≥ 3")
+  n_orig = n
   n = max(3, n)
+  @adjust_nvar_warn("schmvett", n_orig, n)
 
   nlp = Model()
 

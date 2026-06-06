@@ -2,8 +2,9 @@ export cragglvy
 
 "The extented Cragg and Levy function in size `n`"
 function cragglvy(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("cragglvy: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("cragglvy", n_orig, n)
 
   nlp = Model()
 

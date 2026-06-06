@@ -2,8 +2,9 @@ export penalty3
 
 "A penalty problem by Gill, Murray and Pitfield in size 'n' "
 function penalty3(args...; n::Int = default_nvar, kwargs...)
-  n < 3 && @warn("penalty3: number of variables must be ≥ 3")
+  n_orig = n
   n = max(3, n)
+  @adjust_nvar_warn("penalty3", n_orig, n)
 
   nlp = Model()
   @variable(nlp, x[i = 1:n], start = i / (n + 1))

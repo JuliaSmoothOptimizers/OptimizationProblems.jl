@@ -2,8 +2,9 @@ export curly, curly10, curly20, curly30
 
 "Curly function in size `n` with semi-bandwidth `b`"
 function curly(args...; n::Int = default_nvar, b::Int = 10, kwargs...)
-  n < 2 && @warn("curly: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("curly", n_orig, n)
 
   nlp = Model()
 

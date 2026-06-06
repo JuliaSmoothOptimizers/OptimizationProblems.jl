@@ -48,7 +48,7 @@ SIF input: Nick Gould, November 1995
   """,
   :lib => "CUTEst:SPARSINE, Luksan:52",
 )
-get_sparsine_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
+get_sparsine_nvar(; n::Integer = default_nvar, kwargs...) = max(10, n)
 get_sparsine_ncon(; n::Integer = default_nvar, kwargs...) = 0
 get_sparsine_nlin(; n::Integer = default_nvar, kwargs...) = 0
 get_sparsine_nnln(; n::Integer = default_nvar, kwargs...) = 0

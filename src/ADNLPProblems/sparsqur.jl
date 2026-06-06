@@ -1,8 +1,9 @@
 export sparsqur
 
 function sparsqur(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 10 && @warn("sparsqur: number of variables must be ≥ 10")
+  n_org = n
   n = max(10, n)
+  @adjust_nvar_warn("sparsqur", n_org, n)
   function f(x; n = length(x))
     return 1 // 8 * sum(
       i *

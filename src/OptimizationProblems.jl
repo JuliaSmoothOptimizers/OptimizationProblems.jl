@@ -99,7 +99,7 @@ The following keys are valid:
   - `has_inequalities_only::Bool`: true if the problem has constraints, and all are inequality constraints (doesn't include bounds)
   - `has_bounds::Bool`: true if the problem has bound constraints
   - `has_fixed_variables::Bool`: true if it has fixed variables
-  - `objtype::Symbol`: type of objective, in [:none, :constant, :linear, :quadratic, :sum_of_squares, :other]
+  - `objtype::Symbol`: type of objective, in [:none, :constant, :linear, :least_squares, :quadratic, :sum_of_squares, :other]
   - `contype::Symbol`: type of constraint, in [:unconstrained, :linear, :quadratic, :general]
   - `best_known_lower_bound::Real`: lower bound on the global optimal value (default: -Inf for minimization problem, f(x0) for maximization problem if x0 is feasible, -Inf otherwise)
   - `best_known_upper_bound::Real`: upper bound on the global optimal value (default: Inf for maximization problem, f(x0) for minimization problem if x0 is feasible, Inf otherwise)

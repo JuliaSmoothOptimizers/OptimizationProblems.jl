@@ -1,7 +1,9 @@
 export browngen2
 
 function browngen2(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("browngen2", n_org, n)
   function f(x; n = length(x))
     s = zero(T)
     @inbounds for i = 2:n

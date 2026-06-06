@@ -6,8 +6,9 @@ function cragglvy2(; use_nls::Bool = false, kwargs...)
 end
 
 function cragglvy2(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("cragglvy2: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("cragglvy2", n_org, n)
   function f(x; n = length(x))
     return sum(
       (exp(x[2 * i - 1]) - x[2 * i])^4 +
@@ -22,8 +23,9 @@ function cragglvy2(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, 
 end
 
 function cragglvy2(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("cragglvy2: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("cragglvy2", n_org, n)
   function F!(r, x; n = length(x))
     for i = 1:(div(n, 2) - 1)
       r[5 * (i - 1) + 1] = (exp(x[2 * i - 1]) - x[2 * i])^2

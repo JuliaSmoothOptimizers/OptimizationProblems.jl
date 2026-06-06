@@ -18,8 +18,8 @@ watson_meta = Dict(
   :origin => :unknown,
   :url => "https://bitbucket.org/optrove/sif/src/master/WATSON.SIF",
   :notes => raw"""
-Watson problem in varaible dimension ( 2 <= n <= 31 ).
-   This function is a nonlinear least squares with 31 groups.
+Watson problem in variable dimension ( 2 <= n <= 31 ).
+This function is a nonlinear least squares with 31 groups.
 
 classification SUR2-AN-V-0
 """,

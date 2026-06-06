@@ -60,8 +60,8 @@ function structural(args...; n::Int = default_nvar, kwargs...)
 
   nlp = Model()
 
-  @variable(nlp, x[1:M] >= 0)   # area of edge from i to j
-  @variable(nlp, u[1:M])       # force in edge from i to j
+  @variable(nlp, x[1:M] >= 0, start = 0)   # area of edge from i to j
+  @variable(nlp, u[1:M], start = 0)       # force in edge from i to j
 
   for i = 1:N
     if i in fixed

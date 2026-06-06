@@ -2,8 +2,9 @@ export tointgss
 
 "Toint's Gaussian problem in size 'n' "
 function tointgss(args...; n::Int = default_nvar, kwargs...)
-  n < 3 && @warn("tointgss: number of variables must be ≥ 3")
+  n_orig = n
   n = max(3, n)
+  @adjust_nvar_warn("tointgss", n_orig, n)
 
   nlp = Model()
 

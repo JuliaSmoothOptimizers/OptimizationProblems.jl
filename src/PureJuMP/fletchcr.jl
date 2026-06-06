@@ -1,8 +1,9 @@
 export fletchcr
 
 function fletchcr(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("fletchcr: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("fletchcr", n_orig, n)
 
   nlp = Model()
 

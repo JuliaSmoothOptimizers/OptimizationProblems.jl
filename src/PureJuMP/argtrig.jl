@@ -1,10 +1,7 @@
 export argtrig
 
 "Linear function with `n` parameters and `m` observations  - full rank"
-function argtrig(args...; n::Int = default_nvar, m::Int = 2n, kwargs...)
-  m < n && @warn("argtrig: must have m ≥ n")
-  m = max(m, n)
-
+function argtrig(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
 
   @variable(nlp, x[j = 1:n], start = 1 / n)

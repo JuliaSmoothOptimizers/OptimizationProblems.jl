@@ -49,9 +49,9 @@ SIF input: Ph. Toint, Nov 1993.
   """,
   :lib => "CUTEst:CLNLBEAM",
 )
-get_clnlbeam_nvar(; n::Integer = default_nvar, kwargs...) = 3 * div(n - 3, 3) + 3
-get_clnlbeam_ncon(; n::Integer = default_nvar, kwargs...) = 2 * div(n - 3, 3)
-get_clnlbeam_nlin(; n::Integer = default_nvar, kwargs...) = div(n - 3, 3)
-get_clnlbeam_nnln(; n::Integer = default_nvar, kwargs...) = div(n - 3, 3)
-get_clnlbeam_nequ(; n::Integer = default_nvar, kwargs...) = 2 * div(n - 3, 3)
+get_clnlbeam_nvar(; n::Integer = default_nvar, kwargs...) = 3 * div(max(n, 6) - 3, 3) + 3
+get_clnlbeam_ncon(; n::Integer = default_nvar, kwargs...) = 2 * div(max(n, 6) - 3, 3)
+get_clnlbeam_nlin(; n::Integer = default_nvar, kwargs...) = div(max(n, 6) - 3, 3)
+get_clnlbeam_nnln(; n::Integer = default_nvar, kwargs...) = div(max(n, 6) - 3, 3)
+get_clnlbeam_nequ(; n::Integer = default_nvar, kwargs...) = 2 * div(max(n, 6) - 3, 3)
 get_clnlbeam_nineq(; n::Integer = default_nvar, kwargs...) = 0

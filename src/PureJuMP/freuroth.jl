@@ -1,8 +1,9 @@
 export freuroth
 
 function freuroth(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("freuroth: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("freuroth", n_orig, n)
 
   ngs = n - 1
   x0 = zeros(n)

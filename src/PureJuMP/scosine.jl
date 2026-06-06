@@ -2,8 +2,9 @@ export scosine
 
 "Another function with nontrivial groups and repetitious elements in size 'n' "
 function scosine(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("scosine: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("scosine", n_orig, n)
 
   nlp = Model()
   p = zeros(n)

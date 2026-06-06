@@ -1,6 +1,6 @@
 export genbroydenb
 
-function genbroydenb(; n::Int = default_nvar)
+function genbroydenb(; n::Int = default_nvar, kwargs...)
   p = 7 / 3
   nlp = Model()
   @variable(nlp, x[1:n], start = -1.0)

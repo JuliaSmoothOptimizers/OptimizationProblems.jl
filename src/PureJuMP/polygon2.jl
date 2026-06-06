@@ -3,8 +3,8 @@ export polygon2
 function polygon2(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   N = div(n, 2)
-  @variable(nlp, 0 <= r[1:N] <= 1)
-  @variable(nlp, α[1:N] >= 0)
+  @variable(nlp, 0 <= r[1:N] <= 1, start = 0)
+  @variable(nlp, α[1:N] >= 0, start = 0)
 
   # impose an order to the angles
   @constraint(nlp, sum(α) == 2π)
