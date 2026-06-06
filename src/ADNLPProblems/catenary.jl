@@ -23,7 +23,9 @@ function catenary(
   mg = T(gamma * mass)
 
   function f(x; N = N, mg = mg)
-    return mg * x[2] / 2 + sum(mg * x[2 + 3 * i] for i = 1:N; init = zero(T)) + mg * x[5 + 3 * N] / 2
+    return mg * x[2] / 2 +
+           sum(mg * x[2 + 3 * i] for i = 1:N; init = zero(T)) +
+           mg * x[5 + 3 * N] / 2
   end
 
   function c!(cx, x; N = N, Bl = Bl)

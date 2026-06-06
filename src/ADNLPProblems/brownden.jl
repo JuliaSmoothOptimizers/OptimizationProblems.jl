@@ -14,9 +14,8 @@ function brownden(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
   function f(x)
     tt = one(eltype(x))
     return sum(
-      (
-        (x[1] + t[i] * x[2] - exp(tt * t[i]))^2 + (x[3] + x[4] * sin(tt * t[i]) - cos(tt * t[i]))^2
-      )^2 for i = 1:nequ
+      ((x[1] + t[i] * x[2] - exp(tt * t[i]))^2 + (x[3] + x[4] * sin(tt * t[i]) - cos(tt * t[i]))^2)^2
+      for i = 1:nequ
     )
   end
 
