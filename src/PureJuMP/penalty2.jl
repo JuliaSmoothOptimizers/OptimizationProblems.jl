@@ -1,19 +1,10 @@
-#   Source:  Problem 24 in
-#   J.J. Moré, B.S. Garbow and K.E. Hillstrom,
-#   "Testing Unconstrained Optimization Software",
-#   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
-#   See also Buckley#112 (p. 80)
-
-#   classification SUR2-AN-V-0
-# J.-P. Dussault, Clermont-Ferrand 06/2016.
-
 export penalty2
 
 "A penalty problem by Gill, Murray and Pitfield in size 'n' "
 function penalty2(args...; n::Int = default_nvar, kwargs...)
-  n < 3 && @warn("penalty2: number of variables must be ≥ 3")
+  n_orig = n
   n = max(3, n)
+  @adjust_nvar_warn("penalty2", n_orig, n)
 
   a = 1.0e-5
   m = 2 * n

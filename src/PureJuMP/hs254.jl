@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 254.
-#
-#   Source:
-#   Problem 254 in
-#   K. Schittkowski,
-#   More Test Examples for Nonlinear Programming Codes,
-#   Lectures Notes in Economics and Mathematical Systems 282,
-#   Springer Verlag, Heidelberg, 1987.
-#
-#   
-#
-# T. Migot, Montreal, 2023.
-
 export hs254
 
 "HS254 model"

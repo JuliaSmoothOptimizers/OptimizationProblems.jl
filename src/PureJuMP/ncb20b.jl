@@ -1,29 +1,11 @@
-#   A banded problem with semi-bandwidth 20.  This problem exhibits frequent
-#   negative curvature in the exact Hessian.  It is a simplified version of
-#   problem NCB20.
-
-#   Source:
-#   Ph. Toint, private communication, 1992.
-
-#   classification OUR2-AN-V-0
-
-#   Problem 41 in
-#   L. Luksan, C. Matonoha and J. Vlcek
-#   Modified CUTE problems for sparse unconstrained optimization,
-#   Technical Report 1081,
-#   Institute of Computer Science,
-#   Academy of Science of the Czech Republic
-#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
-#
-# J.-P. Dussault, Clermont-Ferrand 05/2016.
-
 export ncb20b
 
 function ncb20b(args...; n::Int = default_nvar, kwargs...)
 
   # indices in Luksan go from 0 to n+1
-  n < 20 && @warn("ncb20b: number of variables must be ≥ 20")
+  n_orig = n
   n = max(20, n)
+  @adjust_nvar_warn("ncb20b", n_orig, n)
 
   x0 = zeros(n)
 

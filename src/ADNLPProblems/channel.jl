@@ -2,6 +2,7 @@ export channel
 
 function channel(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
   nh = max(2, div(n, 8))
+  @adjust_nvar_warn("channel", n, 8 * nh)
 
   nc = 4
   nd = 4

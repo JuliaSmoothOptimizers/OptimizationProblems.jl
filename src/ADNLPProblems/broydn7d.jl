@@ -1,9 +1,10 @@
 export broydn7d
 
 function broydn7d(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  mod(n, 2) > 0 && @warn("broydn7d: number of variables adjusted to be even")
+  n_org = n
   n2 = max(1, div(n, 2))
   n = 2 * n2
+  @adjust_nvar_warn("broydn7d", n_org, n)
   function f(x; n = length(x), n2 = n2)
     p = 7 // 3
     return abs(1 - 2 * x[2] + (3 - x[1] / 2) * x[1])^p +

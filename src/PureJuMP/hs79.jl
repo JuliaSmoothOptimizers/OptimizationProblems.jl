@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 79.
-#
-#   Source:
-#   Problem 79 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification PPR-AN-5-3
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs79
 
 "HS79 model"

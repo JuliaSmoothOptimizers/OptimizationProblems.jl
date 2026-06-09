@@ -1,13 +1,8 @@
-# Goddard Rocket Problem
-# Trapezoidal formulation
-# COPS 2.0 - September 2000
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export rocket
 
 function rocket(; n::Int = default_nvar, kwargs...)
   h_0 = 1.0
+  @adjust_nvar_warn("rocket", n, 4 * n + 5)
   v_0 = 0.0
   m_0 = 1.0
   g_0 = 1.0

@@ -16,6 +16,22 @@ linsv_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://github.com/JuliaSmoothOptimizers/NLPModelsTest.jl",
+  :notes => raw"""
+
+""",
+  :origin_notes => raw"""
+Test problem used in NLPModelsTest.jl.
+""",
+  :reference => raw"""
+@misc{NLPModelsTestjl,
+  author       = {{JuliaSmoothOptimizers}},
+  title        = {{NLPModelsTest.jl}: Tests for Nonlinear Programming Models},
+  howpublished = {\url{https://github.com/JuliaSmoothOptimizers/NLPModelsTest.jl}},
+  year         = {2020}
+}
+""",
+  :lib => "",
 )
 get_linsv_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_linsv_ncon(; n::Integer = default_nvar, kwargs...) = 2

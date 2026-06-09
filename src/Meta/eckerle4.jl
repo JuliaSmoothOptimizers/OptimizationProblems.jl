@@ -16,6 +16,61 @@ eckerle4_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/ECKERLE4.SIF",
+  :notes => raw"""
+https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/eckerle4.dat
+
+NIST/ITL StRD
+Dataset Name:  Eckerle4          (Eckerle4.dat)
+
+File Format:   ASCII
+               Starting Values   (lines 41 to 43)
+               Certified Values  (lines 41 to 48)
+               Data              (lines 61 to 95)
+
+Procedure:     Nonlinear Least Squares Regression
+
+Description:   These data are the result of a NIST study involving
+               circular interference transmittance.  The response
+               variable is transmittance, and the predictor variable
+               is wavelength.
+
+Reference:     Eckerle, K., NIST (197?).  
+               Circular Interference Transmittance Study.
+
+Data:          1 Response Variable  (y = transmittance)
+               1 Predictor Variable (x = wavelength)
+               35 Observations
+               Higher Level of Difficulty
+               Observed Data
+
+Model:         Exponential Class
+               3 Parameters (b1 to b3)
+T. Migot, Montreal, 2023.
+
+NIST Data fitting problem ECKERLE4 given as an inconsistent set of
+nonlinear equations.
+Fit: y = (b1/b2) * exp[-0.5*((x-b3)/b2)**2] + e
+
+classification NOR2-MN-3-35
+""",
+  :origin_notes => raw"""
+Problem from the NIST nonlinear regression test set
+http://www.itl.nist.gov/div898/strd/nls/nls_main.shtml
+Reference: Eckerle, K., NIST (197?).  
+Circular Interference Transmittance Study.
+
+SIF input: Nick Gould and Tyrone Rees, Oct 2015
+""",
+  :reference => raw"""
+@misc{NISTStRD,
+  author       = {{National Institute of Standards and Technology}},
+  title        = {{NIST/ITL StRD}: Nonlinear Regression Reference Datasets},
+  howpublished = {\url{https://www.itl.nist.gov/div898/strd/nls/nls_main.shtml}},
+  year         = {1997}
+}
+""",
+  :lib => "CUTEst:ECKERLE4, NIST:Eckerle4",
 )
 get_eckerle4_nvar(; n::Integer = default_nvar, kwargs...) = 3
 get_eckerle4_ncon(; n::Integer = default_nvar, kwargs...) = 0

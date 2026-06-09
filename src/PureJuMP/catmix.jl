@@ -1,13 +1,9 @@
-# Catalyst Mixing Problem
-# Collocation formulation
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export catmix
 
 function catmix(args...; n::Int = default_nvar, kwargs...)
   ne = 2
   nc = 3
+  @adjust_nvar_warn("catmix", n, 23 * n + 2)
 
   tf = 1
   h = tf / n   # Final time

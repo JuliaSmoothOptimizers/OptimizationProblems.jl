@@ -1,14 +1,3 @@
-# Hock and Schittkowski problem number 87.
-#
-#   Source:
-#   Problem 87 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification PLR-AN-5-10
-
 export hs87
 
 "HS87 model"

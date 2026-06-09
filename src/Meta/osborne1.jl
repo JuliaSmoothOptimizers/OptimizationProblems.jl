@@ -1,4 +1,3 @@
-
 osborne1_meta = Dict(
   :nvar => 5,
   :variable_nvar => false,
@@ -17,6 +16,37 @@ osborne1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/OSBORNE1.SIF",
+  :notes => raw"""
+Osborne first problem in 5 variables. This is a nonlinear equation version
+of problem OSBORNEA.
+This function  is a nonlinear least squares with 33 groups.  Each
+group has 2 nonlinear elements and one linear element.
+
+classification NOR2-MN-5-33
+""",
+  :origin_notes => raw"""
+Problem 17 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See alos Buckley#32 (p. 77).
+
+SIF input: Ph. Toint, Dec 1989.
+""",
+  :reference => raw"""
+@article{MoreGarbowHillstrom1981,
+  author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
+  title   = {Testing Unconstrained Optimization Software},
+  journal = {ACM Transactions on Mathematical Software},
+  year    = {1981},
+  volume  = {7},
+  number  = {1},
+  pages   = {17--41},
+  doi     = {10.1145/355934.355936}
+}  
+  """,
+  :lib => "CUTEst:OSBORNE1",
 )
 get_osborne1_nvar(; n::Integer = default_nvar, kwargs...) = 5
 get_osborne1_ncon(; n::Integer = default_nvar, kwargs...) = 0

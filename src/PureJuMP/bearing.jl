@@ -1,19 +1,3 @@
-# Given observations of ns stages of a bearing species over n timesteps, 
-# minimize the loss between the observation and the computed law of paraneters : growth, mortality and number of specimens (g,m,x) 
-
-#   This is problem 16 in the COPS (Version 3) collection of 
-#   E. Dolan and J. More'
-#   see "Benchmarking Optimization Software with COPS"
-#   Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
-#   classification OOR2-AN-V-V
-
-# Journal bearing problem
-# Michael Merritt - Summer 2000
-# COPS 2.0 - September 2000
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export bearing
 
 function bearing(
@@ -27,6 +11,9 @@ function bearing(
 
   # nx > 0 # grid points in 1st direction
   # ny > 0 # grid points in 2nd direction
+  nx = max(1, nx)
+  ny = max(1, ny)
+  @adjust_nvar_warn("bearing", n, (nx + 2) * (ny + 2))
 
   b = 10  # grid is (0,2*pi)x(0,2*b)
   e = 0.1 # eccentricity

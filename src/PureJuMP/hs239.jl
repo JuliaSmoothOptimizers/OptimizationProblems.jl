@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 239.
-#
-#   Source:
-#   Problem 239 in
-#   K. Schittkowski,
-#   More Test Examples for Nonlinear Programming Codes,
-#   Lectures Notes in Economics and Mathematical Systems 282,
-#   Springer Verlag, Heidelberg, 1987.
-#
-#   
-#
-# T. Migot, Montreal, 2023.
-
 export hs239
 
 "HS239 model"

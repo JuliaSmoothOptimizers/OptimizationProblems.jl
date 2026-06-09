@@ -1,23 +1,10 @@
-#   A sparse quartic problem
-
-#   classification OUR2-AN-V-0
-
-#   Problem 53 in
-#   L. Luksan, C. Matonoha and J. Vlcek
-#   Modified CUTE problems for sparse unconstrained optimization,
-#   Technical Report 1081,
-#   Institute of Computer Science,
-#   Academy of Science of the Czech Republic
-#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
-#
-# J.-P. Dussault, Clermont-Ferrand 05/2016.
-
 export sparsqur
 
 "A sparse quartic problem in size 'n' "
 function sparsqur(args...; n::Int = default_nvar, kwargs...)
-  n < 10 && @warn("sparsqur: number of variables must be ≥ 10")
+  n_orig = n
   n = max(10, n)
+  @adjust_nvar_warn("sparsqur", n_orig, n)
 
   nlp = Model()
 

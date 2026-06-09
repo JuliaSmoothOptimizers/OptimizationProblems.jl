@@ -16,6 +16,52 @@ curly10_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/CURLY10.SIF",
+  :notes => raw"""
+A banded function with semi-bandwidth b and
+negative curvature near the starting point.
+
+Note that the initial point in the reference below is erroneous.
+In this model, we use the starting point specified in the
+original SIF model, part of the CUTE collection.
+
+See also
+
+problems 8, 9, 10 in
+L. Luksan, C. Matonoha and J. Vlcek
+Modified CUTE problems for sparse unconstrained optimization,
+Technical Report 1081,
+Institute of Computer Science,
+Academy of Science of the Czech Republic
+
+http://www.cs.cas.cz/matonoha/download/V1081.pdf
+
+A banded function with semi-bandwidth 10 and
+negative curvature near the starting point
+
+classification OUR2-AN-V-0
+
+classification SUR2-AN-V-0
+
+D. Orban, Montreal, 08/2015.
+""",
+  :origin_notes => raw"""
+Nick Gould
+
+SIF input: Nick Gould, September 1997.
+""",
+  :reference => raw"""
+@techreport{LuksanMatonohaVlcek2003,
+  author       = {Luksan, Ladislav and Matonoha, Cestmir and Vlcek, Jan},
+  title        = {Modified {CUTE} Problems for Sparse Unconstrained Optimization},
+    institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
+  number       = {1081},
+  year         = {2003},
+  address      = {Prague, Czech Republic},
+  url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
+  }  
+  """,
+  :lib => "CUTEst:CURLY10",
 )
 get_curly10_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_curly10_ncon(; n::Integer = default_nvar, kwargs...) = 0

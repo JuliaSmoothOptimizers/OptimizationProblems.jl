@@ -1,13 +1,3 @@
-#   The "cliff problem" in 2 variables
-#
-#   Source:  problem 206 (p. 46) in
-#   A.R. Buckley,
-#   "Test functions for unconstrained minimization",
-#   TR 1989CS-3, Mathematics, statistics and computing centre,
-#   Dalhousie University, Halifax (CDN), 1989.
-#
-#  classification OUR2-AN-2-0
-
 export cliff
 
 "The 'cliff problem' in 2 variables"

@@ -2,6 +2,21 @@ module OptimizationProblems
 
 using DataFrames
 
+"""
+    @adjust_nvar_warn(problem_name, n_orig, n)
+
+Issue a warning if the number of variables was adjusted, showing both original and adjusted values.
+"""
+macro adjust_nvar_warn(problem_name, n_orig, n)
+  return quote
+    local _n_orig = $(esc(n_orig))
+    local _n = $(esc(n))
+    (_n == _n_orig) || @warn(
+      string($(esc(problem_name)), ": number of variables adjusted from ", _n_orig, " to ", _n)
+    )
+  end
+end
+
 include("ADNLPProblems/ADNLPProblems.jl")
 include("PureJuMP/PureJuMP.jl")
 
@@ -34,6 +49,11 @@ const cols_names = [
   :is_feasible
   :defined_everywhere
   :origin
+  :url
+  :notes
+  :origin_notes
+  :reference
+  :lib
 ]
 
 const types = [
@@ -54,6 +74,11 @@ const types = [
   Union{Bool, Missing}
   Union{Bool, Missing}
   Symbol
+  String
+  String
+  String
+  String
+  String
 ]
 
 """
@@ -74,18 +99,27 @@ The following keys are valid:
   - `has_inequalities_only::Bool`: true if the problem has constraints, and all are inequality constraints (doesn't include bounds)
   - `has_bounds::Bool`: true if the problem has bound constraints
   - `has_fixed_variables::Bool`: true if it has fixed variables
-  - `objtype::Symbol`: type of objective, in [:none, :constant, :linear, :quadratic, :sum_of_squares, :other]
+  - `objtype::Symbol`: type of objective, in [:none, :constant, :linear, :least_squares, :quadratic, :sum_of_squares, :other]
   - `contype::Symbol`: type of constraint, in [:unconstrained, :linear, :quadratic, :general]
   - `best_known_lower_bound::Real`: lower bound on the global optimal value (default: -Inf for minimization problem, f(x0) for maximization problem if x0 is feasible, -Inf otherwise)
   - `best_known_upper_bound::Real`: upper bound on the global optimal value (default: Inf for maximization problem, f(x0) for minimization problem if x0 is feasible, Inf otherwise)
   - `is_feasible::Union{Bool, Missing}`: true if problem is feasible
   - `defined_everywhere::Union{Bool, Missing}`: true if the objective is define for all values of the variables
   - `origin::Symbol`: origin of the problem, in [:academic, :modelling, :real, :unknown]
+  - `url::String`: URL where the problem can be found
+  - `notes::String`: any additional notes about the problem
+  - `origin_notes::String`: any additional notes about the origin of the problem
+  - `reference::String`: reference to the problem in bibtex format
+  - `lib::String`: comma-separated list of external test-set memberships in `"Collection:ID"` format (e.g. `"CUTEst:HS1, HS:1"`); empty string if none known
 """
 const meta = DataFrame(cols_names .=> [Array{T}(undef, number_of_problems) for T in types])
 
 for name in cols_names, i = 1:number_of_problems
   meta[!, name][i] = eval(Meta.parse("$(split(files[i], ".")[1])_meta"))[name]
 end
+
+include("utils.jl")
+
+export export_bibtex
 
 end # module

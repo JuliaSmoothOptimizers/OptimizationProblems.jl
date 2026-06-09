@@ -1,28 +1,10 @@
-#   Liu and Nocedal tridiagonal matrix square root problem.
-
-#   Source:  problem 151 (p. 93) in
-#   A.R. Buckley,
-#   "Test functions for unconstrained minimization",
-#   TR 1989CS-3, Mathematics, statistics and computing centre,
-#   Dalhousie University, Halifax (CDN), 1989.
-
-#   See also
-#
-#   problem 54 in
-#   L. Luksan, C. Matonoha and J. Vlcek
-#   Modified CUTE problems for sparse unconstrained optimization,
-#   Technical Report 1081,
-#   Institute of Computer Science,
-#   Academy of Science of the Czech Republic
-#
-#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
-
-#   classification SUR2-AN-V-V
 export spmsrtls
 
 function spmsrtls(args...; n::Int = default_nvar, kwargs...)
+  n_org = n
   m = max(Int(round((n + 2) / 3)), 34)
   n = m * 3 - 2
+  @adjust_nvar_warn("spmsrtls", n_org, n)
   p = [sin(i^2) for i = 1:n]
   x0 = [p[i] / 5 for i = 1:n]
 

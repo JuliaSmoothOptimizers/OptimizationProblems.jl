@@ -245,3 +245,36 @@ function test_one_problem(prob::Symbol)
   @info "Test compatibility between PureJuMP and ADNLPProblems"
   test_compatibility(prob, nlp_jump, nlp_ad, ndef)
 end
+
+"""
+    is_valid_url(s) -> Bool
+
+Return `true` if `s` is a syntactically valid HTTP or HTTPS URL.
+No network request is made; only the string structure is checked.
+"""
+function is_valid_url(s::String)
+  return match(r"^https?://[^\s/$.?#][^\s]*$"i, s) !== nothing
+end
+
+"""
+    is_valid_bibtex(s) -> Bool
+
+Return `true` if `s` looks like a structurally valid BibTeX entry, i.e.:
+- Starts with `@entrytype{key,` (or parentheses variant).
+- Has balanced curly braces.
+"""
+function is_valid_bibtex(s::String)
+  s = strip(s)
+  isempty(s) && return false
+  match(r"^@\w+\s*[{(]\s*[^,\s]+\s*,"s, s) === nothing && return false
+  depth = 0
+  for c in s
+    if c == '{'
+      depth += 1
+    elseif c == '}'
+      depth -= 1
+      depth < 0 && return false
+    end
+  end
+  return depth == 0
+end

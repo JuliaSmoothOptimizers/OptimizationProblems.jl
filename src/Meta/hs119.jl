@@ -16,6 +16,41 @@ hs119_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS119.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 119.
+
+classification OLR2-AN-16-8
+
+classification PLR-AN-16-8
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""
+  problem 119 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
+  Original Source: problem 7 in
+  A.R. Colville
+  "A comparative study on nonlinear programming"
+  IBM Scientific Center Report 320-2949, New York, 1968.
+
+  SIF input: A.R. Conn, March 1991.
+  """,
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+  :lib => "CUTEst:HS119, HS:119",
 )
 get_hs119_nvar(; n::Integer = default_nvar, kwargs...) = 16
 get_hs119_ncon(; n::Integer = default_nvar, kwargs...) = 8

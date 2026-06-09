@@ -1,31 +1,16 @@
-# Given observations of ns stages of a marine species over n timesteps, 
-# minimize the loss between the observation and the computed law of paraneters : growth, mortality and number of specimens (g,m,x) 
-
-#   This is problem 6 in the COPS (Version 3) collection of 
-#   E. Dolan and J. More'
-#   see "Benchmarking Optimization Software with COPS"
-#   Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
-#   classification OOR2-AN-V-V
-
-# Marine Population Dynamics Problem
-# Collocation formulation
-# Alexander S. Bondarenko - Summer 1998
-# COPS 2.0 - September 2000
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export marine
 
 function marine(args...; n::Int = default_nvar, nc::Int = 1, kwargs...)
   nlp = Model()
 
+  n_orig = n
   nc = max(min(nc, 4), 1) # number of collocation points 
   ne = 8 # number of differential equations
   nm = 21 # number of measurements
 
   n = max(n, 3 * ne * nc + ne + 2 * ne)
   nh = Int(round((n - 2 * ne + 1) / (3 * ne * nc + ne))) # number of partition intervals
+  @adjust_nvar_warn("marine", n_orig, 8 + 7 + nh * (8 + 3 * 8 * nc))
 
   # roots of k-th degree Legendre polynomial
   rho = if nc == 1

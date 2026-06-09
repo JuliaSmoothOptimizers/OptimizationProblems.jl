@@ -1,10 +1,3 @@
-# Methanol-to-Hydrocarbons Problem
-# Collocation formulation
-# Michael Merritt - Summer 2000
-# COPS 2.0 - September 2000
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export methanol
 
 function methanol(args...; n::Int = default_nvar, kwargs...)
@@ -35,6 +28,7 @@ function methanol(args...; n::Int = default_nvar, kwargs...)
     1.122,
   ]
   tf = tau[nm]                   # ODEs defined in [0,tf]
+  @adjust_nvar_warn("methanol", n, 30 * n + 5)
   h = tf / n                    # uniform interval length
   t = [(i-1)*h for i = 1:(n + 1)]  # partition
   fact = [factorial(k) for k = 0:nc]

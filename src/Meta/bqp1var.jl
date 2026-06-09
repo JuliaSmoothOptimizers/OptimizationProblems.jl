@@ -16,6 +16,28 @@ bqp1var_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/BQP1VAR.SIF",
+  :notes => raw"""
+classification QBR2-AN-1-0
+""",
+  :origin_notes => raw"""
+a one variable box-constrained quadratic
+
+SIF input: Nick Gould, March 1992
+""",
+  :reference => raw"""
+@article{Gould2015CUTEst,
+  author    = {Nicholas I. M. Gould and Dominique Orban and Philippe L. Toint},
+  title     = {{CUTEst}: a constrained and unconstrained testing environment with safe threads for mathematical optimization},
+  journal   = {ACM Transactions on Mathematical Software},
+  volume    = {40},
+  number    = {3},
+  year      = {2015},
+  pages     = {1--25},
+  doi       = {10.1145/2786885}
+}  
+  """,
+  :lib => "CUTEst:BQP1VAR",
 )
 get_bqp1var_nvar(; n::Integer = default_nvar, kwargs...) = 1
 get_bqp1var_ncon(; n::Integer = default_nvar, kwargs...) = 1

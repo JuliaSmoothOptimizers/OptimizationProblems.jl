@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 116.
-#
-#   Source:
-#   Problem 116 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#   
-#   classification QGR-AN-13-14
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs116
 
 "HS116 model"

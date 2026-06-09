@@ -16,6 +16,33 @@ hs219_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => true,
   :origin => :unknown,
+  :url => "https://doi.org/10.1007/978-3-642-61582-5",
+  :notes => raw"""
+Schittkowski problem number 219.
+
+Solution is: (1, 1, 0, 0) with f(x^*) = -1
+""",
+  :origin_notes => raw"""
+  Problem 219 in
+    Schittkowski, K. (1987). 
+    More Test Examples for Nonlinear Programming Codes. 
+    Lecture Notes in Economics and Mathematical Systems.
+    doi:10.1007/978-3-642-61582-5
+
+  classification LPR-T1-1
+  """,
+  :reference => raw"""
+@book{Schittkowski1987,
+  author    = {Schittkowski, Klaus},
+  title     = {More Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {282},
+  publisher = {Springer-Verlag},
+  address   = {Heidelberg},
+  year      = {1987}
+}
+  """,
+  :lib => "HS2:219",
 )
 get_hs219_nvar(; n::Integer = default_nvar, kwargs...) = 4
 get_hs219_ncon(; n::Integer = default_nvar, kwargs...) = 2

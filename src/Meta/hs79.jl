@@ -16,6 +16,37 @@ hs79_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS79.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 79.
+
+classification OOR2-AY-5-3
+
+classification PPR-AN-5-3
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""
+  problem 79 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
+
+  SIF input: B Debarsy, Apr 1990.
+  """,
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+  :lib => "CUTEst:HS79, HS:79",
 )
 get_hs79_nvar(; n::Integer = default_nvar, kwargs...) = 5
 get_hs79_ncon(; n::Integer = default_nvar, kwargs...) = 3

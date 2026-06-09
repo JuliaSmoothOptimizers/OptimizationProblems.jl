@@ -1,8 +1,9 @@
 export penalty3
 
 function penalty3(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 3 && @warn("penalty3: number of variables must be ≥ 3")
+  n_org = n
   n = max(3, n)
+  @adjust_nvar_warn("penalty3", n_org, n)
   function f(x; n = length(x))
     return 1 +
            sum((x[i] - 1)^2 for i = 1:div(n, 2)) +

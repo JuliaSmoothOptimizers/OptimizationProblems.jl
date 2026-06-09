@@ -16,6 +16,34 @@ NZF1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://doi.org/10.1080/10556780500137116",
+  :notes => raw"""
+"Philippe Toint (private communication)"
+
+classification SUR2-AN-V-0
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""
+
+""",
+  :reference => raw"""
+@article{Price2006,
+  title = {Exploiting problem structure in pattern search methods for unconstrained optimization},
+  volume = {21},
+  ISSN = {1029-4937},
+  url = {https://doi.org/10.1080/10556780500137116},
+  DOI = {10.1080/10556780500137116},
+  number = {3},
+  journal = {Optimization Methods and Software},
+  publisher = {Informa UK Limited},
+  author = {Price,  C. J. and Toint,  PH. L.},
+  year = {2006},
+  month = June,
+  pages = {479--491}
+}  
+  """,
+  :lib => "",
 )
 get_NZF1_nvar(; n::Integer = default_nvar, kwargs...) = 13 * max(2, div(n, 13))
 get_NZF1_ncon(; n::Integer = default_nvar, kwargs...) = 0

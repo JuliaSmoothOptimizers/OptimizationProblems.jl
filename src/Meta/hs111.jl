@@ -16,6 +16,38 @@ hs111_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS111.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 111.
+
+This problem is a chemical equilibrium problem involving 3 linear
+equality constraints.
+
+classification OOR2-AN-10-3
+
+N. Antunes, Curitiba, 10/2016.
+""",
+  :origin_notes => raw"""
+  problem 111 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
+
+  SIF input: Nick Gould, August 1991.
+  """,
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+  :lib => "CUTEst:HS111, HS:111",
 )
 get_hs111_nvar(; n::Integer = default_nvar, kwargs...) = 10
 get_hs111_ncon(; n::Integer = default_nvar, kwargs...) = 3

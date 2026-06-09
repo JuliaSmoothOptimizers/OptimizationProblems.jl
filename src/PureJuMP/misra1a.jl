@@ -1,38 +1,3 @@
-
-#=
-https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/misra1a.dat
-
-NIST/ITL StRD
-Dataset Name:  misra1a           (misra1a.dat)
-
-File Format:   ASCII
-               Starting Values   (lines 41 to 42)
-               Certified Values  (lines 41 to 47)
-               Data              (lines 61 to 74)
-
-Procedure:     Nonlinear Least Squares Regression
-
-Description:   These data are the result of a NIST study regarding
-               dental research in monomolecular adsorption.  The
-               response variable is volume, and the predictor
-               variable is pressure.
-
-Reference:     Misra, D., NIST (1978).  
-               Dental Research Monomolecular Adsorption Study.
-
-Data:          1 Response Variable  (y = volume)
-               1 Predictor Variable (x = pressure)
-               14 Observations
-               Lower Level of Difficulty
-               Observed Data
-
-Model:         Exponential Class
-               2 Parameters (b1 and b2)
-
-               y = b1*(1-exp[-b2*x])  +  e
-=#
-# T. Migot, Montreal, 2023.
-
 export misra1a
 
 function misra1a(args...; kwargs...)

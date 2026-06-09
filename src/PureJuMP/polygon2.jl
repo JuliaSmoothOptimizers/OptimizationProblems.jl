@@ -1,18 +1,10 @@
-# Find the polygon of maximal area, among polygons with nv sides and    
-# diameter d <= 1
-# Model 2: relative polar coordinates
-
-# JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
-# Introduction to Optimization class.
-# https://laurentlessard.com/teaching/524-intro-to-optimization/
-
 export polygon2
 
 function polygon2(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   N = div(n, 2)
-  @variable(nlp, 0 <= r[1:N] <= 1)
-  @variable(nlp, α[1:N] >= 0)
+  @variable(nlp, 0 <= r[1:N] <= 1, start = 0)
+  @variable(nlp, α[1:N] >= 0, start = 0)
 
   # impose an order to the angles
   @constraint(nlp, sum(α) == 2π)

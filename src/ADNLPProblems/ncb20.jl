@@ -1,8 +1,9 @@
 export ncb20
 
 function ncb20(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 31 && @warn("ncb20: number of variables must be ≥ 31")
+  n_org = n
   n = max(31, n)
+  @adjust_nvar_warn("ncb20", n_org, n)
   function f(x; n = length(x))
     return 2 +
            sum(

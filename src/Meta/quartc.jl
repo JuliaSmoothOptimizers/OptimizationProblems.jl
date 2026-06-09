@@ -16,6 +16,32 @@ quartc_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/QUARTC.SIF",
+  :notes => raw"""
+A simple quartic function.
+
+classification OUR2-AN-V-0
+""",
+  :origin_notes => raw"""
+problem 157 (p. 87) in
+A.R. Buckley,
+"Test functions for unconstrained minimization",
+TR 1989CS-3, Mathematics, statistics and computing centre,
+Dalhousie University, Halifax (CDN), 1989.
+
+SIF input: Ph. Toint, March 1991.
+""",
+  :reference => raw"""
+@techreport{Buckley1989,
+  author       = {Buckley, A. R.},
+  title        = {Test Functions for Unconstrained Minimization},
+  institution  = {Mathematics, Statistics and Computing Centre, Dalhousie University},
+  number       = {TR 1989CS-3},
+  year         = {1989},
+  address      = {Halifax, Canada}
+}
+  """,
+  :lib => "CUTEst:QUARTC",
 )
 get_quartc_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_quartc_ncon(; n::Integer = default_nvar, kwargs...) = 0

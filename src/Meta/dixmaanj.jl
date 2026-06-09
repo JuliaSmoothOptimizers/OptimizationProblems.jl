@@ -16,6 +16,40 @@ dixmaanj_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf, https://bitbucket.org/optrove/sif/src/master/DIXMAANJ.SIF",
+  :notes => raw"""
+The Dixon-Maany test problem (version I by default)
+
+classification OUR2-AN-V-0
+
+D. Orban, Montreal, 08/2015.
+""",
+  :origin_notes => raw"""
+problems 15, 16, 17, 18 in
+L. Luksan, C. Matonoha and J. Vlcek
+Modified CUTE problems for sparse unconstrained optimization,
+Technical Report 1081,
+Institute of Computer Science,
+Academy of Science of the Czech Republic
+
+L.C.W. Dixon and Z. Maany,
+"A family of test problems with sparse Hessians for unconstrained
+optimization",
+TR 206, Numerical Optimization Centre, Hatfield Polytechnic, 1988.
+See also Buckley#221 (p. 49)
+
+SIF input: Ph. Toint, Dec 1989.
+""",
+  :reference => raw"""
+@techreport{DixonMaany1988,
+  author      = {L. C. W. Dixon and Z. Maany},
+  title       = {A family of test problems with sparse Hessians for unconstrained optimization},
+  institution = {Numerical Optimization Centre, Hatfield Polytechnic},
+  number      = {TR 206},
+  year        = {1988}
+} 
+  """,
+  :lib => "CUTEst:DIXMAANJ,Luksan:16",
 )
 get_dixmaanj_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))
 get_dixmaanj_ncon(; n::Integer = default_nvar, kwargs...) = 0

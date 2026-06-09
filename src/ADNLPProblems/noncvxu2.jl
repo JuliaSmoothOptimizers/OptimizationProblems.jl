@@ -1,8 +1,9 @@
 export noncvxu2
 
 function noncvxu2(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("noncvxun2: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("noncvxu2", n_org, n)
   function f(x; n = length(x))
     return sum(
       (x[i] + x[mod(3 * i - 2, n) + 1] + x[mod(7 * i - 3, n) + 1])^2 +

@@ -1,18 +1,10 @@
-# Find the polygon of maximal area, among polygons with nv sides and    
-# diameter d <= 1
-# Model 3: rectangular coordinates
-
-# JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
-# Introduction to Optimization class.
-# https://laurentlessard.com/teaching/524-intro-to-optimization/
-
 export polygon3
 
 function polygon3(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   N = div(n, 2)
-  @variable(nlp, x[1:N])
-  @variable(nlp, y[1:N])
+  @variable(nlp, x[1:N], start = 0)
+  @variable(nlp, y[1:N], start = 0)
 
   for i = 1:N
     @constraint(nlp, x[i]^2 + y[i]^2 - 1 <= 0)

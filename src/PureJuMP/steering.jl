@@ -1,13 +1,8 @@
-# Rocket Steering Problem
-# Trapezoidal formulation
-# COPS 2.0 - September 2000
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export steering
 
 function steering(; n::Int = default_nvar, kwargs...)
   a = 100.0  # Magnitude of force.
+  @adjust_nvar_warn("steering", n, 5 * n + 6)
   # Bounds on the control
   u_min, u_max = -pi/2.0, pi/2.0
   xs = zeros(4)

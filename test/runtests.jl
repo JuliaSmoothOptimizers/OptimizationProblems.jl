@@ -111,5 +111,6 @@ end
 pmap(test_one_problem, list_problems)
 
 include("test-scalable.jl")
+include("test-meta-fields.jl")
 
 rmprocs()

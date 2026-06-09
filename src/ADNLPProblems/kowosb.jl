@@ -6,7 +6,6 @@ function kowosb(; use_nls::Bool = false, kwargs...)
 end
 
 function kowosb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n = 4
   m = 11
   y = [
     1957 // 10000,
@@ -44,7 +43,6 @@ function kowosb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwa
 end
 
 function kowosb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n = 4
   m = 11
   y = [
     1957 // 10000,

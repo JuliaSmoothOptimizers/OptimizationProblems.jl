@@ -6,8 +6,9 @@ function morebv(; use_nls::Bool = false, kwargs...)
 end
 
 function morebv(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("morebv: number of variables must be ≥ 4")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("morebv", n_org, n)
   function f(x)
     h = 1 // (n + 1)
     return 1 // 2 * sum(
@@ -24,8 +25,9 @@ function morebv(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwa
 end
 
 function morebv(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("morebv: number of variables must be ≥ 4")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("morebv", n_org, n)
 
   function F!(r, x)
     h = 1 // (n + 1)

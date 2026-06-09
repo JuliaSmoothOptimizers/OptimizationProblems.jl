@@ -9,9 +9,10 @@ function dixmaani(;
   δ = 125 // 1000,
   kwargs...,
 ) where {T}
-  (n % 3 == 0) || @warn("dixmaan: number of variables adjusted to be a multiple of 3")
+  n_org = n
   m = max(1, div(n, 3))
   n = 3 * m
+  @adjust_nvar_warn("dixmaani", n_org, n)
   function f(x; n = length(x), α = α, β = β, γ = γ, δ = δ)
     return 1 +
            sum((i // n)^2 * α * x[i]^2 for i = 1:n) +

@@ -11,13 +11,7 @@
 # granted, provided that the above copyright notice appear in all
 # copies and that the copyright notice and this
 # permission notice appear in all supporting documentation.
-#   Source: Problem 36 in
-#   A.R. Buckley,
-#   "Test functions for unconstrained minimization",
-#   TR 1989CS-3, Mathematics, statistics and computing centre,
-#   Dalhousie University, Halifax (CDN), 1989.
-#   SIF input: Ph. Toint, Dec 1989.
-#   classification NLR2-AN-2-2
+
 export booth
 
 function booth(; n::Int = default_nvar, kwargs...)

@@ -16,6 +16,33 @@ hs318_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :academic,
+  :url => "https://doi.org/10.1007/978-3-642-61582-5",
+  :notes => raw"""
+Schittkowski problem number 318.
+
+  classification QQR2-AN-2-1
+
+M. Gollier, Montréal, 05/2023
+""",
+  :origin_notes => raw"""
+  Problem 318 in
+    Schittkowski, K. (1987). 
+    More Test Examples for Nonlinear Programming Codes. 
+    Lecture Notes in Economics and Mathematical Systems.
+    doi:10.1007/978-3-642-61582-5
+  """,
+  :reference => raw"""
+@book{Schittkowski1987,
+  author    = {Schittkowski, Klaus},
+  title     = {More Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {282},
+  publisher = {Springer-Verlag},
+  address   = {Heidelberg},
+  year      = {1987}
+}
+  """,
+  :lib => "HS2:318",
 )
 get_hs318_nvar(; n::Integer = default_nvar, kwargs...) = 2
 get_hs318_ncon(; n::Integer = default_nvar, kwargs...) = 1

@@ -1,11 +1,7 @@
-
-# JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
-# Introduction to Optimization class.
-# https://laurentlessard.com/teaching/524-intro-to-optimization/
-
 export structural
 
 function structural(args...; n::Int = default_nvar, kwargs...)
+  n_orig = n
   n = max(n, 100)
 
   sub2ind(shape, a, b) = LinearIndices(shape)[CartesianIndex.(a, b)]
@@ -29,6 +25,7 @@ function structural(args...; n::Int = default_nvar, kwargs...)
 
   M = Int(N * (N - 1) / 2)  # number of edges
 
+  @adjust_nvar_warn("structural", n_orig, 2 * M)
   # EDGES: columns are the indices of the nodes at either end
   edges = Array{Int}(zeros(M, 2))
 
@@ -63,8 +60,8 @@ function structural(args...; n::Int = default_nvar, kwargs...)
 
   nlp = Model()
 
-  @variable(nlp, x[1:M] >= 0)   # area of edge from i to j
-  @variable(nlp, u[1:M])       # force in edge from i to j
+  @variable(nlp, x[1:M] >= 0, start = 0)   # area of edge from i to j
+  @variable(nlp, u[1:M], start = 0)       # force in edge from i to j
 
   for i = 1:N
     if i in fixed

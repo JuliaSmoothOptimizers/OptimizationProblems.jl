@@ -16,6 +16,37 @@ power_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :url => "https://bitbucket.org/optrove/sif/src/master/POWER.SIF",
+  :notes => raw"""
+The Power problem by Oren.
+
+classification OUR2-AN-V-0
+""",
+  :origin_notes => raw"""
+S.S. Oren,
+Self-scaling variable metric algorithms,
+Part II: implementation and experiments"
+Management Science 20(5):863-874, 1974.
+See also Buckley#179 (p. 83)
+SIF input: Ph. Toint, Dec 1989.
+""",
+  :reference => raw"""
+@article{Oren1974,
+  title = {Self-Scaling Variable Metric (SSVM) Algorithms: Part II: Implementation and Experiments},
+  volume = {20},
+  ISSN = {1526-5501},
+  url = {https://doi.org/10.1287/mnsc.20.5.863},
+  DOI = {10.1287/mnsc.20.5.863},
+  number = {5},
+  journal = {Management Science},
+  publisher = {Institute for Operations Research and the Management Sciences (INFORMS)},
+  author  = {Oren, Shmuel S.},
+  year    = {1974},
+  month   = jan,
+  pages   = {863--874}
+}
+""",
+  :lib => "CUTEst:POWER",
 )
 get_power_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
 get_power_ncon(; n::Integer = default_nvar, kwargs...) = 0

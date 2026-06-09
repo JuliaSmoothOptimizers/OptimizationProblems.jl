@@ -8,10 +8,10 @@ function catenary(
   FRACT = 0.6,
   kwargs...,
 ) where {T}
-  (n % 3 == 0) || @warn("catenary: number of variables adjusted to be a multiple of 3")
+  n_org = n
   n = 3 * max(1, div(n, 3))
-  (n < 6) || @warn("catenary: number of variables adjusted to be greater or equal to 6")
   n = max(n, 6)
+  @adjust_nvar_warn("catenary", n_org, n)
 
   ## Model Parameters
   N = div(n, 3) - 2
@@ -23,7 +23,9 @@ function catenary(
   mg = T(gamma * mass)
 
   function f(x; N = N, mg = mg)
-    return mg * x[2] / 2 + sum(mg * x[2 + 3 * i] for i = 1:N) + mg * x[5 + 3 * N] / 2
+    return mg * x[2] / 2 +
+           sum(mg * x[2 + 3 * i] for i = 1:N; init = zero(T)) +
+           mg * x[5 + 3 * N] / 2
   end
 
   function c!(cx, x; N = N, Bl = Bl)
