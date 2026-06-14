@@ -46,9 +46,9 @@ classification PPR-AN-6-4
   """,
   :lib => "CUTEst:HS99, HS:99",
 )
-get_hs99_nvar(; n::Integer = default_nvar, kwargs...) = 7
-get_hs99_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs99_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs99_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs99_nequ(; n::Integer = default_nvar, kwargs...) = 2
-get_hs99_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs99_nvar(; n::Int = default_nvar, kwargs...) = 7
+get_hs99_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs99_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs99_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs99_nequ(; n::Int = default_nvar, kwargs...) = 2
+get_hs99_nineq(; n::Int = default_nvar, kwargs...) = 0

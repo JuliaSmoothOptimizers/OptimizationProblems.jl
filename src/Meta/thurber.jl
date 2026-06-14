@@ -76,10 +76,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:THURBER, NIST:Thurber",
 )
-get_thurber_nvar(; n::Integer = default_nvar, kwargs...) = 7
-get_thurber_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_thurber_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_thurber_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_thurber_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_thurber_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_thurber_nls_nequ(; n::Integer = default_nvar, kwargs...) = 37
+get_thurber_nvar(; n::Int = default_nvar, kwargs...) = 7
+get_thurber_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_thurber_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_thurber_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_thurber_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_thurber_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_thurber_nls_nequ(; n::Int = default_nvar, kwargs...) = 37

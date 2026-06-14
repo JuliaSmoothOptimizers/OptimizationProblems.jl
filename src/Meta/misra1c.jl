@@ -74,10 +74,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:MISRA1C, NIST:Misra1c",
 )
-get_misra1c_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_misra1c_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_misra1c_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_misra1c_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_misra1c_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_misra1c_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_misra1c_nls_nequ(; n::Integer = default_nvar, kwargs...) = 14
+get_misra1c_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_misra1c_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_misra1c_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_misra1c_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_misra1c_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_misra1c_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_misra1c_nls_nequ(; n::Int = default_nvar, kwargs...) = 14

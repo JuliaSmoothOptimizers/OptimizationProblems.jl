@@ -56,9 +56,9 @@ SIF input: Nick Gould, November 2000
     """,
   :lib => "CUTEst:GASOIL, COPS:12",
 )
-get_gasoil_nvar(; n::Integer = default_nvar, kwargs...) = 26 * n + 3
-get_gasoil_ncon(; n::Integer = default_nvar, kwargs...) = 26 * n + 0
-get_gasoil_nlin(; n::Integer = default_nvar, kwargs...) = 18 * n + 0
-get_gasoil_nnln(; n::Integer = default_nvar, kwargs...) = 8 * n + 0
-get_gasoil_nequ(; n::Integer = default_nvar, kwargs...) = 26 * n + 0
-get_gasoil_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_gasoil_nvar(; n::Int = default_nvar, kwargs...) = 26 * n + 3
+get_gasoil_ncon(; n::Int = default_nvar, kwargs...) = 26 * n + 0
+get_gasoil_nlin(; n::Int = default_nvar, kwargs...) = 18 * n + 0
+get_gasoil_nnln(; n::Int = default_nvar, kwargs...) = 8 * n + 0
+get_gasoil_nequ(; n::Int = default_nvar, kwargs...) = 26 * n + 0
+get_gasoil_nineq(; n::Int = default_nvar, kwargs...) = 0

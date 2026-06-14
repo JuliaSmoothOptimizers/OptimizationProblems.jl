@@ -52,10 +52,10 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:PENALTY1",
 )
-get_penalty1_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_penalty1_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_penalty1_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_penalty1_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_penalty1_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_penalty1_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_penalty1_nls_nequ(; n::Integer = default_nvar, kwargs...) = n + 1
+get_penalty1_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_penalty1_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_penalty1_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_penalty1_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_penalty1_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_penalty1_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_penalty1_nls_nequ(; n::Int = default_nvar, kwargs...) = n + 1

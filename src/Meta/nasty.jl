@@ -28,9 +28,9 @@ a very simple box-constrained quadratic
   :reference => raw"""""",
   :lib => "CUTEst:NASTY",
 )
-get_nasty_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_nasty_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_nasty_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_nasty_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_nasty_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_nasty_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_nasty_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_nasty_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_nasty_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_nasty_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_nasty_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_nasty_nineq(; n::Int = default_nvar, kwargs...) = 0

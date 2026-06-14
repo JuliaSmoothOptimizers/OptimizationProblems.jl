@@ -64,10 +64,10 @@ Model:         Miscellaneous Class
 """,
   :lib => "NIST:Roszman1",
 )
-get_rozman1_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_rozman1_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_rozman1_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_rozman1_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_rozman1_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_rozman1_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_rozman1_nls_nequ(; n::Integer = default_nvar, kwargs...) = 25
+get_rozman1_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_rozman1_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_rozman1_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_rozman1_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_rozman1_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_rozman1_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_rozman1_nls_nequ(; n::Int = default_nvar, kwargs...) = 25

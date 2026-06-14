@@ -51,10 +51,10 @@ SIF input: Nick Gould, Oct 1992.
   """,
   :lib => "CUTEst:GENROSE, Luksan:36",
 )
-get_genrose_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_genrose_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_genrose_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_genrose_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_genrose_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_genrose_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_genrose_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * (n - 1) + 1
+get_genrose_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_genrose_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_genrose_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_genrose_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_genrose_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_genrose_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_genrose_nls_nequ(; n::Int = default_nvar, kwargs...) = 2 * (n - 1) + 1

@@ -44,10 +44,10 @@ SIF input: A.R. Conn March 1990
   """,
   :lib => "CUTEst:HS6, HS:6",
 )
-get_hs6_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs6_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs6_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs6_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs6_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs6_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_hs6_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1
+get_hs6_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs6_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs6_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs6_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs6_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs6_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_hs6_nls_nequ(; n::Int = default_nvar, kwargs...) = 1

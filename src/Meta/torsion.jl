@@ -38,37 +38,37 @@ Liz Dolan - Summer 2000
   :lib => "COPS:15",
 )
 get_torsion_nvar(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx = Int(round(sqrt(max(1, n - 2)))),
   ny = Int(round(sqrt(max(1, n - 2)))),
   kwargs...,
 ) = (nx + 2) * (ny + 2)
 get_torsion_ncon(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx = Int(round(sqrt(max(1, n - 2)))),
   ny = Int(round(sqrt(max(1, n - 2)))),
   kwargs...,
 ) = (nx + 2) * (ny + 2)
 get_torsion_nlin(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx = Int(round(sqrt(max(1, n - 2)))),
   ny = Int(round(sqrt(max(1, n - 2)))),
   kwargs...,
 ) = (nx + 2) * (ny + 2)
 get_torsion_nnln(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx = Int(round(sqrt(max(1, n - 2)))),
   ny = Int(round(sqrt(max(1, n - 2)))),
   kwargs...,
 ) = 0
 get_torsion_nequ(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx = Int(round(sqrt(max(1, n - 2)))),
   ny = Int(round(sqrt(max(1, n - 2)))),
   kwargs...,
 ) = 0
 get_torsion_nineq(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx = Int(round(sqrt(max(1, n - 2)))),
   ny = Int(round(sqrt(max(1, n - 2)))),
   kwargs...,

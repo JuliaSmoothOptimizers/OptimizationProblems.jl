@@ -47,9 +47,9 @@ SIF input: J-M COLLIN, April 1990.
   """,
   :lib => "CUTEst:HS63, HS:63",
 )
-get_hs63_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs63_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs63_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_hs63_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs63_nequ(; n::Integer = default_nvar, kwargs...) = 2
-get_hs63_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs63_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs63_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs63_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_hs63_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs63_nequ(; n::Int = default_nvar, kwargs...) = 2
+get_hs63_nineq(; n::Int = default_nvar, kwargs...) = 0

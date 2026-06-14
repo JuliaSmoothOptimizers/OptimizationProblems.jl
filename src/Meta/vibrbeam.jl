@@ -56,10 +56,10 @@ D. E. Montgomery, Virginia Tech., April 1993.
 """,
   :lib => "CUTEst:VIBRBEAM",
 )
-get_vibrbeam_nvar(; n::Integer = default_nvar, kwargs...) = 8
-get_vibrbeam_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_vibrbeam_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_vibrbeam_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_vibrbeam_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_vibrbeam_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_vibrbeam_nls_nequ(; n::Integer = default_nvar, kwargs...) = 30
+get_vibrbeam_nvar(; n::Int = default_nvar, kwargs...) = 8
+get_vibrbeam_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_vibrbeam_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_vibrbeam_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_vibrbeam_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_vibrbeam_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_vibrbeam_nls_nequ(; n::Int = default_nvar, kwargs...) = 30

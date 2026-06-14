@@ -44,9 +44,9 @@ M. Gollier, Montréal, 05/2023
   """,
   :lib => "HS2:320",
 )
-get_hs320_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs320_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs320_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs320_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs320_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs320_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs320_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs320_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs320_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs320_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs320_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs320_nineq(; n::Int = default_nvar, kwargs...) = 0

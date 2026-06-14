@@ -56,9 +56,9 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:NONDQUAR, Luksan:45",
 )
-get_nondquar_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_nondquar_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_nondquar_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_nondquar_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_nondquar_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_nondquar_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_nondquar_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_nondquar_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_nondquar_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_nondquar_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_nondquar_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_nondquar_nineq(; n::Int = default_nvar, kwargs...) = 0

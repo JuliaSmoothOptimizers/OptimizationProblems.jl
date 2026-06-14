@@ -58,9 +58,9 @@ D. Orban, Montreal, 08/2015.
   """,
   :lib => "CUTEst:EDENSCH, Luksan:24",
 )
-get_edensch_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_edensch_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_edensch_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_edensch_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_edensch_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_edensch_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_edensch_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_edensch_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_edensch_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_edensch_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_edensch_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_edensch_nineq(; n::Int = default_nvar, kwargs...) = 0

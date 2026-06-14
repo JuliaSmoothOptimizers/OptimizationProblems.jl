@@ -57,9 +57,9 @@ D. Orban, Montreal, 08/2015.
   """,
   :lib => "CUTEst:CRAGGLVY, Luksan:7",
 )
-get_cragglvy_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_cragglvy_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_cragglvy_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_cragglvy_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy_nineq(; n::Int = default_nvar, kwargs...) = 0

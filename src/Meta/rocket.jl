@@ -51,9 +51,9 @@ SIF input: Nick Gould, November 2000
     """,
   :lib => "CUTEst:ROCKET, COPS:10",
 )
-get_rocket_nvar(; n::Integer = default_nvar, kwargs...) = 4 * n + 5
-get_rocket_ncon(; n::Integer = default_nvar, kwargs...) = 3 * n + 4
-get_rocket_nlin(; n::Integer = default_nvar, kwargs...) = 4
-get_rocket_nnln(; n::Integer = default_nvar, kwargs...) = 3 * n + 0
-get_rocket_nequ(; n::Integer = default_nvar, kwargs...) = 3 * n + 4
-get_rocket_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_rocket_nvar(; n::Int = default_nvar, kwargs...) = 4 * n + 5
+get_rocket_ncon(; n::Int = default_nvar, kwargs...) = 3 * n + 4
+get_rocket_nlin(; n::Int = default_nvar, kwargs...) = 4
+get_rocket_nnln(; n::Int = default_nvar, kwargs...) = 3 * n + 0
+get_rocket_nequ(; n::Int = default_nvar, kwargs...) = 3 * n + 4
+get_rocket_nineq(; n::Int = default_nvar, kwargs...) = 0

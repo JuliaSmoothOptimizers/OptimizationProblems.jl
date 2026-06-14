@@ -50,10 +50,10 @@ SDIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:BRYBND, Luksan:4",
 )
-get_brybnd_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_brybnd_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_brybnd_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_brybnd_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_brybnd_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_brybnd_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_brybnd_nls_nequ(; n::Integer = default_nvar, kwargs...) = n
+get_brybnd_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_brybnd_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_brybnd_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_brybnd_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_brybnd_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_brybnd_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_brybnd_nls_nequ(; n::Int = default_nvar, kwargs...) = n

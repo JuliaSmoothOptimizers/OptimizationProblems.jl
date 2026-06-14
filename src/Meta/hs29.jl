@@ -48,9 +48,9 @@ A. Montoison, Montreal, 04/2018.
   """,
   :lib => "CUTEst:HS29, HS:29",
 )
-get_hs29_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs29_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs29_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs29_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs29_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs29_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_hs29_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs29_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs29_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs29_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs29_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs29_nineq(; n::Int = default_nvar, kwargs...) = 1

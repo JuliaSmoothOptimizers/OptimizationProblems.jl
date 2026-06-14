@@ -44,9 +44,9 @@ M. Gollier, Montréal, 05/2023
   """,
   :lib => "HS2:322",
 )
-get_hs322_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs322_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs322_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs322_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs322_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs322_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs322_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs322_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs322_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs322_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs322_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs322_nineq(; n::Int = default_nvar, kwargs...) = 0

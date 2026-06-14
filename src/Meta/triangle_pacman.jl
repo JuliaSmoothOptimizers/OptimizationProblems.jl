@@ -43,9 +43,9 @@ Instance using the `pacman` shape mesh.
     """,
   :lib => "COPS:18",
 )
-get_triangle_pacman_nvar(; n::Integer = default_nvar, kwargs...) = 1366
-get_triangle_pacman_ncon(; n::Integer = default_nvar, kwargs...) = 1182
-get_triangle_pacman_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_triangle_pacman_nnln(; n::Integer = default_nvar, kwargs...) = 1182
-get_triangle_pacman_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_triangle_pacman_nineq(; n::Integer = default_nvar, kwargs...) = 1182
+get_triangle_pacman_nvar(; n::Int = default_nvar, kwargs...) = 1366
+get_triangle_pacman_ncon(; n::Int = default_nvar, kwargs...) = 1182
+get_triangle_pacman_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_triangle_pacman_nnln(; n::Int = default_nvar, kwargs...) = 1182
+get_triangle_pacman_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_triangle_pacman_nineq(; n::Int = default_nvar, kwargs...) = 1182

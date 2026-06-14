@@ -46,10 +46,10 @@ A. Montoison, Montreal, 04/2018.
   """,
   :lib => "CUTEst:HS30, HS:30",
 )
-get_hs30_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs30_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs30_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs30_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs30_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs30_nineq(; n::Integer = default_nvar, kwargs...) = 1
-get_hs30_nls_nequ(; n::Integer = default_nvar, kwargs...) = 3
+get_hs30_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs30_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs30_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs30_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs30_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs30_nineq(; n::Int = default_nvar, kwargs...) = 1
+get_hs30_nls_nequ(; n::Int = default_nvar, kwargs...) = 3

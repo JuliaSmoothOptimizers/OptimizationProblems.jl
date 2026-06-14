@@ -49,9 +49,9 @@ N. Antunes, Curitiba, 10/2016.
   """,
   :lib => "CUTEst:HS111, HS:111",
 )
-get_hs111_nvar(; n::Integer = default_nvar, kwargs...) = 10
-get_hs111_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs111_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs111_nnln(; n::Integer = default_nvar, kwargs...) = 3
-get_hs111_nequ(; n::Integer = default_nvar, kwargs...) = 3
-get_hs111_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs111_nvar(; n::Int = default_nvar, kwargs...) = 10
+get_hs111_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_hs111_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs111_nnln(; n::Int = default_nvar, kwargs...) = 3
+get_hs111_nequ(; n::Int = default_nvar, kwargs...) = 3
+get_hs111_nineq(; n::Int = default_nvar, kwargs...) = 0

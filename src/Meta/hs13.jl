@@ -51,10 +51,10 @@ classification QQR2-AN-2-1
   """,
   :lib => "CUTEst:HS13, HS:13",
 )
-get_hs13_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs13_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs13_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs13_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs13_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs13_nineq(; n::Integer = default_nvar, kwargs...) = 1
-get_hs13_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2
+get_hs13_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs13_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs13_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs13_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs13_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs13_nineq(; n::Int = default_nvar, kwargs...) = 1
+get_hs13_nls_nequ(; n::Int = default_nvar, kwargs...) = 2

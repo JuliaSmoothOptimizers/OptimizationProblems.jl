@@ -46,10 +46,10 @@ https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unco
   :lib => "LuksanSparse:11",
 )
 
-get_auglag_nvar(; n::Integer = default_nvar, kwargs...) = n
-get_auglag_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_auglag_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_auglag_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_auglag_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_auglag_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_auglag_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_auglag_nvar(; n::Int = default_nvar, kwargs...) = n
+get_auglag_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_auglag_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_auglag_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_auglag_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_auglag_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_auglag_nls_nequ(; n::Int = default_nvar, kwargs...) = 0

@@ -56,9 +56,9 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:CLPLATEA",
 )
-get_clplatea_nvar(; n::Integer = default_nvar, kwargs...) = max(floor(Int, sqrt(n)), 3)^2
-get_clplatea_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_clplatea_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_clplatea_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_clplatea_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_clplatea_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_clplatea_nvar(; n::Int = default_nvar, kwargs...) = max(floor(Int, sqrt(n)), 3)^2
+get_clplatea_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_clplatea_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_clplatea_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_clplatea_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_clplatea_nineq(; n::Int = default_nvar, kwargs...) = 0

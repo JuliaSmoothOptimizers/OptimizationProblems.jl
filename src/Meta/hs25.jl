@@ -48,9 +48,9 @@ A. Montoison, Montreal, 04/2018.
   """,
   :lib => "CUTEst:HS25, HS:25",
 )
-get_hs25_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs25_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs25_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs25_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs25_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs25_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs25_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs25_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs25_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs25_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs25_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs25_nineq(; n::Int = default_nvar, kwargs...) = 0

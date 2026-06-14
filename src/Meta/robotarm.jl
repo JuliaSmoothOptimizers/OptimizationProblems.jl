@@ -40,11 +40,11 @@ Argonne National Labs Technical Report ANL/MCS-246 (2004)
     """,
   :lib => "CUTEst:ROBOTARM, COPS:8",
 )
-get_robotarm_nvar(; n::Integer = default_nvar, kwargs...) = 9 * (max(2, div(n, 9)) + 1) + 1
-get_robotarm_ncon(; n::Integer = default_nvar, kwargs...) =
+get_robotarm_nvar(; n::Int = default_nvar, kwargs...) = 9 * (max(2, div(n, 9)) + 1) + 1
+get_robotarm_ncon(; n::Int = default_nvar, kwargs...) =
   3 * (max(2, div(n, 9)) + 1) + 6 * max(2, div(n, 9))
-get_robotarm_nlin(; n::Integer = default_nvar, kwargs...) = max(2, div(n, 9)) + 1
-get_robotarm_nnln(; n::Integer = default_nvar, kwargs...) =
+get_robotarm_nlin(; n::Int = default_nvar, kwargs...) = max(2, div(n, 9)) + 1
+get_robotarm_nnln(; n::Int = default_nvar, kwargs...) =
   2 * (max(2, div(n, 9)) + 1) + 6 * max(2, div(n, 9))
-get_robotarm_nequ(; n::Integer = default_nvar, kwargs...) = 6 * max(2, div(n, 9))
-get_robotarm_nineq(; n::Integer = default_nvar, kwargs...) = 3 * (max(2, div(n, 9)) + 1)
+get_robotarm_nequ(; n::Int = default_nvar, kwargs...) = 6 * max(2, div(n, 9))
+get_robotarm_nineq(; n::Int = default_nvar, kwargs...) = 3 * (max(2, div(n, 9)) + 1)

@@ -42,9 +42,9 @@ SIF input: Nick Gould, June 1990.
 """,
   :lib => "CUTEst:ALLINITU",
 )
-get_allinitu_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_allinitu_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_allinitu_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_allinitu_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_allinitu_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_allinitu_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_allinitu_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_allinitu_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_allinitu_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_allinitu_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_allinitu_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_allinitu_nineq(; n::Int = default_nvar, kwargs...) = 0

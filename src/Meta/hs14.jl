@@ -46,10 +46,10 @@ classification SQR2-AN-2-2
   """,
   :lib => "CUTEst:HS14, HS:14",
 )
-get_hs14_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs14_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs14_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_hs14_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs14_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs14_nineq(; n::Integer = default_nvar, kwargs...) = 1
-get_hs14_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2
+get_hs14_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs14_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs14_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_hs14_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs14_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs14_nineq(; n::Int = default_nvar, kwargs...) = 1
+get_hs14_nls_nequ(; n::Int = default_nvar, kwargs...) = 2

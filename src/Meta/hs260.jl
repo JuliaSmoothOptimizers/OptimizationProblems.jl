@@ -40,9 +40,9 @@ Problem 260 in
   """,
   :lib => "HS2:260",
 )
-get_hs260_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs260_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs260_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs260_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs260_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs260_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs260_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs260_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs260_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs260_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs260_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs260_nineq(; n::Int = default_nvar, kwargs...) = 0

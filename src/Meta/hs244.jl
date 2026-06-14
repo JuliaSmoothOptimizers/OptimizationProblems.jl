@@ -40,9 +40,9 @@ Problem 244 in
   """,
   :lib => "HS2:244",
 )
-get_hs244_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs244_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs244_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs244_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs244_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs244_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs244_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs244_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs244_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs244_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs244_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs244_nineq(; n::Int = default_nvar, kwargs...) = 0

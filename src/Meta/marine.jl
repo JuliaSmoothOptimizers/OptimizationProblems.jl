@@ -51,16 +51,16 @@ SIF input: Nick Gould, November 2000
     """,
   :lib => "CUTEst:MARINE, COPS:6",
 )
-get_marine_nvar(; n::Integer = default_nvar, nc::Int = 1, kwargs...) =
+get_marine_nvar(; n::Int = default_nvar, nc::Int = 1, kwargs...) =
   let ne = 8, n = max(n, 3 * 8 * nc + 8 + 2 * 8)  # clamp to model's minimum (ne=8)
     8 + 7 + Int(round((n - 2 * ne + 1) / (3 * ne * nc + ne))) * (ne + 3 * ne * nc)
   end
-get_marine_ncon(; n::Integer = default_nvar, nc::Int = 1, kwargs...) =
+get_marine_ncon(; n::Int = default_nvar, nc::Int = 1, kwargs...) =
   Int(round((n - 2 * 8 + 1) / (3 * 8 * nc + 8))) * (8 + 2 * nc + nc * (8 - 2)) - 8
-get_marine_nlin(; n::Integer = default_nvar, nc::Int = 1, kwargs...) =
+get_marine_nlin(; n::Int = default_nvar, nc::Int = 1, kwargs...) =
   8 * (Int(round((n - 2 * 8 + 1) / (3 * 8 * 1 + 8))) - 1) # (nh - 1) * ne
-get_marine_nnln(; n::Integer = default_nvar, nc::Int = 1, kwargs...) =
+get_marine_nnln(; n::Int = default_nvar, nc::Int = 1, kwargs...) =
   Int(round((n - 2 * 8 + 1) / (3 * 8 * nc + 8))) * (2 * nc + nc * (8 - 2))
-get_marine_nequ(; n::Integer = default_nvar, nc::Int = 1, kwargs...) =
+get_marine_nequ(; n::Int = default_nvar, nc::Int = 1, kwargs...) =
   Int(round((n - 2 * 8 + 1) / (3 * 8 * nc + 8))) * (8 + 2 * nc + nc * (8 - 2)) - 8
-get_marine_nineq(; n::Integer = default_nvar, nc::Int = 1, kwargs...) = 0
+get_marine_nineq(; n::Int = default_nvar, nc::Int = 1, kwargs...) = 0

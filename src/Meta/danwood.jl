@@ -83,10 +83,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
   """,
   :lib => "CUTEst:DANWOOD, NIST:DanWood",
 )
-get_danwood_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_danwood_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_danwood_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_danwood_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_danwood_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_danwood_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_danwood_nls_nequ(; n::Integer = default_nvar, kwargs...) = 6
+get_danwood_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_danwood_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_danwood_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_danwood_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_danwood_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_danwood_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_danwood_nls_nequ(; n::Int = default_nvar, kwargs...) = 6

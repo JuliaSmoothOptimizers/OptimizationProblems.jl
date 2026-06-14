@@ -38,10 +38,10 @@ https://laurentlessard.com/teaching/524-intro-to-optimization/
 """,
   :lib => "",
 )
-get_hovercraft1d_nvar(; n::Integer = default_nvar, kwargs...) = 3 * div(n, 3) - 1
-get_hovercraft1d_ncon(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 3) + 2
-get_hovercraft1d_nlin(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 3) + 2
-get_hovercraft1d_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hovercraft1d_nequ(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 3) + 2
-get_hovercraft1d_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_hovercraft1d_nls_nequ(; n::Integer = default_nvar, kwargs...) = div(n, 3) - 1
+get_hovercraft1d_nvar(; n::Int = default_nvar, kwargs...) = 3 * div(n, 3) - 1
+get_hovercraft1d_ncon(; n::Int = default_nvar, kwargs...) = 2 * div(n, 3) + 2
+get_hovercraft1d_nlin(; n::Int = default_nvar, kwargs...) = 2 * div(n, 3) + 2
+get_hovercraft1d_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hovercraft1d_nequ(; n::Int = default_nvar, kwargs...) = 2 * div(n, 3) + 2
+get_hovercraft1d_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_hovercraft1d_nls_nequ(; n::Int = default_nvar, kwargs...) = div(n, 3) - 1

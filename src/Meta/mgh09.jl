@@ -85,10 +85,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
   """,
   :lib => "CUTEst:MGH09, MGH:9, NIST:MGH09",
 )
-get_mgh09_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_mgh09_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_mgh09_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_mgh09_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_mgh09_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_mgh09_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_mgh09_nls_nequ(; n::Integer = default_nvar, kwargs...) = 11
+get_mgh09_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_mgh09_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_mgh09_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_mgh09_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_mgh09_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_mgh09_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_mgh09_nls_nequ(; n::Int = default_nvar, kwargs...) = 11

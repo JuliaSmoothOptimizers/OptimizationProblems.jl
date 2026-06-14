@@ -48,9 +48,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS64, HS:64",
 )
-get_hs64_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs64_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs64_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs64_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs64_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs64_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_hs64_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs64_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs64_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs64_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs64_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs64_nineq(; n::Int = default_nvar, kwargs...) = 1

@@ -46,9 +46,9 @@ N. Antunes, Curitiba, 10/2016.
   """,
   :lib => "CUTEst:HS4, HS:4",
 )
-get_hs4_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs4_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs4_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs4_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs4_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs4_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs4_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs4_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs4_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs4_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs4_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs4_nineq(; n::Int = default_nvar, kwargs...) = 0

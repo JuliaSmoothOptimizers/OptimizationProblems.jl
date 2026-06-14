@@ -47,9 +47,9 @@ SIF input: J-M Collin and Ph. Toint, April 1990.
   """,
   :lib => "CUTEst:HS62, HS:62",
 )
-get_hs62_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs62_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs62_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_hs62_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs62_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs62_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs62_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs62_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs62_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_hs62_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs62_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs62_nineq(; n::Int = default_nvar, kwargs...) = 0

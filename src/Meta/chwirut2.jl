@@ -74,10 +74,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:CHWIRUT2, NIST:Chwirut2",
 )
-get_chwirut2_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_chwirut2_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_chwirut2_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_chwirut2_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_chwirut2_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_chwirut2_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_chwirut2_nls_nequ(; n::Integer = default_nvar, kwargs...) = 54
+get_chwirut2_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_chwirut2_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_chwirut2_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_chwirut2_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_chwirut2_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_chwirut2_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_chwirut2_nls_nequ(; n::Int = default_nvar, kwargs...) = 54

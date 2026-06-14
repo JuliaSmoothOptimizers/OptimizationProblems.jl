@@ -46,10 +46,10 @@ A. Montoison, Montreal, 04/2018.
   """,
   :lib => "CUTEst:HS23, HS:23",
 )
-get_hs23_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs23_ncon(; n::Integer = default_nvar, kwargs...) = 5
-get_hs23_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_hs23_nnln(; n::Integer = default_nvar, kwargs...) = 4
-get_hs23_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs23_nineq(; n::Integer = default_nvar, kwargs...) = 5
-get_hs23_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2
+get_hs23_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs23_ncon(; n::Int = default_nvar, kwargs...) = 5
+get_hs23_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_hs23_nnln(; n::Int = default_nvar, kwargs...) = 4
+get_hs23_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs23_nineq(; n::Int = default_nvar, kwargs...) = 5
+get_hs23_nls_nequ(; n::Int = default_nvar, kwargs...) = 2

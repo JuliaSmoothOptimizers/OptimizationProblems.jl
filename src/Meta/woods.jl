@@ -71,9 +71,9 @@ SIF input: Ph. Toint, Dec 1989.
 """,
   :lib => "CUTEst:WOODS, Luksan:58",
 )
-get_woods_nvar(; n::Integer = default_nvar, kwargs...) = 4 * max(1, div(n, 4))  # number of variables adjusted to be a multiple of 4
-get_woods_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_woods_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_woods_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_woods_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_woods_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_woods_nvar(; n::Int = default_nvar, kwargs...) = 4 * max(1, div(n, 4))  # number of variables adjusted to be a multiple of 4
+get_woods_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_woods_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_woods_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_woods_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_woods_nineq(; n::Int = default_nvar, kwargs...) = 0

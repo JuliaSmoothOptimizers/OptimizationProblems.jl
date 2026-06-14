@@ -40,9 +40,9 @@ Problem 220 in
   """,
   :lib => "HS2:220",
 )
-get_hs220_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs220_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs220_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs220_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs220_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs220_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs220_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs220_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs220_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs220_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs220_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs220_nineq(; n::Int = default_nvar, kwargs...) = 0

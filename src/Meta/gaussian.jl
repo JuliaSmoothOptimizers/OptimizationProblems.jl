@@ -46,10 +46,10 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:GAUSSIAN",
 )
-get_gaussian_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_gaussian_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_gaussian_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_gaussian_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_gaussian_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_gaussian_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_gaussian_nls_nequ(; n::Integer = default_nvar, kwargs...) = 15
+get_gaussian_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_gaussian_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_gaussian_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_gaussian_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_gaussian_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_gaussian_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_gaussian_nls_nequ(; n::Int = default_nvar, kwargs...) = 15

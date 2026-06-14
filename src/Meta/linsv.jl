@@ -33,9 +33,9 @@ Test problem used in NLPModelsTest.jl.
 """,
   :lib => "",
 )
-get_linsv_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_linsv_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_linsv_nlin(; n::Integer = default_nvar, kwargs...) = 2
-get_linsv_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_linsv_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_linsv_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_linsv_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_linsv_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_linsv_nlin(; n::Int = default_nvar, kwargs...) = 2
+get_linsv_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_linsv_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_linsv_nineq(; n::Int = default_nvar, kwargs...) = 2

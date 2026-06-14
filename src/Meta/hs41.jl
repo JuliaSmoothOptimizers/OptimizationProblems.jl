@@ -48,9 +48,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS41, HS:41",
 )
-get_hs41_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs41_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs41_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_hs41_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs41_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs41_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs41_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs41_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs41_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_hs41_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs41_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs41_nineq(; n::Int = default_nvar, kwargs...) = 0

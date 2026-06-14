@@ -42,10 +42,10 @@ Academy of Science of the Czech Republic
   :lib => "LuksanSparse:14",
 )
 
-get_boundary_nvar(; n::Integer = default_nvar, kwargs...) = n
-get_boundary_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_boundary_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_boundary_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_boundary_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_boundary_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_boundary_nls_nequ(; n::Integer = default_nvar, kwargs...) = n
+get_boundary_nvar(; n::Int = default_nvar, kwargs...) = n
+get_boundary_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_boundary_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_boundary_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_boundary_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_boundary_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_boundary_nls_nequ(; n::Int = default_nvar, kwargs...) = n

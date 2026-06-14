@@ -48,9 +48,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS98, HS:98",
 )
-get_hs98_nvar(; n::Integer = default_nvar, kwargs...) = 6
-get_hs98_ncon(; n::Integer = default_nvar, kwargs...) = 4
-get_hs98_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs98_nnln(; n::Integer = default_nvar, kwargs...) = 4
-get_hs98_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs98_nineq(; n::Integer = default_nvar, kwargs...) = 4
+get_hs98_nvar(; n::Int = default_nvar, kwargs...) = 6
+get_hs98_ncon(; n::Int = default_nvar, kwargs...) = 4
+get_hs98_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs98_nnln(; n::Int = default_nvar, kwargs...) = 4
+get_hs98_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs98_nineq(; n::Int = default_nvar, kwargs...) = 4

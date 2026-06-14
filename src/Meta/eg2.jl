@@ -60,9 +60,9 @@ D. Orban, Montreal, 08/2015.
   """,
   :lib => "CUTEst:EG2, Luksan:25",
 )
-get_eg2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_eg2_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_eg2_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_eg2_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_eg2_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_eg2_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_eg2_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_eg2_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_eg2_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_eg2_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_eg2_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_eg2_nineq(; n::Int = default_nvar, kwargs...) = 0

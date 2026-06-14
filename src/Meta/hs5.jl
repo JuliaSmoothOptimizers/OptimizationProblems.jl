@@ -46,9 +46,9 @@ N. Antunes, Curitiba, 10/2016.
   """,
   :lib => "CUTEst:HS5, HS:5",
 )
-get_hs5_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs5_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs5_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs5_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs5_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs5_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs5_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs5_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs5_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs5_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs5_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs5_nineq(; n::Int = default_nvar, kwargs...) = 0

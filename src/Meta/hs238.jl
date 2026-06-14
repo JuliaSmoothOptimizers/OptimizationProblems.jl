@@ -40,9 +40,9 @@ Problem 238 in
   """,
   :lib => "HS2:238",
 )
-get_hs238_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs238_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs238_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs238_nnln(; n::Integer = default_nvar, kwargs...) = 3
-get_hs238_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs238_nineq(; n::Integer = default_nvar, kwargs...) = 3
+get_hs238_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs238_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_hs238_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs238_nnln(; n::Int = default_nvar, kwargs...) = 3
+get_hs238_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs238_nineq(; n::Int = default_nvar, kwargs...) = 3

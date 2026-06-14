@@ -85,10 +85,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:NELSON, NIST:Nelson",
 )
-get_nelson_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_nelson_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_nelson_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_nelson_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_nelson_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_nelson_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_nelson_nls_nequ(; n::Integer = default_nvar, kwargs...) = 128
+get_nelson_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_nelson_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_nelson_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_nelson_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_nelson_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_nelson_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_nelson_nls_nequ(; n::Int = default_nvar, kwargs...) = 128

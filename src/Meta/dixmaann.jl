@@ -51,9 +51,9 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:DIXMAANN,Luksan:20",
 )
-get_dixmaann_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))
-get_dixmaann_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_dixmaann_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_dixmaann_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_dixmaann_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_dixmaann_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_dixmaann_nvar(; n::Int = default_nvar, kwargs...) = 3 * max(1, div(n, 3))
+get_dixmaann_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_dixmaann_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_dixmaann_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_dixmaann_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_dixmaann_nineq(; n::Int = default_nvar, kwargs...) = 0

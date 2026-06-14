@@ -46,11 +46,11 @@ SIF input: Nick Gould, December 2000
     """,
   :lib => "CUTEst:POLYGON, COPS:1",
 )
-get_polygon_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
-get_polygon_ncon(; n::Integer = default_nvar, kwargs...) =
+get_polygon_nvar(; n::Int = default_nvar, kwargs...) = 2 * div(n, 2)
+get_polygon_ncon(; n::Int = default_nvar, kwargs...) =
   div(n, 2) + 1 + Int(div(n, 2) * (div(n, 2) - 1) / 2)
-get_polygon_nlin(; n::Integer = default_nvar, kwargs...) = div(n, 2) + 1
-get_polygon_nnln(; n::Integer = default_nvar, kwargs...) = Int(div(n, 2) * (div(n, 2) - 1) / 2)
-get_polygon_nequ(; n::Integer = default_nvar, kwargs...) = 2
-get_polygon_nineq(; n::Integer = default_nvar, kwargs...) =
+get_polygon_nlin(; n::Int = default_nvar, kwargs...) = div(n, 2) + 1
+get_polygon_nnln(; n::Int = default_nvar, kwargs...) = Int(div(n, 2) * (div(n, 2) - 1) / 2)
+get_polygon_nequ(; n::Int = default_nvar, kwargs...) = 2
+get_polygon_nineq(; n::Int = default_nvar, kwargs...) =
   div(n, 2) - 1 + Int(div(n, 2) * (div(n, 2) - 1) / 2)

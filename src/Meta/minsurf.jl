@@ -52,13 +52,13 @@ SIF input: Ph. Toint, Jan 1991.
   :lib => "CUTEst:MINSURF, COPS:17",
 )
 get_minsurf_nvar(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx = Int(round(sqrt(max(1, n - 2)))),
   ny = Int(round(sqrt(max(1, n - 2)))),
   kwargs...,
 ) = (nx + 2)*(ny + 2)
 get_minsurf_ncon(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx = Int(round(sqrt(max(1, n - 2)))),
   ny = Int(round(sqrt(max(1, n - 2)))),
   kwargs...,
@@ -70,7 +70,7 @@ get_minsurf_ncon(;
     (2*divrem(ny + 1, 4)[1] + divrem(ny + 1, 4)[2] + 1)
   )
 get_minsurf_nlin(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx = Int(round(sqrt(max(1, n - 2)))),
   ny = Int(round(sqrt(max(1, n - 2)))),
   kwargs...,
@@ -81,15 +81,15 @@ get_minsurf_nlin(;
     (2*divrem(nx + 1, 4)[1] + divrem(nx + 1, 4)[2] + 1) *
     (2*divrem(ny + 1, 4)[1] + divrem(ny + 1, 4)[2] + 1)
   )
-get_minsurf_nnln(; n::Integer = default_nvar, kwargs...) = 0
+get_minsurf_nnln(; n::Int = default_nvar, kwargs...) = 0
 get_minsurf_nequ(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx = Int(round(sqrt(max(1, n - 2)))),
   ny = Int(round(sqrt(max(1, n - 2)))),
   kwargs...,
 ) = 2*(nx + ny + 4)
 get_minsurf_nineq(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx = Int(round(sqrt(max(1, n - 2)))),
   ny = Int(round(sqrt(max(1, n - 2)))),
   kwargs...,

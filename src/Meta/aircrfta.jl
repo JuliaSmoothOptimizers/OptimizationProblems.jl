@@ -45,9 +45,9 @@ SIF input: Ph. Toint, Dec 1989.
 """,
   :lib => "CUTEst:AIRCRFTA",
 )
-get_aircrfta_nvar(; n::Integer = default_nvar, kwargs...) = 8
-get_aircrfta_ncon(; n::Integer = default_nvar, kwargs...) = 5
-get_aircrfta_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_aircrfta_nnln(; n::Integer = default_nvar, kwargs...) = 5
-get_aircrfta_nequ(; n::Integer = default_nvar, kwargs...) = 5
-get_aircrfta_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_aircrfta_nvar(; n::Int = default_nvar, kwargs...) = 8
+get_aircrfta_ncon(; n::Int = default_nvar, kwargs...) = 5
+get_aircrfta_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_aircrfta_nnln(; n::Int = default_nvar, kwargs...) = 5
+get_aircrfta_nequ(; n::Int = default_nvar, kwargs...) = 5
+get_aircrfta_nineq(; n::Int = default_nvar, kwargs...) = 0

@@ -46,9 +46,9 @@ Shpak4_meta = Dict(
 """,
   :lib => "",
 )
-get_Shpak4_nvar(; n::Integer = default_nvar, kwargs...) = 1
-get_Shpak4_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak4_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak4_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak4_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak4_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_Shpak4_nvar(; n::Int = default_nvar, kwargs...) = 1
+get_Shpak4_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak4_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak4_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak4_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak4_nineq(; n::Int = default_nvar, kwargs...) = 0

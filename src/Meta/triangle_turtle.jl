@@ -43,9 +43,9 @@ Instance using the `turtle` shape mesh.
     """,
   :lib => "COPS:18",
 )
-get_triangle_turtle_nvar(; n::Integer = default_nvar, kwargs...) = 4444
-get_triangle_turtle_ncon(; n::Integer = default_nvar, kwargs...) = 4025
-get_triangle_turtle_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_triangle_turtle_nnln(; n::Integer = default_nvar, kwargs...) = 4025
-get_triangle_turtle_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_triangle_turtle_nineq(; n::Integer = default_nvar, kwargs...) = 4025
+get_triangle_turtle_nvar(; n::Int = default_nvar, kwargs...) = 4444
+get_triangle_turtle_ncon(; n::Int = default_nvar, kwargs...) = 4025
+get_triangle_turtle_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_triangle_turtle_nnln(; n::Int = default_nvar, kwargs...) = 4025
+get_triangle_turtle_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_triangle_turtle_nineq(; n::Int = default_nvar, kwargs...) = 4025

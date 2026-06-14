@@ -47,9 +47,9 @@ SIF input: Ph. Toint, Dec 1989.
 """,
   :lib => "CUTEst:ARGAUSS",
 )
-get_argauss_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_argauss_ncon(; n::Integer = default_nvar, kwargs...) = 15
-get_argauss_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_argauss_nnln(; n::Integer = default_nvar, kwargs...) = 15
-get_argauss_nequ(; n::Integer = default_nvar, kwargs...) = 15
-get_argauss_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_argauss_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_argauss_ncon(; n::Int = default_nvar, kwargs...) = 15
+get_argauss_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_argauss_nnln(; n::Int = default_nvar, kwargs...) = 15
+get_argauss_nequ(; n::Int = default_nvar, kwargs...) = 15
+get_argauss_nineq(; n::Int = default_nvar, kwargs...) = 0

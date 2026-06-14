@@ -78,9 +78,9 @@ D. Orban, Montreal, 08/2015.
   """,
   :lib => "CUTEst:BROYDN7D, Luksan:3",
 )
-get_broydn7d_nvar(; n::Integer = default_nvar, kwargs...) = 2 * max(1, div(n, 2))
-get_broydn7d_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_broydn7d_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_broydn7d_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_broydn7d_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_broydn7d_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_broydn7d_nvar(; n::Int = default_nvar, kwargs...) = 2 * max(1, div(n, 2))
+get_broydn7d_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_broydn7d_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_broydn7d_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_broydn7d_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_broydn7d_nineq(; n::Int = default_nvar, kwargs...) = 0

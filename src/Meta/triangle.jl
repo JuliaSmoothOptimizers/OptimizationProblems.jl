@@ -38,9 +38,9 @@ Argonne National Labs Technical Report ANL/MCS-246 (2004)
     """,
   :lib => "COPS:18",
 )
-get_triangle_nvar(; n::Integer = default_nvar, kwargs...) = 8
-get_triangle_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_triangle_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_triangle_nnln(; n::Integer = default_nvar, kwargs...) = 3
-get_triangle_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_triangle_nineq(; n::Integer = default_nvar, kwargs...) = 3
+get_triangle_nvar(; n::Int = default_nvar, kwargs...) = 8
+get_triangle_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_triangle_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_triangle_nnln(; n::Int = default_nvar, kwargs...) = 3
+get_triangle_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_triangle_nineq(; n::Int = default_nvar, kwargs...) = 3

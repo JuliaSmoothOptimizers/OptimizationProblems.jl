@@ -44,10 +44,10 @@ https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unco
   :lib => "LuksanSparse:8",
 )
 
-get_nazareth_nvar(; n::Integer = default_nvar, kwargs...) = n
-get_nazareth_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_nazareth_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_nazareth_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_nazareth_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_nazareth_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_nazareth_nls_nequ(; n::Integer = default_nvar, kwargs...) = n
+get_nazareth_nvar(; n::Int = default_nvar, kwargs...) = n
+get_nazareth_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_nazareth_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_nazareth_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_nazareth_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_nazareth_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_nazareth_nls_nequ(; n::Int = default_nvar, kwargs...) = n

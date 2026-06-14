@@ -40,9 +40,9 @@ Problem 231 in
   """,
   :lib => "HS2:231",
 )
-get_hs231_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs231_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs231_nlin(; n::Integer = default_nvar, kwargs...) = 2
-get_hs231_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs231_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs231_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_hs231_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs231_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs231_nlin(; n::Int = default_nvar, kwargs...) = 2
+get_hs231_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs231_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs231_nineq(; n::Int = default_nvar, kwargs...) = 2

@@ -50,9 +50,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS93, HS:93",
 )
-get_hs93_nvar(; n::Integer = default_nvar, kwargs...) = 6
-get_hs93_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs93_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs93_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs93_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs93_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_hs93_nvar(; n::Int = default_nvar, kwargs...) = 6
+get_hs93_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs93_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs93_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs93_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs93_nineq(; n::Int = default_nvar, kwargs...) = 2

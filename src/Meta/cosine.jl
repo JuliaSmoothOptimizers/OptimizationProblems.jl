@@ -54,9 +54,9 @@ SIF input: N. Gould, Jan 1996
   """,
   :lib => "CUTEst:COSINE, Luksan:6",
 )
-get_cosine_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_cosine_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_cosine_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_cosine_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_cosine_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_cosine_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_cosine_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_cosine_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_cosine_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_cosine_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_cosine_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_cosine_nineq(; n::Int = default_nvar, kwargs...) = 0

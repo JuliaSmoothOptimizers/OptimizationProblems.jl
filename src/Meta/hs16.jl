@@ -46,9 +46,9 @@ classification SQR2-AN-2-2
   """,
   :lib => "CUTEst:HS16, HS:16",
 )
-get_hs16_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs16_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs16_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs16_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs16_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs16_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_hs16_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs16_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs16_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs16_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs16_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs16_nineq(; n::Int = default_nvar, kwargs...) = 2

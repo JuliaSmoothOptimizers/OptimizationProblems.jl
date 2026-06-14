@@ -40,9 +40,9 @@ Problem 250 in
   """,
   :lib => "HS2:250",
 )
-get_hs250_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs250_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs250_nlin(; n::Integer = default_nvar, kwargs...) = 2
-get_hs250_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs250_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs250_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_hs250_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs250_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs250_nlin(; n::Int = default_nvar, kwargs...) = 2
+get_hs250_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs250_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs250_nineq(; n::Int = default_nvar, kwargs...) = 2

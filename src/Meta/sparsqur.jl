@@ -48,9 +48,9 @@ SIF input: Nick Gould, November 1995
   """,
   :lib => "CUTEst:SPARSQUR, Luksan:53",
 )
-get_sparsqur_nvar(; n::Integer = default_nvar, kwargs...) = max(10, n)
-get_sparsqur_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_sparsqur_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_sparsqur_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_sparsqur_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_sparsqur_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_sparsqur_nvar(; n::Int = default_nvar, kwargs...) = max(10, n)
+get_sparsqur_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_sparsqur_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_sparsqur_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_sparsqur_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_sparsqur_nineq(; n::Int = default_nvar, kwargs...) = 0

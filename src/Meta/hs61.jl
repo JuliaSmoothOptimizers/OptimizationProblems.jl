@@ -45,9 +45,9 @@ SIF input: Ph.L. Toint, November 1990.
   """,
   :lib => "CUTEst:HS61, HS:61",
 )
-get_hs61_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs61_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs61_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs61_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs61_nequ(; n::Integer = default_nvar, kwargs...) = 2
-get_hs61_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs61_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs61_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs61_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs61_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs61_nequ(; n::Int = default_nvar, kwargs...) = 2
+get_hs61_nineq(; n::Int = default_nvar, kwargs...) = 0

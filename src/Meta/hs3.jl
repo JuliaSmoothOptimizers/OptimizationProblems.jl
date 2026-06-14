@@ -46,9 +46,9 @@ N. Antunes, Curitiba, 10/2016.
   """,
   :lib => "CUTEst:HS3, HS:3",
 )
-get_hs3_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs3_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs3_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs3_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs3_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs3_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs3_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs3_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs3_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs3_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs3_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs3_nineq(; n::Int = default_nvar, kwargs...) = 0

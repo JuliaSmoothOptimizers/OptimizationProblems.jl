@@ -74,10 +74,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:KIRBY2, NIST:Kirby2",
 )
-get_kirby2_nvar(; n::Integer = default_nvar, kwargs...) = 5
-get_kirby2_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_kirby2_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_kirby2_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_kirby2_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_kirby2_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_kirby2_nls_nequ(; n::Integer = default_nvar, kwargs...) = 151
+get_kirby2_nvar(; n::Int = default_nvar, kwargs...) = 5
+get_kirby2_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_kirby2_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_kirby2_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_kirby2_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_kirby2_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_kirby2_nls_nequ(; n::Int = default_nvar, kwargs...) = 151

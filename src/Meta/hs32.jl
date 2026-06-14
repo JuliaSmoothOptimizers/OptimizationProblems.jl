@@ -48,9 +48,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS32, HS:32",
 )
-get_hs32_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs32_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs32_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_hs32_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs32_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs32_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_hs32_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs32_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs32_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_hs32_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs32_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs32_nineq(; n::Int = default_nvar, kwargs...) = 1

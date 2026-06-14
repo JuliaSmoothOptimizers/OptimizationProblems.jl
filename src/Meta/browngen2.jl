@@ -46,10 +46,10 @@ https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unco
   :lib => "LuksanSparse:13",
 )
 
-get_browngen2_nvar(; n::Integer = default_nvar, kwargs...) = max(2, n)
-get_browngen2_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_browngen2_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_browngen2_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_browngen2_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_browngen2_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_browngen2_nls_nequ(; n::Integer = default_nvar, kwargs...) = 0
+get_browngen2_nvar(; n::Int = default_nvar, kwargs...) = max(2, n)
+get_browngen2_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_browngen2_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_browngen2_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_browngen2_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_browngen2_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_browngen2_nls_nequ(; n::Int = default_nvar, kwargs...) = 0

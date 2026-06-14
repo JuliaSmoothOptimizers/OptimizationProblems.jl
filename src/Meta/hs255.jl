@@ -40,9 +40,9 @@ Problem 255 in
   """,
   :lib => "HS2:255",
 )
-get_hs255_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs255_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs255_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs255_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs255_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs255_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs255_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs255_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs255_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs255_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs255_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs255_nineq(; n::Int = default_nvar, kwargs...) = 0

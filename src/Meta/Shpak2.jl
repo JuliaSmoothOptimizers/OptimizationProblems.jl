@@ -45,9 +45,9 @@ Second problem of
 """,
   :lib => "",
 )
-get_Shpak2_nvar(; n::Integer = default_nvar, kwargs...) = 1
-get_Shpak2_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak2_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak2_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak2_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak2_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_Shpak2_nvar(; n::Int = default_nvar, kwargs...) = 1
+get_Shpak2_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak2_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak2_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak2_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak2_nineq(; n::Int = default_nvar, kwargs...) = 0

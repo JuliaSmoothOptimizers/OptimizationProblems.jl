@@ -42,9 +42,9 @@ Problem 9 in
   :lib => "LuksanSparse:9",
 )
 
-get_trig_nvar(; n::Integer = default_nvar, kwargs...) = n
-get_trig_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_trig_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_trig_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_trig_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_trig_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_trig_nvar(; n::Int = default_nvar, kwargs...) = n
+get_trig_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_trig_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_trig_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_trig_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_trig_nineq(; n::Int = default_nvar, kwargs...) = 0

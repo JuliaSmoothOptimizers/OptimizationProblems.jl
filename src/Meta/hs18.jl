@@ -46,9 +46,9 @@ classification SQR2-AN-2-2
   """,
   :lib => "CUTEst:HS18, HS:18",
 )
-get_hs18_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs18_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs18_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs18_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs18_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs18_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_hs18_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs18_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs18_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs18_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs18_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs18_nineq(; n::Int = default_nvar, kwargs...) = 2

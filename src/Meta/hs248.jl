@@ -40,9 +40,9 @@ Problem 248 in
   """,
   :lib => "HS2:248",
 )
-get_hs248_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs248_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs248_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_hs248_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs248_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs248_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_hs248_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs248_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs248_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_hs248_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs248_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs248_nineq(; n::Int = default_nvar, kwargs...) = 1

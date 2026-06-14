@@ -70,9 +70,9 @@ J.-P. Dussault, Rennes 09/2015.
   """,
   :lib => "CUTEst:FMINSRF2, Luksan:33",
 )
-get_fminsrf2_nvar(; n::Integer = default_nvar, kwargs...) = 100
-get_fminsrf2_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_fminsrf2_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_fminsrf2_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_fminsrf2_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_fminsrf2_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_fminsrf2_nvar(; n::Int = default_nvar, kwargs...) = 100
+get_fminsrf2_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_fminsrf2_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_fminsrf2_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_fminsrf2_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_fminsrf2_nineq(; n::Int = default_nvar, kwargs...) = 0

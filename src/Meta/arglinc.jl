@@ -45,9 +45,9 @@ SIF input: Ph. Toint, Dec 1989.
 """,
   :lib => "CUTEst:ARGLINC",
 )
-get_arglinc_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_arglinc_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_arglinc_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_arglinc_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_arglinc_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_arglinc_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_arglinc_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_arglinc_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_arglinc_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_arglinc_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_arglinc_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_arglinc_nineq(; n::Int = default_nvar, kwargs...) = 0

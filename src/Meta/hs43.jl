@@ -48,9 +48,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS43, HS:43",
 )
-get_hs43_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs43_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs43_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs43_nnln(; n::Integer = default_nvar, kwargs...) = 3
-get_hs43_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs43_nineq(; n::Integer = default_nvar, kwargs...) = 3
+get_hs43_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs43_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_hs43_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs43_nnln(; n::Int = default_nvar, kwargs...) = 3
+get_hs43_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs43_nineq(; n::Int = default_nvar, kwargs...) = 3

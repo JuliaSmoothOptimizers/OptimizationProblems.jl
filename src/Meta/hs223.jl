@@ -40,9 +40,9 @@ Problem 223 in
   """,
   :lib => "HS2:223",
 )
-get_hs223_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs223_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs223_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs223_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs223_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs223_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_hs223_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs223_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs223_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs223_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs223_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs223_nineq(; n::Int = default_nvar, kwargs...) = 2

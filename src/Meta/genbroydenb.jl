@@ -42,10 +42,10 @@ Academy of Science of the Czech Republic
   :lib => "LuksanSparse:6",
 )
 
-get_genbroydenb_nvar(; n::Integer = default_nvar, kwargs...) = n
-get_genbroydenb_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_genbroydenb_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_genbroydenb_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_genbroydenb_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_genbroydenb_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_genbroydenb_nls_nequ(; n::Integer = default_nvar, kwargs...) = n
+get_genbroydenb_nvar(; n::Int = default_nvar, kwargs...) = n
+get_genbroydenb_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_genbroydenb_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_genbroydenb_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_genbroydenb_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_genbroydenb_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_genbroydenb_nls_nequ(; n::Int = default_nvar, kwargs...) = n

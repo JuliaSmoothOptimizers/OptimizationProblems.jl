@@ -85,10 +85,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:ENSO, NIST:ENSO",
 )
-get_enso_nvar(; n::Integer = default_nvar, kwargs...) = 9
-get_enso_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_enso_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_enso_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_enso_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_enso_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_enso_nls_nequ(; n::Integer = default_nvar, kwargs...) = 168
+get_enso_nvar(; n::Int = default_nvar, kwargs...) = 9
+get_enso_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_enso_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_enso_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_enso_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_enso_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_enso_nls_nequ(; n::Int = default_nvar, kwargs...) = 168

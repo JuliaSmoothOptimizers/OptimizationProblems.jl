@@ -48,9 +48,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS84, HS:84",
 )
-get_hs84_nvar(; n::Integer = default_nvar, kwargs...) = 5
-get_hs84_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs84_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs84_nnln(; n::Integer = default_nvar, kwargs...) = 3
-get_hs84_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs84_nineq(; n::Integer = default_nvar, kwargs...) = 3
+get_hs84_nvar(; n::Int = default_nvar, kwargs...) = 5
+get_hs84_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_hs84_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs84_nnln(; n::Int = default_nvar, kwargs...) = 3
+get_hs84_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs84_nineq(; n::Int = default_nvar, kwargs...) = 3

@@ -48,9 +48,9 @@ D. Orban, Montreal, 04/2016.
   """,
   :lib => "CUTEst:HS8, HS:8",
 )
-get_hs8_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs8_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs8_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs8_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs8_nequ(; n::Integer = default_nvar, kwargs...) = 2
-get_hs8_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs8_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs8_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs8_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs8_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs8_nequ(; n::Int = default_nvar, kwargs...) = 2
+get_hs8_nineq(; n::Int = default_nvar, kwargs...) = 0

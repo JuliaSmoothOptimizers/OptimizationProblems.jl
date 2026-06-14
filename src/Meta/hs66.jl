@@ -48,9 +48,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS66, HS:66",
 )
-get_hs66_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs66_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs66_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs66_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs66_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs66_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_hs66_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs66_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs66_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs66_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs66_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs66_nineq(; n::Int = default_nvar, kwargs...) = 2

@@ -43,9 +43,9 @@ SIF input: Nick Gould, November 2000
     """,
   :lib => "CUTEst:CAMSHAPE, COPS:3",
 )
-get_camshape_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_camshape_ncon(; n::Integer = default_nvar, kwargs...) = 2 * n + 3
-get_camshape_nlin(; n::Integer = default_nvar, kwargs...) = n + 2
-get_camshape_nnln(; n::Integer = default_nvar, kwargs...) = n + 1
-get_camshape_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_camshape_nineq(; n::Integer = default_nvar, kwargs...) = 2 * n + 3
+get_camshape_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_camshape_ncon(; n::Int = default_nvar, kwargs...) = 2 * n + 3
+get_camshape_nlin(; n::Int = default_nvar, kwargs...) = n + 2
+get_camshape_nnln(; n::Int = default_nvar, kwargs...) = n + 1
+get_camshape_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_camshape_nineq(; n::Int = default_nvar, kwargs...) = 2 * n + 3

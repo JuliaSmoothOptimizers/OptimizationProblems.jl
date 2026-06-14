@@ -52,9 +52,9 @@ SDIF input: N. Gould and Ph. Toint, November 1997.
   """,
   :lib => "CUTEst:GENHUMPS, Luksan:35",
 )
-get_genhumps_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_genhumps_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_genhumps_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_genhumps_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_genhumps_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_genhumps_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_genhumps_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_genhumps_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_genhumps_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_genhumps_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_genhumps_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_genhumps_nineq(; n::Int = default_nvar, kwargs...) = 0

@@ -46,9 +46,9 @@ Computer Science Journal of Moldova, vol.3, no.2(8), 1995
 """,
   :lib => "",
 )
-get_Shpak6_nvar(; n::Integer = default_nvar, kwargs...) = 1
-get_Shpak6_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak6_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak6_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak6_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_Shpak6_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_Shpak6_nvar(; n::Int = default_nvar, kwargs...) = 1
+get_Shpak6_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak6_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak6_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak6_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_Shpak6_nineq(; n::Int = default_nvar, kwargs...) = 0

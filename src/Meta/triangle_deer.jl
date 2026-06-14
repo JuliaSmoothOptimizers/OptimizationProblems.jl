@@ -43,9 +43,9 @@ Instance using the `deer` shape mesh.
     """,
   :lib => "COPS:18",
 )
-get_triangle_deer_nvar(; n::Integer = default_nvar, kwargs...) = 2244
-get_triangle_deer_ncon(; n::Integer = default_nvar, kwargs...) = 1896
-get_triangle_deer_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_triangle_deer_nnln(; n::Integer = default_nvar, kwargs...) = 1896
-get_triangle_deer_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_triangle_deer_nineq(; n::Integer = default_nvar, kwargs...) = 1896
+get_triangle_deer_nvar(; n::Int = default_nvar, kwargs...) = 2244
+get_triangle_deer_ncon(; n::Int = default_nvar, kwargs...) = 1896
+get_triangle_deer_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_triangle_deer_nnln(; n::Int = default_nvar, kwargs...) = 1896
+get_triangle_deer_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_triangle_deer_nineq(; n::Int = default_nvar, kwargs...) = 1896

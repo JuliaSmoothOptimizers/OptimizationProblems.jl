@@ -56,10 +56,10 @@ D. Orban, Montreal, 08/2015.
   """,
   :lib => "CUTEst:BDQRTIC, Luksan:2",
 )
-get_bdqrtic_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_bdqrtic_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_bdqrtic_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_bdqrtic_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_bdqrtic_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_bdqrtic_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_bdqrtic_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * (max(5, n) - 4)
+get_bdqrtic_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_bdqrtic_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_bdqrtic_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_bdqrtic_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_bdqrtic_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_bdqrtic_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_bdqrtic_nls_nequ(; n::Int = default_nvar, kwargs...) = 2 * (max(5, n) - 4)

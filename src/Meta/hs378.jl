@@ -44,9 +44,9 @@ M. Gollier, Montréal, 05/2023
   """,
   :lib => "HS2:378",
 )
-get_hs378_nvar(; n::Integer = default_nvar, kwargs...) = 10
-get_hs378_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs378_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs378_nnln(; n::Integer = default_nvar, kwargs...) = 3
-get_hs378_nequ(; n::Integer = default_nvar, kwargs...) = 3
-get_hs378_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs378_nvar(; n::Int = default_nvar, kwargs...) = 10
+get_hs378_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_hs378_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs378_nnln(; n::Int = default_nvar, kwargs...) = 3
+get_hs378_nequ(; n::Int = default_nvar, kwargs...) = 3
+get_hs378_nineq(; n::Int = default_nvar, kwargs...) = 0

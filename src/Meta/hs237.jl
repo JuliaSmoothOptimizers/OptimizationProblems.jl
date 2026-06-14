@@ -40,9 +40,9 @@ Problem 237 in
   """,
   :lib => "HS2:237",
 )
-get_hs237_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs237_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs237_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs237_nnln(; n::Integer = default_nvar, kwargs...) = 3
-get_hs237_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs237_nineq(; n::Integer = default_nvar, kwargs...) = 3
+get_hs237_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs237_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_hs237_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs237_nnln(; n::Int = default_nvar, kwargs...) = 3
+get_hs237_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs237_nineq(; n::Int = default_nvar, kwargs...) = 3

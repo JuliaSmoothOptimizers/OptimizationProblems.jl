@@ -44,9 +44,9 @@ Solution is: (1, 1, 0, 0) with f(x^*) = -1
   """,
   :lib => "HS2:219",
 )
-get_hs219_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs219_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs219_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs219_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs219_nequ(; n::Integer = default_nvar, kwargs...) = 2
-get_hs219_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs219_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs219_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs219_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs219_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs219_nequ(; n::Int = default_nvar, kwargs...) = 2
+get_hs219_nineq(; n::Int = default_nvar, kwargs...) = 0

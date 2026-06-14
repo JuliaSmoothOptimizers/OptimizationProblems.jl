@@ -63,9 +63,9 @@ SIF input: Ph. Toint, Aug 1990.
   """,
   :lib => "CUTEst:LIARWHD, Luksan:38",
 )
-get_liarwhd_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_liarwhd_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_liarwhd_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_liarwhd_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_liarwhd_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_liarwhd_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_liarwhd_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_liarwhd_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_liarwhd_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_liarwhd_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_liarwhd_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_liarwhd_nineq(; n::Int = default_nvar, kwargs...) = 0

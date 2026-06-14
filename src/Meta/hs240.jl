@@ -40,9 +40,9 @@ Problem 240 in
   """,
   :lib => "HS2:240",
 )
-get_hs240_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs240_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs240_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs240_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs240_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs240_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs240_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs240_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs240_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs240_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs240_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs240_nineq(; n::Int = default_nvar, kwargs...) = 0

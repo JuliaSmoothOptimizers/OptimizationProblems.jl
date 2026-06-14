@@ -48,9 +48,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS50, HS:50",
 )
-get_hs50_nvar(; n::Integer = default_nvar, kwargs...) = 5
-get_hs50_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs50_nlin(; n::Integer = default_nvar, kwargs...) = 3
-get_hs50_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs50_nequ(; n::Integer = default_nvar, kwargs...) = 3
-get_hs50_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs50_nvar(; n::Int = default_nvar, kwargs...) = 5
+get_hs50_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_hs50_nlin(; n::Int = default_nvar, kwargs...) = 3
+get_hs50_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs50_nequ(; n::Int = default_nvar, kwargs...) = 3
+get_hs50_nineq(; n::Int = default_nvar, kwargs...) = 0

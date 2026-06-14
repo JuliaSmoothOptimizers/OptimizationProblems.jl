@@ -48,9 +48,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS118, HS:118",
 )
-get_hs118_nvar(; n::Integer = default_nvar, kwargs...) = 15
-get_hs118_ncon(; n::Integer = default_nvar, kwargs...) = 17
-get_hs118_nlin(; n::Integer = default_nvar, kwargs...) = 17
-get_hs118_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs118_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs118_nineq(; n::Integer = default_nvar, kwargs...) = 17
+get_hs118_nvar(; n::Int = default_nvar, kwargs...) = 15
+get_hs118_ncon(; n::Int = default_nvar, kwargs...) = 17
+get_hs118_nlin(; n::Int = default_nvar, kwargs...) = 17
+get_hs118_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs118_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs118_nineq(; n::Int = default_nvar, kwargs...) = 17

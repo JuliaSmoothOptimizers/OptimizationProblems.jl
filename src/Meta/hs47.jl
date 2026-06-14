@@ -48,9 +48,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS47, HS:47",
 )
-get_hs47_nvar(; n::Integer = default_nvar, kwargs...) = 5
-get_hs47_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs47_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs47_nnln(; n::Integer = default_nvar, kwargs...) = 3
-get_hs47_nequ(; n::Integer = default_nvar, kwargs...) = 3
-get_hs47_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs47_nvar(; n::Int = default_nvar, kwargs...) = 5
+get_hs47_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_hs47_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs47_nnln(; n::Int = default_nvar, kwargs...) = 3
+get_hs47_nequ(; n::Int = default_nvar, kwargs...) = 3
+get_hs47_nineq(; n::Int = default_nvar, kwargs...) = 0

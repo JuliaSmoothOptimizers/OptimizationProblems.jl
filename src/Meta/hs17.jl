@@ -46,9 +46,9 @@ classification SQR2-AN-2-2
   """,
   :lib => "CUTEst:HS17, HS:17",
 )
-get_hs17_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs17_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs17_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs17_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs17_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs17_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_hs17_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs17_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs17_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs17_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs17_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs17_nineq(; n::Int = default_nvar, kwargs...) = 2

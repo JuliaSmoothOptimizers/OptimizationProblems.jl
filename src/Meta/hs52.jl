@@ -48,10 +48,10 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS52, HS:52",
 )
-get_hs52_nvar(; n::Integer = default_nvar, kwargs...) = 5
-get_hs52_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs52_nlin(; n::Integer = default_nvar, kwargs...) = 3
-get_hs52_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs52_nequ(; n::Integer = default_nvar, kwargs...) = 3
-get_hs52_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_hs52_nls_nequ(; n::Integer = default_nvar, kwargs...) = 4
+get_hs52_nvar(; n::Int = default_nvar, kwargs...) = 5
+get_hs52_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_hs52_nlin(; n::Int = default_nvar, kwargs...) = 3
+get_hs52_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs52_nequ(; n::Int = default_nvar, kwargs...) = 3
+get_hs52_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_hs52_nls_nequ(; n::Int = default_nvar, kwargs...) = 4

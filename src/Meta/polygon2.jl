@@ -35,9 +35,9 @@ Introduction to Optimization class.
 """,
   :lib => "",
 )
-get_polygon2_nvar(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 2)
-get_polygon2_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_polygon2_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_polygon2_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_polygon2_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_polygon2_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_polygon2_nvar(; n::Int = default_nvar, kwargs...) = 2 * div(n, 2)
+get_polygon2_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_polygon2_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_polygon2_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_polygon2_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_polygon2_nineq(; n::Int = default_nvar, kwargs...) = 0

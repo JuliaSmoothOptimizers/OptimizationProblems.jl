@@ -38,9 +38,9 @@ Jean_pierre Dussault
 """,
   :lib => "",
 )
-get_Duscube_nvar(; n::Integer = default_nvar, kwargs...) = 1
-get_Duscube_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_Duscube_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_Duscube_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_Duscube_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_Duscube_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_Duscube_nvar(; n::Int = default_nvar, kwargs...) = 1
+get_Duscube_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_Duscube_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_Duscube_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_Duscube_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_Duscube_nineq(; n::Int = default_nvar, kwargs...) = 0

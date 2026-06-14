@@ -48,9 +48,9 @@ classification PQR2-AN-2-2
   """,
   :lib => "CUTEst:HS19, HS:19",
 )
-get_hs19_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs19_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs19_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs19_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs19_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs19_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_hs19_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs19_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs19_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs19_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs19_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs19_nineq(; n::Int = default_nvar, kwargs...) = 2

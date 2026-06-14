@@ -43,9 +43,9 @@ Instance using the `duct12` mesh.
     """,
   :lib => "COPS:19",
 )
-get_tetra_duct12_nvar(; n::Integer = default_nvar, kwargs...) = 12597
-get_tetra_duct12_ncon(; n::Integer = default_nvar, kwargs...) = 19222
-get_tetra_duct12_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_duct12_nnln(; n::Integer = default_nvar, kwargs...) = 19222
-get_tetra_duct12_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_duct12_nineq(; n::Integer = default_nvar, kwargs...) = 19222
+get_tetra_duct12_nvar(; n::Int = default_nvar, kwargs...) = 12597
+get_tetra_duct12_ncon(; n::Int = default_nvar, kwargs...) = 19222
+get_tetra_duct12_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_duct12_nnln(; n::Int = default_nvar, kwargs...) = 19222
+get_tetra_duct12_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_duct12_nineq(; n::Int = default_nvar, kwargs...) = 19222

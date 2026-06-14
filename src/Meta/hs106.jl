@@ -50,9 +50,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS106, HS:106",
 )
-get_hs106_nvar(; n::Integer = default_nvar, kwargs...) = 8
-get_hs106_ncon(; n::Integer = default_nvar, kwargs...) = 6
-get_hs106_nlin(; n::Integer = default_nvar, kwargs...) = 3
-get_hs106_nnln(; n::Integer = default_nvar, kwargs...) = 3
-get_hs106_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs106_nineq(; n::Integer = default_nvar, kwargs...) = 6
+get_hs106_nvar(; n::Int = default_nvar, kwargs...) = 8
+get_hs106_ncon(; n::Int = default_nvar, kwargs...) = 6
+get_hs106_nlin(; n::Int = default_nvar, kwargs...) = 3
+get_hs106_nnln(; n::Int = default_nvar, kwargs...) = 3
+get_hs106_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs106_nineq(; n::Int = default_nvar, kwargs...) = 6

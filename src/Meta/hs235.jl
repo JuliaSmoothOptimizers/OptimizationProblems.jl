@@ -40,9 +40,9 @@ Problem 235 in
   """,
   :lib => "HS2:235",
 )
-get_hs235_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs235_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs235_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs235_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs235_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs235_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs235_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs235_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs235_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs235_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs235_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs235_nineq(; n::Int = default_nvar, kwargs...) = 0

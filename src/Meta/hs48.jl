@@ -48,10 +48,10 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS48, HS:48",
 )
-get_hs48_nvar(; n::Integer = default_nvar, kwargs...) = 5
-get_hs48_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs48_nlin(; n::Integer = default_nvar, kwargs...) = 2
-get_hs48_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs48_nequ(; n::Integer = default_nvar, kwargs...) = 2
-get_hs48_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_hs48_nls_nequ(; n::Integer = default_nvar, kwargs...) = 3
+get_hs48_nvar(; n::Int = default_nvar, kwargs...) = 5
+get_hs48_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs48_nlin(; n::Int = default_nvar, kwargs...) = 2
+get_hs48_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs48_nequ(; n::Int = default_nvar, kwargs...) = 2
+get_hs48_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_hs48_nls_nequ(; n::Int = default_nvar, kwargs...) = 3
