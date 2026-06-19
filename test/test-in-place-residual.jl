@@ -19,7 +19,7 @@ end
       @allocated residual!(nls, x, Fx)
       @test (@allocated residual!(nls, x, Fx)) == 0
     end
-    m = OptimizationProblems.eval(Meta.parse("get_$(prob)_nls_nequ"))()
+    m = getfield(OptimizationProblems, Symbol(:get_, prob, :_nls_nequ))()
     @test nls.nls_meta.nequ == m
   end
 

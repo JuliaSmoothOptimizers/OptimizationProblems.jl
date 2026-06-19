@@ -42,12 +42,12 @@ end
     @allocated cons_nln!(nlp, x, cx)
     @test (@allocated cons_nln!(nlp, x, cx)) == 0
   end
-  m = OptimizationProblems.eval(Meta.parse("get_$(prob)_nnln"))()
+  m = getfield(OptimizationProblems, Symbol(:get_, prob, :_nnln))()
   @test ncon == m
 end
 
 @everywhere function test_compatibility(prob::Symbol, ndef::Integer = ndef)
-  prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
+  prob_fn = getfield(PureJuMP, prob)
   model = prob_fn(n = ndef)
   nlp_jump = MathOptNLPModel(model)
 
