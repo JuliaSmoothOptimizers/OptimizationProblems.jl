@@ -81,7 +81,7 @@ Scan the text of `src/PureJuMP/<name>.jl` and collect findings under three sever
 - [ ] Multi-function file: the `export` statement lists more than one symbol. This is an accepted legacy pattern for function families (dixmaan, genrose+rosenbrock, triangle variants) but new problems should not use it.
 - [ ] `n::Int = default_nvar` is present in the signature but `n` is not used in the body. This is harmless but misleading — the keyword will be silently ignored.
 - [ ] Data-loading file: calls `_ensure_data!` or `include("../../data/...")`. Correct pattern for mesh/tabular problems; means the problem is effectively non-scalable.
-- [ ] `src/ADNLPProblems/<name>.jl` does not exist. This is a JuMP-only problem. Verify it is in the known exclusion list (`catmix`, `gasoil`, `glider`, `methanol`, `minsurf`, `pinene`, `rocket`, `steering`, `torsion`). If it is not in that list, flag as **Warning** — the test suite will fail to find the ADNLPProblems implementation.
+- [ ] `src/ADNLPProblems/<name>.jl` does not exist. This is a JuMP-only problem. Check that `src/Meta/<name>.jl` has `:implementation => :jump`. If it has `:both` or `:adnlpmodels` instead, flag as **Error** — the test suite consistency check will fail.
 - [ ] `src/Meta/<name>.jl` does not exist. Without a meta file the problem is absent from `OptimizationProblems.meta`, and the test `sort(list_problems) == sort(Symbol.(meta[!, :name]))` will fail. This is an **Error**.
 
 ### Step 4 — Dynamic analysis (run Julia)

@@ -51,6 +51,21 @@ adproblems = (
 )
 ```
 
+### Implementation availability (`:implementation`)
+
+The `:implementation` column records which modelling backends provide the problem:
+
+| Value | Meaning |
+|-------|---------|
+| `:both` | Available in both `ADNLPProblems` and `PureJuMP` |
+| `:jump` | `PureJuMP` only |
+| `:adnlpmodels` | `ADNLPProblems` only |
+
+```@example 1
+meta = OptimizationProblems.meta
+both_problems = meta[meta.implementation .== :both, [:name, :implementation]]
+```
+
 ### Nonlinear Least Squares Problems (NLS) 
 Problems with `:objtype` set to `:least_squares` are nonlinear least squares problems (NLS). For these, you can access the number of NLS equations using a getter like `get_nameoftheproblem_nls_nequ()`.
 ```@example 1
