@@ -1,7 +1,7 @@
 using ADNLPModels, Distributed, NLPModels, NLPModelsJuMP, OptimizationProblems, Test
 
 path = dirname(@__FILE__)
-include(joinpath(path, "test-utils.jl"))
+@isdefined(ndef) || include(joinpath(path, "test-utils.jl"))
 
 # create_meta_files(String["catmix", "gasoil", "glider", "methanol", "pinene", "rocket", "steering"])
 function create_meta_files(pb_names::Vector{String}; kwargs...)
@@ -106,6 +106,11 @@ function generate_meta(
   :is_feasible => $(feasible),
   :defined_everywhere => $(missing),
   :origin => :$(origin),
+  :url => \"\",
+  :notes => raw\"\"\"\"\"\",
+  :origin_notes => raw\"\"\"\"\"\",
+  :reference => raw\"\"\"\"\"\",
+  :lib => \"\",
 )
 get_$(name)_nvar(; n::Integer = default_nvar, kwargs...) = $nvar_formula
 get_$(name)_ncon(; n::Integer = default_nvar, kwargs...) = $ncon_formula
