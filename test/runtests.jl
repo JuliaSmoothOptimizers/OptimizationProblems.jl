@@ -100,7 +100,7 @@ include("test-in-place-residual.jl")
     end
   end
 
-  if mod in intersect(list_problems_PureJuMP, list_problems_ADNLPProblems)
+  if prob in intersect(list_problems_PureJuMP, list_problems_ADNLPProblems)
     @testset "Test problems compatibility for $prob" begin
       nlp_jump = make_jump_nlp(prob; n = ndef)
       test_compatibility(prob, nlp_jump, nlp_ad, ndef)
