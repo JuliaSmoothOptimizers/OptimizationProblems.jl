@@ -211,8 +211,8 @@ function test_linear_constraints(sample_size = 100)
   return list
 end
 
-test_one_problem(pb::String) = test_one_problem(Symbol(pb))
-function test_one_problem(prob::Symbol)
+check_problem(pb::String) = check_problem(Symbol(pb))
+function check_problem(prob::Symbol)
   pb = string(prob)
   @info "Check that $prob is in PureJuMP"
   @test prob in names(PureJuMP)
@@ -247,13 +247,15 @@ function test_one_problem(prob::Symbol)
 end
 
 """
-    is_valid_url(s) -> Bool
+    is_valid_urls(s) -> Bool
 
-Return `true` if `s` is a syntactically valid HTTP or HTTPS URL.
-No network request is made; only the string structure is checked.
+Return `true` if every comma-separated part of `s` is a syntactically valid
+HTTP or HTTPS URL.  A single URL (no commas) is the common case.
+No network request is made; only the structure of each part is checked.
 """
-function is_valid_url(s::String)
-  return match(r"^https?://[^\s/$.?#][^\s]*$"i, s) !== nothing
+function is_valid_urls(s::String)
+  parts = strip.(split(s, ","))
+  return all(p -> match(r"^https?://[^\s/$.?#][^\s]*$"i, p) !== nothing, parts)
 end
 
 """
