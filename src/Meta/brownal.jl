@@ -16,6 +16,7 @@ brownal_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BROWNAL.SIF",
   :notes => raw"""
 The Brown almost linear problem in variable dimension.  This is a nonlinear

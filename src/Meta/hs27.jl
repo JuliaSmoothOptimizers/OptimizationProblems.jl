@@ -16,6 +16,7 @@ hs27_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS27.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 27.

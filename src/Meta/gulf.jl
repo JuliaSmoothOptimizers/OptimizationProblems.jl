@@ -16,6 +16,7 @@ gulf_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => false,
   :origin => :real,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/GULF.SIF",
   :notes => raw"""
 The Gulf research and development function for m = 99. 

@@ -16,6 +16,7 @@ tridia_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/TRIDIA.SIF",
   :notes => raw"""
 Shanno's TRIDIA quadratic tridiagonal problem.

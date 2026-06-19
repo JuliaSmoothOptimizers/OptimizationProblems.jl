@@ -49,6 +49,7 @@ const cols_names = [
   :is_feasible
   :defined_everywhere
   :origin
+  :implementation
   :url
   :notes
   :origin_notes
@@ -73,6 +74,7 @@ const types = [
   Real
   Union{Bool, Missing}
   Union{Bool, Missing}
+  Symbol
   Symbol
   String
   String
@@ -106,6 +108,7 @@ The following keys are valid:
   - `is_feasible::Union{Bool, Missing}`: true if problem is feasible
   - `defined_everywhere::Union{Bool, Missing}`: true if the objective is define for all values of the variables
   - `origin::Symbol`: origin of the problem, in [:academic, :modelling, :real, :unknown]
+  - `implementation::Symbol`: takes the value :jump, :adnlpmodels or :both whether the problem is defined in PureJuMP, ADNLPProblems, or both
   - `url::String`: URL where the problem can be found
   - `notes::String`: any additional notes about the problem
   - `origin_notes::String`: any additional notes about the origin of the problem

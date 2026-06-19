@@ -16,6 +16,7 @@ broydn7d_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BROYDN7D.SIF",
   :notes => raw"""
 A seven diagonal variant of the Broyden tridiagonal system,

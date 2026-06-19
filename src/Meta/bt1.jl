@@ -16,6 +16,7 @@ bt1_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BT1.SIF",
   :notes => raw"""
 classification QQR2-AN-2-1

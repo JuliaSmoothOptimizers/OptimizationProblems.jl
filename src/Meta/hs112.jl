@@ -16,6 +16,7 @@ hs112_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS112.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 112.

@@ -16,6 +16,7 @@ NZF1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://doi.org/10.1080/10556780500137116",
   :notes => raw"""
 "Philippe Toint (private communication)"

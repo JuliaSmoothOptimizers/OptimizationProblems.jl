@@ -16,6 +16,7 @@ dixmaanh_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf, https://bitbucket.org/optrove/sif/src/master/DIXMAANH.SIF",
   :notes => raw"""
 The Dixon-Maany test problem (version E by default)

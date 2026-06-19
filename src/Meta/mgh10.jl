@@ -16,6 +16,7 @@ mgh10_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => false,
   :origin => :academic,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/MGH10.SIF",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/mgh10.dat

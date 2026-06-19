@@ -16,6 +16,7 @@ steering_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :jump,
   :url => "https://bitbucket.org/optrove/sif/src/master/STEERING.SIF",
   :notes => raw"""
 Rocket Steering Problem

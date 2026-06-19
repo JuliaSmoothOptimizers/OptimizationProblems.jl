@@ -16,6 +16,7 @@ threepk_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/3PK.SIF",
   :notes => raw"""
 A problem arising in the estimation of structured O/D matrix

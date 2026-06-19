@@ -16,6 +16,7 @@ rozman1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/rozman1.dat",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/rozman1.dat

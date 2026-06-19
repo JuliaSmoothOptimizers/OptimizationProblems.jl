@@ -16,6 +16,7 @@ hs56_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS56.SIF",
   :notes => raw"""
         classification OOR2-AN-7-4

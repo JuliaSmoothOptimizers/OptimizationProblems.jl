@@ -16,6 +16,7 @@ freuroth_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf, https://bitbucket.org/optrove/sif/src/master/FREUROTH.SIF",
   :notes => raw"""
 The Freudentstein and Roth test problem

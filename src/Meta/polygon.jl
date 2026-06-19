@@ -16,6 +16,7 @@ polygon_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/POLYGON.SIF",
   :notes => raw"""
 Find the polygon of maximal area, among polygons with nv sides and diameter d <= 1

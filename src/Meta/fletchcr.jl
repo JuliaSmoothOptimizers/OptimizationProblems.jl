@@ -16,6 +16,7 @@ fletchcr_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/FLETCHCR.SIF",
   :notes => raw"""
 The chained Rosenbrock function as given by Fletcher.

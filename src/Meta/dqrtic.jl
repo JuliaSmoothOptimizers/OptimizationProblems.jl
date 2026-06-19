@@ -16,6 +16,7 @@ dqrtic_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf, https://bitbucket.org/optrove/sif/src/master/DQRTIC.SIF",
   :notes => raw"""
 Variable dimension diagonal quartic problem.

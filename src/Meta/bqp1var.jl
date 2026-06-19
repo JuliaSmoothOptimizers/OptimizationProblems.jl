@@ -16,6 +16,7 @@ bqp1var_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BQP1VAR.SIF",
   :notes => raw"""
 classification QBR2-AN-1-0

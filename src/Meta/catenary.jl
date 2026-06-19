@@ -16,6 +16,7 @@ catenary_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :academic,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/CATENARY.SIF",
   :notes => raw"""
 The classical problem of the hanging catenary.  Here the catenary consists

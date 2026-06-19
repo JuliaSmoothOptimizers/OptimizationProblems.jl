@@ -16,6 +16,7 @@ vibrbeam_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/VIBRBEAM.SIF",
   :notes => raw"""
 A nonlinear least-squares problem arising from laser-Doppler

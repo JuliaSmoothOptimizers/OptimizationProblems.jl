@@ -16,6 +16,7 @@ broyden3d_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://doi.org/10.1145/355934.355936",
   :notes => raw"""
 Broyden tridiagonal problem in variable dimension.  This is a nonlinear

@@ -16,6 +16,7 @@ curly30_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :adnlpmodels,
   :url => "https://bitbucket.org/optrove/sif/src/master/CURLY30.SIF",
   :notes => raw"""
 A banded function with semi-bandwidth b and

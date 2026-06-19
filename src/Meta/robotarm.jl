@@ -16,6 +16,7 @@ robotarm_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/ROBOTARM.SIF",
   :notes => raw"""
 Minimize the time taken for a robot arm to travel between two points.

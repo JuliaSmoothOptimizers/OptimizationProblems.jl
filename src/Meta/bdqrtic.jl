@@ -16,6 +16,7 @@ bdqrtic_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BDQRTIC.SIF",
   :notes => raw"""
 This problem is quartic and has a banded Hessian with bandwidth = 9

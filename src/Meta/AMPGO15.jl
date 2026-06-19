@@ -16,6 +16,7 @@ AMPGO15_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "http://infinity77.net/global_optimization/test_functions_1d.html#d-test-functions",
   :notes => raw"""
 A one dimensional optimization problem

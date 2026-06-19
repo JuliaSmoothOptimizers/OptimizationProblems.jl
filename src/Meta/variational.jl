@@ -16,6 +16,7 @@ variational_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => false,
   :origin => :academic,
+  :implementation => :both,
   :url => "https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization",
   :notes => raw"""
 Discretization of a variational problem

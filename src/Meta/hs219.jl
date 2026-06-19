@@ -16,6 +16,7 @@ hs219_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => true,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://doi.org/10.1007/978-3-642-61582-5",
   :notes => raw"""
 Schittkowski problem number 219.

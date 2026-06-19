@@ -16,6 +16,7 @@ catmix_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :jump,
   :url => "https://bitbucket.org/optrove/sif/src/master/CATMIX.SIF",
   :notes => raw"""
 Catalyst Mixing Problem

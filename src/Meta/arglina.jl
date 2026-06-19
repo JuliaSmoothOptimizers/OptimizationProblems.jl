@@ -16,6 +16,7 @@ arglina_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://doi.org/10.1145/355934.355936, https://bitbucket.org/optrove/sif/src/master/ARGLINA.SIF",
   :notes => raw"""
 Linear function - full rank

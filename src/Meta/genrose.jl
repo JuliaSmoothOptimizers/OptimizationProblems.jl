@@ -16,6 +16,7 @@ genrose_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/GENROSE.SIF",
   :notes => raw"""
 Generalized Rosenbrock function.

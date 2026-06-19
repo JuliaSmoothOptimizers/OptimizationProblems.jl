@@ -16,6 +16,7 @@ Dus2_1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "http://www.dmi.usherb.ca/~dussault/ROP630E17/",
   :notes => raw"""
 A one dimensional optimization problem

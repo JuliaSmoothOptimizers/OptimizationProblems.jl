@@ -16,6 +16,7 @@ genrose_nash_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "http://www.cs.cas.cz/matonoha/download/V1081.pdf",
   :notes => raw"""
 Generalized Rosenbrock function.

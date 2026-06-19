@@ -16,6 +16,7 @@ aircrfta_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://www.osti.gov/biblio/6449249, https://bitbucket.org/optrove/sif/src/master/AIRCRFTA.SIF",
   :notes => raw"""
 The aircraft stability problem by Rheinboldt, as a function

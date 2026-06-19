@@ -16,6 +16,7 @@ BOX2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BOX2.SIF",
   :notes => raw"""
 Box problem in 2 variables, obtained by fixing X3 = 1 in BOX2.

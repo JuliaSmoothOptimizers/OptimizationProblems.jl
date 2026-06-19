@@ -16,6 +16,7 @@ rosenbrock_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://doi.org/10.1093/comjnl/3.3.175",
   :notes => raw"""
 The classical 2-variable Rosenbrock (banana valley) function, a special case of the
