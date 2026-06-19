@@ -21,13 +21,12 @@ end
   @test sort(list_problems) == sort(Symbol.(OptimizationProblems.meta[!, :name]))
 end
 
-@everywhere const list_problems_not_ADNLPProblems = Symbol.(
-  OptimizationProblems.meta[OptimizationProblems.meta.implementation .== :jump, :name]
-)
+@everywhere const list_problems_not_ADNLPProblems =
+  Symbol.(OptimizationProblems.meta[OptimizationProblems.meta.implementation .== :jump, :name])
 @everywhere const list_problems_ADNLPProblems =
   setdiff(list_problems, list_problems_not_ADNLPProblems)
 @everywhere const list_problems_not_PureJuMP = Symbol.(
-  OptimizationProblems.meta[OptimizationProblems.meta.implementation .== :adnlpmodels, :name]
+  OptimizationProblems.meta[OptimizationProblems.meta.implementation .== :adnlpmodels, :name],
 )
 @everywhere const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
 

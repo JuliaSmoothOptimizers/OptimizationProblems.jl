@@ -24,7 +24,6 @@ if get(ENV, "JULIA_TEST_DEBUG", "") == "1"
   @info "PureJuMP missing per worker" probes
 end
 
-
 @test setdiff(union(names(ADNLPProblems), list_problems_not_ADNLPProblems), list_problems) ==
       [:ADNLPProblems]
 @test setdiff(union(names(PureJuMP), list_problems_not_PureJuMP), list_problems) == [:PureJuMP]
