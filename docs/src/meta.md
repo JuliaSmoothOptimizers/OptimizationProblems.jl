@@ -100,7 +100,7 @@ cutest_problems = meta[contains.(meta.lib, "CUTEst"), [:name, :lib]]
 each collection, and [`export_bibtex`](@ref) automatically appends them when
 `include_lib_refs = true` (the default).
 
-## Problem'source information
+## Problem source information
 
 The following code will create a .bib file regrouping all the BibTex citations.
 ```julia

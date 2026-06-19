@@ -46,7 +46,7 @@ First, we describe the `PureJuMP` file `function_name.jl`. Problem documentation
 ```
 export function_name
 
-function function_name(; n::Int = default_nvar, kwargs...)
+function function_name(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   # define the model: TODO
   return nlp
@@ -137,6 +137,6 @@ See existing NLS problems (e.g., [`lanczos1`](https://github.com/JuliaSmoothOpti
 - [ ] Objective evaluation has minimal allocations (ideally allocation-free in performance-critical paths).
 
 **Least-Squares & In-Place APIs**
-- [ ] If least squares, ADNLP constructor supports `nls=true/false` for both ADNLPModel and ADNLSModel.
+- [ ] If least squares, ADNLP constructor supports `use_nls=true/false` for both ADNLPModel and ADNLSModel.
 - [ ] In-place nonlinear constraint evaluations (`cons_nln!(nlp, x, cx)`) and least squares residuals (`residual!`) are allocation-free.
 - [ ] For least squares problems, objectives for NLP and NLS must agree (or differ by a factor of 2, as appropriate).
