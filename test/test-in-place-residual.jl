@@ -11,7 +11,7 @@ end
   nlp::AbstractNLPModel,
   nls::AbstractNLSModel,
 )
-  @testset "Test in-place residual $prob" begin
+  @testset "NLS $prob" begin
     x = nls.meta.x0
     Fx = similar(x, nls.nls_meta.nequ)
     pb = String(prob)
@@ -19,11 +19,8 @@ end
       @allocated residual!(nls, x, Fx)
       @test (@allocated residual!(nls, x, Fx)) == 0
     end
-    m = OptimizationProblems.eval(Meta.parse("get_$(prob)_nls_nequ"))()
+    m = getfield(OptimizationProblems, Symbol(:get_, prob, :_nls_nequ))()
     @test nls.nls_meta.nequ == m
-  end
-
-  @testset "Compare NLS with NLP $prob: x0 and obj are the same." begin
     x0 = nlp.meta.x0
     @test x0 == nls.meta.x0
     nlp_fx = obj(nlp, x0)
@@ -36,6 +33,5 @@ end
   end
 end
 
-nls_name_list =
+@everywhere const nls_name_list =
   intersect(Symbol.(meta[meta.objtype .== :least_squares, :name]), list_problems_ADNLPProblems)
-pmap(test_in_place_residual, nls_name_list)
