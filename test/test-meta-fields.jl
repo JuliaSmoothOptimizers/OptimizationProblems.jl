@@ -1,11 +1,11 @@
 """
-    is_valid_url(s) -> Bool
+    is_valid_urls(s) -> Bool
 
 Return `true` if every comma-separated part of `s` is a syntactically valid
 HTTP or HTTPS URL.  A single URL (no commas) is the common case.
 No network request is made; only the structure of each part is checked.
 """
-function is_valid_url(s::String)
+function is_valid_urls(s::String)
   parts = strip.(split(s, ","))
   return all(p -> match(r"^https?://[^\s/$.?#][^\s]*$"i, p) !== nothing, parts)
 end
@@ -38,7 +38,7 @@ end
 @testset "Meta fields: :url format" begin
   invalid = [
     (row[:name], row[:url]) for
-    row in eachrow(OptimizationProblems.meta) if !isempty(row[:url]) && !is_valid_url(row[:url])
+    row in eachrow(OptimizationProblems.meta) if !isempty(row[:url]) && !is_valid_urls(row[:url])
   ]
   for (name, url) in invalid
     @error "Problem $name has an invalid :url format: $url"
