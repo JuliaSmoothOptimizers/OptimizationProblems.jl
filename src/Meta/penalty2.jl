@@ -16,6 +16,7 @@ penalty2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/PENALTY2.SIF",
   :notes => raw"""
 The second penalty function

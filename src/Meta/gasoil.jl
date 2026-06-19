@@ -16,6 +16,7 @@ gasoil_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :jump,
   :url => "https://bitbucket.org/optrove/sif/src/master/GASOIL.SIF",
   :notes => raw"""
 Catalytic Cracking of Gas Oil Problem

@@ -16,6 +16,7 @@ beale_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BEALE.SIF",
   :notes => raw"""
 Beale problem in 2 variables

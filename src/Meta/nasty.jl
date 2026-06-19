@@ -16,6 +16,7 @@ nasty_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "",
   :notes => raw"""
 Nasty problem.

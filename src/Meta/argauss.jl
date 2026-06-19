@@ -16,6 +16,7 @@ argauss_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://doi.org/10.1145/355934.355936, https://bitbucket.org/optrove/sif/src/master/ARGAUSS.SIF",
   :notes => raw"""
 SIF input: Ph. Toint, Dec 1989.

@@ -16,6 +16,7 @@ avion2_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/AVION2.SIF",
   :notes => raw"""
 Dassault France avion (airplane design) problem

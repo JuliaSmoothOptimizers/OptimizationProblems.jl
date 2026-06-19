@@ -16,6 +16,7 @@ minsurf_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :jump,
   :url => "https://bitbucket.org/optrove/sif/src/master/MINSURF.SIF",
   :notes => raw"""
 Minimal surface with obstacle problem

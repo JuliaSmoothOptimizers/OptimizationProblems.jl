@@ -74,6 +74,7 @@ Scan the text of `src/Meta/<name>.jl` and collect findings under three severity 
 | `:is_feasible` | `true`, `false`, or `missing` |
 | `:defined_everywhere` | `true`, `false`, or `missing` |
 | `:origin` | One of `:academic :modelling :real :unknown` |
+| `:implementation` | One of `:both :jump :adnlpmodels` — must match which sibling files exist: `:both` if both `src/ADNLPProblems/<name>.jl` and `src/PureJuMP/<name>.jl` exist, `:jump` if only PureJuMP, `:adnlpmodels` if only ADNLPProblems |
 | `:url` | String — empty string `""` is OK; if non-empty, every comma-separated part must match `^https?://[^\s/$.?#][^\s]*$` (case-insensitive) |
 | `:notes` | Any string (raw strings allowed) |
 | `:origin_notes` | Any string (raw strings allowed) |

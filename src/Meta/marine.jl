@@ -16,6 +16,7 @@ marine_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/MARINE.SIF",
   :notes => raw"""
 Marine Population Dynamics Problem

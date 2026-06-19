@@ -16,6 +16,7 @@ danwood_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/danwood.dat, https://bitbucket.org/optrove/sif/src/master/DANWOOD.SIF",
   :notes => raw"""
 NIST/ITL StRD

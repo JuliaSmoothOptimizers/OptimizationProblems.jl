@@ -16,6 +16,7 @@ alsotame_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/ALSOTAME.SIF",
   :notes => raw"""
 Another simple constrained  problem

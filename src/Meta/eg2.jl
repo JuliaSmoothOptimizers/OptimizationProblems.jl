@@ -16,6 +16,7 @@ eg2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/EG2.SIF",
   :notes => raw"""
 A simple nonlinear problem given as an example in Section 1.2.4 of

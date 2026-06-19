@@ -16,6 +16,7 @@ BOX3_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BOX3.SIF",
   :notes => raw"""
 SIF input: Ph. Toint, Dec 1989.

@@ -94,6 +94,7 @@ Metadata dictionary. Does **not** export the problem function.
   :is_feasible           => true,
   :defined_everywhere    => true,
   :origin                => :academic,    # see valid values below
+  :implementation        => :both,        # see valid values below
   # Additional fields (branch move-docstring-to-metadata):
   :url            => "https://...",       # must match ^https?://
   :notes          => raw"""""",           # problem description
@@ -107,6 +108,7 @@ Metadata dictionary. Does **not** export the problem function.
 - `:objtype`: `:none`, `:constant`, `:linear`, `:quadratic`, `:sum_of_squares`, `:other`, `:least_squares`
 - `:contype`: `:unconstrained`, `:linear`, `:quadratic`, `:general`
 - `:origin`: `:academic`, `:modelling`, `:real`, `:unknown`
+- `:implementation`: `:both`, `:jump`, `:adnlpmodels`
 
 ---
 

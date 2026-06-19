@@ -16,6 +16,7 @@ booth_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BOOTH.SIF",
   :notes => raw"""
 SIF input: Ph. Toint, Dec 1989.

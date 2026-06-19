@@ -106,13 +106,14 @@ function generate_meta(
   :is_feasible => $(feasible),
   :defined_everywhere => $(missing),
   :origin => :$(origin),
+  :implementation => :both,
 )
-get_$(name)_nvar(; n::Integer = default_nvar, kwargs...) = $nvar_formula
-get_$(name)_ncon(; n::Integer = default_nvar, kwargs...) = $ncon_formula
-get_$(name)_nlin(; n::Integer = default_nvar, kwargs...) = $nlin_formula
-get_$(name)_nnln(; n::Integer = default_nvar, kwargs...) = $nnln_formula
-get_$(name)_nequ(; n::Integer = default_nvar, kwargs...) = $nequ_formula
-get_$(name)_nineq(; n::Integer = default_nvar, kwargs...) = $nineq_formula
+get_$(name)_nvar(; n::Int = default_nvar, kwargs...) = $nvar_formula
+get_$(name)_ncon(; n::Int = default_nvar, kwargs...) = $ncon_formula
+get_$(name)_nlin(; n::Int = default_nvar, kwargs...) = $nlin_formula
+get_$(name)_nnln(; n::Int = default_nvar, kwargs...) = $nnln_formula
+get_$(name)_nequ(; n::Int = default_nvar, kwargs...) = $nequ_formula
+get_$(name)_nineq(; n::Int = default_nvar, kwargs...) = $nineq_formula
 "
   return str
 end

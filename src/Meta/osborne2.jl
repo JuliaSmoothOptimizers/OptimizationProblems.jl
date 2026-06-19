@@ -16,6 +16,7 @@ osborne2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/OSBORNE2.SIF",
   :notes => raw"""
 Osborne second problem in 11 variables. This is a nonlinear equation version

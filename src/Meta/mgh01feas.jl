@@ -16,6 +16,7 @@ mgh01feas_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://github.com/JuliaSmoothOptimizers/NLPModelsTest.jl",
   :notes => raw"""
 

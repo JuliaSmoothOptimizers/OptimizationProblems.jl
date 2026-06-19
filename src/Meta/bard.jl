@@ -16,6 +16,7 @@ bard_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BARD.SIF",
   :notes => raw"""
 Bard problem in 3 variables.

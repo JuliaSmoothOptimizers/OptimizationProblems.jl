@@ -16,6 +16,7 @@ methanol_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :jump,
   :url => "https://bitbucket.org/optrove/sif/src/master/METHANOL.SIF",
   :notes => raw"""
 Methanol-to-Hydrocarbons Problem

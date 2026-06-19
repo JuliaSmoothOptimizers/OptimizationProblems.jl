@@ -16,6 +16,7 @@ palmer5c_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/PALMER5C.SIF",
   :notes => raw"""
 A linear least squares problem arising from chemical kinetics.

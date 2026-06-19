@@ -16,6 +16,7 @@ bearing_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://doi.org/10.2172/834714",
   :notes => raw"""
 Given observations of ns stages of a bearing species over n timesteps, 

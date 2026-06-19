@@ -16,6 +16,7 @@ gaussian_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/GAUSSIAN.SIF",
   :notes => raw"""
 More''s gaussian problem in 3 variables. This is a nonlinear least-squares

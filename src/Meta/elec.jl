@@ -16,6 +16,7 @@ elec_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/ELEC.SIF",
   :notes => raw"""
 Given np electrons, find the equilibrium state distribution of minimal

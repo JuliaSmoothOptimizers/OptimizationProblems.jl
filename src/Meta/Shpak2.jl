@@ -16,6 +16,7 @@ Shpak2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "http://www.math.md/publications/csjm/issues/v3-n2/7902/",
   :notes => raw"""
 Second problem of

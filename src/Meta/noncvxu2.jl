@@ -16,6 +16,7 @@ noncvxu2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/NONCVXU2.SIF",
   :notes => raw"""
 A nonconvex unconstrained function with a unique minimum value

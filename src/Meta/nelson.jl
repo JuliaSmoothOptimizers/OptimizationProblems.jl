@@ -16,6 +16,7 @@ nelson_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => false,
   :origin => :real,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/NELSON.SIF",
   :notes => raw"""
 https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/nelson.dat

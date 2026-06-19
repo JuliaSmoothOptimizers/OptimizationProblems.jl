@@ -16,6 +16,7 @@ zangwil3_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/ZANGWIL3.SIF",
   :notes => raw"""
 Zangwill's problem in 3 variables.

@@ -16,6 +16,7 @@ camshape_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/CAMSHAPE.SIF",
   :notes => raw"""
 Maximize the area of the valve opening for one rotation of a convex cam 

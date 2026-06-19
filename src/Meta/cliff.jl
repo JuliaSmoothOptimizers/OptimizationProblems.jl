@@ -16,6 +16,7 @@ cliff_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/CLIFF.SIF",
   :notes => raw"""
 The "cliff problem" in 2 variables

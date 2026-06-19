@@ -16,6 +16,7 @@ brownbs_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BROWNBS.SIF",
   :notes => raw"""
 Brown badly scaled problem in 2 variables.

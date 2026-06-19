@@ -16,6 +16,7 @@ polygon1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://doi.org/10.2172/834714",
   :notes => raw"""
 Find the polygon of maximal area, among polygons with nv sides and diameter d <= 1

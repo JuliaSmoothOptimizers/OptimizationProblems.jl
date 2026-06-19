@@ -16,6 +16,7 @@ hs321_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :academic,
+  :implementation => :both,
   :url => "https://doi.org/10.1007/978-3-642-61582-5",
   :notes => raw"""
 Schittkowski problem number 321.

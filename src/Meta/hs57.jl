@@ -16,6 +16,7 @@ hs57_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/HS57.SIF",
   :notes => raw"""
 classification SQR2-AN-2-1

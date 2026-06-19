@@ -16,6 +16,7 @@ allinitc_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/ALLINITC.SIF",
   :notes => raw"""
 A problem with "all in it". Intended to verify that changes

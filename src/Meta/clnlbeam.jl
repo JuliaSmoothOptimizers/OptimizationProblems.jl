@@ -16,6 +16,7 @@ clnlbeam_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://onlinelibrary.wiley.com/doi/abs/10.1002/oca.4660120103, https://bitbucket.org/optrove/sif/src/master/CLNLBEAM.SIF",
   :notes => raw"""
 The clnlbeam problem

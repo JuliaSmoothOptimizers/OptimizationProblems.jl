@@ -16,6 +16,7 @@ penalty3_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/PENALTY3.SIF",
   :notes => raw"""
 A penalty problem by Gill, Murray and Pitfield.

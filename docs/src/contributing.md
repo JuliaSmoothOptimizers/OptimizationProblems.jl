@@ -110,6 +110,7 @@ See existing NLS problems (e.g., [`lanczos1`](https://github.com/JuliaSmoothOpti
 **Meta**
 - [ ] The corresponding meta file exists (`src/Meta/problem_name.jl`), the problem name matches the AD and JuMP files, and `OptimizationProblems.meta` contains the problem entry.
 - [ ] All meta fields (origin, objtype, contype, bounds, best-known, etc.) are filled correctly.
+- [ ] `:implementation` is set correctly: `:both` if both `ADNLPProblems` and `PureJuMP` files exist, `:jump` if only `PureJuMP`, `:adnlpmodels` if only `ADNLPProblems`.
 - [ ] All six getter functions (`get_<name>_nvar`, `get_<name>_ncon`, `get_<name>_nlin`, `get_<name>_nnln`, `get_<name>_nequ`, `get_<name>_nineq`) are defined in the meta file (required for every problem, not only scalable ones).
 - [ ] The problem origin/provenance is clearly documented and consistent between the `PureJuMP` problem documentation and the `:origin` meta entry.
 - [ ] Meta formulas for variable sizes match actual model behavior.

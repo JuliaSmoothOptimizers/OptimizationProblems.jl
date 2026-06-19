@@ -16,6 +16,7 @@ curly20_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/CURLY20.SIF",
   :notes => raw"""
 A banded function with semi-bandwidth b and

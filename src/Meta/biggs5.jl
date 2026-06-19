@@ -16,6 +16,7 @@ biggs5_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BIGGS5.SIF",
   :notes => raw"""
 Biggs problem in 5 variables.

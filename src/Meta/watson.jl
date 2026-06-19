@@ -16,6 +16,7 @@ watson_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/WATSON.SIF",
   :notes => raw"""
 Watson problem in variable dimension ( 2 <= n <= 31 ).

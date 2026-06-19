@@ -16,6 +16,7 @@ controlinvestment_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "",
   :notes => raw"""
 This is a simple investment problem in optimistic market.

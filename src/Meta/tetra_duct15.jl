@@ -16,6 +16,7 @@ tetra_duct15_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://doi.org/10.2172/834714",
   :notes => raw"""
 Minimize the sum of the inverse weighted mean ratio of the elements in a fixed–boundary

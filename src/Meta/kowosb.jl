@@ -16,6 +16,7 @@ kowosb_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/KOWOSB.SIF",
   :notes => raw"""
 A problem arising in the analysis of kinetic data for an enzyme

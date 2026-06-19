@@ -16,6 +16,7 @@ hahn1_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
   :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/hahn1.dat, https://bitbucket.org/optrove/sif/src/master/HAHN1.SIF",
   :notes => raw"""
 NIST/ITL StRD
