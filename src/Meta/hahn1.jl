@@ -75,10 +75,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:HAHN1, NIST:Hahn1",
 )
-get_hahn1_nvar(; n::Integer = default_nvar, kwargs...) = 7
-get_hahn1_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hahn1_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hahn1_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hahn1_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hahn1_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_hahn1_nls_nequ(; n::Integer = default_nvar, kwargs...) = 236
+get_hahn1_nvar(; n::Int = default_nvar, kwargs...) = 7
+get_hahn1_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hahn1_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hahn1_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hahn1_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hahn1_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_hahn1_nls_nequ(; n::Int = default_nvar, kwargs...) = 236

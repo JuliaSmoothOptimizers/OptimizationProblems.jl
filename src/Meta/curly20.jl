@@ -63,9 +63,9 @@ SIF input: Nick Gould, September 1997.
   """,
   :lib => "CUTEst:CURLY20",
 )
-get_curly20_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_curly20_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_curly20_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_curly20_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_curly20_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_curly20_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_curly20_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_curly20_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_curly20_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_curly20_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_curly20_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_curly20_nineq(; n::Int = default_nvar, kwargs...) = 0

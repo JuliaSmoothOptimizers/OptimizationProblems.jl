@@ -55,9 +55,9 @@ SIF input: N. Gould, Nov 1997
   """,
   :lib => "CUTEst:SCOSINE, Luksan:50",
 )
-get_scosine_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_scosine_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_scosine_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_scosine_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_scosine_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_scosine_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_scosine_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_scosine_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_scosine_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_scosine_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_scosine_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_scosine_nineq(; n::Int = default_nvar, kwargs...) = 0

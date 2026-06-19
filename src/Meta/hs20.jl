@@ -46,9 +46,9 @@ classification SQR2-AN-2-3
   """,
   :lib => "CUTEst:HS20, HS:20",
 )
-get_hs20_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs20_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs20_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs20_nnln(; n::Integer = default_nvar, kwargs...) = 3
-get_hs20_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs20_nineq(; n::Integer = default_nvar, kwargs...) = 3
+get_hs20_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs20_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_hs20_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs20_nnln(; n::Int = default_nvar, kwargs...) = 3
+get_hs20_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs20_nineq(; n::Int = default_nvar, kwargs...) = 3

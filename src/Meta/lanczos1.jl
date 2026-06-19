@@ -75,10 +75,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:LANCZOS1, NIST:lanczos1",
 )
-get_lanczos1_nvar(; n::Integer = default_nvar, kwargs...) = 6
-get_lanczos1_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_lanczos1_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_lanczos1_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_lanczos1_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_lanczos1_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_lanczos1_nls_nequ(; n::Integer = default_nvar, kwargs...) = 24
+get_lanczos1_nvar(; n::Int = default_nvar, kwargs...) = 6
+get_lanczos1_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_lanczos1_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_lanczos1_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_lanczos1_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_lanczos1_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_lanczos1_nls_nequ(; n::Int = default_nvar, kwargs...) = 24

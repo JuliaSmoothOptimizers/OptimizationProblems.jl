@@ -50,10 +50,10 @@ SIF input: Ph. Toint, Feb 1990.
   """,
   :lib => "CUTEst:INTEGREQ",
 )
-get_integreq_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_integreq_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_integreq_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_integreq_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_integreq_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_integreq_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_integreq_nls_nequ(; n::Integer = default_nvar, kwargs...) = n
+get_integreq_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_integreq_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_integreq_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_integreq_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_integreq_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_integreq_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_integreq_nls_nequ(; n::Int = default_nvar, kwargs...) = n

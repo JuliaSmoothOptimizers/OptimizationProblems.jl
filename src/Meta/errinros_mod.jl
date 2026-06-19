@@ -49,10 +49,10 @@ J,-P, Dussault, Rennes 09/2015.
   """,
   :lib => "Luksan:28",
 )
-get_errinros_mod_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_errinros_mod_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_errinros_mod_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_errinros_mod_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_errinros_mod_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_errinros_mod_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_errinros_mod_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * (n - 1)
+get_errinros_mod_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_errinros_mod_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_errinros_mod_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_errinros_mod_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_errinros_mod_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_errinros_mod_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_errinros_mod_nls_nequ(; n::Int = default_nvar, kwargs...) = 2 * (n - 1)

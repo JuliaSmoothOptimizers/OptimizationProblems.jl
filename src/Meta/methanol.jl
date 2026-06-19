@@ -58,9 +58,9 @@ SIF input: Nick Gould, November 2000
     """,
   :lib => "CUTEst:METHANOL, COPS:13",
 )
-get_methanol_nvar(; n::Integer = default_nvar, kwargs...) = 30 * n + 5
-get_methanol_ncon(; n::Integer = default_nvar, kwargs...) = 30 * n + 0
-get_methanol_nlin(; n::Integer = default_nvar, kwargs...) = 21 * n + 0
-get_methanol_nnln(; n::Integer = default_nvar, kwargs...) = 9 * n + 0
-get_methanol_nequ(; n::Integer = default_nvar, kwargs...) = 30 * n + 0
-get_methanol_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_methanol_nvar(; n::Int = default_nvar, kwargs...) = 30 * n + 5
+get_methanol_ncon(; n::Int = default_nvar, kwargs...) = 30 * n + 0
+get_methanol_nlin(; n::Int = default_nvar, kwargs...) = 21 * n + 0
+get_methanol_nnln(; n::Int = default_nvar, kwargs...) = 9 * n + 0
+get_methanol_nequ(; n::Int = default_nvar, kwargs...) = 30 * n + 0
+get_methanol_nineq(; n::Int = default_nvar, kwargs...) = 0

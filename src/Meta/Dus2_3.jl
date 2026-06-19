@@ -38,9 +38,9 @@ Jean_pierre Dussault
 """,
   :lib => "",
 )
-get_Dus2_3_nvar(; n::Integer = default_nvar, kwargs...) = 1
-get_Dus2_3_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_Dus2_3_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_Dus2_3_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_Dus2_3_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_Dus2_3_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_Dus2_3_nvar(; n::Int = default_nvar, kwargs...) = 1
+get_Dus2_3_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_Dus2_3_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_Dus2_3_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_Dus2_3_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_Dus2_3_nineq(; n::Int = default_nvar, kwargs...) = 0

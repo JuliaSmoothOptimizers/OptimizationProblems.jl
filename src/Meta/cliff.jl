@@ -43,9 +43,9 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:CLIFF",
 )
-get_cliff_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_cliff_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_cliff_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_cliff_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_cliff_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_cliff_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_cliff_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_cliff_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_cliff_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_cliff_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_cliff_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_cliff_nineq(; n::Int = default_nvar, kwargs...) = 0

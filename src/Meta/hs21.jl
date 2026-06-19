@@ -46,9 +46,9 @@ classification QLR2-AN-2-1
   """,
   :lib => "CUTEst:HS21, HS:21",
 )
-get_hs21_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs21_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs21_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_hs21_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs21_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs21_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_hs21_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs21_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs21_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_hs21_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs21_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs21_nineq(; n::Int = default_nvar, kwargs...) = 1

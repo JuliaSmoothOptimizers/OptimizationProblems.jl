@@ -40,9 +40,9 @@ Problem 222 in
   """,
   :lib => "HS2:222",
 )
-get_hs222_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs222_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs222_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs222_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs222_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs222_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_hs222_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs222_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs222_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs222_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs222_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs222_nineq(; n::Int = default_nvar, kwargs...) = 1

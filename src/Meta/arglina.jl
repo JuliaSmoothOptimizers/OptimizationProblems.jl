@@ -45,10 +45,10 @@ SIF input: Ph. Toint, Dec 1989.
 """,
   :lib => "CUTEst:ARGLINA",
 )
-get_arglina_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_arglina_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_arglina_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_arglina_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_arglina_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_arglina_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_arglina_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * n
+get_arglina_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_arglina_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_arglina_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_arglina_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_arglina_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_arglina_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_arglina_nls_nequ(; n::Int = default_nvar, kwargs...) = 2 * n

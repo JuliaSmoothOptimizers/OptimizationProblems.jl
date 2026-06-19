@@ -51,10 +51,10 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:TQUARTIC, Luksan:57",
 )
-get_tquartic_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_tquartic_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_tquartic_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_tquartic_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_tquartic_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_tquartic_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_tquartic_nls_nequ(; n::Integer = default_nvar, kwargs...) = n - 1
+get_tquartic_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_tquartic_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_tquartic_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_tquartic_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_tquartic_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_tquartic_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_tquartic_nls_nequ(; n::Int = default_nvar, kwargs...) = n - 1

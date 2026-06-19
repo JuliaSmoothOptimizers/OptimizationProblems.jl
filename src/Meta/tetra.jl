@@ -39,9 +39,9 @@ Argonne National Labs Technical Report ANL/MCS-246 (2004)
     """,
   :lib => "COPS:19",
 )
-get_tetra_nvar(; n::Integer = default_nvar, kwargs...) = 15
-get_tetra_ncon(; n::Integer = default_nvar, kwargs...) = 4
-get_tetra_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_nnln(; n::Integer = default_nvar, kwargs...) = 4
-get_tetra_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_nineq(; n::Integer = default_nvar, kwargs...) = 4
+get_tetra_nvar(; n::Int = default_nvar, kwargs...) = 15
+get_tetra_ncon(; n::Int = default_nvar, kwargs...) = 4
+get_tetra_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_nnln(; n::Int = default_nvar, kwargs...) = 4
+get_tetra_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_nineq(; n::Int = default_nvar, kwargs...) = 4

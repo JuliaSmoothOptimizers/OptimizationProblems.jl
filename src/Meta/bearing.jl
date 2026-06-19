@@ -48,13 +48,13 @@ COPS 3.1 - March 2004
   :lib => "COPS:16",
 )
 get_bearing_nvar(;
-  n::Integer = default_nvar,
+  n::Int = default_nvar,
   nx::Int = Int(round(sqrt(max(n, 1)))) - 2,
   ny::Int = Int(round(sqrt(max(n, 1)))) - 2,
   kwargs...,
 ) = (max(1, nx) + 2) * (max(1, ny) + 2)
-get_bearing_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_bearing_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_bearing_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_bearing_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_bearing_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_bearing_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_bearing_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_bearing_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_bearing_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_bearing_nineq(; n::Int = default_nvar, kwargs...) = 0

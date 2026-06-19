@@ -55,9 +55,9 @@ SIF input: Ph. Toint, Dec 1989.
 """,
   :lib => "CUTEst:ZANGWIL3",
 )
-get_zangwil3_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_zangwil3_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_zangwil3_nlin(; n::Integer = default_nvar, kwargs...) = 3
-get_zangwil3_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_zangwil3_nequ(; n::Integer = default_nvar, kwargs...) = 3
-get_zangwil3_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_zangwil3_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_zangwil3_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_zangwil3_nlin(; n::Int = default_nvar, kwargs...) = 3
+get_zangwil3_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_zangwil3_nequ(; n::Int = default_nvar, kwargs...) = 3
+get_zangwil3_nineq(; n::Int = default_nvar, kwargs...) = 0

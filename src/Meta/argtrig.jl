@@ -52,10 +52,10 @@ SIF input: Ph. Toint, Dec 1989.
 """,
   :lib => "CUTEst:ARGTRIG",
 )
-get_argtrig_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_argtrig_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_argtrig_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_argtrig_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_argtrig_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_argtrig_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_argtrig_nls_nequ(; n::Integer = default_nvar, kwargs...) = 2 * n
+get_argtrig_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_argtrig_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_argtrig_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_argtrig_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_argtrig_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_argtrig_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_argtrig_nls_nequ(; n::Int = default_nvar, kwargs...) = 2 * n

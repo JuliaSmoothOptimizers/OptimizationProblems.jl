@@ -72,10 +72,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:ECKERLE4, NIST:Eckerle4",
 )
-get_eckerle4_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_eckerle4_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_eckerle4_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_eckerle4_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_eckerle4_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_eckerle4_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_eckerle4_nls_nequ(; n::Integer = default_nvar, kwargs...) = 35
+get_eckerle4_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_eckerle4_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_eckerle4_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_eckerle4_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_eckerle4_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_eckerle4_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_eckerle4_nls_nequ(; n::Int = default_nvar, kwargs...) = 35

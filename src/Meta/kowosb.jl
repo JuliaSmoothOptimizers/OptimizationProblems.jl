@@ -46,10 +46,10 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:KOWOSB",
 )
-get_kowosb_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_kowosb_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_kowosb_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_kowosb_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_kowosb_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_kowosb_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_kowosb_nls_nequ(; n::Integer = default_nvar, kwargs...) = 11
+get_kowosb_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_kowosb_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_kowosb_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_kowosb_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_kowosb_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_kowosb_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_kowosb_nls_nequ(; n::Int = default_nvar, kwargs...) = 11

@@ -43,9 +43,9 @@ SIF input: Ph. Toint, March 1991.
   """,
   :lib => "CUTEst:QUARTC",
 )
-get_quartc_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_quartc_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_quartc_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_quartc_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_quartc_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_quartc_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_quartc_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_quartc_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_quartc_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_quartc_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_quartc_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_quartc_nineq(; n::Int = default_nvar, kwargs...) = 0

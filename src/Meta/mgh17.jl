@@ -86,10 +86,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
   """,
   :lib => "CUTEst:MGH17, MGH:17, NIST:MGH17",
 )
-get_mgh17_nvar(; n::Integer = default_nvar, kwargs...) = 5
-get_mgh17_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_mgh17_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_mgh17_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_mgh17_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_mgh17_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_mgh17_nls_nequ(; n::Integer = default_nvar, kwargs...) = 14
+get_mgh17_nvar(; n::Int = default_nvar, kwargs...) = 5
+get_mgh17_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_mgh17_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_mgh17_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_mgh17_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_mgh17_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_mgh17_nls_nequ(; n::Int = default_nvar, kwargs...) = 14

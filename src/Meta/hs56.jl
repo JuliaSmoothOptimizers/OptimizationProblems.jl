@@ -46,9 +46,9 @@ SIF input: A.R. Conn, April 1990
   """,
   :lib => "CUTEst:HS56, HS:56",
 )
-get_hs56_nvar(; n::Integer = default_nvar, kwargs...) = 7
-get_hs56_ncon(; n::Integer = default_nvar, kwargs...) = 4
-get_hs56_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs56_nnln(; n::Integer = default_nvar, kwargs...) = 4
-get_hs56_nequ(; n::Integer = default_nvar, kwargs...) = 4
-get_hs56_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs56_nvar(; n::Int = default_nvar, kwargs...) = 7
+get_hs56_ncon(; n::Int = default_nvar, kwargs...) = 4
+get_hs56_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs56_nnln(; n::Int = default_nvar, kwargs...) = 4
+get_hs56_nequ(; n::Int = default_nvar, kwargs...) = 4
+get_hs56_nineq(; n::Int = default_nvar, kwargs...) = 0

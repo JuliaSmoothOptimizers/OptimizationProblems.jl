@@ -49,9 +49,9 @@ M. Bierlaire, private communication
 """,
   :lib => "CUTEst:3PK",
 )
-get_threepk_nvar(; n::Integer = default_nvar, kwargs...) = 30
-get_threepk_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_threepk_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_threepk_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_threepk_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_threepk_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_threepk_nvar(; n::Int = default_nvar, kwargs...) = 30
+get_threepk_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_threepk_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_threepk_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_threepk_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_threepk_nineq(; n::Int = default_nvar, kwargs...) = 0

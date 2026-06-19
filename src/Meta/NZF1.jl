@@ -45,10 +45,10 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "",
 )
-get_NZF1_nvar(; n::Integer = default_nvar, kwargs...) = 13 * max(2, div(n, 13))
-get_NZF1_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_NZF1_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_NZF1_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_NZF1_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_NZF1_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_NZF1_nls_nequ(; n::Integer = default_nvar, kwargs...) = 6 * max(2, div(n, 13)) - 1
+get_NZF1_nvar(; n::Int = default_nvar, kwargs...) = 13 * max(2, div(n, 13))
+get_NZF1_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_NZF1_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_NZF1_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_NZF1_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_NZF1_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_NZF1_nls_nequ(; n::Int = default_nvar, kwargs...) = 6 * max(2, div(n, 13)) - 1

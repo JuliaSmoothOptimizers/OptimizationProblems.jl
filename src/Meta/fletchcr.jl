@@ -64,9 +64,9 @@ J.-P. Dussault, Rennes 09/2015.
   """,
   :lib => "CUTEst:FLETCHCR, Luksan:32",
 )
-get_fletchcr_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_fletchcr_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_fletchcr_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_fletchcr_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_fletchcr_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_fletchcr_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_fletchcr_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_fletchcr_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_fletchcr_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_fletchcr_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_fletchcr_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_fletchcr_nineq(; n::Int = default_nvar, kwargs...) = 0

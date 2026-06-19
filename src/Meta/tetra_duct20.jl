@@ -43,9 +43,9 @@ Instance using the `duct20` mesh.
     """,
   :lib => "COPS:19",
 )
-get_tetra_duct20_nvar(; n::Integer = default_nvar, kwargs...) = 3201
-get_tetra_duct20_ncon(; n::Integer = default_nvar, kwargs...) = 4104
-get_tetra_duct20_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_duct20_nnln(; n::Integer = default_nvar, kwargs...) = 4104
-get_tetra_duct20_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_duct20_nineq(; n::Integer = default_nvar, kwargs...) = 4104
+get_tetra_duct20_nvar(; n::Int = default_nvar, kwargs...) = 3201
+get_tetra_duct20_ncon(; n::Int = default_nvar, kwargs...) = 4104
+get_tetra_duct20_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_duct20_nnln(; n::Int = default_nvar, kwargs...) = 4104
+get_tetra_duct20_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_duct20_nineq(; n::Int = default_nvar, kwargs...) = 4104

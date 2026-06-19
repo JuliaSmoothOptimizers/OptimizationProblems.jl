@@ -51,9 +51,9 @@ SIF input: Nick Gould, December 2000
     """,
   :lib => "CUTEst:GLIDER, COPS:11",
 )
-get_glider_nvar(; n::Integer = default_nvar, kwargs...) = 5 * n + 6
-get_glider_ncon(; n::Integer = default_nvar, kwargs...) = 4 * n + 7
-get_glider_nlin(; n::Integer = default_nvar, kwargs...) = 7
-get_glider_nnln(; n::Integer = default_nvar, kwargs...) = 4 * n + 0
-get_glider_nequ(; n::Integer = default_nvar, kwargs...) = 4 * n + 7
-get_glider_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_glider_nvar(; n::Int = default_nvar, kwargs...) = 5 * n + 6
+get_glider_ncon(; n::Int = default_nvar, kwargs...) = 4 * n + 7
+get_glider_nlin(; n::Int = default_nvar, kwargs...) = 7
+get_glider_nnln(; n::Int = default_nvar, kwargs...) = 4 * n + 0
+get_glider_nequ(; n::Int = default_nvar, kwargs...) = 4 * n + 7
+get_glider_nineq(; n::Int = default_nvar, kwargs...) = 0

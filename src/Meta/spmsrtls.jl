@@ -44,11 +44,11 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:SPMSRTLS, Luksan:54",
 )
-get_spmsrtls_nvar(; n::Integer = default_nvar, kwargs...) = max(Int(round((n + 2) / 3)), 34) * 3 - 2
-get_spmsrtls_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_spmsrtls_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_spmsrtls_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_spmsrtls_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_spmsrtls_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_spmsrtls_nls_nequ(; n::Integer = default_nvar, kwargs...) =
+get_spmsrtls_nvar(; n::Int = default_nvar, kwargs...) = max(Int(round((n + 2) / 3)), 34) * 3 - 2
+get_spmsrtls_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_spmsrtls_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_spmsrtls_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_spmsrtls_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_spmsrtls_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_spmsrtls_nls_nequ(; n::Int = default_nvar, kwargs...) =
   7 * max(Int(round((n + 2) / 3)), 34) - 8

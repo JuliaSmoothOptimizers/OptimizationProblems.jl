@@ -48,10 +48,10 @@ SIF input: Ph. Toint, Dec 1989.
 """,
   :lib => "CUTEst:POWER",
 )
-get_power_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_power_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_power_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_power_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_power_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_power_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_power_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1
+get_power_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_power_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_power_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_power_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_power_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_power_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_power_nls_nequ(; n::Int = default_nvar, kwargs...) = 1

@@ -40,9 +40,9 @@ Problem 256 in
   """,
   :lib => "HS2:256",
 )
-get_hs256_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs256_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs256_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs256_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs256_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs256_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs256_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs256_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs256_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs256_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs256_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs256_nineq(; n::Int = default_nvar, kwargs...) = 0

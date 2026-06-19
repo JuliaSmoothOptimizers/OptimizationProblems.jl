@@ -49,9 +49,9 @@ chnrosnb_mod_meta = Dict(
   """,
   :lib => "Luksan:27",
 )
-get_chnrosnb_mod_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_chnrosnb_mod_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_chnrosnb_mod_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_chnrosnb_mod_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_chnrosnb_mod_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_chnrosnb_mod_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_chnrosnb_mod_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_chnrosnb_mod_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_chnrosnb_mod_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_chnrosnb_mod_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_chnrosnb_mod_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_chnrosnb_mod_nineq(; n::Int = default_nvar, kwargs...) = 0

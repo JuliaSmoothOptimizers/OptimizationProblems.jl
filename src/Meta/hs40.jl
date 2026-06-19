@@ -46,9 +46,9 @@ D. Cabral, Curitiba, 10/2016.
   """,
   :lib => "CUTEst:HS40, HS:40",
 )
-get_hs40_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs40_ncon(; n::Integer = default_nvar, kwargs...) = 3
-get_hs40_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs40_nnln(; n::Integer = default_nvar, kwargs...) = 3
-get_hs40_nequ(; n::Integer = default_nvar, kwargs...) = 3
-get_hs40_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs40_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs40_ncon(; n::Int = default_nvar, kwargs...) = 3
+get_hs40_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs40_nnln(; n::Int = default_nvar, kwargs...) = 3
+get_hs40_nequ(; n::Int = default_nvar, kwargs...) = 3
+get_hs40_nineq(; n::Int = default_nvar, kwargs...) = 0

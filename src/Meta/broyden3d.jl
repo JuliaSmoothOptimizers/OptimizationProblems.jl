@@ -46,10 +46,10 @@ Also problem 78 in
   """,
   :lib => "MGH:30",
 )
-get_broyden3d_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_broyden3d_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_broyden3d_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_broyden3d_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_broyden3d_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_broyden3d_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_broyden3d_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1 * n
+get_broyden3d_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_broyden3d_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_broyden3d_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_broyden3d_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_broyden3d_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_broyden3d_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_broyden3d_nls_nequ(; n::Int = default_nvar, kwargs...) = 1 * n

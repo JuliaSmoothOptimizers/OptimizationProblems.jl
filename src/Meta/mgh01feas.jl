@@ -33,9 +33,9 @@ mgh01feas_meta = Dict(
 """,
   :lib => "",
 )
-get_mgh01feas_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_mgh01feas_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_mgh01feas_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_mgh01feas_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_mgh01feas_nequ(; n::Integer = default_nvar, kwargs...) = 2
-get_mgh01feas_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_mgh01feas_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_mgh01feas_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_mgh01feas_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_mgh01feas_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_mgh01feas_nequ(; n::Int = default_nvar, kwargs...) = 2
+get_mgh01feas_nineq(; n::Int = default_nvar, kwargs...) = 0

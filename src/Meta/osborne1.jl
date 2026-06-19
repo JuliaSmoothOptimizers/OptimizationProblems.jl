@@ -48,10 +48,10 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:OSBORNE1",
 )
-get_osborne1_nvar(; n::Integer = default_nvar, kwargs...) = 5
-get_osborne1_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_osborne1_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_osborne1_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_osborne1_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_osborne1_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_osborne1_nls_nequ(; n::Integer = default_nvar, kwargs...) = 33
+get_osborne1_nvar(; n::Int = default_nvar, kwargs...) = 5
+get_osborne1_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_osborne1_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_osborne1_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_osborne1_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_osborne1_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_osborne1_nls_nequ(; n::Int = default_nvar, kwargs...) = 33

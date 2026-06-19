@@ -40,9 +40,9 @@ Problem 261 in
   """,
   :lib => "HS2:261",
 )
-get_hs261_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs261_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs261_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs261_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs261_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs261_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs261_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs261_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs261_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs261_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs261_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs261_nineq(; n::Int = default_nvar, kwargs...) = 0

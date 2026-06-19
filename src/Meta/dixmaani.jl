@@ -50,9 +50,9 @@ Academy of Science of the Czech Republic
   """,
   :lib => "Luksan:15",
 )
-get_dixmaani_nvar(; n::Integer = default_nvar, kwargs...) = 3 * max(1, div(n, 3))
-get_dixmaani_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_dixmaani_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_dixmaani_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_dixmaani_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_dixmaani_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_dixmaani_nvar(; n::Int = default_nvar, kwargs...) = 3 * max(1, div(n, 3))
+get_dixmaani_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_dixmaani_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_dixmaani_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_dixmaani_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_dixmaani_nineq(; n::Int = default_nvar, kwargs...) = 0

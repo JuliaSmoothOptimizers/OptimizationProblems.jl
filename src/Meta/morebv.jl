@@ -56,10 +56,10 @@ SIF input: Ph. Toint, Dec 1989 and Nick Gould, Oct 1992.
   """,
   :lib => "CUTEst:MOREBV, Luksan:39",
 )
-get_morebv_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_morebv_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_morebv_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_morebv_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_morebv_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_morebv_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_morebv_nls_nequ(; n::Integer = default_nvar, kwargs...) = n
+get_morebv_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_morebv_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_morebv_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_morebv_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_morebv_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_morebv_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_morebv_nls_nequ(; n::Int = default_nvar, kwargs...) = n

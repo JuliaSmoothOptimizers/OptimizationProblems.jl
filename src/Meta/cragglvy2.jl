@@ -55,10 +55,10 @@ https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unco
   :lib => "LuksanSparse:4",
 )
 
-get_cragglvy2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_cragglvy2_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy2_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy2_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy2_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy2_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy2_nls_nequ(; n::Integer = default_nvar, kwargs...) = 5 * (div(n, 2) - 1)
+get_cragglvy2_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_cragglvy2_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy2_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy2_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy2_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy2_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy2_nls_nequ(; n::Int = default_nvar, kwargs...) = 5 * (div(n, 2) - 1)

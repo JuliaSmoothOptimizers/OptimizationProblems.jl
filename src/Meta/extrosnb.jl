@@ -54,9 +54,9 @@ J.-P. Dussault, Rennes 09/2015.
   """,
   :lib => "CUTEst:EXTROSNB, Luksan:29",
 )
-get_extrosnb_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_extrosnb_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_extrosnb_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_extrosnb_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_extrosnb_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_extrosnb_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_extrosnb_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_extrosnb_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_extrosnb_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_extrosnb_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_extrosnb_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_extrosnb_nineq(; n::Int = default_nvar, kwargs...) = 0

@@ -50,9 +50,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS38, HS:38",
 )
-get_hs38_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs38_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs38_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs38_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs38_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs38_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs38_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs38_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs38_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs38_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs38_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs38_nineq(; n::Int = default_nvar, kwargs...) = 0

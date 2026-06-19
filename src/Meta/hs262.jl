@@ -40,9 +40,9 @@ Problem 262 in
   """,
   :lib => "HS2:262",
 )
-get_hs262_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs262_ncon(; n::Integer = default_nvar, kwargs...) = 4
-get_hs262_nlin(; n::Integer = default_nvar, kwargs...) = 4
-get_hs262_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs262_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs262_nineq(; n::Integer = default_nvar, kwargs...) = 3
+get_hs262_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs262_ncon(; n::Int = default_nvar, kwargs...) = 4
+get_hs262_nlin(; n::Int = default_nvar, kwargs...) = 4
+get_hs262_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs262_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs262_nineq(; n::Int = default_nvar, kwargs...) = 3

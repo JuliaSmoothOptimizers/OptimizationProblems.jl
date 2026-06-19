@@ -75,10 +75,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:BENNETT5, NIST:Bennett5",
 )
-get_bennett5_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_bennett5_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_bennett5_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_bennett5_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_bennett5_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_bennett5_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_bennett5_nls_nequ(; n::Integer = default_nvar, kwargs...) = 154
+get_bennett5_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_bennett5_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_bennett5_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_bennett5_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_bennett5_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_bennett5_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_bennett5_nls_nequ(; n::Int = default_nvar, kwargs...) = 154

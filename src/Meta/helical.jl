@@ -40,9 +40,9 @@ ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
   """,
   :lib => "MGH:7",
 )
-get_helical_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_helical_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_helical_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_helical_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_helical_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_helical_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_helical_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_helical_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_helical_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_helical_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_helical_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_helical_nineq(; n::Int = default_nvar, kwargs...) = 0

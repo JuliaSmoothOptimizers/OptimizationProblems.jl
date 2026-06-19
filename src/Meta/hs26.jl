@@ -46,9 +46,9 @@ A. Cebola, Curitiba 10/2016.
   """,
   :lib => "CUTEst:HS26, HS:26",
 )
-get_hs26_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs26_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs26_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs26_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs26_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs26_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs26_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs26_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs26_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs26_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs26_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs26_nineq(; n::Int = default_nvar, kwargs...) = 0

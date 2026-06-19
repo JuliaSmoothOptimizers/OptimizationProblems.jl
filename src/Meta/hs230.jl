@@ -40,9 +40,9 @@ Problem 230 in
   """,
   :lib => "HS2:230",
 )
-get_hs230_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs230_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs230_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs230_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs230_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs230_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_hs230_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs230_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs230_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs230_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs230_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs230_nineq(; n::Int = default_nvar, kwargs...) = 2

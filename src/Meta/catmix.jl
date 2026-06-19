@@ -49,9 +49,9 @@ SIF input: Nick Gould, November 2000
   """,
   :lib => "CUTEst:CATMIX, COPS:14",
 )
-get_catmix_nvar(; n::Integer = default_nvar, kwargs...) = 23 * n + 2
-get_catmix_ncon(; n::Integer = default_nvar, kwargs...) = 20 * n + 2
-get_catmix_nlin(; n::Integer = default_nvar, kwargs...) = 14 * n + 2
-get_catmix_nnln(; n::Integer = default_nvar, kwargs...) = 6 * n + 0
-get_catmix_nequ(; n::Integer = default_nvar, kwargs...) = 20 * n + 2
-get_catmix_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_catmix_nvar(; n::Int = default_nvar, kwargs...) = 23 * n + 2
+get_catmix_ncon(; n::Int = default_nvar, kwargs...) = 20 * n + 2
+get_catmix_nlin(; n::Int = default_nvar, kwargs...) = 14 * n + 2
+get_catmix_nnln(; n::Int = default_nvar, kwargs...) = 6 * n + 0
+get_catmix_nequ(; n::Int = default_nvar, kwargs...) = 20 * n + 2
+get_catmix_nineq(; n::Int = default_nvar, kwargs...) = 0

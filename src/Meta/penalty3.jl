@@ -53,9 +53,9 @@ SIF input: Nick Gould, Dec 1990.
   """,
   :lib => "CUTEst:PENALTY3, Luksan:46",
 )
-get_penalty3_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_penalty3_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_penalty3_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_penalty3_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_penalty3_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_penalty3_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_penalty3_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_penalty3_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_penalty3_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_penalty3_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_penalty3_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_penalty3_nineq(; n::Int = default_nvar, kwargs...) = 0

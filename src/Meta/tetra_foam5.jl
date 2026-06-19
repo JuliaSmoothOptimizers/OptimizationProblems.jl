@@ -43,9 +43,9 @@ Instance using the `foam5` mesh.
     """,
   :lib => "COPS:19",
 )
-get_tetra_foam5_nvar(; n::Integer = default_nvar, kwargs...) = 4011
-get_tetra_foam5_ncon(; n::Integer = default_nvar, kwargs...) = 4847
-get_tetra_foam5_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_foam5_nnln(; n::Integer = default_nvar, kwargs...) = 4847
-get_tetra_foam5_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_foam5_nineq(; n::Integer = default_nvar, kwargs...) = 4847
+get_tetra_foam5_nvar(; n::Int = default_nvar, kwargs...) = 4011
+get_tetra_foam5_ncon(; n::Int = default_nvar, kwargs...) = 4847
+get_tetra_foam5_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_foam5_nnln(; n::Int = default_nvar, kwargs...) = 4847
+get_tetra_foam5_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_foam5_nineq(; n::Int = default_nvar, kwargs...) = 4847

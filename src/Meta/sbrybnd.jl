@@ -52,10 +52,10 @@ SIF input: Ph. Toint and Nick Gould, Nov 1997.
   """,
   :lib => "CUTEst:SBRYBND, Luksan:48",
 )
-get_sbrybnd_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_sbrybnd_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_sbrybnd_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_sbrybnd_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_sbrybnd_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_sbrybnd_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_sbrybnd_nls_nequ(; n::Integer = default_nvar, kwargs...) = n
+get_sbrybnd_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_sbrybnd_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_sbrybnd_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_sbrybnd_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_sbrybnd_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_sbrybnd_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_sbrybnd_nls_nequ(; n::Int = default_nvar, kwargs...) = n

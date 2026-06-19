@@ -50,10 +50,10 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:POWELLSG, Luksan:47, LuksanSparse:3",
 )
-get_powellsg_nvar(; n::Integer = default_nvar, kwargs...) = 4 * max(1, div(n, 4))  # number of variables adjusted to be a multiple of 4
-get_powellsg_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_powellsg_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_powellsg_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_powellsg_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_powellsg_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_powellsg_nls_nequ(; n::Integer = default_nvar, kwargs...) = 4 * max(1, div(n, 4))
+get_powellsg_nvar(; n::Int = default_nvar, kwargs...) = 4 * max(1, div(n, 4))  # number of variables adjusted to be a multiple of 4
+get_powellsg_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_powellsg_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_powellsg_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_powellsg_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_powellsg_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_powellsg_nls_nequ(; n::Int = default_nvar, kwargs...) = 4 * max(1, div(n, 4))

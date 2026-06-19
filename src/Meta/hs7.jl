@@ -46,9 +46,9 @@ D. Orban, Montreal, 04/2016.
   """,
   :lib => "CUTEst:HS7, HS:7",
 )
-get_hs7_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs7_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs7_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs7_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs7_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs7_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs7_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs7_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs7_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs7_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs7_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs7_nineq(; n::Int = default_nvar, kwargs...) = 0

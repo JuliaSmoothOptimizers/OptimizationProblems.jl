@@ -39,10 +39,10 @@ SIF input:  A. R. Conn, June 1993.
 """,
   :lib => "CUTEst:AVION2",
 )
-get_avion2_nvar(; n::Integer = default_nvar, kwargs...) = 49
-get_avion2_ncon(; n::Integer = default_nvar, kwargs...) = 15
-get_avion2_nlin(; n::Integer = default_nvar, kwargs...) = 15
-get_avion2_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_avion2_nequ(; n::Integer = default_nvar, kwargs...) = 15
-get_avion2_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_avion2_nls_nequ(; n::Integer = default_nvar, kwargs...) = 17
+get_avion2_nvar(; n::Int = default_nvar, kwargs...) = 49
+get_avion2_ncon(; n::Int = default_nvar, kwargs...) = 15
+get_avion2_nlin(; n::Int = default_nvar, kwargs...) = 15
+get_avion2_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_avion2_nequ(; n::Int = default_nvar, kwargs...) = 15
+get_avion2_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_avion2_nls_nequ(; n::Int = default_nvar, kwargs...) = 17

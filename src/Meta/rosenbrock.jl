@@ -41,10 +41,10 @@ doi: 10.1093/comjnl/3.3.175
 """,
   :lib => "",
 )
-get_rosenbrock_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_rosenbrock_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_rosenbrock_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_rosenbrock_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_rosenbrock_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_rosenbrock_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_rosenbrock_nls_nequ(; n::Integer = default_nvar, kwargs...) = 3
+get_rosenbrock_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_rosenbrock_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_rosenbrock_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_rosenbrock_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_rosenbrock_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_rosenbrock_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_rosenbrock_nls_nequ(; n::Int = default_nvar, kwargs...) = 3

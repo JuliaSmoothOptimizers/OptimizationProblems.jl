@@ -46,10 +46,10 @@ SIF input: Nick Gould, 1992.
 """,
   :lib => "CUTEst:PALMER5C",
 )
-get_palmer5c_nvar(; n::Integer = default_nvar, kwargs...) = 6
-get_palmer5c_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer5c_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer5c_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer5c_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer5c_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer5c_nls_nequ(; n::Integer = default_nvar, kwargs...) = 12
+get_palmer5c_nvar(; n::Int = default_nvar, kwargs...) = 6
+get_palmer5c_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_palmer5c_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_palmer5c_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_palmer5c_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_palmer5c_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_palmer5c_nls_nequ(; n::Int = default_nvar, kwargs...) = 12

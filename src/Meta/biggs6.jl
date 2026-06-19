@@ -50,9 +50,9 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:BIGGS6",
 )
-get_biggs6_nvar(; n::Integer = default_nvar, kwargs...) = 6
-get_biggs6_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_biggs6_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_biggs6_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_biggs6_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_biggs6_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_biggs6_nvar(; n::Int = default_nvar, kwargs...) = 6
+get_biggs6_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_biggs6_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_biggs6_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_biggs6_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_biggs6_nineq(; n::Int = default_nvar, kwargs...) = 0

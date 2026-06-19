@@ -51,9 +51,9 @@ SIF input: Nick Gould, December 2000
     """,
   :lib => "CUTEst:STEERING, COPS:9",
 )
-get_steering_nvar(; n::Integer = default_nvar, kwargs...) = 5 * n + 6
-get_steering_ncon(; n::Integer = default_nvar, kwargs...) = 4 * n + 8
-get_steering_nlin(; n::Integer = default_nvar, kwargs...) = 8
-get_steering_nnln(; n::Integer = default_nvar, kwargs...) = 4 * n + 0
-get_steering_nequ(; n::Integer = default_nvar, kwargs...) = 4 * n + 7
-get_steering_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_steering_nvar(; n::Int = default_nvar, kwargs...) = 5 * n + 6
+get_steering_ncon(; n::Int = default_nvar, kwargs...) = 4 * n + 8
+get_steering_nlin(; n::Int = default_nvar, kwargs...) = 8
+get_steering_nnln(; n::Int = default_nvar, kwargs...) = 4 * n + 0
+get_steering_nequ(; n::Int = default_nvar, kwargs...) = 4 * n + 7
+get_steering_nineq(; n::Int = default_nvar, kwargs...) = 1

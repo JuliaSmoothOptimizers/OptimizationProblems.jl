@@ -54,9 +54,9 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:BIGGS5",
 )
-get_biggs5_nvar(; n::Integer = default_nvar, kwargs...) = 6
-get_biggs5_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_biggs5_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_biggs5_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_biggs5_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_biggs5_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_biggs5_nvar(; n::Int = default_nvar, kwargs...) = 6
+get_biggs5_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_biggs5_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_biggs5_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_biggs5_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_biggs5_nineq(; n::Int = default_nvar, kwargs...) = 0

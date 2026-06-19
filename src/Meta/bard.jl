@@ -52,10 +52,10 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:BARD",
 )
-get_bard_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_bard_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_bard_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_bard_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_bard_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_bard_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_bard_nls_nequ(; n::Integer = default_nvar, kwargs...) = 15
+get_bard_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_bard_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_bard_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_bard_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_bard_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_bard_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_bard_nls_nequ(; n::Int = default_nvar, kwargs...) = 15

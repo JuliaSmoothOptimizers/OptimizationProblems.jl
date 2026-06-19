@@ -45,9 +45,9 @@ SIF input: Nick Gould, November 2000
     """,
   :lib => "CUTEst:CHAIN, COPS:4",
 )
-get_chain_nvar(; n::Integer = default_nvar, kwargs...) = 4 * (max(2, div(n - 4, 4)) + 1)
-get_chain_ncon(; n::Integer = default_nvar, kwargs...) = 3 * max(2, div(n - 4, 4)) + 5
-get_chain_nlin(; n::Integer = default_nvar, kwargs...) = max(2, div(n - 4, 4)) + 5
-get_chain_nnln(; n::Integer = default_nvar, kwargs...) = 2 * max(2, div(n - 4, 4))
-get_chain_nequ(; n::Integer = default_nvar, kwargs...) = 3 * max(2, div(n - 4, 4)) + 5
-get_chain_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_chain_nvar(; n::Int = default_nvar, kwargs...) = 4 * (max(2, div(n - 4, 4)) + 1)
+get_chain_ncon(; n::Int = default_nvar, kwargs...) = 3 * max(2, div(n - 4, 4)) + 5
+get_chain_nlin(; n::Int = default_nvar, kwargs...) = max(2, div(n - 4, 4)) + 5
+get_chain_nnln(; n::Int = default_nvar, kwargs...) = 2 * max(2, div(n - 4, 4))
+get_chain_nequ(; n::Int = default_nvar, kwargs...) = 3 * max(2, div(n - 4, 4)) + 5
+get_chain_nineq(; n::Int = default_nvar, kwargs...) = 0

@@ -51,9 +51,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS110, HS:110",
 )
-get_hs110_nvar(; n::Integer = default_nvar, kwargs...) = 10
-get_hs110_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs110_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs110_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs110_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs110_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs110_nvar(; n::Int = default_nvar, kwargs...) = 10
+get_hs110_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs110_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs110_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs110_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs110_nineq(; n::Int = default_nvar, kwargs...) = 0

@@ -37,9 +37,9 @@ S. Goyette, Sherbrooke 2016/2017
 """,
   :lib => "AMPGO:11",
 )
-get_AMPGO11_nvar(; n::Integer = default_nvar, kwargs...) = 1
-get_AMPGO11_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_AMPGO11_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_AMPGO11_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_AMPGO11_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_AMPGO11_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_AMPGO11_nvar(; n::Int = default_nvar, kwargs...) = 1
+get_AMPGO11_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_AMPGO11_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_AMPGO11_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_AMPGO11_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_AMPGO11_nineq(; n::Int = default_nvar, kwargs...) = 0

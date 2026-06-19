@@ -40,9 +40,9 @@ Problem 253 in
   """,
   :lib => "HS2:253",
 )
-get_hs253_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs253_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs253_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_hs253_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs253_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs253_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_hs253_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs253_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs253_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_hs253_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs253_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs253_nineq(; n::Int = default_nvar, kwargs...) = 1

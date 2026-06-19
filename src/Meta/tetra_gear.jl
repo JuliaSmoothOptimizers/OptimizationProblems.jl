@@ -43,9 +43,9 @@ Instance using the `gear` mesh.
     """,
   :lib => "COPS:19",
 )
-get_tetra_gear_nvar(; n::Integer = default_nvar, kwargs...) = 2598
-get_tetra_gear_ncon(; n::Integer = default_nvar, kwargs...) = 3116
-get_tetra_gear_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_gear_nnln(; n::Integer = default_nvar, kwargs...) = 3116
-get_tetra_gear_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_gear_nineq(; n::Integer = default_nvar, kwargs...) = 3116
+get_tetra_gear_nvar(; n::Int = default_nvar, kwargs...) = 2598
+get_tetra_gear_ncon(; n::Int = default_nvar, kwargs...) = 3116
+get_tetra_gear_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_gear_nnln(; n::Int = default_nvar, kwargs...) = 3116
+get_tetra_gear_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_gear_nineq(; n::Int = default_nvar, kwargs...) = 3116

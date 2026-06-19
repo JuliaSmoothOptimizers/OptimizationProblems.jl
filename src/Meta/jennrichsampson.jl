@@ -40,10 +40,10 @@ ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
   """,
   :lib => "MGH:6",
 )
-get_jennrichsampson_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_jennrichsampson_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_jennrichsampson_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_jennrichsampson_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_jennrichsampson_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_jennrichsampson_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_jennrichsampson_nls_nequ(; n::Integer = default_nvar, m::Int = 10, kwargs...) = m
+get_jennrichsampson_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_jennrichsampson_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_jennrichsampson_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_jennrichsampson_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_jennrichsampson_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_jennrichsampson_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_jennrichsampson_nls_nequ(; n::Int = default_nvar, m::Int = 10, kwargs...) = m

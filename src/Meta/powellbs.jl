@@ -48,9 +48,9 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:POWELLBS",
 )
-get_powellbs_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_powellbs_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_powellbs_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_powellbs_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_powellbs_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_powellbs_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_powellbs_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_powellbs_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_powellbs_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_powellbs_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_powellbs_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_powellbs_nineq(; n::Int = default_nvar, kwargs...) = 0

@@ -43,9 +43,9 @@ Instance using the `hook` mesh.
     """,
   :lib => "COPS:19",
 )
-get_tetra_hook_nvar(; n::Integer = default_nvar, kwargs...) = 3570
-get_tetra_hook_ncon(; n::Integer = default_nvar, kwargs...) = 4675
-get_tetra_hook_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_hook_nnln(; n::Integer = default_nvar, kwargs...) = 4675
-get_tetra_hook_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_hook_nineq(; n::Integer = default_nvar, kwargs...) = 4675
+get_tetra_hook_nvar(; n::Int = default_nvar, kwargs...) = 3570
+get_tetra_hook_ncon(; n::Int = default_nvar, kwargs...) = 4675
+get_tetra_hook_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_hook_nnln(; n::Int = default_nvar, kwargs...) = 4675
+get_tetra_hook_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_hook_nineq(; n::Int = default_nvar, kwargs...) = 4675

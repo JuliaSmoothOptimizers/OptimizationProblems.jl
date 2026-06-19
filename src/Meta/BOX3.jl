@@ -47,9 +47,9 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:BOX3",
 )
-get_BOX3_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_BOX3_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_BOX3_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_BOX3_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_BOX3_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_BOX3_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_BOX3_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_BOX3_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_BOX3_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_BOX3_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_BOX3_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_BOX3_nineq(; n::Int = default_nvar, kwargs...) = 0

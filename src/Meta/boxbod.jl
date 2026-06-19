@@ -76,10 +76,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:BOXBOD, NIST:BoxBOD",
 )
-get_boxbod_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_boxbod_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_boxbod_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_boxbod_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_boxbod_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_boxbod_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_boxbod_nls_nequ(; n::Integer = default_nvar, kwargs...) = 6
+get_boxbod_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_boxbod_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_boxbod_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_boxbod_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_boxbod_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_boxbod_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_boxbod_nls_nequ(; n::Int = default_nvar, kwargs...) = 6

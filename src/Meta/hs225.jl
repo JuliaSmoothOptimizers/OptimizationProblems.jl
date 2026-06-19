@@ -40,9 +40,9 @@ Problem 225 in
   """,
   :lib => "HS2:225",
 )
-get_hs225_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs225_ncon(; n::Integer = default_nvar, kwargs...) = 5
-get_hs225_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_hs225_nnln(; n::Integer = default_nvar, kwargs...) = 4
-get_hs225_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs225_nineq(; n::Integer = default_nvar, kwargs...) = 5
+get_hs225_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs225_ncon(; n::Int = default_nvar, kwargs...) = 5
+get_hs225_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_hs225_nnln(; n::Int = default_nvar, kwargs...) = 4
+get_hs225_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs225_nineq(; n::Int = default_nvar, kwargs...) = 5

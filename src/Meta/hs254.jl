@@ -40,9 +40,9 @@ Problem 254 in
   """,
   :lib => "HS2:254",
 )
-get_hs254_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs254_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs254_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs254_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs254_nequ(; n::Integer = default_nvar, kwargs...) = 2
-get_hs254_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs254_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs254_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs254_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs254_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs254_nequ(; n::Int = default_nvar, kwargs...) = 2
+get_hs254_nineq(; n::Int = default_nvar, kwargs...) = 0

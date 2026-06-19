@@ -40,9 +40,9 @@ Problem 228 in
   """,
   :lib => "HS2:228",
 )
-get_hs228_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs228_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs228_nlin(; n::Integer = default_nvar, kwargs...) = 1
-get_hs228_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs228_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs228_nineq(; n::Integer = default_nvar, kwargs...) = 2
+get_hs228_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs228_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs228_nlin(; n::Int = default_nvar, kwargs...) = 1
+get_hs228_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs228_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs228_nineq(; n::Int = default_nvar, kwargs...) = 2

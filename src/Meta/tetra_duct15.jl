@@ -43,9 +43,9 @@ Instance using the `duct15` mesh.
     """,
   :lib => "COPS:19",
 )
-get_tetra_duct15_nvar(; n::Integer = default_nvar, kwargs...) = 6417
-get_tetra_duct15_ncon(; n::Integer = default_nvar, kwargs...) = 9000
-get_tetra_duct15_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_duct15_nnln(; n::Integer = default_nvar, kwargs...) = 9000
-get_tetra_duct15_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_tetra_duct15_nineq(; n::Integer = default_nvar, kwargs...) = 9000
+get_tetra_duct15_nvar(; n::Int = default_nvar, kwargs...) = 6417
+get_tetra_duct15_ncon(; n::Int = default_nvar, kwargs...) = 9000
+get_tetra_duct15_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_duct15_nnln(; n::Int = default_nvar, kwargs...) = 9000
+get_tetra_duct15_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_tetra_duct15_nineq(; n::Int = default_nvar, kwargs...) = 9000

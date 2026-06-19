@@ -50,10 +50,10 @@ SIF input: Ph. Toint, Dec 1989.
   """,
   :lib => "CUTEst:BROWNBS",
 )
-get_brownbs_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_brownbs_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_brownbs_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_brownbs_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_brownbs_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_brownbs_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_brownbs_nls_nequ(; n::Integer = default_nvar, kwargs...) = 3
+get_brownbs_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_brownbs_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_brownbs_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_brownbs_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_brownbs_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_brownbs_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_brownbs_nls_nequ(; n::Int = default_nvar, kwargs...) = 3

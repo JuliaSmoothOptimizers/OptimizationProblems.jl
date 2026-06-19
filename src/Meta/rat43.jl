@@ -78,10 +78,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:RAT43, NIST:Rat43",
 )
-get_rat43_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_rat43_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_rat43_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_rat43_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_rat43_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_rat43_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_rat43_nls_nequ(; n::Integer = default_nvar, kwargs...) = 15
+get_rat43_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_rat43_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_rat43_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_rat43_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_rat43_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_rat43_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_rat43_nls_nequ(; n::Int = default_nvar, kwargs...) = 15

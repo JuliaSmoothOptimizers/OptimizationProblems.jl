@@ -73,10 +73,10 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
 """,
   :lib => "CUTEst:GAUSS2, NIST:Gauss2",
 )
-get_gauss2_nvar(; n::Integer = default_nvar, kwargs...) = 8
-get_gauss2_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_gauss2_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_gauss2_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_gauss2_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_gauss2_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_gauss2_nls_nequ(; n::Integer = default_nvar, kwargs...) = 250
+get_gauss2_nvar(; n::Int = default_nvar, kwargs...) = 8
+get_gauss2_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_gauss2_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_gauss2_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_gauss2_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_gauss2_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_gauss2_nls_nequ(; n::Int = default_nvar, kwargs...) = 250

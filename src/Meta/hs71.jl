@@ -48,9 +48,9 @@ A. Montoison, Montreal, 05/2018.
   """,
   :lib => "CUTEst:HS71, HS:71",
 )
-get_hs71_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs71_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs71_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs71_nnln(; n::Integer = default_nvar, kwargs...) = 2
-get_hs71_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs71_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_hs71_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs71_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs71_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs71_nnln(; n::Int = default_nvar, kwargs...) = 2
+get_hs71_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs71_nineq(; n::Int = default_nvar, kwargs...) = 1

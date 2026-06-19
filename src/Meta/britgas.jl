@@ -43,9 +43,9 @@ SIF input: N. Gould, March 1990.
   """,
   :lib => "CUTEst:BRITGAS",
 )
-get_britgas_nvar(; n::Integer = default_nvar, kwargs...) = 450
-get_britgas_ncon(; n::Integer = default_nvar, kwargs...) = 360
-get_britgas_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_britgas_nnln(; n::Integer = default_nvar, kwargs...) = 360
-get_britgas_nequ(; n::Integer = default_nvar, kwargs...) = 360
-get_britgas_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_britgas_nvar(; n::Int = default_nvar, kwargs...) = 450
+get_britgas_ncon(; n::Int = default_nvar, kwargs...) = 360
+get_britgas_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_britgas_nnln(; n::Int = default_nvar, kwargs...) = 360
+get_britgas_nequ(; n::Int = default_nvar, kwargs...) = 360
+get_britgas_nineq(; n::Int = default_nvar, kwargs...) = 0

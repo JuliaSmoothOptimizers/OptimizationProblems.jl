@@ -40,9 +40,9 @@ Problem 265 in
   """,
   :lib => "HS2:265",
 )
-get_hs265_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs265_ncon(; n::Integer = default_nvar, kwargs...) = 2
-get_hs265_nlin(; n::Integer = default_nvar, kwargs...) = 2
-get_hs265_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs265_nequ(; n::Integer = default_nvar, kwargs...) = 2
-get_hs265_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs265_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs265_ncon(; n::Int = default_nvar, kwargs...) = 2
+get_hs265_nlin(; n::Int = default_nvar, kwargs...) = 2
+get_hs265_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs265_nequ(; n::Int = default_nvar, kwargs...) = 2
+get_hs265_nineq(; n::Int = default_nvar, kwargs...) = 0
