@@ -11,7 +11,7 @@ end
   nlp::AbstractNLPModel,
   nls::AbstractNLSModel,
 )
-  @testset "Test in-place residual $prob" begin
+  @testset "NLS $prob" begin
     x = nls.meta.x0
     Fx = similar(x, nls.nls_meta.nequ)
     pb = String(prob)
@@ -21,9 +21,6 @@ end
     end
     m = getfield(OptimizationProblems, Symbol(:get_, prob, :_nls_nequ))()
     @test nls.nls_meta.nequ == m
-  end
-
-  @testset "Compare NLS with NLP $prob: x0 and obj are the same." begin
     x0 = nlp.meta.x0
     @test x0 == nls.meta.x0
     nlp_fx = obj(nlp, x0)
