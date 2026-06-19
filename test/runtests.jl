@@ -67,9 +67,6 @@ include("test-in-place-residual.jl")
 @everywhere function test_one_problem(prob::Symbol)
   pb = string(prob)
 
-  nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
-
   function timed_info(label, f, args...; kwargs...)
     stats = @timed f(args...; kwargs...)
     msg =
