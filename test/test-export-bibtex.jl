@@ -20,5 +20,8 @@ end
   bib_nolibref = tempname() * ".bib"
   export_bibtex(bib_full, include_lib_refs = true)
   export_bibtex(bib_nolibref, include_lib_refs = false)
-  @test filesize(bib_nolibref) <= filesize(bib_full)
+  # NIST_StRD appears only via lib_refs (not in any per-problem :reference field),
+  # so it is a reliable sentinel for whether include_lib_refs was respected.
+  @test occursin("NIST_StRD", read(bib_full, String))
+  @test !occursin("NIST_StRD", read(bib_nolibref, String))
 end
