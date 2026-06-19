@@ -60,10 +60,8 @@ end
 @testset "Meta fields: :implementation values and consistency" begin
   valid_impl = (:both, :jump, :adnlpmodels)
 
-  invalid_value = [
-    row[:name] for row in eachrow(OptimizationProblems.meta)
-    if row[:implementation] ∉ valid_impl
-  ]
+  invalid_value =
+    [row[:name] for row in eachrow(OptimizationProblems.meta) if row[:implementation] ∉ valid_impl]
   for name in invalid_value
     @error "Problem $name has invalid :implementation value: $(OptimizationProblems.meta[OptimizationProblems.meta.name .== name, :implementation][1])"
   end

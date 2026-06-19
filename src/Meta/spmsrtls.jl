@@ -51,5 +51,4 @@ get_spmsrtls_nlin(; n::Int = default_nvar, kwargs...) = 0
 get_spmsrtls_nnln(; n::Int = default_nvar, kwargs...) = 0
 get_spmsrtls_nequ(; n::Int = default_nvar, kwargs...) = 0
 get_spmsrtls_nineq(; n::Int = default_nvar, kwargs...) = 0
-get_spmsrtls_nls_nequ(; n::Int = default_nvar, kwargs...) =
-  7 * max(Int(round((n + 2) / 3)), 34) - 8
+get_spmsrtls_nls_nequ(; n::Int = default_nvar, kwargs...) = 7 * max(Int(round((n + 2) / 3)), 34) - 8
