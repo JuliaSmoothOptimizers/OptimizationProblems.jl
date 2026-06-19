@@ -106,6 +106,11 @@ include("test-in-place-residual.jl")
       test_compatibility(prob, nlp_jump, nlp_ad, ndef)
     end
   end
+
+  if prob in nls_name_list
+    nls_model = make_ad_nlp(prob; use_nls = true)
+    test_in_place_residual(prob, nlp_ad, nls_model)
+  end
 end
 
 pmap(test_one_problem, list_problems)

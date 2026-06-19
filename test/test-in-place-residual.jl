@@ -36,6 +36,5 @@ end
   end
 end
 
-nls_name_list =
+@everywhere const nls_name_list =
   intersect(Symbol.(meta[meta.objtype .== :least_squares, :name]), list_problems_ADNLPProblems)
-pmap(test_in_place_residual, nls_name_list)
