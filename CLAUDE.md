@@ -201,3 +201,40 @@ Benchmarks cover constructor time and objective evaluation for both `ADNLPProble
 ## Full Contributor Guidelines
 
 See [`docs/src/contributing.md`](docs/src/contributing.md) for the complete checklist when adding or modifying problems, including the full reviewer checklist for meta fields, implementation consistency, type stability, and allocation requirements.
+
+---
+
+## Candidate source ingestion
+
+When analyzing a new PDF, paper, benchmark collection, or test-set source:
+
+1. Do not commit PDFs or large raw downloaded files.
+2. Use the expected local PDF path:
+
+   ```text
+   candidate_sources/<source_slug>/source.pdf
+   ```
+
+3. Create or update the following files:
+
+   ```text
+   candidate_sources/<source_slug>/README.md
+   candidate_sources/<source_slug>/ingestion_report.md
+   candidate_sources/<source_slug>/candidate_problems.yml
+   candidate_sources/<source_slug>/duplicate_risk_report.md
+   candidate_sources/<source_slug>/notes.md
+   ```
+
+4. During the ingestion-report step, do not implement optimization problems.
+
+5. Do not invent missing mathematical formulas, data, dimensions, initial points, references, or optimal values.
+
+6. Mark uncertainties explicitly.
+
+7. Propose canonical problem names according to the repository naming conventions.
+
+8. Store original source names as aliases.
+
+9. Before implementation, check duplicate risk against existing problems.
+
+10. Implementation should happen in separate PRs after human review of the candidate list.

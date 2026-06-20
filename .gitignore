@@ -4,3 +4,10 @@
 Manifest.toml
 *.bib
 */settings.local.json
+
+# Candidate source PDFs and downloaded raw files should not be committed.
+candidate_sources/**/*.pdf
+candidate_sources/**/pdf/
+candidate_sources/**/source.pdf
+candidate_sources/**/*.zip
+candidate_sources/**/*.tar.gz

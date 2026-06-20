@@ -1,0 +1,32 @@
+source:
+  slug: "<source_slug>"
+  title: "<source title>"
+  bibtex_key: null
+  url: null
+  doi: null
+
+candidates:
+  - source_id: "problem_1"
+    source_name: null
+    proposed_name: null
+    display_name: null
+    aliases: []
+    source_location:
+      section: null
+      equation: null
+      table: null
+      page: null
+    problem_type: null
+    scalable: null
+    variables_summary: null
+    objective_summary: null
+    constraints_summary: null
+    bounds_summary: null
+    initial_point_status: "unknown"
+    data_status: "unknown"
+    known_value_status: "unknown"
+    duplicate_status: "not_checked"
+    implementation_status: "not_started"
+    priority: null
+    blocking_issues: []
+    notes: []
