@@ -9,10 +9,10 @@ hs202_meta = Dict(
   :has_inequalities_only => false,
   :has_bounds => false,
   :has_fixed_variables => false,
-  :objtype => :sum_of_squares,
+  :objtype => :least_squares,
   :contype => :unconstrained,
-  :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 1256.0,
+  :best_known_lower_bound => 0.0,
+  :best_known_upper_bound => 0.0,
   :is_feasible => true,
   :defined_everywhere => true,
   :origin => :academic,
@@ -21,11 +21,10 @@ hs202_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 202.
 
-Freudenstein-Roth function: 2 variables, unconstrained, sum-of-squares.
+Freudenstein-Roth function: 2 variables, unconstrained, least-squares.
 f(x) = (-13 + x1 + ((5-x2)*x2 - 2)*x2)^2 + (-29 + x1 + ((1+x2)*x2 - 14)*x2)^2
 Starting point: x0 = (15, -2), F(x0) = 1256.
-Global minimizer: x* = (5, 4), F* = 0.
-A local minimizer near (11.41, -0.897) with F ≈ 48.98 also exists.
+Partial solution from source: x1* = 5. F* = 0.
 """,
   :origin_notes => raw"""
 Problem 202 in
@@ -54,3 +53,4 @@ get_hs202_nlin(; n::Int = default_nvar, kwargs...) = 0
 get_hs202_nnln(; n::Int = default_nvar, kwargs...) = 0
 get_hs202_nequ(; n::Int = default_nvar, kwargs...) = 0
 get_hs202_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_hs202_nls_nequ(; n::Int = default_nvar, kwargs...) = 2

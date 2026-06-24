@@ -9,10 +9,10 @@ hs203_meta = Dict(
   :has_inequalities_only => false,
   :has_bounds => false,
   :has_fixed_variables => false,
-  :objtype => :sum_of_squares,
+  :objtype => :least_squares,
   :contype => :unconstrained,
-  :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 0.529781,
+  :best_known_lower_bound => 0.0,
+  :best_known_upper_bound => 0.0,
   :is_feasible => true,
   :defined_everywhere => true,
   :origin => :academic,
@@ -21,10 +21,10 @@ hs203_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 203.
 
-Beale function: 2 variables, unconstrained, sum-of-squares.
+Beale function: 2 variables, unconstrained, least-squares.
 f(x) = (1.5 - x1*(1-x2))^2 + (2.25 - x1*(1-x2^2))^2 + (2.625 - x1*(1-x2^3))^2
 Starting point: x0 = (2, 0.2), F(x0) = 0.529781.
-Global minimizer: x* = (3, 0.5), F* = 0.
+Minimizer: x* = (3, 0.5), F* = 0.
 Distinct from the beale problem in this collection (no 1/2 scaling factor; different starting point).
 """,
   :origin_notes => raw"""
@@ -54,3 +54,4 @@ get_hs203_nlin(; n::Int = default_nvar, kwargs...) = 0
 get_hs203_nnln(; n::Int = default_nvar, kwargs...) = 0
 get_hs203_nequ(; n::Int = default_nvar, kwargs...) = 0
 get_hs203_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_hs203_nls_nequ(; n::Int = default_nvar, kwargs...) = 3
