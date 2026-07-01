@@ -10,8 +10,8 @@
 # f(x) = -20*exp(-0.2*sqrt(sum(x_i^2)/n)) - exp(sum(cos(2*pi*x_i))/n) + 20 + e
 #
 # Global minimum: f(0,...,0) = 0
-# Bounds: x_i in [-32, 32] for all i
-
+# Bounds: x_i in [-32.768, 32.768] for all i
+#
 export ackley
 
 "Ackley multimodal minimization problem"
@@ -21,9 +21,8 @@ function ackley(args...; n::Int = default_nvar, kwargs...)
 
   nlp = Model()
 
-  x0 = [-32 + 64 * rand() for i = 1:n]
-  @variable(nlp, -32 <= x[i = 1:n] <= 32, start = x0[i])
-  nlp.ext[:has_bounds] = true
+  x0 = zeros(n)
+  @variable(nlp, -32.768 <= x[i = 1:n] <= 32.768, start = x0[i])
 
   @objective(
     nlp,
