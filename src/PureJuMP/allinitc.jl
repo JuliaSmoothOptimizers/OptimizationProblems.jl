@@ -11,10 +11,7 @@
 # granted, provided that the above copyright notice appear in all
 # copies and that the copyright notice and this
 # permission notice appear in all supporting documentation.
-#   Source:
-#   N. Gould: private communication.
-#   SIF input: Nick Gould, June 1990.
-#   classification OOR2-AY-4-1
+
 export allinitc
 
 function allinitc(; n::Int = default_nvar, kwargs...)

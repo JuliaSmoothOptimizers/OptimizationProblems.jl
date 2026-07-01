@@ -1,13 +1,3 @@
-#third problem of
-#Global optimization in one-dimensional case
-#using analytically defined derivatives of
-#objective function
-#
-#A.Shpak
-#
-#Computer Science Journal of Moldova, vol.3, no.2(8), 1995
-# S. Goyette, Sherbrooke 2016/2017
-
 export Shpak3
 
 "Univariate multimodal minimization problem Shpak3"

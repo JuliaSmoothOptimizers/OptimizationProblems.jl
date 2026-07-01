@@ -16,10 +16,38 @@ hs320_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :academic,
+  :implementation => :both,
+  :url => "https://doi.org/10.1007/978-3-642-61582-5",
+  :notes => raw"""
+Schittkowski problem number 320.
+
+  classification QQR2-AN-2-1
+
+M. Gollier, Montréal, 05/2023
+""",
+  :origin_notes => raw"""
+  Problem 320 in
+    Schittkowski, K. (1987). 
+    More Test Examples for Nonlinear Programming Codes. 
+    Lecture Notes in Economics and Mathematical Systems.
+    doi:10.1007/978-3-642-61582-5
+  """,
+  :reference => raw"""
+@book{Schittkowski1987,
+  author    = {Schittkowski, Klaus},
+  title     = {More Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {282},
+  publisher = {Springer-Verlag},
+  address   = {Heidelberg},
+  year      = {1987}
+}
+  """,
+  :lib => "HS2:320",
 )
-get_hs320_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs320_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs320_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs320_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs320_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs320_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs320_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs320_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs320_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs320_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs320_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs320_nineq(; n::Int = default_nvar, kwargs...) = 0

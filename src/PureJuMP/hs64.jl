@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 64.
-#
-#   Source:
-#   Problem 64 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification PPR2-AN-3-1
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs64
 
 "HS64 model"

@@ -16,10 +16,37 @@ britgas_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://bitbucket.org/optrove/sif/src/master/BRITGAS.SIF",
+  :notes => raw"""
+A simple high pressure gas network problem for British Gas.
+Invented Data, but real network.
+23 node network, 8 hour operation.
+
+classification OOI2-RN-450-360
+""",
+  :origin_notes => raw"""
+N. Gould, private communication,March 1990.
+
+SIF input: N. Gould, March 1990.
+""",
+  :reference => raw"""
+@article{Gould2015CUTEst,
+  author    = {Nicholas I. M. Gould and Dominique Orban and Philippe L. Toint},
+  title     = {{CUTEst}: a constrained and unconstrained testing environment with safe threads for mathematical optimization},
+  journal   = {ACM Transactions on Mathematical Software},
+  volume    = {40},
+  number    = {3},
+  year      = {2015},
+  pages     = {1--25},
+  doi       = {10.1145/2786885}
+}  
+  """,
+  :lib => "CUTEst:BRITGAS",
 )
-get_britgas_nvar(; n::Integer = default_nvar, kwargs...) = 450
-get_britgas_ncon(; n::Integer = default_nvar, kwargs...) = 360
-get_britgas_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_britgas_nnln(; n::Integer = default_nvar, kwargs...) = 360
-get_britgas_nequ(; n::Integer = default_nvar, kwargs...) = 360
-get_britgas_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_britgas_nvar(; n::Int = default_nvar, kwargs...) = 450
+get_britgas_ncon(; n::Int = default_nvar, kwargs...) = 360
+get_britgas_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_britgas_nnln(; n::Int = default_nvar, kwargs...) = 360
+get_britgas_nequ(; n::Int = default_nvar, kwargs...) = 360
+get_britgas_nineq(; n::Int = default_nvar, kwargs...) = 0

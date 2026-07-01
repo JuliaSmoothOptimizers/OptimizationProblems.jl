@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 108.
-#
-#   Source:
-#   Problem 108 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#   
-#   classification QQR-AN-9-13
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs108
 
 "HS108 model"

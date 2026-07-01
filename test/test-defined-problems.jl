@@ -8,19 +8,21 @@
   return (pid = myid(), missing = missing)
 end
 
-probes = @sync begin
-  for pid in workers()
-    @async remotecall_fetch(probe_missing, pid, ADNLPProblems, list_problems_ADNLPProblems)
+if get(ENV, "JULIA_TEST_DEBUG", "") == "1"
+  probes = @sync begin
+    for pid in workers()
+      @async remotecall_fetch(probe_missing, pid, ADNLPProblems, list_problems_ADNLPProblems)
+    end
   end
-end
-@info "ADNLPProblems missing per worker" probes
+  @info "ADNLPProblems missing per worker" probes
 
-probes = @sync begin
-  for pid in workers()
-    @async remotecall_fetch(probe_missing, pid, PureJuMP, list_problems_PureJuMP)
+  probes = @sync begin
+    for pid in workers()
+      @async remotecall_fetch(probe_missing, pid, PureJuMP, list_problems_PureJuMP)
+    end
   end
+  @info "PureJuMP missing per worker" probes
 end
-@info "PureJuMP missing per worker" probes
 
 @test setdiff(union(names(ADNLPProblems), list_problems_not_ADNLPProblems), list_problems) ==
       [:ADNLPProblems]

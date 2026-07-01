@@ -1,14 +1,8 @@
-# Catalytic Cracking of Gas Oil Problem
-# Collocation formulation
-# Michael Merritt - Summer 2000
-# COPS 2.0 - September 2000
-# COPS 3.0 - November 2002
-# COPS 3.1 - March 2004
-
 export gasoil
 
 function gasoil(; n::Int = default_nvar, kwargs...)
   nc = 4        # number of collocation points
+  @adjust_nvar_warn("gasoil", n, 26 * n + 3)
   ne = 2        # number of differential equations
   np = 3        # number of ODE parameters
   nm = 21       # number of measurements

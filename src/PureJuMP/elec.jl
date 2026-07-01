@@ -1,17 +1,9 @@
-# Given np electrons, find the equilibrium state distribution of minimal
-# Columb potential of the electrons positioned on a conducting sphere
-
-#   This is problem 2 in the COPS (Version 3) collection of 
-#   E. Dolan and J. More'
-#   see "Benchmarking Optimization Software with COPS"
-#   Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
-#   classification OOR2-AN-V-V
-
 export elec
 
 function elec(args...; n::Int = default_nvar, kwargs...)
+  n_orig = n
   n = max(2, div(n, 3))
+  @adjust_nvar_warn("elec", n_orig, 3 * n)
 
   nlp = Model()
 

@@ -1,17 +1,3 @@
-# Find the polygon of maximal area, among polygons with nv sides and    
-#   diameter d <= 1
-
-#   This is problem 1 in the COPS (Version 3) collection of 
-#   E. Dolan and J. More'
-#   see "Benchmarking Optimization Software with COPS"
-#   Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
-#   classification OOR2-AN-V-V
-
-# The initial guess is inspired from https://vanderbei.princeton.edu/ampl/nlmodels/polygon/polygon2.mod
-
-# See `polygon1`, `polygon2` and `polygon3` for similar variants.
-
 export polygon
 
 function polygon(args...; n::Int = default_nvar, kwargs...)

@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 111.
-#
-#   Source:
-#   Problem 111 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification OOR2-AN-10-3
-#
-# N. Antunes, Curitiba, 10/2016.
-
 export hs111
 
 "HS111 model"

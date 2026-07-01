@@ -1,8 +1,9 @@
 export ncb20b
 
 function ncb20b(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 20 && @warn("ncb20b: number of variables must be ≥ 20")
+  n_org = n
   n = max(20, n)
+  @adjust_nvar_warn("ncb20b", n_org, n)
   function f(x; n = length(x))
     return sum(
       10 // i * (sum(x[i + j - 1] / (1 + x[i + j - 1]^2) for j = 1:20))^2 -

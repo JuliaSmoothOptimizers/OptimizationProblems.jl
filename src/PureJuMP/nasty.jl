@@ -1,9 +1,3 @@
-#   Nasty problem.
-#
-#   Source: a very simple box-constrained quadratic
-#
-#   classification QUR2-AN-2-0
-
 export nasty
 
 "Nasty problem"

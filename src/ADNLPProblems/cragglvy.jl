@@ -1,8 +1,9 @@
 export cragglvy
 
 function cragglvy(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("cragglvy: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("cragglvy", n_org, n)
   function f(x; n = length(x))
     return sum(
       (exp(x[2 * i - 1]) - x[2 * i])^4 +

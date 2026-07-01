@@ -21,14 +21,13 @@ end
   @test sort(list_problems) == sort(Symbol.(OptimizationProblems.meta[!, :name]))
 end
 
-# The problems included should be carefully argumented and issues
-# to create them added.
-# TODO: tests are limited for JuMP-only problems
 @everywhere const list_problems_not_ADNLPProblems =
-  Symbol[:catmix, :gasoil, :glider, :methanol, :minsurf, :pinene, :rocket, :steering, :torsion]
+  Symbol.(OptimizationProblems.meta[OptimizationProblems.meta.implementation .== :jump, :name])
 @everywhere const list_problems_ADNLPProblems =
   setdiff(list_problems, list_problems_not_ADNLPProblems)
-@everywhere const list_problems_not_PureJuMP = Symbol[]
+@everywhere const list_problems_not_PureJuMP = Symbol.(
+  OptimizationProblems.meta[OptimizationProblems.meta.implementation .== :adnlpmodels, :name],
+)
 @everywhere const list_problems_PureJuMP = setdiff(list_problems, list_problems_not_PureJuMP)
 
 include("test-defined-problems.jl")
@@ -67,9 +66,6 @@ include("test-in-place-residual.jl")
 @everywhere function test_one_problem(prob::Symbol)
   pb = string(prob)
 
-  nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
-
   function timed_info(label, f, args...; kwargs...)
     stats = @timed f(args...; kwargs...)
     msg =
@@ -82,28 +78,27 @@ include("test-in-place-residual.jl")
 
   nlp_ad = timed_info("Instantiating $(pb)", make_nlp, prob)
 
-  @testset "Sanity check (name, obj)" begin
+  @testset "$pb" begin
     @test nlp_ad.meta.name == pb
     @test !isnothing(obj(nlp_ad, nlp_ad.meta.x0))
-  end
 
-  if (typeof(nlp_ad) <: ADNLPModels.AbstractADNLPModel) &&
-     (pb in meta[(meta.contype .== :quadratic) .| (meta.contype .== :general), :name])
-    @testset "Test In-place Nonlinear Constraints for AD-$prob" begin
+    if (typeof(nlp_ad) <: ADNLPModels.AbstractADNLPModel) &&
+       (pb in meta[(meta.contype .== :quadratic) .| (meta.contype .== :general), :name])
       test_in_place_constraints(prob, nlp_ad)
     end
-  end
 
-  if typeof(nlp_ad) <: ADNLPModels.AbstractADNLPModel
-    @testset "Test multi-precision ADNLPProblems for $prob" begin
+    if typeof(nlp_ad) <: ADNLPModels.AbstractADNLPModel
       test_multi_precision(prob, nlp_ad)
     end
-  end
 
-  if mod in intersect(list_problems_PureJuMP, list_problems_ADNLPProblems)
-    @testset "Test problems compatibility for $prob" begin
+    if prob in intersect(list_problems_PureJuMP, list_problems_ADNLPProblems)
       nlp_jump = make_jump_nlp(prob; n = ndef)
       test_compatibility(prob, nlp_jump, nlp_ad, ndef)
+    end
+
+    if prob in nls_name_list
+      nls_model = make_ad_nlp(prob; use_nls = true)
+      test_in_place_residual(prob, nlp_ad, nls_model)
     end
   end
 end
@@ -111,5 +106,7 @@ end
 pmap(test_one_problem, list_problems)
 
 include("test-scalable.jl")
+include("test-meta-fields.jl")
+include("test-export-bibtex.jl")
 
 rmprocs()

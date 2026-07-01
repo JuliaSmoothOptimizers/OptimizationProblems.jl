@@ -106,13 +106,14 @@ function generate_meta(
   :is_feasible => $(feasible),
   :defined_everywhere => $(missing),
   :origin => :$(origin),
+  :implementation => :both,
 )
-get_$(name)_nvar(; n::Integer = default_nvar, kwargs...) = $nvar_formula
-get_$(name)_ncon(; n::Integer = default_nvar, kwargs...) = $ncon_formula
-get_$(name)_nlin(; n::Integer = default_nvar, kwargs...) = $nlin_formula
-get_$(name)_nnln(; n::Integer = default_nvar, kwargs...) = $nnln_formula
-get_$(name)_nequ(; n::Integer = default_nvar, kwargs...) = $nequ_formula
-get_$(name)_nineq(; n::Integer = default_nvar, kwargs...) = $nineq_formula
+get_$(name)_nvar(; n::Int = default_nvar, kwargs...) = $nvar_formula
+get_$(name)_ncon(; n::Int = default_nvar, kwargs...) = $ncon_formula
+get_$(name)_nlin(; n::Int = default_nvar, kwargs...) = $nlin_formula
+get_$(name)_nnln(; n::Int = default_nvar, kwargs...) = $nnln_formula
+get_$(name)_nequ(; n::Int = default_nvar, kwargs...) = $nequ_formula
+get_$(name)_nineq(; n::Int = default_nvar, kwargs...) = $nineq_formula
 "
   return str
 end
@@ -211,8 +212,8 @@ function test_linear_constraints(sample_size = 100)
   return list
 end
 
-test_one_problem(pb::String) = test_one_problem(Symbol(pb))
-function test_one_problem(prob::Symbol)
+check_problem(pb::String) = check_problem(Symbol(pb))
+function check_problem(prob::Symbol)
   pb = string(prob)
   @info "Check that $prob is in PureJuMP"
   @test prob in names(PureJuMP)
@@ -244,4 +245,39 @@ function test_one_problem(prob::Symbol)
   nlp_jump = MathOptNLPModel(model)
   @info "Test compatibility between PureJuMP and ADNLPProblems"
   test_compatibility(prob, nlp_jump, nlp_ad, ndef)
+end
+
+"""
+    is_valid_urls(s) -> Bool
+
+Return `true` if every comma-separated part of `s` is a syntactically valid
+HTTP or HTTPS URL.  A single URL (no commas) is the common case.
+No network request is made; only the structure of each part is checked.
+"""
+function is_valid_urls(s::String)
+  parts = strip.(split(s, ","))
+  return all(p -> match(r"^https?://[^\s/$.?#][^\s]*$"i, p) !== nothing, parts)
+end
+
+"""
+    is_valid_bibtex(s) -> Bool
+
+Return `true` if `s` looks like a structurally valid BibTeX entry, i.e.:
+- Starts with `@entrytype{key,` (or parentheses variant).
+- Has balanced curly braces.
+"""
+function is_valid_bibtex(s::String)
+  s = strip(s)
+  isempty(s) && return false
+  match(r"^@\w+\s*[{(]\s*[^,\s]+\s*,"s, s) === nothing && return false
+  depth = 0
+  for c in s
+    if c == '{'
+      depth += 1
+    elseif c == '}'
+      depth -= 1
+      depth < 0 && return false
+    end
+  end
+  return depth == 0
 end

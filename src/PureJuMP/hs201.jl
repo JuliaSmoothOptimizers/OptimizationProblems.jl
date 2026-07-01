@@ -1,12 +1,3 @@
-# Hock and Schittkowski problem number 201.
-#
-#   Source:
-#   Problem 201 in
-#   K. Schittkowski,
-#   More Test Examples for Nonlinear Programming Codes,
-#   Lectures Notes in Economics and Mathematical Systems 282,
-#   Springer Verlag, Heidelberg, 1987.
-#
 export hs201
 "HS201 model"
 function hs201(args...; n::Int = default_nvar, kwargs...)

@@ -16,12 +16,50 @@ cragglvy2_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization",
+  :notes => raw"""
+Chained Cragg and Levy function
+
+This is similar to cragglvy but the quartic term differs.
+
+Problem 17 in
+Conn, A.R., Gould, N.I.M, Toint, P.,
+Testing a Class of Methods for Solving
+Minimization Problems with Simple Bounds on the Variables, 
+Mathematics of Computation, 
+Vol. 50, pp. 399-430, 1988.
+
+Problem 4 in
+L. Luksan, C. Matonoha and J. Vlcek
+Sparse Test Problems for Unconstrained Optimization,
+Technical Report 1064,
+Institute of Computer Science,
+Academy of Science of the Czech Republic
+
+https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization
+""",
+  :origin_notes => raw"""
+
+""",
+  :reference => raw"""
+@techreport{LuksanMatonohaVlcek2010Sparse,
+  author       = {Luksan, Ladislav and Matonoha, Ctirad and Vlcek, Jan},
+  title        = {Sparse Test Problems for Unconstrained Optimization},
+  institution  = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
+  number       = {V-1064},
+  year         = {2010},
+  address      = {Prague, Czech Republic},
+  url          = {https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization}
+  }
+    """,
+  :lib => "LuksanSparse:4",
 )
 
-get_cragglvy2_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_cragglvy2_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy2_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy2_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy2_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy2_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_cragglvy2_nls_nequ(; n::Integer = default_nvar, kwargs...) = 5 * (div(n, 2) - 1)
+get_cragglvy2_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_cragglvy2_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy2_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy2_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy2_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy2_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_cragglvy2_nls_nequ(; n::Int = default_nvar, kwargs...) = 5 * (div(n, 2) - 1)

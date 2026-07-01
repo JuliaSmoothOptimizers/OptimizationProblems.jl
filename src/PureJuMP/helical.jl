@@ -1,8 +1,3 @@
-#   Source: problem 7 in
-#   J.J. More', B.S. Garbow and K.E. Hillstrom,
-#   "Testing Unconstrained Optimization Software",
-#   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-
 export helical
 
 function helical(args...; n::Int = default_nvar, kwargs...)

@@ -16,10 +16,44 @@ hs114_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS114.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 114.
+
+An alkylation process problem.
+
+classification QOR2-MY-10-11
+
+classification QGR-AN-10-11
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""
+  problem 114 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
+
+  SIF input: J.M. Collin, Jan 1990.
+  """,
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+  :lib => "CUTEst:HS114, HS:114",
 )
-get_hs114_nvar(; n::Integer = default_nvar, kwargs...) = 10
-get_hs114_ncon(; n::Integer = default_nvar, kwargs...) = 11
-get_hs114_nlin(; n::Integer = default_nvar, kwargs...) = 5
-get_hs114_nnln(; n::Integer = default_nvar, kwargs...) = 6
-get_hs114_nequ(; n::Integer = default_nvar, kwargs...) = 3
-get_hs114_nineq(; n::Integer = default_nvar, kwargs...) = 8
+get_hs114_nvar(; n::Int = default_nvar, kwargs...) = 10
+get_hs114_ncon(; n::Int = default_nvar, kwargs...) = 11
+get_hs114_nlin(; n::Int = default_nvar, kwargs...) = 5
+get_hs114_nnln(; n::Int = default_nvar, kwargs...) = 6
+get_hs114_nequ(; n::Int = default_nvar, kwargs...) = 3
+get_hs114_nineq(; n::Int = default_nvar, kwargs...) = 8

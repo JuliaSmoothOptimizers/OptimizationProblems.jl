@@ -16,11 +16,41 @@ watson_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://bitbucket.org/optrove/sif/src/master/WATSON.SIF",
+  :notes => raw"""
+Watson problem in variable dimension ( 2 <= n <= 31 ).
+This function is a nonlinear least squares with 31 groups.
+
+classification SUR2-AN-V-0
+""",
+  :origin_notes => raw"""
+problem 20 in
+J.J. More', B.S. Garbow and K.E. Hillstrom,
+"Testing Unconstrained Optimization Software",
+ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
+See also Buckley#128 (p. 100).
+
+SIF input: Ph. Toint, Dec 1989.
+""",
+  :reference => raw"""
+@article{MoreGarbowHillstrom1981,
+  author  = {Mor{\'e}, Jorge J. and Garbow, Burton S. and Hillstrom, Kenneth E.},
+  title   = {Testing Unconstrained Optimization Software},
+  journal = {ACM Transactions on Mathematical Software},
+  year    = {1981},
+  volume  = {7},
+  number  = {1},
+  pages   = {17--41},
+  doi     = {10.1145/355934.355936}
+}  
+  """,
+  :lib => "CUTEst:WATSON",
 )
-get_watson_nvar(; n::Integer = default_nvar, kwargs...) = min(max(n, 2), 31)
-get_watson_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_watson_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_watson_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_watson_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_watson_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_watson_nls_nequ(; n::Integer = default_nvar, kwargs...) = 31
+get_watson_nvar(; n::Int = default_nvar, kwargs...) = min(max(n, 2), 31)
+get_watson_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_watson_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_watson_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_watson_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_watson_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_watson_nls_nequ(; n::Int = default_nvar, kwargs...) = 31

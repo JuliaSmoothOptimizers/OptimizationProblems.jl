@@ -1,8 +1,9 @@
 export sparsine
 
 function sparsine(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 10 && @warn("sparsine: number of variables must be ≥ 10")
+  n_org = n
   n = max(10, n)
+  @adjust_nvar_warn("sparsine", n_org, n)
   function f(x; n = length(x))
     return 1 // 2 * sum(
       i *

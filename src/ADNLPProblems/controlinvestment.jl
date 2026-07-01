@@ -8,7 +8,6 @@ function controlinvestment(
 ) where {T}
   N = div(n, 2)
   h = 1 // N
-  x0 = 1
   gamma = 3
   function f(y; N = N, h = h)
     @views x, u = y[1:N], y[(N + 1):end]
@@ -23,10 +22,10 @@ function controlinvestment(
   end
   lvar = vcat(-T(Inf) * ones(T, N), zeros(T, N))
   uvar = vcat(T(Inf) * ones(T, N), ones(T, N))
-  xi = vcat(ones(T, N), zeros(T, N))
+  x0 = vcat(ones(T, N), zeros(T, N))
   return ADNLPModels.ADNLPModel!(
     f,
-    xi,
+    x0,
     lvar,
     uvar,
     [1],

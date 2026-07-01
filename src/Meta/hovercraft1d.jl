@@ -16,11 +16,33 @@ hovercraft1d_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://laurentlessard.com/teaching/524-intro-to-optimization/",
+  :notes => raw"""
+
+""",
+  :origin_notes => raw"""
+JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
+Introduction to Optimization class.
+
+Hovercraft 1D example
+https://laurentlessard.com/teaching/524-intro-to-optimization/
+""",
+  :reference => raw"""
+@misc{Lessard524,
+  author       = {Lessard, Laurent},
+  title        = {Introduction to Optimization, {CS/ECE/ISyE} 524},
+  howpublished = {Lecture notes, University of Wisconsin--Madison},
+  url          = {https://laurentlessard.com/teaching/524-intro-to-optimization/},
+  year         = {2023}
+}
+""",
+  :lib => "",
 )
-get_hovercraft1d_nvar(; n::Integer = default_nvar, kwargs...) = 3 * div(n, 3) - 1
-get_hovercraft1d_ncon(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 3) + 2
-get_hovercraft1d_nlin(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 3) + 2
-get_hovercraft1d_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hovercraft1d_nequ(; n::Integer = default_nvar, kwargs...) = 2 * div(n, 3) + 2
-get_hovercraft1d_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_hovercraft1d_nls_nequ(; n::Integer = default_nvar, kwargs...) = div(n, 3) - 1
+get_hovercraft1d_nvar(; n::Int = default_nvar, kwargs...) = 3 * div(n, 3) - 1
+get_hovercraft1d_ncon(; n::Int = default_nvar, kwargs...) = 2 * div(n, 3) + 2
+get_hovercraft1d_nlin(; n::Int = default_nvar, kwargs...) = 2 * div(n, 3) + 2
+get_hovercraft1d_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hovercraft1d_nequ(; n::Int = default_nvar, kwargs...) = 2 * div(n, 3) + 2
+get_hovercraft1d_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_hovercraft1d_nls_nequ(; n::Int = default_nvar, kwargs...) = div(n, 3) - 1

@@ -1,37 +1,3 @@
-
-#=
-https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/kirby2.dat
-
-NIST/ITL StRD
-Dataset Name:  Kirby2            (Kirby2.dat)
-
-File Format:   ASCII
-               Starting Values   (lines 41 to  45)
-               Certified Values  (lines 41 to  50)
-               Data              (lines 61 to 211)
-
-Procedure:     Nonlinear Least Squares Regression
-
-Description:   These data are the result of a NIST study involving
-               scanning electron microscope line with standards.
-
-Reference:     Kirby, R., NIST (197?).  
-               Scanning electron microscope line width standards.
-
-Data:          1 Response  (y)
-               1 Predictor (x)
-               151 Observations
-               Average Level of Difficulty
-               Observed Data
-
-Model:         Rational Class (quadratic/quadratic)
-               5 Parameters (b1 to b5)
-
-               y = (b1 + b2*x + b3*x**2) /
-                   (1 + b4*x + b5*x**2)  +  e
-=#
-# T. Migot, Montreal, 2023.
-
 export kirby2
 
 function kirby2(args...; kwargs...)

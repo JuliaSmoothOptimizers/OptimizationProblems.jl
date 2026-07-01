@@ -16,10 +16,42 @@ hs45_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS45.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 45.
+
+classification OBR2-AN-5-0
+
+classification PBR2-AN-5-0
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""
+  problem 45 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
+
+  SIF input: Ph.L. Toint, October 1990.
+  """,
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+  :lib => "CUTEst:HS45, HS:45",
 )
-get_hs45_nvar(; n::Integer = default_nvar, kwargs...) = 5
-get_hs45_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs45_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs45_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs45_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs45_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs45_nvar(; n::Int = default_nvar, kwargs...) = 5
+get_hs45_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs45_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs45_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs45_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs45_nineq(; n::Int = default_nvar, kwargs...) = 0

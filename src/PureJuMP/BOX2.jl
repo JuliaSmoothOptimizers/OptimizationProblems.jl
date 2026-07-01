@@ -1,12 +1,3 @@
-#   Box problem in 2 variables, obtained by fixing X3 = 1 in BOX2.
-
-#   Source: Problem 11 in
-#   A.R. Buckley,
-#   "Test functions for unconstrained minimization",
-#   TR 1989CS-3, Mathematics, statistics and computing centre,
-#   Dalhousie University, Halifax (CDN), 1989.
-
-#   classification SXR2-AN-3-0
 export BOX2
 
 function BOX2(args...; n::Int = default_nvar, m::Int = 10, kwargs...)

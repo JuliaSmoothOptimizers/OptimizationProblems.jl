@@ -16,10 +16,42 @@ hs98_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS98.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 98.
+
+classification LQR2-AN-6-4
+
+classification PPR-AN-6-4
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""
+  problem 98 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
+
+  SIF input: Ph. Toint, April 1991.
+  """,
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+  :lib => "CUTEst:HS98, HS:98",
 )
-get_hs98_nvar(; n::Integer = default_nvar, kwargs...) = 6
-get_hs98_ncon(; n::Integer = default_nvar, kwargs...) = 4
-get_hs98_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs98_nnln(; n::Integer = default_nvar, kwargs...) = 4
-get_hs98_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs98_nineq(; n::Integer = default_nvar, kwargs...) = 4
+get_hs98_nvar(; n::Int = default_nvar, kwargs...) = 6
+get_hs98_ncon(; n::Int = default_nvar, kwargs...) = 4
+get_hs98_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs98_nnln(; n::Int = default_nvar, kwargs...) = 4
+get_hs98_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs98_nineq(; n::Int = default_nvar, kwargs...) = 4
