@@ -1,18 +1,8 @@
-# Flow in a Channel
-
-# Analyze the flow of a fluid during injection into a long vertical channel
-
-#   This is problem 7 in the COPS (Version 3) collection of 
-#   E. Dolan and J. More'
-#   see "Benchmarking Optimization Software with COPS"
-#   Argonne National Labs Technical Report ANL/MCS-246 (2004)
-
-#   classification OOR2-AN-V-V
-
 export channel
 
 function channel(args...; n::Int = default_nvar, kwargs...)
   nh = max(2, div(n, 8))
+  @adjust_nvar_warn("channel", n, 8 * nh)
 
   nc = 4
   nd = 4

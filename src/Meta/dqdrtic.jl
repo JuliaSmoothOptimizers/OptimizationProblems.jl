@@ -16,10 +16,36 @@ dqdrtic_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://bitbucket.org/optrove/sif/src/master/DQDRTIC.SIF",
+  :notes => raw"""
+Diagonal quadratic problem
+
+classification QUR2-AN-V-0
+""",
+  :origin_notes => raw"""
+problem 22 in
+Ph. L. Toint,
+"Test problems for partially separable optimization and results
+for the routine PSPMIN",
+Report 83/4, Department of Mathematics, FUNDP (Namur, B), 1983.
+
+SIF input: Ph. Toint, Dec 1989.
+""",
+  :reference => raw"""
+@techreport{Toint1983,
+  author      = {Ph. L. Toint},
+  title       = {Test problems for partially separable optimization and results for the routine PSPMIN},
+  institution = {Department of Mathematics, FUNDP (Namur, Belgium)},
+  number      = {Report 83/4},
+  year        = {1983}
+}  
+  """,
+  :lib => "CUTEst:DQDRTIC",
 )
-get_dqdrtic_nvar(; n::Integer = default_nvar, kwargs...) = 1 * n + 0
-get_dqdrtic_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_dqdrtic_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_dqdrtic_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_dqdrtic_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_dqdrtic_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_dqdrtic_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
+get_dqdrtic_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_dqdrtic_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_dqdrtic_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_dqdrtic_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_dqdrtic_nineq(; n::Int = default_nvar, kwargs...) = 0

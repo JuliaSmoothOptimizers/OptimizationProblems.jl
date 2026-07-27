@@ -16,10 +16,34 @@ hs245_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://doi.org/10.1007/978-3-642-61582-5",
+  :notes => raw"""
+Hock and Schittkowski problem number 245.
+""",
+  :origin_notes => raw"""
+Problem 245 in
+  K. Schittkowski,
+  More Test Examples for Nonlinear Programming Codes,
+  Lectures Notes in Economics and Mathematical Systems 282,
+  Springer Verlag, Heidelberg, 1987.
+""",
+  :reference => raw"""
+@book{Schittkowski1987,
+  author    = {Schittkowski, Klaus},
+  title     = {More Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {282},
+  publisher = {Springer-Verlag},
+  address   = {Heidelberg},
+  year      = {1987}
+}
+  """,
+  :lib => "HS2:245",
 )
-get_hs245_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs245_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs245_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs245_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs245_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs245_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs245_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs245_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs245_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs245_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs245_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs245_nineq(; n::Int = default_nvar, kwargs...) = 0

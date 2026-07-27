@@ -1,8 +1,9 @@
 export nondquar
 
 function nondquar(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("nondquar: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("nondquar", n_org, n)
   function f(x; n = length(x))
     return (x[1] - x[2])^2 + (x[n - 1] - x[n])^2 + sum((x[i] + x[i + 1] + x[n])^4 for i = 1:(n - 2))
   end

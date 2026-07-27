@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 8.
-#
-#   Source:
-#   Problem 8 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification OOR2-AN-2-1
-#
-# D. Orban, Montreal, 04/2016.
-
 export hs8
 
 "HS8 model"

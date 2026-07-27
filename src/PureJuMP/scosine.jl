@@ -1,31 +1,10 @@
-#   Another function with nontrivial groups and
-#   repetitious elements.
-#   NB: scaled version of COSINE
-
-#   Source:
-#   N. Gould, private communication.
-
-#   classification OUR2-AN-V-0
-
-#   Problem 50 in
-#   L. Luksan, C. Matonoha and J. Vlcek
-#   Modified CUTE problems for sparse unconstrained optimization,
-#   Technical Report 1081,
-#   Institute of Computer Science,
-#   Academy of Science of the Czech Republic
-#   http://www.cs.cas.cz/matonoha/download/V1081.pdf
-#
-# J.-P. Dussault, Clermont-Ferrand 05/2016.
-
-# Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the original paper
-# (See issue #36)
-
 export scosine
 
 "Another function with nontrivial groups and repetitious elements in size 'n' "
 function scosine(args...; n::Int = default_nvar, kwargs...)
-  n < 2 && @warn("scosine: number of variables must be ≥ 2")
+  n_orig = n
   n = max(2, n)
+  @adjust_nvar_warn("scosine", n_orig, n)
 
   nlp = Model()
   p = zeros(n)

@@ -16,10 +16,27 @@ lincon_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://github.com/JuliaSmoothOptimizers/NLPModelsTest.jl",
+  :notes => raw"""
+
+""",
+  :origin_notes => raw"""
+Test problem used in NLPModelsTest.jl.
+""",
+  :reference => raw"""
+@misc{NLPModelsTestjl,
+  author       = {{JuliaSmoothOptimizers}},
+  title        = {{NLPModelsTest.jl}: Tests for Nonlinear Programming Models},
+  howpublished = {\url{https://github.com/JuliaSmoothOptimizers/NLPModelsTest.jl}},
+  year         = {2020}
+}
+""",
+  :lib => "",
 )
-get_lincon_nvar(; n::Integer = default_nvar, kwargs...) = 15
-get_lincon_ncon(; n::Integer = default_nvar, kwargs...) = 11
-get_lincon_nlin(; n::Integer = default_nvar, kwargs...) = 11
-get_lincon_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_lincon_nequ(; n::Integer = default_nvar, kwargs...) = 3
-get_lincon_nineq(; n::Integer = default_nvar, kwargs...) = 8
+get_lincon_nvar(; n::Int = default_nvar, kwargs...) = 15
+get_lincon_ncon(; n::Int = default_nvar, kwargs...) = 11
+get_lincon_nlin(; n::Int = default_nvar, kwargs...) = 11
+get_lincon_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_lincon_nequ(; n::Int = default_nvar, kwargs...) = 3
+get_lincon_nineq(; n::Int = default_nvar, kwargs...) = 8

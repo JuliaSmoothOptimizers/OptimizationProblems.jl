@@ -1,39 +1,3 @@
-
-#=
-https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/rozman1.dat
-
-NIST/ITL StRD
-Dataset Name:  Roszman1          (Roszman1.dat)
-
-File Format:   ASCII
-               Starting Values   (lines 41 to 44)
-               Certified Values  (lines 41 to 49)
-               Data              (lines 61 to 85)
-
-Procedure:     Nonlinear Least Squares Regression
-
-Description:   These data are the result of a NIST study involving
-               quantum defects in iodine atoms.  The response
-               variable is the number of quantum defects, and the
-               predictor variable is the excited energy state.
-               The argument to the ARCTAN function is in radians.
-
-Reference:     Roszman, L., NIST (19??).  
-               Quantum Defects for Sulfur I Atom.
-
-Data:          1 Response  (y = quantum defect)
-               1 Predictor (x = excited state energy)
-               25 Observations
-               Average Level of Difficulty
-               Observed Data
-
-Model:         Miscellaneous Class
-               4 Parameters (b1 to b4)
-
-               pi = 3.141592653589793238462643383279E0
-               y =  b1 - b2*x - arctan[b3/(x-b4)]/pi  +  e
-=#
-
 export rozman1
 
 function rozman1(args...; kwargs...)

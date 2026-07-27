@@ -11,9 +11,6 @@
 # granted, provided that the above copyright notice appear in all
 # copies and that the copyright notice and this
 # permission notice appear in all supporting documentation.
-#   Source: a one variable box-constrained quadratic
-#   SIF input: Nick Gould, March 1992
-#   classification QBR2-AN-1-0
 export bqp1var
 
 function bqp1var(; n::Int = default_nvar, kwargs...)

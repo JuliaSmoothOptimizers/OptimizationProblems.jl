@@ -1,16 +1,3 @@
-#   A linear least squares problem
-#   arising from chemical kinetics.
-#
-#   model: H-N=C=Se TZVP+MP2
-#   fitting Y to A0 T_0 + A2 T_2 + A4 T_4 + A6 T_6 + A8 T_8 +
-#                A10 T_10 + A12 T_12 + A14 T_14
-#   where T_i is the i-th (shifted) Chebyshev polynomial
-#
-#   Source:
-#   M. Palmer, Edinburgh, private communication.
-#
-#   classification QUR2-RN-6-0
-
 export palmer5c
 
 "A linear least squares problem arising from chemical kinetics."

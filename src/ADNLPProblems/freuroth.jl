@@ -6,8 +6,9 @@ function freuroth(; use_nls::Bool = false, kwargs...)
 end
 
 function freuroth(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("freuroth: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("freuroth", n_org, n)
   function f(x; n = length(x))
     return 1 // 2 *
            sum(((5 - x[i + 1]) * x[i + 1]^2 + x[i] - 2 * x[i + 1] - 13)^2 for i = 1:(n - 1)) +
@@ -22,8 +23,9 @@ function freuroth(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
 end
 
 function freuroth(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("freuroth: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("freuroth", n_org, n)
   function F!(r, x; n = length(x))
     for i = 1:(n - 1)
       r[i] = (5 - x[i + 1]) * x[i + 1]^2 + x[i] - 2 * x[i + 1] - 13

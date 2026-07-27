@@ -1,8 +1,9 @@
 export scosine
 
 function scosine(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("scosine: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("scosine", n_org, n)
   p = [exp(6 * (i - 1) // (n - 1)) for i = 1:n]
   function f(x; n = length(x))
     return sum(

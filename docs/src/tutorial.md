@@ -47,7 +47,7 @@ using OptimizationProblems, OptimizationProblems.ADNLPProblems
 problems = OptimizationProblems.meta[!, :name]
 length(problems)
 ```
-Similarly, to the PureJuMP models, it suffices to select any of this problem to get the model.
+Similarly, to the PureJuMP models, it suffices to select any of these problems to get the model.
 ``` @example ex2
 nlp = zangwil3()
 ```
@@ -62,8 +62,31 @@ One of the advantages of these problems is that they are type-stable. Indeed, on
 ``` @example ex2
 nlp16_12 = woods(n=12, type=Float16)
 ```
-Then, all the API will be compatible with the precised type.
+Then, all the API will be compatible with the specified type.
 ``` @example ex2
 using NLPModels
 obj(nlp16_12, zeros(Float16, 12))
+```
+
+### Nonlinear Least Squares Problems (NLS)
+
+Some problems are classified as nonlinear least squares (NLS). These problems may provide both an `ADNLPModel` and an `ADNLSModel` implementation, and dispatch to one or the other using the `use_nls` keyword argument, see [`arglina`](https://github.com/JuliaSmoothOptimizers/OptimizationProblems.jl/blob/main/src/ADNLPProblems/arglina.jl) for a concrete example of this pattern.
+
+Using `ADNLSModel` can be preferable when a solver exploits the least-squares structure directly (residual vector and Jacobian), which is often more efficient and numerically robust than treating the same problem as a generic nonlinear program (`ADNLPModel`).
+
+To obtain the least squares model (`ADNLSModel`), use the `use_nls=true` keyword argument when constructing the problem:
+``` @example ex2
+lanczos1_nlp = lanczos1()
+lanczos1_nls = lanczos1(use_nls=true)
+typeof(lanczos1_nlp)
+typeof(lanczos1_nls)
+```
+
+To list all NLS problems:
+``` @example ex2
+nls_problems = OptimizationProblems.meta[OptimizationProblems.meta.objtype .== :least_squares, :name]
+```
+To access the number of NLS equations for a problem:
+``` @example ex2
+OptimizationProblems.get_lanczos1_nls_nequ()
 ```

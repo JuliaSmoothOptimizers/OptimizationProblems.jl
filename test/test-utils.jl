@@ -7,18 +7,18 @@
 @everywhere meta = OptimizationProblems.meta
 
 @everywhere function meta_sanity_check(prob::Symbol, nlp::AbstractNLPModel)
-  meta = OptimizationProblems.eval(Symbol(prob, :_meta))
-  getnvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))(n = test_nvar)
+  meta = getfield(OptimizationProblems, Symbol(prob, :_meta))
+  getnvar = getfield(OptimizationProblems, Symbol(:get_, prob, :_nvar))(n = test_nvar)
   @test getnvar == meta[:nvar] || meta[:variable_nvar]
-  getncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))(n = test_nvar)
+  getncon = getfield(OptimizationProblems, Symbol(:get_, prob, :_ncon))(n = test_nvar)
   @test getncon == meta[:ncon] || meta[:variable_ncon]
-  getnlin = OptimizationProblems.eval(Symbol(:get_, prob, :_nlin))(n = test_nvar)
+  getnlin = getfield(OptimizationProblems, Symbol(:get_, prob, :_nlin))(n = test_nvar)
   @test getnlin == nlp.meta.nlin || meta[:variable_ncon]
-  getnnln = OptimizationProblems.eval(Symbol(:get_, prob, :_nnln))(n = test_nvar)
+  getnnln = getfield(OptimizationProblems, Symbol(:get_, prob, :_nnln))(n = test_nvar)
   @test getnnln == nlp.meta.nnln || meta[:variable_ncon]
-  getnequ = OptimizationProblems.eval(Symbol(:get_, prob, :_nequ))(n = test_nvar)
+  getnequ = getfield(OptimizationProblems, Symbol(:get_, prob, :_nequ))(n = test_nvar)
   @test getnequ == length(get_jfix(nlp)) || meta[:variable_ncon]
-  getnineq = OptimizationProblems.eval(Symbol(:get_, prob, :_nineq))(n = test_nvar)
+  getnineq = getfield(OptimizationProblems, Symbol(:get_, prob, :_nineq))(n = test_nvar)
   @test getnineq == (get_ncon(nlp) - length(get_jfix(nlp))) || meta[:variable_ncon]
   @test meta[:best_known_lower_bound] <= meta[:best_known_upper_bound]
   @test meta[:minimize] == get_minimize(nlp)
@@ -29,7 +29,7 @@
 end
 
 @everywhere function test_in_place_constraints(prob::Symbol)
-  nlp = OptimizationProblems.ADNLPProblems.eval(prob)()
+  nlp = getfield(ADNLPProblems, prob)()
   return test_in_place_constraints(prob, nlp)
 end
 
@@ -42,20 +42,15 @@ end
     @allocated cons_nln!(nlp, x, cx)
     @test (@allocated cons_nln!(nlp, x, cx)) == 0
   end
-  m = OptimizationProblems.eval(Meta.parse("get_$(prob)_nnln"))()
+  m = getfield(OptimizationProblems, Symbol(:get_, prob, :_nnln))()
   @test ncon == m
 end
 
 @everywhere function test_compatibility(prob::Symbol, ndef::Integer = ndef)
-  prob_fn = eval(Meta.parse("PureJuMP.$(prob)"))
+  prob_fn = getfield(PureJuMP, prob)
   model = prob_fn(n = ndef)
   nlp_jump = MathOptNLPModel(model)
-
-  nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
-
   nlp_ad = make_ad_nlp(prob)
-
   return test_compatibility(prob, nlp_jump, nlp_ad, ndef)
 end
 
@@ -112,9 +107,6 @@ end
 end
 
 @everywhere function test_multi_precision(prob::Symbol; list_types = [Float32, Float64])
-  nvar = OptimizationProblems.eval(Symbol(:get_, prob, :_nvar))()
-  ncon = OptimizationProblems.eval(Symbol(:get_, prob, :_ncon))()
-
   for T in list_types
     nlp = make_ad_nlp(prob; type = T)
     test_multi_precision(T, nlp)

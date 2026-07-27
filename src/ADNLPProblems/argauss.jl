@@ -1,11 +1,6 @@
 export argauss
 
 function argauss(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  xinit = T[
-    0.4
-    1.0
-    0.0
-  ]
   rhs = T[
     0.0009
     0.0044
@@ -27,7 +22,11 @@ function argauss(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wh
   function f(x)
     return zero(eltype(x))
   end
-  x0 = xinit
+  x0 = T[
+    0.4
+    1.0
+    0.0
+  ]
   lvar = -T(Inf) * ones(T, 3)
   uvar = T(Inf) * ones(T, 3)
 

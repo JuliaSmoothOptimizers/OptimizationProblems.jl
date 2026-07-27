@@ -16,10 +16,34 @@ hs233_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://doi.org/10.1007/978-3-642-61582-5",
+  :notes => raw"""
+Hock and Schittkowski problem number 233.
+""",
+  :origin_notes => raw"""
+Problem 233 in
+  K. Schittkowski,
+  More Test Examples for Nonlinear Programming Codes,
+  Lectures Notes in Economics and Mathematical Systems 282,
+  Springer Verlag, Heidelberg, 1987.
+""",
+  :reference => raw"""
+@book{Schittkowski1987,
+  author    = {Schittkowski, Klaus},
+  title     = {More Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {282},
+  publisher = {Springer-Verlag},
+  address   = {Heidelberg},
+  year      = {1987}
+}
+  """,
+  :lib => "HS2:233",
 )
-get_hs233_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs233_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs233_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs233_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs233_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs233_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_hs233_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs233_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs233_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs233_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs233_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs233_nineq(; n::Int = default_nvar, kwargs...) = 1

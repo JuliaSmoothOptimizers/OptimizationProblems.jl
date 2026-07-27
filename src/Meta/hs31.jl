@@ -16,10 +16,40 @@ hs31_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS31.SIF",
+  :notes => raw"""
+Hock and Schittkowski problem number 31.
+
+classification QQR2-AN-3-1
+
+A. Montoison, Montreal, 05/2018.
+""",
+  :origin_notes => raw"""
+  problem 31 in
+  W. Hock and K. Schittkowski,
+  "Test examples for nonlinear programming codes",
+  Lectures Notes in Economics and Mathematical Systems 187, Springer
+  Verlag, Heidelberg, 1981.
+
+  SIF input: N. Gould, Dec 1989.
+  """,
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+  :lib => "CUTEst:HS31, HS:31",
 )
-get_hs31_nvar(; n::Integer = default_nvar, kwargs...) = 3
-get_hs31_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs31_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs31_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs31_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs31_nineq(; n::Integer = default_nvar, kwargs...) = 1
+get_hs31_nvar(; n::Int = default_nvar, kwargs...) = 3
+get_hs31_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs31_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs31_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs31_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs31_nineq(; n::Int = default_nvar, kwargs...) = 1

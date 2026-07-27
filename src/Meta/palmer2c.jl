@@ -16,11 +16,40 @@ palmer2c_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://bitbucket.org/optrove/sif/src/master/PALMER2C.SIF",
+  :notes => raw"""
+A linear least squares problem arising from chemical kinetics.
+
+model: H-N=C=O TZVP+MP2
+fitting Y to A0 + A2 X**2 + A4 X**4 + A6 X**6 + A8 X**8 +
+           A10 X**10 + A12 X**12 + A14 X**14
+
+classification QUR2-RN-8-0
+""",
+  :origin_notes => raw"""
+M. Palmer, Edinburgh, private communication.
+
+SIF input: Nick Gould, 1990.
+""",
+  :reference => raw"""
+@article{Gould2015CUTEst,
+  author  = {Gould, N. I. M. and Orban, D. and Toint, Ph. L.},
+  title   = {{CUTEst}: a Constrained and Unconstrained Testing Environment with safe threads for mathematical optimization},
+  journal = {Computational Optimization and Applications},
+  year    = {2015},
+  volume  = {60},
+  number  = {3},
+  pages   = {545--557},
+  doi     = {10.1007/s10589-014-9687-3}
+}
+""",
+  :lib => "CUTEst:PALMER2C",
 )
-get_palmer2c_nvar(; n::Integer = default_nvar, kwargs...) = 8
-get_palmer2c_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer2c_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer2c_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer2c_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer2c_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer2c_nls_nequ(; n::Integer = default_nvar, kwargs...) = 23
+get_palmer2c_nvar(; n::Int = default_nvar, kwargs...) = 8
+get_palmer2c_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_palmer2c_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_palmer2c_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_palmer2c_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_palmer2c_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_palmer2c_nls_nequ(; n::Int = default_nvar, kwargs...) = 23

@@ -16,11 +16,39 @@ hs6_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://bitbucket.org/optrove/sif/src/master/HS6.SIF",
+  :notes => raw"""
+classification QQR2-AN-2-1
+  
+  D. Orban, Montreal, 04/2016.
+""",
+  :origin_notes => raw"""
+problem 6 in
+W. Hock and K. Schittkowski,
+"Test examples for nonlinear programming codes",
+Lectures Notes in Economics and Mathematical Systems 187, Springer
+Verlag, Heidelberg, 1981.
+
+SIF input: A.R. Conn March 1990
+""",
+  :reference => raw"""
+@book{HockSchittkowski1981,
+  author    = {Hock, W. and Schittkowski, K.},
+  title     = {Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {187},
+  publisher = {Springer-Verlag},
+    address   = {Heidelberg},
+  year      = {1981}
+}  
+  """,
+  :lib => "CUTEst:HS6, HS:6",
 )
-get_hs6_nvar(; n::Integer = default_nvar, kwargs...) = 2
-get_hs6_ncon(; n::Integer = default_nvar, kwargs...) = 1
-get_hs6_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs6_nnln(; n::Integer = default_nvar, kwargs...) = 1
-get_hs6_nequ(; n::Integer = default_nvar, kwargs...) = 1
-get_hs6_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_hs6_nls_nequ(; n::Integer = default_nvar, kwargs...) = 1
+get_hs6_nvar(; n::Int = default_nvar, kwargs...) = 2
+get_hs6_ncon(; n::Int = default_nvar, kwargs...) = 1
+get_hs6_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs6_nnln(; n::Int = default_nvar, kwargs...) = 1
+get_hs6_nequ(; n::Int = default_nvar, kwargs...) = 1
+get_hs6_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_hs6_nls_nequ(; n::Int = default_nvar, kwargs...) = 1

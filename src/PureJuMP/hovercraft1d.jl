@@ -1,17 +1,13 @@
-# JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
-# Introduction to Optimization class.
-
-# Hovercraft 1D example
-# https://laurentlessard.com/teaching/524-intro-to-optimization/
 export hovercraft1d
 
 function hovercraft1d(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
 
   T = div(n, 3)           # length of time horizon
-  @variable(nlp, x[1:T])    # resulting position
-  @variable(nlp, v[1:T])    # resulting velocity
-  @variable(nlp, u[1:(T - 1)])  # thruster input
+  @adjust_nvar_warn("hovercraft1d", n, 3 * T - 1)
+  @variable(nlp, x[1:T], start = 0)    # resulting position
+  @variable(nlp, v[1:T], start = 0)    # resulting velocity
+  @variable(nlp, u[1:(T - 1)], start = 0)  # thruster input
 
   # constraint on start and end positions and velocities
   @constraint(nlp, x[1] == 0)

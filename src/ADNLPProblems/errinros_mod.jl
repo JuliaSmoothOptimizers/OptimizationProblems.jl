@@ -11,8 +11,9 @@ function errinros_mod(
   type::Type{T} = Float64,
   kwargs...,
 ) where {T}
-  n < 2 && @warn("errinros_mod: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("errinros_mod", n_org, n)
   function f(x; n = length(x))
     return 1 // 2 * sum((x[i - 1] - 16 * x[i]^2 * (15 // 10 + eltype(x)(sin(i)))^2)^2 for i = 2:n) +
            1 // 2 * sum((1 - x[i])^2 for i = 2:n)
@@ -27,8 +28,9 @@ function errinros_mod(
   type::Type{T} = Float64,
   kwargs...,
 ) where {T}
-  n < 2 && @warn("errinros_mod: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("errinros_mod", n_org, n)
   function F!(r::AbstractVector{Ti}, x; n = length(x)) where {Ti}
     for i = 2:n
       r[i - 1] = x[i - 1] - 16 * x[i]^2 * (15 // 10 + sin(i * one(Ti)))^2

@@ -16,10 +16,34 @@ hs259_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://doi.org/10.1007/978-3-642-61582-5",
+  :notes => raw"""
+Hock and Schittkowski problem number 259.
+""",
+  :origin_notes => raw"""
+Problem 259 in
+  K. Schittkowski,
+  More Test Examples for Nonlinear Programming Codes,
+  Lectures Notes in Economics and Mathematical Systems 282,
+  Springer Verlag, Heidelberg, 1987.
+""",
+  :reference => raw"""
+@book{Schittkowski1987,
+  author    = {Schittkowski, Klaus},
+  title     = {More Test Examples for Nonlinear Programming Codes},
+  series    = {Lecture Notes in Economics and Mathematical Systems},
+  volume    = {282},
+  publisher = {Springer-Verlag},
+  address   = {Heidelberg},
+  year      = {1987}
+}
+  """,
+  :lib => "HS2:259",
 )
-get_hs259_nvar(; n::Integer = default_nvar, kwargs...) = 4
-get_hs259_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_hs259_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_hs259_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_hs259_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_hs259_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_hs259_nvar(; n::Int = default_nvar, kwargs...) = 4
+get_hs259_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_hs259_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_hs259_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_hs259_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_hs259_nineq(; n::Int = default_nvar, kwargs...) = 0

@@ -16,11 +16,36 @@ trigb_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization",
+  :notes => raw"""
+Banded trigonometric problem
+""",
+  :origin_notes => raw"""
+Problem 16 in
+  L. Luksan, C. Matonoha and J. Vlcek
+  Sparse Test Problems for Unconstrained Optimization,
+  Technical Report 1064,
+  Institute of Computer Science,
+  Academy of Science of the Czech Republic
+""",
+  :reference => raw"""
+@techreport{LuksanMatonohaVlcek2010Sparse,
+  author      = {Luksan, Ladislav and Matonoha, Ctirad and Vlcek, Jan},
+  title       = {Sparse Test Problems for Unconstrained Optimization},
+  institution = {Institute of Computer Science, Academy of Sciences of the Czech Republic},
+  number      = {V-1064},
+  year        = {2010},
+  address     = {Prague, Czech Republic},
+  url         = {https://www.researchgate.net/publication/325314400_Sparse_Test_Problems_for_Unconstrained_Optimization}
+}
+  """,
+  :lib => "LuksanSparse:16",
 )
 
-get_trigb_nvar(; n::Integer = default_nvar, kwargs...) = n
-get_trigb_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_trigb_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_trigb_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_trigb_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_trigb_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_trigb_nvar(; n::Int = default_nvar, kwargs...) = n
+get_trigb_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_trigb_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_trigb_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_trigb_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_trigb_nineq(; n::Int = default_nvar, kwargs...) = 0

@@ -11,13 +11,6 @@
 # granted, provided that the above copyright notice appear in all
 # copies and that the copyright notice and this
 # permission notice appear in all supporting documentation.
-#   Source: Problem 9 in
-#   J.J. More', B.S. Garbow and K.E. Hillstrom,
-#   "Testing Unconstrained Optimization Software",
-#   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-#   See also Buckley#28
-#   SIF input: Ph. Toint, Dec 1989.
-#   classification NOR2-AN-3-15
 export argauss
 
 function argauss(; n::Int = default_nvar, kwargs...)

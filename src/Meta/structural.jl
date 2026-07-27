@@ -25,14 +25,32 @@ structural_meta = Dict(
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://laurentlessard.com/teaching/524-intro-to-optimization/",
+  :notes => raw"""
+JuMP model follows Laurent Lessard CS/ECE/ISyE 524, University of Wisconsin–Madison, 
+ Introduction to Optimization class.
+""",
+  :origin_notes => raw"""
+
+""",
+  :reference => raw"""
+@misc{Lessard524,
+  author       = {Lessard, Laurent},
+  title        = {Introduction to Optimization, {CS/ECE/ISyE} 524},
+  howpublished = {Lecture notes, University of Wisconsin--Madison},
+  url          = {https://laurentlessard.com/teaching/524-intro-to-optimization/},
+}
+""",
+  :lib => "",
 )
-get_structural_nvar(; n::Integer = default_nvar, kwargs...) =
+get_structural_nvar(; n::Int = default_nvar, kwargs...) =
   2 * Int(
     min(Int(round(max(100, n)^(1 / 3))), 6) *
     Int(round(max(100, n)^(1 / 3))) *
     (min(Int(round(max(100, n)^(1 / 3))), 6) * Int(round(max(100, n)^(1 / 3))) - 1) / 2,
   )
-get_structural_ncon(; n::Integer = default_nvar, kwargs...) =
+get_structural_ncon(; n::Int = default_nvar, kwargs...) =
   2 * (
     min(Int(round(max(100, n)^(1 / 3))), 6) * Int(round(max(100, n)^(1 / 3))) -
     (min(Int(round(max(100, n)^(1 / 3))), 6) - 2)
@@ -42,7 +60,7 @@ get_structural_ncon(; n::Integer = default_nvar, kwargs...) =
     Int(round(max(100, n)^(1 / 3))) *
     (min(Int(round(max(100, n)^(1 / 3))), 6) * Int(round(max(100, n)^(1 / 3))) - 1) / 2,
   )
-get_structural_nlin(; n::Integer = default_nvar, kwargs...) =
+get_structural_nlin(; n::Int = default_nvar, kwargs...) =
   2 * (
     min(Int(round(max(100, n)^(1 / 3))), 6) * Int(round(max(100, n)^(1 / 3))) -
     (min(Int(round(max(100, n)^(1 / 3))), 6) - 2)
@@ -52,13 +70,13 @@ get_structural_nlin(; n::Integer = default_nvar, kwargs...) =
     Int(round(max(100, n)^(1 / 3))) *
     (min(Int(round(max(100, n)^(1 / 3))), 6) * Int(round(max(100, n)^(1 / 3))) - 1) / 2,
   )
-get_structural_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_structural_nequ(; n::Integer = default_nvar, kwargs...) =
+get_structural_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_structural_nequ(; n::Int = default_nvar, kwargs...) =
   2 * (
     min(Int(round(max(100, n)^(1 / 3))), 6) * Int(round(max(100, n)^(1 / 3))) -
     (min(Int(round(max(100, n)^(1 / 3))), 6) - 2)
   )
-get_structural_nineq(; n::Integer = default_nvar, kwargs...) =
+get_structural_nineq(; n::Int = default_nvar, kwargs...) =
   2 * Int(
     min(Int(round(max(100, n)^(1 / 3))), 6) *
     Int(round(max(100, n)^(1 / 3))) *

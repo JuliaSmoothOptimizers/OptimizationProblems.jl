@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 220.
-#
-#   Source:
-#   Problem 220 in
-#   K. Schittkowski,
-#   More Test Examples for Nonlinear Programming Codes,
-#   Lectures Notes in Economics and Mathematical Systems 282,
-#   Springer Verlag, Heidelberg, 1987.
-#
-#   
-#
-# T. Migot, Montreal, 2023.
-
 export hs220
 
 "HS220 model"

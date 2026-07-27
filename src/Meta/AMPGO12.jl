@@ -16,10 +16,31 @@ AMPGO12_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "http://infinity77.net/global_optimization/test_functions_1d.html#d-test-functions",
+  :notes => raw"""
+A one dimensional optimization problem
+""",
+  :origin_notes => raw"""
+Problem 12 in
+http://infinity77.net/global_optimization/test_functions_1d.html#d-test-functions
+Andrea Gavana
+S. Goyette, Sherbrooke 2016/2017
+""",
+  :reference => raw"""
+@misc{GavanaGOTestSuite,
+  author       = {Gavana, Andrea},
+  title        = {Global Optimization Benchmarks},
+  year         = {2013},
+  howpublished = {\url{http://infinity77.net/global_optimization/}},
+  note         = {Collection of benchmark functions and algorithm comparisons for global optimization (including AMPGO)}
+}
+""",
+  :lib => "AMPGO:12",
 )
-get_AMPGO12_nvar(; n::Integer = default_nvar, kwargs...) = 1
-get_AMPGO12_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_AMPGO12_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_AMPGO12_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_AMPGO12_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_AMPGO12_nineq(; n::Integer = default_nvar, kwargs...) = 0
+get_AMPGO12_nvar(; n::Int = default_nvar, kwargs...) = 1
+get_AMPGO12_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_AMPGO12_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_AMPGO12_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_AMPGO12_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_AMPGO12_nineq(; n::Int = default_nvar, kwargs...) = 0

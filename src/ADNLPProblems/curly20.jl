@@ -1,8 +1,9 @@
 export curly20
 
 function curly20(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("curly: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("curly20", n_org, n)
   b = 20
   function f(x; n = n, b = b)
     return sum(

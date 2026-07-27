@@ -1,8 +1,9 @@
 export fletcbv3_mod
 
 function fletcbv3_mod(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("fletchbv3_mod: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("fletcbv3_mod", n_org, n)
   function f(x; n = length(x))
     p = 1 // 100000000
     h = 1 // (n + 1)

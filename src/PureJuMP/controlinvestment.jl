@@ -1,6 +1,3 @@
-# Example 5.3, Dominique Orban, Computation Optimization and Control lecture notes at Polytechnique Montréal.
-# This is a simple investment problem in optimistic market.
-
 export controlinvestment
 
 function controlinvestment(args...; n::Int = default_nvar, kwargs...)

@@ -1,20 +1,8 @@
-#   Linear function - rank 1
-#
-#   Source: Problem 33 in
-#   J.J. More', B.S. Garbow and K.E. Hillstrom,
-#   "Testing Unconstrained Optimization Software",
-#   ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-#
-#   See also Buckley#93 (with different N and M)
-#
-#   classification SUR2-AN-V-0
-
 export arglinb
 
 "Linear function with `n` parameters and `m` observations - rank 1"
-function arglinb(args...; n::Int = default_nvar, m::Int = 2n, kwargs...)
-  m < n && @warn("arglinb: must have m ≥ n")
-  m = max(m, n)
+function arglinb(args...; n::Int = default_nvar, kwargs...)
+  m = 2 * n
 
   nlp = Model()
 

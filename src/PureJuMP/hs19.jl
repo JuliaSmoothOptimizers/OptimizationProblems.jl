@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 19.
-#
-#   Source:
-#   Problem 19 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification PQR2-AN-2-2
-#
-# A. Montoison, Montreal, 04/2018.
-
 export hs19
 
 "HS19 model"

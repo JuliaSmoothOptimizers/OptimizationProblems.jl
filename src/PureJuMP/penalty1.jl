@@ -1,17 +1,3 @@
-#   A penalty function arising from
-#   min{ sum_1^n(x_i-1)^2 subject to sum_1^n x_i^2 = 1/4}.
-#   At the solution, the hessian has n-1 eigenvalues of order 1e-5 and
-#   one of order 1.
-#
-#   Source: problem 23 in
-#      J.J. More, B.S. Garbow and K.E. Hillstrom,
-#      "Testing Unconstrained Optimization Software",
-#      ACM Transactions on Mathematical Software, vol. 7(1), pp. 17-41, 1981.
-#
-#   See also Buckley #181 (p. 79)
-#
-#   classification SUR2-AN-V-0
-
 export penalty1
 
 "Linear function with `n` parameters and `m` observations  - full rank"

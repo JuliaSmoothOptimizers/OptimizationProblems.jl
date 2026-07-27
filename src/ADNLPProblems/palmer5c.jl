@@ -100,9 +100,10 @@ function palmer5c(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
     end
   end
 
-  function F!(r::AbstractVector{Ti}, x; t = Ti.(t), Y = Ti.(Y)) where {Ti}
-    for i = 1:12
-      r[i] = Y[i] - sum(x[j] * t[i, 2 * j - 1] for j = 1:6)
+  function F!(r, x, t = t, Y = Y)
+    Ti = eltype(x)
+    for i = 1:length(r)
+      r[i] = Ti(Y[i]) - sum(x[j] * Ti(t[i, 2 * j - 1]) for j = 1:6)
     end
     return r
   end

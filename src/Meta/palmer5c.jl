@@ -16,11 +16,41 @@ palmer5c_meta = Dict(
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
+  :implementation => :both,
+  :url => "https://bitbucket.org/optrove/sif/src/master/PALMER5C.SIF",
+  :notes => raw"""
+A linear least squares problem arising from chemical kinetics.
+
+model: H-N=C=Se TZVP+MP2
+fitting Y to A0 T_0 + A2 T_2 + A4 T_4 + A6 T_6 + A8 T_8 +
+           A10 T_10 + A12 T_12 + A14 T_14
+where T_i is the i-th (shifted) Chebyshev polynomial
+
+classification QUR2-RN-6-0
+""",
+  :origin_notes => raw"""
+M. Palmer, Edinburgh, private communication.
+
+SIF input: Nick Gould, 1992.
+""",
+  :reference => raw"""
+@article{Gould2015CUTEst,
+  author  = {Gould, N. I. M. and Orban, D. and Toint, Ph. L.},
+  title   = {{CUTEst}: a Constrained and Unconstrained Testing Environment with safe threads for mathematical optimization},
+  journal = {Computational Optimization and Applications},
+  year    = {2015},
+  volume  = {60},
+  number  = {3},
+  pages   = {545--557},
+  doi     = {10.1007/s10589-014-9687-3}
+}
+""",
+  :lib => "CUTEst:PALMER5C",
 )
-get_palmer5c_nvar(; n::Integer = default_nvar, kwargs...) = 6
-get_palmer5c_ncon(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer5c_nlin(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer5c_nnln(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer5c_nequ(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer5c_nineq(; n::Integer = default_nvar, kwargs...) = 0
-get_palmer5c_nls_nequ(; n::Integer = default_nvar, kwargs...) = 12
+get_palmer5c_nvar(; n::Int = default_nvar, kwargs...) = 6
+get_palmer5c_ncon(; n::Int = default_nvar, kwargs...) = 0
+get_palmer5c_nlin(; n::Int = default_nvar, kwargs...) = 0
+get_palmer5c_nnln(; n::Int = default_nvar, kwargs...) = 0
+get_palmer5c_nequ(; n::Int = default_nvar, kwargs...) = 0
+get_palmer5c_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_palmer5c_nls_nequ(; n::Int = default_nvar, kwargs...) = 12

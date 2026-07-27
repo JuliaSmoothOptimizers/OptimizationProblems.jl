@@ -1,8 +1,9 @@
 export schmvett
 
 function schmvett(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 3 && @warn("schmvett: number of variables must be ≥ 3")
+  n_org = n
   n = max(3, n)
+  @adjust_nvar_warn("schmvett", n_org, n)
   function f(x; n = length(x))
     return sum(
       -(1 / (1 + (x[i] - x[i + 1])^2)) - sin((π * x[i + 1] + x[i + 2]) / 2) -

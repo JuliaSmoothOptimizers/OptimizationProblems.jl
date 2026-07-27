@@ -1,13 +1,3 @@
-#   A simple quartic function.
-#
-#   Source:  problem 157 (p. 87) in
-#   A.R. Buckley,
-#   "Test functions for unconstrained minimization",
-#   TR 1989CS-3, Mathematics, statistics and computing centre,
-#   Dalhousie University, Halifax (CDN), 1989.
-#
-#   classification OUR2-AN-V-0
-
 export quartc
 
 "A simple quartic function."

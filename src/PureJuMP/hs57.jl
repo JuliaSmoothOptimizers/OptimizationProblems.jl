@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 57.
-#
-#   Source:
-#   Problem 57 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification SQR-AN-2-1
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs57
 
 "HS57 model"

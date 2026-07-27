@@ -6,8 +6,9 @@ function genrose(; use_nls::Bool = false, kwargs...)
 end
 
 function genrose(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
-  n < 2 && @warn("genrose: number of variables must be ≥ 2")
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("genrose", n_org, n)
   function f(x; n = length(x))
     return 1 +
            100 * sum((x[i + 1] - x[i]^2)^2 for i = 1:(n - 1)) +
@@ -18,7 +19,9 @@ function genrose(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kw
 end
 
 function genrose(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where {T}
+  n_org = n
   n = max(2, n)
+  @adjust_nvar_warn("genrose", n_org, n)
   nequ = 2 * (n - 1) + 1
   function F!(r, x; n = length(x))
     @inbounds begin
@@ -34,5 +37,8 @@ function genrose(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kw
   return ADNLPModels.ADNLSModel!(F!, x0, nequ, name = "genrose-nls"; kwargs...)
 end
 
-rosenbrock(args...; kwargs...) =
-  genrose(args..., n = 2, name = "rosenbrock"; delete!(Dict(kwargs), :n)...)
+function rosenbrock(; use_nls::Bool = false, kwargs...)
+  name = use_nls ? "rosenbrock-nls" : "rosenbrock"
+  kw = delete!(delete!(Dict{Symbol, Any}(kwargs), :n), :name)
+  return genrose(; use_nls = use_nls, n = 2, name = name, kw...)
+end

@@ -1,26 +1,10 @@
-#   The classical problem of the hanging catenary.  Here the catenary consists
-#   of N+1 beams of length BL, with the first beam fixed at the origin and
-#   the final bean fixed at a fraction FRACT of the total length of all
-#   beams.
-#
-#   The problem is non-convex.
-#
-#   Source: 
-#   K. Veselic,
-#   "De forma catenarum in campo gravitatis pendentium",
-#   Klasicna Gimnazija u Zagrebu, Zagreb, 1987.
-#
-#   classification LQR2-AY-V-V
-#
-#   M. Gollier, Montréal, 05/2023
-
 export catenary
 
 function catenary(args...; n::Int = default_nvar, Bl = 1.0, FRACT = 0.6, kwargs...)
-  (n % 3 == 0) || @warn("catenary: number of variables adjusted to be a multiple of 3")
+  n_org = n
   n = 3 * max(1, div(n, 3))
-  (n < 6) || @warn("catenary: number of variables adjusted to be greater or equal to 6")
   n = max(n, 6)
+  @adjust_nvar_warn("catenary", n_org, n)
 
   ## Model Parameters
 

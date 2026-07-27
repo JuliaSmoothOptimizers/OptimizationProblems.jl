@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 75.
-#
-#   Source:
-#   Problem 75 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification PGR-AN-4-5
-#
-# A. Montoison, Montreal, 05/2018.
-
 export hs75
 
 "HS75 model"

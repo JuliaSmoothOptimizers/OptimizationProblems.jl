@@ -1,16 +1,3 @@
-# Hock and Schittkowski problem number 20.
-#
-#   Source:
-#   Problem 20 in
-#   W. Hock and K. Schittkowski,
-#   Test examples for nonlinear programming codes,
-#   Lectures Notes in Economics and Mathematical Systems 187,
-#   Springer Verlag, Heidelberg, 1981.
-#
-#   classification SQR2-AN-2-3
-#
-# N. Antunes, Curitiba, 10/2016.
-
 export hs20
 
 "HS20 model"
