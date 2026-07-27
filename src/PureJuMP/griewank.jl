@@ -1,17 +1,3 @@
-# Griewank test function
-#
-# A multivariate multimodal optimization problem from the
-# AMPGO test set.
-#
-# Problem Griewank in
-# http://infinity77.net/global_optimization/test_functions_nd_G.html
-# Andrea Gavana
-#
-# f(x) = sum(x_i^2)/4000 - prod(cos(x_i/sqrt(i))) + 1
-#
-# Global minimum: f(0,...,0) = 0
-# Bounds: x_i in [-600, 600] for all i
-
 export griewank
 
 "Griewank multimodal minimization problem"

@@ -1,17 +1,3 @@
-# Ackley test function
-#
-# A multivariate multimodal optimization problem from the
-# AMPGO test set.
-#
-# Problem Ackley in
-# http://infinity77.net/global_optimization/test_functions_nd_A.html
-# Andrea Gavana
-#
-# f(x) = -20*exp(-0.2*sqrt(sum(x_i^2)/n)) - exp(sum(cos(2*pi*x_i))/n) + 20 + e
-#
-# Global minimum: f(0,...,0) = 0
-# Bounds: x_i in [-32.768, 32.768] for all i
-#
 export ackley
 
 "Ackley multimodal minimization problem"

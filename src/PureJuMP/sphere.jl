@@ -1,17 +1,3 @@
-# Sphere test function
-#
-# A simple multivariate convex optimization problem from the
-# AMPGO test set.
-#
-# Problem Sphere in
-# http://infinity77.net/global_optimization/test_functions_nd_S.html
-# Andrea Gavana
-#
-# f(x) = sum(x_i^2)
-#
-# Global minimum: f(0,...,0) = 0
-# Bounds: x_i in [-1, 1] for all i
-
 export sphere
 
 "Sphere convex minimization problem"
