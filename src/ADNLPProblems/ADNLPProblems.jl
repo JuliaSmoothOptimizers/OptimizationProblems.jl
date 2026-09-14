@@ -6,7 +6,7 @@ import ..OptimizationProblems: @adjust_nvar_warn
 const default_nvar = 100
 const data_path = joinpath(@__DIR__, "..", "..", "data")
 
-reshape_array(a, dims) = invoke(Base._reshape, Tuple{AbstractArray, typeof(dims)}, a, dims)
+reshape_array(a, dims) = reshape(a, dims)
 
 const _data_loaded = Dict{Symbol, Ref{Bool}}()
 const _data_locks = Dict{Symbol, ReentrantLock}()
