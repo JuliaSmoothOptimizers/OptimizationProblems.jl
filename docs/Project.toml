@@ -2,6 +2,7 @@
 ADNLPModels = "54578032-b7ea-4c30-94aa-7cbd1cce6c9a"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 GR = "28b8d3ca-fb5f-59d9-8090-bfdbd6d07a71"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 JSOSolvers = "10dff2fc-5484-5881-a0e0-c90441020f8a"
 NLPModels = "a4795742-8479-5a88-8948-cc11e1c8c1a6"
 NLPModelsJuMP = "792afdf1-32c1-5681-94e0-d7bf7a5df49e"
