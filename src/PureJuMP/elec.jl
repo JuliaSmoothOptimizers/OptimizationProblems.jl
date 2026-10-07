@@ -9,8 +9,8 @@ function elec(args...; n::Int = default_nvar, kwargs...)
 
   range0 = [i / n for i = 1:n]
 
-  θ0 = 2π .* range0
-  ϕ0 = π .* range0
+  θ0 = float(2π) .* range0
+  ϕ0 = float(π) .* range0
   xini = [sin(θ0[i]) * cos(ϕ0[i]) for i = 1:n] # x coordinate
   yini = [sin(θ0[i]) * sin(ϕ0[i]) for i = 1:n] # y coordinate 
   zini = [cos(θ0[i]) for i = 1:n]            # z coordinate

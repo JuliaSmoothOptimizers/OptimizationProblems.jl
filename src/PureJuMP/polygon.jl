@@ -4,10 +4,10 @@ function polygon(args...; n::Int = default_nvar, kwargs...)
   nlp = Model()
   N = div(n, 2)
   @variable(nlp, 0 <= r[1:N] <= 1, start = 1)
-  @variable(nlp, 0 <= θ[i = 1:N] <= π, start = i * π / (N - 1) - π / (N - 1))
+  @variable(nlp, 0 <= θ[i = 1:N] <= float(π), start = i * float(π) / (N - 1) - float(π) / (N - 1))
 
   # impose an order to the angles
-  @constraint(nlp, θ[N] == π)
+  @constraint(nlp, θ[N] == float(π))
   @constraint(nlp, r[N] == 0)
   for i = 1:(N - 1)
     @constraint(nlp, θ[i + 1] - θ[i] >= 0.0)

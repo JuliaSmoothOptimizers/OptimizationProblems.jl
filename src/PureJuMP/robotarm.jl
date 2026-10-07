@@ -9,12 +9,12 @@ function robotarm(; n::Int = default_nvar, L = 4.5, kwargs...)
   nlp = Model()
 
   # defining the bounds on the variables
-  lvar = [zeros(n); -π * ones(n); zeros(n); -Inf * ones(6n); 0]
-  uvar = [L * ones(n); π * ones(n); 2π * ones(n); Inf * ones(6n); Inf]
+  lvar = [zeros(n); -float(π) * ones(n); zeros(n); -Inf * ones(6n); 0]
+  uvar = [L * ones(n); float(π) * ones(n); float(2π) * ones(n); Inf * ones(6n); Inf]
   lvar[1] = uvar[1] = lvar[n] = uvar[n] = L
   lvar[n + 1] = uvar[n + 1] = 0
-  lvar[2n] = uvar[2n] = 2 * π / 3
-  lvar[2n + 1] = uvar[2n + 1] = lvar[3n] = uvar[3n] = π / 4
+  lvar[2n] = uvar[2n] = 2 * float(π) / 3
+  lvar[2n + 1] = uvar[2n + 1] = lvar[3n] = uvar[3n] = float(π) / 4
   lvar[3n + 1] =
     uvar[3n + 1] =
       lvar[4n] =
@@ -39,9 +39,9 @@ function robotarm(; n::Int = default_nvar, L = 4.5, kwargs...)
 
   # Building a feasible x0
   tf0 = 1
-  θ0 = [2π / 3 * (t / n)^2 for t = 1:n]
+  θ0 = [2 * float(π) / 3 * (t / n)^2 for t = 1:n]
   θ0[1] = 0
-  x0 = [L * ones(n); θ0; π * ones(n) / 4; zeros(6n); tf0]
+  x0 = [L * ones(n); θ0; float(π) * ones(n) / 4; zeros(6n); tf0]
 
   @variable(nlp, lvar[i] <= x[i = 1:length(x0)] <= uvar[i], start = x0[i])
 
