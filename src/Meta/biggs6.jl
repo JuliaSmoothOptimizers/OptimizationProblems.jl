@@ -9,17 +9,24 @@ biggs6_meta = Dict(
   :has_inequalities_only => false,
   :has_bounds => false,
   :has_fixed_variables => false,
-  :objtype => :other,
+  :objtype => :least_squares,
   :contype => :unconstrained,
-  :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => -3.156207810643302,
+  :best_known_lower_bound => 0.0,
+  :best_known_upper_bound => 0.0,
   :is_feasible => true,
-  :defined_everywhere => missing,
+  :defined_everywhere => true,
   :origin => :unknown,
   :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BIGGS6.SIF",
   :notes => raw"""
 Biggs EXP problem in 6 variables
+
+The objective is the sum of squares of the m residuals (m = 13 by default)
+
+  r_i(x) = x3 exp(-t_i x1) - x4 exp(-t_i x2) + x6 exp(-t_i x5) - y_i,
+  t_i = i / 10,   y_i = exp(-t_i) - 5 exp(-10 t_i) + 3 exp(-4 t_i).
+
+The residuals all vanish at x = (1, 10, 1, 5, 4, 3).
 
 classification SUR2-AN-6-0
 """,
@@ -57,3 +64,4 @@ get_biggs6_nlin(; n::Int = default_nvar, kwargs...) = 0
 get_biggs6_nnln(; n::Int = default_nvar, kwargs...) = 0
 get_biggs6_nequ(; n::Int = default_nvar, kwargs...) = 0
 get_biggs6_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_biggs6_nls_nequ(; n::Int = default_nvar, m::Int = 13, kwargs...) = max(6, m)

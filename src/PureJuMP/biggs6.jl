@@ -11,7 +11,7 @@ function biggs6(args...; n::Int = default_nvar, m::Int = 13, kwargs...)
     nlp,
     Min,
     sum(
-      x[3] * exp(-x[1] * z[i]) - x[4] * exp(-x[2] * z[i]) + x[6] * exp(-x[5] * z[i]) - y[i] for
+      (x[3] * exp(-x[1] * z[i]) - x[4] * exp(-x[2] * z[i]) + x[6] * exp(-x[5] * z[i]) - y[i])^2 for
       i = 1:m
     )
   )
