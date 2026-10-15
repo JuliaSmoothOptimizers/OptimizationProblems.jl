@@ -12,12 +12,12 @@ danwood_meta = Dict(
   :objtype => :least_squares,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 500.0,
+  :best_known_upper_bound => 2.1586542042e-3,
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
   :implementation => :both,
-  :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/danwood.dat, https://bitbucket.org/optrove/sif/src/master/DANWOOD.SIF",
+  :url => "https://www.itl.nist.gov/div898/strd/nls/data/LINKS/DATA/danwood.dat, https://bitbucket.org/optrove/sif/src/master/DANIWOOD.SIF",
   :notes => raw"""
 NIST/ITL StRD
 Dataset Name:  DanWood           (DanWood.dat)
@@ -82,7 +82,7 @@ SIF input: Nick Gould and Tyrone Rees, Oct 2015
   pages     = {428--431}
 }  
   """,
-  :lib => "CUTEst:DANWOOD, NIST:DanWood",
+  :lib => "CUTEst:DANIWOOD, NIST:DanWood",
 )
 get_danwood_nvar(; n::Int = default_nvar, kwargs...) = 2
 get_danwood_ncon(; n::Int = default_nvar, kwargs...) = 0
