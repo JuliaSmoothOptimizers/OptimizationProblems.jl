@@ -105,6 +105,7 @@ end
 
 pmap(test_one_problem, list_problems)
 
+include("test-reference-values.jl")
 include("test-scalable.jl")
 include("test-meta-fields.jl")
 include("test-export-bibtex.jl")
