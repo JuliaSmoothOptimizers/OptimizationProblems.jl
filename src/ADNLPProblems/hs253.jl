@@ -8,7 +8,7 @@ function hs253(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
 
   function f(x)
     n = length(x)
-    return sum(c[j] * sqrt((a1[j] - x[1]^2 + (a2[j] - x[2])^2 + (a3[j] - x[3])^2)) for j = 1:8)
+    return sum(c[j] * sqrt((a1[j] - x[1])^2 + (a2[j] - x[2])^2 + (a3[j] - x[3])^2) for j = 1:8)
   end
   x0 = T[0, 2, 0]
   lvar = T[0, 0, 0]

@@ -15,7 +15,7 @@ function hs253(args...; kwargs...)
   @objective(
     nlp,
     Min,
-    sum(c[j] * sqrt((a1[j] - x[1]^2 + (a2[j] - x[2])^2 + (a3[j] - x[3])^2)) for j = 1:8)
+    sum(c[j] * sqrt((a1[j] - x[1])^2 + (a2[j] - x[2])^2 + (a3[j] - x[3])^2) for j = 1:8)
   )
   @constraint(nlp, 30 - 3 * x[1] - 3 * x[3] >= 0)
 
