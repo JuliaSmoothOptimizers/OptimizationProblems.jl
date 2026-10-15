@@ -26,8 +26,8 @@ function fminsrf2(args...; n::Int = default_nvar, kwargs...)
   I = 2:(p - 1)
   J = 1:p
 
-  x0[I, 1] .= (I .- 1) * ston .+ h01
-  x0[I, p] .= (I .- 1) * ston .+ h00
+  x0[I, 1] .= (I .- 1) * ston .+ h00
+  x0[I, p] .= (I .- 1) * ston .+ h01
   x0[1, J] .= (J .- 1) * wtoe .+ h00
   x0[p, J] .= (J .- 1) * wtoe .+ h10
 
@@ -38,11 +38,11 @@ function fminsrf2(args...; n::Int = default_nvar, kwargs...)
     Min,
     sum(
       sum(
-        100.0 * sqrt(
+        sqrt(
           0.5 * (p - 1)^2 * ((x[i, j] - x[i + 1, j + 1])^2 + (x[i + 1, j] - x[i, j + 1])^2) + 1.0,
         ) / scale for i = 1:(p - 1)
       ) for j = 1:(p - 1)
-    ) + 100.0 * (x[mid, mid])^2 / n
+    ) + (x[mid, mid])^2 / n
   )
   return nlp
 end

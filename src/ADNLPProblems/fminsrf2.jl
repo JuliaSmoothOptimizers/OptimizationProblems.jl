@@ -24,21 +24,21 @@ function fminsrf2(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) w
   I = 2:(p - 1)
   J = 1:p
 
-  x0[I] .= (I .- 1) * ston .+ h01
-  x0[I .+ (p .- 1) * p] .= (I .- 1) * ston .+ h00
+  x0[I] .= (I .- 1) * ston .+ h00
+  x0[I .+ (p .- 1) * p] .= (I .- 1) * ston .+ h01
   x0[1 .+ (J .- 1) * p] .= (J .- 1) * wtoe .+ h00
   x0[p .+ (J .- 1) * p] .= (J .- 1) * wtoe .+ h10
   function f(x; n = length(x))
     return sum(
       sum(
-        100 * sqrt(
+        sqrt(
           1 // 2 *
           (p - 1)^2 *
           ((x[i + (j - 1) * p] - x[i + 1 + j * p])^2 + (x[i + 1 + (j - 1) * p] - x[i + j * p])^2) +
           1,
         ) / scale for i = 1:(p - 1)
       ) for j = 1:(p - 1)
-    ) + 100 * (x[mid + (mid - 1) * p])^2 / n
+    ) + (x[mid + (mid - 1) * p])^2 / n
   end
   return ADNLPModels.ADNLPModel(f, x0, name = "fminsrf2"; kwargs...)
 end
