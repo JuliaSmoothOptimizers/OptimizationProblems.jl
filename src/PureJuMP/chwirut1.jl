@@ -226,7 +226,7 @@ function chwirut1(args...; kwargs...)
   @objective(
     nlp,
     Min,
-    0.5 * sum((y[i, 1] - exp(-y[i, 2] * x[1]) / exp(x[2] + x[3] * y[i, 2]))^2 for i = 1:214)
+    0.5 * sum((y[i, 1] - exp(-y[i, 2] * x[1]) / (x[2] + x[3] * y[i, 2]))^2 for i = 1:214)
   )
 
   return nlp

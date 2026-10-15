@@ -224,7 +224,7 @@ function chwirut1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
   ]
   function f(x; y = y)
     return 1 // 2 *
-           sum((y[i, 1] - exp(-y[i, 2] * x[1]) / exp(x[2] + x[3] * y[i, 2]))^2 for i = 1:214)
+           sum((y[i, 1] - exp(-y[i, 2] * x[1]) / (x[2] + x[3] * y[i, 2]))^2 for i = 1:214)
   end
   x0 = T[0.1, 0.01, 0.02] # starting value 2 is: T[0.15, 0.008, 0.010]
   return ADNLPModels.ADNLPModel(f, x0, name = "chwirut1"; kwargs...)
@@ -450,7 +450,7 @@ function chwirut1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
   function F!(r, x)
     m = 214
     for i = 1:m
-      r[i] = y[i, 1] - exp(-y[i, 2] * x[1]) / exp(x[2] + x[3] * y[i, 2])
+      r[i] = y[i, 1] - exp(-y[i, 2] * x[1]) / (x[2] + x[3] * y[i, 2])
     end
     return r
   end
