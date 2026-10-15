@@ -1,7 +1,7 @@
 hs108_meta = Dict(
   :nvar => 9,
   :variable_nvar => false,
-  :ncon => 12,
+  :ncon => 13,
   :variable_ncon => false,
   :minimize => true,
   :name => "hs108",
@@ -12,7 +12,7 @@ hs108_meta = Dict(
   :objtype => :other,
   :contype => :general,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => Inf,
+  :best_known_upper_bound => -0.8660254,
   :is_feasible => missing,
   :defined_everywhere => missing,
   :origin => :unknown,
@@ -50,8 +50,8 @@ A. Montoison, Montreal, 05/2018.
   :lib => "CUTEst:HS108, HS:108",
 )
 get_hs108_nvar(; n::Int = default_nvar, kwargs...) = 9
-get_hs108_ncon(; n::Int = default_nvar, kwargs...) = 12
+get_hs108_ncon(; n::Int = default_nvar, kwargs...) = 13
 get_hs108_nlin(; n::Int = default_nvar, kwargs...) = 0
-get_hs108_nnln(; n::Int = default_nvar, kwargs...) = 12
+get_hs108_nnln(; n::Int = default_nvar, kwargs...) = 13
 get_hs108_nequ(; n::Int = default_nvar, kwargs...) = 0
-get_hs108_nineq(; n::Int = default_nvar, kwargs...) = 12
+get_hs108_nineq(; n::Int = default_nvar, kwargs...) = 13
