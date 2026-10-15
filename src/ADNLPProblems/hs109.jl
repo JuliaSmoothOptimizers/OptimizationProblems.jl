@@ -32,7 +32,7 @@ function hs109(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
       a * x[9] + x[5] * x[6] * cos(x[3] - 1 / 4) + x[6] * x[7] * cos(x[3] - x[4] - 1 / 4) -
       200 * a - 2 * ci * x[6]^2 + 0.7533e-3 * a * x[6]^2
     cx[8] =
-      x[5] * x[7] * cos(x[4] - 1 / 4) + x[6] * x[7] * cos(x[4] - x[3] - 1 / 4) + 22.938 * a -
+      x[5] * x[7] * cos(x[4] - 1 / 4) + x[6] * x[7] * cos(x[4] - x[3] - 1 / 4) - 22.938 * a -
       2 * ci * x[7]^2 + 0.7533e-3 * a * x[7]^2
     return cx
   end
