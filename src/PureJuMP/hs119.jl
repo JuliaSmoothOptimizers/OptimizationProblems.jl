@@ -45,7 +45,7 @@ function hs119(args...; kwargs...)
   b[:, 16] = [0, 0, 0, 0, 0, 0, 0, 1]
 
   for i = 1:8
-    @constraint(nlp, sum(b[i, j] * x[j] - c[i] for j = 1:16) == 0)
+    @constraint(nlp, sum(b[i, j] * x[j] for j = 1:16) - c[i] == 0)
   end
 
   @objective(
