@@ -32,8 +32,9 @@ Academy of Science of the Czech Republic
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 
-Note: discrepancy with CUTEst appears to be a bug in CUTEst, this (now) matches the original paper
-(See issue #36)
+Note: the function is (x_1 - 1)^2 + 100 sum_{i=2}^n (x_1 - x_{i-1}^2)^2, as in the Fortran code of
+Luksan, Matonoha and Vlcek and in CUTEst's NONDIA.SIF. The report V1081 prints
+(100 x_1 - x_{i-1}^2)^2 for the terms of the sum, which disagrees with both.
 """,
   :origin_notes => raw"""
 D. Shanno,
