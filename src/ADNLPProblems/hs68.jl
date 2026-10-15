@@ -7,7 +7,7 @@ function hs68(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
   n1 = 24
 
   function f(x)
-    return (a1 * n1 - (b1 * (exp(x[1] - 1) - x[3])) / (exp(x[1] - 1 + x[4])) * x[4]) / x[1]
+    return (a1 * n1 - (b1 * (exp(x[1]) - 1) - x[3]) / (exp(x[1]) - 1 + x[4]) * x[4]) / x[1]
   end
   x0 = ones(T, 4)
   uvar = T[100, 100, 2, 2]
@@ -15,7 +15,7 @@ function hs68(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) where
 
   function c!(cx, x; d1 = d1, n1 = n1)
     phi(t) = 1 // 2 * (erf(t / sqrt(2)) + 1)
-    cx[1] = x[3] - 2 * phi(x[2])
+    cx[1] = x[3] - 2 * phi(-x[2])
     cx[2] = x[4] - phi(-x[2] + d1 * sqrt(n1)) - phi(-x[2] - d1 * sqrt(n1))
     return cx
   end
