@@ -19,8 +19,8 @@ function hs118(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
       15 // 100000 * x[3 * k + 3]^2 for k = 0:4
     )
   end
-  lcon = T[60, 70, 100, 50, 85, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7]
-  ucon = vcat(T(Inf) * ones(T, 5), T[6, 6, 7, 6, 6, 7, 6, 6, 7, 6, 6, 7])
+  lcon = T[60, 50, 70, 85, 100, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7, -7]
+  ucon = vcat(T(Inf) * ones(T, 5), T[6, 7, 6, 6, 7, 6, 6, 7, 6, 6, 7, 6])
   clinvals = vcat(
     T[1; 1; 1],
     T[1; 1; 1],

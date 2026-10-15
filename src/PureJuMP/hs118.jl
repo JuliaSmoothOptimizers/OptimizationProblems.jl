@@ -14,14 +14,14 @@ function hs118(args...; kwargs...)
 
   for j = 1:4
     @constraint(nlp, 0 ≤ x[3 * j + 1] - x[3 * j - 2] + 7 ≤ 13)
-    @constraint(nlp, 0 ≤ x[3 * j + 2] - x[3 * j - 1] + 7 ≤ 13)
-    @constraint(nlp, 0 ≤ x[3 * j + 3] - x[3 * j] + 7 ≤ 14)
+    @constraint(nlp, 0 ≤ x[3 * j + 2] - x[3 * j - 1] + 7 ≤ 14)
+    @constraint(nlp, 0 ≤ x[3 * j + 3] - x[3 * j] + 7 ≤ 13)
   end
   @constraint(nlp, x[1] + x[2] + x[3] - 60 ≥ 0)
-  @constraint(nlp, x[4] + x[5] + x[6] - 70 ≥ 0)
-  @constraint(nlp, x[7] + x[8] + x[9] - 100 ≥ 0)
-  @constraint(nlp, x[10] + x[11] + x[12] - 50 ≥ 0)
-  @constraint(nlp, x[13] + x[14] + x[15] - 85 ≥ 0)
+  @constraint(nlp, x[4] + x[5] + x[6] - 50 ≥ 0)
+  @constraint(nlp, x[7] + x[8] + x[9] - 70 ≥ 0)
+  @constraint(nlp, x[10] + x[11] + x[12] - 85 ≥ 0)
+  @constraint(nlp, x[13] + x[14] + x[15] - 100 ≥ 0)
 
   @objective(
     nlp,
