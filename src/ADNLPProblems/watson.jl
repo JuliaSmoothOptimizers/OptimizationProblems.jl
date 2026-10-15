@@ -17,16 +17,8 @@ function watson(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwa
                sum(x[j] * (Ti(i) / 29)^(j - 1) for j = 1:n)^2 - 1
              )^2 for i = 1:29
            ) +
-           1 // 2 *
-           (
-             sum((j - 1) * x[j] * x[1]^(j - 2) for j = 2:n) -
-             sum(x[j] * x[1]^(j - 1) for j = 1:n)^2 - 1
-           )^2 +
-           1 // 2 *
-           (
-             sum((j - 1) * x[j] * (x[2] - x[1]^2 - 1)^(j - 2) for j = 2:n) -
-             sum(x[j] * (x[2] - x[1]^2 - 1)^(j - 1) for j = 1:n)^2 - 1
-           )^2
+           1 // 2 * x[1]^2 +
+           1 // 2 * (x[2] - x[1]^2 - 1)^2
   end
   x0 = zeros(T, n)
   return ADNLPModels.ADNLPModel(f, x0, name = "watson"; kwargs...)
@@ -43,11 +35,8 @@ function watson(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwa
         sum((j - 1) * x[j] * (Ti(i) / 29)^(j - 2) for j = 2:n) -
         sum(x[j] * (Ti(i) / 29)^(j - 1) for j = 1:n)^2 - 1
     end
-    r[30] =
-      sum((j - 1) * x[j] * x[1]^(j - 2) for j = 2:n) - sum(x[j] * x[1]^(j - 1) for j = 1:n)^2 - 1
-    r[31] =
-      sum((j - 1) * x[j] * (x[2] - x[1]^2 - 1)^(j - 2) for j = 2:n) -
-      sum(x[j] * (x[2] - x[1]^2 - 1)^(j - 1) for j = 1:n)^2 - 1
+    r[30] = x[1]
+    r[31] = x[2] - x[1]^2 - 1
     return r
   end
   x0 = zeros(T, n)
