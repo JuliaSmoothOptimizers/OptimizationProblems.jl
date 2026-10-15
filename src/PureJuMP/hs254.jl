@@ -9,7 +9,7 @@ function hs254(args...; kwargs...)
 
   @objective(nlp, Min, log(x[3]) - x[2])
   @constraint(nlp, x[2]^2 + x[3]^2 - 4 == 0)
-  @constraint(nlp, x[3] - 1 - x[2]^2 == 0)
+  @constraint(nlp, x[3] - 1 - x[1]^2 == 0)
 
   return nlp
 end
