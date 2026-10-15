@@ -12,10 +12,8 @@ function gulf(args...; m::Int = 100, kwargs...)
   @objective(
     nlp,
     Min,
-    0.5 * sum(
-      (exp(-abs((25 + (-50 * log(i / 100))^(2 / 3)) * m * i * x[2])^x[3] / x[1]) - i / 100)^2 for
-      i = 1:m
-    )
+    0.5 *
+    sum((exp(-abs(25 + (-50 * log(i / 100))^(2 / 3) - x[2])^x[3] / x[1]) - i / 100)^2 for i = 1:m)
   )
 
   return nlp
