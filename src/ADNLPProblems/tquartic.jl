@@ -10,7 +10,7 @@ function tquartic(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
   n = max(2, n)
   @adjust_nvar_warn("tquartic", n_org, n)
   function f(x; n = length(x))
-    return 1 // 2 * (x[1] - 1)^2 + 1 // 2 * sum((x[1]^2 - x[i + 1]^2)^2 for i = 1:(n - 2))
+    return 1 // 2 * (x[1] - 1)^2 + 1 // 2 * sum((x[1]^2 - x[i + 1]^2)^2 for i = 1:(n - 1))
   end
   x0 = T(0.1) * ones(T, n)
   return ADNLPModels.ADNLPModel(f, x0, name = "tquartic"; kwargs...)
@@ -22,11 +22,11 @@ function tquartic(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
   @adjust_nvar_warn("tquartic", n_org, n)
   function F!(r, x; n = length(x))
     r[1] = x[1] - 1
-    for i = 1:(n - 2)
+    for i = 1:(n - 1)
       r[i + 1] = x[1]^2 - x[i + 1]^2
     end
     return r
   end
   x0 = T(0.1) * ones(T, n)
-  return ADNLPModels.ADNLSModel!(F!, x0, n - 1, name = "tquartic-nls"; kwargs...)
+  return ADNLPModels.ADNLSModel!(F!, x0, n, name = "tquartic-nls"; kwargs...)
 end

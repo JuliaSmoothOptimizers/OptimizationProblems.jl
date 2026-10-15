@@ -58,4 +58,4 @@ get_tquartic_nlin(; n::Int = default_nvar, kwargs...) = 0
 get_tquartic_nnln(; n::Int = default_nvar, kwargs...) = 0
 get_tquartic_nequ(; n::Int = default_nvar, kwargs...) = 0
 get_tquartic_nineq(; n::Int = default_nvar, kwargs...) = 0
-get_tquartic_nls_nequ(; n::Int = default_nvar, kwargs...) = n - 1
+get_tquartic_nls_nequ(; n::Int = default_nvar, kwargs...) = n
