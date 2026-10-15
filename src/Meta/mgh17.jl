@@ -12,7 +12,7 @@ mgh17_meta = Dict(
   :objtype => :least_squares,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 500.0,
+  :best_known_upper_bound => 2.73244734875e-5,
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
@@ -93,4 +93,4 @@ get_mgh17_nlin(; n::Int = default_nvar, kwargs...) = 0
 get_mgh17_nnln(; n::Int = default_nvar, kwargs...) = 0
 get_mgh17_nequ(; n::Int = default_nvar, kwargs...) = 0
 get_mgh17_nineq(; n::Int = default_nvar, kwargs...) = 0
-get_mgh17_nls_nequ(; n::Int = default_nvar, kwargs...) = 14
+get_mgh17_nls_nequ(; n::Int = default_nvar, kwargs...) = 33

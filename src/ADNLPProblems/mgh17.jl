@@ -42,9 +42,9 @@ function mgh17(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwar
     4.060000E-01 3.200000E+02
   ]
   function f(x; y = y)
-    m = 14
+    m = 33
     return 1 // 2 * sum(
-      (y[i, 1] - (x[1] + x[2] * exp(-y[i, 2] * x[4]) + x[3] * exp(-y[i, 2] * x[5])))^2 for i = 1:14
+      (y[i, 1] - (x[1] + x[2] * exp(-y[i, 2] * x[4]) + x[3] * exp(-y[i, 2] * x[5])))^2 for i = 1:33
     )
   end
   x0 = T[50, 150, -100, 1, 2]
@@ -88,12 +88,12 @@ function mgh17(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwar
     4.060000E-01 3.200000E+02
   ]
   function F!(r, x)
-    m = 14
+    m = 33
     for i = 1:m
       r[i] = y[i, 1] - (x[1] + x[2] * exp(-y[i, 2] * x[4]) + x[3] * exp(-y[i, 2] * x[5]))
     end
     return r
   end
   x0 = T[50, 150, -100, 1, 2]
-  return ADNLPModels.ADNLSModel!(F!, x0, 14, name = "mgh17-nls"; kwargs...)
+  return ADNLPModels.ADNLSModel!(F!, x0, 33, name = "mgh17-nls"; kwargs...)
 end

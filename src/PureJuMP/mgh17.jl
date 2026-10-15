@@ -46,7 +46,7 @@ function mgh17(args...; kwargs...)
     nlp,
     Min,
     0.5 * sum(
-      (y[i, 1] - (x[1] + x[2] * exp(-y[i, 2] * x[4]) + x[3] * exp(-y[i, 2] * x[5])))^2 for i = 1:14
+      (y[i, 1] - (x[1] + x[2] * exp(-y[i, 2] * x[4]) + x[3] * exp(-y[i, 2] * x[5])))^2 for i = 1:33
     )
   )
 
