@@ -45,8 +45,10 @@ function osborne1(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, k
 
   function f(x)
     m = 33
-    return 1 // 2 *
-           sum((y[j] - (x[1] + x[2] * exp(-j * x[4]) + x[3] * exp(-j * x[5])))^2 for j = 1:m)
+    return 1 // 2 * sum(
+      (y[j] - (x[1] + x[2] * exp(-10 * (j - 1) * x[4]) + x[3] * exp(-10 * (j - 1) * x[5])))^2 for
+      j = 1:m
+    )
   end
   x0 = T[0.5; 1.5; -1; 0.01; 0.02]
   return ADNLPModels.ADNLPModel(f, x0, name = "osborne1"; kwargs...)
@@ -92,7 +94,7 @@ function osborne1(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, k
   function F!(r, x)
     m = 33
     for i = 1:m
-      r[i] = y[i] - (x[1] + x[2] * exp(-i * x[4]) + x[3] * exp(-i * x[5]))
+      r[i] = y[i] - (x[1] + x[2] * exp(-10 * (i - 1) * x[4]) + x[3] * exp(-10 * (i - 1) * x[5]))
     end
     return r
   end
