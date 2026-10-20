@@ -4,7 +4,7 @@ function aircrfta(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) w
   function f(x)
     return zero(eltype(x))
   end
-  x0 = T[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  x0 = T[0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0]
   lvar = T[-Inf, -Inf, -Inf, -Inf, -Inf, 0.1, 0.0, 0.0]
   uvar = T[Inf, Inf, Inf, Inf, Inf, 0.1, 0.0, 0.0]
 

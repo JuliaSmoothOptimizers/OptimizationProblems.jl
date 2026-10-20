@@ -22,7 +22,7 @@ function aircrfta(; n::Int = default_nvar, kwargs...)
   @variable(nlp, -Inf <= yawrate <= Inf, start = 0.0)
   @variable(nlp, -Inf <= attckang <= Inf, start = 0.0)
   @variable(nlp, -Inf <= sslipang <= Inf, start = 0.0)
-  @variable(nlp, 0.1 <= elevator <= 0.1, start = 0.0)
+  @variable(nlp, 0.1 <= elevator <= 0.1, start = 0.1)
   @variable(nlp, 0.0 <= aileron <= 0.0, start = 0.0)
   @variable(nlp, 0.0 <= rudderdf <= 0.0, start = 0.0)
 

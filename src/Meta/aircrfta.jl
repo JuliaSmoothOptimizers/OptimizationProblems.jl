@@ -22,6 +22,8 @@ aircrfta_meta = Dict(
 The aircraft stability problem by Rheinboldt, as a function
 of the elevator, aileron and rudder deflection controls.
 
+See aircrfta2 for the corrected version (CUTEst's AIRCRFTA2).
+
 classification NOR2-RN-8-5
 """,
   :origin_notes => raw"""
