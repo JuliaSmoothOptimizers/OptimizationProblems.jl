@@ -21,6 +21,8 @@ hs86_meta = Dict(
   :notes => raw"""
 Hock and Schittkowski problem number 86.
 
+colville1 is this problem with a_{2,4} = 0.4 rather than 4.
+
 classification OLR2-AN-5-10
 
 classification PLR-AN-5-10
