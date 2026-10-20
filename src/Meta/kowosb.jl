@@ -12,7 +12,7 @@ kowosb_meta = Dict(
   :objtype => :least_squares,
   :contype => :unconstrained,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 0.026497849149796696,
+  :best_known_upper_bound => 0.00015390047336666016,
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
@@ -22,6 +22,9 @@ kowosb_meta = Dict(
 A problem arising in the analysis of kinetic data for an enzyme
 reaction, known under the name of Kowalik and Osborne problem
 in 4 variables.
+
+This is CUTEst's KOWOSB, which has the abscissa u_11 = 0.0624; the
+source has u_11 = 0.0625. kowosb2 uses the source's value.
 
 classification SUR2-MN-4-0
 """,

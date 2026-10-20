@@ -29,9 +29,9 @@ function kowosb(::Val{:nlp}; n::Int = default_nvar, type::Type{T} = Float64, kwa
     167 // 1000,
     125 // 1000,
     1 // 10,
-    833 // 1000,
+    833 // 10000,
     714 // 10000,
-    625 // 10000,
+    624 // 10000,
   ]
   function f(x; m = m, y = y, u = u)
     return 1 // 2 * sum(
@@ -66,9 +66,9 @@ function kowosb(::Val{:nls}; n::Int = default_nvar, type::Type{T} = Float64, kwa
     167 // 1000,
     125 // 1000,
     1 // 10,
-    833 // 1000,
+    833 // 10000,
     714 // 10000,
-    625 // 10000,
+    624 // 10000,
   ]
   function F!(r, x; m = m, y = y, u = u)
     for i = 1:m
