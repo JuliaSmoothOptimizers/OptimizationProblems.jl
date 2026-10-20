@@ -35,7 +35,7 @@ function hs117(args...; kwargs...)
   for j = 1:5
     @constraint(
       nlp,
-      2 * sum(c[k, j] * x[10 + k] + 3 * d[j] * x[10 + j]^2 for k = 1:5) + e[j] -
+      2 * sum(c[k, j] * x[10 + k] for k = 1:5) + 3 * d[j] * x[10 + j]^2 + e[j] -
       sum(a[k, j] * x[k] for k = 1:10) ≥ 0
     )
   end

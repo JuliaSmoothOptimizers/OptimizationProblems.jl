@@ -38,7 +38,7 @@ function hs117(; n::Int = default_nvar, type::Type{T} = Float64, kwargs...) wher
   function c!(cx, x)
     for j = 1:5
       cx[j] =
-        2 * sum(c[k, j] * x[10 + k] + 3 * d[j] * x[10 + j]^2 for k = 1:5) -
+        2 * sum(c[k, j] * x[10 + k] for k = 1:5) + 3 * d[j] * x[10 + j]^2 -
         sum(a[k, j] * x[k] for k = 1:10)
     end
     return cx

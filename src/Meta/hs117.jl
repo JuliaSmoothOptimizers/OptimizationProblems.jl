@@ -12,7 +12,7 @@ hs117_meta = Dict(
   :objtype => :other,
   :contype => :general,
   :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => 2400.1053000599995,
+  :best_known_upper_bound => 32.348678978788826,
   :is_feasible => true,
   :defined_everywhere => missing,
   :origin => :unknown,
@@ -20,6 +20,8 @@ hs117_meta = Dict(
   :url => "https://bitbucket.org/optrove/sif/src/master/HS117.SIF",
   :notes => raw"""
 Hock and Schittkowski problem number 117.
+
+colville2 is this problem with a_{2,4} = 0.4 rather than 4.
 
 classification OQR2-AN-15-5
 
