@@ -9,12 +9,12 @@ biggs5_meta = Dict(
   :has_inequalities_only => false,
   :has_bounds => true,
   :has_fixed_variables => true,
-  :objtype => :other,
+  :objtype => :least_squares,
   :contype => :unconstrained,
-  :best_known_lower_bound => -Inf,
-  :best_known_upper_bound => -3.156207810643302,
+  :best_known_lower_bound => 0.0,
+  :best_known_upper_bound => 0.0,
   :is_feasible => true,
-  :defined_everywhere => missing,
+  :defined_everywhere => true,
   :origin => :unknown,
   :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BIGGS5.SIF",
@@ -22,6 +22,8 @@ biggs5_meta = Dict(
 Biggs problem in 5 variables.
 This function is a nonlinear least squares with 13 groups.  It is a
 variation on the biggs6 problem where the 6-th variable is fixed to 3.
+The starting point (1, 2, 1, 1, 1, 3) is the named starting point BIGGS5OR
+of CUTEst's BIGGS5, whose default starting point is (1, 2, 1, 1, 4, 3).
 
 Biggs EXP problem in 5 variables
 
@@ -61,3 +63,4 @@ get_biggs5_nlin(; n::Int = default_nvar, kwargs...) = 0
 get_biggs5_nnln(; n::Int = default_nvar, kwargs...) = 0
 get_biggs5_nequ(; n::Int = default_nvar, kwargs...) = 0
 get_biggs5_nineq(; n::Int = default_nvar, kwargs...) = 0
+get_biggs5_nls_nequ(; n::Int = default_nvar, m::Int = 13, kwargs...) = max(6, m)
