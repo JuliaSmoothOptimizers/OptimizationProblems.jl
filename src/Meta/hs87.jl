@@ -23,6 +23,11 @@ Hock and Schittkowski problem number 87.
 
 Optimization of an electrical network (EDF) by P. Huard.
 
+The starting point is the x0 of Hock and Schittkowski, which HS87.SIF
+provides as the named starting point HS87ORIG (its default starting
+point is the origin). See colville6 for the variant with Colville's
+b = f = 1.48477 (CUTEst's COLVILLE6).
+
 classification OOI2-MN-6-4
 
 classification PLR-AN-5-10
