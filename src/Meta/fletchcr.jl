@@ -19,7 +19,14 @@ fletchcr_meta = Dict(
   :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/FLETCHCR.SIF",
   :notes => raw"""
-The chained Rosenbrock function as given by Fletcher.
+A chained Rosenbrock-type function,
+
+  f(x) = 100 sum_{i=1}^{n-1} (x_{i+1} - x_i + 1 - x_i^2)^2,
+
+with starting point x_i = 0 and minimum value 0 at x = (1, ..., 1). This is
+Problem 32 in Luksan et al., and matches their Fortran code and the AMPL model.
+CUTEst's FLETCHCR is the chained Rosenbrock function
+sum_{i=1}^{n-1} [100 (x_{i+1} - x_i^2)^2 + (1 - x_i)^2], a different function.
 
 classification OUR2-AN-V-0
 """,
@@ -33,23 +40,14 @@ Academy of Science of the Czech Republic
 
 http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
-CUTEst cites
+CUTEst's FLETCHCR.SIF (SIF input: Nick Gould, Oct 1992) cites as its source
   The second problem given by
   R. Fletcher,
   "An optimal positive definite update for sparse Hessian matrices"
   Numerical Analysis report NA/145, University of Dundee, 1992.
-
-Scaled version.
-
-SIF input: Nick Gould, Oct 1992.
-
-as source for this problem.
-It is possible that Fletcher may have used this problem in his
-technical report, but the published version of his report
-
-SIAM J. Optimization, 5(1), pp 192-218, 1995
-
-uses the chained Rosenbrock problem, not the one below.
+The published version of that report,
+  SIAM J. Optimization, 5(1), pp 192-218, 1995,
+uses the chained Rosenbrock function, not the function implemented here.
 
 J.-P. Dussault, Rennes 09/2015.
 """,
@@ -63,7 +61,7 @@ J.-P. Dussault, Rennes 09/2015.
   year        = {1992}
 }  
   """,
-  :lib => "CUTEst:FLETCHCR, Luksan:32",
+  :lib => "Luksan:32",
 )
 get_fletchcr_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
 get_fletchcr_ncon(; n::Int = default_nvar, kwargs...) = 0

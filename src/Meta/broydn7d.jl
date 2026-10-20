@@ -11,11 +11,11 @@ broydn7d_meta = Dict(
   :has_fixed_variables => false,
   :objtype => :other,
   :contype => :unconstrained,
-  :best_known_lower_bound => -Inf,
+  :best_known_lower_bound => 0.0,
   :best_known_upper_bound => 274.2039050428259,
   :is_feasible => true,
   :defined_everywhere => missing,
-  :origin => :unknown,
+  :origin => :academic,
   :implementation => :both,
   :url => "https://bitbucket.org/optrove/sif/src/master/BROYDN7D.SIF",
   :notes => raw"""
@@ -29,7 +29,7 @@ Problem 3.4 in
 Ph. L. Toint,
 Some numerical results using a sparse matrix updating formula in
 unconstrained optimization,
-Mathematics of Computation, vol. 32(114), pp. 839-852, 1978.
+Mathematics of Computation, vol. 32(143), pp. 839-851, 1978.
 https://doi.org/10.1090/S0025-5718-1978-0483452-7
 
 From the paper,
@@ -62,8 +62,11 @@ SIF input: Ph. Toint, Dec 1989.
 
 D. Orban, Montreal, 08/2015.
 
-# Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the original paper
-# (See issue #36)
+Two variants of the diagonal term are in use. Toint's printed Problem 3.4
+(function G7D) has (3 - x_i/2) x_i and the starting point x_i = -1; this
+implementation follows it. CUTEst's BROYDN7D, Problem 3 in Luksan et al., and
+the corresponding AMPL model have (3 - 2 x_i) x_i and the starting point
+x_i = 1, as in Broyden's tridiagonal system.
 """,
   :reference => raw"""
 @article{Toint1978MathComp,

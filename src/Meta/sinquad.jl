@@ -33,6 +33,14 @@ classification OUR2-AY-V-0
    http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
  J.-P. Dussault, Clermont-Ferrand 05/2016.
+
+The function is
+  (x_1 - 1)^4 + (x_n^2 - x_1^2)^2
+  + sum_{i=2}^{n-1} (sin(x_i - x_n) + x_i^2 - x_1^2)^2,
+with starting point x_i = 0.1. This agrees with Luksan et al.'s report and
+Fortran code and with CUTEst's SINQUAD2. CUTEst's SINQUAD squares only the
+last group, leaving the terms i = 2, ..., n-1 unsquared; its header describes
+it as an "incorrectly decoded version (see SINQUAD2 for correction)".
 """,
   :origin_notes => raw"""
 N. Gould, private communication.
@@ -50,7 +58,7 @@ SIF input: N. Gould, Dec 1989.
   url          = {http://www.cs.cas.cz/matonoha/download/V1081.pdf},
   }  
   """,
-  :lib => "CUTEst:SINQUAD, Luksan:51",
+  :lib => "CUTEst:SINQUAD, CUTEst:SINQUAD2, Luksan:51",
 )
 get_sinquad_nvar(; n::Int = default_nvar, kwargs...) = 1 * n + 0
 get_sinquad_ncon(; n::Int = default_nvar, kwargs...) = 0

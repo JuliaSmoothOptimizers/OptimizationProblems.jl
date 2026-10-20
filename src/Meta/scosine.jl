@@ -35,8 +35,11 @@ http://www.cs.cas.cz/matonoha/download/V1081.pdf
 
 J.-P. Dussault, Clermont-Ferrand 05/2016.
 
-Note: discrepancy with CUTEst appears to be a bug in CUTEst, this matches the original paper
-(See issue #36)
+The scale factors are p_i = exp(6 (i-1)/(n-1)) and the starting point is
+x_i = 1/p_i, as in Luksan et al.'s Problem 50 and their Fortran code. CUTEst's
+SCOSINE uses p_i = exp(12 (i-1)/(n-1)) (SCAL = 12), so the two definitions
+have different starting points and different objective values away from the
+start.
 """,
   :origin_notes => raw"""
 N. Gould, private communication.
